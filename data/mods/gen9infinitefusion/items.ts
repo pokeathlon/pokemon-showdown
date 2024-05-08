@@ -8,15 +8,18 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onSourceAccuracy(accuracy, target, source, move) {
-			if (source.ability === 'noguard') return 50;
-			return this.chainModify(0.5);
+		onSourceModifyAccuracyPriority: -2,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy === 'number') {
+				return this.chainModify(0.5);
+			} else {
+				return 0.5;
+			}
 		},
 		onModifyCritRatio(critRatio) {
 			return critRatio + 3;
 		},
-		num: -3,
-		gen: 6,
+		num: 0,
 	},
 
 	// IF mods
