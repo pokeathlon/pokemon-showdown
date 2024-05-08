@@ -1,18 +1,5 @@
 const {Dex} = require('../../../sim/dex');
 export const Items: {[k: string]: ModdedItemData} = {
-	necrozium: {
-		name: "Necrozium",
-		spritenum: 108,
-		onTakeItem(item, pokemon, source) {
-			const validFormes = ['Necrozma', 'Necrozma-Ultra'];
-			if ((source && validFormes.includes(source.baseSpecies.name)) || validFormes.includes(pokemon.baseSpecies.name)) {
-				return false;
-			}
-			return true;
-		},
-		itemUser: ["Necrozma", "Necrozma-Ultra"],
-		num: 0,
-	},
 	buggem: {inherit: true, isNonstandard: null},
 	darkgem: {inherit: true, isNonstandard: null},
 	dragongem: {inherit: true, isNonstandard: null},

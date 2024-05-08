@@ -21,6 +21,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
+	necrozium: {
+		name: "Necrozium",
+		spritenum: 108,
+		onTakeItem(item, pokemon, source) {
+			const validFormes = ['Necrozma', 'Necrozma-Ultra'];
+			if ((source && validFormes.includes(source.baseSpecies.name)) || validFormes.includes(pokemon.baseSpecies.name)) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Necrozma", "Necrozma-Ultra"],
+		num: 0,
+	},
 
 	// IF mods
 	deepseascale: {
