@@ -4,6 +4,7 @@
 - Photon Geyser transforms a Necrozma holding a Necrozium to Necrozma Ultra
 - Cresselia, Bruxish, and the Meloettas now have their in-game learnsets for IF Dex
 - Mankey's paw hopefully cuts the accuracy of never miss moves (like aerial ace) now
+- Different Arceus forms are now selectable in IF Dex formats (may They bless us all)
 
 
 **7th of May 2024**
