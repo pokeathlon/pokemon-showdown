@@ -106,13 +106,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meloettapirouette: {
 		inherit: true,
-		battleOnly: null,
-		requiredMove: null,
+		battleOnly: undefined,
+		requiredMove: undefined,
 	},
 	necrozmaultra: {
 		inherit: true,
-		battleOnly: null,
-		requiredItem: "Necrozium",
+		battleOnly: undefined,
+		requiredItem: undefined,
 	},
 	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex)
 };
