@@ -112,7 +112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	necrozmaultra: {
 		inherit: true,
 		battleOnly: null,
-		requiredItem: null,
+		requiredItem: "Necrozium",
 	},
 	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex)
 };

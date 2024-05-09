@@ -23,6 +23,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	necrozium: {
 		name: "Necrozium",
+		desc: "If held by Necrozma, Photon Geyser causes transformation to Ultra forme.",
 		spritenum: 108,
 		onTakeItem(item, pokemon, source) {
 			const validFormes = ['Necrozma', 'Necrozma-Ultra'];
