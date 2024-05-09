@@ -32,7 +32,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 			return true;
 		},
-		itemUser: ["Necrozma", "Necrozma-Ultra"],
+		itemUser: ["Necrozma"],
 		num: 0,
 	},
 
