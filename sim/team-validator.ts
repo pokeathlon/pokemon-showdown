@@ -1502,7 +1502,7 @@ export class TeamValidator {
 		const item = dex.items.get(set.item);
 		const species = dex.species.get(set.species);
 
-		if (species.name === 'Necrozma-Ultra') {
+		if (species.name === 'Necrozma-Ultra' && this.format.mod !== 'gen7infinitefusion') {
 			const whichMoves = (set.moves.map(toID).includes('sunsteelstrike' as ID) ? 1 : 0) +
 				(set.moves.map(toID).includes('moongeistbeam' as ID) ? 2 : 0);
 			if (item.name !== 'Ultranecrozium Z') {
