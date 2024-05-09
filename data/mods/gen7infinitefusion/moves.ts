@@ -60,9 +60,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	photongeyser: {
 		inherit: true,
-		onPrepareHit(pokemon) {
-			if (pokemon.species.name === 'Necrozma' && pokemon.hasItem('Necrozium')) {
-				pokemon.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
+		onPrepareHit(target, source, move) {
+			if (source.species.name === 'Necrozma' && source.hasItem('Necrozium')) {
+				source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
 			}
 		},
 	},
