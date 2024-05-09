@@ -196,6 +196,13 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 6] Ins Random Battle",
+
+		mod: 'gen6insurgence',
+		team: 'random',
+		ruleset: ['Obtainable', 'Sleep Clause Mod', 'HP Percentage Mod', 'Cancel Mod', 'Illusion Level Mod'],
+	},
+	{
 		name: "[Gen 6] Ins Dex OU",
 
 		mod: 'gen6insurgence',

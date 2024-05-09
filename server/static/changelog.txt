@@ -1,5 +1,7 @@
 **9th of May 2024**
 
+- Insurgence Random Battles have been added... (thank you dunscy for making 100s of sets!)
+- Insurgence moves have animations now!!!
 - Necrozma Ultra is available in IF Dex! (its an uber)
 - Photon Geyser transforms a Necrozma holding a Necrozium to Necrozma Ultra
 - Cresselia, Bruxish, and the Meloettas now have their in-game learnsets for IF Dex
