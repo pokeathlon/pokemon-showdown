@@ -495,10 +495,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 7,
 	inherit: 'gen7',
 	init() {
-		const necrozmadex = this.deepClone(this.data.Pokedex['necrozmaultra']);
-		delete necrozmadex.battleOnly; delete necrozmadex.requiredItem;
-		this.data.Pokedex['necrozmaultra'] = necrozmadex;
-
 		for (const i in this.data.Pokedex) {
 			if (i in IFDex) {
 				this.data.Pokedex[i].num = IFDex[i];
