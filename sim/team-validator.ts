@@ -464,7 +464,6 @@ export class TeamValidator {
 	getEventOnlyData(species: Species, noRecurse?: boolean): {species: Species, eventData: EventInfo[]} | null {
 		const dex = this.dex;
 		const learnset = dex.species.getLearnsetData(species.id);
-
 		if (!learnset?.eventOnly) {
 			if (noRecurse) return null;
 			return this.getEventOnlyData(dex.species.get(species.prevo), true);

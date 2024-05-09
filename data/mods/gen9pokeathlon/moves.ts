@@ -651,7 +651,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
 				const manacraForme = pokemon.species.id === 'manacraplated' ? '' : '-Plated';
-				pokemon.formeChange('Manacra' + manacraForme, this.effect, false, '[msg]');
+				pokemon.formeChange('Manacra' + manacraForme, this.effect, true, '[msg]');
 			}
 		},
 		target: "self",
