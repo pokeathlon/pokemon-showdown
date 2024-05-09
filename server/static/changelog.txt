@@ -1,7 +1,9 @@
-**8th of May 2024**
+**9th of May 2024**
 
 - Necrozma Ultra is available in IF Dex! (its an uber)
 - Photon Geyser transforms a Necrozma holding a Necrozium to Necrozma Ultra
+- Cresselia, Bruxish, and the Meloettas now have their in-game learnsets for IF Dex
+- Mankey's paw hopefully cuts the accuracy of never miss moves (like aerial ace) now
 
 
 **7th of May 2024**
