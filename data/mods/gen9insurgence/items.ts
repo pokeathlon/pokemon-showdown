@@ -730,7 +730,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
-	deltagirafarigite: {
+	deltaetigirafarigite: {
 		name: "Delta Etigirafarigite",
 		desc: "If held by a Delta Girafarig, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
