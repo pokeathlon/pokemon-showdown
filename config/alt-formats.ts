@@ -301,7 +301,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 6] Uranium Dex OU",
 
-		mod: 'gen6insurgence',
+		mod: 'gen6uranium',
 		ruleset: ['Standard', 'Swagger Clause'],
 		banlist: [
 			'AG', 'Uber',
@@ -313,7 +313,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 6] Uranium Dex AG",
 
-		mod: 'gen6insurgence',
+		mod: 'gen6uranium',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 
