@@ -275,11 +275,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def) {
-			return this.chainModify(2);
+			return this.chainModify(0.5);
 		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd) {
-			return this.chainModify(2);
+			return this.chainModify(0.5);
 		},
 		flags: {},
 		name: "Sharp Coral",
