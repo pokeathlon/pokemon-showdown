@@ -509,10 +509,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		self: {
-			boosts: {spe: -2},
 			volatileStatus: 'confusion',
 		},
-		secondary: null,
+		secondary: {
+			boosts: {spe: -2},
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
