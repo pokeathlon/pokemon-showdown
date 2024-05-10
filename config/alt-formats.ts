@@ -295,8 +295,96 @@ export const Formats: FormatList = [
 	},
 
 	{
-		section: "Pokéathlon: Regional Dex",
+		section: "Uranium: Regional Dex",
 		column: 3,
+	},
+	{
+		name: "[Gen 6] Uranium Dex OU",
+
+		mod: 'gen6insurgence',
+		ruleset: ['Standard', 'Swagger Clause'],
+		banlist: [
+			'AG', 'Uber',
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew',
+			'move:batonpass', 'move:permafrost', 'move:livewire',
+		],
+	},
+	{
+		name: "[Gen 6] Uranium Dex AG",
+
+		mod: 'gen6insurgence',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+
+	{
+		section: "Uranium: National Dex",
+		column: 3,
+	},
+	{
+		name: "[Gen 9] U National Dex OU",
+
+		mod: 'gen9uranium',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire',
+		],
+	},
+	{
+		name: "[Gen 9] U National Dex AG",
+
+		mod: 'gen9uranium',
+		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
+	},
+
+	{
+		section: "Uranium: Doubles",
+		column: 3,
+	},
+	{
+		name: "[Gen 6] U Dex Doubles AG",
+
+		mod: 'gen6insurgence',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 9] U NatDex Doubles AG",
+
+		mod: 'gen9uranium',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex'],
+	},
+
+	{
+		section: "Uranium: Extras",
+		column: 3,
+	},
+	{
+		name: "[Gen 9] Uranium FFA",
+
+		mod: 'gen9uranium',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: ['Standard NatDex'],
+	},
+	{
+		name: "[Gen 9] Uranium Custom Game",
+
+		mod: 'gen9uranium',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
+	},
+
+	{
+		section: "Pokéathlon: Regional Dex",
+		column: 4,
 	},
 	{
 		name: "[Gen 9] PoA Random Battle",
@@ -324,7 +412,7 @@ export const Formats: FormatList = [
 
 	{
 		section: "Pokéathlon: National Dex",
-		column: 3,
+		column: 4,
 	},
 	{
 		name: "[Gen 9] PoA National Dex OU",
@@ -345,7 +433,7 @@ export const Formats: FormatList = [
 
 	{
 		section: "Pokéathlon: Doubles",
-		column: 3,
+		column: 4,
 	},
 	{
 		name: "[Gen 9] PoA Dex Doubles AG",
@@ -364,7 +452,7 @@ export const Formats: FormatList = [
 
 	{
 		section: "Pokéathlon: Extras",
-		column: 3,
+		column: 4,
 	},
 	{
 		name: "[Gen 9] PoA Free-for-all",
