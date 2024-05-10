@@ -672,7 +672,7 @@ export class TeamValidator {
 		}
 		if (set.teraType) {
 			const type = dex.types.get(set.teraType);
-			if (!type.exists || ['Crystal'].includes(type.name)) {
+			if (!type.exists || ['Crystal', 'Nuclear'].includes(type.name)) {
 				problems.push(`${name}'s Terastal type (${set.teraType}) is invalid.`);
 			} else {
 				set.teraType = type.name;

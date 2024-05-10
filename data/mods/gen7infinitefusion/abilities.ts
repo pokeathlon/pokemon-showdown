@@ -1,5 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	...Dex.deepClone(require('../gen9infinitefusion/abilities').Abilities),
 	disguise: {
 		onSwitchOut(pokemon) {
 			if (this.effectState.busted) {
@@ -73,5 +74,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 209,
 	},
-	...Dex.deepClone(require('../gen9infinitefusion/abilities').Abilities)
 };

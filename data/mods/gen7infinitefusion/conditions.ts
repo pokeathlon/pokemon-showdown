@@ -1,5 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Conditions: {[k: string]: ModdedConditionData} = {
+	...Dex.deepClone(require('../gen9infinitefusion/conditions').Conditions),
 	raindance: {
 		inherit: true,
 		onFieldStart(field, source, effect) {
@@ -44,5 +45,4 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 	},
-	...Dex.deepClone(require('../gen9infinitefusion/conditions').Conditions),
 };

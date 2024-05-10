@@ -1,5 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Items: {[k: string]: ModdedItemData} = {
+	...Dex.deepClone(require('../gen9infinitefusion/items').Items),
 	buggem: {inherit: true, isNonstandard: null},
 	darkgem: {inherit: true, isNonstandard: null},
 	dragongem: {inherit: true, isNonstandard: null},
@@ -17,5 +18,4 @@ export const Items: {[k: string]: ModdedItemData} = {
 	rockgem: {inherit: true, isNonstandard: null},
 	steelgem: {inherit: true, isNonstandard: null},
 	watergem: {inherit: true, isNonstandard: null},
-	...Dex.deepClone(require('../gen9infinitefusion/items').Items),
 };

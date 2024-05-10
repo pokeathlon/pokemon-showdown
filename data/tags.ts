@@ -66,6 +66,10 @@ export const Tags: {[id: string]: TagData} = {
 		name: "Insurgence",
 		speciesFilter: species => species.tags.includes("Insurgence"),
 	},
+	uranium: {
+		name: "Uranium",
+		speciesFilter: species => species.tags.includes("Uranium"),
+	},
 
 	// Move tags
 	// ---------

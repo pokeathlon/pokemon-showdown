@@ -1,5 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex),
 	gengar: {
 		inherit: true,
 		abilities: {0: "Levitate"},
@@ -114,5 +115,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: null,
 		requiredItem: null,
 	},
-	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex)
 };
