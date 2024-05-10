@@ -181,6 +181,45 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
+	darkdramsamaite: {
+		name: "Dark Dramsamaite",
+		desc: "If held by a Dramsama, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: "Dramsama-Dark-Mega",
+		megaEvolves: "Dramsama",
+		itemUser: ["Dramsama"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
+	nucleardramsamaite: {
+		name: "Nuclear Dramsamaite",
+		desc: "If held by a Nuclear Dramsama, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: "Dramsama-Nuclear-Mega",
+		megaEvolves: "Dramsama-Nuclear",
+		itemUser: ["Dramsama-Nuclear"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
+	darknucleardramsamaite: {
+		name: "Dark Nuclear Dramsamaite",
+		desc: "If held by a Nuclear Dramsama, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: "Dramsama-Nuclear-Dark-Mega",
+		megaEvolves: "Dramsama-Nuclear",
+		itemUser: ["Dramsama-Nuclear"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
 	kiricornite: {
 		name: "Kiricornite",
 		desc: "If held by a Kiricorn, this item allows it to Mega Evolve in battle.",
@@ -188,6 +227,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 		megaStone: "Kiricorn-Mega",
 		megaEvolves: "Kiricorn",
 		itemUser: ["Kiricorn"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
+	oblivicornite: {
+		name: "Oblivicornite",
+		desc: "If held by an Oblivicorn, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: "Oblivicorn-Mega",
+		megaEvolves: "Oblivicorn",
+		itemUser: ["Oblivicorn"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;

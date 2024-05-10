@@ -117,7 +117,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 0,
 	},
-	// Chernobyl
+	chernobyl: {
+		onStart(source) {
+			this.field.setWeather('fallout');
+		},
+		flags: {},
+		name: "Chernobyl",
+		shortDesc: "On switch-in, this Pokemon summons Fallout.",
+		rating: 4,
+		num: 0,
+	},
 	deepfreeze: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -178,7 +187,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 0,
 	},
-	// geiger sense
+	geigersense: {
+		onSwitchIn(pokemon) {
+			let shouldBoost = false;
+			for (const fieldPokemon of this.getAllPokemon()) {
+				if (fieldPokemon.hasType('Nuclear')) shouldBoost = true;
+			}
+			if (shouldBoost) this.boost({atk: 1, spa: 1}, pokemon);
+		},
+		flags: {},
+		name: "Geiger Sense",
+		shortDesc: "Raises this Pokemon's Atk and Sp. Atk if a Nuclear-type Pokemon is on the field.",
+		rating: 3.5,
+		num: 0,
+	},
 	infuriate: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
@@ -194,6 +216,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	lazy: {
 		onSwitchIn(pokemon) {
 			if (pokemon.trySetStatus('slp')) this.add('-activate', pokemon, 'ability: Lazy');
+			pokemon.statusState.time = this.random(2, 4);
+			pokemon.statusState.startTime = pokemon.statusState.time;
 		},
 		flags: {},
 		name: "Lazy",
@@ -211,6 +235,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {breakable: 1},
 		name: "Lead Skin",
 		shortDesc: "This Pokemon is immune to Nuclear-type moves.",
+		rating: 3.5,
+		num: 0,
+	},
+	nightterror: {
+		flags: {},
+		name: "Night Terror",
+		shortDesc: "Causes paralysis on awakening foes.",
 		rating: 3.5,
 		num: 0,
 	},

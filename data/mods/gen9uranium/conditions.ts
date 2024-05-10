@@ -1,4 +1,51 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
+	// Modded
+	slp: {
+		name: 'slp',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
+				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
+			} else {
+				this.add('-status', target, 'slp');
+			}
+			// 1-3 turns
+			this.effectState.startTime = this.random(2, 5);
+			this.effectState.time = this.effectState.startTime;
+
+			if (target.removeVolatile('nightmare')) {
+				this.add('-end', target, 'Nightmare', '[silent]');
+			}
+		},
+		onBeforeMovePriority: 10,
+		onBeforeMove(pokemon, target, move) {
+			let nightterror = false;
+			for (const foe of pokemon.foes()) {
+				if (foe.hasAbility('Night Terror')) nightterror = true;
+			}
+
+			if (pokemon.hasAbility('earlybird')) {
+				pokemon.statusState.time--;
+			}
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
+				pokemon.cureStatus();
+				if (nightterror) {
+					pokemon.trySetStatus('par', null, this.dex.abilities.get('Night Terror'));
+				}
+				return;
+			}
+			this.add('cant', pokemon, 'slp');
+			if (move.sleepUsable) {
+				return;
+			}
+			return false;
+		},
+	},
+
+	// Additions
 	thunderstorm: {
 		name: 'Thunderstorm',
 		effectType: 'Weather',
@@ -40,6 +87,11 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-weather', 'Fallout', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Fallout');
+			}
+		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.getMoveHitData(move).typeMod > 0 && defender.hasType('Nuclear')) {
+				return this.chainModify(0.75);
 			}
 		},
 		onFieldResidualOrder: 1,
