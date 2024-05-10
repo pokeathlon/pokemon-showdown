@@ -307,7 +307,7 @@ export const Formats: FormatList = [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew',
-			'move:batonpass', 'move:permafrost', 'move:livewire',
+			'move:batonpass',
 		],
 	},
 	{
@@ -330,14 +330,14 @@ export const Formats: FormatList = [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
 		],
 	},
 	{
 		name: "[Gen 9] U National Dex AG",
 
 		mod: 'gen9uranium',
-		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
+		ruleset: ['Standard NatDex'],
 	},
 
 	{
