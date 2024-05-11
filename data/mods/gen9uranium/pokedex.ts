@@ -855,7 +855,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Uranium"],
 		tier: "RU",
 		natDexTier: "RU",
-		doublesTier: "(DOU)",
+		doublesTier: "(DUU)",
 	},
 	brailip: {
 		num: 6034,
