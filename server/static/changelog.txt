@@ -1,3 +1,9 @@
+**11th of May 2024**
+
+- Pokemon Uranium has been added as a new fangame!!!!!!
+- It is currently completely untested, so if you like finding bugs, theres probably a lot you can find in this. (just please make sure to report anything that seems off in the discord!)
+
+
 **9th of May 2024**
 
 - Insurgence Random Battles have been added... (thank you dunscy for making 100s of sets!)
