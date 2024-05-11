@@ -347,7 +347,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 6] U Dex Doubles AG",
 
-		mod: 'gen6insurgence',
+		mod: 'gen6uranium',
 		gameType: 'doubles',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
