@@ -193,9 +193,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Grass"],
 		requiredItem: "Whimsicottite",
 		tags: ["Uranium"],
-		tier: "Uber",
-		natDexTier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		natDexTier: "UU",
+		doublesTier: "DUU",
 	},
 	
 	// New pokemon
@@ -689,7 +689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 36,
 		eggGroups: ["Water 1"],
 		tags: ["Uranium"],
-		tier: "OU",
+		tier: "UU",
 		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
@@ -884,8 +884,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 34,
 		eggGroups: ["Water 2"],
 		tags: ["Uranium"],
-		tier: "OU",
-		natDexTier: "UU",
+		tier: "UU",
+		natDexTier: "RU",
 		doublesTier: "DUU",
 	},
 	tancoon: {
@@ -2848,8 +2848,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 53,
 		eggGroups: ["Bug"],
 		tags: ["Uranium"],
-		tier: "Uber",
-		natDexTier: "Uber",
+		tier: "OU",
+		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	fafurr: {

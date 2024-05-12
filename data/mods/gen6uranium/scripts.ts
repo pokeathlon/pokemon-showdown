@@ -252,6 +252,7 @@ const UDex: {[k: string]: number} = {
 	"actan": 196,
 	"actannuclear": 196,
 	"urayne": 197,
+	"uraynebeta": 197,
 };
 
 export const Scripts: ModdedBattleScriptsData = {
