@@ -508,8 +508,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		self: {
-			volatileStatus: 'confusion',
+		onHit(target, source, move) {
+			source.addVolatile('confusion');
 		},
 		secondary: {
 			boosts: {spe: -2},

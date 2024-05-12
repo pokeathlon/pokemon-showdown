@@ -541,6 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
 				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				if (pokemon.hp < 1) pokemon.hp = 1;
 				pokemon.maxhp = newMaxHP;
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
