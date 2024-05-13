@@ -301,7 +301,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Type is random pick of Fire, Ice, and Electric",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
 		onModifyMove(move, pokemon, target) {
 			const result = this.random(3);
 			if (result === 0) {
