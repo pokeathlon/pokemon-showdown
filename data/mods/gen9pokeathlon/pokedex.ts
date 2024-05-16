@@ -778,8 +778,23 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	nestitan: {
+	voliable: {
 		num: 6034,
+		name: "Voliable",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 74, atk: 40, def: 115, spa: 56, spd: 50, spe: 70},
+		abilities: {0: "Overcoat", 1: "Big Pecks", H: "Heatproof"},
+		heightm: 1.2,
+		weightkg: 131.5,
+		color: "Brown",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Grass", "Flying"],
+		tier: "NFE",
+		natDexTier: "NFE",
+		doublesTier: "NFE",
+	},
+	nestitan: {
+		num: 6035,
 		name: "Nestitan",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 100, atk: 52, def: 160, spa: 75, spd: 65, spe: 93},
@@ -794,7 +809,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	loxicant: {
-		num: 6035,
+		num: 6036,
 		name: "Loxicant",
 		types: ["Steel", "Poison"],
 		gender: "N",
@@ -810,7 +825,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	manacra: {
-		num: 6036,
+		num: 6037,
 		name: "Manacra",
 		baseForme: "Radial",
 		types: ["Rock", "Ghost"],
@@ -829,7 +844,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	manacraplated: {
-		num: 6036,
+		num: 6037,
 		name: "Manacra-Plated",
 		baseSpecies: "Manacra",
 		forme: "Plated",
@@ -847,7 +862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	feidan: {
-		num: 6037,
+		num: 6038,
 		name: "Feidan",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 80, atk: 80, def: 130, spa: 80, spd: 130, spe: 25},
@@ -862,7 +877,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	niandertroll: {
-		num: 6038,
+		num: 6039,
 		name: "Niandertroll",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 108, atk: 127, def: 106, spa: 90, spd: 94, spe: 75},
@@ -877,7 +892,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	scorchingkiln: {
-		num: 6039,
+		num: 6040,
 		name: "Scorching Kiln",
 		types: ["Ground", "Fire"],
 		baseStats: {hp: 81, atk: 63, def: 105, spa: 99, spd: 135, spe: 87},
@@ -893,7 +908,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	berserkergene: {
-		num: 6040,
+		num: 6041,
 		name: "Berserker Gene",
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 99, atk: 139, def: 101, spa: 51, spd: 93, spe: 107},
@@ -909,7 +924,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	scalyterror: {
-		num: 6041,
+		num: 6042,
 		name: "Scaly Terror",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 75, atk: 127, def: 73, spa: 97, spd: 83, spe: 115},

@@ -119,15 +119,16 @@ const PoADex: {[k: string]: number} = {
 	"monetoad": 6032,
 	"drifloonkitakami": 425,
 	"drifbozu": 6033,
-	"nestitan": 6034,
-	"loxicant": 6035,
-	"manacra": 6036,
-	"manacraplated": 6036,
-	"feidan": 6037,
-	"niandertroll": 6038,
-	"scorchingkiln": 6039,
-	"berserkergene": 6040,
-	"scalyterror": 6041
+	"voliable": 6034,
+	"nestitan": 6035,
+	"loxicant": 6036,
+	"manacra": 6037,
+	"manacraplated": 6037,
+	"feidan": 6038,
+	"niandertroll": 6039,
+	"scorchingkiln": 6040,
+	"berserkergene": 6041,
+	"scalyterror": 6042
 };
 
 export const Scripts: ModdedBattleScriptsData = {
