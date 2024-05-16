@@ -2857,6 +2857,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			grassyterrain: ["9M"],
 			ragepowder: ["9M"],
 			thrash: ["9M"],
+			defog: ["9M"],
 		},
 	},
 	nestitan: {
