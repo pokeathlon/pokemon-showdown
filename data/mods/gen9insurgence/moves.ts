@@ -858,7 +858,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	lunarcannon: {
 		num: 0,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 105,
 		category: "Special",
 		name: "Lunar Cannon",
 		desc: "This attack charges on the first turn and executes on the second. If the user is holding a Power Herb or the weather is New Moon, the move completes in one turn.",
