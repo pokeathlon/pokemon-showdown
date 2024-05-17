@@ -2858,6 +2858,19 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			ragepowder: ["9M"],
 			thrash: ["9M"],
 			defog: ["9M"],
+			tackle: ["9L1"],
+			absorb: ["9L1"],
+			growl: ["9L1"],
+			peck: ["9L3"],
+			withdraw: ["9L4"],
+			gust: ["9L6"],
+			cottonspore: ["9L10"],
+			megadrain: ["9L13"],
+			leechseed: ["9L18"],
+			roost: ["9L26"],
+			gigadrain: ["9L32"],
+			whirlwind: ["9L43"],
+			woodhammer: ["9L56"],
 		},
 	},
 	nestitan: {
@@ -3570,6 +3583,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["9M"],
 			superfang: ["9M"],
 			thrash: ["9M"],
+			terablast: ["9M"],
+			rest: ["9M"],
+			sleeptalk: ["9M"],
+			hiddenpower: ["9M"],
 		}
 	}
 };
