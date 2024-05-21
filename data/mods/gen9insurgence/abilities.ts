@@ -737,7 +737,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 0,
 			durationCallback(pokemon) {
-				return pokemon.side.totalFainted + 1;
+				return pokemon.side.totalFainted + 2;
 			},
 			onStart(pokemon) {
 				if (pokemon.side.totalFainted) {
@@ -746,7 +746,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				if (pokemon.side.totalFainted) {
-					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
 				}
 			},
 		},
