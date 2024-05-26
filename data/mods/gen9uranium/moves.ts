@@ -388,7 +388,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Nuclear",
 		contestType: "Clever",
 	},
-	// nuclear wind
+	nuclearwind: {
+		num: 0,
+		accuracy: 95,
+		basePower: 65,
+		category: "Special",
+		name: "Nuclear Wind",
+		shortDesc: "5% chance to summon Fallout.",
+		pp: 10,
+		priority: 0,
+		onHit(source) {
+			if (this.randomChance(1, 20)) this.field.setWeather('fallout');
+		},
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Nuclear",
+		contestType: "Beautiful",
+	},
 	oceanswrath: {
 		num: 0,
 		accuracy: 100,

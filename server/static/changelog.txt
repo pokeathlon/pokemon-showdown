@@ -1,3 +1,12 @@
+**26th of May 2024**
+
+- There have been many minor changes for the last few weeks but nothing notable enough to put here :)
+- Eeveelutions get the correct moves in Insurgence formats now
+- Geiger Sense and Blood Lust now work properly in Uranium
+- Nuclear Wind has been added
+- Rocket Grab works better in POA formats
+
+
 **11th of May 2024**
 
 - Pokemon Uranium has been added as a new fangame!!!!!!

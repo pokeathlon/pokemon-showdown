@@ -621,12 +621,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.actions.runMove('rocketgrab', source, source.getLocOf(pokemon));
 				}
 			},
-			onSwitchOut(pokemon) {
-				if (pokemon.getVolatile('preventswitch')) {
-					pokemon.removeVolatile('preventswitch');
-					return false;
-				}
-			}
 		},
 		secondary: null,
 		target: "normal",

@@ -108,7 +108,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	bloodlust: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (this.checkMoveMakesContact(move, pokemon, target, false)) {
-				this.heal(pokemon.lastDamage / 6, pokemon);
+				this.heal(pokemon.lastDamage / 6, target);
 			}
 		},
 		flags: {},
@@ -191,7 +191,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn(pokemon) {
 			let shouldBoost = false;
 			for (const fieldPokemon of this.getAllPokemon()) {
-				if (fieldPokemon.hasType('Nuclear')) shouldBoost = true;
+				if (fieldPokemon !== pokemon && fieldPokemon.hasType('Nuclear')) shouldBoost = true;
 			}
 			if (shouldBoost) this.boost({atk: 1, spa: 1}, pokemon);
 		},
