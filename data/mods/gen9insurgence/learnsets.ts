@@ -617,7 +617,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	flareon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.flareon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -653,7 +653,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	jolteon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.jolteon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -689,7 +689,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	vaporeon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.vaporeon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -725,7 +725,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	umbreon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.umbreon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -763,7 +763,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	espeon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.espeon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -798,7 +798,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	leafeon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.leafeon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -833,7 +833,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	glaceon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.glaceon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
@@ -869,7 +869,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	sylveon: {
 		inherit: true,
 		learnset: {
-			...baseLearnsets.eevee.learnset,
+			...baseLearnsets.sylveon.learnset,
 			acid: ["9M"],
 			batonpass: ["9M"],
 			bodyslam: ["9M"],
