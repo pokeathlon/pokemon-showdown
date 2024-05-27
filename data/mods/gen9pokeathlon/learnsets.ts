@@ -1809,7 +1809,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9M"],
 			gust: ["9M"],
 			helpinghand: ["9M"],
-			hiddenpower: ["9M"],
 			hurricane: ["9M"],
 			hydropump: ["9M"],
 			hyperbeam: ["9M"],
