@@ -130,6 +130,7 @@ const PoADex: {[k: string]: number} = {
 	"berserkergene": 6041,
 	"scalyterror": 6042,
 	"pestri": 6043,
+	"sinistersickle": 6044,
 };
 
 export const Scripts: ModdedBattleScriptsData = {

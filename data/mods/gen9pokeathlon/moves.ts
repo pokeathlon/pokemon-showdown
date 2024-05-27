@@ -705,4 +705,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	severingwind: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Severing Wind",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 20,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Flying",
+		contestType: "Cool",
+	},
 };
