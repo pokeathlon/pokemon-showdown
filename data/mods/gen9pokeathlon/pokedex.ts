@@ -627,6 +627,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	blazikendeltamega: {
 		num: 257,
 		name: "Blaziken-Delta-Mega",
+		baseSpecies: "Blaziken-Delta",
 		forme: "Mega",
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 80, atk: 160, def: 80, spa: 130, spd: 80, spe: 100},
@@ -644,6 +645,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sceptiledeltamega: {
 		num: 254,
 		name: "Sceptile-Delta-Mega",
+		baseSpecies: "Sceptile-Delta",
 		forme: "Mega",
 		types: ["Dragon", "Fighting"],
 		baseStats: {hp: 70, atk: 110, def: 75, spa: 145, spd: 85, spe: 145},
