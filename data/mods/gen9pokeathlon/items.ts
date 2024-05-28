@@ -35,4 +35,28 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
+	deltablazikenite: {
+		name: "Delta Blazikenite",
+		spritenum: 623,
+		megaStone: "Blaziken-Delta-Mega",
+		megaEvolves: "Blaziken-Delta",
+		itemUser: ["Blaziken-Delta"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
+	deltasceptilite: {
+		name: "Delta Sceptilite",
+		spritenum: 623,
+		megaStone: "Sceptile-Delta-Mega",
+		megaEvolves: "Sceptile-Delta",
+		itemUser: ["Sceptile-Delta"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
 };

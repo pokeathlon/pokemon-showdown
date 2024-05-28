@@ -508,4 +508,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 0,
 	},
+	multitasker: {
+		onModifyMove(move, pokemon) {
+			if (move.category === "Status") return;
+			if (move.category === "Physical") move.overrideDefensiveStat = 'def';
+			if (move.category === "Special") move.overrideDefensiveStat = 'spd';
+			move.category = 'Special';
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		name: "Multitasker",
+		shortDesc: "Pokemon will always use highest attacking stat.",
+		rating: 4,
+		num: 0,
+	},
 };

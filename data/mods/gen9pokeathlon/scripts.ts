@@ -131,6 +131,16 @@ const PoADex: {[k: string]: number} = {
 	"scalyterror": 6042,
 	"pestri": 6043,
 	"sinistersickle": 6044,
+	"larvitardelta": 246,
+	"pupitardelta": 247,
+	"tyranitardelta": 248,
+	"blazikendeltamega": 257,
+	"sceptiledeltamega": 254,
+	"felapstan": 6045,
+	"tinkastab": 6046,
+	"tinkaslice": 6047,
+	"tinkashank": 6048,
+
 };
 
 export const Scripts: ModdedBattleScriptsData = {
