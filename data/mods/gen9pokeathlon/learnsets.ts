@@ -33,6 +33,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	goldeen: {inherit: true, learnset: {...baseLearnsets.goldeen.learnset, currencyflow: ["9M"]}},
 	golduck: {inherit: true, learnset: {...baseLearnsets.golduck.learnset, currencyflow: ["9M"]}},
 	hooh: {inherit: true, learnset: {...baseLearnsets.hooh.learnset, currencyflow: ["9M"]}},
+	blazikendelta: flattenLearnset(baseLearnsets.blazikendelta),
+	sceptiledelta: flattenLearnset(baseLearnsets.sceptiledelta),
+	blazikendeltamega: flattenLearnset(baseLearnsets.blazikendelta),
+	sceptiledeltamega: flattenLearnset(baseLearnsets.sceptiledelta),
 
 	// Additions
 	soulply: {
