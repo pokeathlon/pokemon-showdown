@@ -715,7 +715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "High critical hit ratio. 20% chance to lower the target's Sp. Def by 1. Hits adjacent foes.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1, slicing: 1},
 		critRatio: 2,
 		secondary: {
 			chance: 20,
@@ -804,7 +804,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Cannot be selected the turn after it's used.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, cantusetwice: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Dark",
