@@ -340,6 +340,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	zamazenta: {
+		inherit: true,
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 	annihilape: {
 		inherit: true,
 		natDexTier: "OU",
