@@ -5030,7 +5030,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9M"],
 			snatch: ["9M"],
 			stealthrock: ["9M"],
-			subsitute: ["9M"],
+			substitute: ["9M"],
 			sunnyday: ["9M"],
 			swordsdance: ["9M"],
 			taunt: ["9M"],
