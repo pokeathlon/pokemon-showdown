@@ -532,7 +532,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	twingust: {
 		num: 0,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 35,
 		category: "Special",
 		name: "Twin Gust",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. In Double Battles, this move attempts to hit the targeted Pokemon and its ally once each. If hitting one of these Pokemon would be prevented by immunity, protection, semi-invulnerability, an Ability, or accuracy, it attempts to hit the other Pokemon twice instead. If this move is redirected, it hits that target twice.",
@@ -621,12 +621,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.actions.runMove('rocketgrab', source, source.getLocOf(pokemon));
 				}
 			},
-			onSwitchOut(pokemon) {
-				if (pokemon.getVolatile('preventswitch')) {
-					pokemon.removeVolatile('preventswitch');
-					return false;
-				}
-			}
 		},
 		secondary: null,
 		target: "normal",
@@ -651,7 +645,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
 				const manacraForme = pokemon.species.id === 'manacraplated' ? '' : '-Plated';
-				pokemon.formeChange('Manacra' + manacraForme, this.effect, false, '[msg]');
+				pokemon.formeChange('Manacra' + manacraForme, this.effect, true, '[msg]');
 			}
 		},
 		target: "self",
