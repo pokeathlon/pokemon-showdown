@@ -809,4 +809,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	lycanpounce: {
+		num: 0,
+        accuracy: 100,
+        basePower: 100,
+        category: "Physical",
+        name: "Lycan Pounce",
+        shortDesc: "High crit ratio. Disguises as the first damaging move in the user's moveset.",
+        pp: 5,
+        priority: 0,
+        flags: {contact: 1, protect: 1, mirror: 1},
+        critRatio: 2,
+		onModifyMove(move, pokemon, target) {
+            let newMoveName;
+            for (const moveSlot of pokemon.moveSlots) {
+                const temp = this.dex.moves.get(moveSlot.id);
+                if(temp.category !== 'Status') {
+                    newMoveName = temp.name;
+                    break;
+                }
+            }
+            move.name = newMoveName;
+        },
+        secondary: null,
+        target: "normal",
+        type: "Fighting",
+    },
 };
