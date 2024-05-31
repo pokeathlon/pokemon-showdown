@@ -687,8 +687,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 	},
-<<<<<<< Updated upstream
-=======
 	psychobarrage: {
 		num: 0,
 		accuracy: 100,
@@ -843,5 +841,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         target: "normal",
         type: "Fighting",
     },
->>>>>>> Stashed changes
 };

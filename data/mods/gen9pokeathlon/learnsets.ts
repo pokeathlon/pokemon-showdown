@@ -3201,8 +3201,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			eruption: ["9M"],
 		},
 	},
-<<<<<<< Updated upstream
-=======
 	berserkergene: {
 		learnset: {
 			takedown: ["9M"],
@@ -3627,5 +3625,4 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			switcheroo: ["9M"],
 		},
 	},
->>>>>>> Stashed changes
 };

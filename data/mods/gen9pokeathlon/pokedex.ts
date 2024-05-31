@@ -875,8 +875,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
-<<<<<<< Updated upstream
-=======
 	berserkergene: {
 		num: 6041,
 		name: "Berserker Gene",
@@ -956,5 +954,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
->>>>>>> Stashed changes
 };
