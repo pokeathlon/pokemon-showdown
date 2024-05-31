@@ -19,7 +19,7 @@ export const treasures: {[k: string]: string} = {
 	charcoal: 'drought',
 	choiceband: 'toughclaws',
 	choicescarf: 'bushido',
-	choicespecs: 'tintedlens',
+	choicespecs: 'hubris',
 	clearamulet: 'unaware',
 	covertcloak: 'magicguard',
 	damprock: 'swiftswim',
