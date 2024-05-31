@@ -820,8 +820,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
         critRatio: 2,
-        onModifyMove(move, pokemon, target) {
-			let newMoveName: string = '';
+		onModifyMove(move, pokemon, target) {
+            let newMoveName;
             for (const moveSlot of pokemon.moveSlots) {
                 const temp = this.dex.moves.get(moveSlot.id);
                 if(temp.category !== 'Status') {
@@ -829,7 +829,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                     break;
                 }
             }
-			move = {...move, name: newMoveName};
+            move.name = newMoveName;
         },
         secondary: null,
         target: "normal",
