@@ -4968,6 +4968,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	grandmirage: {
 		learnset: {
+			lycanpounce: ["9M"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
 			brickbreak: ["9M"],
@@ -5014,7 +5015,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sludgebomb: ["9M"],
 			snore: ["9M"],
 			terablast: ["9M"],
-			bulkup: ["9M"],
 			detect: ["9M"],
 			encore: ["9M"],
 			endure: ["9M"],
