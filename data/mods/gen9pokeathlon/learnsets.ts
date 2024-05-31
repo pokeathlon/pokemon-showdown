@@ -1695,7 +1695,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	lunachi: {
 		learnset: {
-			hiddenpower: ["9M"],
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
 			agility: ["9M"],
