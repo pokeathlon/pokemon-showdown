@@ -860,8 +860,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					flags: {metronome: 1, futuremove: 1},
 					effectType: 'Move',
 					type: 'Grass',
-					start: "  [POKEMON] launched a spud!",
-					activate: "  [TARGET] got hit by a!",
 				},
 			});
 			source.setItem('');
@@ -869,12 +867,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			source.usedItemThisTurn = true;
 			this.add('-enditem', source, item.name, '[from] move: Spud Mortar');
 			return this.NOT_FAIL;
+			
 		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-		desc: "Deals damage two turns after this move is used. If the user is holding a berry, this move will consume the berry and boost the move's basepower by 50%. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if another future move is already in effect for the target's position.",
-		shortDesc: "Hits two turns after being used. If holding berry, x1.5 BP, consumes berry.",
 	},
 };
