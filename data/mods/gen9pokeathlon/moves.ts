@@ -869,6 +869,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				source.usedItemThisTurn = true;
 				this.add('-enditem', source, item.name, '[from] move: Spud Mortar');
 			}
+			this.add('-start', source, 'Spud Mortar');
 			return this.NOT_FAIL;
 			
 		},
