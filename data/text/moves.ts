@@ -7549,7 +7549,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		shortDesc: "Hits two turns after being used. If holding berry, x1.5 BP, consumes berry.",
 
 		start: "  [POKEMON] launched a spud!",
-		activate: "  [POKEMON] was hit by a spud!",
+		activate: "  [TARGET] was hit by a spud!",
 		end: "  [POKEMON] was hit by a spud!",
 	},
 };
