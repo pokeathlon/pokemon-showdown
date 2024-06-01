@@ -21,7 +21,7 @@ export const treasures: {[k: string]: string} = {
 	choicescarf: 'bushido',
 	choicespecs: 'hubris',
 	clearamulet: 'unaware',
-	covertcloak: 'magicguard',
+	covertcloak: 'sheerforce',
 	damprock: 'swiftswim',
 	destinyknot: 'perishbody',
 	dragonfang: 'dragonsmaw',
@@ -34,6 +34,7 @@ export const treasures: {[k: string]: string} = {
 	floatstone: 'levitate',
 	focusband: 'stamina',
 	focussash: 'angershell',
+	fullincense: 'neutralizinggas',
 	grassyseed: 'grassysurge',
 	gripclaw: 'persistent',
 	heatrock: 'chlorophyll',
@@ -43,9 +44,9 @@ export const treasures: {[k: string]: string} = {
 	kingsrock: 'stench',
 	laggingtail: 'stall',
 	leftovers: 'harvest',
-	lifeorb: 'sheerforce',
+	lifeorb: 'magicguard',
 	lightclay: 'filter',
-	loadeddice: 'superluck',
+	loadeddice: 'technician',
 	luminousmoss: 'stormdrain',
 	magnet: 'magnetpull',
 	mail: 'consumerexchange',
@@ -57,7 +58,7 @@ export const treasures: {[k: string]: string} = {
 	mistyseed: 'mistysurge',
 	mysticwater: 'drizzle',
 	nevermeltice: 'snowwarning',
-	poisonbarb: 'poisontouch',
+	poisonbarb: 'toxicchain',
 	powerherb: 'soulheart',
 	protectivepads: 'rockhead',
 	psychicseed: 'pyschicsurge',
@@ -65,7 +66,7 @@ export const treasures: {[k: string]: string} = {
 	quickclaw: 'quickdraw',
 	razorclaw: 'sharpness',
 	redcard: 'fairylaw',
-	ringtarget: 'moldbreaker',
+	ringtarget: 'mummy',
 	rockyhelmet: 'ironbarbs',
 	roomservice: 'inertia',
 	safetygoggles: 'keeneye',
@@ -79,7 +80,7 @@ export const treasures: {[k: string]: string} = {
 	softsand: 'sandstream',
 	spelltag: 'cursedbody',
 	stickybarb: 'fluffy',
-	terrainextender: 'neutralizinggas',
+	terrainextender: 'cloudnine',
 	throatspray: 'punkrock',
 	toxicorb: 'poisonheal',
 	twistedspoon: 'analytic',
@@ -89,6 +90,25 @@ export const treasures: {[k: string]: string} = {
 	widelens: 'compoundeyes',
 	wiseglasses: 'innerfocus',
 	zoomlens: 'sniper',
+	bignugget: 'goodasgold',
+	pomegberry: 'eartheater',
+	dracoplate: 'protean',
+	dreadplate: 'protean',
+	earthplate: 'protean',
+	fistplate: 'protean',
+	flameplate: 'protean',
+	icicleplate: 'protean',
+	insectplate: 'protean',
+	ironplate: 'protean',
+	meadowplate: 'protean',
+	mindplate: 'protean',
+	pixieplate: 'protean',
+	skyplate: 'protean',
+	splashplate: 'protean',
+	spookyplate: 'protean',
+	stoneplate: 'protean',
+	toxicplate: 'protean',
+	zapplate: 'protean',
 };
 
 export const Abilities: {[k: string]: ModdedAbilityData} = {
@@ -297,7 +317,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse'
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
@@ -473,7 +493,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zealousflock: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (!source.getVolatile('zealousflock')) source.addVolatile('zealousflock');
+			if (!source.getVolatile('zealousflock')) source.addVolatile('zealousflock', target);
 		},
 		condition: {
 			onStart(pokemon, source) {
@@ -486,6 +506,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Zealous Flock",
 		shortDesc: "If the User is hit by an attack, the attacker loses 1/16 HP per turn until switched out.",
+		rating: 4,
+		num: 0,
+	},
+	multitasker: {
+		onModifyMove(move, pokemon) {
+			if (move.category === "Status") return;
+			if (move.category === "Physical") move.overrideDefensiveStat = 'def';
+			if (move.category === "Special") move.overrideDefensiveStat = 'spd';
+			move.category = 'Special';
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		name: "Multitasker",
+		shortDesc: "Pokemon will always use highest attacking stat.",
 		rating: 4,
 		num: 0,
 	},

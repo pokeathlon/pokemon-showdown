@@ -502,7 +502,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			return !counter.get('inaccurate');
 		case 'Contrary': case 'Skill Link':
 			return !counter.get(toID(ability));
-		case 'Defiant': case 'Justified': case 'Moxie':
+		case 'Defiant': case 'Justified':
 			return !counter.get('Physical');
 		case 'Guts':
 			return (!moves.has('facade') && !moves.has('sleeptalk'));
@@ -524,12 +524,16 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			return (abilities.has('Tinted Lens') && role === 'Wallbreaker');
 		case 'Mold Breaker':
 			return (species.baseSpecies === 'Basculin' || species.id === 'rampardos');
+		case 'Moxie':
+			return (!counter.get('Physical') || moves.has('stealthrock'));
 		case 'Overgrow':
 			return !counter.get('Grass');
 		case 'Prankster':
 			return (!counter.get('Status') || (species.id === 'tornadus' && moves.has('bulkup')));
 		case 'Poison Heal':
 			return (species.id === 'breloom' && role === 'Fast Attacker');
+		case 'Shed Skin':
+			return !moves.has('rest');
 		case 'Synchronize':
 			return (counter.get('Status') < 2 || !!counter.get('recoil'));
 		case 'Regenerator':
@@ -598,16 +602,18 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (species.id === 'beheeyem') return 'Analytic';
 		if (species.id === 'ninetales') return 'Drought';
 		if (species.id === 'gligar') return 'Immunity';
-		if (species.id === 'arcanine') return 'Intimidate';
+		if (species.id === 'arcanine' || species.id === 'stantler') return 'Intimidate';
 		if (species.id === 'altaria') return 'Natural Cure';
 		if (species.id === 'mandibuzz') return 'Overcoat';
 		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
 		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
 		if (['spiritomb', 'vespiquen', 'weavile'].includes(species.id)) return 'Pressure';
 		if (species.id === 'druddigon') return 'Rough Skin';
+		if (species.id === 'zebstrika') return moves.has('wildcharge') ? 'Sap Sipper' : 'Lightning Rod';
+		if (species.id === 'stoutland') return 'Scrappy';
+		if (species.id === 'octillery') return 'Sniper';
 		if (species.id === 'stunfisk') return 'Static';
 		if (species.id === 'zangoose') return 'Toxic Boost';
-		if (species.id === 'porygon2' || species.id === 'gardevoir') return 'Trace';
 
 		if (abilities.has('Harvest')) return 'Harvest';
 		if (abilities.has('Shed Skin') && moves.has('rest') && !moves.has('sleeptalk')) return 'Shed Skin';
@@ -693,6 +699,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			}
 		}
 		if (moves.has('bellydrum')) return 'Sitrus Berry';
+		if (moves.has('waterspout')) return 'Choice Scarf';
 		if (moves.has('shellsmash')) return 'White Herb';
 		if (moves.has('psychoshift')) return 'Flame Orb';
 		if (ability === 'Magic Guard' && role !== 'Bulky Support') {
@@ -881,11 +888,11 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (['highjumpkick', 'jumpkick'].some(m => moves.has(m))) srWeakness = 2;
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
-			if (moves.has('substitute')) {
+			if (moves.has('substitute') && !['Black Sludge', 'Leftovers'].includes(item)) {
 				if (item === 'Sitrus Berry') {
 					// Two Substitutes should activate Sitrus Berry
 					if (hp % 4 === 0) break;
-				} else if (!['Black Sludge', 'Leftovers'].includes(item)) {
+				} else {
 					// Should be able to use Substitute four times from full HP without fainting
 					if (hp % 4 > 0) break;
 				}
@@ -902,8 +909,8 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			evs.hp -= 4;
 		}
 
-		// Minimize confusion damage
-		if (!counter.get('Physical') && !moves.has('transform')) {
+		// Minimize confusion damage, including if Foul Play is its only physical attack
+		if ((!counter.get('Physical') || (counter.get('Physical') <= 1 && moves.has('foulplay'))) && !moves.has('transform')) {
 			evs.atk = 0;
 			ivs.atk = hasHiddenPower ? (ivs.atk || 31) - 28 : 0;
 		}

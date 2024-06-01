@@ -46,6 +46,10 @@ export const Tags: {[id: string]: TagData} = {
 		name: "Restricted Legendary",
 		speciesFilter: species => species.tags.includes("Restricted Legendary"),
 	},
+	ultrabeast: {
+		name: "Ultra Beast",
+		speciesFilter: species => species.tags.includes("Ultra Beast"),
+	},
 	paradox: {
 		name: "Paradox",
 		speciesFilter: species => species.tags.includes("Paradox"),
@@ -61,6 +65,10 @@ export const Tags: {[id: string]: TagData} = {
 	insurgence: {
 		name: "Insurgence",
 		speciesFilter: species => species.tags.includes("Insurgence"),
+	},
+	uranium: {
+		name: "Uranium",
+		speciesFilter: species => species.tags.includes("Uranium"),
 	},
 
 	// Move tags

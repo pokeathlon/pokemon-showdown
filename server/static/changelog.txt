@@ -1,0 +1,32 @@
+**26th of May 2024**
+
+- There have been many minor changes for the last few weeks but nothing notable enough to put here :)
+- Eeveelutions get the correct moves in Insurgence formats now
+- Geiger Sense and Blood Lust now work properly in Uranium
+- Nuclear Wind has been added
+- Rocket Grab works better in POA formats
+
+
+**11th of May 2024**
+
+- Pokemon Uranium has been added as a new fangame!!!!!!
+- It is currently completely untested, so if you like finding bugs, theres probably a lot you can find in this. (just please make sure to report anything that seems off in the discord!)
+
+
+**9th of May 2024**
+
+- Insurgence Random Battles have been added... (thank you dunscy for making 100s of sets!)
+- Insurgence moves have animations now!!!
+- Necrozma Ultra is available in IF Dex! (its an uber)
+- Photon Geyser transforms a Necrozma holding a Necrozium to Necrozma Ultra
+- Cresselia, Bruxish, and the Meloettas now have their in-game learnsets for IF Dex
+- Mankey's paw hopefully cuts the accuracy of never miss moves (like aerial ace) now
+- Different Arceus forms are now selectable in IF Dex formats (may They bless us all)
+
+
+**7th of May 2024**
+
+- All IF Dex formats other than IF Dex Draft have Gen 5 weather mechanics (permanent weather if set by an ability)
+- Triple fusions in IF Dex now have the correct learnset
+- Disguise now resets on switch out in IF Dex (to match in-game mechanics)
+- Destiny Bond has Gen 6 mechanics in IF Dex (spammable) to match in-game mechanics

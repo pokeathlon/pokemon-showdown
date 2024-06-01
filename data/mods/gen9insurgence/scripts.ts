@@ -1,3 +1,4 @@
+const learnsetAdditions: AnyObject = require('./learnset-additions.json');
 const cantLearnTM = ['beldum', 'blipbug', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'scatterbug', 'silcoon', 'smeargle', 'tynamo', 'unown', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
 
 export const Scripts: ModdedBattleScriptsData = {
@@ -5,8 +6,15 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen9',
 	init() {
 		for (const i in this.data.Pokedex) {
-			if (!cantLearnTM.includes(i) && i in this.data.Learnsets && this.modData('Learnsets', i).learnset) {
+			if (i in this.data.Learnsets && this.modData('Learnsets', i).learnset) {
+				if (!cantLearnTM.includes(i)) {
 					this.modData('Learnsets', i).learnset.achillesheel = ["6M"];
+				}
+				if (i in learnsetAdditions) {
+					for (var move of learnsetAdditions[i]) {
+						this.modData('Learnsets', i).learnset[move] = ["9M"];
+					}
+				}
 			}
 		}
 	},
@@ -18,7 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Mega Rayquaza
 			if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past')) &&
 				altForme?.isMega && altForme?.requiredMove &&
-				pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
+				pokemon.baseMoves.includes(Dex.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
@@ -136,11 +144,16 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 					} else {
 						if (this.illusion) {
-							if (this.illusion.canMegaEvo) {
-								const illusionDetails = this.illusion.setSpecies(this.battle.dex.species.get(this.illusion.canMegaEvo), source).name + 
+							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
+							let megaForme;
+							for (var item of allowedItems) {
+								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
+							}
+							if (megaForme) {
+								const illusionDetails = this.illusion.setSpecies(megaForme, source).name + 
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
 								this.battle.add('detailschange', this, illusionDetails);
-								this.battle.add('-mega', this, this.illusion.species.name, this.illusion.species.requiredItem);
+								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
 								this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
 							}
 						} else {
@@ -162,6 +175,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (isPermanent && (!source || !['disguise', 'iceface', 'proteanmaxima'].includes(source.id))) {
 				if (this.illusion) {
 					this.ability = ''; // Don't allow Illusion to wear off
+					this.addVolatile('ability:illusion');
 				}
 				// Ogerpon's forme change doesn't override permanent abilities
 				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
@@ -173,6 +187,19 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.apparentType = this.terastallized;
 			}
 			return true;
-		}
+		},
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !(this.hasType('???') && 'roost' in this.volatiles)) return false;
+			if (this.hasAbility(['levitate', 'omnitype']) && !this.battle.suppressingAbility(this)) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
 	},
 };

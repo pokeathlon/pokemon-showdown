@@ -92,7 +92,7 @@ const MOVE_PAIRS = [
 
 /** Pokemon who always want priority STAB, and are fine with it as its only STAB move of that type */
 const PRIORITY_POKEMON = [
-	'aegislashblade', 'banette', 'breloom', 'cacturne', 'doublade', 'dusknoir', 'golisopod', 'honchkrow', 'mimikyu', 'scizor', 'scizormega', 'shedinja',
+	'aegislash', 'banette', 'breloom', 'cacturne', 'doublade', 'dusknoir', 'golisopod', 'honchkrow', 'mimikyu', 'scizor', 'scizormega', 'shedinja',
 ];
 function sereneGraceBenefits(move: Move) {
 	return move.secondary?.chance && move.secondary.chance >= 20 && move.secondary.chance < 100;
@@ -313,14 +313,16 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		// Develop additional move lists
 		const badWithSetup = ['defog', 'dragontail', 'haze', 'healbell', 'nuzzle', 'pursuit', 'rapidspin', 'toxic'];
+		// Nature Power is Tri Attack this gen
 		const statusMoves = this.dex.moves.all()
-			.filter(move => move.category === 'Status')
+			.filter(move => move.category === 'Status' && move.id !== 'naturepower')
 			.map(move => move.id);
 
 		// General incompatibilities
 		const incompatiblePairs = [
 			// These moves don't mesh well with other aspects of the set
 			[statusMoves, ['healingwish', 'memento', 'switcheroo', 'trick']],
+			[PIVOT_MOVES, PIVOT_MOVES],
 			[SETUP, PIVOT_MOVES],
 			[SETUP, HAZARDS],
 			[SETUP, badWithSetup],
@@ -336,8 +338,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 			// These attacks are redundant with each other
 			['psychic', 'psyshock'],
-			['scald', ['hydropump', 'originpulse', 'waterpulse']],
-			['return', ['bodyslam', 'doubleedge']],
+			[['scald', 'surf'], ['hydropump', 'originpulse', 'waterpulse']],
+			['return', ['bodyslam', 'doubleedge', 'headbutt']],
 			[['fierydance', 'firelash', 'lavaplume'], ['fireblast', 'magmastorm']],
 			[['flamethrower', 'flareblitz'], ['fireblast', 'overheat']],
 			['hornleech', 'woodhammer'],
@@ -375,7 +377,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		}
 
 		const statusInflictingMoves = ['thunderwave', 'toxic', 'willowisp', 'yawn'];
-		if (!abilities.has('Prankster')) {
+		if (!abilities.has('Prankster') && role !== 'Staller') {
 			this.incompatibleMoves(moves, movePool, statusInflictingMoves, statusInflictingMoves);
 		}
 
@@ -535,7 +537,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		}
 
 		// Enforce STAB priority
-		if (['Bulky Attacker', 'Bulky Setup'].includes(role) || this.priorityPokemon.includes(species.id)) {
+		if (['Bulky Attacker', 'Bulky Setup', 'Wallbreaker'].includes(role) || this.priorityPokemon.includes(species.id)) {
 			const priorityMoves = [];
 			for (const moveid of movePool) {
 				const move = this.dex.moves.get(moveid);
@@ -735,7 +737,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			return (!counter.get('inaccurate') || moves.has('shadowpunch'));
 		case 'Contrary': case 'Skill Link': case 'Strong Jaw':
 			return !counter.get(toID(ability));
-		case 'Defiant': case 'Justified': case 'Moxie':
+		case 'Defiant': case 'Justified':
 			return !counter.get('Physical');
 		case 'Guts':
 			return (!moves.has('facade') && !moves.has('sleeptalk'));
@@ -764,6 +766,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				species.baseSpecies === 'Basculin' || species.id === 'pangoro' || species.id === 'pinsirmega' ||
 				abilities.has('Sheer Force')
 			);
+		case 'Moxie':
+			return (!counter.get('Physical') || moves.has('stealthrock') || (!!species.isMega && abilities.has('Intimidate')));
 		case 'Oblivious': case 'Prankster':
 			return (!counter.get('Status') || (species.id === 'tornadus' && moves.has('bulkup')));
 		case 'Overcoat':
@@ -772,6 +776,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			return !counter.get('Grass');
 		case 'Power Construct':
 			return species.forme === '10%';
+		case 'Shed Skin':
+			return !moves.has('rest');
 		case 'Synchronize':
 			return (counter.get('Status') < 2 || !!counter.get('recoil') || !!species.isMega);
 		case 'Regenerator':
@@ -852,37 +858,39 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (species.id === 'beheeyem') return 'Analytic';
 		if (species.id === 'drampa' && moves.has('roost')) return 'Berserk';
 		if (species.id === 'ninetales') return 'Drought';
+		if (species.baseSpecies === 'Gourgeist') return 'Frisk';
 		if (species.id === 'talonflame' && role === 'Z-Move user') return 'Gale Wings';
 		if (species.id === 'golemalola' && moves.has('return')) return 'Galvanize';
 		if (species.id === 'raticatealola') return 'Hustle';
 		if (species.id === 'ninjask' || species.id === 'seviper') return 'Infiltrator';
-		if (species.id === 'arcanine') return 'Intimidate';
+		if (species.id === 'arcanine' || species.id === 'stantler') return 'Intimidate';
 		if (species.id === 'lucariomega') return 'Justified';
 		if (species.id === 'toucannon' && !counter.get('sheerforce') && !counter.get('skilllink')) return 'Keen Eye';
+		if (species.id === 'persian' && !counter.get('technician')) return 'Limber';
 		if (species.baseSpecies === 'Altaria') return 'Natural Cure';
 		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
 		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
 		if (species.id === 'muk') return 'Poison Touch';
-		if (
-			['dusknoir', 'raikou', 'suicune', 'vespiquen'].includes(species.id)
-		) return 'Pressure';
+		if (['dusknoir', 'raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 		if (species.id === 'tsareena') return 'Queenly Majesty';
 		if (species.id === 'druddigon' && role === 'Bulky Support') return 'Rough Skin';
-		if (species.id === 'pangoro' && !counter.get('ironfist')) return 'Scrappy';
+		if (species.id === 'zebstrika') return moves.has('wildcharge') ? 'Sap Sipper' : 'Lightning Rod';
+		if (species.id === 'stoutland' || species.id === 'pangoro' && !counter.get('ironfist')) return 'Scrappy';
+		if (species.baseSpecies === 'Sawsbuck' && moves.has('headbutt')) return 'Serene Grace';
+		if (species.id === 'octillery') return 'Sniper';
 		if (species.id === 'kommoo' && role === 'Z-Move user') return 'Soundproof';
 		if (species.id === 'stunfisk') return 'Static';
 		if (species.id === 'breloom') return 'Technician';
 		if (species.id === 'zangoose') return 'Toxic Boost';
-		if (species.id === 'porygon2' || species.id === 'gardevoir') return 'Trace';
+		if (counter.get('setup') && (species.id === 'magcargo' || species.id === 'kabutops')) return 'Weak Armor';
 
 		if (abilities.has('Gluttony') && (moves.has('recycle') || moves.has('bellydrum'))) return 'Gluttony';
 		if (abilities.has('Harvest') && (role === 'Bulky Support' || role === 'Staller')) return 'Harvest';
-		if (abilities.has('Moxie') && (counter.get('Physical') > 3 || moves.has('bounce'))) return 'Moxie';
+		if (abilities.has('Moxie') && (moves.has('bounce') || moves.has('fly'))) return 'Moxie';
 		if (abilities.has('Regenerator') && role === 'AV Pivot') return 'Regenerator';
 		if (abilities.has('Shed Skin') && moves.has('rest') && !moves.has('sleeptalk')) return 'Shed Skin';
 		if (abilities.has('Sniper') && moves.has('focusenergy')) return 'Sniper';
 		if (abilities.has('Unburden') && ['acrobatics', 'bellydrum', 'closecombat'].some(m => moves.has(m))) return 'Unburden';
-		if (abilities.has('Weak Armor') && types.has('Water') && counter.get('setup')) return 'Weak Armor';
 
 		let abilityAllowed: Ability[] = [];
 		// Obtain a list of abilities that are allowed (not culled)
@@ -995,6 +1003,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				return 'Sitrus Berry';
 			}
 		}
+		if (moves.has('waterspout')) return 'Choice Scarf';
 		if (moves.has('geomancy') || moves.has('skyattack')) return 'Power Herb';
 		if (moves.has('shellsmash')) {
 			return (ability === 'Solid Rock' && !!counter.get('priority')) ? 'Weakness Policy' : 'White Herb';
@@ -1108,7 +1117,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 	getLevel(species: Species): number {
 		// level set by rules
 		if (this.adjustLevel) return this.adjustLevel;
-		if (this.gen >= 3) {
+		if (this.gen >= 2) {
 			// Revamped generations use random-sets.json
 			const sets = this.randomSets[species.id];
 			if (sets.level) return sets.level;
@@ -1196,8 +1205,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const level = this.getLevel(species);
 
-		// Minimize confusion damage
-		if (!counter.get('Physical') && !moves.has('copycat') && !moves.has('transform')) {
+		// Minimize confusion damage, including if Foul Play is its only physical attack
+		if (
+			(!counter.get('Physical') || (counter.get('Physical') <= 1 && moves.has('foulplay'))) &&
+			!moves.has('copycat') && !moves.has('transform')
+		) {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
@@ -1235,11 +1247,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (['highjumpkick', 'jumpkick'].some(m => moves.has(m))) srWeakness = 2;
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
-			if (moves.has('substitute')) {
-				if (item === 'Sitrus Berry' || (ability === 'Power Construct' && item !== 'Leftovers')) {
+			if (moves.has('substitute') && !['Black Sludge', 'Leftovers'].includes(item)) {
+				if (item === 'Sitrus Berry' || ability === 'Power Construct') {
 					// Two Substitutes should activate Sitrus Berry or Power Construct
 					if (hp % 4 === 0) break;
-				} else if (!['Black Sludge', 'Leftovers'].includes(item)) {
+				} else {
 					// Should be able to use Substitute four times from full HP without fainting
 					if (hp % 4 > 0) break;
 				}
@@ -1344,14 +1356,6 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				}
 				const species = this.sample(currentSpeciesPool);
 
-				if (this.gen === 7) {
-					// If the team has a Z-Move user, reject Pokemon that only have the Z-Move user role
-					if (
-						this.randomSets[species.id]["sets"].length === 1 &&
-						this.randomSets[species.id]["sets"][0]["role"] === 'Z-Move user' &&
-						teamDetails.zMove
-					) continue;
-				}
 				if (!species.exists) continue;
 
 				// Limit to one of each species (Species Clause)

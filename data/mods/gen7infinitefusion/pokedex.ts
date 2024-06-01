@@ -1,5 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex),
 	gengar: {
 		inherit: true,
 		abilities: {0: "Levitate"},
@@ -68,10 +69,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Stench"},
 	},
-	lycanrocmidnight: {
-		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Vital Spirit"},
-	},
 	flygon: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Dry Skin"},
@@ -113,5 +110,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: null,
 		requiredMove: null,
 	},
-	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex)
+	necrozmaultra: {
+		inherit: true,
+		battleOnly: null,
+		requiredItem: null,
+	},
 };

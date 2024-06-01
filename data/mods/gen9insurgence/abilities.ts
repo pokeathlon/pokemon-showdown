@@ -135,6 +135,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	trace: {
+		inherit: true,
+		onStart(pokemon) {
+			// n.b. only affects Hackmons
+			// interaction with No Ability is complicated: https://www.smogon.com/forums/threads/pokemon-sun-moon-battle-mechanics-research.3586701/page-76#post-7790209
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+			// interaction with Ability Shield is similar to No Ability
+			if (pokemon.hasItem('Ability Shield')) {
+				if (!pokemon.illusion) this.add('-block', pokemon, 'item: Ability Shield');
+				this.effectState.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			if (pokemon.setAbility(ability) && !pokemon.illusion) {
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+			}
+		},
+	},
+
 	// Additions
 	absolution: {
 		onModifySpAPriority: 5,
@@ -218,8 +248,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 0,
 	},
 	chlorofury: {
+		onStart(pokemon) {
+			pokemon.addVolatile('chlorofury');
+		},
 		condition: {
-			duration: 2,
+			duration: 3,
 			onStart(pokemon) {
 				if (pokemon.side.totalFainted) {
 					this.boost({spe: 1, spa: pokemon.side.totalFainted}, pokemon);
@@ -266,11 +299,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 0,
 	},
 	foundry: {
-		//add fire type stealth rock
+		onTryMovePriority: -2,
+		onTryMove(pokemon, target, move) {
+			if (move.id === 'stealthrock') {
+				this.actions.useMove('hotcoals', pokemon, target);
+				return null;
+			}
+		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
 			];
 			if (move.type === 'Rock' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
@@ -284,6 +323,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Foundry",
+		desc: "This Pokemon's Rock-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type. Stealth Rock sets a Fire-type variant instead.",
+		shortDesc: "This Pokemon's Rock-type moves become Fire type and have 1.2x power.",
 		rating: 4,
 		num: 0,
 	},
@@ -331,7 +372,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
@@ -450,6 +491,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(target, source, effect) {
 			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
 				this.heal(target.baseMaxhp / 8);
+			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())){
+				return;
 			} else {
 				this.heal(target.baseMaxhp / 16);
 			}
@@ -487,7 +530,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const move = this.dex.getActiveMove(action.move.id);
 			if (move.type in eeveelutions && pokemon.species.id !== eeveelutions[move.type]) {
 				if (pokemon.species.id !== eeveelutions["Normal"]) {
-					pokemon.removeVolatile('ability:' + eeveelutions[pokemon.species.types[0]][1])
+					pokemon.removeVolatile('ability:' + eeveelutions[pokemon.species.types[0]])
 				}
 				pokemon.formeChange(eeveelutions[move.type], this.dex.abilities.get('Protean Maxima'), true);
 				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
@@ -498,6 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				) * pokemon.level / 100 + 10);
 				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
 				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				if (pokemon.hp < 1) pokemon.hp = 1;
 				pokemon.maxhp = newMaxHP;
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
@@ -687,10 +731,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 0,
 	},
 	unleafed: {
+		onStart(pokemon) {
+			pokemon.addVolatile('unleafed');
+		},
 		condition: {
 			duration: 0,
 			durationCallback(pokemon) {
-				return pokemon.side.totalFainted + 1;
+				return pokemon.side.totalFainted + 2;
 			},
 			onStart(pokemon) {
 				if (pokemon.side.totalFainted) {
@@ -699,7 +746,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				if (pokemon.side.totalFainted) {
-					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
 				}
 			},
 		},
@@ -716,7 +763,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Vampiric",
-		desc: "After an attack, holder gains 1/4 of the damage in HP dealt to other Pokemon.",
+		shortDesc: "After an attack, holder gains 1/4 of the damage in HP dealt to other Pokemon.",
 		rating: 3.5,
 		num: 0,
 	},

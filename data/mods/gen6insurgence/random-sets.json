@@ -1,0 +1,5154 @@
+{
+    "castform": [
+        {
+            "ability": "forecast",
+            "item": "focussash",
+            "moves": [
+                "newmoon",
+                "lunarcannon",
+                "suckerpunch",
+                "nastyplot"
+            ]
+        },
+        {
+            "ability": "forecast",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "thunderwave",
+                "foulplay",
+                "earthpower"
+            ]
+        }
+    ],
+    "delibird": [
+        {
+            "ability": "winterjoy",
+            "item": "choicescarf",
+            "moves": [
+                "freezedry",
+                "signalbeam",
+                "waterpulse",
+                "achillesheel"
+            ]
+        }
+    ],
+    "exploud": [
+        {
+            "ability": "amplifier",
+            "item": "choicespecs",
+            "moves": [
+                "boomburst",
+                "fireblast",
+                "icebeam",
+                "shadowball"
+            ]
+        },
+        {
+            "ability": "amplifier",
+            "item": "sitrusberry",
+            "moves": [
+                "faketears",
+                "boomburst",
+                "fireblast",
+                "shadowball"
+            ]
+        }
+    ],
+    "lunatone": [
+        {
+            "ability": "noctem",
+            "item": "darkrock",
+            "moves": [
+                "moonlight",
+                "stealthrock",
+                "futuresight",
+                "ancientpower"
+            ]
+        }
+    ],
+    "solrock": [
+        {
+            "ability": "drought",
+            "item": "heatrock",
+            "moves": [
+                "stealthrock",
+                "willowisp",
+                "stoneedge",
+                "explosion"
+            ]
+        }
+    ],
+    "toxicroakdelta": [
+        {
+            "ability": "hustle",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "suckerpunch",
+                "flamecharge",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "hustle",
+            "item": "choicescarf",
+            "moves": [
+                "flareblitz",
+                "earthquake",
+                "knockoff",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "hustle",
+            "item": "sitrusberry",
+            "moves": [
+                "honeclaws",
+                "flareblitz",
+                "earthquake",
+                "thunderpunch"
+            ]
+        }
+    ],
+    "trevenantdelta": [
+        {
+            "ability": "overcoat",
+            "item": "sitrusberry",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "playrough",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "overcoat",
+            "item": "leftovers",
+            "moves": [
+                "bulkup",
+                "moonlight",
+                "closecombat",
+                "playrough"
+            ]
+        },
+        {
+            "ability": "snowwarning",
+            "item": "icyrock",
+            "moves": [
+                "leechseed",
+                "healbell",
+                "playrough",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "overcoat",
+            "item": "aguavberry",
+            "moves": [
+                "toxic",
+                "leechseed",
+                "earthquake",
+                "closecombat"
+            ]
+        }
+    ],
+    "venusaurdelta": [
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "moonlight",
+                "moonblast",
+                "psyshock"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "sitrusberry",
+            "moves": [
+                "calmmind",
+                "drainingkiss",
+                "psychic",
+                "thunderbolt"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "trickrock",
+            "moves": [
+                "healbell",
+                "trickroom",
+                "moonblast",
+                "leechseed"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "assaultvest",
+            "moves": [
+                "moonblast",
+                "psyshock",
+                "hiddenpowerground",
+                "dragontail"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "thunderwave",
+                "leechseed",
+                "moonblast",
+                "psychic"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "deltavenusaurite",
+            "moves": [
+                "calmmind",
+                "moonlight",
+                "moonblast",
+                "psychic"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "deltavenusaurite",
+            "moves": [
+                "leechseed",
+                "calmmind",
+                "drainingkiss",
+                "psychic"
+            ]
+        }
+    ],
+    "wailorddelta": [
+        {
+            "ability": "wonderskin",
+            "item": "leftovers",
+            "moves": [
+                "defog",
+                "roost",
+                "freezedry",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "refrigerate",
+            "item": "sitrusberry",
+            "moves": [
+                "bodyslam",
+                "acrobatics",
+                "roost",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "snowwarning",
+            "item": "icyrock",
+            "moves": [
+                "thunderwave",
+                "blizzard",
+                "roost",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "snowwarning",
+            "item": "icyrock",
+            "moves": [
+                "defog",
+                "roost",
+                "uturn",
+                "blizzard"
+            ]
+        }
+    ],
+    "dragalge": [
+        {
+            "ability": "adaptability",
+            "item": "assaultvest",
+            "moves": [
+                "corrode",
+                "dracometeor",
+                "surf",
+                "focusblast"
+            ]
+        },
+        {
+            "ability": "adaptability",
+            "item": "choicespecs",
+            "moves": [
+                "corrode",
+                "dracometeor",
+                "surf",
+                "thunderbolt"
+            ]
+        }
+    ],
+    "tornadus": [
+        {
+            "ability": "prankster",
+            "item": "leftovers",
+            "moves": [
+                "defog",
+                "airslash",
+                "toxic",
+                "uturn"
+            ]
+        }
+    ],
+    "tornadustherian": [
+        {
+            "ability": "regenerator",
+            "item": "sitrusberry",
+            "moves": [
+                "defog",
+                "airslash",
+                "heatwave",
+                "uturn"
+            ]
+        }
+    ],
+    "haxorus": [
+        {
+            "ability": "moldbreaker",
+            "item": "lumberry",
+            "moves": [
+                "dragondance",
+                "dragonclaw",
+                "ironhead",
+                "earthquake"
+            ]
+        }
+    ],
+    "magnezone": [
+        {
+            "ability": "analytic",
+            "item": "sitrusberry",
+            "moves": [
+                "livewire",
+                "flashcannon",
+                "discharge",
+                "voltswitch"
+            ]
+        }
+    ],
+    "galvantula": [
+        {
+            "ability": "compoundeyes",
+            "item": "focussash",
+            "moves": [
+                "stickyweb",
+                "livewire",
+                "thunder",
+                "voltswitch"
+            ]
+        }
+    ],
+    "marowak": [
+        {
+            "ability": "rockhead",
+            "item": "thickclub",
+            "moves": [
+                "swordsdance",
+                "shadowsneak",
+                "bonemerang",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "battlearmor",
+            "item": "marowakite",
+            "moves": [
+                "seismictoss",
+                "earthquake",
+                "shadowsneak",
+                "shadowclaw"
+            ]
+        },
+        {
+            "ability": "battlearmor",
+            "item": "marowakite",
+            "moves": [
+                "swordsdance",
+                "shadowsneak",
+                "earthquake",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "battlearmor",
+            "item": "marowakite",
+            "moves": [
+                "poweruppunch",
+                "shadowsneak",
+                "earthquake",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "battlearmor",
+            "item": "marowakite",
+            "moves": [
+                "bellydrum",
+                "shadowsneak",
+                "earthquake",
+                "brickbreak"
+            ]
+        }
+    ],
+    "spiritomb": [
+        {
+            "ability": "noctem",
+            "item": "darkrock",
+            "moves": [
+                "willowisp",
+                "painsplit",
+                "knockoff",
+                "shadowsneak"
+            ]
+        },
+        {
+            "ability": "noctem",
+            "item": "darkrock",
+            "moves": [
+                "memento",
+                "willowisp",
+                "phantomforce",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "noctem",
+            "item": "spiritombite",
+            "moves": [
+                "knockoff",
+                "phantomforce",
+                "shadowsneak",
+                "brickbreak"
+            ]
+        },
+        {
+            "ability": "noctem",
+            "item": "spiritombite",
+            "moves": [
+                "shadowsneak",
+                "knockoff",
+                "brickbreak",
+                "painsplit"
+            ]
+        }
+    ],
+    "sceptiledelta": [
+        {
+            "ability": "guts",
+            "item": "flameorb",
+            "moves": [
+                "highjumpkick",
+                "dragonclaw",
+                "poisonjab",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "innerfocus",
+            "item": "sitrusberry",
+            "moves": [
+                "calmmind",
+                "aurasphere",
+                "dracometeor",
+                "fireblast"
+            ]
+        },
+        {
+            "ability": "innerfocus",
+            "item": "choicespecs",
+            "moves": [
+                "dracometeor",
+                "aurasphere",
+                "fireblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "guts",
+            "item": "flameorb",
+            "moves": [
+                "dragondance",
+                "drainpunch",
+                "dragonclaw",
+                "poisonjab"
+            ]
+        }
+    ],
+    "scolipededelta": [
+        {
+            "ability": "weakarmor",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "stoneedge",
+                "flareblitz",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "moldbreaker",
+            "item": "focussash",
+            "moves": [
+                "spikes",
+                "stealthrock",
+                "knockoff",
+                "rockblast"
+            ]
+        },
+        {
+            "ability": "weakarmor",
+            "item": "choiceband",
+            "moves": [
+                "flareblitz",
+                "stoneedge",
+                "earthquake",
+                "poisonjab"
+            ]
+        }
+    ],
+    "scraftydelta": [
+        {
+            "ability": "roughskin",
+            "item": "rockyhelmet",
+            "moves": [
+                "bulkup",
+                "synthesis",
+                "seedbomb",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "roughskin",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "knockoff",
+                "earthquake",
+                "seedbomb"
+            ]
+        },
+        {
+            "ability": "roughskin",
+            "item": "assaultvest",
+            "moves": [
+                "seedbomb",
+                "earthquake",
+                "knockoff",
+                "dragontail"
+            ]
+        }
+    ],
+    "shiftrydelta": [
+        {
+            "ability": "hubris",
+            "item": "focussash",
+            "moves": [
+                "nastyplot",
+                "thunderbolt",
+                "energyball",
+                "flamethrower"
+            ]
+        },
+        {
+            "ability": "hubris",
+            "item": "choicescarf",
+            "moves": [
+                "thunderbolt",
+                "fireblast",
+                "energyball",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "sitrusberry",
+            "moves": [
+                "knockoff",
+                "thunderpunch",
+                "thunderwave",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "sitrusberry",
+            "moves": [
+                "swordsdance",
+                "thunderpunch",
+                "flamecharge",
+                "uturn"
+            ]
+        }
+    ],
+    "sunfloradelta": [
+        {
+            "ability": "analytic",
+            "item": "sitrusberry",
+            "moves": [
+                "fireblast",
+                "sludgewave",
+                "earthpower",
+                "trickroom"
+            ]
+        },
+        {
+            "ability": "analytic",
+            "item": "choicespecs",
+            "moves": [
+                "corrode",
+                "fireblast",
+                "earthpower",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "flamebody",
+            "item": "deltasunflorite",
+            "moves": [
+                "nastyplot",
+                "fireblast",
+                "sludgewave",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "poisonpoint",
+            "item": "deltasunflorite",
+            "moves": [
+                "fireblast",
+                "sludgewave",
+                "earthpower",
+                "energyball"
+            ]
+        }
+    ],
+    "tentacrueldelta": [
+        {
+            "ability": "poisontouch",
+            "item": "blacksludge",
+            "moves": [
+                "sleeppowder",
+                "synthesis",
+                "knockoff",
+                "poisonjab"
+            ]
+        },
+        {
+            "ability": "stormdrain",
+            "item": "blacksludge",
+            "moves": [
+                "spikes",
+                "toxicspikes",
+                "synthesis",
+                "sludgewave"
+            ]
+        },
+        {
+            "ability": "stormdrain",
+            "item": "assaultvest",
+            "moves": [
+                "corrode",
+                "energyball",
+                "knockoff",
+                "whirlpool"
+            ]
+        }
+    ],
+    "torterradelta": [
+        {
+            "ability": "waterabsorb",
+            "item": "sitrusberry",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "recover",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "aguavberry",
+            "moves": [
+                "toxic",
+                "recover",
+                "earthquake",
+                "waterfall"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "leftovers",
+            "moves": [
+                "curse",
+                "recover",
+                "earthquake",
+                "waterfall"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "assaultvest",
+            "moves": [
+                "earthquake",
+                "waterfall",
+                "ironhead",
+                "bodyslam"
+            ]
+        }
+    ],
+    "noiverndelta": [
+        {
+            "ability": "chlorophyll",
+            "item": "choicespecs",
+            "moves": [
+                "energyball",
+                "flashcannon",
+                "heatwave",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "solarpower",
+            "item": "choicescarf",
+            "moves": [
+                "energyball",
+                "heatwave",
+                "boomburst",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "chlorophyll",
+            "item": "aguavberry",
+            "moves": [
+                "leechseed",
+                "stealthrock",
+                "flashcannon",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "chlorophyll",
+            "item": "sitrusberry",
+            "moves": [
+                "nastyplot",
+                "energyball",
+                "flashcannon",
+                "heatwave"
+            ]
+        },
+        {
+            "ability": "chlorophyll",
+            "item": "lifeorb",
+            "moves": [
+                "energyball",
+                "boomburst",
+                "heatwave",
+                "nastyplot"
+            ]
+        }
+    ],
+    "octillerydelta": [
+        {
+            "ability": "contrary",
+            "item": "assaultvest",
+            "moves": [
+                "overheat",
+                "scald",
+                "energyball",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "contrary",
+            "item": "sitrusberry",
+            "moves": [
+                "overheat",
+                "scald",
+                "energyball",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "contrary",
+            "item": "sitrusberry",
+            "moves": [
+                "substitute",
+                "overheat",
+                "scald",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "contrary",
+            "item": "aguavberry",
+            "moves": [
+                "spikes",
+                "willowisp",
+                "overheat",
+                "sludgewave"
+            ]
+        }
+    ],
+    "pikachudelta": [
+        {
+            "ability": "galewings",
+            "item": "lightball",
+            "moves": [
+                "airslash",
+                "moonblast",
+                "roost",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "lightball",
+            "moves": [
+                "tailwind",
+                "moonblast",
+                "airslash",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "eviolite",
+            "moves": [
+                "defog",
+                "roost",
+                "airslash",
+                "uturn"
+            ]
+        }
+    ],
+    "politoed": [
+        {
+            "ability": "waterabsorb",
+            "item": "politoedite",
+            "moves": [
+                "haze",
+                "toxic",
+                "scald",
+                "icebeam"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "politoedite",
+            "moves": [
+                "scald",
+                "icebeam",
+                "perishsong",
+                "encore"
+            ]
+        }
+    ],
+    "quagsiredelta": [
+        {
+            "ability": "harvest",
+            "item": "sitrusberry",
+            "moves": [
+                "leechseed",
+                "substitute",
+                "protect",
+                "toxic"
+            ]
+        },
+        {
+            "ability": "harvest",
+            "item": "starfberry",
+            "moves": [
+                "protect",
+                "synthesis",
+                "firepunch",
+                "seedbomb"
+            ]
+        },
+        {
+            "ability": "flashfire",
+            "item": "leftovers",
+            "moves": [
+                "knockoff",
+                "toxic",
+                "firepunch",
+                "synthesis"
+            ]
+        }
+    ],
+    "reuniclusdelta": [
+        {
+            "ability": "levitate",
+            "item": "leftovers",
+            "moves": [
+                "trickroom",
+                "shadowball",
+                "powergem",
+                "calmmind"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "aguavberry",
+            "moves": [
+                "calmmind",
+                "powergem",
+                "shadowball",
+                "gigadrain"
+            ]
+        }
+    ],
+    "sableyedelta": [
+        {
+            "ability": "solidrock",
+            "item": "sitrusberry",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "fierydance",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "weakarmor",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "flamecharge",
+                "stoneedge",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "unburden",
+            "item": "normalgem",
+            "moves": [
+                "swordsdance",
+                "fakeout",
+                "firepunch",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "solidrock",
+            "item": "deltasablenite",
+            "moves": [
+                "willowisp",
+                "fierydance",
+                "ancientpower",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "solidrock",
+            "item": "deltasablenite",
+            "moves": [
+                "glare",
+                "firepunch",
+                "stoneedge",
+                "earthquake"
+            ]
+        }
+    ],
+    "ludicolodelta": [
+        {
+            "ability": "unaware",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "scald",
+                "psychic",
+                "icebeam"
+            ]
+        },
+        {
+            "ability": "magicbounce",
+            "item": "aguavberry",
+            "moves": [
+                "calmmind",
+                "scald",
+                "psyshock",
+                "icebeam"
+            ]
+        },
+        {
+            "ability": "magicbounce",
+            "item": "sitrusberry",
+            "moves": [
+                "toxic",
+                "healbell",
+                "scald",
+                "futuresight"
+            ]
+        }
+    ],
+    "luxraydelta": [
+        {
+            "ability": "vampiric",
+            "item": "shucaberry",
+            "moves": [
+                "ironhead",
+                "poisonjab",
+                "suckerpunch",
+                "bulkup"
+            ]
+        },
+        {
+            "ability": "vampiric",
+            "item": "lifeorb",
+            "moves": [
+                "substitute",
+                "ironhead",
+                "poisonjab",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "poisontouch",
+            "item": "choicescarf",
+            "moves": [
+                "ironhead",
+                "poisonjab",
+                "earthquake",
+                "knockoff"
+            ]
+        }
+    ],
+    "maractusdelta": [
+        {
+            "ability": "trace",
+            "item": "focussash",
+            "moves": [
+                "stealthrock",
+                "thunderwave",
+                "flashcannon",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "motordrive",
+            "item": "focussash",
+            "moves": [
+                "shiftgear",
+                "meteormash",
+                "knockoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "trace",
+            "item": "focussash",
+            "moves": [
+                "autotomize",
+                "flashcannon",
+                "thunderbolt",
+                "uturn"
+            ]
+        }
+    ],
+    "mawiledelta": [
+        {
+            "ability": "flowerveil",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "suckerpunch",
+                "seedbomb",
+                "poisonjab"
+            ]
+        },
+        {
+            "ability": "flowerveil",
+            "item": "aguavberry",
+            "moves": [
+                "spikes",
+                "toxic",
+                "synthesis",
+                "knockoff"
+            ]
+        }
+    ],
+    "medichamdelta": [
+        {
+            "ability": "athenian",
+            "item": "sitrusberry",
+            "moves": [
+                "calmmind",
+                "slackoff",
+                "moonblast",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "athenian",
+            "item": "choicespecs",
+            "moves": [
+                "moonblast",
+                "earthpower",
+                "aurasphere",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "athenian",
+            "item": "choicescarf",
+            "moves": [
+                "moonblast",
+                "earthpower",
+                "aurasphere",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "sapsipper",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "slackoff",
+                "moonblast",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "sapsipper",
+            "item": "deltamedichamite",
+            "moves": [
+                "calmmind",
+                "slackoff",
+                "earthpower",
+                "moonblast"
+            ]
+        },
+        {
+            "ability": "sapsipper",
+            "item": "deltamedichamite",
+            "moves": [
+                "moonblast",
+                "earthpower",
+                "energyball",
+                "aurasphere"
+            ]
+        }
+    ],
+    "metangdeltaspider": [
+        {
+            "ability": "poisonheal",
+            "item": "eviolite",
+            "moves": [
+                "stickyweb",
+                "spikes",
+                "toxicspikes",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "eviolite",
+            "moves": [
+                "stickyweb",
+                "spikes",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "eviolite",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "eviolite",
+            "moves": [
+                "stickyweb",
+                "stealthrock",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "eviolite",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "toxicspikes",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "eviolite",
+            "moves": [
+                "knockoff",
+                "earthquake",
+                "toxic",
+                "uturn"
+            ]
+        }
+    ],
+    "minundelta": [
+        {
+            "ability": "pixilate",
+            "item": "focussash",
+            "moves": [
+                "quiverdance",
+                "hypervoice",
+                "icebeam",
+                "hiddenpowerground"
+            ]
+        },
+        {
+            "ability": "pixilate",
+            "item": "choicescarf",
+            "moves": [
+                "hypervoice",
+                "icebeam",
+                "airslash",
+                "uturn"
+            ]
+        }
+    ],
+    "noctowldelta": [
+        {
+            "ability": "noguard",
+            "item": "aguavberry",
+            "moves": [
+                "blizzard",
+                "hurricane",
+                "roost",
+                "tailwind"
+            ]
+        },
+        {
+            "ability": "noguard",
+            "item": "choicescarf",
+            "moves": [
+                "blizzard",
+                "hurricane",
+                "dazzlinggleam",
+                "hiddenpowerground"
+            ]
+        }
+    ],
+    "gorebyssdelta": [
+        {
+            "ability": "marvelscale",
+            "item": "flameorb",
+            "moves": [
+                "calmmind",
+                "drainingkiss",
+                "dracometeor",
+                "lovelykiss"
+            ]
+        },
+        {
+            "ability": "pressure",
+            "item": "whiteherb",
+            "moves": [
+                "shellsmash",
+                "moonblast",
+                "dragonpulse",
+                "icebeam"
+            ]
+        },
+        {
+            "ability": "marvelscale",
+            "item": "flameorb",
+            "moves": [
+                "moonblast",
+                "toxic",
+                "calmmind",
+                "moonlight"
+            ]
+        },
+        {
+            "ability": "pressure",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "moonlight",
+                "moonblast",
+                "dracometeor"
+            ]
+        }
+    ],
+    "heatmordelta": [
+        {
+            "ability": "sheerforce",
+            "item": "focussash",
+            "moves": [
+                "shiftgear",
+                "poisonjab",
+                "ironhead",
+                "bulletseed"
+            ]
+        },
+        {
+            "ability": "sheerforce",
+            "item": "focussash",
+            "moves": [
+                "nastyplot",
+                "sludgewave",
+                "flashcannon",
+                "fireblast"
+            ]
+        },
+        {
+            "ability": "megalauncher",
+            "item": "choicescarf",
+            "moves": [
+                "flashcannon",
+                "sludgewave",
+                "aurasphere",
+                "darkpulse"
+            ]
+        }
+    ],
+    "huntaildelta": [
+        {
+            "ability": "strongjaw",
+            "item": "focussash",
+            "moves": [
+                "shellsmash",
+                "crunch",
+                "firefang",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "strongjaw",
+            "item": "leftovers",
+            "moves": [
+                "dragondance",
+                "substitute",
+                "crunch",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "strongjaw",
+            "item": "whiteherb",
+            "moves": [
+                "shellsmash",
+                "crunch",
+                "outrage",
+                "ironhead"
+            ]
+        }
+    ],
+    "kabutopsdelta": [
+        {
+            "ability": "toughclaws",
+            "item": "roseliberry",
+            "moves": [
+                "swordsdance",
+                "xscissor",
+                "knockoff",
+                "poisonjab"
+            ]
+        },
+        {
+            "ability": "toughclaws",
+            "item": "choicescarf",
+            "moves": [
+                "knockoff",
+                "xscissor",
+                "poisonjab",
+                "pursuit"
+            ]
+        }
+    ],
+    "lilligantdeltawater": [
+        {
+            "ability": "stormdrain",
+            "item": "sitrusberry",
+            "moves": [
+                "tailglow",
+                "fierydance",
+                "scald",
+                "gigadrain"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "healbell",
+                "thunderwave",
+                "fierydance",
+                "scald"
+            ]
+        },
+        {
+            "ability": "flashfire",
+            "item": "choicescarf",
+            "moves": [
+                "fierydance",
+                "scald",
+                "thunderbolt",
+                "sludgebomb"
+            ]
+        },
+        {
+            "ability": "stormdrain",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "recover",
+                "fierydance",
+                "scald"
+            ]
+        }
+    ],
+    "lopunnydelta": [
+        {
+            "ability": "unburden",
+            "item": "whiteherb",
+            "moves": [
+                "superpower",
+                "acrobatics",
+                "ironhead",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "unburden",
+            "item": "sitrusberry",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "ironhead",
+                "acrobatics"
+            ]
+        },
+        {
+            "ability": "limber",
+            "item": "choiceband",
+            "moves": [
+                "highjumpkick",
+                "ironhead",
+                "poisonjab",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "limber",
+            "item": "deltalopunnite",
+            "moves": [
+                "highjumpkick",
+                "zenheadbutt",
+                "knockoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "limber",
+            "item": "deltalopunnite",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "zenheadbutt",
+                "knockoff"
+            ]
+        }
+    ],
+    "lucariodelta": [
+        {
+            "ability": "justified",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "earthquake",
+                "extremespeed"
+            ]
+        },
+        {
+            "ability": "mummy",
+            "item": "lifeorb",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "earthpower",
+                "vacuumwave"
+            ]
+        },
+        {
+            "ability": "justified",
+            "item": "choiceband",
+            "moves": [
+                "earthquake",
+                "knockoff",
+                "ironhead",
+                "extremespeed"
+            ]
+        },
+        {
+            "ability": "mummy",
+            "item": "choicescarf",
+            "moves": [
+                "darkpulse",
+                "earthpower",
+                "shadowball",
+                "blizzard"
+            ]
+        },
+        {
+            "ability": "justified",
+            "item": "deltalucarionite",
+            "moves": [
+                "bulkup",
+                "earthquake",
+                "knockoff",
+                "drainpunch"
+            ]
+        },
+        {
+            "ability": "justified",
+            "item": "deltalucarionite",
+            "moves": [
+                "swordsdance",
+                "extremespeed",
+                "knockoff",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "justified",
+            "item": "deltalucarionite",
+            "moves": [
+                "calmmind",
+                "darkpulse",
+                "earthpower",
+                "psyshock"
+            ]
+        },
+        {
+            "ability": "justified",
+            "item": "deltalucarionite",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "earthpower",
+                "psyshock"
+            ]
+        }
+    ],
+    "dittodelta": [
+        {
+            "ability": "protean",
+            "item": "choicescarf",
+            "moves": [
+                "morph",
+                "transform",
+                "metronome",
+                "retrograde"
+            ]
+        }
+    ],
+    "dodriodelta": [
+        {
+            "ability": "compoundeyes",
+            "item": "choiceband",
+            "moves": [
+                "zenheadbutt",
+                "knockoff",
+                "drillrun",
+                "poisonjab"
+            ]
+        },
+        {
+            "ability": "trace",
+            "item": "leftovers",
+            "moves": [
+                "substitute",
+                "zenheadbutt",
+                "lowkick",
+                "poisonjab"
+            ]
+        }
+    ],
+    "drifblimdelta": [
+        {
+            "ability": "noguard",
+            "item": "lifeorb",
+            "moves": [
+                "wildfire",
+                "roost",
+                "inferno",
+                "hurricane"
+            ]
+        },
+        {
+            "ability": "noguard",
+            "item": "trickrock",
+            "moves": [
+                "trickroom",
+                "uturn",
+                "inferno",
+                "hurricane"
+            ]
+        }
+    ],
+    "dunsparcedelta": [
+        {
+            "ability": "skilllink",
+            "item": "sitrusberry",
+            "moves": [
+                "swordsdance",
+                "watershuriken",
+                "iciclespear",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "skilllink",
+            "item": "leftovers",
+            "moves": [
+                "spikes",
+                "toxic",
+                "watershuriken",
+                "uturn"
+            ]
+        }
+    ],
+    "girafarigdelta": [
+        {
+            "ability": "intimidate",
+            "item": "blacksludge",
+            "moves": [
+                "toxicspikes",
+                "corrode",
+                "flashcannon",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "assaultvest",
+            "moves": [
+                "corrode",
+                "flashcannon",
+                "thunderbolt",
+                "gigadrain"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "deltaetigirafarigite",
+            "moves": [
+                "nastyplot",
+                "corrode",
+                "flashcannon",
+                "gigadrain"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "deltaetigirafarigite",
+            "moves": [
+                "autotomize",
+                "sludgewave",
+                "flashcannon",
+                "gigadrain"
+            ]
+        }
+    ],
+    "glaliedelta": [
+        {
+            "ability": "flashfire",
+            "item": "airballoon",
+            "moves": [
+                "spikes",
+                "stealthrock",
+                "knockoff",
+                "flareblitz"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "choiceband",
+            "moves": [
+                "headsmash",
+                "flareblitz",
+                "earthquake",
+                "selfdestruct"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "aguavberry",
+            "moves": [
+                "rockpolish",
+                "headsmash",
+                "flareblitz",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "deltaglalitite",
+            "moves": [
+                "headsmash",
+                "flareblitz",
+                "earthquake",
+                "rockpolish"
+            ]
+        },
+        {
+            "ability": "flashfire",
+            "item": "deltaglalitite",
+            "moves": [
+                "fireblast",
+                "ancientpower",
+                "energyball",
+                "darkpulse"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "deltaglalitite",
+            "moves": [
+                "flamecharge",
+                "headsmash",
+                "earthquake",
+                "knockoff"
+            ]
+        }
+    ],
+    "golemdelta": [
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "knockoff",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "trickrock",
+            "moves": [
+                "trickroom",
+                "stoneedge",
+                "knockoff",
+                "zenheadbutt"
+            ]
+        },
+        {
+            "ability": "sapsipper",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "thunderwave",
+                "knockoff",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "magicbounce",
+            "item": "sitrusberry",
+            "moves": [
+                "thunderwave",
+                "stealthrock",
+                "zenheadbutt",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "magicbounce",
+            "item": "sitrusberry",
+            "moves": [
+                "toxic",
+                "stealthrock",
+                "stoneedge",
+                "circlethrow"
+            ]
+        }
+    ],
+    "golurkdelta": [
+        {
+            "ability": "ironfist",
+            "item": "leftovers",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "bulletpunch",
+                "thunderpunch"
+            ]
+        },
+        {
+            "ability": "ironfist",
+            "item": "assaultvest",
+            "moves": [
+                "poweruppunch",
+                "drainpunch",
+                "bulletpunch",
+                "icepunch"
+            ]
+        },
+        {
+            "ability": "guts",
+            "item": "flameorb",
+            "moves": [
+                "drainpunch",
+                "bulletpunch",
+                "earthquake",
+                "bulkup"
+            ]
+        },
+        {
+            "ability": "ironfist",
+            "item": "choiceband",
+            "moves": [
+                "drainpunch",
+                "bulletpunch",
+                "icepunch",
+                "thunderpunch"
+            ]
+        }
+    ],
+    "crustledeltacake": [
+        {
+            "ability": "simple",
+            "item": "whiteherb",
+            "moves": [
+                "substitute",
+                "shellsmash",
+                "achillesheel",
+                "playrough"
+            ]
+        },
+        {
+            "ability": "simple",
+            "item": "whiteherb",
+            "moves": [
+                "shellsmash",
+                "facade",
+                "playrough",
+                "knockoff"
+            ]
+        }
+    ],
+    "volcaronadelta": [
+        {
+            "ability": "levitate",
+            "item": "choicescarf",
+            "moves": [
+                "sludgewave",
+                "darkpulse",
+                "fireblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "lifeorb",
+            "moves": [
+                "sludgewave",
+                "darkpulse",
+                "fireblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "choicespecs",
+            "moves": [
+                "sludgewave",
+                "darkpulse",
+                "fireblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "absolution",
+            "item": "leftovers",
+            "moves": [
+                "sludgewave",
+                "darkpulse",
+                "roost",
+                "newmoon"
+            ]
+        }
+    ],
+    "blastoisedelta": [
+        {
+            "ability": "shadowdance",
+            "item": "choicespecs",
+            "moves": [
+                "darkpulse",
+                "aurasphere",
+                "flashcannon",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "sitrusberry",
+            "moves": [
+                "calmmind",
+                "darkpulse",
+                "aurasphere",
+                "flashcannon"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "sitrusberry",
+            "moves": [
+                "honeclaws",
+                "drainpunch",
+                "knockoff",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "shadowcall",
+            "item": "aguavberry",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "knockoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "sitrusberry",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "aurasphere",
+                "flashcannon"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "deltablastoisinite",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "aurasphere",
+                "flashcannon"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "deltablastoisinite",
+            "moves": [
+                "darkpulse",
+                "aurasphere",
+                "flashcannon",
+                "energyball"
+            ]
+        }
+    ],
+    "cacturne": [
+        {
+            "ability": "waterabsorb",
+            "item": "cacturnite",
+            "moves": [
+                "swordsdance",
+                "suckerpunch",
+                "seedbomb",
+                "poisonjab"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "cacturnite",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "energyball",
+                "focusblast"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "cacturnite",
+            "moves": [
+                "poweruppunch",
+                "suckerpunch",
+                "seedbomb",
+                "poisonjab"
+            ]
+        }
+    ],
+    "cameruptdelta": [
+        {
+            "ability": "liquidooze",
+            "item": "blacksludge",
+            "moves": [
+                "toxic",
+                "venomdrench",
+                "venoshock",
+                "infestation"
+            ]
+        },
+        {
+            "ability": "poisonpoint",
+            "item": "blacksludge",
+            "moves": [
+                "corrode",
+                "darkpulse",
+                "scald",
+                "painsplit"
+            ]
+        },
+        {
+            "ability": "venomous",
+            "item": "deltacameruptite",
+            "moves": [
+                "sludgewave",
+                "flamethrower",
+                "darkpulse",
+                "painsplit"
+            ]
+        },
+        {
+            "ability": "poisonpoint",
+            "item": "deltacameruptite",
+            "moves": [
+                "toxic",
+                "venoshock",
+                "flamethrower",
+                "painsplit"
+            ]
+        }
+    ],
+    "cofagrigusdelta": [
+        {
+            "ability": "wonderskin",
+            "item": "blacksludge",
+            "moves": [
+                "toxic",
+                "sludgewave",
+                "flashcannon",
+                "fireblast"
+            ]
+        },
+        {
+            "ability": "aftermath",
+            "item": "blacksludge",
+            "moves": [
+                "willowisp",
+                "corrode",
+                "earthpower",
+                "seismictoss"
+            ]
+        }
+    ],
+    "crustledeltaberry": [
+        {
+            "ability": "harvest",
+            "item": "sitrusberry",
+            "moves": [
+                "leechseed",
+                "spikes",
+                "toxicspikes",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "harvest",
+            "item": "sitrusberry",
+            "moves": [
+                "swordsdance",
+                "leafblade",
+                "poisonjab",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "harvest",
+            "item": "starfberry",
+            "moves": [
+                "synthesis",
+                "protect",
+                "poisonjab",
+                "leafblade"
+            ]
+        },
+        {
+            "ability": "harvest",
+            "item": "sitrusberry",
+            "moves": [
+                "spikes",
+                "toxic",
+                "synthesis",
+                "earthquake"
+            ]
+        }
+    ],
+    "shuckledelta": [
+        {
+            "ability": "sturdy",
+            "item": "leftovers",
+            "moves": [
+                "spikes",
+                "toxic",
+                "knockoff",
+                "seismictoss"
+            ]
+        },
+        {
+            "ability": "ironbarbs",
+            "item": "rockyhelmet",
+            "moves": [
+                "knockoff",
+                "toxic",
+                "seismictoss",
+                "rest"
+            ]
+        }
+    ],
+    "sudowoodo": [
+        {
+            "ability": "sturdy",
+            "item": "sudowoodite",
+            "moves": [
+                "stoneedge",
+                "woodhammer",
+                "earthquake",
+                "stealthrock"
+            ]
+        }
+    ],
+    "sunflora": [
+        {
+            "ability": "solarpower",
+            "item": "sunflorite",
+            "moves": [
+                "energyball",
+                "hiddenpowerfire",
+                "sludgebomb",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "chlorophyll",
+            "item": "sunflorite",
+            "moves": [
+                "energyball",
+                "sludgebomb",
+                "earthpower",
+                "synthesis"
+            ]
+        }
+    ],
+    "tangrowthdelta": [
+        {
+            "ability": "dryskin",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "synthesis",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "roughskin",
+            "item": "rockyhelmet",
+            "moves": [
+                "bulkup",
+                "synthesis",
+                "earthquake",
+                "drainpunch"
+            ]
+        },
+        {
+            "ability": "dryskin",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "synthesis",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "roughskin",
+            "item": "assaultvest",
+            "moves": [
+                "poweruppunch",
+                "earthquake",
+                "knockoff",
+                "drainpunch"
+            ]
+        }
+    ],
+    "typhlosiondelta": [
+        {
+            "ability": "motordrive",
+            "item": "choicespecs",
+            "moves": [
+                "thunderbolt",
+                "flashcannon",
+                "energyball",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "choicescarf",
+            "moves": [
+                "thunderbolt",
+                "flashcannon",
+                "energyball",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "motordrive",
+            "item": "lifeorb",
+            "moves": [
+                "thunderbolt",
+                "flashcannon",
+                "energyball",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "deltatyphlosionite",
+            "moves": [
+                "thunderbolt",
+                "flashcannon",
+                "energyball",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "motordrive",
+            "item": "deltatyphlosionite",
+            "moves": [
+                "thunderbolt",
+                "flashcannon",
+                "energyball",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "motordrive",
+            "item": "deltatyphlosionite",
+            "moves": [
+                "thunderbolt",
+                "flashcannon",
+                "darkpulse",
+                "voltswitch"
+            ]
+        }
+    ],
+    "weezingdelta": [
+        {
+            "ability": "amplifier",
+            "item": "choicespecs",
+            "moves": [
+                "boomburst",
+                "thunderbolt",
+                "hurricane",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "amplifier",
+            "item": "assaultvest",
+            "moves": [
+                "thunderbolt",
+                "hurricane",
+                "boomburst",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "roost",
+                "thunderbolt",
+                "hurricane"
+            ]
+        },
+        {
+            "ability": "amplifier",
+            "item": "aguavberry",
+            "moves": [
+                "calmmind",
+                "roost",
+                "boomburst",
+                "thunderbolt"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "leftovers",
+            "moves": [
+                "livewire",
+                "roost",
+                "aircutter",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "sitrusberry",
+            "moves": [
+                "acrobatics",
+                "wildcharge",
+                "roost",
+                "thunderwave"
+            ]
+        }
+    ],
+    "yanmegadelta": [
+        {
+            "ability": "adaptability",
+            "item": "choicespecs",
+            "moves": [
+                "energyball",
+                "airslash",
+                "hiddenpowerfire",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "adaptability",
+            "item": "lifeorb",
+            "moves": [
+                "energyball",
+                "airslash",
+                "hiddenpowerground",
+                "uturn"
+            ]
+        }
+    ],
+    "pidgeotdelta": [
+        {
+            "ability": "intimidate",
+            "item": "sitrusberry",
+            "moves": [
+                "glare",
+                "defog",
+                "knockoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "aguavberry",
+            "moves": [
+                "defog",
+                "dracometeor",
+                "darkpulse",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "sitrusberry",
+            "moves": [
+                "defog",
+                "toxic",
+                "dracometeor",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "marvelscale",
+            "item": "flameorb",
+            "moves": [
+                "dragondance",
+                "knockoff",
+                "dragonclaw",
+                "facade"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "deltapidgeotite",
+            "moves": [
+                "toxic",
+                "darkpulse",
+                "dracometeor",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "deltapidgeotite",
+            "moves": [
+                "sludgewave",
+                "darkpulse",
+                "dracometeor",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "deltapidgeotite",
+            "moves": [
+                "glare",
+                "defog",
+                "dracometeor",
+                "uturn"
+            ]
+        }
+    ],
+    "plusledelta": [
+        {
+            "ability": "pixilate",
+            "item": "lifeorb",
+            "moves": [
+                "quiverdance",
+                "hypervoice",
+                "fireblast",
+                "synthesis"
+            ]
+        },
+        {
+            "ability": "pixilate",
+            "item": "choicescarf",
+            "moves": [
+                "hypervoice",
+                "fireblast",
+                "energyball",
+                "uturn"
+            ]
+        }
+    ],
+    "raichudelta": [
+        {
+            "ability": "galewings",
+            "item": "sitrusberry",
+            "moves": [
+                "defog",
+                "airslash",
+                "moonblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "leftovers",
+            "moves": [
+                "thunderwave",
+                "airslash",
+                "moonblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "sitrusberry",
+            "moves": [
+                "acrobatics",
+                "poweruppunch",
+                "roost",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "leftovers",
+            "moves": [
+                "rapidspin",
+                "moonblast",
+                "airslash",
+                "uturn"
+            ]
+        }
+    ],
+    "reuniclus": [
+        {
+            "ability": "regenerator",
+            "item": "reuniclite",
+            "moves": [
+                "psychic",
+                "shadowball",
+                "focusblast",
+                "recover"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "reuniclite",
+            "moves": [
+                "calmmind",
+                "recover",
+                "psychic",
+                "focusblast"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "reuniclite",
+            "moves": [
+                "futuresight",
+                "focusblast",
+                "shadowball",
+                "recover"
+            ]
+        }
+    ],
+    "roseradedelta": [
+        {
+            "ability": "shadowdance",
+            "item": "choicespecs",
+            "moves": [
+                "darkpulse",
+                "moonblast",
+                "shadowball",
+                "sludgewave"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "lifeorb",
+            "moves": [
+                "darkpulse",
+                "moonblast",
+                "calmmind",
+                "moonlight"
+            ]
+        },
+        {
+            "ability": "heliophobia",
+            "item": "aguavberry",
+            "moves": [
+                "calmmind",
+                "drainingkiss",
+                "darkpulse",
+                "sludgewave"
+            ]
+        }
+    ],
+    "scizordelta": [
+        {
+            "ability": "toughclaws",
+            "item": "aguavberry",
+            "moves": [
+                "swordsdance",
+                "iceshard",
+                "closecombat",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "toughclaws",
+            "item": "occaberry",
+            "moves": [
+                "bulkup",
+                "knockoff",
+                "icepunch",
+                "drainpunch"
+            ]
+        },
+        {
+            "ability": "toughclaws",
+            "item": "choiceband",
+            "moves": [
+                "iceshard",
+                "icepunch",
+                "closecombat",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "icecleats",
+            "item": "aguavberry",
+            "moves": [
+                "swordsdance",
+                "iciclecrash",
+                "closecombat",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "icecleats",
+            "item": "choiceband",
+            "moves": [
+                "iciclecrash",
+                "closecombat",
+                "knockoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "icecleats",
+            "item": "deltascizorite",
+            "moves": [
+                "swordsdance",
+                "closecombat",
+                "iciclecrash",
+                "iceshard"
+            ]
+        },
+        {
+            "ability": "icecleats",
+            "item": "deltascizorite",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "iceshard",
+                "iciclespear"
+            ]
+        },
+        {
+            "ability": "icecleats",
+            "item": "deltascizorite",
+            "moves": [
+                "uturn",
+                "closecombat",
+                "iciclecrash",
+                "iceshard"
+            ]
+        }
+    ],
+    "scytherdelta": [
+        {
+            "ability": "hustle",
+            "item": "choiceband",
+            "moves": [
+                "iciclecrash",
+                "closecombat",
+                "iceshard",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "icecleats",
+            "item": "eviolite",
+            "moves": [
+                "swordsdance",
+                "iciclecrash",
+                "closecombat",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "hustle",
+            "item": "eviolite",
+            "moves": [
+                "swordsdance",
+                "closecombat",
+                "iceshard",
+                "knockoff"
+            ]
+        }
+    ],
+    "shiftry": [
+        {
+            "ability": "earlybird",
+            "item": "shiftrite",
+            "moves": [
+                "swordsdance",
+                "leafblade",
+                "suckerpunch",
+                "achillesheel"
+            ]
+        },
+        {
+            "ability": "earlybird",
+            "item": "shiftrite",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "energyball",
+                "hurricane"
+            ]
+        },
+        {
+            "ability": "chlorophyll",
+            "item": "shiftrite",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "leafblade",
+                "suckerpunch"
+            ]
+        }
+    ],
+    "magmortardelta": [
+        {
+            "ability": "megalauncher",
+            "item": "choicescarf",
+            "moves": [
+                "waterpulse",
+                "flashcannon",
+                "energyball",
+                "shadowball"
+            ]
+        },
+        {
+            "ability": "megalauncher",
+            "item": "aguavberry",
+            "moves": [
+                "autotomize",
+                "flashcannon",
+                "waterpulse",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "filter",
+            "item": "weaknesspolicy",
+            "moves": [
+                "autotomize",
+                "flashcannon",
+                "waterpulse",
+                "energyball"
+            ]
+        },
+        {
+            "ability": "filter",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "thunderwave",
+                "waterpulse",
+                "flashcannon"
+            ]
+        }
+    ],
+    "meganium": [
+        {
+            "ability": "overgrow",
+            "item": "meganiumite",
+            "moves": [
+                "leechseed",
+                "toxic",
+                "synthesis",
+                "magiccoat"
+            ]
+        },
+        {
+            "ability": "overgrow",
+            "item": "meganiumite",
+            "moves": [
+                "calmmind",
+                "leechseed",
+                "moonblast",
+                "gigadrain"
+            ]
+        }
+    ],
+    "miloticdelta": [
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "willowisp",
+                "hex",
+                "aurasphere"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "assaultvest",
+            "moves": [
+                "shadowball",
+                "aurasphere",
+                "icebeam",
+                "psyshock"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "recover",
+                "shadowball",
+                "aurasphere"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "substitute",
+                "recover",
+                "shadowball"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "leftovers",
+            "moves": [
+                "meanlook",
+                "perishsong",
+                "recover",
+                "protect"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "deltamilotite",
+            "moves": [
+                "calmmind",
+                "recover",
+                "shadowball",
+                "aurasphere"
+            ]
+        },
+        {
+            "ability": "regenerator",
+            "item": "deltamilotite",
+            "moves": [
+                "shadowball",
+                "aurasphere",
+                "recover",
+                "substitute"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "deltamilotite",
+            "moves": [
+                "willowisp",
+                "hex",
+                "recover",
+                "calmmind"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "deltamilotite",
+            "moves": [
+                "shadowball",
+                "aurasphere",
+                "icebeam",
+                "recover"
+            ]
+        }
+    ],
+    "mismagiusdelta": [
+        {
+            "ability": "magicguard",
+            "item": "lifeorb",
+            "moves": [
+                "freezedry",
+                "moonblast",
+                "thunderbolt",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "magicguard",
+            "item": "lifeorb",
+            "moves": [
+                "calmmind",
+                "icebeam",
+                "moonblast",
+                "roost"
+            ]
+        },
+        {
+            "ability": "winterjoy",
+            "item": "choicescarf",
+            "moves": [
+                "freezedry",
+                "moonblast",
+                "uturn",
+                "trick"
+            ]
+        }
+    ],
+    "mukdelta": [
+        {
+            "ability": "sapsipper",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "knockoff",
+                "recover",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "sapsipper",
+            "item": "aguavberry",
+            "moves": [
+                "earthquake",
+                "knockoff",
+                "suckerpunch",
+                "recover"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "aguavberry",
+            "moves": [
+                "toxic",
+                "earthquake",
+                "knockoff",
+                "recover"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "earthquake",
+                "knockoff",
+                "recover"
+            ]
+        }
+    ],
+    "mukdeltafire": [
+        {
+            "ability": "regurgitation",
+            "item": "assaultvest",
+            "moves": [
+                "earthquake",
+                "suckerpunch",
+                "drainpunch",
+                "poisonjab"
+            ]
+        },
+        {
+            "ability": "regurgitation",
+            "item": "lifeorb",
+            "moves": [
+                "earthquake",
+                "suckerpunch",
+                "ironhead",
+                "recover"
+            ]
+        },
+        {
+            "ability": "regurgitation",
+            "item": "choiceband",
+            "moves": [
+                "earthquake",
+                "suckerpunch",
+                "drainpunch",
+                "poisonjab"
+            ]
+        }
+    ],
+    "gothitelle": [
+        {
+            "ability": "frisk",
+            "item": "gothitite",
+            "moves": [
+                "psyshock",
+                "darkpulse",
+                "signalbeam",
+                "thunderwave"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "gothitite",
+            "moves": [
+                "trickroom",
+                "psychic",
+                "darkpulse",
+                "toxic"
+            ]
+        }
+    ],
+    "greninjadelta": [
+        {
+            "ability": "prankster",
+            "item": "aguavberry",
+            "moves": [
+                "spikes",
+                "willowisp",
+                "knockoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "prankster",
+            "item": "laggingtail",
+            "moves": [
+                "switcheroo",
+                "willowisp",
+                "fireblast",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "prankster",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "firepunch",
+                "leafblade",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "prankster",
+            "item": "choicespecs",
+            "moves": [
+                "fireblast",
+                "energyball",
+                "darkpulse",
+                "trick"
+            ]
+        }
+    ],
+    "hoopadelta": [
+        {
+            "ability": "cloudnine",
+            "item": "choicescarf",
+            "moves": [
+                "aeroblast",
+                "icebeam",
+                "heatwave",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "cloudnine",
+            "item": "sitrusberry",
+            "moves": [
+                "nastyplot",
+                "aeroblast",
+                "heatwave",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "cloudnine",
+            "item": "aguavberry",
+            "moves": [
+                "aeroblast",
+                "defog",
+                "thunderwave",
+                "voltswitch"
+            ]
+        }
+    ],
+    "hydreigondelta": [
+        {
+            "ability": "intoxicate",
+            "item": "choicescarf",
+            "moves": [
+                "hypervoice",
+                "earthpower",
+                "surf",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "intoxicate",
+            "item": "lifeorb",
+            "moves": [
+                "hypervoice",
+                "earthpower",
+                "surf",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "intoxicate",
+            "item": "leftovers",
+            "moves": [
+                "coil",
+                "roost",
+                "bodyslam",
+                "earthquake"
+            ]
+        }
+    ],
+    "lanturndelta": [
+        {
+            "ability": "levitate",
+            "item": "trickrock",
+            "moves": [
+                "willowisp",
+                "nightshade",
+                "trickroom",
+                "clearsmog"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "aguavberry",
+            "moves": [
+                "tailglow",
+                "shadowball",
+                "fireblast",
+                "sludgewave"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "venoshock",
+                "shadowball",
+                "fireblast"
+            ]
+        }
+    ],
+    "leavannyarmor": [
+        {
+            "ability": "overcoat",
+            "item": "leavannyarmor",
+            "moves": [
+                "stickyweb",
+                "toxic",
+                "leafblade",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "chlorophyll",
+            "item": "leavannyarmor",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "leafblade",
+                "uturn"
+            ]
+        }
+    ],
+    "lieparddelta": [
+        {
+            "ability": "illusion",
+            "item": "focussash",
+            "moves": [
+                "nastyplot",
+                "shadowball",
+                "moonblast",
+                "sludgewave"
+            ]
+        },
+        {
+            "ability": "illusion",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "playrough",
+                "shadowclaw",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "illusion",
+            "item": "choiceband",
+            "moves": [
+                "playrough",
+                "shadowclaw",
+                "suckerpunch",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "illusion",
+            "item": "aguavberry",
+            "moves": [
+                "thunderwave",
+                "shadowball",
+                "moonblast",
+                "uturn"
+            ]
+        }
+    ],
+    "lilligantdeltafairy": [
+        {
+            "ability": "serenegrace",
+            "item": "choicescarf",
+            "moves": [
+                "aircutter",
+                "moonblast",
+                "heatwave",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "serenegrace",
+            "item": "aguavberry",
+            "moves": [
+                "thunderwave",
+                "moonblast",
+                "aircutter",
+                "uturn"
+            ]
+        }
+    ],
+    "escavalierdelta": [
+        {
+            "ability": "simple",
+            "item": "trickrock",
+            "moves": [
+                "trickroom",
+                "slackoff",
+                "swordsdance",
+                "playrough"
+            ]
+        },
+        {
+            "ability": "simple",
+            "item": "aguavberry",
+            "moves": [
+                "playrough",
+                "crosschop",
+                "slackoff",
+                "swordsdance"
+            ]
+        },
+        {
+            "ability": "simple",
+            "item": "leftovers",
+            "moves": [
+                "swordsdance",
+                "trickroom",
+                "slackoff",
+                "playrough"
+            ]
+        },
+        {
+            "ability": "heatproof",
+            "item": "assaultvest",
+            "moves": [
+                "playrough",
+                "ironhead",
+                "knockoff",
+                "crosschop"
+            ]
+        }
+    ],
+    "flygonarmor": [
+        {
+            "ability": "levitate",
+            "item": "flygonarmor",
+            "moves": [
+                "defog",
+                "toxic",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "flygonarmor",
+            "moves": [
+                "toxic",
+                "roost",
+                "earthquake",
+                "uturn"
+            ]
+        }
+    ],
+    "froslassdelta": [
+        {
+            "ability": "flashfire",
+            "item": "aguavberry",
+            "moves": [
+                "spikes",
+                "lavaplume",
+                "painsplit",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "choicespecs",
+            "moves": [
+                "fierydance",
+                "energyball",
+                "shadowball",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "deltafroslassite",
+            "moves": [
+                "fierydance",
+                "shadowball",
+                "energyball",
+                "dazzlinggleam"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "deltafroslassite",
+            "moves": [
+                "eruption",
+                "fierydance",
+                "shadowball",
+                "energyball"
+            ]
+        }
+    ],
+    "froslass": [
+        {
+            "ability": "cursedbody",
+            "item": "froslassite",
+            "moves": [
+                "thunderwave",
+                "icebeam",
+                "shadowball",
+                "drainingkiss"
+            ]
+        },
+        {
+            "ability": "cursedbody",
+            "item": "froslassite",
+            "moves": [
+                "substitute",
+                "icebeam",
+                "shadowball",
+                "drainingkiss"
+            ]
+        },
+        {
+            "ability": "cursedbody",
+            "item": "froslassite",
+            "moves": [
+                "spikes",
+                "thunderwave",
+                "destinybond",
+                "hex"
+            ]
+        }
+    ],
+    "galladedelta": [
+        {
+            "ability": "voltabsorb",
+            "item": "focussash",
+            "moves": [
+                "swordsdance",
+                "iceshard",
+                "thunderpunch",
+                "facade"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "leftovers",
+            "moves": [
+                "bulkup",
+                "wildcharge",
+                "iceshard",
+                "drainpunch"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "choicescarf",
+            "moves": [
+                "iciclecrash",
+                "wildcharge",
+                "drainpunch",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "deltagalladite",
+            "moves": [
+                "swordsdance",
+                "iceshard",
+                "thunderpunch",
+                "facade"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "deltagalladite",
+            "moves": [
+                "bulkup",
+                "wildcharge",
+                "iceshard",
+                "drainpunch"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "deltagalladite",
+            "moves": [
+                "iciclecrash",
+                "wildcharge",
+                "drainpunch",
+                "voltswitch"
+            ]
+        }
+    ],
+    "gardevoirdelta": [
+        {
+            "ability": "lightningrod",
+            "item": "aguavberry",
+            "moves": [
+                "calmmind",
+                "icebeam",
+                "thunderbolt",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "clearbody",
+            "item": "choicescarf",
+            "moves": [
+                "icebeam",
+                "thunderbolt",
+                "voltswitch",
+                "trick"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "sitrusberry",
+            "moves": [
+                "substitute",
+                "icebeam",
+                "thunderbolt",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "clearbody",
+            "item": "choicespecs",
+            "moves": [
+                "icebeam",
+                "thunderbolt",
+                "voltswitch",
+                "moonblast"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "deltagardevoirite",
+            "moves": [
+                "calmmind",
+                "icebeam",
+                "thunderbolt",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "deltagardevoirite",
+            "moves": [
+                "icebeam",
+                "thunderbolt",
+                "voltswitch",
+                "thunderwave"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "deltagardevoirite",
+            "moves": [
+                "substitute",
+                "icebeam",
+                "thunderbolt",
+                "earthpower"
+            ]
+        }
+    ],
+    "goodradelta": [
+        {
+            "ability": "waterabsorb",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "earthpower",
+                "surf"
+            ]
+        },
+        {
+            "ability": "gooey",
+            "item": "assaultvest",
+            "moves": [
+                "scald",
+                "earthpower",
+                "gigadrain",
+                "icebeam"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "aguavberry",
+            "moves": [
+                "stealthrock",
+                "painsplit",
+                "scald",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "seismictoss",
+                "earthpower",
+                "rest"
+            ]
+        }
+    ],
+    "bisharpdelta": [
+        {
+            "ability": "windforce",
+            "item": "sitrusberry",
+            "moves": [
+                "bulkup",
+                "roost",
+                "highjumpkick",
+                "acrobatics"
+            ]
+        },
+        {
+            "ability": "windforce",
+            "item": "leftovers",
+            "moves": [
+                "defog",
+                "uturn",
+                "roost",
+                "highjumpkick"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "sitrusberry",
+            "moves": [
+                "bulkup",
+                "thunderpunch",
+                "drainpunch",
+                "acrobatics"
+            ]
+        },
+        {
+            "ability": "windforce",
+            "item": "choicescarf",
+            "moves": [
+                "highjumpkick",
+                "acrobatics",
+                "thunderpunch",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "whiteherb",
+            "moves": [
+                "uturn",
+                "acrobatics",
+                "superpower",
+                "roost"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "deltabisharpite",
+            "moves": [
+                "aerialace",
+                "highjumpkick",
+                "machpunch",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "windforce",
+            "item": "deltabisharpite",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "aerialace",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "windforce",
+            "item": "deltabisharpite",
+            "moves": [
+                "highjumpkick",
+                "aerialace",
+                "bulkup",
+                "roost"
+            ]
+        }
+    ],
+    "blazikendelta": [
+        {
+            "ability": "galewings",
+            "item": "aguavberry",
+            "moves": [
+                "defog",
+                "bravebird",
+                "roost",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "sitrusberry",
+            "moves": [
+                "acrobatics",
+                "roost",
+                "zenheadbutt",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "galewings",
+            "item": "lifeorb",
+            "moves": [
+                "calmmind",
+                "roost",
+                "airslash",
+                "psyshock"
+            ]
+        },
+        {
+            "ability": "keeneye",
+            "item": "aguavberry",
+            "moves": [
+                "defog",
+                "knockoff",
+                "bravebird",
+                "uturn"
+            ]
+        }
+    ],
+    "charizarddelta": [
+        {
+            "ability": "darkaura",
+            "item": "choicespecs",
+            "moves": [
+                "shadowball",
+                "dracometeor",
+                "darkpulse",
+                "sludgebomb"
+            ]
+        },
+        {
+            "ability": "darkaura",
+            "item": "choicescarf",
+            "moves": [
+                "shadowball",
+                "dracometeor",
+                "darkpulse",
+                "sludgebomb"
+            ]
+        },
+        {
+            "ability": "darkaura",
+            "item": "sitrusberry",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "shadowsneak",
+                "dragonclaw"
+            ]
+        },
+        {
+            "ability": "darkaura",
+            "item": "lifeorb",
+            "moves": [
+                "dracometeor",
+                "shadowball",
+                "darkpulse",
+                "sludgebomb"
+            ]
+        },
+        {
+            "ability": "darkaura",
+            "item": "deltacharizardite",
+            "moves": [
+                "shadowball",
+                "dracometeor",
+                "lunarcannon",
+                "sludgebomb"
+            ]
+        },
+        {
+            "ability": "darkaura",
+            "item": "deltacharizardite",
+            "moves": [
+                "shadowball",
+                "darkpulse",
+                "dracometeor",
+                "sludgebomb"
+            ]
+        }
+    ],
+    "dugtriodelta": [
+        {
+            "ability": "furcoat",
+            "item": "leftovers",
+            "moves": [
+                "substitute",
+                "extremespeed",
+                "iciclecrash",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "furcoat",
+            "item": "focussash",
+            "moves": [
+                "honeclaws",
+                "extremespeed",
+                "iciclecrash",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "furcoat",
+            "item": "lifeorb",
+            "moves": [
+                "achillesheel",
+                "iciclecrash",
+                "earthquake",
+                "suckerpunch"
+            ]
+        },
+        {
+            "ability": "furcoat",
+            "item": "choiceband",
+            "moves": [
+                "extremespeed",
+                "iciclecrash",
+                "earthquake",
+                "knockoff"
+            ]
+        }
+    ],
+    "electiviredelta": [
+        {
+            "ability": "shadowdance",
+            "item": "aguavberry",
+            "moves": [
+                "swordsdance",
+                "stoneedge",
+                "dragonclaw",
+                "crunch"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "choiceband",
+            "moves": [
+                "stoneedge",
+                "dragonclaw",
+                "earthquake",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "sturdy",
+            "item": "aguavberry",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "roost",
+                "dragontail"
+            ]
+        },
+        {
+            "ability": "shadowdance",
+            "item": "sitrusberry",
+            "moves": [
+                "honeclaws",
+                "stoneedge",
+                "earthquake",
+                "crunch"
+            ]
+        }
+    ],
+    "typhlosion": [
+        {
+            "ability": "flashfire",
+            "item": "typhlosionite",
+            "moves": [
+                "fireblast",
+                "focusblast",
+                "extrasensory",
+                "hiddenpowerelectric"
+            ]
+        }
+    ],
+    "vespiquendelta": [
+        {
+            "ability": "levitate",
+            "item": "assaultvest",
+            "moves": [
+                "lavaplume",
+                "gyroball",
+                "scald",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "leftovers",
+            "moves": [
+                "willowisp",
+                "flashcannon",
+                "roost",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "aguavberry",
+            "moves": [
+                "roost",
+                "stealthrock",
+                "lavaplume",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "speedboost",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "roost",
+                "fireblast",
+                "flashcannon"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "aguavberry",
+            "moves": [
+                "shiftgear",
+                "ironhead",
+                "flareblitz",
+                "drillrun"
+            ]
+        },
+        {
+            "ability": "speedboost",
+            "item": "leftovers",
+            "moves": [
+                "irondefense",
+                "calmmind",
+                "roost",
+                "flashcannon"
+            ]
+        }
+    ],
+    "zebstrika": [
+        {
+            "ability": "lightningrod",
+            "item": "zebstrikite",
+            "moves": [
+                "thunderbolt",
+                "dazzlinggleam",
+                "overheat",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "lightningrod",
+            "item": "zebstrikite",
+            "moves": [
+                "thunderwave",
+                "thunderbolt",
+                "dazzlinggleam",
+                "voltswitch"
+            ]
+        }
+    ],
+    "zoroark": [
+        {
+            "ability": "illusion",
+            "item": "zoronite",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "pursuit",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "illusion",
+            "item": "zoronite",
+            "moves": [
+                "nastyplot",
+                "darkpulse",
+                "flamethrower",
+                "sludgebomb"
+            ]
+        },
+        {
+            "ability": "illusion",
+            "item": "zoronite",
+            "moves": [
+                "darkpulse",
+                "sludgebomb",
+                "extrasensory",
+                "uturn"
+            ]
+        }
+    ],
+    "aggrondelta": [
+        {
+            "ability": "flamebody",
+            "item": "shucaberry",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "heatcrash",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "flamebody",
+            "item": "aguavberry",
+            "moves": [
+                "stealthrock",
+                "willowisp",
+                "heatcrash",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "drought",
+            "item": "heatrock",
+            "moves": [
+                "flareblitz",
+                "ironhead",
+                "stealthrock",
+                "toxic"
+            ]
+        },
+        {
+            "ability": "drought",
+            "item": "heatrock",
+            "moves": [
+                "swordsdance",
+                "heatcrash",
+                "ironhead",
+                "earthquake"
+            ]
+        }
+    ],
+    "ambipomdelta": [
+        {
+            "ability": "technician",
+            "item": "choiceband",
+            "moves": [
+                "achillesheel",
+                "shadowpunch",
+                "brickbreak",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "technician",
+            "item": "normalgem",
+            "moves": [
+                "fakeout",
+                "acrobatics",
+                "achillesheel",
+                "shadowpunch"
+            ]
+        }
+    ],
+    "amoongussdelta": [
+        {
+            "ability": "prankster",
+            "item": "leftovers",
+            "moves": [
+                "destinybond",
+                "taunt",
+                "foulplay",
+                "nightshade"
+            ]
+        },
+        {
+            "ability": "prankster",
+            "item": "leftovers",
+            "moves": [
+                "willowisp",
+                "knockoff",
+                "foulplay",
+                "painsplit"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "trickrock",
+            "moves": [
+                "willowisp",
+                "trickroom",
+                "knockoff",
+                "painsplit"
+            ]
+        },
+        {
+            "ability": "prankster",
+            "item": "aguavberry",
+            "moves": [
+                "thunderwave",
+                "foulplay",
+                "nightshade",
+                "disable"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "aguavberry",
+            "moves": [
+                "thunderwave",
+                "foulplay",
+                "knockoff",
+                "nightshade"
+            ]
+        }
+    ],
+    "serperiordelta": [
+        {
+            "ability": "multiscale",
+            "item": "leftovers",
+            "moves": [
+                "defog",
+                "glare",
+                "dracometeor",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "multiscale",
+            "item": "aguavberry",
+            "moves": [
+                "toxic",
+                "dracometeor",
+                "slackoff",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "drizzle",
+            "item": "damprock",
+            "moves": [
+                "glare",
+                "dracometeor",
+                "surf",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "drizzle",
+            "item": "damprock",
+            "moves": [
+                "slackoff",
+                "glare",
+                "dracometeor",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "multiscale",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "slackoff",
+                "scald",
+                "icebeam"
+            ]
+        },
+        {
+            "ability": "drizzle",
+            "item": "assaultvest",
+            "moves": [
+                "knockoff",
+                "scald",
+                "dracometeor",
+                "uturn"
+            ]
+        }
+    ],
+    "snorlaxdeltasakura": [
+        {
+            "ability": "thickfat",
+            "item": "assaultvest",
+            "moves": [
+                "seedbomb",
+                "playrough",
+                "earthquake",
+                "drainpunch"
+            ]
+        }
+    ],
+    "snorlaxdeltawinter": [
+        {
+            "ability": "thickfat",
+            "item": "leftovers",
+            "moves": [
+                "bulkup",
+                "synthesis",
+                "seedbomb",
+                "earthquake"
+            ]
+        }
+    ],
+    "snorlaxdeltaautumn": [
+        {
+            "ability": "adaptability",
+            "item": "aguavberry",
+            "moves": [
+                "bulkup",
+                "synthesis",
+                "woodhammer",
+                "earthquake"
+            ]
+        }
+    ],
+    "snorlaxdelta": [
+        {
+            "ability": "adaptability",
+            "item": "choiceband",
+            "moves": [
+                "woodhammer",
+                "earthquake",
+                "drainpunch",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "thickfat",
+            "item": "aguavberry",
+            "moves": [
+                "bulkup",
+                "drainpunch",
+                "woodhammer",
+                "playrough"
+            ]
+        }
+    ],
+    "stunfisk": [
+        {
+            "ability": "static",
+            "item": "stunfiskite",
+            "moves": [
+                "thunderbolt",
+                "earthpower",
+                "surf",
+                "voltswitch"
+            ]
+        }
+    ],
+    "tyranitararmor": [
+        {
+            "ability": "sandstream",
+            "item": "tyranitararmor",
+            "moves": [
+                "stealthrock",
+                "permafrost",
+                "dragontail",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "sandstream",
+            "item": "tyranitararmor",
+            "moves": [
+                "dragondance",
+                "stoneedge",
+                "crunch",
+                "thunderpunch"
+            ]
+        },
+        {
+            "ability": "sandstream",
+            "item": "tyranitararmor",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "stoneedge",
+                "crunch"
+            ]
+        },
+        {
+            "ability": "sandstream",
+            "item": "tyranitararmor",
+            "moves": [
+                "honeclaws",
+                "stoneedge",
+                "earthquake",
+                "thunderwave"
+            ]
+        }
+    ],
+    "milotic": [
+        {
+            "ability": "marvelscale",
+            "item": "milotite",
+            "moves": [
+                "scald",
+                "icebeam",
+                "moonblast",
+                "recover"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "milotite",
+            "moves": [
+                "scald",
+                "recover",
+                "haze",
+                "toxic"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "milotite",
+            "moves": [
+                "recover",
+                "haze",
+                "moonblast",
+                "scald"
+            ]
+        },
+        {
+            "ability": "competitive",
+            "item": "milotite",
+            "moves": [
+                "scald",
+                "recover",
+                "moonblast",
+                "toxic"
+            ]
+        }
+    ],
+    "miltank": [
+        {
+            "ability": "thickfat",
+            "item": "miltankite",
+            "moves": [
+                "curse",
+                "milkdrink",
+                "bodyslam",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "thickfat",
+            "item": "miltankite",
+            "moves": [
+                "defensecurl",
+                "rollout",
+                "milkdrink",
+                "healbell"
+            ]
+        },
+        {
+            "ability": "sapsipper",
+            "item": "miltankite",
+            "moves": [
+                "bodyslam",
+                "poweruppunch",
+                "ironhead",
+                "milkdrink"
+            ]
+        }
+    ],
+    "poliwrath": [
+        {
+            "ability": "waterabsorb",
+            "item": "poliwrathite",
+            "moves": [
+                "hypnosis",
+                "focuspunch",
+                "waterfall",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "poliwrathite",
+            "moves": [
+                "hypnosis",
+                "wakeupslap",
+                "waterfall",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "waterabsorb",
+            "item": "poliwrathite",
+            "moves": [
+                "bulkup",
+                "hypnosis",
+                "dynamicpunch",
+                "waterfall"
+            ]
+        }
+    ],
+    "regicedelta": [
+        {
+            "ability": "stormdrain",
+            "item": "leftovers",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "scald",
+                "recover"
+            ]
+        },
+        {
+            "ability": "stormdrain",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "stealthrock",
+                "recover",
+                "whirlpool"
+            ]
+        },
+        {
+            "ability": "stormdrain",
+            "item": "assaultvest",
+            "moves": [
+                "scald",
+                "earthpower",
+                "icebeam",
+                "thunderbolt"
+            ]
+        },
+        {
+            "ability": "stormdrain",
+            "item": "aguavberry",
+            "moves": [
+                "permafrost",
+                "stealthrock",
+                "surf",
+                "recover"
+            ]
+        }
+    ],
+    "regirockdelta": [
+        {
+            "ability": "dryskin",
+            "item": "leftovers",
+            "moves": [
+                "earthquake",
+                "knockoff",
+                "stealthrock",
+                "recover"
+            ]
+        },
+        {
+            "ability": "dryskin",
+            "item": "leftovers",
+            "moves": [
+                "earthquake",
+                "toxic",
+                "stealthrock",
+                "recover"
+            ]
+        },
+        {
+            "ability": "dryskin",
+            "item": "aguavberry",
+            "moves": [
+                "earthquake",
+                "knockoff",
+                "toxic",
+                "recover"
+            ]
+        },
+        {
+            "ability": "dryskin",
+            "item": "assaultvest",
+            "moves": [
+                "earthquake",
+                "stoneedge",
+                "poweruppunch",
+                "drainpunch"
+            ]
+        },
+        {
+            "ability": "dryskin",
+            "item": "rockyhelmet",
+            "moves": [
+                "earthquake",
+                "recover",
+                "toxic",
+                "knockoff"
+            ]
+        }
+    ],
+    "registeeldelta": [
+        {
+            "ability": "flamebody",
+            "item": "leftovers",
+            "moves": [
+                "willowisp",
+                "recover",
+                "flareblitz",
+                "knockoff"
+            ]
+        },
+        {
+            "ability": "flamebody",
+            "item": "rockyhelmet",
+            "moves": [
+                "recover",
+                "stealthrock",
+                "lavaplume",
+                "thunderbolt"
+            ]
+        },
+        {
+            "ability": "foundry",
+            "item": "aguavberry",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "knockoff",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "foundry",
+            "item": "assaultvest",
+            "moves": [
+                "drainpunch",
+                "earthquake",
+                "poweruppunch",
+                "stoneedge"
+            ]
+        }
+    ],
+    "meloettadelta": [
+        {
+            "ability": "filter",
+            "item": "choiceband",
+            "moves": [
+                "knockoff",
+                "playrough",
+                "ironhead",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "filter",
+            "item": "weaknesspolicy",
+            "moves": [
+                "acrobatics",
+                "knockoff",
+                "playrough",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "filter",
+            "item": "lifeorb",
+            "moves": [
+                "playrough",
+                "suckerpunch",
+                "drainpunch",
+                "ironhead"
+            ]
+        },
+        {
+            "ability": "filter",
+            "item": "choicescarf",
+            "moves": [
+                "knockoff",
+                "ironhead",
+                "playrough",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "filter",
+            "item": "assaultvest",
+            "moves": [
+                "knockoff",
+                "playrough",
+                "ironhead",
+                "uturn"
+            ]
+        }
+    ],
+    "metagrossdeltaruin": [
+        {
+            "ability": "sturdy",
+            "item": "weaknesspolicy",
+            "moves": [
+                "diamondstorm",
+                "seedbomb",
+                "drainpunch",
+                "rockpolish"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "choiceband",
+            "moves": [
+                "headsmash",
+                "woodhammer",
+                "crystalrush",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "choicescarf",
+            "moves": [
+                "headsmash",
+                "woodhammer",
+                "earthquake",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "rockhead",
+            "item": "leftovers",
+            "moves": [
+                "honeclaws",
+                "headsmash",
+                "woodhammer",
+                "drainpunch"
+            ]
+        }
+    ],
+    "metagrossdeltaspider": [
+        {
+            "ability": "poisonheal",
+            "item": "toxicorb",
+            "moves": [
+                "spikes",
+                "stealthrock",
+                "stickyweb",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "toxicorb",
+            "moves": [
+                "spikes",
+                "stealthrock",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "toxicorb",
+            "moves": [
+                "toxicspikes",
+                "stealthrock",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "toxicorb",
+            "moves": [
+                "stickyweb",
+                "stealthrock",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "toxicorb",
+            "moves": [
+                "spikes",
+                "toxicspikes",
+                "earthquake",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "choiceband",
+            "moves": [
+                "earthquake",
+                "knockoff",
+                "rockslide",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "poisonheal",
+            "item": "toxicorb",
+            "moves": [
+                "substitute",
+                "earthquake",
+                "smackdown",
+                "uturn"
+            ]
+        }
+    ],
+    "flygon": [
+        {
+            "ability": "levitate",
+            "item": "flygonite",
+            "moves": [
+                "boomburst",
+                "bugbuzz",
+                "drakonvoice",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "levitate",
+            "item": "flygonite",
+            "moves": [
+                "boomburst",
+                "drakonvoice",
+                "fireblast",
+                "uturn"
+            ]
+        }
+    ],
+    "haxorusdelta": [
+        {
+            "ability": "waterveil",
+            "item": "choiceband",
+            "moves": [
+                "aquajet",
+                "ironhead",
+                "waterfall",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "waterveil",
+            "item": "sitrusberry",
+            "moves": [
+                "swordsdance",
+                "bulletpunch",
+                "aquajet",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "waterveil",
+            "item": "assaultvest",
+            "moves": [
+                "bulletpunch",
+                "ironhead",
+                "waterfall",
+                "earthquake"
+            ]
+        }
+    ],
+    "jirachi": [
+        {
+            "ability": "serenegrace",
+            "item": "jirachite",
+            "moves": [
+                "doomdesire",
+                "wish",
+                "protect",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "serenegrace",
+            "item": "jirachite",
+            "moves": [
+                "stealthrock",
+                "thunderwave",
+                "doomdesire",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "serenegrace",
+            "item": "jirachite",
+            "moves": [
+                "calmmind",
+                "doomdesire",
+                "futuresight",
+                "wish"
+            ]
+        }
+    ],
+    "magcargo": [
+        {
+            "ability": "flamebody",
+            "item": "magcargonite",
+            "moves": [
+                "shellsmash",
+                "fireblast",
+                "ancientpower",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "flamebody",
+            "item": "magcargonite",
+            "moves": [
+                "substitute",
+                "shellsmash",
+                "flamethrower",
+                "ancientpower"
+            ]
+        }
+    ],
+    "chatot": [
+        {
+            "ability": "bigpecks",
+            "item": "chatotite",
+            "moves": [
+                "boomburst",
+                "heatwave",
+                "chatter",
+                "nastyplot"
+            ]
+        },
+        {
+            "ability": "bigpecks",
+            "item": "chatotite",
+            "moves": [
+                "boomburst",
+                "chatter",
+                "nastyplot",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "bigpecks",
+            "item": "chatotite",
+            "moves": [
+                "encore",
+                "nastyplot",
+                "boomburst",
+                "heatwave"
+            ]
+        }
+    ],
+    "crawdauntmega": [
+        {
+            "ability": "adaptability",
+            "item": "crawdauntite",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "waterfall",
+                "aquajet"
+            ]
+        },
+        {
+            "ability": "adaptability",
+            "item": "crawdauntite",
+            "moves": [
+                "knockoff",
+                "crabhammer",
+                "dragondance",
+                "facade"
+            ]
+        }
+    ],
+    "darmanitandelta": [
+        {
+            "ability": "wonderskin",
+            "item": "choiceband",
+            "moves": [
+                "knockoff",
+                "shadowclaw",
+                "shadowsneak",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "wonderskin",
+            "item": "lifeorb",
+            "moves": [
+                "drainpunch",
+                "knockoff",
+                "shadowsneak",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "wonderskin",
+            "item": "choicescarf",
+            "moves": [
+                "knockoff",
+                "shadowclaw",
+                "drainpunch",
+                "uturn"
+            ]
+        }
+    ],
+    "donphanmega": [
+        {
+            "ability": "irrelephant",
+            "item": "donphanite",
+            "moves": [
+                "rapidspin",
+                "earthquake",
+                "headsmash",
+                "iceshard"
+            ]
+        },
+        {
+            "ability": "irrelephant",
+            "item": "donphanite",
+            "moves": [
+                "stealthrock",
+                "earthquake",
+                "stoneedge",
+                "iceshard"
+            ]
+        },
+        {
+            "ability": "irrelephant",
+            "item": "donphanite",
+            "moves": [
+                "earthquake",
+                "facade",
+                "iceshard",
+                "knockoff"
+            ]
+        }
+    ],
+    "dragonitedelta": [
+        {
+            "ability": "voltabsorb",
+            "item": "leftovers",
+            "moves": [
+                "calmmind",
+                "scald",
+                "icebeam",
+                "thunderbolt"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "choicescarf",
+            "moves": [
+                "waterfall",
+                "wildcharge",
+                "icepunch",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "swiftswim",
+            "item": "choiceband",
+            "moves": [
+                "waterfall",
+                "wildcharge",
+                "icepunch",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "voltabsorb",
+            "item": "assaultvest",
+            "moves": [
+                "aquajet",
+                "knockoff",
+                "thunderpunch",
+                "uturn"
+            ]
+        },
+        {
+            "ability": "swiftswim",
+            "item": "choicespecs",
+            "moves": [
+                "hydropump",
+                "icebeam",
+                "thunderbolt",
+                "voltswitch"
+            ]
+        }
+    ],
+    "eevee": [
+        {
+            "ability": "anticipation",
+            "item": "eevite",
+            "moves": [
+                "wish",
+                "moonblast",
+                "foulplay",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "anticipation",
+            "item": "eevite",
+            "moves": [
+                "icebeam",
+                "flareblitz",
+                "psychic",
+                "voltswitch"
+            ]
+        },
+        {
+            "ability": "anticipation",
+            "item": "eevite",
+            "moves": [
+                "toxic",
+                "wish",
+                "foulplay",
+                "voltswitch"
+            ]
+        }
+    ],
+    "feraligatr": [
+        {
+            "ability": "sheerforce",
+            "item": "feraligatite",
+            "moves": [
+                "dragondance",
+                "waterfall",
+                "icepunch",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "sheerforce",
+            "item": "feraligatite",
+            "moves": [
+                "swordsdance",
+                "waterfall",
+                "aquajet",
+                "icepunch"
+            ]
+        },
+        {
+            "ability": "sheerforce",
+            "item": "feraligatite",
+            "moves": [
+                "dragondance",
+                "waterfall",
+                "facade",
+                "icepunch"
+            ]
+        }
+    ],
+    "arcaninedelta": [
+        {
+            "ability": "multiscale",
+            "item": "lumberry",
+            "moves": [
+                "swordsdance",
+                "extremespeed",
+                "dragonclaw",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "multiscale",
+            "item": "choicespecs",
+            "moves": [
+                "dracometeor",
+                "hypervoice",
+                "fireblast",
+                "surf"
+            ]
+        },
+        {
+            "ability": "intimidate",
+            "item": "assaultvest",
+            "moves": [
+                "extremespeed",
+                "dragonclaw",
+                "earthquake",
+                "ironhead"
+            ]
+        }
+    ],
+    "aurorusdelta": [
+        {
+            "ability": "phototroph",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "recover",
+                "scald",
+                "gigadrain"
+            ]
+        },
+        {
+            "ability": "phototroph",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "protect",
+                "recover",
+                "whirlpool"
+            ]
+        },
+        {
+            "ability": "phototroph",
+            "item": "assaultvest",
+            "moves": [
+                "gigadrain",
+                "scald",
+                "icebeam",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "phototroph",
+            "item": "aguavberry",
+            "moves": [
+                "calmmind",
+                "recover",
+                "scald",
+                "energyball"
+            ]
+        }
+    ],
+    "avaluggdelta": [
+        {
+            "ability": "solidrock",
+            "item": "leftovers",
+            "moves": [
+                "rapidspin",
+                "stealthrock",
+                "slackoff",
+                "stoneedge"
+            ]
+        },
+        {
+            "ability": "solidrock",
+            "item": "aguavberry",
+            "moves": [
+                "stealthrock",
+                "spikes",
+                "dragontail",
+                "slackoff"
+            ]
+        },
+        {
+            "ability": "solidrock",
+            "item": "weaknesspolicy",
+            "moves": [
+                "slackoff",
+                "stoneedge",
+                "dragonclaw",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "sandstream",
+            "item": "smoothrock",
+            "moves": [
+                "stealthrock",
+                "toxic",
+                "stoneedge",
+                "slackoff"
+            ]
+        },
+        {
+            "ability": "sandstream",
+            "item": "leftovers",
+            "moves": [
+                "rapidspin",
+                "slackoff",
+                "stoneedge",
+                "earthquake"
+            ]
+        },
+        {
+            "ability": "battlearmor",
+            "item": "leftovers",
+            "moves": [
+                "toxic",
+                "slackoff",
+                "stoneedge",
+                "earthquake"
+            ]
+        }
+    ],
+    "bisharp": [
+        {
+            "ability": "defiant",
+            "item": "bisharpite",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "ironhead",
+                "suckerpunch"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "bisharpite",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "ironhead",
+                "facade"
+            ]
+        },
+        {
+            "ability": "defiant",
+            "item": "bisharpite",
+            "moves": [
+                "swordsdance",
+                "knockoff",
+                "ironhead",
+                "pursuit"
+            ]
+        }
+    ],
+    "chandeluredelta": [
+        {
+            "ability": "fairyaura",
+            "item": "choicespecs",
+            "moves": [
+                "moonblast",
+                "fireblast",
+                "energyball",
+                "earthpower"
+            ]
+        },
+        {
+            "ability": "fairyaura",
+            "item": "choicescarf",
+            "moves": [
+                "moonblast",
+                "fireblast",
+                "earthpower",
+                "trick"
+            ]
+        },
+        {
+            "ability": "fairyaura",
+            "item": "leftovers",
+            "moves": [
+                "substitute",
+                "moonblast",
+                "fireblast",
+                "scald"
+            ]
+        }
+    ]
+}

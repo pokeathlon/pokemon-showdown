@@ -7,6 +7,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Steel", "Electric"],
 	},
+	magnezone: {
+		inherit: true,
+		types: ["Steel", "Electric"],
+	},
 	spiritomb: {
 		inherit: true,
 		types: ["Dark", "Ghost"],

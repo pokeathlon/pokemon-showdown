@@ -6,7 +6,7 @@ import {toID} from '../../../sim/dex';
 
 // Moves that restore HP:
 const RECOVERY_MOVES = [
-	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'roost', 'slackoff', 'softboiled', 'synthesis',
+	'healorder', 'milkdrink', 'moonlight', 'morningsun', 'recover', 'recycle', 'roost', 'slackoff', 'softboiled', 'synthesis',
 ];
 // Moves that boost Attack:
 const PHYSICAL_SETUP = [
@@ -59,7 +59,7 @@ const MOVE_PAIRS = [
 
 /** Pokemon who always want priority STAB, and are fine with it as its only STAB move of that type */
 const PRIORITY_POKEMON = [
-	'aegislashblade', 'banette', 'breloom', 'cacturne', 'doublade', 'dusknoir', 'honchkrow', 'scizor', 'scizormega', 'shedinja',
+	'aegislash', 'banette', 'breloom', 'cacturne', 'doublade', 'dusknoir', 'honchkrow', 'scizor', 'scizormega', 'shedinja',
 ];
 
 export class RandomGen6Teams extends RandomGen7Teams {
@@ -352,7 +352,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		}
 
 		// Enforce STAB priority
-		if (['Bulky Attacker', 'Bulky Setup'].includes(role) || this.priorityPokemon.includes(species.id)) {
+		if (['Bulky Attacker', 'Bulky Setup', 'Wallbreaker'].includes(role) || this.priorityPokemon.includes(species.id)) {
 			const priorityMoves = [];
 			for (const moveid of movePool) {
 				const move = this.dex.moves.get(moveid);
@@ -544,7 +544,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			return !counter.get('inaccurate');
 		case 'Contrary': case 'Skill Link': case 'Strong Jaw':
 			return !counter.get(toID(ability));
-		case 'Defiant': case 'Justified': case 'Moxie':
+		case 'Defiant': case 'Justified':
 			return !counter.get('Physical');
 		case 'Guts':
 			return (!moves.has('facade') && !moves.has('sleeptalk'));
@@ -566,12 +566,16 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			return (abilities.has('Tinted Lens') && role === 'Wallbreaker');
 		case 'Mold Breaker':
 			return (species.baseSpecies === 'Basculin' || species.id === 'pangoro' || abilities.has('Sheer Force'));
+		case 'Moxie':
+			return (!counter.get('Physical') || moves.has('stealthrock') || (!!species.isMega && abilities.has('Intimidate')));
 		case 'Oblivious': case 'Prankster':
 			return (!counter.get('Status') || (species.id === 'tornadus' && moves.has('bulkup')));
 		case 'Overcoat':
 			return types.has('Grass');
 		case 'Overgrow':
 			return !counter.get('Grass');
+		case 'Shed Skin':
+			return !moves.has('rest');
 		case 'Synchronize':
 			return (counter.get('Status') < 2 || !!counter.get('recoil') || !!species.isMega);
 		case 'Regenerator':
@@ -644,25 +648,27 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		if (species.id === 'starmie') return role === 'Wallbreaker' ? 'Analytic' : 'Natural Cure';
 		if (species.id === 'beheeyem') return 'Analytic';
 		if (species.id === 'ninetales') return 'Drought';
+		if (species.baseSpecies === 'Gourgeist') return 'Frisk';
 		if (species.id === 'pinsirmega') return 'Hyper Cutter';
 		if (species.id === 'ninjask' || species.id === 'seviper') return 'Infiltrator';
-		if (species.id === 'lucariomega') return 'Justified';
 		if (species.id === 'gligar') return 'Immunity';
-		if (species.id === 'arcanine') return 'Intimidate';
+		if (species.id === 'arcanine' || species.id === 'stantler') return 'Intimidate';
+		if (species.id === 'lucariomega') return 'Justified';
+		if (species.id === 'persian' && !counter.get('technician')) return 'Limber';
 		if (species.baseSpecies === 'Altaria') return 'Natural Cure';
 		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
 		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
 		if (species.id === 'muk') return 'Poison Touch';
 		if (['dusknoir', 'vespiquen'].includes(species.id)) return 'Pressure';
 		if (species.id === 'druddigon' && role === 'Bulky Support') return 'Rough Skin';
-		if (species.id === 'pangoro' && !counter.get('ironfist')) return 'Scrappy';
+		if (species.id === 'zebstrika') return moves.has('wildcharge') ? 'Sap Sipper' : 'Lightning Rod';
+		if (species.id === 'stoutland' || species.id === 'pangoro' && !counter.get('ironfist')) return 'Scrappy';
+		if (species.id === 'octillery') return 'Sniper';
 		if (species.id === 'stunfisk') return 'Static';
 		if (species.id === 'breloom') return 'Technician';
 		if (species.id === 'zangoose') return 'Toxic Boost';
-		if (species.id === 'porygon2' || species.id === 'gardevoir') return 'Trace';
 
 		if (abilities.has('Harvest') && (role === 'Bulky Support' || role === 'Staller')) return 'Harvest';
-		if (abilities.has('Moxie') && (counter.get('Physical') > 3)) return 'Moxie';
 		if (abilities.has('Regenerator') && role === 'AV Pivot') return 'Regenerator';
 		if (abilities.has('Shed Skin') && moves.has('rest') && !moves.has('sleeptalk')) return 'Shed Skin';
 		if (abilities.has('Sniper') && moves.has('focusenergy')) return 'Sniper';
@@ -749,6 +755,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			}
 		}
 		if (moves.has('bellydrum')) return 'Sitrus Berry';
+		if (moves.has('waterspout')) return 'Choice Scarf';
 		if (moves.has('geomancy') || moves.has('skyattack')) return 'Power Herb';
 		if (moves.has('shellsmash')) {
 			return (ability === 'Solid Rock' && !!counter.get('priority')) ? 'Weakness Policy' : 'White Herb';
@@ -906,8 +913,11 @@ export class RandomGen6Teams extends RandomGen7Teams {
 
 		const level = this.getLevel(species);
 
-		// Minimize confusion damage
-		if (!counter.get('Physical') && !moves.has('copycat') && !moves.has('transform')) {
+		// Minimize confusion damage, including if Foul Play is its only physical attack
+		if (
+			(!counter.get('Physical') || (counter.get('Physical') <= 1 && moves.has('foulplay'))) &&
+			!moves.has('copycat') && !moves.has('transform')
+		) {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
@@ -939,11 +949,11 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		if (['highjumpkick', 'jumpkick'].some(m => moves.has(m))) srWeakness = 2;
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
-			if (moves.has('substitute')) {
+			if (moves.has('substitute') && !['Black Sludge', 'Leftovers'].includes(item)) {
 				if (item === 'Sitrus Berry') {
 					// Two Substitutes should activate Sitrus Berry
 					if (hp % 4 === 0) break;
-				} else if (!['Black Sludge', 'Leftovers'].includes(item)) {
+				} else {
 					// Should be able to use Substitute four times from full HP without fainting
 					if (hp % 4 > 0) break;
 				}

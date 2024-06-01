@@ -87,6 +87,8 @@ interface Handlers {
 	onTicketCreate: (ticket: import('./chat-plugins/helptickets').TicketState, user: User) => void;
 	onChallenge: (user: User, targetUser: User, format: string | ID) => void;
 	onMessageOffline: (context: Chat.CommandContext, message: string, targetUserID: ID) => void;
+	onBattleJoin: (slot: string, user: User, battle: RoomBattle) => void;
+	onPunishUser: (type: string, user: User, room?: Room | null) => void;
 }
 
 export interface ChatPlugin {
@@ -2596,6 +2598,7 @@ export const Chat = new class {
 			}
 		}
 	}
+
 	readonly formatText = formatText;
 	readonly linkRegex = linkRegex;
 	readonly stripFormatting = stripFormatting;

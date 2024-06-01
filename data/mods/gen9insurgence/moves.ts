@@ -45,10 +45,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	futuresight: {
 		inherit: true,
 		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			if (source.hasAbility('periodicorbit')) {
-				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
-			}
 			const futureMoveData = {
 				duration: 3,
 				move: 'futuresight',
@@ -66,8 +62,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					type: 'Psychic',
 				},
 			};
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
-			Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			if (source.hasAbility('periodicorbit')) {
+				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			}
 			this.add('-start', source, 'move: Future Sight');
 			return this.NOT_FAIL;
 		},
@@ -75,10 +75,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	doomdesire: {
 		inherit: true,
 		onTry(source, target) {
-			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			if (source.hasAbility('periodicorbit')) {
-				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
-			}
 			const futureMoveData = {
 				move: 'doomdesire',
 				source: source,
@@ -94,8 +90,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					type: 'Steel',
 				},
 			};
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
-			Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			if (source.hasAbility('periodicorbit')) {
+				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			}
 			this.add('-start', source, 'Doom Desire');
 			return this.NOT_FAIL;
 		},
@@ -403,10 +403,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			const removeTarget = [
-				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
 			];
 			const removeAll = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -432,7 +432,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
 				}
-				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
 				for (const condition of sideConditions) {
 					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
@@ -448,7 +448,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
 				}
-				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
 				for (const condition of sideConditions) {
 					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
@@ -467,7 +467,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
-				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
 				for (const condition of sideConditions) {
 					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
@@ -483,7 +483,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
-				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
 				for (const condition of sideConditions) {
 					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
 						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
@@ -502,7 +502,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const active of this.getAllActive()) {
 				if (active.removeVolatile('substitute')) success = true;
 			}
-			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
 			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
 			for (const side of sides) {
 				for (const sideCondition of removeAll) {
@@ -520,7 +520,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onHitField(target, source) {
 			const sideConditions = [
-				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'permafrost', 'livewire', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'hotcoals', 'permafrost', 'livewire', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
 			];
 			let success = false;
 			if (this.gameType === "freeforall") {
@@ -576,6 +576,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			if (!success) return false;
 			this.add('-activate', source, 'move: Court Change');
+		},
+	},
+	relicsong: {
+		inherit: true,
+		onHit(target, pokemon, move) {
+			if (['Meloetta', 'Meloetta-Delta'].includes(pokemon.baseSpecies.baseSpecies) && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				let meloettaForme = '';
+				if (pokemon.baseSpecies.baseSpecies === 'Meloetta') {
+					meloettaForme = pokemon.species.id === 'meloettapirouette' ? '' : '-Pirouette';
+				} if (pokemon.baseSpecies.baseSpecies === 'Meloetta-Delta') {
+					meloettaForme = pokemon.species.id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
+				}
+				pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '[msg]');
+			}
 		},
 	},
 
@@ -701,7 +720,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Usually goes first.",
 		pp: 30,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
@@ -721,6 +740,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Dragon",
+		contestType: "Cool",
+	},
+	hotcoals: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Hot Coals",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'hotcoals',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Hot Coals');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots')) return;
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('hotcoals')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+			},
+		},
+		secondary: null,
+		target: "foeSide",
+		type: "Fire",
+		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
 	jetstream: {
@@ -812,7 +858,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	lunarcannon: {
 		num: 0,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 105,
 		category: "Special",
 		name: "Lunar Cannon",
 		desc: "This attack charges on the first turn and executes on the second. If the user is holding a Power Herb or the weather is New Moon, the move completes in one turn.",

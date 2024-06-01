@@ -8,15 +8,32 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onSourceAccuracy(accuracy, target, source, move) {
-			if (source.ability === 'noguard') return 50;
-			return this.chainModify(0.5);
+		onSourceModifyAccuracyPriority: -2,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy === 'number') {
+				return this.chainModify(0.5);
+			} else {
+				return 0.5;
+			}
 		},
 		onModifyCritRatio(critRatio) {
 			return critRatio + 3;
 		},
-		num: -3,
-		gen: 6,
+		num: 0,
+	},
+	necrozium: {
+		name: "Necrozium",
+		desc: "If held by Necrozma, Photon Geyser causes transformation to Ultra forme.",
+		spritenum: 108,
+		onTakeItem(item, pokemon, source) {
+			const validFormes = ['Necrozma', 'Necrozma-Ultra'];
+			if ((source && validFormes.includes(source.baseSpecies.name)) || validFormes.includes(pokemon.baseSpecies.name)) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Necrozma"],
+		num: 0,
 	},
 
 	// IF mods

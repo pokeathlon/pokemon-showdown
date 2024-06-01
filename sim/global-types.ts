@@ -219,6 +219,9 @@ interface ModdedBattleActions {
 	afterMoveSecondaryEvent?: (this: BattleActions, targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) => undefined;
 	calcRecoilDamage?: (this: BattleActions, damageDealt: number, move: Move, pokemon: Pokemon) => number;
 	canMegaEvo?: (this: BattleActions, pokemon: Pokemon) => string | undefined | null;
+	canMegaEvoX?: (this: BattleActions, pokemon: Pokemon) => string | undefined | null;
+	canMegaEvoY?: (this: BattleActions, pokemon: Pokemon) => string | undefined | null;
+	canTerastallize?: (this: BattleActions, pokemon: Pokemon) => string | null;
 	canUltraBurst?: (this: BattleActions, pokemon: Pokemon) => string | null;
 	canZMove?: (this: BattleActions, pokemon: Pokemon) => ZMoveOptions | void;
 	canDynamax?: (this: BattleActions, pokemon: Pokemon, skipChecks?: boolean) => DynamaxOptions | void;
@@ -250,6 +253,8 @@ interface ModdedBattleActions {
 	) => number | undefined | false;
 	runAction?: (this: BattleActions, action: Action) => void;
 	runMegaEvo?: (this: BattleActions, pokemon: Pokemon) => boolean;
+	runMegaEvoX?: (this: BattleActions, pokemon: Pokemon) => boolean;
+	runMegaEvoY?: (this: BattleActions, pokemon: Pokemon) => boolean;
 	runMove?: (
 		this: BattleActions, moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
 		zMove?: string, externalMove?: boolean, maxMove?: string, originalTarget?: Pokemon
@@ -272,6 +277,9 @@ interface ModdedBattleActions {
 		this: BattleActions, targets: SpreadMoveTargets, pokemon: Pokemon, move: ActiveMove,
 		moveData?: ActiveMove, isSecondary?: boolean, isSelf?: boolean
 	) => [SpreadMoveDamage, SpreadMoveTargets];
+	switchIn?: (
+		this: BattleActions, pokemon: Pokemon, pos: number, sourceEffect: Effect | null, isDrag?: boolean
+	) => boolean | "pursuitfaint";
 	targetTypeChoices?: (this: BattleActions, targetType: string) => boolean;
 	terastallize?: (this: BattleActions, pokemon: Pokemon) => void;
 	tryMoveHit?: (
@@ -307,6 +315,8 @@ interface ModdedBattleActions {
 
 interface ModdedBattleSide {
 	canDynamaxNow?: (this: Side) => boolean;
+	chooseSwitch?: (this: Side, slotText?: string) => any;
+	getChoice?: (this: Side) => string;
 	getRequestData?: (this: Side, forAlly?: boolean) => {name: string, id: ID, pokemon: AnyObject[]};
 }
 
@@ -321,6 +331,7 @@ interface ModdedBattlePokemon {
 		this: Pokemon, move: string | Move, amount?: number | null, target?: Pokemon | null | false
 	) => number;
 	eatItem?: (this: Pokemon, force?: boolean, source?: Pokemon, sourceEffect?: Effect) => boolean;
+	effectiveWeather?: (this: Pokemon) => ID;
 	fusionChange?: (
 		this: Pokemon, speciesId: string | Species, source: Effect
 	) => boolean;
@@ -340,6 +351,7 @@ interface ModdedBattlePokemon {
 		move: string, id: string, disabled?: string | boolean, disabledSource?: string,
 		target?: string, pp?: number, maxpp?: number,
 	}[];
+	getMoveTargets?: (this: Pokemon, move: ActiveMove, target: Pokemon) => {targets: Pokemon[], pressureTargets: Pokemon[]};
 	getStat?: (
 		this: Pokemon, statName: StatIDExceptHP, unboosted?: boolean, unmodified?: boolean, fastReturn?: boolean
 	) => number;
@@ -407,6 +419,9 @@ interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
 	win?: (this: Battle, side?: SideID | '' | Side | null) => boolean;
 	faintMessages?: (this: Battle, lastFirst?: boolean, forceCheck?: boolean, checkWin?: boolean) => boolean | undefined;
 	tiebreak?: (this: Battle) => boolean;
+	checkMoveMakesContact?: (
+		this: Battle, move: ActiveMove, attacker: Pokemon, defender: Pokemon, announcePads?: boolean
+	) => boolean;
 	checkWin?: (this: Battle, faintQueue?: Battle['faintQueue'][0]) => true | undefined;
 }
 
@@ -582,5 +597,5 @@ namespace RandomTeamsTypes {
 	'Bulky Attacker' | 'Bulky Setup' | 'Fast Bulky Setup' | 'Bulky Support' | 'Fast Support' | 'AV Pivot' |
 	'Doubles Fast Attacker' | 'Doubles Setup Sweeper' | 'Doubles Wallbreaker' | 'Doubles Bulky Attacker' |
 	'Doubles Bulky Setup' | 'Offensive Protect' | 'Bulky Protect' | 'Doubles Support' | 'Choice Item user' |
-	'Z-Move user' | 'Staller' | 'Spinner' | 'Generalist' | 'Berry Sweeper';
+	'Z-Move user' | 'Staller' | 'Spinner' | 'Generalist' | 'Berry Sweeper' | 'Thief user';
 }

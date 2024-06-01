@@ -437,11 +437,11 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 		// Hard-code abilities here
 		if (species.id === 'yanma' && counter.get('inaccurate')) return 'Compound Eyes';
+		if (moves.has('rest') && abilities.has('Early Bird')) return 'Early Bird';
 		if (species.id === 'arcanine') return 'Intimidate';
 		if (species.id === 'blissey') return 'Natural Cure';
 		if (species.id === 'heracross' && role === 'Berry Sweeper') return 'Swarm';
 		if (species.id === 'xatu') return 'Synchronize';
-		if (species.id === 'gardevoir') return 'Trace';
 
 		let abilityAllowed: Ability[] = [];
 		// Obtain a list of abilities that are allowed (not culled)
@@ -678,7 +678,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 		let numMaxLevelPokemon = 0;
 
-		const pokemonList = (this.gen === 3) ? Object.keys(this.randomSets) : Object.keys(this.randomData);
+		const pokemonList = Object.keys(this.randomSets);
 		const [pokemonPool, baseSpeciesPool] = this.getPokemonPool(type, pokemon, isMonotype, pokemonList);
 		while (baseSpeciesPool.length && pokemon.length < this.maxTeamSize) {
 			const baseSpecies = this.sampleNoReplace(baseSpeciesPool);

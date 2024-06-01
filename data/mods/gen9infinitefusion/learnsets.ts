@@ -1,6 +1,6 @@
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
+export function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 	let finalLearnset: ModdedLearnsetData = {learnset: {}, eventData: []};
 	for (const learnset of learnsets) {
 		if (!learnset.learnset || !finalLearnset.learnset) continue;
