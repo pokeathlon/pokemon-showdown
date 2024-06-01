@@ -835,4 +835,56 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         target: "normal",
         type: "Fighting",
     },
+	spudmortar: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Spud Mortar",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, futuremove: 1},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'spudmortar',
+				source: source,
+				moveData: {
+					id: 'spudmortar',
+					name: "Spud Mortar",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					effectType: 'Move',
+					type: 'Grass',
+				},
+			});
+			this.add('-start', source, 'Spud Mortar');
+			return this.NOT_FAIL;
+		},
+		onBasePower(basePower, pokemon, target) {
+			const item = pokemon.getItem();
+			if (item.isBerry) {
+				return this.chainModify(1.5);
+			}
+		},
+		condition: {
+			onUpdate(pokemon) {
+				const item = pokemon.getItem();
+				if (item.isBerry) {
+					pokemon.setItem('');
+					pokemon.lastItem = item.id;
+					pokemon.usedItemThisTurn = true;
+					this.add('-enditem', pokemon, item.name, '[from] move: Spud Mortar');
+					this.runEvent('AfterUseItem', pokemon, null, null, item);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
 };
