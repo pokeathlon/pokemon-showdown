@@ -846,6 +846,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {metronome: 1, futuremove: 1},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			const item = source.getItem();
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				move: 'spudmortar',
 				source: source,
@@ -853,27 +854,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					id: 'spudmortar',
 					name: "Spud Mortar",
 					accuracy: 100,
-					basePower: 120,
+					basePower: item.isBerry? 120 : 180,
 					category: "Special",
 					priority: 0,
 					flags: {metronome: 1, futuremove: 1},
 					effectType: 'Move',
 					type: 'Grass',
+					start: "  [POKEMON] launched a spud!",
+					activate: "  [TARGET] got hit by a!",
 				},
 			});
+			source.clearItem();
 			this.add('-start', source, 'Spud Mortar');
 			return this.NOT_FAIL;
-		},
-		onBasePower(basePower, pokemon, target) {
-			const item = pokemon.getItem();
-			if (item.isBerry) {
-				pokemon.clearItem;
-				return this.chainModify(1.5);
-			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+		desc: "Deals damage two turns after this move is used. If the user is holding a berry, this move will consume the berry and boost the move's basepower by 50%. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if another future move is already in effect for the target's position.",
+		shortDesc: "Hits two turns after being used. If holding berry, x1.5 BP, consumes berry.",
 	},
 };
