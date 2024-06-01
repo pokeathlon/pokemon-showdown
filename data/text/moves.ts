@@ -7550,6 +7550,5 @@ export const MovesText: {[k: string]: MoveText} = {
 
 		start: "  [POKEMON] launched a spud!",
 		activate: "  [TARGET] was hit by a spud!",
-		end: "  [TARGET] was hit by a spud!",
 	},
 };

@@ -862,10 +862,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					type: 'Grass',
 				},
 			});
-			source.setItem('');
-			source.lastItem = item.id;
-			source.usedItemThisTurn = true;
-			this.add('-enditem', source, item.name, '[from] move: Spud Mortar');
+
+			if (item.isBerry) {
+				source.setItem('');
+				source.lastItem = item.id;
+				source.usedItemThisTurn = true;
+				this.add('-enditem', source, item.name, '[from] move: Spud Mortar');
+			}
+			this.add('-start', source, 'move: Spud Mortar');
 			return this.NOT_FAIL;
 			
 		},
