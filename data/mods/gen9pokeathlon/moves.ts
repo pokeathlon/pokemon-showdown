@@ -854,7 +854,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					id: 'spudmortar',
 					name: "Spud Mortar",
 					accuracy: 100,
-					basePower: item.isBerry? 120 : 180,
+					basePower: item.isBerry? 180 : 120,
 					category: "Special",
 					priority: 0,
 					flags: {metronome: 1, futuremove: 1},
@@ -864,8 +864,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					activate: "  [TARGET] got hit by a!",
 				},
 			});
-			source.clearItem();
-			this.add('-start', source, 'Spud Mortar');
+			source.setItem('');
+			source.lastItem = item.id;
+			source.usedItemThisTurn = true;
+			this.add('-enditem', source, item.name, '[from] move: Spud Mortar');
 			return this.NOT_FAIL;
 		},
 		secondary: null,
