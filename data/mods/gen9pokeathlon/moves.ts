@@ -867,20 +867,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onBasePower(basePower, pokemon, target) {
 			const item = pokemon.getItem();
 			if (item.isBerry) {
+				pokemon.clearItem;
 				return this.chainModify(1.5);
 			}
-		},
-		condition: {
-			onUpdate(pokemon) {
-				const item = pokemon.getItem();
-				if (item.isBerry) {
-					pokemon.setItem('');
-					pokemon.lastItem = item.id;
-					pokemon.usedItemThisTurn = true;
-					this.add('-enditem', pokemon, item.name, '[from] move: Spud Mortar');
-					this.runEvent('AfterUseItem', pokemon, null, null, item);
-				}
-			},
 		},
 		secondary: null,
 		target: "normal",
