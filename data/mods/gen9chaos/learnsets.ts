@@ -313,7 +313,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	magnemite: {inherit: true, learnset: {...baseLearnsets.magnemite.learnset, livewire: ["6M"]}},
 	magneton: {inherit: true, learnset: {...baseLearnsets.magneton.learnset, livewire: ["6M"]}},
 	voltorb: {inherit: true, learnset: {...baseLearnsets.voltorb.learnset, livewire: ["6M"]}},
-	electrode: {inherit: true, learnset: {...baseLearnsets.electrode.learnset, livewire: ["6M"], gigaimpact: undefined}},
+	electrode: {inherit: true, learnset: {...baseLearnsets.electrode.learnset, livewire: ["6M"]}}, // TODO remove giga impact
 	electabuzz: {inherit: true, learnset: {...baseLearnsets.electabuzz.learnset, livewire: ["6M"]}},
 	chinchou: {inherit: true, learnset: {...baseLearnsets.chinchou.learnset, livewire: ["6M"], permafrost: ["6M"]}},
 	lanturn: {inherit: true, learnset: {...baseLearnsets.lanturn.learnset, livewire: ["6M"], permafrost: ["6M"]}},
