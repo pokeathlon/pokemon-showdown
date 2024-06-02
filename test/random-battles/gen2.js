@@ -8,11 +8,11 @@ const {testTeam, validateLearnset} = require('./tools');
 
 describe('[Gen 2] Random Battle (slow)', () => {
 	const options = {format: 'gen2randombattle'};
-	const setsJSON = require(`../../dist/data/mods/gen2/random-sets.json`);
+	const setsJSON = require(`../../dist/data/random-battles/gen2/sets.json`);
 	const dex = Dex.forFormat(options.format);
 
 	describe("New set format", () => {
-		const filename = '../../data/mods/gen2/random-sets.json';
+		const filename = '../../data/random-battles/gen2/sets.json';
 		it(`${filename} should have valid set data`, () => {
 			const setsJSON = require(filename);
 			const validRoles = [
@@ -66,7 +66,7 @@ describe('[Gen 2] Random Battle (slow)', () => {
 			if (species.unreleasedHidden) abilities.delete(species.abilities.H);
 			for (const set of sets) {
 				const role = set.role;
-				const moves = new Set(set.movepool.map(m => dex.moves.get(m).id));
+				const moves = new Set(Array.from(set.movepool));
 				const preferredTypes = set.preferredTypes;
 				let teamDetails = {};
 				// Go through all possible teamDetails combinations, if necessary
@@ -78,7 +78,7 @@ describe('[Gen 2] Random Battle (slow)', () => {
 						const spikes = Math.floor(i / 2) % 2;
 						teamDetails = {rapidSpin, spikes};
 						// randomMoveset() deletes moves from the movepool, so recreate it every time
-						const movePool = set.movepool.map(m => dex.moves.get(m).id);
+						const movePool = Array.from(set.movepool);
 						const moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, movePool, preferredType, role);
 						for (const move of moveSet) moves.delete(move);
 						if (!moves.size) break;

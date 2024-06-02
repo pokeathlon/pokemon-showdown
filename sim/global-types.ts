@@ -401,7 +401,7 @@ interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
 	side?: ModdedBattleSide;
 	boost?: (
 		this: Battle, boost: SparseBoostsTable, target: Pokemon, source?: Pokemon | null,
-		effect?: Effect | string | null, isSecondary?: boolean, isSelf?: boolean
+		effect?: Effect | null, isSecondary?: boolean, isSelf?: boolean
 	) => boolean | null | 0;
 	debug?: (this: Battle, activity: string) => void;
 	getActionSpeed?: (this: Battle, action: AnyObject) => void;
@@ -537,8 +537,10 @@ namespace RandomTeamsTypes {
 	export interface FactoryTeamDetails {
 		megaCount?: number;
 		zCount?: number;
+		wantsTeraCount?: number;
 		forceResult: boolean;
 		weather?: string;
+		terrain?: string[];
 		typeCount: {[k: string]: number};
 		typeComboCount: {[k: string]: number};
 		baseFormes: {[k: string]: number};
@@ -582,6 +584,8 @@ namespace RandomTeamsTypes {
 		moves: string[];
 		dynamaxLevel?: number;
 		gigantamax?: boolean;
+		wantsTera?: boolean;
+		teraType?: string;
 	}
 	export interface RandomSetData {
 		role: Role;
