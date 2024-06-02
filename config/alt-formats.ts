@@ -7,7 +7,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9chaos',
 		ruleset: [
-			'Standard NatDex',
+			'Standard NatDex', '+CAP',
 		],
 	},
 	{
@@ -16,7 +16,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9chaos',
 		ruleset: [
-			'Standard NatDex',
+			'Standard NatDex', '+CAP',
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
@@ -441,7 +441,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA National Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '+CAP', 'Terastal Clause'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'
@@ -451,7 +451,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA National Dex AG",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
+		ruleset: ['Standard NatDex', '+CAP'],
 	},
 
 	{
@@ -470,7 +470,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
+		ruleset: ['Standard NatDex', '+CAP'],
 	},
 
 	{
@@ -484,7 +484,7 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Standard NatDex', '+CAP'
 		],
 	},
 	{
