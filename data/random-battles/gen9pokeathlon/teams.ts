@@ -1,9 +1,9 @@
-import {RandomGen8Teams} from '../gen8/random-teams';
+import {RandomGen8Teams} from '../gen8/teams';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 
 
 export class RandomGen7Teams extends RandomGen8Teams {
-	randomSets: AnyObject = require('./random-sets.json');
+	randomSets: AnyObject = require('./data.json');
 
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
@@ -53,7 +53,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				}
 			}
 
-			if (curSet.moves && curSet.ability && curSet.item) {
+			if (curSet.moves && curSet.ability && curSet.item && curSet.teraType) {
 				pokemon.push({
 					name: this.dex.species.get(curSpecies).name,
 					species: this.dex.species.get(curSpecies).name,
@@ -64,6 +64,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 					moves: curSet.moves,
 					ability: curSet.ability,
 					item: curSet.item,
+					teraType: this.dex.types.get(curSet.teraType).name,
 					evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
 					ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 				});
