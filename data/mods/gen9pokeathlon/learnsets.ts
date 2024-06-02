@@ -1,7 +1,7 @@
 const baseLearnsets = require('../../learnsets').Learnsets;
 const insgLearnsets = require('../gen9insurgence/learnsets').Learnsets;
 
-function flattenLearnset(learnset: ModdedLearnsetData, removals: string[] = [], additions: string[] = []) {
+export function flattenLearnset(learnset: ModdedLearnsetData, removals: string[] = [], additions: string[] = []) {
 	let finalLearnset: ModdedLearnsetData = {learnset: {}};
 	let moves = learnset.learnset;
 	if (finalLearnset.learnset) {
