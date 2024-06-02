@@ -1,4 +1,10 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	// Chaos
+	revivalblessing: {
+		inherit: true,
+		flags: {heal: 1, noassist: 1},
+	},
+
 	// Uranium
 	thunder: {
 		inherit: true,

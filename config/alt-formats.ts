@@ -3,11 +3,21 @@ export const Formats: FormatList = [
 		section: "Chaos",
 	},
 	{
-		name: "[Gen 9] Chaos NatDex AG",
+		name: "[Gen 9] Chaos AG",
 
 		mod: 'gen9chaos',
 		ruleset: [
 			'Standard NatDex',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions AG",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen9chaos',
+		ruleset: [
+			'Standard NatDex',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
 
