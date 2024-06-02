@@ -62,8 +62,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	photongeyser: {
 		inherit: true,
 		onPrepareHit(target, source, move) {
-			if (source.species.name === 'Necrozma' && source.hasItem('Necrozium')) {
-				source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
+			if (source.hasItem('Necrozium')) {
+				if (source.species.name === 'Necrozma') {
+					source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
+				} if (source.fusion && source.fusion === 'Necrozma') {
+					source.fusionChange('Necrozma-Ultra', this.effect);
+				}
 			}
 		},
 	},
