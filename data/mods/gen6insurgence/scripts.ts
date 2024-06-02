@@ -1054,7 +1054,6 @@ const InsgDex: {[k: string]: number} = {
 };
 
 export const Scripts: ModdedBattleScriptsData = {
-	gen: 6,
 	inherit: 'gen6',
 	init() {
 		for (const i in this.data.Pokedex) {

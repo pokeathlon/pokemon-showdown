@@ -122,14 +122,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
-			if (['Noivern-Delta', 'Cherrim'].includes(this.effectState.target.baseSpecies.baseSpecies)) return;
+			if (!['Noivern-Delta', 'Cherrim'].includes(this.effectState.target.baseSpecies.baseSpecies)) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (['Noivern-Delta', 'Cherrim'].includes(this.effectState.target.baseSpecies.baseSpecies)) return;
+			if (!['Noivern-Delta', 'Cherrim'].includes(this.effectState.target.baseSpecies.baseSpecies)) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}

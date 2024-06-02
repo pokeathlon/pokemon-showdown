@@ -1,21 +1,24 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	// IF
 	deepseascale: {
 		inherit: true,
 		isNonstandard: null,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.fusion === 'Clamperl') {
+			if (pokemon.fusion && (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name) || ['Clamperl', 'Clamperl-Delta'].includes(pokemon.fusion))) {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Clamperl", "Clamperl-Delta"],
 	},
 	deepseatooth: {
 		inherit: true,
 		isNonstandard: null,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.fusion === 'Clamperl') {
+			if (pokemon.fusion && (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name) || ['Clamperl', 'Clamperl-Delta'].includes(pokemon.fusion))) {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Clamperl", "Clamperl-Delta"],
 	},
 	eviolite: {
 		inherit: true,
@@ -51,15 +54,16 @@ export const Items: {[k: string]: ModdedItemData} = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.fusion).baseSpecies === 'Pikachu') {
+			if (['Pikachu', 'Pikachu-Delta'].includes(pokemon.baseSpecies.baseSpecies) || ['Pikachu', 'Pikachu-Delta'].includes(Dex.species.get(pokemon.fusion).baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.fusion).baseSpecies === 'Pikachu') {
+			if (['Pikachu', 'Pikachu-Delta'].includes(pokemon.baseSpecies.baseSpecies) || ['Pikachu', 'Pikachu-Delta'].includes(Dex.species.get(pokemon.fusion).baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Delta"],
 	},
 	luckypunch: {
 		inherit: true,
@@ -74,19 +78,21 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 		onModifyDef(def, pokemon) {
-			if ((pokemon.species.name === 'Ditto' || pokemon.fusion === 'Ditto') && !pokemon.transformed) {
+			if (pokemon.fusion && (['Ditto', 'Ditto-Delta'].includes(pokemon.species.name) || ['Ditto', 'Ditto-Delta'].includes(pokemon.fusion)) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Ditto", "Ditto-Delta"],
 	},
 	quickpowder: {
 		inherit: true,
 		isNonstandard: null,
 		onModifySpe(spe, pokemon) {
-			if ((pokemon.species.name === 'Ditto' || pokemon.fusion === 'Ditto') && !pokemon.transformed) {
+			if (pokemon.fusion && (['Ditto', 'Ditto-Delta'].includes(pokemon.species.name) || ['Ditto', 'Ditto-Delta'].includes(pokemon.fusion)) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
+		itemUser: ["Ditto", "Ditto-Delta"],
 	},
 	thickclub: {
 		inherit: true,

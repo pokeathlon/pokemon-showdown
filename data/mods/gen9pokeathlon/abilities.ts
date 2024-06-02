@@ -366,6 +366,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 0,
 	},
 	undeterred: {
+		onStart(pokemon) {
+			pokemon.addVolatile('item:heavydutyboots');
+		},
 		flags: {},
 		name: "Undeterred",
 		shortDesc: "This Pokemon is immune to all entry hazards.",

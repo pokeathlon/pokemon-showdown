@@ -1,5 +1,17 @@
 export const Formats: FormatList = [
 	{
+		section: "Chaos",
+	},
+	{
+		name: "[Gen 9] Chaos NatDex AG",
+
+		mod: 'gen9chaos',
+		ruleset: [
+			'Standard NatDex',
+		],
+	},
+
+	{
 		section: "Infinite Fusion: Regional Dex",
 	},
 	{
@@ -282,6 +294,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9insurgence',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
+		banlist: ['move:hiddenpower'],
 	},
 	{
 		name: "[Gen 9] Ins Custom Game",

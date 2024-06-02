@@ -1,4 +1,165 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	// Uranium
+	aerilate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Flying';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	galvanize: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Electric';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	normalize: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
+			];
+			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id) &&
+				// TODO: Figure out actual interaction
+				!(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Normal';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	pixilate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Fairy';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+	refrigerate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Ice';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+	},
+
+	// Insurgence
+	noguard: {
+		inherit: true,
+		onAnyInvulnerability(target, source, move) {
+			if (move && !move.ohko && (source === this.effectState.target || target === this.effectState.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && !move.ohko && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+	},
+	baddreams: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.status === 'slp' || target.hasAbility('comatose')) {
+					this.damage(target.baseMaxhp / (target.effectiveWeather() === 'newmoon' ? 4 : 8), target, pokemon);
+				}
+			}
+		},
+	},
+	pressure: {
+		inherit: true,
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return target.effectiveWeather() === 'newmoon' ? 2 : 1;
+		},
+	},
+	illuminate: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {},
+		onModifyMove(move) {},
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('newmoon')) {
+				this.debug('Illuminate - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+	},
+	fairyaura: {
+		inherit: true,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
+			if (!move.auraBooster?.hasAbility('Fairy Aura')) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([source.effectiveWeather() === 'newmoon' ? 4096 : (move.hasAuraBreak ? 3072 : 5448), 4096]);
+		},
+	},
+	darkaura: {
+		inherit: true,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
+			if (!move.auraBooster?.hasAbility('Dark Aura')) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([source.effectiveWeather() === 'newmoon' ? 6827 : (move.hasAuraBreak ? 3072 : 5448), 4096]);
+		},
+	},
+	trace: {
+		inherit: true,
+		onStart(pokemon) {
+			// n.b. only affects Hackmons
+			// interaction with No Ability is complicated: https://www.smogon.com/forums/threads/pokemon-sun-moon-battle-mechanics-research.3586701/page-76#post-7790209
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+			// interaction with Ability Shield is similar to No Ability
+			if (pokemon.hasItem('Ability Shield')) {
+				if (!pokemon.illusion) this.add('-block', pokemon, 'item: Ability Shield');
+				this.effectState.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+
+			const possibleTargets = pokemon.adjacentFoes().filter(
+				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
+			);
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			if (pokemon.setAbility(ability) && !pokemon.illusion) {
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+			}
+		},
+	},
+
+	// IF
 	disguise: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
@@ -106,14 +267,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && !this.effectState.target.fusion?.includes('Cherrim')) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && !this.effectState.target.fusion?.includes('Cherrim')) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
@@ -127,24 +286,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+				forme = 'Castform-Sunny';
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+				forme = 'Castform-Rainy';
 				break;
 			case 'hail':
 			case 'snow':
-				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+				forme = 'Castform-Snowy';
+				break;
+			case 'sandstorm':
+				forme = 'Castform-Sandy';
+				break;
+			case 'newmoon':
+				forme = 'Castform-Cloudy';
 				break;
 			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				forme = 'Castform';
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				if (pokemon.baseSpecies.baseSpecies === 'Castform') {
+				if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== forme) {
 					pokemon.formeChange(forme, this.effect, false, '[msg]');
-				} else if (pokemon.fusion?.includes('Castform')) {
+				} else if (pokemon.fusion?.includes('Castform') && pokemon.fusion !== forme) {
 					pokemon.fusionChange(forme, this.effect);
 				}
 			}

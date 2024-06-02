@@ -1,7 +1,7 @@
 const baseLearnsets = require('../../learnsets').Learnsets;
 
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
-	// Additions
+	// Modded
 	gyarados: {inherit: true, learnset: {...baseLearnsets.gyarados.learnset, causticbreath: ["6M"], coralbreak: ["6M"]}},
 	lotad: {inherit: true, learnset: {...baseLearnsets.lotad.learnset, coralbreak: ["6M"]}},
 	lombre: {inherit: true, learnset: {...baseLearnsets.lombre.learnset, coralbreak: ["6M"]}},

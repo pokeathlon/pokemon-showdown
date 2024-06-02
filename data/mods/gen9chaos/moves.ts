@@ -1,0 +1,826 @@
+export const Moves: {[k: string]: ModdedMoveData} = {
+	// Uranium
+	thunder: {
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+			case 'thunderstorm':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				move.accuracy = 50;
+				break;
+			}
+		},
+	},
+
+	// POA
+	payday: {
+		inherit: true,
+		onHit(target, source, move) {
+			source.side.addSideCondition(this.dex.conditions.get('scatteredcoins'));
+		},
+	},
+	makeitrain: {
+		inherit: true,
+		onHit(target, source, move) {
+			source.side.addSideCondition(this.dex.conditions.get('scatteredcoins'));
+		},
+	},
+	gmaxgoldrush: {
+		inherit: true,
+		onHit(target, source, move) {
+			source.side.addSideCondition(this.dex.conditions.get('scatteredcoins'));
+		},
+	},
+	leechseed: {
+		inherit: true,
+		onTryImmunity(target) {
+			return !target.hasType('Grass') && !target.hasAbility('Ivy Wall');
+		},
+	},
+
+	// Insurgence
+	trickroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
+					modifiedDuration += 2;
+				}
+				if (source?.hasItem('trickrock')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('trickroom');
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 1,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Trick Room');
+			},
+		},
+	},
+	wish: {
+		inherit: true,
+		condition: {},
+		onTry(source) {
+			if (source.hasAbility('periodicorbit')) {
+				return !!source.side.addSlotCondition(source, 'orbitalwish');
+			}
+		},
+	},
+	futuresight: {
+		inherit: true,
+		onTry(source, target) {
+			const futureMoveData = {
+				duration: 3,
+				move: 'futuresight',
+				source: source,
+				moveData: {
+					id: 'futuresight',
+					name: "Future Sight",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Psychic',
+				},
+			};
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
+			if (source.hasAbility('periodicorbit')) {
+				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			}
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
+		},
+	},
+	doomdesire: {
+		inherit: true,
+		onTry(source, target) {
+			const futureMoveData = {
+				move: 'doomdesire',
+				source: source,
+				moveData: {
+					id: 'doomdesire',
+					name: "Doom Desire",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					effectType: 'Move',
+					type: 'Steel',
+				},
+			};
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
+			if (source.hasAbility('periodicorbit')) {
+				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			}
+			this.add('-start', source, 'Doom Desire');
+			return this.NOT_FAIL;
+		},
+	},
+	phantomforce: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (attacker.effectiveWeather() === 'newmoon') {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability: false,
+		},
+	},
+	shadowforce: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (attacker.effectiveWeather() === 'newmoon') {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability: false,
+		},
+	},
+	weatherball: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.type = 'Fire';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.type = 'Water';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+			case 'snow':
+				move.type = 'Ice';
+				break;
+			case 'newmoon':
+				move.type = 'Dark';
+				break;
+			case 'fallout':
+				move.type = 'Nuclear';
+				break;
+			case 'thunderstorm':
+				move.type = 'Electric';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				move.basePower *= 2;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				move.basePower *= 2;
+				break;
+			case 'sandstorm':
+				move.basePower *= 2;
+				break;
+			case 'hail':
+			case 'snow':
+				move.basePower *= 2;
+				break;
+			case 'newmoon':
+				move.basePower *= 2;
+				break;
+			case 'fallout':
+				move.basePower *= 2;
+				break;
+			case 'thunderstorm':
+				move.basePower *= 2;
+				break;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+	},
+	synthesis: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'newmoon':
+				factor = 0.333;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+			case 'fallout':
+			case 'thunderstorm':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	morningsun: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'newmoon':
+				factor = 0.333;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+			case 'fallout':
+			case 'thunderstorm':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'newmoon':
+				factor = 0.667;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.333;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snow':
+			case 'fallout':
+			case 'thunderstorm':
+				factor = 0.25;
+				break;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	solarbeam: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'fallout', 'thunderstorm'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+				this.debug('weakened by weather');
+				return this.chainModify(0.5);
+			} else if (pokemon.effectiveWeather() === 'newmoon') return this.chainModify(0.3);
+		},
+	},
+	surf: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			if (pokemon.effectiveWeather() === 'newmoon') return this.chainModify(1.5);
+		},
+	},
+	honeclaws: {
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.effectiveWeather() === 'newmoon') move.boosts = {atk: 2, accuracy: 2};
+		},
+	},
+	geomancy: {
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.effectiveWeather() === 'newmoon') move.boosts = {spa: 1, spd: 1, spe: 1};
+		},
+	},
+	nightmare: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) {
+					return false;
+				}
+				this.add('-start', pokemon, 'Nightmare');
+			},
+			onResidualOrder: 11,
+			onResidual(pokemon) {
+				if (pokemon.effectiveWeather() === 'newmoon') this.damage(pokemon.baseMaxhp / 2);
+				else this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+	},
+	flash: {
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.effectiveWeather() === 'newmoon') move.boosts = {accuracy: -2};
+		},
+	},
+	reflect: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect weaken');
+						if (this.field.isWeather('newmoon')) {
+							if (this.activePerHalf > 1) return this.chainModify([8, 15]);
+							return this.chainModify(0.4);
+						} else {
+							if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+							return this.chainModify(0.5);
+						}
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Reflect');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Reflect');
+			},
+		},
+	},
+	lightscreen: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Light Screen weaken');
+						if (this.field.isWeather('newmoon')) {
+							if (this.activePerHalf > 1) return this.chainModify([8, 15]);
+							return this.chainModify(0.4);
+						} else {
+							if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+							return this.chainModify(0.5);
+						}
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Light Screen');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Light Screen');
+			},
+		},
+	},
+	defog: {
+		inherit: true,
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+	},
+	mortalspin: {
+		inherit: true,
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+	},
+	rapidspin: {
+		inherit: true,
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+	},
+	tidyup: {
+		inherit: true,
+		onHit(pokemon) {
+			let success = false;
+			for (const active of this.getAllActive()) {
+				if (active.removeVolatile('substitute')) success = true;
+			}
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge'];
+			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
+			for (const side of sides) {
+				for (const sideCondition of removeAll) {
+					if (side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
+						success = true;
+					}
+				}
+			}
+			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
+			return !!this.boost({atk: 1, spe: 1}, pokemon, pokemon, null, false, true) || success;
+		},
+	},
+	courtchange: {
+		inherit: true,
+		onHitField(target, source) {
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'hotcoals', 'permafrost', 'livewire', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			];
+			let success = false;
+			if (this.gameType === "freeforall") {
+				// random integer from 1-3 inclusive
+				const offset = this.random(3) + 1;
+				// the list of all sides in counterclockwise order
+				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
+				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				for (const side of sides) {
+					for (const id in side.sideConditions) {
+						if (!sideConditions.includes(id)) continue;
+						temp[side.n][id] = side.sideConditions[id];
+						delete side.sideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						this.add('-sideend', side, effectName, '[silent]');
+						success = true;
+					}
+				}
+				for (let i = 0; i < 4; i++) {
+					const sourceSideConditions = temp[sides[i].n];
+					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					for (const id in sourceSideConditions) {
+						targetSide.sideConditions[id] = sourceSideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						let layers = sourceSideConditions[id].layers || 1;
+						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+					}
+				}
+			} else {
+				const sourceSideConditions = source.side.sideConditions;
+				const targetSideConditions = source.side.foe.sideConditions;
+				const sourceTemp: typeof sourceSideConditions = {};
+				const targetTemp: typeof targetSideConditions = {};
+				for (const id in sourceSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					sourceTemp[id] = sourceSideConditions[id];
+					delete sourceSideConditions[id];
+					success = true;
+				}
+				for (const id in targetSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					targetTemp[id] = targetSideConditions[id];
+					delete targetSideConditions[id];
+					success = true;
+				}
+				for (const id in sourceTemp) {
+					targetSideConditions[id] = sourceTemp[id];
+				}
+				for (const id in targetTemp) {
+					sourceSideConditions[id] = targetTemp[id];
+				}
+				this.add('-swapsideconditions');
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Court Change');
+		},
+	},
+
+	// IF
+	watershuriken: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if ([pokemon.species.name, pokemon.fusion].includes('Greninja-Ash') && pokemon.hasAbility('battlebond') &&
+				!pokemon.transformed) {
+				return move.basePower + 5;
+			}
+			return move.basePower;
+		},
+	},
+	aurawheel: {
+		inherit: true,
+		onTry(source) {
+			if (source.species.baseSpecies === 'Morpeko' || source.fusion?.includes('Morpeko')) {
+				return;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Aura Wheel');
+			this.hint("Only a Pokemon whose form or fusion is Morpeko or Morpeko-Hangry can use this move.");
+			return null;
+		},
+		onModifyType(move, pokemon) {
+			if ([pokemon.species.name, pokemon.fusion].includes('Morpeko-Hangry')) {
+				move.type = 'Dark';
+			} else {
+				move.type = 'Electric';
+			}
+		},
+	},
+	darkvoid: {
+		inherit: true,
+		onTry(source, target, move) {
+			if ([source.species.name, source.fusion].includes('Darkrai') || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Dark Void');
+			this.hint("Only a Pokemon whose form or fusion is Darkrai can use this move.");
+			return null;
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(source) {},
+	},
+	ivycudgel: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const forme = pokemon.species.baseSpecies === 'Ogerpon' ? pokemon.species.name : pokemon.fusion;
+			switch (forme) {
+			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera':
+				move.type = 'Water';
+				break;
+			case 'Ogerpon-Hearthflame': case 'Ogerpon-Hearthflame-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Ogerpon-Cornerstone': case 'Ogerpon-Cornerstone-Tera':
+				move.type = 'Rock';
+				break;
+			}
+		},
+	},
+	ragingbull: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const forme = pokemon.species.name.includes('Tauros-Paldea') ? pokemon.species.name : pokemon.fusion;
+			switch (forme) {
+			case 'Tauros-Paldea-Combat':
+				move.type = 'Fighting';
+				break;
+			case 'Tauros-Paldea-Blaze':
+				move.type = 'Fire';
+				break;
+			case 'Tauros-Paldea-Aqua':
+				move.type = 'Water';
+				break;
+			}
+		},
+	},
+	relicsong: {
+		inherit: true,
+		onHit(target, pokemon, move) {
+			if ((pokemon.baseSpecies.baseSpecies.includes('Meloetta') || pokemon.fusion?.includes('Meloetta')) && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				if (pokemon.species.baseSpecies.includes('Meloetta')) {
+					let meloettaForme = '';
+					if (pokemon.baseSpecies.baseSpecies === 'Meloetta') {
+						meloettaForme = pokemon.species.id === 'meloettapirouette' ? '' : '-Pirouette';
+					} if (pokemon.baseSpecies.baseSpecies === 'Meloetta-Delta') {
+						meloettaForme = pokemon.species.id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
+					}
+					pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '[msg]');
+				} if (pokemon.fusion?.includes('Meloetta')) {
+					let meloettaForme = '';
+					if (this.dex.species.get(pokemon.fusion).baseSpecies === 'Meloetta') {
+						meloettaForme = this.dex.species.get(pokemon.fusion).id === 'meloettapirouette' ? '' : '-Pirouette';
+					} if (this.dex.species.get(pokemon.fusion).baseSpecies === 'Meloetta-Delta') {
+						meloettaForme = this.dex.species.get(pokemon.fusion).id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
+					}
+					pokemon.fusionChange('Meloetta' + meloettaForme, this.effect);
+				}
+			}
+		},
+	},
+	orderup: {
+		inherit: true,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!pokemon.volatiles['commanded']) return;
+			let tatsugiri = pokemon.volatiles['commanded'].source;
+			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri') tatsugiri = this.dex.species.get(tatsugiri.fusion); // Should never happen
+			switch (tatsugiri.baseSpecies.forme) {
+			case 'Droopy':
+				this.boost({def: 1}, pokemon, pokemon);
+				break;
+			case 'Stretchy':
+				this.boost({spe: 1}, pokemon, pokemon);
+				break;
+			default:
+				this.boost({atk: 1}, pokemon, pokemon);
+				break;
+			}
+		},
+	},
+	telekinesis: {
+		inherit: true,
+		condition: {
+			duration: 3,
+			onStart(target) {
+				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
+						['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.dex.species.get(target.fusion).baseSpecies) ||
+							target.baseSpecies.name === 'Gengar-Mega') {
+					this.add('-immune', target);
+					return null;
+				}
+				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+				this.add('-start', target, 'Telekinesis');
+			},
+			onAccuracyPriority: -1,
+			onAccuracy(accuracy, target, source, move) {
+				if (move && !move.ohko) return true;
+			},
+			onImmunity(type) {
+				if (type === 'Ground') return false;
+			},
+			onUpdate(pokemon) {
+				if (pokemon.baseSpecies.name === 'Gengar-Mega') {
+					delete pokemon.volatiles['telekinesis'];
+					this.add('-end', pokemon, 'Telekinesis', '[silent]');
+				}
+			},
+			onResidualOrder: 19,
+			onEnd(target) {
+				this.add('-end', target, 'Telekinesis');
+			},
+		},
+	},
+	dive: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			if (attacker.hasAbility('gulpmissile') && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				if (attacker.species.name === 'Cramorant') {
+					attacker.formeChange(forme, move);
+				} else if (attacker.fusion === 'Cramorant') {
+					attacker.fusionChange(forme, move);
+				}
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+};
