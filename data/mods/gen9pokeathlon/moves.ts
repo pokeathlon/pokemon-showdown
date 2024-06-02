@@ -747,4 +747,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         target: "normal",
         type: "Fighting",
     },
+	spudmortar: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Spud Mortar",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, futuremove: 1},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			const item = source.getItem();
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'spudmortar',
+				source: source,
+				moveData: {
+					id: 'spudmortar',
+					name: "Spud Mortar",
+					accuracy: 100,
+					basePower: item.isBerry? 180 : 120,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					effectType: 'Move',
+					type: 'Grass',
+				},
+			});
+
+			if (item.isBerry) {
+				source.setItem('');
+				source.lastItem = item.id;
+				source.usedItemThisTurn = true;
+				this.add('-enditem', source, item.name, '[from] move: Spud Mortar');
+			}
+			this.add('-start', source, 'Spud Mortar');
+			return this.NOT_FAIL;
+			
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
 };
