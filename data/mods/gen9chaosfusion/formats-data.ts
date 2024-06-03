@@ -7,7 +7,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	yategaryu: {
+	yatagaryu: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
