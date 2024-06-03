@@ -265,7 +265,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	lunachi: {
 		num: 6015,
 		name: "Lunachi",
-		baseForme: "Aria",
 		types: ["Fairy", "Dark"],
 		baseStats: {hp: 108, atk: 87, def: 72, spa: 87, spd: 72, spe: 114},
 		abilities: {0: "Sacred Treasures"},
