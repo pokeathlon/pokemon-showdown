@@ -1877,6 +1877,5 @@ export const Aliases: {[alias: string]: string} = {
 	hydreigonmegaeight: "Hydreigon-Mega",
 	hydreigonmeganine: "Hydreigon-Mega",
 
-	
 	bewitwinglegacy: "Bewitwing",
 };

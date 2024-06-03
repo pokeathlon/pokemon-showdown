@@ -333,7 +333,7 @@ class Ladder extends LadderStore {
 		this.addSearch(search, user);
 
 		const raw = await Net(`https://discord.com/api/webhooks/1247142110172286977/ZAhK8VsoLjQZd3Y4X1cihGwyQ9NEj1oXY2BQetdlCFyazSt-Ekn7ZvOWzMmfeJI2b3GA`).post({
-			body: {"content": `${user.name} is searching on ladder for a ${format.name} match!`, "wait": 1},
+			body: {"content": `${user.name} is searching on ladder for a **${format.name}** match!`, "wait": 1},
 			timeout: 10 * 1000, // 10s
 		});
 	}
