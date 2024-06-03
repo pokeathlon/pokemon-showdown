@@ -1,53 +1,5 @@
 export const Formats: FormatList = [
 	{
-		section: "Chaos",
-	},
-	{
-		name: "[Gen 9] OUrganized Chaos",
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
-		banlist: [
-			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos AG",
-
-		mod: 'gen9chaos',
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Fusions OU",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-
-		mod: 'gen9chaosfusion',
-		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
-		],
-		banlist: [
-			'ND AG', 'ND Uber',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Fusions AG",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-
-		mod: 'gen9chaosfusion',
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
-		],
-	},
-
-	{
 		section: "Infinite Fusion: Regional Dex",
 	},
 	{
@@ -144,6 +96,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 7] IF Dex Doubles AG",
+		searchShow: false,
 
 		mod: 'gen7infinitefusion',
 		gameType: 'doubles',
@@ -169,6 +122,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] IF NatDex Doubles AG",
+		searchShow: false,
 
 		mod: 'gen9infinitefusion',
 		gameType: 'doubles',
@@ -211,6 +165,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] IF NatDex Draft",
+		searchShow: false,
 
 		mod: 'gen9infinitefusion',
 		ruleset: [
@@ -240,7 +195,7 @@ export const Formats: FormatList = [
 	},
 
 	{
-		section: "Insurgence: Regional Dex",
+		section: "Fangames: Regional Dex",
 		column: 2,
 	},
 	{
@@ -251,7 +206,7 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Sleep Clause Mod', 'HP Percentage Mod', 'Cancel Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 6] Ins Dex OU",
+		name: "[Gen 6] Insurgence OU",
 
 		mod: 'gen6insurgence',
 		ruleset: ['Standard', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
@@ -263,18 +218,38 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 6] Ins Dex AG",
+		name: "[Gen 6] Uranium OU",
+
+		mod: 'gen6uranium',
+		ruleset: ['Standard', 'Swagger Clause'],
+		banlist: [
+			'AG', 'Uber',
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew',
+			'move:batonpass',
+		],
+	},
+	{
+		name: "[Gen 6] Insurgence AG",
+		searchShow: false,
 
 		mod: 'gen6insurgence',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
+	{
+		name: "[Gen 6] Uranium AG",
+		searchShow: false,
+
+		mod: 'gen6uranium',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
 
 	{
-		section: "Insurgence: National Dex",
+		section: "Fangames: National Dex",
 		column: 2,
 	},
 	{
-		name: "[Gen 9] Ins National Dex OU",
+		name: "[Gen 9] Insurgence NatDex OU",
 
 		mod: 'gen9insurgence',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
@@ -286,33 +261,71 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Ins National Dex AG",
+		name: "[Gen 9] Uranium NatDex OU",
+
+		mod: 'gen9uranium',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
+		name: "[Gen 9] Insurgence NatDex AG",
+		searchShow: false,
 
 		mod: 'gen9insurgence',
 		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
+	{
+		name: "[Gen 9] Uranium NatDex AG",
+		searchShow: false,
+
+		mod: 'gen9uranium',
+		ruleset: ['Standard NatDex'],
+	},
 
 	{
-		section: "Insurgence: Doubles",
+		section: "Fangames: Doubles",
 		column: 2,
 	},
 	{
 		name: "[Gen 6] Ins Dex Doubles AG",
+		searchShow: false,
 
 		mod: 'gen6insurgence',
 		gameType: 'doubles',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
 	{
+		name: "[Gen 6] Ura Dex Doubles AG",
+		searchShow: false,
+
+		mod: 'gen6uranium',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
 		name: "[Gen 9] Ins NatDex Doubles AG",
+		searchShow: false,
 
 		mod: 'gen9insurgence',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
+	{
+		name: "[Gen 9] Ura NatDex Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9uranium',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex'],
+	},
 
 	{
-		section: "Insurgence: Extras",
+		section: "Fangames: Extras",
 		column: 2,
 	},
 	{
@@ -326,11 +339,12 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Ins NatDex Draft",
+		name: "[Gen 9] Ura Free-For-All",
 
-		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
-		banlist: ['move:hiddenpower'],
+		mod: 'gen9uranium',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: ['Standard NatDex'],
 	},
 	{
 		name: "[Gen 9] Ins Custom Game",
@@ -342,84 +356,6 @@ export const Formats: FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
-
-	{
-		section: "Uranium: Regional Dex",
-		column: 3,
-	},
-	{
-		name: "[Gen 6] Uranium Dex OU",
-
-		mod: 'gen6uranium',
-		ruleset: ['Standard', 'Swagger Clause'],
-		banlist: [
-			'AG', 'Uber',
-			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew',
-			'move:batonpass',
-		],
-	},
-	{
-		name: "[Gen 6] Uranium Dex AG",
-
-		mod: 'gen6uranium',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
-	},
-
-	{
-		section: "Uranium: National Dex",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] U National Dex OU",
-
-		mod: 'gen9uranium',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
-		banlist: [
-			'ND Uber', 'ND AG',
-			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
-		],
-	},
-	{
-		name: "[Gen 9] U National Dex AG",
-
-		mod: 'gen9uranium',
-		ruleset: ['Standard NatDex'],
-	},
-
-	{
-		section: "Uranium: Doubles",
-		column: 3,
-	},
-	{
-		name: "[Gen 6] U Dex Doubles AG",
-
-		mod: 'gen6uranium',
-		gameType: 'doubles',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
-	},
-	{
-		name: "[Gen 9] U NatDex Doubles AG",
-
-		mod: 'gen9uranium',
-		gameType: 'doubles',
-		ruleset: ['Standard NatDex'],
-	},
-
-	{
-		section: "Uranium: Extras",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] Uranium FFA",
-
-		mod: 'gen9uranium',
-		gameType: 'freeforall',
-		rated: false,
-		ruleset: ['Standard NatDex'],
-	},
 	{
 		name: "[Gen 9] Uranium Custom Game",
 
@@ -430,10 +366,67 @@ export const Formats: FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
 	},
+	{
+		name: "[Gen 9] Ins NatDex Draft",
+		searchShow: false,
+
+		mod: 'gen9insurgence',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
+		banlist: ['move:hiddenpower'],
+	},
+
+	{
+		section: "Chaos",
+		column: 3,
+	},
+	{
+		name: "[Gen 9] Chaos OU",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		banlist: [
+			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos AG",
+
+		mod: 'gen9chaos',
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions OU",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen9chaosfusion',
+		ruleset: [
+			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'ND AG', 'ND Uber',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions AG",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen9chaosfusion',
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
 
 	{
 		section: "Pokéathlon: Regional Dex",
-		column: 4,
+		column: 3,
 	},
 	{
 		name: "[Gen 9] PoA Random Battle",
@@ -454,6 +447,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] PoA Dex AG",
+		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
@@ -461,13 +455,13 @@ export const Formats: FormatList = [
 
 	{
 		section: "Pokéathlon: National Dex",
-		column: 4,
+		column: 3,
 	},
 	{
 		name: "[Gen 9] PoA National Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'
@@ -475,6 +469,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] PoA National Dex AG",
+		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
@@ -482,10 +477,11 @@ export const Formats: FormatList = [
 
 	{
 		section: "Pokéathlon: Doubles",
-		column: 4,
+		column: 3,
 	},
 	{
 		name: "[Gen 9] PoA Dex Doubles AG",
+		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
@@ -493,6 +489,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] PoA NatDex Doubles AG",
+		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
@@ -501,7 +498,7 @@ export const Formats: FormatList = [
 
 	{
 		section: "Pokéathlon: Extras",
-		column: 4,
+		column: 3,
 	},
 	{
 		name: "[Gen 9] PoA Free-for-all",
