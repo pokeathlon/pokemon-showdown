@@ -4430,7 +4430,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thundershock: ["9M"],
 			absorb: ["9M"],
 			supersonic: ["9M"],
-			stunpowder: ["9M"],
+			stunspore: ["9M"],
 			spudmortar: ["9M"],
 			electroball: ["9M"],
 			megadrain: ["9M"],
