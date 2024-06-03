@@ -3,20 +3,46 @@ export const Formats: FormatList = [
 		section: "Chaos",
 	},
 	{
+		name: "[Gen 9] OUrganized Chaos",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		banlist: [
+			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
+			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+		],
+	},
+	{
 		name: "[Gen 9] Chaos AG",
 
 		mod: 'gen9chaos',
 		ruleset: [
-			'Standard NatDex', '+CAP',
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions OU",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen9chaosfusion',
+		ruleset: [
+			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'ND AG', 'ND Uber',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
 		],
 	},
 	{
 		name: "[Gen 9] Chaos Fusions AG",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
-		mod: 'gen9chaos',
+		mod: 'gen9chaosfusion',
 		ruleset: [
-			'Standard NatDex', '+CAP',
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
@@ -441,7 +467,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA National Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '+CAP', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
 			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'
@@ -451,7 +477,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA National Dex AG",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', '+CAP'],
+		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
 	},
 
 	{
@@ -470,7 +496,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', '+CAP'],
+		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
 	},
 
 	{
@@ -484,7 +510,7 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', '+CAP'
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
 		],
 	},
 	{

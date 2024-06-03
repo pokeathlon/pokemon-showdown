@@ -4,18 +4,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	yategaryu: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
-	seikamater: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
-	inflagetahmega: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
 
 	// CAP
 	syclar: {

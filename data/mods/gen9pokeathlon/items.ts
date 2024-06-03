@@ -1,4 +1,12 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	// Modded
+	fullincense: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+
+	// Additions
 	electrodite: {
 		name: "Electrodite",
 		desc: "If held by a Electrode, this item allows it to Mega Evolve in battle.",
