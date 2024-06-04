@@ -821,7 +821,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "UU",
 		doublesTier: "DUU",
 		cosmeticFormes: ["Bewitwing-Legacy"],
-		formeOrder: ["Bewitwing", "Bewitwing-Legacy"],
 	},
 	eidolburgh: {
 		num: 6026,
