@@ -385,12 +385,15 @@ export const Formats: FormatList = [
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
 		banlist: [
-			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
 		],
 	},
 	{
 		name: "[Gen 9] Chaos AG",
+		searchShow: false,
 
 		mod: 'gen9chaos',
 		ruleset: [
@@ -407,21 +410,42 @@ export const Formats: FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
-			'ND AG', 'ND Uber',
+			'ND AG', 'ND Uber', 'Mega',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
 		],
 	},
 	{
 		name: "[Gen 9] Chaos Fusions AG",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
 
 		mod: 'gen9chaosfusion',
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
+	},
+	{
+		name: "[Gen 9] Chaos Custom Game",
+
+		mod: 'gen9chaos',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
+	},
+	{
+		name: "[Gen 9] Chaos Fusion Custom",
+
+		mod: 'gen9chaosfusion',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
 	},
 
 	{
