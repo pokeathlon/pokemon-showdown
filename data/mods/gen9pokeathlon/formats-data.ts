@@ -335,7 +335,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "RU",
 		doublesTier: "DUU",
 	},
-	lugia: {
+	deoxysspeed: {
 		inherit: true,
 		natDexTier: "OU",
 		doublesTier: "DOU",

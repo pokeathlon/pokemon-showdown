@@ -400,7 +400,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	sirensong: {
 		num: 0,
-		accuracy: 80,
+		accuracy: 100,
 		basePower: 120,
 		category: "Special",
 		name: "Siren Song",
