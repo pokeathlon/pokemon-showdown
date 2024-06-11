@@ -1,3 +1,9 @@
+**11th of June 2024**
+
+- Fix Protean Maxima stacking abilities
+- Unban Z moves in POA Dex
+
+
 **2nd of June 2024**
 
 - CHAOS has been added! with an Organized Chaos (OU) format coming soon
