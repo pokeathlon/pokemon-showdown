@@ -126,7 +126,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	arceus: {
 		inherit: true,
 		onType(types, pokemon) {
-			if (pokemon.fusion || pokemon.transformed || pokemon.ability !== 'multitype') return types;
+			if (pokemon.transformed || pokemon.ability !== 'multitype') return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'multitype') {
 				type = pokemon.getItem().onPlate;
@@ -140,7 +140,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	silvally: {
 		inherit: true,
 		onType(types, pokemon) {
-			if (pokemon.fusion || pokemon.transformed || pokemon.ability !== 'rkssystem') return types;
+			if (pokemon.transformed || pokemon.ability !== 'rkssystem') return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'rkssystem') {
 				type = pokemon.getItem().onMemory;
