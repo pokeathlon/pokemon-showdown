@@ -163,6 +163,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				delete this.data.Moves[i].isNonstandard;
 			}
 		}
+		for (const i in this.data.Items) {
+			if (this.data.Items[i].zMove) {
+				delete this.data.Items[i].isNonstandard;
+				delete this.data.Items[i].gen;
+			}
+		}
 	},
 	actions: {
 		switchIn(pokemon: Pokemon, pos: number, sourceEffect: Effect | null = null, isDrag?: boolean) {
