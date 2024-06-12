@@ -449,29 +449,6 @@ export const Formats: FormatList = [
 	},
 
 	{
-		section: "Chaos: Extras",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] Chaos Free-For-All",
-
-		mod: 'gen9chaos',
-		gameType: 'freeforall',
-		rated: false,
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial'],
-	},
-	{
-		name: "[Gen 9] Chaos Fusion Free-For-All",
-
-		mod: 'gen9chaosfusion',
-		gameType: 'freeforall',
-		rated: false,
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause'],
-	},
-	
-
-	{
 		section: "Pokéathlon: Regional Dex",
 		column: 3,
 	},

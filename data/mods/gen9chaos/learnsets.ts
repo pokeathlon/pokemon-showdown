@@ -11,6 +11,12 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	perrserker: {inherit: true, learnset: {...baseLearnsets.perrserker.learnset, currencyflow: ["9M"]}},
 	gimmighoul: {inherit: true, learnset: {...baseLearnsets.gimmighoul.learnset, currencyflow: ["9M"]}},
 	gholdengo: {inherit: true, learnset: {...baseLearnsets.gholdengo.learnset, currencyflow: ["9M"]}},
+	treeckodelta: flattenLearnset(insgLearnsets.treeckodelta.learnset),
+	grovyledelta: flattenLearnset(insgLearnsets.grovyledelta.learnset),
+	sceptiledelta: flattenLearnset(insgLearnsets.sceptiledelta.learnset),
+	torchicdelta: flattenLearnset(insgLearnsets.torchicdelta.learnset),
+	combuskendelta: flattenLearnset(insgLearnsets.combuskendelta.learnset),
+	blazikendelta: flattenLearnset(insgLearnsets.blazikendelta.learnset),
 
 	// Insurgence
 	vibrava: {inherit: true, learnset: {...baseLearnsets.vibrava.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"]}},
