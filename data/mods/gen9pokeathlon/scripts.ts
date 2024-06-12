@@ -1,3 +1,4 @@
+const {Dex} = require('../../../sim/dex');
 const PoADex: {[k: string]: number} = {
 	// "syclar": 5001,
 	// "syclant": 5002,
@@ -149,6 +150,17 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
+		const fangames = ['gen9insurgence', 'gen9uranium'];
+		const categories = ['Moves', 'Abilities', 'Conditions'];
+		for (var fangame of fangames) {
+			for (var category of categories) {
+				for (var item in Dex.mod(fangame).data[category]) {
+					if (!(item in this.data[category as keyof typeof this.data])) {
+						this.data[category as keyof typeof this.data][item] = Dex.deepClone(Dex.mod(fangame).data[category][item]);
+					}
+				}
+			}
+		}
 		for (const i in this.data.Pokedex) {
 			if (i in PoADex) {
 				this.data.Pokedex[i].num = PoADex[i];

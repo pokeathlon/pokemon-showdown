@@ -4,7 +4,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
-		const fangames = ['gen9infinitefusion', 'gen9pokeathlon', 'gen9insurgence', 'gen9uranium'];
+		const fangames = ['gen9insurgence', 'gen9uranium', 'gen9infinitefusion', 'gen9pokeathlon'];
 		const categories = ['Pokedex', 'Moves', 'Abilities', 'Conditions', 'Items', 'Learnsets']
 		for (var fangame of fangames) {
 			for (var category of categories) {

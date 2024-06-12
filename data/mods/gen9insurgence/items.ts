@@ -864,7 +864,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Steelixite Fire",
 		desc: "If held by a Steelix, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
-		megaStone: "Steelix-Mega-F",
+		megaStone: "Steelix-Mega-Fire",
 		megaEvolves: "Steelix",
 		itemUser: ["Steelix"],
 		onTakeItem(item, source) {

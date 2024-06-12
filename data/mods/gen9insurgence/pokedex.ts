@@ -266,11 +266,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	// Vanilla Megas
-	steelixmegaf: {
+	steelixmegafire: {
 		num: 208,
-		name: "Steelix-Mega-F",
+		name: "Steelix-Mega-Fire",
 		baseSpecies: "Steelix",
-		forme: "Mega-F",
+		forme: "Mega-Fire",
 		types: ["Steel", "Fire"],
 		baseStats: {hp: 75, atk: 135, def: 225, spa: 65, spd: 55, spe: 55},
 		abilities: {0: "Foundry"},

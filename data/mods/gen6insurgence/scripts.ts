@@ -240,7 +240,7 @@ const InsgDex: {[k: string]: number} = {
 	"gligar": 207,
 	"steelix": 208,
 	"steelixmega": 208,
-	"steelixmegaf": 208,
+	"steelixmegafire": 208,
 	"snubbull": 209,
 	"granbull": 210,
 	"qwilfish": 211,
