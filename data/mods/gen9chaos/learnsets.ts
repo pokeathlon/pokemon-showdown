@@ -11,6 +11,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	perrserker: {inherit: true, learnset: {...baseLearnsets.perrserker.learnset, currencyflow: ["9M"]}},
 	gimmighoul: {inherit: true, learnset: {...baseLearnsets.gimmighoul.learnset, currencyflow: ["9M"]}},
 	gholdengo: {inherit: true, learnset: {...baseLearnsets.gholdengo.learnset, currencyflow: ["9M"]}},
+	
 	treeckodelta: flattenLearnset(insgLearnsets.treeckodelta.learnset),
 	grovyledelta: flattenLearnset(insgLearnsets.grovyledelta.learnset),
 	sceptiledelta: flattenLearnset(insgLearnsets.sceptiledelta.learnset),
