@@ -447,11 +447,6 @@ export const Formats: FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
 	},
-
-	{
-		section: "Chaos: Extras",
-		column: 3,
-	},
 	{
 		name: "[Gen 9] Chaos Free-For-All",
 
