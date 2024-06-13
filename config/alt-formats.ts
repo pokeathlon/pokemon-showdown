@@ -445,7 +445,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Chaos Fusions FFA",
 
-		mod: 'gen9chaosfusions',
+		mod: 'gen9chaosfusion',
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
