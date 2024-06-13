@@ -434,6 +434,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Free-for-all",
+		searchShow: false,
 
 		mod: 'gen9chaos',
 		gameType: 'freeforall',
@@ -444,6 +445,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Fusions FFA",
+		searchShow: false,
 
 		mod: 'gen9chaosfusion',
 		gameType: 'freeforall',
