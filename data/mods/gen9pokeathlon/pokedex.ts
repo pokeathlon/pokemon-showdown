@@ -1092,7 +1092,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Amorphous", "Mineral"],
-		tier: "OU",
+		tier: "(OU)",
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
