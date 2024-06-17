@@ -1005,6 +1005,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["9M"],
 			vacuumwave: ["9M"],
 			zenheadbutt: ["9M"],
+			earthquake: ["9M"],
+			brutalswing: ["9M"],
 		},
 	},
 	jovianshk: {
@@ -2400,6 +2402,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			lightscreen: ["9M"],
 			suddenstrike: ["9M"],
 			megatonslice: ["9M"],
+			smartstrike: ["9M"],
+			sacredsword: ["9M"],
 		},
 	},
 	felapstan: {
@@ -2512,6 +2516,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["9M"],
 			wrap: ["9M"],
 			zapcannon: ["9M"],
+			celebrate: ["9M"],
 		},
 	},
 	bewitwing: {
@@ -2577,6 +2582,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["9M"],
 			uturn: ["9M"],
 			willowisp: ["9M"],
+			poltergeist: ["9M"],
+			confuseray: ["9M"],
 		},
 	},
 	eidolburgh: {
@@ -2991,6 +2998,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["9M"],
 			thunderwave: ["9M"],
 			voltswitch: ["9M"],
+			irondefense: ["9M"],
+			defog: ["9M"],
+			honeclaws: ["9M"],
+			icespinner: ["9M"],
 		},
 	},
 	maggony: {

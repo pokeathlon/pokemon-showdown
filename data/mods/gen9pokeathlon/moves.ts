@@ -215,7 +215,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	pixietrick: {
 		num: 0,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 90,
 		category: "Physical",
 		name: "Pixie Trick",
 		shortDesc: "0.5x damage if foe isn't holding an item. Swaps items.",
