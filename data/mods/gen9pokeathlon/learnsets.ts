@@ -4551,7 +4551,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bodyslam: ["9M"],
 			thrash: ["9M"],
 			matchagotcha: ["9M"],
-			irondefence: ["9M"],
+			irondefense: ["9M"],
 			substitute: ["9M"],
 			swordsdance: ["9M"],
 			workup: ["9M"],
