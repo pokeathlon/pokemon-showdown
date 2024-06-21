@@ -72,4 +72,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		natDexTier: "OU",
 	},
+	meloettapirouette: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 };
