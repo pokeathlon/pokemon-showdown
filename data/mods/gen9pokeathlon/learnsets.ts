@@ -4532,6 +4532,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			playrough: ["9M"],
 			skittersmack: ["9M"],
 			aromatherapy: ["9M"],
+			rest: ["9M"],
+			attract: ["9M"],
+			facade: ["9M"],
+			endure: ["9M"],
+			captivate: ["9M"],
 		},
 	},
 	mochimechi: {
@@ -4581,6 +4586,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			terablast: ["9M"],
 			suckerpunch: ["9M"],
 			psychocut: ["9M"],
+			rest: ["9M"],
+			attract: ["9M"],
+			facade: ["9M"],
+			endure: ["9M"],
+			captivate: ["9M"],
 		},
 	},
 };
