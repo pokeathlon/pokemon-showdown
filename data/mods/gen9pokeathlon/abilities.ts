@@ -523,4 +523,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 0,
 	},
+	glutinousrice: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fighting') {
+				this.debug("Glutinous Rice reduction")
+				return this.chainModify(0.25);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Glutinous Rice",
+		shortDesc: "Takes 1/4 damage from Fighting-type attacks.",
+		rating: 2,
+		num: 0,
+	},
 };

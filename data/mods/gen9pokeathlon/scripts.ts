@@ -143,6 +143,8 @@ const PoADex: {[k: string]: number} = {
 	"tinkashank": 6048,
 	"grandmirage": 6049,
 	"magnegauss": 6050,
+	"dangonna": 6051,
+	"mochimechi": 6052,
 
 };
 
@@ -173,12 +175,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		for (const i in this.data.Moves) {
 			if (this.data.Moves[i].isNonstandard === 'Past' || this.data.Moves[i].isNonstandard === 'Unobtainable') {
 				delete this.data.Moves[i].isNonstandard;
-			}
-		}
-		for (const i in this.data.Items) {
-			if (this.data.Items[i].zMove) {
-				delete this.data.Items[i].isNonstandard;
-				delete this.data.Items[i].gen;
 			}
 		}
 	},

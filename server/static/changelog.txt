@@ -1,3 +1,17 @@
+**14th of June 2024**
+
+- Added animations for uranium + new POA moves
+- fix some POA tiers
+
+
+**12th of June 2024**
+
+- CHAOS FFA FINALLY!!!!!!!
+- Sceptile DM and Blaziken DM should have learnsets in chaos now
+- steelix mega fire/sunflora delta mega have sprites
+- shadow mewtwo has a learnset
+
+
 **11th of June 2024**
 
 - Fix Protean Maxima stacking abilities

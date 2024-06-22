@@ -427,6 +427,34 @@ export const Formats: FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
+
+	{
+		section: "Chaos: Extras",
+		column: 3,
+	},
+	{
+		name: "[Gen 9] Chaos Free-for-all",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions FFA",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
 	{
 		name: "[Gen 9] Chaos Custom Game",
 
