@@ -374,6 +374,15 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
 		banlist: ['move:hiddenpower'],
 	},
+	{
+		name: "[Gen 9] Ins NatDex VGC Draft",
+		searchShow: false,
+		mod: 'gen9insurgence',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', `Picked Team Size = 4`],
+		banlist: ['move:hiddenpower', 'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream', 
+				'ability:moody', 'ability:sandveil', 'ability:snowcloak', 'ability:illuminate', 'ability:winterjoy'],
+	},
 
 	{
 		section: "Chaos",
