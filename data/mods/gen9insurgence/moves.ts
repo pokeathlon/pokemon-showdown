@@ -1114,7 +1114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hasType("Grass")) {
 				for (var enemy of target.side.pokemon) {
 					if (enemy !== target && enemy.runEffectiveness(move) > 0) {
-						target.trySetStatus('brn', enemy, move);
+						source.trySetStatus('brn', enemy, move);
 					}
 				}
 			}
