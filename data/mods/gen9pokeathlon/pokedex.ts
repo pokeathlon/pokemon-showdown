@@ -889,7 +889,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	premotee: {
 		num: 6027,
-		name: "Promotee",
+		name: "Premotee",
 		types: ["Water"],
 		baseStats: {hp: 100, atk: 30, def: 50, spa: 70, spd: 75, spe: 35},
 		abilities: {0: "Stalwart", 1: "Undeterred", H: "Pressure"},
