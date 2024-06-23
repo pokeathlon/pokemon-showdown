@@ -744,7 +744,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUber",
 	},
 	felapstan: {
-		num: 6045,
+		num: 6046,
 		name: "Felapstan",
 		types: ["Ghost", "Electric"],
 		gender: "N",
@@ -760,7 +760,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	tinkastab: {
-		num: 6046,
+		num: 6047,
 		name: "Tinkastab",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 35, atk: 64, def: 58, spa: 45, spd: 45, spe: 50},
@@ -775,7 +775,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "LC",
 	},
 	tinkaslice: {
-		num: 6047,
+		num: 6048,
 		name: "Tinkaslice",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 45, atk: 82, def: 78, spa: 55, spd: 55, spe: 65},
@@ -790,7 +790,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "NFE",
 	},
 	tinkashank: {
-		num: 6048,
+		num: 6049,
 		name: "Tinkashank",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 70, atk: 105, def: 85, spa: 70, spd: 77, spe: 95},
@@ -887,8 +887,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
-	sirentom: {
+	premotee: {
 		num: 6027,
+		name: "Promotee",
+		types: ["Water"],
+		baseStats: {hp: 100, atk: 30, def: 50, spa: 70, spd: 75, spe: 35},
+		abilities: {0: "Stalwart", 1: "Undeterred", H: "Pressure"},
+		heightm: 3.4,
+		weightkg: 449,
+		color: "Gray",
+		evoLevel: 44,
+		evos: ["Sirentom"],
+		tags: ["Pokeathlon"],
+		eggGroups: ["Amorphous", "Water1"],
+		tier: "NFE",
+		natDexTier: "NFE",
+		doublesTier: "NFE",
+	},
+	sirentom: {
+		num: 6028,
 		name: "Sirentom",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 140, atk: 70, def: 62, spa: 96, spd: 105, spe: 25},
@@ -898,13 +915,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evoLevel: 44,
 		tags: ["Pokeathlon"],
+		prevo: "Premotee",
 		eggGroups: ["Amorphous", "Water1"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
 	braskeptic: {
-		num: 6028,
+		num: 6029,
 		name: "Braskeptic",
 		types: ["Steel"],
 		baseStats: {hp: 110, atk: 98, def: 101, spa: 98, spd: 99, spe: 69},
@@ -919,7 +937,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	maggony: {
-		num: 6029,
+		num: 6030,
 		name: "Maggony",
 		types: ["Bug"],
 		baseStats: {hp: 35, atk: 11, def: 12, spa: 11, spd: 12, spe: 9},
@@ -934,7 +952,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	sweepdol: {
-		num: 6030,
+		num: 6031,
 		name: "Sweepdol",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 80, atk: 55, def: 80, spa: 90, spd: 105, spe: 78},
@@ -949,7 +967,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	paldemaria: {
-		num: 6031,
+		num: 6032,
 		name: "Paldemaria",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 70, atk: 59, def: 75, spa: 105, spd: 110, spe: 106},
@@ -964,7 +982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	monetoad: {
-		num: 6032,
+		num: 6033,
 		name: "Monetoad",
 		types: ["Ground"],
 		baseStats: {hp: 148, atk: 168, def: 74, spa: 56, spd: 94, spe: 48},
@@ -997,7 +1015,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "LC",
 	},
 	drifbozu: {
-		num: 6033,
+		num: 6034,
 		name: "Drifbozu",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 150, atk: 34, def: 70, spa: 74, spd: 60, spe: 122},
@@ -1014,7 +1032,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	voliable: {
-		num: 6034,
+		num: 6035,
 		name: "Voliable",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 74, atk: 40, def: 115, spa: 56, spd: 50, spe: 70},
@@ -1029,7 +1047,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "NFE",
 	},
 	nestitan: {
-		num: 6035,
+		num: 6036,
 		name: "Nestitan",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 100, atk: 52, def: 160, spa: 75, spd: 65, spe: 93},
@@ -1044,7 +1062,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	loxicant: {
-		num: 6036,
+		num: 6037,
 		name: "Loxicant",
 		types: ["Steel", "Poison"],
 		gender: "N",
@@ -1060,7 +1078,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	manacra: {
-		num: 6037,
+		num: 6038,
 		name: "Manacra",
 		baseForme: "Radial",
 		types: ["Rock", "Ghost"],
@@ -1079,7 +1097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	manacraplated: {
-		num: 6037,
+		num: 6038,
 		name: "Manacra-Plated",
 		baseSpecies: "Manacra",
 		forme: "Plated",
@@ -1097,7 +1115,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	feidan: {
-		num: 6038,
+		num: 6039,
 		name: "Feidan",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 80, atk: 80, def: 130, spa: 80, spd: 130, spe: 25},
@@ -1112,7 +1130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	niandertroll: {
-		num: 6039,
+		num: 6040,
 		name: "Niandertroll",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 108, atk: 127, def: 106, spa: 90, spd: 94, spe: 75},
@@ -1127,7 +1145,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	scorchingkiln: {
-		num: 6040,
+		num: 6041,
 		name: "Scorching Kiln",
 		types: ["Ground", "Fire"],
 		baseStats: {hp: 81, atk: 63, def: 105, spa: 99, spd: 135, spe: 87},
@@ -1143,7 +1161,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	berserkergene: {
-		num: 6041,
+		num: 6042,
 		name: "Berserker Gene",
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 99, atk: 139, def: 101, spa: 51, spd: 93, spe: 107},
@@ -1159,7 +1177,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	scalyterror: {
-		num: 6042,
+		num: 6043,
 		name: "Scaly Terror",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 75, atk: 127, def: 73, spa: 97, spd: 83, spe: 115},
@@ -1175,7 +1193,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	pestri: {
-		num: 6043,
+		num: 6044,
 		name: "Pestri",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 95, atk: 60, def: 90, spa: 100, spd: 105, spe: 80},
@@ -1190,7 +1208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	sinistersickle: {
-		num: 6044,
+		num: 6045,
 		name: "Sinister Sickle",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 79, atk: 121, def: 73, spa: 121, spd: 73, spe: 103},
@@ -1206,7 +1224,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	grandmirage: {
-		num: 6049,
+		num: 6050,
 		name: "Grand Mirage",
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 91, atk: 115, def: 97, spa: 101, spd: 65, spe: 101},
@@ -1222,7 +1240,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	magnegauss: {
-		num: 6050,
+		num: 6051,
 		name: "Magnegauss",
 		types: ["Electric", "Grass"],
 		baseStats: {hp: 90, atk: 60, def: 115, spa: 130, spd: 90, spe: 50},
@@ -1237,7 +1255,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DOU",
 	},
 	dangonna: {
-		num: 6051,
+		num: 6052,
 		name: "Dangonna",
 		types: ["Normal"],
 		baseStats: {hp: 30, atk: 46, def: 50, spa: 46, spd: 60, spe: 22},
@@ -1254,7 +1272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "LC",
 	},
 	mochimechi: {
-		num: 6052,
+		num: 6053,
 		name: "Mochimechi",
 		types: ["Normal"],
 		baseStats: {hp: 99, atk: 89, def: 110, spa: 79, spd: 120, spe: 66},
