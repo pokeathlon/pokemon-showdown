@@ -2879,7 +2879,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			hyperbeam: ["9M"],
 			terablast: ["9M"],
 			toxic: ["9M"],
-			whirpool: ["9M"],
+			whirlpool: ["9M"],
 			muddywater: ["9M"],
 			disable: ["9M"],
 			hypnosis: ["9M"],
