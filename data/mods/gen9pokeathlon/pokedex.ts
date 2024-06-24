@@ -900,9 +900,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Sirentom"],
 		tags: ["Pokeathlon"],
 		eggGroups: ["Amorphous", "Water1"],
-		tier: "NFE",
-		natDexTier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
 	},
 	sirentom: {
 		num: 6028,
