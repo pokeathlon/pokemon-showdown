@@ -221,7 +221,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	slowlight: {
 		onStart(source) {
 			this.add('-activate', source, 'ability: Slow Light');
-			this.field.addPseudoWeather('gravity');
+			if (this.field.pseudoWeather.gravity) {
+				this.field.removePseudoWeather('gravity');
+			} else {
+				this.field.addPseudoWeather('gravity');
+			}
+			
 		},
 		flags: {},
 		name: "Slow Light",
