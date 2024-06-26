@@ -13,7 +13,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (typeof accuracy === 'number') {
 				return this.chainModify(0.5);
 			} else {
-				return 0.5;
+				return 50;
 			}
 		},
 		onModifyCritRatio(critRatio) {
