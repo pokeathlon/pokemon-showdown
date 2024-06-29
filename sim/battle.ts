@@ -1152,9 +1152,9 @@ export class Battle {
 			eventHandlers.push(eventHandler);
 		}
 	}
-
+	// I'm sorry Vik I don't know where to put this in the modded stuff...
 	checkMoveMakesContact(move: ActiveMove, attacker: Pokemon, defender: Pokemon, announcePads = false) {
-		if (move.flags['contact'] && attacker.hasItem('protectivepads')) {
+		if (move.flags['contact'] && attacker.hasItem('protectivepads') && !defender.hasAbility('prismguard')) {
 			if (announcePads) {
 				this.add('-activate', defender, this.effect.fullname);
 				this.add('-activate', attacker, 'item: Protective Pads');
