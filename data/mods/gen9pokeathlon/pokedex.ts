@@ -955,7 +955,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 6031,
 		name: "Sweepdol",
 		types: ["Grass", "Fairy"],
-		baseStats: {hp: 80, atk: 55, def: 80, spa: 90, spd: 105, spe: 78},
+		baseStats: {hp: 80, atk: 45, def: 80, spa: 90, spd: 115, spe: 88},
 		abilities: {0: "Clean Sweep", 1: "Frisk", H: "Infiltrator"},
 		heightm: 1.3,
 		weightkg: 24.5,

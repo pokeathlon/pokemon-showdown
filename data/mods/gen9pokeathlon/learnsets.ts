@@ -3182,6 +3182,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			terablast: ["9M"],
 			rest: ["9M"],
 			sleeptalk: ["9M"],
+			wish: ["9M"],
+			leechseed: ["9M"],
+			storedpower: ["9M"],
 		},
 	},
 	paldemaria: {
