@@ -758,6 +758,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Felapstan-Legacy"],
 	},
 	tinkastab: {
 		num: 6047,
