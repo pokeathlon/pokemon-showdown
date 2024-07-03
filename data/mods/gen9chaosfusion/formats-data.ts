@@ -67,4 +67,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		natDexTier: "UU",
 	},
+	xurkitree: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 };

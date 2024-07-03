@@ -4,6 +4,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	inflagetah: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	archillesmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	yatagaryu: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	
 
 	// CAP
