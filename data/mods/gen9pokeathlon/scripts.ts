@@ -147,6 +147,8 @@ const PoADex: {[k: string]: number} = {
 	"dangonna": 6052,
 	"mochimechi": 6053,
 	"carcharus": 6054,
+	"rotomhisui": 6055,
+	"rotomhisuiarmored": 6055,
 
 };
 

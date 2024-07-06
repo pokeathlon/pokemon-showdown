@@ -539,6 +539,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Jump Ship",
+		desc: "The user restores 1/2 of its maximum HP, rounded half up. If Manacra, it swaps between plated and radial form",
+		shortDesc: "Heals the user by 50% of its max HP. If Manacra, swaps form.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
@@ -812,5 +814,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+	},
+	quakingthrust: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Quaking Thrust damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Quaking Thrust NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Quaking Thrust",
+		desc: "x1.5 power if the user moves before the target.",
+		shortDesc: "x1.5 power doubles if user moves before the target.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
 	},
 };
