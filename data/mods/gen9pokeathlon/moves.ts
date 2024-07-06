@@ -792,4 +792,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Beautiful",
 	},
+	gorgonfang: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Gorgon Fang",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
 };
