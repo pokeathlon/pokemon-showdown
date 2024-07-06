@@ -830,7 +830,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		name: "Quaking Thrust",
 		desc: "x1.5 power if the user moves before the target.",
-		shortDesc: "x1.5 power doubles if user moves before the target.",
+		shortDesc: "x1.5 power if user moves before the target.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},

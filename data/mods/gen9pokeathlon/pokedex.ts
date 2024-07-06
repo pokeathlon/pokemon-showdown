@@ -1317,9 +1317,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous", "Mineral"],
 		otherFormes: ["Rotom-Hisui-Armored"],
 		formeOrder: ["Rotom-Hisui", "Rotom-Hisui-Armored"],
-		tier: "OU",
-		natDexTier: "OU",
-		doublesTier: "DOU",
+		tier: "UU",
+		natDexTier: "UU",
+		doublesTier: "DUU",
 	},
 	rotomhisuiarmored: {
 		num: 6055,

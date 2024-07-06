@@ -4688,7 +4688,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	rotomhisui: {
 		learnset: {
-			quakingthrust: ["9M"],
 			disarmingvoice: ["9M"],
 			doubleteam: ["9M"],
 			poisonsting: ["9M"],
