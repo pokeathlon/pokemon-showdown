@@ -34,12 +34,14 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	goldeen: {inherit: true, learnset: {...baseLearnsets.goldeen.learnset, currencyflow: ["9M"]}},
 	golduck: {inherit: true, learnset: {...baseLearnsets.golduck.learnset, currencyflow: ["9M"]}},
 	hooh: {inherit: true, learnset: {...baseLearnsets.hooh.learnset, currencyflow: ["9M"]}},
-	treeckodelta: flattenLearnset(insgLearnsets.treeckodelta.learnset),
-	grovyledelta: flattenLearnset(insgLearnsets.grovyledelta.learnset),
-	sceptiledelta: flattenLearnset(insgLearnsets.sceptiledelta.learnset),
-	torchicdelta: flattenLearnset(insgLearnsets.torchicdelta.learnset),
-	combuskendelta: flattenLearnset(insgLearnsets.combuskendelta.learnset),
-	blazikendelta: flattenLearnset(insgLearnsets.blazikendelta.learnset),
+	treeckodelta: flattenLearnset(insgLearnsets.treeckodelta),
+	grovyledelta: flattenLearnset(insgLearnsets.grovyledelta),
+	sceptiledelta: flattenLearnset(insgLearnsets.sceptiledelta),
+	sceptiledeltamega: flattenLearnset(insgLearnsets.sceptiledelta),
+	torchicdelta: flattenLearnset(insgLearnsets.torchicdelta),
+	combuskendelta: flattenLearnset(insgLearnsets.combuskendelta),
+	blazikendelta: flattenLearnset(insgLearnsets.blazikendelta),
+	blazikendeltamega: flattenLearnset(insgLearnsets.blazikendelta),
 
 	// Additions
 	soulply: {
