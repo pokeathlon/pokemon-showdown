@@ -811,7 +811,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 6025,
 		name: "Bewitwing",
 		types: ["Ghost", "Fairy"],
-		baseStats: {hp: 95, atk: 100, def: 85, spa: 92, spd: 130, spe: 90},
+		baseStats: {hp: 85, atk: 100, def: 85, spa: 62, spd: 125, spe: 90},
 		abilities: {0: "Serene Grace", 1: "Cute Charm", H: "Prankster"},
 		heightm: 0.5,
 		weightkg: 9,
