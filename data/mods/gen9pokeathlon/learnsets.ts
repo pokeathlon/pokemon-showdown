@@ -1009,6 +1009,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9M"],
 			earthquake: ["9M"],
 			brutalswing: ["9M"],
+			focuspunch: ["9M"],
+			upperhand: ["9M"],
+			bulkup: ["9M"],
 		},
 	},
 	jovianshk: {
@@ -4769,6 +4772,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			punishment: ["9M"],
 			chipaway: ["9M"],
 			feint: ["9M"],
+			closecombat: ["9M"],
 		}
 	},
 	rotomhisuiarmored: {
@@ -4855,6 +4859,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			punishment: ["9M"],
 			chipaway: ["9M"],
 			feint: ["9M"],
+			closecombat: ["9M"],
 		}
 	},
 };

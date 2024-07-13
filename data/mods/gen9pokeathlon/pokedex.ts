@@ -1,4 +1,22 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	// Vanilla modifications
+	staryu: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Staruhz"],
+		tier: "NFE",
+		natDexTier: "NFE",
+		doublesTier: "NFE",
+	},
+	spinda: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Pandiz"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+	},
+
 	// Resubmissions
 	soulply: {
 		num: 6001,
@@ -434,7 +452,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		tags: ["Sub-Legendary", "Pokeathlon"],
 		eggGroups: ["Undiscovered"],
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},

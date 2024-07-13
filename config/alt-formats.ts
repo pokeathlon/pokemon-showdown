@@ -581,6 +581,14 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] PoA National Dex Draft",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Z-Move Clause',],
+		banlist: ['move:hiddenpower'],
+	},
+	{
 		name: "[Gen 9] PoA Custom Game",
 
 		mod: 'gen9pokeathlon',

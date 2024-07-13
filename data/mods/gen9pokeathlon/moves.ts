@@ -418,18 +418,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mindwipe: {
 		num: 0,
-		accuracy: 95,
-		basePower: 90,
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
 		name: "Mindwipe",
-		desc: "Has a 20% chance to confuse the target.",
-		shortDesc: "20% chance to confuse the target.",
+		desc: "Resets all of the target's stat stages to 0.",
+		shortDesc: "Resets all of the target's stat stages to 0.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 20,
-			volatileStatus: 'confusion',
+		secondary: null,
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
 		},
 		target: "normal",
 		type: "Psychic",
@@ -797,7 +798,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gorgonfang: {
 		num: 0,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 65,
 		category: "Physical",
 		name: "Gorgon Fang",
 		desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
