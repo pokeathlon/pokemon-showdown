@@ -3251,7 +3251,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			batonpass: ["9M"],
 			calmmind: ["9M"],
 			happyhour: ["9M"],
-			healbell: ["9M"],
 			healpulse: ["9M"],
 			healingwish: ["9M"],
 			hypnosis: ["9M"],
@@ -3268,6 +3267,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["9M"],
 			wish: ["9M"],
 			yawn: ["9M"],
+			purify: ["9M"],
 		},
 	},
 	monetoad: {
