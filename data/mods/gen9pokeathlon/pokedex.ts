@@ -269,7 +269,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 6014,
 		name: "Jovianshk",
 		types: ["Dragon", "Psychic"],
-		baseStats: {hp: 95, atk: 97, def: 72, spa: 123, spd: 95, spe: 98},
+		baseStats: {hp: 125, atk: 77, def: 57, spa: 123, spd: 80, spe: 98},
 		abilities: {0: "Slow Light", H: "Levitate"},
 		heightm: 1.0,
 		weightkg: 50.2,

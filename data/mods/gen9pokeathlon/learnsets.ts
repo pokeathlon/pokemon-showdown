@@ -1011,7 +1011,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			brutalswing: ["9M"],
 			focuspunch: ["9M"],
 			upperhand: ["9M"],
-			bulkup: ["9M"],
 		},
 	},
 	jovianshk: {
