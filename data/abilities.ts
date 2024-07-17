@@ -5818,8 +5818,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 0,
 	},
 
-	// Titan - can't be bothered rn
-
 	titan: {
 		onSwitchIn(source) {
 			var type;
@@ -5850,7 +5848,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Titan",
 		rating: 4,
-		num: 236,
+		num: 0,
 	},
 
 	dreadspace: {
@@ -5883,14 +5881,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	creamshield: {
 		onSourceModifyDamage(damage, source, target, move) {
 				this.debug('Cream Shield weaken');
-				return this.chainModify(Math.floor((-0.7*target.hp/target.maxhp)+1));
+				return this.chainModify(Math.floor((-0.7*source.hp/source.maxhp)+1));
 		},
 		flags: {breakable: 1},
 		name: "Cream Shield",
 		rating: 3.5,
-		num: 136,
+		num: 0,
 	},
 
 	//Water Stream
+	waterstream: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let active = true;
+			for (const target of this.getAllActive()) {
+				if (target === source) continue;
+				if (this.queue.willMove(target)) {
+					active = false;
+					break;
+				}
+			}
+			if (active) {
+				this.debug('Water Stream weaken');
+				return this.chainModify(0.5);
+			}
+	},
+		flags: {},
+		name: "Water Stream",
+		rating: 2.5,
+		num: 148,
+	},
 	
 };
