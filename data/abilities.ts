@@ -5868,11 +5868,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 
 	solarprominence: {
 		onSourceModifyDamage(damage, source, target, move) {
-				this.debug('Solar Prominence neutralize');
+				this.debug('Solar Prominence weaken');
 				return this.chainModify(0.66);
 		},
 		flags: {breakable: 1},
 		name: "Solar Prominence",
+		shortDesc: "This Pokemon takes 1/3 less damage.",
 		rating: 5,
 		num: 0,
 	},
@@ -5885,6 +5886,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		flags: {breakable: 1},
 		name: "Cream Shield",
+		shortDesc: "This Pokemon takes reduced damage, the higher its health.",
 		rating: 3.5,
 		num: 0,
 	},
@@ -5892,21 +5894,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	//Water Stream
 	waterstream: {
 		onSourceModifyDamage(damage, source, target, move) {
-			let active = true;
-			for (const target of this.getAllActive()) {
-				if (target === source) continue;
-				if (this.queue.willMove(target)) {
-					active = false;
-					break;
-				}
-			}
-			if (active) {
+			if (source.speed > target.speed) {
 				this.debug('Water Stream weaken');
 				return this.chainModify(0.5);
 			}
 	},
 		flags: {},
 		name: "Water Stream",
+		shortDesc: "This Pokemon takes 1/2 damage if faster than the opponent.",
 		rating: 2.5,
 		num: 148,
 	},
