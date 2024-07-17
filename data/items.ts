@@ -7624,3 +7624,5 @@ export const Items: {[itemid: string]: ItemData} = {
 		isNonstandard: "CAP",
 	},
 };
+
+// Xenoverse
