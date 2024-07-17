@@ -1049,8 +1049,9 @@ const InsgDex: {[k: string]: number} = {
 	"regicedelta": 921,
 	"registeeldelta": 922,
 	"meloettadelta": 923,
-	"hoopadelta": 924,
-	"ufi": 925,
+	"meloettadeltamagician": 924,
+	"hoopadelta": 925,
+	"ufi": 926,
 };
 
 export const Scripts: ModdedBattleScriptsData = {
