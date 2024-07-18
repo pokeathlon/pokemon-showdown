@@ -1,3 +1,6 @@
+**18th of July 2024**
+- No Guard no longer bypasses Mankey's Paw accuracy change
+
 **3rd of July 2024**
 - Chaos Fusions tier changes
 - Chaos tier changes
