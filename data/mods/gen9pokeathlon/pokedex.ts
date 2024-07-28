@@ -1393,7 +1393,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Suenami",
 		types: ["Water"],
 		baseStats: {hp: 85, atk: 63, def: 70, spa: 120, spd: 95, spe: 37},
-		abilities: {0: "Magic Bounc", H: "Drizzle"},
+		abilities: {0: "Magic Bounce", H: "Drizzle"},
 		heightm: 1.2,
 		weightkg: 62.3,
 		color: "Blue",
