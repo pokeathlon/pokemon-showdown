@@ -151,7 +151,7 @@ const PoADex: {[k: string]: number} = {
 	"rotomhisuiarmored": 6055,
 	"harportia": 6056,
 	"cetitanhisui": 6057,
-
+	"suenami": 6058,
 };
 
 export const Scripts: ModdedBattleScriptsData = {
