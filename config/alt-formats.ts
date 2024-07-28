@@ -505,7 +505,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Accupressure', 'Razor Fang', 'King\'s Rock',
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
 			'Bright Powder', 'Focus Band', 'Quick Claw'],
 	},
 	{
@@ -521,7 +521,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot',  'Accupressure', 'Razor Fang', 'King\'s Rock',
+		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock',
 			'Bright Powder', 'Focus Band', 'Quick Claw'],
 	},
 
@@ -536,7 +536,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Quick Claw', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Accupressure', 'Razor Fang', 'King\'s Rock',
+			'Quick Claw', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Acupressure', 'Razor Fang', 'King\'s Rock',
 			'Bright Powder', 'Focus Band', 'Quick Claw'
 		],
 	},
