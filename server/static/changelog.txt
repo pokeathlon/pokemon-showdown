@@ -1,5 +1,11 @@
 **28 of July 2024**
+- Insurgence: Added Missingno
+- Uranium: Added Hafli Berry
 - PoA: Added Harportia and Hisuian Cetitan
+- PoA: Sirentom stat changes
+- PoA: Felapstan learnset changes
+- PoA: Starmie eviolite compatibility
+- PoA: Tier changes
 
 **18th of July 2024**
 - No Guard no longer bypasses Mankey's Paw accuracy change

@@ -18388,4 +18388,24 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt:  ["6M"],
 		},
 	},
+	missingno: {
+		learnset: {
+			skyattack: ["6M"],
+			watergun: ["6M"],
+			toxic: ["6M"],
+			icebeam: ["6M"],
+			blizzard: ["6M"],
+			thunder: ["6M"],
+			earthquake: ["6M"],
+			psychic: ["6M"],
+			rest: ["6M"],
+			thunderwave: ["6M"],
+			swordsdance: ["6M"],
+			substitute: ["6M"],
+			cut: ["6M"],
+			fly: ["6M"],
+			doubleedge: ["6M"],
+			seismictoss: ["6M"],
+		}
+	},
 };

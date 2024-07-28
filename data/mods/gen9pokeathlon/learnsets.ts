@@ -2412,7 +2412,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	felapstan: {
 		learnset: {
 			terablast: ["9M"],
-			achillesheel: ["9M"],
 			rest: ["9M"],
 			protect: ["9M"],
 			endure: ["9M"],
@@ -2520,6 +2519,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wrap: ["9M"],
 			zapcannon: ["9M"],
 			celebrate: ["9M"],
+			thunderclap: ["9M"],
+			swordsdance: ["9M"],
 		},
 	},
 	bewitwing: {

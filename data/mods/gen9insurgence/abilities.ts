@@ -422,20 +422,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, pokemon, target) {
 			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
 			if (move.category === "Status" || !move.basePower) return;
-			if (move.secondaries) {
-				delete move.secondaries;
-				// Technically not a secondary effect, but it is negated
-				delete move.self;
-				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-			}
 			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			if (move.secondaries) {
+			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+			   // Technically not a secondary effect, but it is negated
+			   delete move.self;
+			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+		   }
 		},
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
 			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
 			let nhits = 5 + formes.indexOf(pokemon.species.id);
 			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+		},
+		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+			if (move.secondaries) {
+				delete move.secondaries;
+			}
 		},
 		flags: {},
 		name: "Lernean",
@@ -822,6 +827,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Winter Joy",
 		shortDesc: "Power is boosted from Nov-Feb, cut from May-Aug.",
 		rating: 3,
+		num: 0,
+	},
+	glitch: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-activate', target, 'ability: Glitch');
+				source.faint;
+			}
+		},
+		flags: {},
+		name: "Glitch",
+		rating: 5,
 		num: 0,
 	},
 };
