@@ -1,3 +1,6 @@
+**28 of July 2024**
+- PoA: Added Harportia
+
 **18th of July 2024**
 - No Guard no longer bypasses Mankey's Paw accuracy change
 

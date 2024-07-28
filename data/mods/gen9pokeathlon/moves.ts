@@ -839,4 +839,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 	},
+	riftjump: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		slotCondition: 'riftjump',
+		condition: {
+			duration: 2,
+			onResidualOrder: 4,
+			onStart(target) {
+				this.add('-start', target, 'move: Rift Jump');
+			},
+			onAnyModifyPriority(priority, pokemon) {
+				return priority + 1;
+			},
+		},
+		category: "Status",
+		name: "Rift Jump",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Electric",
+	},
 };

@@ -149,6 +149,7 @@ const PoADex: {[k: string]: number} = {
 	"carcharus": 6054,
 	"rotomhisui": 6055,
 	"rotomhisuiarmored": 6055,
+	"harportia": 6056,
 
 };
 
