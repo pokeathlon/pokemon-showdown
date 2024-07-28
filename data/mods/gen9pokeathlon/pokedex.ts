@@ -823,6 +823,23 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	cetitanhisui: {
+		num: 6057,
+		name: "Cetitan-Hisui",
+		baseSpecies: "Cetitan",
+		forme: "Hisui",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 170, atk: 113, def: 75, spa: 40, spd: 60, spe: 63},
+		abilities: {0: "Swift Swim", 1: "Flame Body", H: "Reckless"},
+		heightm: 4.2,
+		weightkg: 750,
+		color: "Black",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Field"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 
 	// Pokeathlon
 	bewitwing: {

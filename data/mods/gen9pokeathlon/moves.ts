@@ -862,4 +862,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Electric",
 	},
+	superheatedccrash: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Superheated Crash",
+		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP. This move also ignores the rain damage reduction. This move hits Water-types for neutral.",
+		shortDesc: "Has 33% recoil. Ignores rain damage reduction. Hits Water-types for neutral.",
+		// Ignoring rain interaction is in conditions file
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 0;
+		},
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
 };
