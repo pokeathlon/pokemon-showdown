@@ -846,11 +846,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		slotCondition: 'riftjump',
 		condition: {
 			duration: 2,
-			onResidualOrder: 4,
-			onStart(target) {
-				this.add('-start', target, 'move: Rift Jump');
-			},
-			onAnyModifyPriority(priority, pokemon) {
+			onModifyPriority(priority, pokemon) {
 				return priority + 1;
 			},
 		},
