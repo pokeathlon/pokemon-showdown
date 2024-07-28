@@ -852,6 +852,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Status",
 		name: "Rift Jump",
+		desc: "User switches out. The Pokémon switching in will gain +1 priority to any move on their first turn out.",
+		shortDesc: "Switch out. Switch-in gains +1 prio for 1 turn.",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1},
