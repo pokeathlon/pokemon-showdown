@@ -862,7 +862,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Electric",
 	},
-	superheatedccrash: {
+	superheatedcrash: {
 		num: 0,
 		accuracy: 100,
 		basePower: 90,
