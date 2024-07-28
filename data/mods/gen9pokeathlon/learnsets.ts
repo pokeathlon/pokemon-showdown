@@ -5078,7 +5078,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9M"],
 			soak: ["9M"],
 			splash: ["9M"],
-			subsitute: ["9M"],
+			substitute: ["9M"],
 			tearfullook: ["9M"],
 			topsyturvy: ["9M"],
 			torment: ["9M"],
