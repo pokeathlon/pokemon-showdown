@@ -1,7 +1,7 @@
 **28 of July 2024**
 - Insurgence: Added Missingno
 - Uranium: Added Hafli Berry
-- PoA: Added Harportia and Hisuian Cetitan
+- PoA: Added Harportia, Hisuian Cetitan, Suenami
 - PoA: Sirentom stat changes
 - PoA: Felapstan learnset changes
 - PoA: Starmie eviolite compatibility
