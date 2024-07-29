@@ -504,9 +504,9 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause'],
+		ruleset: ['Standard', 'Terastal Clause', '+Nonexistent'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band', 'Quick Claw', '+Nonexistent',],
+			'Focus Band', 'Quick Claw',],
 	},
 	{
 		name: "[Gen 9] PoA Dex AG",
@@ -520,9 +520,9 @@ export const Formats: FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause'],
+		ruleset: ['Standard', 'Terastal Clause', '+Nonexistent'],
 		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 
-			'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock', 'Focus Band', 'Quick Claw', '+Nonexistent',],
+			'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock', 'Focus Band', 'Quick Claw',],
 	},
 
 	{
@@ -533,11 +533,11 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA National Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+Nonexistent'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Quick Claw', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band', '+Nonexistent',
+			'Focus Band',
 		],
 	},
 	{
