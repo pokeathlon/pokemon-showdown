@@ -1081,6 +1081,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["9M"],
 			zapcannon: ["9M"],
 			zenheadbutt: ["9M"],
+			nastyplot: ["9M"],
 		},
 	},
 	lunachi: {

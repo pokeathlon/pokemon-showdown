@@ -838,6 +838,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {},
+		desc: "Pokémon making contact with this Pokémon faint.",
+		shortDesc: "Pokemon making contact with this Pokemon faint.",
 		name: "Glitch",
 		rating: 5,
 		num: 0,
