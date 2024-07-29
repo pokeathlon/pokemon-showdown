@@ -506,7 +506,7 @@ export const Formats: FormatList = [
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band', 'Quick Claw', '+ LGPE',],
+			'Focus Band', 'Quick Claw', '+Nonexistent',],
 	},
 	{
 		name: "[Gen 9] PoA Dex AG",
@@ -522,7 +522,7 @@ export const Formats: FormatList = [
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 
-			'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock', 'Focus Band', 'Quick Claw', '+ LGPE',],
+			'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock', 'Focus Band', 'Quick Claw', '+Nonexistent',],
 	},
 
 	{
@@ -537,7 +537,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Quick Claw', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band', '+ LGPE',
+			'Focus Band', '+Nonexistent',
 		],
 	},
 	{
