@@ -506,7 +506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 6022,
 		name: "Wrighvern",
 		types: ["Dragon", "Flying"],
-		baseStats: {hp: 90, atk: 90, def: 80, spa: 125, spd: 85, spe: 130},
+		baseStats: {hp: 90, atk: 85, def: 80, spa: 130, spd: 85, spe: 130},
 		abilities: {0: "Technician", 1: "Wind Rider", H: "Opportunist"},
 		heightm: 0.6,
 		weightkg: 90,
