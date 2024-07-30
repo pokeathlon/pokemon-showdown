@@ -3545,9 +3545,6 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	enamorustherian: {
 		name: "Enamorus-Therian",
 	},
-	missingno: {
-		name: "MissingNo.",
-	},
 	syclar: {
 		name: "Syclar",
 	},
