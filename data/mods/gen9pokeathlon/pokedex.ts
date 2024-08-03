@@ -25,6 +25,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "LC",
 		doublesTier: "LC",
 	},
+	solrock: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Penumbralith"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+	},
+	lunatone: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Penumbralith"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+	},
 	// Other changes
 	magmortar: {
 		inherit: true,
@@ -1482,6 +1498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 3.2,
 		weightkg: 420,
 		color: "Blue",
+		prevo: "Lunatone",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
 		tier: "OU",

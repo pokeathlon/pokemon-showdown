@@ -5222,7 +5222,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			stompingtantrum: ["9M"],
 		}
 	},
-	penumbralith: flattenLearnset(baseLearnsets.solrock,[],[baseLearnsets.lunatone, 'cometstrike', 'lunarcannon', 'expandingforce', 'irondefense', 'bodypress']),
+	penumbralith: flattenLearnset(baseLearnsets.solrock,[],['cometstrike', 'lunarcannon', 'expandingforce', 'irondefense', 'bodypress']),
 
 	growlsome: flattenLearnset(baseLearnsets.purugly,[],[
 			'copycat',
