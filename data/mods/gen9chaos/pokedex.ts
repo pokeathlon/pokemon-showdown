@@ -33,10 +33,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	lunatone: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Noctem"},
+		evoLevel: 45,
+		evos: ["Penumbralith"],
 	},
 	solrock: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Drought"},
+		evoLevel: 45,
+		evos: ["Penumbralith"],
 	},
 	spiritomb: {
 		inherit: true,
@@ -86,5 +90,52 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sylveon: {
 		inherit: true,
 		prevo: undefined,
+	},
+
+	// PoA
+	// eviolite
+	starmie: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Staruhz"],
+	},
+	spinda: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Pandiz"],
+	},
+	purugly: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Growlsome"],
+	},
+	// other PoA changes
+	magmortar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1:"Cannoneer", H: "Vital Spirit"},
+	},
+	remoraid: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Sniper", H: "Moody", S:"Cannoneer"},
+	},
+	octillery: {
+		inherit: true,
+		abilities: {0: "Suction Cups", 1: "Sniper", H: "Moody", S:"Cannoneer"},
+	},
+	rhyperior: {
+		inherit: true,
+		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Reckless", S:"Cannoneer"},
+	},
+	toucannon: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Skill Link", H: "Sheer Force", S:"Cannoneer"},
+	},
+	raichualola: {
+		inherit: true,
+		abilities: {0: "Surge Surfer", 1: "Psycho Slider"},
+	},
+	veluza: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Psycho Slider", H: "Sharpness"},
 	},
 };
