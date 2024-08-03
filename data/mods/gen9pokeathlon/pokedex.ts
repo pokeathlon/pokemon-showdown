@@ -16,7 +16,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "LC",
 		doublesTier: "LC",
 	},
-
+	purugly: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Growlsome"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+	},
 	// Resubmissions
 	soulply: {
 		num: 6001,
@@ -1445,6 +1452,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 3.2,
 		weightkg: 420,
 		color: "Blue",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
+	growlsome: {
+		num: 6061,
+		name: "Growlsome",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 124, atk: 128, def: 70, spa: 52, spd: 62, spe: 104},
+		abilities: {0: "Thick Fat", 1:"Strong Jaw", H:"Defiant"},
+		heightm: 1.7,
+		weightkg: 160,
+		color: "Gray",
+		prevo: "Purugly",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
 		tier: "OU",
