@@ -4097,9 +4097,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
-	missingno: {
+	missingnumber: {
 		num: 6002,
-		name: "MISSINGNO",
+		name: "MissingNumber",
 		types: ["Flying", "Normal"],
 		baseStats: {hp: 3, atk: 136, def: 0, spa: 6, spd: 6, spe: 29},
 		abilities: {0: "Glitch"},

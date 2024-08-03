@@ -827,7 +827,7 @@ const InsgDex: {[k: string]: number} = {
 	"hoopa": 720,
 	"hoopadeltaunleashed": 720,
 	"volcanion": 721,
-	"missingno": 722,
+	"missingnumber": 722,
 	"bulbasaurdelta": 727,
 	"ivysaurdelta": 728,
 	"venusaurdelta": 729,

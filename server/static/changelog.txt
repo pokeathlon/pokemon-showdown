@@ -1,3 +1,9 @@
+**03 of August 2024**
+- Insurgence: Missingno -> Missingnumber to avoid issues with CAP Missingno
+- PoA: Sekrilon, Sekrilon-Mega, Penumbralith, and Growlsome added
+- PoA: Grounding Stomp added
+- PoA: Vigor Herb, Boomerang added
+
 **28 of July 2024**
 - Insurgence: Added Missingno
 - Uranium: Added Hafli Berry
