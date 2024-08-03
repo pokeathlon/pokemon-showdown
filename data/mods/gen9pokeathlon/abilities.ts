@@ -576,6 +576,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		flags: {},
 		name: "Psycho Slider",
+		shortDesc: "If Psychic Terrain is active, this Pokemon's Speed is doubled.",
 		rating: 3,
 		num: 0,
 	},
