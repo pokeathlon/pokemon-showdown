@@ -541,4 +541,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 0,
 	},
+	clairvoyance: {
+		onChargeMove(pokemon, target, move) {
+				this.debug('clairvoyance - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+		},
+		flags: {breakable: 1},
+		name: "Clairvoyance",
+		shortDesc: "Charge moves do not require a charge turn",
+		rating: 5,
+		num: 0,
+	},
 };

@@ -5150,4 +5150,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			stompingtantrum: ["9M"],
 		}
 	},
+	penumbralith: {inherit: true, learnset: {...baseLearnsets.solrock.learnset, 
+		...baseLearnsets.lunatone.learnset, 
+		lunarcannon: ["9M"],
+		expandingforce: ["9M"],
+		irondefense: ["9M"],
+		bodypress: ["9M"]}},
 };

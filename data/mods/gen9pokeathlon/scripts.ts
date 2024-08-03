@@ -153,7 +153,8 @@ const PoADex: {[k: string]: number} = {
 	"cetitanhisui": 6057,
 	"suenami": 6058,
 	"sekrilon": 6059,
-	"sekrilonmega": 6059
+	"sekrilonmega": 6059,
+	"penumbralith": 6060
 };
 
 export const Scripts: ModdedBattleScriptsData = {
