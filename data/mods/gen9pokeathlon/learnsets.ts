@@ -32,8 +32,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	blazikendelta: flattenLearnset(insgLearnsets.blazikendelta),
 	blazikendeltamega: flattenLearnset(insgLearnsets.blazikendelta),
 	electrode: flattenLearnset(baseLearnsets.electrode, ['gigaimpact']),
-	lunatone: flattenLearnset(baseLearnsets.lunatone),
-	solrock: flattenLearnset(baseLearnsets.solrock),
+	lunatone: flattenLearnset(baseLearnsets.lunatone,[],['cometstrike']),
+	solrock: flattenLearnset(baseLearnsets.solrock,[],['cometstrike']),
 
 	// Adding PoA moves
 	meowth: {inherit: true, learnset: {...baseLearnsets.meowth.learnset, currencyflow: ["9M"]}},
@@ -73,7 +73,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	latias: {inherit: true, learnset: {...baseLearnsets.latias.learnset, cometstrike: ["9M"]}},
 	latios: {inherit: true, learnset: {...baseLearnsets.latios.learnset, cometstrike: ["9M"]}},
 	lunala: {inherit: true, learnset: {...baseLearnsets.lunala.learnset, cometstrike: ["9M"]}},
-	lunatone: {inherit: true, learnset: {...baseLearnsets.lunatone.learnset, cometstrike: ["9M"]}},
 	mew: {inherit: true, learnset: {...baseLearnsets.mew.learnset, cometstrike: ["9M"]}},
 	mewtwo: {inherit: true, learnset: {...baseLearnsets.mewtwo.learnset, cometstrike: ["9M"]}},
 	minior: {inherit: true, learnset: {...baseLearnsets.minior.learnset, cometstrike: ["9M"]}},
@@ -86,7 +85,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	regirock: {inherit: true, learnset: {...baseLearnsets.regirock.learnset, cometstrike: ["9M"]}},
 	reshiram: {inherit: true, learnset: {...baseLearnsets.reshiram.learnset, cometstrike: ["9M"]}},
 	solgaleo: {inherit: true, learnset: {...baseLearnsets.solgaleo.learnset, cometstrike: ["9M"]}},
-	solrock: {inherit: true, learnset: {...baseLearnsets.solrock.learnset, cometstrike: ["9M"]}},
 	uxie: {inherit: true, learnset: {...baseLearnsets.uxie.learnset, cometstrike: ["9M"]}},
 	victini: {inherit: true, learnset: {...baseLearnsets.victini.learnset, cometstrike: ["9M"]}},
 	zekrom: {inherit: true, learnset: {...baseLearnsets.zekrom.learnset, cometstrike: ["9M"]}},
