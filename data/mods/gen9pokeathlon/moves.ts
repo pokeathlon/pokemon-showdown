@@ -1012,7 +1012,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-	spiritsyphon: {
+	spiritsiphon: {
 		num: 0,
 		accuracy: 100,
 		basePower: 65,
