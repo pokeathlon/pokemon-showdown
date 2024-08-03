@@ -554,4 +554,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: 0,
 	},
+	cannoneer: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Cannoneer",
+		desc: "This Pokemon's bullet-based attacks have their power multiplied by 1.5.",
+		shortDesc: "This Pokemon's bullet-based attacks have 1.5x power. Pollen Puff heals 50% more.",
+		rating: 3,
+		num: 0,
+	},
+	psychoslider: {
+		onModifySpe(spe) {
+			if (this.field.isTerrain('psychicterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Psycho Slider",
+		rating: 3,
+		num: 0,
+	},
 };

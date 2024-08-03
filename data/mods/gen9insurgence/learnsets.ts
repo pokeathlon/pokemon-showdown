@@ -18388,7 +18388,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt:  ["6M"],
 		},
 	},
-	missingno: {
+	missingnumber: {
 		learnset: {
 			skyattack: ["6M"],
 			watergun: ["6M"],

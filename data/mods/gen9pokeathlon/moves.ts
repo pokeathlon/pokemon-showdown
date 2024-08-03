@@ -26,7 +26,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	fling: {
 		inherit: true,
-		flags: {protect: 1, mirror: 1, allyanim: 1, metronome: 1, noparentalbond: 1},
 		onModifyMove(move, source, target) {
 			if (source.item === 'boomerang') {
 				move.multihit = 2
@@ -71,6 +70,36 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					pokemon.removeVolatile('fling');
 				}
 			},
+		},
+	},
+	pollenpuff: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.infiltrates = true;
+			}
+		},
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!this.heal(Math.floor(target.baseMaxhp * (source.ability === 'cannonner' ? 0.75 : 0.5)))) {
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
+					return this.NOT_FAIL;
+				}
+			}
 		},
 	},
 
@@ -982,5 +1011,61 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+	},
+	spiritsyphon: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Spirit Siphon",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	cometstrike: {
+		num: 434,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Draco Meteor",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(1.3);
+			}
+		},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
+	shockbombs: {
+		num: 0,
+		accuracy: 95,
+		basePower: 25,
+		category: "Physical",
+		name: "Shock Bombs",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
 	},
 };
