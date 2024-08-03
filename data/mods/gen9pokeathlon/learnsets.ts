@@ -32,6 +32,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	blazikendelta: flattenLearnset(insgLearnsets.blazikendelta),
 	blazikendeltamega: flattenLearnset(insgLearnsets.blazikendelta),
 	electrode: flattenLearnset(baseLearnsets.electrode, ['gigaimpact']),
+	lunatone: flattenLearnset(baseLearnsets.lunatone),
+	solrock: flattenLearnset(baseLearnsets.solrock),
 
 	// Adding PoA moves
 	meowth: {inherit: true, learnset: {...baseLearnsets.meowth.learnset, currencyflow: ["9M"]}},

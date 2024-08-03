@@ -1052,7 +1052,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Steel",
+		type: "Rock",
 		contestType: "Beautiful",
 	},
 	shockbombs: {
