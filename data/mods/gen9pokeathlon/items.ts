@@ -97,4 +97,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
+	vigorherb: {
+		name: "Vigor Herb",
+		desc: "Holder's recharge turn is skipped. Single use.",
+		onUpdate(pokemon) {	
+			if (pokemon.volatiles["mustrecharge"] && pokemon.useItem()) {
+				pokemon.removeVolatile("mustrecharge");
+				this.add("cant", pokemon, "recharge");
+				return;
+			}
+		},
+		spritenum: -3,
+		num: 0,
+	},
 };
