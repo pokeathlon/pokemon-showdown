@@ -418,9 +418,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Human-Like"],
-		tier: "UU",
-		natDexTier: "UU",
-		doublesTier: "(DUU)",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
 	},
 	raikousupra: {
 		num: 243,
