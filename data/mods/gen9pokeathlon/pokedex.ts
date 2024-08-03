@@ -1438,7 +1438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	penumbralith: {
 		num: 6060,
-		name: "Penumnbralith",
+		name: "Penumbralith",
 		types: ["Rock", "Psychic"],
 		baseStats: {hp: 80, atk: 45, def: 120, spa: 100, spd: 100, spe: 55},
 		abilities: {0: "Clairvoyance"},
