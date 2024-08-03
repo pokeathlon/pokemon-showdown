@@ -85,4 +85,16 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
+	boomerang: {
+		name: "Boomerang",
+		desc: "Fling hits twice. Cannot be lost.",
+		spritenum: -3,
+		onTakeItem(item, source) {
+			return false;
+		},
+		fling: {
+			basePower: 55,
+		},
+		num: 0,
+	},
 };
