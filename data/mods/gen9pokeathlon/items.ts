@@ -72,4 +72,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 0,
 	},
+	sekrilite: {
+		name: "Sekrilite",
+		desc: "If held by a Sekrilon, this item allows it to Mega Evolve in battle.",
+		spritenum: 623,
+		megaStone: "Sekrilon-Mega",
+		megaEvolves: "Sekrilon",
+		itemUser: ["Sekrilon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
 };
