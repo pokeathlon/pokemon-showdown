@@ -89,8 +89,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		name: "Boomerang",
 		desc: "Fling hits twice. Cannot be lost.",
 		spritenum: -3,
-		onTakeItem(item, source) {
-			return false;
+		onTakeItem(item, pokemon, source) {
+			if ((source && source !== pokemon) || (this.activeMove && this.activeMove.id === 'knockoff')) {
+				return false;
+			}
 		},
 		fling: {
 			basePower: 55,
