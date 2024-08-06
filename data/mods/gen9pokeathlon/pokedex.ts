@@ -520,7 +520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Green",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		doublesTier: "DOU",
 	},
