@@ -336,6 +336,22 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+		name: "[Gen 7] IF Dex 350 Cup",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', '350 Cup Mod',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+		],
+	},
 
 	{
 		section: "Fangames: Regional Dex",
