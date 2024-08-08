@@ -336,6 +336,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	*/
 	{
 		name: "[Gen 7] IF Dex 350 Cup",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
@@ -351,7 +352,7 @@ export const Formats: FormatList = [
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
 		],
-	}, */
+	},
 
 	{
 		section: "Fangames: Regional Dex",
