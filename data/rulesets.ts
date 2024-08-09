@@ -3061,12 +3061,13 @@ export const Rulesets: {[k: string]: FormatData} = {
 				if (speciesTable.size === 0) {
 					speciesTable.add(species.gen);
 						if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
+				} else {
+					if (!speciesTable.has(fusion.gen) || !speciesTable.has(species.gen)) {
+						return [`You are restricted to Pokemon of the same gen.`];
+					}
+					speciesTable.add(species.gen);
+					if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
 				}
-				if (!speciesTable.has(fusion.gen) || !speciesTable.has(species.gen)) {
-					return [`You are restricted to Pokemon of the same gen.`];
-				}
-				speciesTable.add(species.gen);
-				if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
 			}
 		},
 	},
