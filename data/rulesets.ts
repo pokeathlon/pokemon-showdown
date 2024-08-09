@@ -3063,7 +3063,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 						if (fusion.gen) speciesTable.add(fusion.gen);
 				}
 				if (!speciesTable.has(fusion.gen) || !speciesTable.has(species.gen)) {
-					return [`You are restricted to Pokemon of the same gen.`, `(You have more than one ${speciesTable.has(species.gen) ? species.gen : fusion.gen})`];
+					return [`You are restricted to Pokemon of the same gen.`];
 				}
 				speciesTable.add(species.num);
 				if (fusion.gen) speciesTable.add(fusion.gen);
