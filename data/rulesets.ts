@@ -3049,6 +3049,36 @@ export const Rulesets: {[k: string]: FormatData} = {
 			}
 		},
 	},
+	forcemonogen: {
+		effectType: 'ValidatorRule',
+		name: 'Force Monogen',
+		desc: `Forces all teams to belong to the same generation.`,
+		onValidateTeam(team, format) {
+			const speciesTable = new Set<number>();
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				const fusion = this.dex.species.get(set.fusion);
+				if (speciesTable.size === 0) {
+					speciesTable.add(species.num);
+						if (fusion.gen) speciesTable.add(fusion.gen);
+				}
+				if (!speciesTable.has(fusion.gen) || !speciesTable.has(species.gen)) {
+					return [`You are restricted to Pokemon of the same gen.`, `(You have more than one ${speciesTable.has(species.gen) ? species.baseSpecies : fusion.baseSpecies})`];
+				}
+				speciesTable.add(species.num);
+				if (fusion.gen) speciesTable.add(fusion.gen);
+			}
+		},
+		/*
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			const type = this.dex.types.get(this.ruleTable.valueRules.get('forcemonotype')!);
+			if (!species.types.map(this.toID).includes(type.id)) {
+				return [`${set.species} must have ${type.name} type.`];
+			}
+		},
+		*/
+	},
 };
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
