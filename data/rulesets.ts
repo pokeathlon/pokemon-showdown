@@ -3060,24 +3060,15 @@ export const Rulesets: {[k: string]: FormatData} = {
 				const fusion = this.dex.species.get(set.fusion);
 				if (speciesTable.size === 0) {
 					speciesTable.add(species.gen);
-						if (fusion.gen) speciesTable.add(fusion.gen);
+						if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
 				}
 				if (!speciesTable.has(fusion.gen) || !speciesTable.has(species.gen)) {
 					return [`You are restricted to Pokemon of the same gen.`];
 				}
-				speciesTable.add(species.num);
-				if (fusion.gen) speciesTable.add(fusion.gen);
+				speciesTable.add(species.gen);
+				if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
 			}
 		},
-		/*
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			const type = this.dex.types.get(this.ruleTable.valueRules.get('forcemonotype')!);
-			if (!species.types.map(this.toID).includes(type.id)) {
-				return [`${set.species} must have ${type.name} type.`];
-			}
-		},
-		*/
 	},
 };
 
