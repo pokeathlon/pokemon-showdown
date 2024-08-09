@@ -3059,11 +3059,11 @@ export const Rulesets: {[k: string]: FormatData} = {
 				const species = this.dex.species.get(set.species);
 				const fusion = this.dex.species.get(set.fusion);
 				if (speciesTable.size === 0) {
-					speciesTable.add(species.num);
+					speciesTable.add(species.gen);
 						if (fusion.gen) speciesTable.add(fusion.gen);
 				}
 				if (!speciesTable.has(fusion.gen) || !speciesTable.has(species.gen)) {
-					return [`You are restricted to Pokemon of the same gen.`, `(You have more than one ${speciesTable.has(species.gen) ? species.baseSpecies : fusion.baseSpecies})`];
+					return [`You are restricted to Pokemon of the same gen.`, `(You have more than one ${speciesTable.has(species.gen) ? species.gen : fusion.gen})`];
 				}
 				speciesTable.add(species.num);
 				if (fusion.gen) speciesTable.add(fusion.gen);
