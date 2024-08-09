@@ -5275,7 +5275,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			'crushclaw',
 			'doubleedge',
 			'falseswipe',
-			'hyperfang',
 			'meanlook',
 			'scaryface',
 			'screech',
