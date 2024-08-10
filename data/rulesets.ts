@@ -3056,20 +3056,36 @@ export const Rulesets: {[k: string]: FormatData} = {
 		onValidateTeam(team, format) {
 			const speciesTable = new Set<number>();
 			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				const fusion = this.dex.species.get(set.fusion);
+				const species = Dex.species.get(set.species);
+				const fusion = Dex.species.get(set.fusion);
+				var gen = 1;
+				if (species.num < 252 && species.num > 151) gen = 2;
+				if (species.num < 387 && species.num > 251) gen = 3;
+				if (species.num < 495 && species.num > 386) gen = 4;
+				if (species.num < 650 && species.num > 494) gen = 5;
+				if (species.num < 722 && species.num > 649) gen = 6;
+				if (species.num < 810 && species.num > 721) gen = 7;
+				if (species.num < 906 && species.num > 809) gen = 8;
+				if (species.num > 905) gen = 9;
+
+				var fusiongen = 1;
+				if (fusion.num < 252 && fusion.num > 151) fusiongen = 2;
+				if (fusion.num < 387 && fusion.num > 251) fusiongen = 3;
+				if (fusion.num < 495 && fusion.num > 386) fusiongen = 4;
+				if (fusion.num < 650 && fusion.num > 494) fusiongen = 5;
+				if (fusion.num < 722 && fusion.num > 649) fusiongen = 6;
+				if (fusion.num < 810 && fusion.num > 721) fusiongen = 7;
+				if (fusion.num < 906 && fusion.num > 809) fusiongen = 8;
+				if (fusion.num > 905) fusiongen = 9;
+
 				if (speciesTable.size === 0) {
-					speciesTable.add(species.gen);
-						if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
+					speciesTable.add(gen);
+					if (fusion.exists && fusiongen != gen) return ['You are restricted to Pokemon of the same gen']
 				} else {
-					if (!speciesTable.has(species.gen)) {
+					if (!speciesTable.has(gen) || (fusion.exists && !speciesTable.has(fusiongen))) {
 						return [`You are restricted to Pokemon of the same gen.`];
 					}
-					if (fusion && !speciesTable.has(fusion.gen)) {
-						return [`You are restricted to Pokemon of the same gen.`];
-					}
-					speciesTable.add(species.gen);
-					if (fusion && fusion.gen === species.gen) speciesTable.add(fusion.gen);
+					speciesTable.add(gen);
 				}
 			}
 		},
