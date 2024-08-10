@@ -1517,7 +1517,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Purugly",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
-		tier: "OU",
+		tier: "Uber",
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
