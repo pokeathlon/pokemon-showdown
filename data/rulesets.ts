@@ -3107,7 +3107,12 @@ export const Rulesets: {[k: string]: FormatData} = {
                         continue;
                     } 
                 }
-                if((bossSpecies?.prevo || bossFusion?.prevo) === curSpecies.name || (this.dex.species.get(bossSpecies?.prevo).prevo || this.dex.species.get(bossFusion?.prevo).prevo) === curSpecies.name) continue;
+                if(
+					(bossSpecies?.prevo || bossFusion?.prevo) === curSpecies.name || 
+					(this.dex.species.get(bossSpecies?.prevo).prevo || this.dex.species.get(bossFusion?.prevo).prevo) === curSpecies.name ||
+					(bossSpecies?.prevo || bossFusion?.prevo) === curFusion.name || 
+					(this.dex.species.get(bossSpecies?.prevo).prevo || this.dex.species.get(bossFusion?.prevo).prevo) === curFusion.name
+				) continue;
                 else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
             }
         },
