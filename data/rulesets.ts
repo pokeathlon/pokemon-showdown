@@ -3107,11 +3107,21 @@ export const Rulesets: {[k: string]: FormatData} = {
                         continue;
                     } 
                 }
-                if( 
-					(curSpecies.name || curFusion.name) === (bossSpecies?.prevo || bossFusion?.prevo || 
-					this.dex.species.get(bossSpecies?.prevo).prevo || this.dex.species.get(bossFusion?.prevo).prevo)
+				if (
+					(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
+					(this.dex.species.get(curFusion).prevo && !curFusion.nfe)
+					) return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`]
+                if(
+					(curSpecies.name) === bossSpecies?.prevo ||
+					(curFusion.name) === bossSpecies?.prevo ||
+					(curSpecies.name) === bossFusion?.prevo ||
+					(curFusion.name) === bossFusion?.prevo ||
+					(curSpecies.name) === this.dex.species.get(bossSpecies?.prevo).prevo ||
+					(curFusion.name) === this.dex.species.get(bossSpecies?.prevo).prevo ||
+					(curSpecies.name) === this.dex.species.get(bossFusion?.prevo).prevo ||
+					(curFusion.name) === this.dex.species.get(bossFusion?.prevo).prevo
 				) continue;
-                else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
+               	else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
             }
         },
         onBegin() {
