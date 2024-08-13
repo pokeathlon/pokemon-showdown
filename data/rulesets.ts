@@ -3080,16 +3080,48 @@ export const Rulesets: {[k: string]: FormatData} = {
 
 				if (speciesTable.size === 0) {
 					speciesTable.add(gen);
-					if (fusion.exists && fusiongen != gen) return ['You are restricted to Pokemon of the same gen']
 				} else {
 					if (!speciesTable.has(gen) && (fusion.exists && !speciesTable.has(fusiongen))) {
 						return [`You are restricted to Pokemon of the same gen.`];
 					}
-					speciesTable.add(gen);
 				}
 			}
 		},
 	},
+	bigbossrule: {
+        effectType: "Rule",
+        name: "Big Boss Rule",
+        desc: `The first Pok&eacute;mon on the team must be fully-evolved with an evolution line; if this Pok&eacute;mon faints, the team loses. The rest of the team must be a fusion of NFE Pok&eacute;mon of the same evolution line.`,
+        onValidateTeam(team) {
+            let bossSpecies;
+			let bossFusion;
+            for (let i = 0; i < team.length; i ++){
+                const curSpecies = this.dex.species.get(team[i].species);
+				const curFusion = this.dex.species.get(team[i].fusion);
+                if(i === 0) {
+                    if ((curSpecies.prevo.length === 0 || curSpecies.nfe) && (curFusion && (curFusion.prevo.length === 0 || curFusion.nfe))) //boss
+                        return [`The first Pokemon on the team and its fusion must be fully-evolved with an evolution line.`];
+                    else {
+                        bossSpecies = curSpecies;
+						bossFusion = curFusion;
+                        continue;
+                    } 
+                }
+                if((bossSpecies?.prevo || bossFusion?.prevo) === curSpecies.name || (this.dex.species.get(bossSpecies?.prevo).prevo || this.dex.species.get(bossFusion?.prevo).prevo) === curSpecies.name) continue;
+                else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
+            }
+        },
+        onBegin() {
+            this.add('rule', 'Big Boss Rule: If the fully-evolved boss faints, that team loses.');
+        },
+        onFaint(target) {
+			var fusion = this.dex.species.get(target.fusion);
+            if(!target.baseSpecies.nfe || !fusion.nfe) {
+                this.add('-message', `${target.side.name}'s boss has fallen!`);
+                this.lose(target.side);
+            }
+        },
+    },
 };
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
