@@ -217,7 +217,7 @@ export const Formats: FormatList = [
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Big Boss Rule',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
 			'Mega', 'Uber',
