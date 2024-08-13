@@ -521,7 +521,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause', '+Nonexistent'],
+		ruleset: ['Standard', 'Terastal Clause', '+Pokeathlon', '- all Pokemon'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
 			'Focus Band', 'Quick Claw',],
 	},

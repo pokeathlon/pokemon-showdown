@@ -442,7 +442,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete move.secondaries;
 			}
 		},
-		flags: {},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Lernean",
 		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
 		rating: 4.5,

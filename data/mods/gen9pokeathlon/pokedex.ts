@@ -574,7 +574,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 6023,
 		name: "Meditao",
 		types: ["Psychic", "Fighting"],
-		baseStats: {hp: 80, atk: 55, def: 75, spa: 55, spd: 75, spe: 70},
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
 		abilities: {0: "Inner Focus", H: "Muscle Memory"},
 		heightm: 1.3,
 		weightkg: 31.5,
