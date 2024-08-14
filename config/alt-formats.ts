@@ -519,6 +519,18 @@ export const Formats: FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
 	},
+	{
+		name: "[Gen 9] Chaos Tera Preview Draft",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial']
+	},
+	{
+		name: "[Gen 9] Chaos Draft",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial'],
+	},
 
 	{
 		section: "Pokéathlon: Regional Dex",
