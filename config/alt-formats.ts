@@ -197,7 +197,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 7] IF Dex Monogen",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-
+		searchShow: false,
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Force Monogen',
@@ -213,7 +213,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 7] IF Dex Big Boss",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-
+		searchShow: false,
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Big Boss Rule',
@@ -521,13 +521,13 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Tera Preview Draft",
-
+		searchShow: false,
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial']
 	},
 	{
 		name: "[Gen 9] Chaos Draft",
-
+		searchShow: false,
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial'],
 	},
