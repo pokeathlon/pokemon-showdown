@@ -3111,13 +3111,13 @@ export const Rulesets: {[k: string]: FormatData} = {
 					(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
 					(this.dex.species.get(curFusion).prevo && !curFusion.nfe)
 				) return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`]
-				if ( //Legendary and Mythical check
-					(curSpecies.tags.includes("Sub-Legendary") || 
+				if (i != 0 && //Legendary and Mythical are only allowed for the boss
+					((curSpecies.tags.includes("Sub-Legendary") || 
 					curSpecies.tags.includes("Restricted Legendary") ||
 					curSpecies.tags.includes("Mythical") ||
 					curFusion.tags.includes("Sub-Legendary") ||
 					curFusion.tags.includes("Restricted Legendary") ||
-					curFusion.tags.includes("Mythical"))
+					curFusion.tags.includes("Mythical")))
 				) return [`Legendaries and Mythicals cannot be used as fusion components in this format.`]
 				//ADD A BST CHECK HERE TODO
                 if( //Checking one of the components evolves into one of the bosses
