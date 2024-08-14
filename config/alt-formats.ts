@@ -205,7 +205,7 @@ export const Formats: FormatList = [
 		],
 		banlist: [
 			'Mega', 'Uber',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
 		],
@@ -220,7 +220,7 @@ export const Formats: FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
-			'Mega', 'Uber',
+			'Mega', 'Uber', 'Sub-Legendary', 'Mythical', 'Restricted Legendary',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 

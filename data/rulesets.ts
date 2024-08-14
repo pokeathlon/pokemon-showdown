@@ -3055,35 +3055,29 @@ export const Rulesets: {[k: string]: FormatData} = {
 		desc: `Forces all teams to belong to the same generation.`,
 		onValidateTeam(team, format) {
 			const speciesTable = new Set<number>();
-			for (const set of team) {
-				const species = Dex.species.get(set.species);
-				const fusion = Dex.species.get(set.fusion);
-				var gen = 1;
-				if (species.num < 252 && species.num > 151) gen = 2;
-				if (species.num < 387 && species.num > 251) gen = 3;
-				if (species.num < 495 && species.num > 386) gen = 4;
-				if (species.num < 650 && species.num > 494) gen = 5;
-				if (species.num < 722 && species.num > 649) gen = 6;
-				if (species.num < 810 && species.num > 721) gen = 7;
-				if (species.num < 906 && species.num > 809) gen = 8;
-				if (species.num > 905) gen = 9;
+			var monogen
+			for (let i = 0; i < team.length; i ++) {
+				const curSpecies = Dex.species.get(team[i].species);
+				const curFusion = Dex.species.get(team[i].fusion);
 
-				var fusiongen = 1;
-				if (fusion.num < 252 && fusion.num > 151) fusiongen = 2;
-				if (fusion.num < 387 && fusion.num > 251) fusiongen = 3;
-				if (fusion.num < 495 && fusion.num > 386) fusiongen = 4;
-				if (fusion.num < 650 && fusion.num > 494) fusiongen = 5;
-				if (fusion.num < 722 && fusion.num > 649) fusiongen = 6;
-				if (fusion.num < 810 && fusion.num > 721) fusiongen = 7;
-				if (fusion.num < 906 && fusion.num > 809) fusiongen = 8;
-				if (fusion.num > 905) fusiongen = 9;
-
-				if (speciesTable.size === 0) {
-					speciesTable.add(gen);
-				} else {
-					if (!speciesTable.has(gen) && (fusion.exists && !speciesTable.has(fusiongen))) {
-						return [`You are restricted to Pokemon of the same gen.`];
-					}
+				if (i === 0) { //Checking lead
+					speciesTable.add(curSpecies.gen);
+					if (curFusion && curFusion.gen === curSpecies.gen) return [`Each fusion component must be of a different gen.`]
+					speciesTable.add(curFusion.gen);
+				}
+				if (i === 1) { //Deciding which gen is the monogen
+					console.log(i)
+					if (speciesTable.has(curSpecies.gen)) monogen = curSpecies.gen
+					if (!monogen && speciesTable.has(curFusion.gen)) monogen = curFusion.gen
+					if (!monogen) return ['No single generation is present across the entire team.']
+				}
+				console.log(monogen)
+				if (i != 0) {
+					if (curSpecies.gen != monogen && speciesTable.has(curSpecies.gen)) return [`${curSpecies} is from gen ${curSpecies.gen}, which has already been used.`]
+					if (curFusion && curFusion.gen != monogen && speciesTable.has(curFusion.gen)) return [`${curFusion} is from gen ${curFusion.gen}, which has already been used.`]
+					if (curFusion && curFusion.gen === curSpecies.gen) return [`Each fusion component must be of a different gen.`]
+					speciesTable.add(curSpecies.gen);
+					speciesTable.add(curFusion.gen);
 				}
 			}
 		},
@@ -3095,24 +3089,39 @@ export const Rulesets: {[k: string]: FormatData} = {
         onValidateTeam(team) {
             let bossSpecies;
 			let bossFusion;
+			var bossBans: Array<string> = ['Scyther', 'Scizor', 'Misdreavus', 'Mismagius', 'Porygon', 'Porygon2', 'Porygon-Z'];
             for (let i = 0; i < team.length; i ++){
                 const curSpecies = this.dex.species.get(team[i].species);
 				const curFusion = this.dex.species.get(team[i].fusion);
-                if(i === 0) {
-                    if ((curSpecies.prevo.length === 0 || curSpecies.nfe) && (curFusion && (curFusion.prevo.length === 0 || curFusion.nfe))) //boss
+                if(i === 0) { //First pokemon checks
+					//Checking boss validity
+                    if ((curSpecies.prevo.length === 0 || curSpecies.nfe) && (curFusion && (curFusion.prevo.length === 0 || curFusion.nfe)))
                         return [`The first Pokemon on the team and its fusion must be fully-evolved with an evolution line.`];
+					//Checking Boss bans
+					if (bossBans.includes(curSpecies.name)) return [`${curSpecies} cannot be used as a boss.`]
+					if (bossBans.includes(curFusion.name)) return [`${curFusion} cannot be used as a boss.`]
                     else {
                         bossSpecies = curSpecies;
 						bossFusion = curFusion;
                         continue;
                     } 
                 }
-				if (
+				//Rest of party checks
+				if ( //NFE checks
 					(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
 					(this.dex.species.get(curFusion).prevo && !curFusion.nfe)
-					) return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`]
-                if(
-					(curSpecies.name) === bossSpecies?.prevo ||
+				) return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`]
+				if ( //Legendary and Mythical check
+					(curSpecies.tags.includes("Sub-Legendary") || 
+					curSpecies.tags.includes("Restricted Legendary") ||
+					curSpecies.tags.includes("Mythical") ||
+					curFusion.tags.includes("Sub-Legendary") ||
+					curFusion.tags.includes("Restricted Legendary") ||
+					curFusion.tags.includes("Mythical"))
+				) return [`Legendaries and Mythicals cannot be used as fusion components in this format.`]
+				//ADD A BST CHECK HERE TODO
+                if( //Checking one of the components evolves into one of the bosses
+					(curSpecies.name) === bossSpecies?.prevo || 
 					(curFusion.name) === bossSpecies?.prevo ||
 					(curSpecies.name) === bossFusion?.prevo ||
 					(curFusion.name) === bossFusion?.prevo ||
