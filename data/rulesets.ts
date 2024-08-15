@@ -3138,7 +3138,7 @@ export const Rulesets: {[k: string]: FormatData} = {
         },
         onFaint(target) {
 			var fusion = this.dex.species.get(target.fusion);
-            if(!target.baseSpecies.nfe || !fusion.nfe) {
+            if((!target.baseSpecies.nfe && target.baseSpecies.prevo) || (!fusion.nfe && fusion.prevo)) {
                 this.add('-message', `${target.side.name}'s boss has fallen!`);
                 this.lose(target.side);
             }
