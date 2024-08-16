@@ -893,6 +893,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	primarinaolul: {
+		num: 6062,
+		name: "Primarina-Olul",
+		types: ["Psychic", "Fire"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 80, atk: 50, def: 84, spa: 130, spd: 116, spe: 70},
+		abilities: {0: "Spitting Fire", H: "Flash Fire"},
+		heightm: 1.8,
+		weightkg: 44,
+		color: "Red",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Field"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 
 	// Pokeathlon
 	bewitwing: {

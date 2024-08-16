@@ -580,4 +580,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 0,
 	},
+	spittingfire: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.type === 'Fire') move.flags.sound = 1;
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags.sound) return this.chainModify([4915, 4096]);
+		},
+		flags: {breakable: 1},
+		name: "Spitting Fire",
+		shortDesc: "Fire-type moves are now sound-based. Sound-based moves have 1.2x power.",
+		rating: 3,
+		num: 0,
+	},
 };
