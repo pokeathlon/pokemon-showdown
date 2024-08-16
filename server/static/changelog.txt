@@ -1,5 +1,4 @@
 **03 of August 2024**
-- Insurgence: Missingno -> Missingnumber to avoid issues with CAP Missingno
 - PoA: Sekrilon, Sekrilon-Mega, Penumbralith, and Growlsome added
 - PoA: Spirit Siphon, Comet Strike, Shock Bombs, Grounding Stomp added
 - PoA: Vigor Herb, Boomerang added

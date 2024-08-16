@@ -206,6 +206,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 		itemUser: ["Eevee"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.baseSpecies.baseSpecies === 'Vaporeon' || 
+				source.baseSpecies.baseSpecies === 'Jolteon' ||
+				source.baseSpecies.baseSpecies === 'Flareon' ||
+				source.baseSpecies.baseSpecies === 'Umbreon' ||
+				source.baseSpecies.baseSpecies === 'Espeon' ||
+				source.baseSpecies.baseSpecies === 'Glaceon' ||
+				source.baseSpecies.baseSpecies === 'Leafeon' ||
+				source.baseSpecies.baseSpecies === 'Sylveon') return false;
 			return true;
 		},
 		num: 0,

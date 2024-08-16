@@ -112,4 +112,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: -3,
 		num: 0,
 	},
+	paddedhelmet: {
+		name: "Padded Helmet",
+		desc: "Holder takes half the recoil damage.",
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.recoil) move.recoil[1] = move.recoil[1]*2;
+		},
+		num: 0,
+		spritenum: -3
+	},
 };

@@ -763,7 +763,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	vampiric: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (this.checkMoveMakesContact(move, pokemon, target, false)) {
-				this.heal(pokemon.lastDamage / 4, pokemon);
+				this.heal(pokemon.lastDamage / 4, pokemon, pokemon);
 			}
 		},
 		flags: {},

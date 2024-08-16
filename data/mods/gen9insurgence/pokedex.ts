@@ -1,5 +1,9 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// Modded
+	missingno: {
+		inherit: true,
+		abilities: {0: "Glitch"},
+	},
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Winter Joy"},
@@ -4091,20 +4095,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Event Horizon"},
 		heightm: 0.3,
 		weightkg: 9.0,
-		tags: ["Insurgence"],
-		eggGroups: ["Undiscovered"],
-		tier: "Uber",
-		natDexTier: "Uber",
-		doublesTier: "DUber",
-	},
-	missingnumber: {
-		num: 6002,
-		name: "MissingNumber",
-		types: ["Flying", "Normal"],
-		baseStats: {hp: 3, atk: 136, def: 0, spa: 6, spd: 6, spe: 29},
-		abilities: {0: "Glitch"},
-		heightm: 0.3,
-		weightkg: 4.0,
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
 		tier: "Uber",

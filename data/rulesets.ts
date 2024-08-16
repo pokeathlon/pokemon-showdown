@@ -1377,6 +1377,21 @@ export const Rulesets: {[k: string]: FormatData} = {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
 			}
+			for (const set of team) { //IF Type stuff
+				let species = this.dex.species.get(set.species);
+				let speciesTypes = species.types;
+				let fusion = this.dex.species.get(set.fusion);
+				let fusionTypes = fusion.types;
+
+				let speciesType1 = speciesTypes[0];
+				let speciesType2 = speciesTypes[1];
+				let fusionType1 = speciesTypes[0];
+				let fusionType2 = speciesTypes[1];
+				
+				if (fusion) {
+					
+				}
+			}
 		},
 	},
 	enforcesameteratype: {
