@@ -3075,7 +3075,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 				const curSpecies = Dex.species.get(team[i].species);
 				const curFusion = Dex.species.get(team[i].fusion);
 
-				if (!curFusion) return [`${curSpecies} must be fused.`]
+				if (!curFusion || !curFusion.exists) return [`${curSpecies} must be fused.`];
 
 				if (i === 0) { //Checking lead
 					speciesTable.add(curSpecies.gen);
