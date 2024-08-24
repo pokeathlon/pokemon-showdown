@@ -3101,7 +3101,7 @@ export const Rulesets: {[k: string]: FormatData} = {
                 
 				if(i === 0) { //First pokemon checks
 					//Checking boss validity
-                    if ((curSpecies.prevo.length === 0 || curSpecies.nfe) && (curFusion && (curFusion.prevo.length === 0 || curFusion.nfe)))
+                    if ((curSpecies.prevo || curSpecies.nfe) && (curFusion && (curFusion.prevo || curFusion.nfe)))
                         return [`The first Pokemon on the team and its fusion must be fully-evolved with an evolution line.`];
 					//Checking Boss bans
 					if (bossBans.includes(curSpecies.name)) return [`${curSpecies} cannot be used as a boss.`]
