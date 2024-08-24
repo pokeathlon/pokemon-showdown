@@ -94,7 +94,7 @@ const PoADex: {[k: string]: number} = {
 	"ockthane": 6016,
 	"porygon2rhinian": 6017,
 	"porygonzrhinian": 6018,
-	"incineroarolulian": 727,
+	"incineroarolul": 727,
 	"raikousupra": 243,
 	"enteisupra": 244,
 	"suicunesupra": 245,
@@ -156,7 +156,9 @@ const PoADex: {[k: string]: number} = {
 	"sekrilonmega": 6059,
 	"penumbralith": 6060,
 	"growlsome": 6061,
-	"primarinaolul": 6062
+	"primarinaolul": 6062,
+	"decidueyeolul": 6063,
+	"kaleidleon": 6064
 };
 
 export const Scripts: ModdedBattleScriptsData = {

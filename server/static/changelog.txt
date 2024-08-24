@@ -1,5 +1,10 @@
 **24 of August 2024**
-- IF: Big Boss and Monotype format validators should work.
+- IF: Big Boss and Monotype format validators should work
+- PoA: Kaleidleon and Decidueye-Olul added
+- PoA: Jagged Shot added
+- PoA: Hue Shift added
+- PoA: Changed Incineroar-Olulian to Incineroar-Olul
+- PoA: Tier changes
 
 **03 of August 2024**
 - PoA: Sekrilon, Sekrilon-Mega, Penumbralith, and Growlsome added
