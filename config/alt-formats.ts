@@ -232,7 +232,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		mod: 'gen7infinitefusion',
 		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Same Type Clause',
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Fusion Same Type Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [

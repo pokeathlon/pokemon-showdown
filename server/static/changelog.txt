@@ -1,3 +1,6 @@
+**24 of August 2024**
+- IF: Big Boss and Monotype format validators should work.
+
 **03 of August 2024**
 - PoA: Sekrilon, Sekrilon-Mega, Penumbralith, and Growlsome added
 - PoA: Spirit Siphon, Comet Strike, Shock Bombs, Grounding Stomp added
