@@ -3095,7 +3095,11 @@ export const Rulesets: {[k: string]: FormatData} = {
             for (let i = 0; i < team.length; i ++){
                 const curSpecies = this.dex.species.get(team[i].species);
 				const curFusion = this.dex.species.get(team[i].fusion);
-                if(i === 0) { //First pokemon checks
+				
+				//Checking that all mons are fused
+				if (!curFusion.exists || !curFusion) return [`All Pokemon must be fused. ${curSpecies} is not fused.`]
+                
+				if(i === 0) { //First pokemon checks
 					//Checking boss validity
                     if ((curSpecies.prevo.length === 0 || curSpecies.nfe) && (curFusion && (curFusion.prevo.length === 0 || curFusion.nfe)))
                         return [`The first Pokemon on the team and its fusion must be fully-evolved with an evolution line.`];
@@ -3110,9 +3114,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 				if ( //NFE checks
 					(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
 					(this.dex.species.get(curFusion).prevo && !curFusion.nfe)
-				) {
-					console.log("We have entered the NFE check IF return")
-					return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`];}
+				) 	return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`];
 				if (i != 0 && //Legendary and Mythical are only allowed for the boss
 					((curSpecies.tags.includes("Sub-Legendary") || 
 					curSpecies.tags.includes("Restricted Legendary") ||
