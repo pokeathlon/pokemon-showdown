@@ -3120,14 +3120,14 @@ export const Rulesets: {[k: string]: FormatData} = {
                     else {
                         bossSpecies = curSpecies;
 						bossFusion = curFusion;
-                        continue;
                     } 
-                }
-				//Rest of party checks
+                } else if (bossSpecies && bossFusion) { //Rest of party checks
 				if ( //NFE checks
 					(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
 					(this.dex.species.get(curFusion).prevo && !curFusion.nfe)
-				) return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`]
+				) {
+					console.log("We have entered the NFE check IF return")
+					return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`];}
 				if (i != 0 && //Legendary and Mythical are only allowed for the boss
 					((curSpecies.tags.includes("Sub-Legendary") || 
 					curSpecies.tags.includes("Restricted Legendary") ||
@@ -3136,7 +3136,27 @@ export const Rulesets: {[k: string]: FormatData} = {
 					curFusion.tags.includes("Restricted Legendary") ||
 					curFusion.tags.includes("Mythical")))
 				) return [`Legendaries and Mythicals cannot be used as fusion components in this format.`]
-				//ADD A BST CHECK HERE TODO
+				//Check boss BST
+				var bossBST = 0;
+				for (const stat in bossSpecies.baseStats) {
+					if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
+						bossBST += Math.floor((bossSpecies.baseStats[stat] * 2 / 3) + (bossFusion.baseStats[stat] * 1 / 3));
+					}
+					if (stat === 'atk' || stat === 'def' || stat === 'spe') {
+						bossBST += Math.floor((bossSpecies.baseStats[stat] * 1 / 3) + (bossFusion.baseStats[stat] * 2 / 3));
+					}
+				}
+				//Check member BST
+				var componentBST = 0;
+				for (const stat in curSpecies.baseStats) {
+					if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
+						componentBST += Math.floor((curSpecies.baseStats[stat] * 2 / 3) + (curFusion.baseStats[stat] * 1 / 3));
+					}
+					if (stat === 'atk' || stat === 'def' || stat === 'spe') {
+						componentBST += Math.floor((curSpecies.baseStats[stat] * 1 / 3) + (curFusion.baseStats[stat] * 2 / 3));
+					}
+					if (componentBST > bossBST) return [`${curSpecies}/${curFusion}'s BST exceeds the boss BST.`];
+				}
                 if( //Checking one of the components evolves into one of the bosses
 					(curSpecies.name) === bossSpecies?.prevo || 
 					(curFusion.name) === bossSpecies?.prevo ||
@@ -3149,6 +3169,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 				) continue;
                	else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
             }
+		}
         },
         onBegin() {
             this.add('rule', 'Big Boss Rule: If the fully-evolved boss faints, that team loses.');
