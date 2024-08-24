@@ -601,7 +601,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
-				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+				this.add('-start', source, 'typechange', type, '[from] ability: Hue Shift');
 			}
 		},
 		onSwitchIn() {},
@@ -610,6 +610,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
 		rating: 4,
+		num: 0,
+	},
+	etherealshroud: {
+		onImmunity(type, pokemon) {
+			if (type === 'Normal' || type === 'Fighting') return false;
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Bug' || move.type === 'Poison') {
+				this.debug('Ethereal Shroud weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Ethereal Shroud",
+		shortDesc: "Grants the user Ghost-type immunities and resistances.",
+		rating: 3,
 		num: 0,
 	},
 };

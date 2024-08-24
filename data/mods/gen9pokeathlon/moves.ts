@@ -1081,7 +1081,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Jagged Shot",
 		desc: "This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes.",
-		shortDesc: "Physical if user's Atk > Sp. Atk. Ignores Abilities.",
+		shortDesc: "Physical if user's Atk > Sp. Atk.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
