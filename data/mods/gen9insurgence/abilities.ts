@@ -478,6 +478,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	pendulum: {
 		onStart(pokemon) {
 			pokemon.addVolatile('item:metronome');
+			pokemon.addVolatile('metronome');
 		},
 		flags: {},
 		name: "Pendulum",
