@@ -107,9 +107,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	bloodlust: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (this.checkMoveMakesContact(move, pokemon, target, false)) {
-				this.heal(pokemon.lastDamage / 6, target);
-			}
+			this.heal(pokemon.lastDamage / 6, pokemon);
 		},
 		flags: {},
 		name: "Blood Lust",
