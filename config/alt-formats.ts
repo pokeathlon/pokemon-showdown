@@ -111,7 +111,7 @@ export const Formats: FormatList = [
 		mod: 'gen9infinitefusion',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard NatDex', 'Sleep Clause Mod', 'Evasion Clause', '!Species Clause',
+			'Standard NatDex', 'Sleep Clause Mod', 'Evasion Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', 'Fusion Species Clause', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
