@@ -85,7 +85,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Evasion Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', 'Fusion Species Clause',
 		],
 		banlist: [
 			'DUber',
@@ -111,7 +111,7 @@ export const Formats: FormatList = [
 		mod: 'gen9infinitefusion',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard NatDex', 'Sleep Clause Mod', 'Evasion Clause',
+			'Standard NatDex', 'Sleep Clause Mod', 'Evasion Clause', '!Species Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', 'Fusion Species Clause', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
