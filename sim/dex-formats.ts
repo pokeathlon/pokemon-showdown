@@ -11,12 +11,26 @@ export interface FormatData extends Partial<Format>, EventMethods {
 
 export type FormatList = (FormatData | {section: string, column?: number})[];
 export type ModdedFormatData = FormatData | Omit<FormatData, 'name'> & {inherit: true};
+export interface FormatDataTable {[id: IDEntry]: FormatData}
+export interface ModdedFormatDataTable {[id: IDEntry]: ModdedFormatData}
 
 type FormatEffectType = 'Format' | 'Ruleset' | 'Rule' | 'ValidatorRule';
 
 /** rule, source, limit, bans */
 export type ComplexBan = [string, string, number, string[]];
 export type ComplexTeamBan = ComplexBan;
+
+export interface GameTimerSettings {
+	dcTimer: boolean;
+	dcTimerBank: boolean;
+	starting: number;
+	grace: number;
+	addPerTurn: number;
+	maxPerTurn: number;
+	maxFirstTurn: number;
+	timeoutAutoChoose: boolean;
+	accelerate: boolean;
+}
 
 /**
  * A RuleTable keeps track of the rules that a format has. The key can be:
@@ -69,13 +83,13 @@ export class RuleTable extends Map<string, string> {
 		if (this.has(`+basepokemon:${toID(species.baseSpecies)}`)) return false;
 		if (this.has(`-basepokemon:${toID(species.baseSpecies)}`)) return true;
 		for (const tagid in Tags) {
-			const tag = Tags[tagid];
+			const tag = Tags[tagid as ID];
 			if (this.has(`-pokemontag:${tagid}`)) {
 				if ((tag.speciesFilter || tag.genericFilter)!(species)) return true;
 			}
 		}
 		for (const tagid in Tags) {
-			const tag = Tags[tagid];
+			const tag = Tags[tagid as ID];
 			if (this.has(`+pokemontag:${tagid}`)) {
 				if ((tag.speciesFilter || tag.genericFilter)!(species)) return false;
 			}
@@ -94,13 +108,13 @@ export class RuleTable extends Map<string, string> {
 		if (this.has(`+basepokemon:${toID(species.baseSpecies)}`)) return false;
 		if (this.has(`*basepokemon:${toID(species.baseSpecies)}`)) return true;
 		for (const tagid in Tags) {
-			const tag = Tags[tagid];
+			const tag = Tags[tagid as ID];
 			if (this.has(`*pokemontag:${tagid}`)) {
 				if ((tag.speciesFilter || tag.genericFilter)!(species)) return true;
 			}
 		}
 		for (const tagid in Tags) {
-			const tag = Tags[tagid];
+			const tag = Tags[tagid as ID];
 			if (this.has(`+pokemontag:${tagid}`)) {
 				if ((tag.speciesFilter || tag.genericFilter)!(species)) return false;
 			}
@@ -383,6 +397,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly challengeShow?: boolean;
 	declare readonly searchShow?: boolean;
 	declare readonly bestOfDefault?: boolean;
+	declare readonly teraPreviewDefault?: boolean;
 	declare readonly threads?: string[];
 	declare readonly timer?: Partial<GameTimerSettings>;
 	declare readonly tournamentShow?: boolean;
@@ -548,6 +563,7 @@ export class DexFormats {
 			if (format.searchShow === undefined) format.searchShow = true;
 			if (format.tournamentShow === undefined) format.tournamentShow = true;
 			if (format.bestOfDefault === undefined) format.bestOfDefault = false;
+			if (format.teraPreviewDefault === undefined) format.teraPreviewDefault = false;
 			if (format.mod === undefined) format.mod = 'gen9';
 			if (!this.dex.dexes[format.mod]) throw new Error(`Format "${format.name}" requires nonexistent mod: '${format.mod}'`);
 

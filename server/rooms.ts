@@ -105,8 +105,8 @@ export interface RoomSettings {
 	jeopardyDisabled?: boolean;
 	mafiaDisabled?: boolean;
 	unoDisabled?: boolean;
-	blackjackDisabled?: boolean;
 	hangmanDisabled?: boolean;
+	auctionDisabled?: boolean;
 	gameNumber?: number;
 	highTraffic?: boolean;
 	spotlight?: string;
@@ -1396,7 +1396,8 @@ export class GlobalRoomState {
 		for (const room of Rooms.rooms.values()) {
 			const player = room.game && !room.game.ended && room.game.playerTable[user.id];
 			if (!player) continue;
-
+			// prevents players from being re-added to games like Scavengers after they've finished
+			if (player.completed) continue;
 			user.games.add(room.roomid);
 			player.name = user.name;
 			user.joinRoom(room.roomid);
@@ -1474,6 +1475,7 @@ export class GlobalRoomState {
 			if (level === 50) displayCode |= 16;
 			 // 32 was previously used for Multi Battles
 			if (format.bestOfDefault) displayCode |= 64;
+			if (format.teraPreviewDefault) displayCode |= 128;
 			this.formatList += ',' + displayCode.toString(16);
 		}
 		return this.formatList;
@@ -2075,7 +2077,7 @@ export class GameRoom extends BasicRoom {
 	}
 
 	getReplayData() {
-		if (!this.roomid.endsWith('pw')) return {id: this.roomid.slice(7)};
+		if (!this.roomid.endsWith('pw')) return {id: this.roomid.slice(7), password: null};
 		const end = this.roomid.length - 2;
 		const lastHyphen = this.roomid.lastIndexOf('-', end);
 		return {id: this.roomid.slice(7, lastHyphen), password: this.roomid.slice(lastHyphen + 1, end)};
