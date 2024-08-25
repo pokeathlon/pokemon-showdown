@@ -24,7 +24,7 @@ const eeveeabilities: {[k: string]: string} = {
 	"eeveemega": "proteanmaxima",
 };
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	...Dex.deepClone(require('../gen9insurgence/abilities').Abilities),
 	intoxicate: {
 		onModifyTypePriority: -1,
@@ -53,7 +53,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
 			if (move.id === 'stealthrock') {
-				this.actions.useMove('hotcoals', pokemon, target);
+				this.actions.useMove('hotcoals', pokemon, {target: target});
 				return null;
 			}
 		},

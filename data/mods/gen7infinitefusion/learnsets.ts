@@ -1,7 +1,7 @@
 const {Dex} = require('../../../sim/dex');
 const {combineLearnsets} = require('../gen9infinitefusion/learnsets');
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	bulbasaur: {
 		learnset: {
 			tackle: ["7L1"],

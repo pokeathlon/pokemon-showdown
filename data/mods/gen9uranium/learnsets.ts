@@ -1,6 +1,6 @@
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// Modded
 	gyarados: {inherit: true, learnset: {...baseLearnsets.gyarados.learnset, causticbreath: ["6M"], coralbreak: ["6M"]}},
 	lotad: {inherit: true, learnset: {...baseLearnsets.lotad.learnset, coralbreak: ["6M"]}},

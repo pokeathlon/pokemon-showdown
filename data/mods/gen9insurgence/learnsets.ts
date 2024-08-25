@@ -1,6 +1,6 @@
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// Modded
 	vibrava: {inherit: true, learnset: {...baseLearnsets.vibrava.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"]}},
 	flygon: {inherit: true, learnset: {...baseLearnsets.flygon.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"], wildfire: ["6M"], boomburst: ["6L1"]}},

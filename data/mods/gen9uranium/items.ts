@@ -1,4 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	nucleararbokite: {
 		name: "Nuclear Arbokite",
 		desc: "If held by a Nuclear Arbok, this item allows it to Mega Evolve in battle.",

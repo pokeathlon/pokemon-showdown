@@ -1,3 +1,6 @@
+import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
+import {ModdedLearnsetData} from '../../../sim/dex-species';
+
 const baseLearnsets = require('../../learnsets').Learnsets;
 const insgLearnsets = require('../gen9insurgence/learnsets').Learnsets;
 
@@ -7,19 +10,19 @@ export function flattenLearnset(learnset: ModdedLearnsetData, removals: string[]
 	if (finalLearnset.learnset) {
 		for (const move in moves) {
 			if (!removals.includes(move)) {
-				finalLearnset.learnset[move] = ["9M"];
+				finalLearnset.learnset[move as keyof typeof finalLearnset.learnset] = ["9M"];
 			}
 		}
 		for (const addition of additions) {
 			if (!(addition in finalLearnset.learnset)) {
-				finalLearnset.learnset[addition] = ["9M"];
+				finalLearnset.learnset[addition as keyof typeof finalLearnset.learnset] = ["9M"];
 			}
 		}
 	}
 	return finalLearnset;
 }
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: ModdedLearnsetDataTable = {
 // Modded
 	// Bringing learnset into PoA
 	florges: flattenLearnset(baseLearnsets.florges),

@@ -1,2 +1,2 @@
 const {Dex} = require('../../../sim/dex');
-export const Moves: {[k: string]: ModdedMoveData} = Dex.deepClone(require('../gen9uranium/moves').Moves);
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(require('../gen9uranium/moves').Moves);

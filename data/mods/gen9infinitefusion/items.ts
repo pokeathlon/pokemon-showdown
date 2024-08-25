@@ -1,5 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
-
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// IF Additions
 	mankeyspaw: {
 		name: "Mankey\u2019s Paw",

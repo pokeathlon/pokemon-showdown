@@ -3,7 +3,7 @@ const baseLearnsets = require('../../learnsets').Learnsets;
 const insgLearnsets = require('../gen9insurgence/learnsets').Learnsets;
 const uLearnsets = require('../gen9uranium/learnsets').Learnsets;
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// POA mixed with other fangames...
 	meowthalola: {inherit: true, learnset: {...baseLearnsets.meowthalola.learnset, currencyflow: ["9M"]}},
 	meowthgalar: {inherit: true, learnset: {...baseLearnsets.meowthgalar.learnset, currencyflow: ["9M"]}},

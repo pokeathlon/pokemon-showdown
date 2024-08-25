@@ -1,6 +1,6 @@
 const {treasures} = require('./abilities');
 
-export const Conditions: {[k: string]: ModdedConditionData} = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	lunachi: {
 		name: 'Lunachi',
 		onUpdate(pokemon) {

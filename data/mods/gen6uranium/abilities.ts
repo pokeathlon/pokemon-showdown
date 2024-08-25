@@ -1,5 +1,5 @@
 const {Dex} = require('../../../sim/dex');
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	...Dex.deepClone(require('../gen9uranium/abilities').Abilities),
 	atomizate: {
 		onModifyTypePriority: -1,
