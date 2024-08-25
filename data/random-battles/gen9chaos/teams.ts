@@ -14,11 +14,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const seed = this.prng.seed;
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool = Object.keys(this.randomSets);
+		let pool: AnyObject[] = this.randomSets.random_sets;
 
 		while (pokemon.length < this.maxTeamSize) {
-			const curSpecies = this.sampleNoReplace(pool);
-			const curSet: Partial<RandomTeamsTypes.RandomSet> = this.sample(this.randomSets[curSpecies]);
+			const curSet = this.sampleNoReplace(pool);
+			const curSpecies = curSet.id;
 
 			// Level balance--calculate directly from stats rather than using some silly lookup table
 			const mbstmin = 1307;
@@ -67,6 +67,16 @@ export class RandomGen7Teams extends RandomGen8Teams {
 					evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
 					ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 				});
+				pool = pool.filter(set => set.id !== curSpecies);
+			}
+			if (pokemon.filter(set => this.dex.items.get(set.item).megaEvolves).length === 1) {
+				pool = pool.filter(set => !this.dex.items.get(set.item).megaEvolves);
+			}
+			if (pokemon.filter(set => !this.dex.items.get(set.item).megaEvolves).length === 5) {
+				pool = pool.filter(set => this.dex.items.get(set.item).megaEvolves);
+			}
+			if (pokemon.filter(set => this.dex.mod('gen9').species.get(set.species).exists).length === 4) {
+				pool = pool.filter(set => !this.dex.mod('gen9').species.get(set.id).exists);
 			}
 		}
 
