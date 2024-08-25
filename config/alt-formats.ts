@@ -1,4 +1,4 @@
-export const Formats: FormatList = [
+export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "Infinite Fusion: Regional Dex",
 	},
@@ -438,6 +438,16 @@ export const Formats: FormatList = [
 	{
 		section: "Chaos",
 		column: 3,
+	},
+	{
+		name: "[Gen 9] Chaos Random Battle",
+		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
+
+		mod: 'gen9chaos',
+		team: 'random',
+		ruleset: [
+			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause',
+		],
 	},
 	{
 		name: "[Gen 9] Chaos OU",
