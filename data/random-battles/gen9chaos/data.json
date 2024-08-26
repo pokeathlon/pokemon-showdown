@@ -254,26 +254,19 @@
             "id": "arbok"
         },
         {
-            "ability": "shedskin",
-            "item": "",
+            "ability": "lightningrod",
+            "item": "blacksludge",
             "moves": [
                 "gunkshot",
                 "earthquake",
                 "coil",
-                "rest"
-            ],
-            "id": ""
-        },
-        {
-            "ability": "lightningrod",
-            "item": "lightball",
-            "moves": [
+                "rest",
                 "volttackle",
                 "playrough",
                 "extremespeed",
                 "trailblaze"
             ],
-            "id": "pikachu"
+            "id": "arbok"
         },
         {
             "ability": "lightningrod",
@@ -309,20 +302,13 @@
             "id": "raichu"
         },
         {
-            "ability": "psychoslider",
+            "ability": "surgesurfer",
             "item": "lifeorb",
             "moves": [
                 "thunderbolt",
                 "psychic",
                 "surf",
-                "nastyplot"
-            ],
-            "id": "raichualola"
-        },
-        {
-            "ability": "surgesurfer",
-            "item": "choicescarf",
-            "moves": [
+                "nastyplot",
                 "thunderbolt",
                 "psyshock",
                 "surf",
@@ -644,7 +630,7 @@
             "moves": [
                 "earthquake",
                 "ironhead",
-                "steelbeam",
+                "rockslide",
                 "stealthrock"
             ],
             "id": "dugtrioalola"
@@ -695,12 +681,12 @@
         },
         {
             "ability": "furcoat",
-            "item": "weaknesspolicy",
+            "item": "choicescarf",
             "moves": [
-                "knockoff",
-                "playrough",
-                "currencyflow",
-                "agility"
+                "darkpulse",
+                "thunderbolt",
+                "uturn",
+                "switcheroo"
             ],
             "id": "persianalola"
         },
@@ -717,12 +703,12 @@
         },
         {
             "ability": "swiftswim",
-            "item": "choiceband",
+            "item": "choicespecs",
             "moves": [
-                "liquidation",
-                "currencyflow",
-                "icepunch",
-                "flipturn"
+                "hydropump",
+                "icebeam",
+                "psychic",
+                "grassknot"
             ],
             "id": "golduck"
         },
@@ -1058,12 +1044,12 @@
         },
         {
             "ability": "pastelveil",
-            "item": "lifeorb",
+            "item": "choiceband",
             "moves": [
-                "psychic",
-                "dazzlinggleam",
-                "mysticalfire",
-                "calmmind"
+                "playrough",
+                "zenheadbutt",
+                "highhorsepower",
+                "throatchop"
             ],
             "id": "rapidashgalar"
         },
@@ -1082,9 +1068,9 @@
             "ability": "regenerator",
             "item": "slowbronite",
             "moves": [
-                "scald",
-                "psychicnoise",
-                "bodypress",
+                "storedpower",
+                "irondefense",
+                "calmmind",
                 "slackoff"
             ],
             "id": "slowbro"
@@ -1102,11 +1088,11 @@
         },
         {
             "ability": "regenerator",
-            "item": "heavydutyboots",
+            "item": "leftovers",
             "moves": [
-                "storedpower",
-                "irondefense",
-                "calmmind",
+                "scald",
+                "psychicnoise",
+                "bodypress",
                 "slackoff"
             ],
             "id": "slowbro"
@@ -1278,12 +1264,12 @@
         },
         {
             "ability": "poisontouch",
-            "item": "choicespecs",
+            "item": "blacksludge",
             "moves": [
-                "sludgewave",
-                "darkpulse",
-                "moonblast",
-                "flamethrower"
+                "poisonjab",
+                "knockoff",
+                "curse",
+                "rest"
             ],
             "id": "mukalola"
         },
@@ -1369,8 +1355,8 @@
             "item": "lifeorb",
             "moves": [
                 "liquidation",
+                "xscissor",
                 "rockslide",
-                "icebeam",
                 "agility"
             ],
             "id": "kingler"
@@ -1443,11 +1429,11 @@
         },
         {
             "ability": "chlorophyll",
-            "item": "custapberry",
+            "item": "lifeorb",
             "moves": [
-                "gigadrain",
+                "energyball",
                 "psychic",
-                "growth",
+                "sludgebomb",
                 "sunnyday"
             ],
             "id": "exeggutor"
@@ -1640,13 +1626,13 @@
             "id": "chansey"
         },
         {
-            "ability": "serenegrace",
-            "item": "luckypunch",
+            "ability": "naturalcure",
+            "item": "eviolite",
             "moves": [
-                "icebeam",
-                "thunderbolt",
-                "calmmind",
-                "softboiled"
+                "seismictoss",
+                "wish",
+                "protect",
+                "teleport"
             ],
             "id": "chansey"
         },
@@ -1861,18 +1847,18 @@
         },
         {
             "ability": "sheerforce",
-            "item": "lifeorb",
+            "item": "choicescarf",
             "moves": [
                 "rockclimb",
-                "icebeam",
-                "thunderbolt",
-                "zenheadbutt"
+                "earthquake",
+                "zenheadbutt",
+                "rockslide"
             ],
             "id": "tauros"
         },
         {
             "ability": "sheerforce",
-            "item": "choicescarf",
+            "item": "lifeorb",
             "moves": [
                 "bodyslam",
                 "ironhead",
@@ -2055,14 +2041,6 @@
             "id": "ditto"
         },
         {
-            "ability": "imposter",
-            "item": "custapberry",
-            "moves": [
-                "transform"
-            ],
-            "id": "ditto"
-        },
-        {
             "ability": "waterabsorb",
             "item": "leftovers",
             "moves": [
@@ -2078,7 +2056,7 @@
             "item": "leftovers",
             "moves": [
                 "scald",
-                "alluringvoice",
+                "icebeam",
                 "calmmind",
                 "wish"
             ],
@@ -2151,13 +2129,13 @@
             "id": "flareon"
         },
         {
-            "ability": "flashfire",
-            "item": "choicespecs",
+            "ability": "guts",
+            "item": "choiceband",
             "moves": [
-                "overheat",
-                "flamethrower",
-                "alluringvoice",
-                "scorchingsands"
+                "flareblitz",
+                "superpower",
+                "doubleedge",
+                "quickattack"
             ],
             "id": "flareon"
         },
@@ -2506,9 +2484,9 @@
             "ability": "multiscale",
             "item": "heavydutyboots",
             "moves": [
-                "dracometeor",
-                "hurricane",
-                "flamethrower",
+                "dragonclaw",
+                "extremespeed",
+                "dragondance",
                 "roost"
             ],
             "id": "dragonite"
@@ -2761,7 +2739,7 @@
             "moves": [
                 "megahorn",
                 "poisonjab",
-                "trailblaze",
+                "suckerpunch",
                 "focusenergy"
             ],
             "id": "ariados"
@@ -2771,7 +2749,7 @@
             "item": "heavydutyboots",
             "moves": [
                 "bravebird",
-                "poisonfang",
+                "crosspoison",
                 "uturn",
                 "roost"
             ],
@@ -2900,12 +2878,12 @@
         },
         {
             "ability": "static",
-            "item": "choiceband",
+            "item": "assaultvest",
             "moves": [
-                "supercellslam",
-                "icepunch",
-                "stompingtantrum",
-                "trailblaze"
+                "discharge",
+                "voltswitch",
+                "focusblast",
+                "dazzlinggleam"
             ],
             "id": "ampharos"
         },
@@ -2925,7 +2903,7 @@
             "item": "leftovers",
             "moves": [
                 "gigadrain",
-                "sludgebomb",
+                "corrode",
                 "quiverdance",
                 "strengthsap"
             ],
@@ -2933,12 +2911,12 @@
         },
         {
             "ability": "chlorophyll",
-            "item": "expertbelt",
+            "item": "lifeorb",
             "moves": [
-                "trailblaze",
-                "tripleaxel",
-                "drainpunch",
-                "swordsdance"
+                "energyball",
+                "moonblast",
+                "corrode",
+                "quiverdance"
             ],
             "id": "bellossom"
         },
@@ -2988,12 +2966,12 @@
         },
         {
             "ability": "rockhead",
-            "item": "salacberry",
+            "item": "custapberry",
             "moves": [
                 "headsmash",
                 "woodhammer",
                 "earthquake",
-                "trailblaze"
+                "explosion"
             ],
             "id": "sudowoodo"
         },
@@ -3031,17 +3009,6 @@
             "id": "politoed"
         },
         {
-            "ability": "waterabsorb",
-            "item": "salacberry",
-            "moves": [
-                "liquidation",
-                "earthquake",
-                "substitute",
-                "bellydrum"
-            ],
-            "id": "politoed"
-        },
-        {
             "ability": "infiltrator",
             "item": "",
             "moves": [
@@ -3065,23 +3032,12 @@
         },
         {
             "ability": "chlorophyll",
-            "item": "",
+            "item": "leftovers",
             "moves": [
-                "acrobatics",
-                "seedbomb",
-                "lunge",
-                "swordsdance"
-            ],
-            "id": "jumpluff"
-        },
-        {
-            "ability": "solarpower",
-            "item": "heavydutyboots",
-            "moves": [
-                "petalblizzard",
-                "facade",
-                "curse",
-                "rest"
+                "gigadrain",
+                "earthpower",
+                "leechseed",
+                "synthesis"
             ],
             "id": "sunflora"
         },
@@ -3101,7 +3057,7 @@
             "item": "heavydutyboots",
             "moves": [
                 "scald",
-                "earthpower",
+                "earthquake",
                 "recover",
                 "encore"
             ],
@@ -3133,7 +3089,7 @@
             "ability": "magicbounce",
             "item": "heavydutyboots",
             "moves": [
-                "psychicnoise",
+                "psychic",
                 "alluringvoice",
                 "shadowball",
                 "thunderwave"
@@ -3185,17 +3141,6 @@
             "id": "umbreon"
         },
         {
-            "ability": "synchronize",
-            "item": "leftovers",
-            "moves": [
-                "darkpulse",
-                "wish",
-                "protect",
-                "calmmind"
-            ],
-            "id": "umbreon"
-        },
-        {
             "ability": "regenerator",
             "item": "heavydutyboots",
             "moves": [
@@ -3219,11 +3164,11 @@
         },
         {
             "ability": "regenerator",
-            "item": "expertbelt",
+            "item": "trickrock",
             "moves": [
-                "hydropump",
-                "psychic",
-                "fireblast",
+                "scald",
+                "psychicnoise",
+                "teleport",
                 "trickroom"
             ],
             "id": "slowking"
@@ -3257,7 +3202,7 @@
                 "futuresight",
                 "sludgebomb",
                 "earthquake",
-                "icebeam"
+                "scald"
             ],
             "id": "slowkinggalar"
         },
@@ -3392,7 +3337,7 @@
             "item": "eviolite",
             "moves": [
                 "earthquake",
-                "swordsdance",
+                "toxicspikes",
                 "taunt",
                 "roost"
             ],
@@ -3421,35 +3366,24 @@
             "id": "steelix"
         },
         {
-            "ability": "rockhead",
+            "ability": "sturdy",
             "item": "leftovers",
             "moves": [
                 "earthquake",
-                "ironhead",
-                "headsmash",
-                "dragondance"
-            ],
-            "id": "steelix"
-        },
-        {
-            "ability": "sheerforce",
-            "item": "lifeorb",
-            "moves": [
-                "earthquake",
-                "ironhead",
-                "rockslide",
-                "icefang"
+                "bodypress",
+                "irondefense",
+                "rest"
             ],
             "id": "steelix"
         },
         {
             "ability": "sturdy",
-            "item": "weaknesspolicy",
+            "item": "leftovers",
             "moves": [
                 "earthquake",
-                "heavyslam",
-                "rockslide",
-                "rockpolish"
+                "ironhead",
+                "dragontail",
+                "stealthrock"
             ],
             "id": "steelix"
         },
@@ -3465,12 +3399,12 @@
             "id": "granbull"
         },
         {
-            "ability": "rattled",
+            "ability": "intimidate",
             "item": "leftovers",
             "moves": [
                 "playrough",
                 "closecombat",
-                "trailblaze",
+                "earthquake",
                 "bulkup"
             ],
             "id": "granbull"
@@ -3535,17 +3469,6 @@
             "item": "scizorite",
             "moves": [
                 "bulletpunch",
-                "lunge",
-                "roost",
-                "curse"
-            ],
-            "id": "scizor"
-        },
-        {
-            "ability": "lightmetal",
-            "item": "scizorite",
-            "moves": [
-                "bulletpunch",
                 "uturn",
                 "roost",
                 "defog"
@@ -3571,17 +3494,6 @@
                 "bugbite",
                 "closecombat",
                 "uturn"
-            ],
-            "id": "scizor"
-        },
-        {
-            "ability": "technician",
-            "item": "choicescarf",
-            "moves": [
-                "bulletpunch",
-                "uturn",
-                "closecombat",
-                "knockoff"
             ],
             "id": "scizor"
         },
@@ -3656,8 +3568,8 @@
             "item": "flameorb",
             "moves": [
                 "facade",
-                "shadowclaw",
-                "trailblaze",
+                "closecombat",
+                "playrough",
                 "swordsdance"
             ],
             "id": "ursaring"
@@ -3667,7 +3579,7 @@
             "item": "eviolite",
             "moves": [
                 "facade",
-                "curse",
+                "crunch",
                 "rest",
                 "sleeptalk"
             ],
@@ -3784,7 +3696,7 @@
             "id": "octillery"
         },
         {
-            "ability": "suctioncups",
+            "ability": "sniper",
             "item": "choicespecs",
             "moves": [
                 "hydropump",
@@ -3795,7 +3707,7 @@
             "id": "octillery"
         },
         {
-            "ability": "hustle",
+            "ability": "vitalspirit",
             "item": "heavydutyboots",
             "moves": [
                 "freezedry",
@@ -3861,17 +3773,6 @@
             "id": "skarmory"
         },
         {
-            "ability": "sturdy",
-            "item": "weaknesspolicy",
-            "moves": [
-                "ironhead",
-                "drillpeck",
-                "drillrun",
-                "agility"
-            ],
-            "id": "skarmory"
-        },
-        {
             "ability": "weakarmor",
             "item": "custapberry",
             "moves": [
@@ -3900,7 +3801,7 @@
                 "fireblast",
                 "darkpulse",
                 "suckerpunch",
-                "trailblaze"
+                "sludgebomb"
             ],
             "id": "houndoom"
         },
@@ -3911,18 +3812,18 @@
                 "flamethrower",
                 "darkpulse",
                 "sludgebomb",
-                "trailblaze"
+                "nastyplot"
             ],
             "id": "houndoom"
         },
         {
             "ability": "flashfire",
-            "item": "choiceband",
+            "item": "choicespecs",
             "moves": [
-                "flareblitz",
-                "crunch",
-                "psychicfangs",
-                "trailblaze"
+                "overheat",
+                "flamethrower",
+                "darkpulse",
+                "sludgebomb"
             ],
             "id": "houndoom"
         },
@@ -4032,7 +3933,7 @@
                 "return",
                 "earthquake",
                 "jumpkick",
-                "agility"
+                "throatchop"
             ],
             "id": "stantler"
         },
@@ -4191,13 +4092,13 @@
             "id": "blissey"
         },
         {
-            "ability": "serenegrace",
+            "ability": "naturalcure",
             "item": "leftovers",
             "moves": [
-                "icebeam",
-                "thunderbolt",
-                "calmmind",
-                "softboiled"
+                "seismictoss",
+                "wish",
+                "protect",
+                "teleport"
             ],
             "id": "blissey"
         },
@@ -4544,12 +4445,12 @@
         },
         {
             "ability": "intimidate",
-            "item": "custapberry",
+            "item": "choiceband",
             "moves": [
+                "crunch",
                 "suckerpunch",
-                "yawn",
-                "endeavor",
-                "endure"
+                "playrough",
+                "psychicfangs"
             ],
             "id": "mightyena"
         },
@@ -4621,12 +4522,12 @@
         },
         {
             "ability": "swiftswim",
-            "item": "leftovers",
+            "item": "choicespecs",
             "moves": [
-                "waterfall",
-                "trailblaze",
-                "icespinner",
-                "swordsdance"
+                "hydropump",
+                "energyball",
+                "gigadrain",
+                "icebeam"
             ],
             "id": "ludicolo"
         },
@@ -4781,17 +4682,6 @@
                 "psyshock",
                 "shadowball",
                 "mysticalfire"
-            ],
-            "id": "gardevoir"
-        },
-        {
-            "ability": "synchronize",
-            "item": "gardevoirite",
-            "moves": [
-                "hypervoice",
-                "psychicnoise",
-                "substitute",
-                "encore"
             ],
             "id": "gardevoir"
         },
@@ -5195,7 +5085,7 @@
             "ability": "lightningrod",
             "item": "lifeorb",
             "moves": [
-                "thunder",
+                "thunderbolt",
                 "voltswitch",
                 "overheat",
                 "signalbeam"
@@ -5220,7 +5110,7 @@
                 "thunderbolt",
                 "voltswitch",
                 "flamethrower",
-                "substitute"
+                "signalbeam"
             ],
             "id": "manectric"
         },
@@ -5351,7 +5241,7 @@
             "moves": [
                 "liquidation",
                 "crunch",
-                "aquajet",
+                "closecombat",
                 "protect"
             ],
             "id": "sharpedo"
@@ -5402,12 +5292,12 @@
         },
         {
             "ability": "solidrock",
-            "item": "weaknesspolicy",
+            "item": "heavydutyboots",
             "moves": [
                 "earthquake",
                 "fireblast",
                 "stoneedge",
-                "trailblaze"
+                "stealthrock"
             ],
             "id": "camerupt"
         },
@@ -5481,10 +5371,10 @@
             "ability": "contrary",
             "item": "eviolite",
             "moves": [
-                "doubleedge",
+                "bodyslam",
                 "superpower",
-                "icepunch",
-                "stompingtantrum"
+                "stompingtantrum",
+                "rest"
             ],
             "id": "spinda"
         },
@@ -5624,7 +5514,7 @@
             "ability": "shedskin",
             "item": "choicescarf",
             "moves": [
-                "gunkshot",
+                "poisonjab",
                 "knockoff",
                 "flamethrower",
                 "switcheroo"
@@ -5635,7 +5525,7 @@
             "ability": "shedskin",
             "item": "blacksludge",
             "moves": [
-                "poisonjab",
+                "gunkshot",
                 "knockoff",
                 "coil",
                 "rest"
@@ -5732,23 +5622,12 @@
         },
         {
             "ability": "adaptability",
-            "item": "lifeorb",
+            "item": "boomerang",
             "moves": [
                 "crabhammer",
-                "knockoff",
+                "fling",
                 "aquajet",
                 "swordsdance"
-            ],
-            "id": "crawdaunt"
-        },
-        {
-            "ability": "adaptability",
-            "item": "choicespecs",
-            "moves": [
-                "hydropump",
-                "darkpulse",
-                "sludgewave",
-                "icebeam"
             ],
             "id": "crawdaunt"
         },
@@ -5897,7 +5776,7 @@
         },
         {
             "ability": "protean",
-            "item": "leftovers",
+            "item": "eviolite",
             "moves": [
                 "facade",
                 "suckerpunch",
@@ -5908,7 +5787,7 @@
         },
         {
             "ability": "protean",
-            "item": "assaultvest",
+            "item": "eviolite",
             "moves": [
                 "bodyslam",
                 "drainpunch",
@@ -6076,8 +5955,8 @@
             "item": "focussash",
             "moves": [
                 "freezedry",
+                "iceshard",
                 "explosion",
-                "trailblaze",
                 "spikes"
             ],
             "id": "glalie"
@@ -6187,8 +6066,8 @@
             "moves": [
                 "headsmash",
                 "liquidation",
-                "doubleedge",
-                "earthquake"
+                "earthquake",
+                "bodypress"
             ],
             "id": "relicanth"
         },
@@ -6253,8 +6132,8 @@
             "moves": [
                 "dracometeor",
                 "hurricane",
-                "hydropump",
-                "fireblast"
+                "fireblast",
+                "hydropump"
             ],
             "id": "salamence"
         },
@@ -6292,13 +6171,13 @@
             "id": "metagross"
         },
         {
-            "ability": "sturdy",
-            "item": "weaknesspolicy",
+            "ability": "clearbody",
+            "item": "leftovers",
             "moves": [
-                "stoneedge",
+                "rockslide",
                 "earthquake",
-                "drainpunch",
-                "rockpolish"
+                "curse",
+                "rest"
             ],
             "id": "regirock"
         },
@@ -6341,7 +6220,7 @@
             "moves": [
                 "ironhead",
                 "bodypress",
-                "irondefense",
+                "curse",
                 "rest"
             ],
             "id": "registeel"
@@ -6405,10 +6284,10 @@
             "ability": "levitate",
             "item": "lifeorb",
             "moves": [
-                "outrage",
-                "zenheadbutt",
-                "earthquake",
-                "dragondance"
+                "drakonvoice",
+                "lusterpurge",
+                "aurasphere",
+                "mysticalfire"
             ],
             "id": "latios"
         },
@@ -6438,7 +6317,7 @@
             "ability": "levitate",
             "item": "latiosite",
             "moves": [
-                "dracometeor",
+                "drakonvoice",
                 "lusterpurge",
                 "roost",
                 "flipturn"
@@ -6513,7 +6392,7 @@
         },
         {
             "ability": "overgrow",
-            "item": "choiceband",
+            "item": "leftovers",
             "moves": [
                 "bodypress",
                 "irondefense",
@@ -6677,17 +6556,6 @@
             "id": "luxray"
         },
         {
-            "ability": "technician",
-            "item": "loadeddice",
-            "moves": [
-                "bulletseed",
-                "poisonjab",
-                "pinmissile",
-                "swordsdance"
-            ],
-            "id": "roserade"
-        },
-        {
             "ability": "naturalcure",
             "item": "choicespecs",
             "moves": [
@@ -6725,8 +6593,8 @@
             "item": "lifeorb",
             "moves": [
                 "rockslide",
-                "icebeam",
-                "thunderbolt",
+                "ironhead",
+                "thunderpunch",
                 "rockpolish"
             ],
             "id": "rampardos"
@@ -6999,7 +6867,7 @@
             "ability": "unburden",
             "item": "sitrusberry",
             "moves": [
-                "acrobatics",
+                "airslash",
                 "spiritsiphon",
                 "calmmind",
                 "strengthsap"
@@ -7121,9 +6989,9 @@
             "item": "lifeorb",
             "moves": [
                 "bravebird",
+                "lashout",
                 "suckerpunch",
-                "superpower",
-                "heatwave"
+                "superpower"
             ],
             "id": "honchkrow"
         },
@@ -7132,7 +7000,7 @@
             "item": "choicescarf",
             "moves": [
                 "bravebird",
-                "suckerpunch",
+                "lashout",
                 "superpower",
                 "uturn"
             ],
@@ -7162,7 +7030,7 @@
         },
         {
             "ability": "aftermath",
-            "item": "rockyhelmet",
+            "item": "choiceband",
             "moves": [
                 "poisonjab",
                 "knockoff",
@@ -7211,7 +7079,7 @@
                 "ironhead",
                 "storedpower",
                 "earthquake",
-                "rockpolish"
+                "trickroom"
             ],
             "id": "bronzong"
         },
@@ -7310,7 +7178,7 @@
                 "dracometeor",
                 "earthquake",
                 "fireblast",
-                "dracojet"
+                "poisonjab"
             ],
             "id": "garchomp"
         },
@@ -7414,7 +7282,7 @@
             "id": "hippowdon"
         },
         {
-            "ability": "battlearmor",
+            "ability": "sniper",
             "item": "choicescarf",
             "moves": [
                 "knockoff",
@@ -7595,8 +7463,8 @@
             "moves": [
                 "icespinner",
                 "knockoff",
-                "iceshard",
-                "poisonjab"
+                "pursuit",
+                "iceshard"
             ],
             "id": "weavile"
         },
@@ -7700,17 +7568,6 @@
             "id": "tangrowth"
         },
         {
-            "ability": "regenerator",
-            "item": "choicespecs",
-            "moves": [
-                "leafstorm",
-                "energyball",
-                "focusblast",
-                "sludgebomb"
-            ],
-            "id": "tangrowth"
-        },
-        {
             "ability": "motordrive",
             "item": "loadeddice",
             "moves": [
@@ -7738,7 +7595,7 @@
             "moves": [
                 "supercellslam",
                 "earthquake",
-                "trailblaze",
+                "icepunch",
                 "voltswitch"
             ],
             "id": "electivire"
@@ -7810,23 +7667,12 @@
             "id": "togekiss"
         },
         {
-            "ability": "speedboost",
-            "item": "heavydutyboots",
-            "moves": [
-                "leechlife",
-                "dualwingbeat",
-                "facade",
-                "swordsdance"
-            ],
-            "id": "yanmega"
-        },
-        {
             "ability": "tintedlens",
             "item": "choicespecs",
             "moves": [
                 "bugbuzz",
                 "airslash",
-                "psychic",
+                "gigadrain",
                 "uturn"
             ],
             "id": "yanmega"
@@ -7855,10 +7701,10 @@
         },
         {
             "ability": "chlorophyll",
-            "item": "powerherb",
+            "item": "lifeorb",
             "moves": [
                 "solarblade",
-                "dig",
+                "xscissor",
                 "weatherball",
                 "sunnyday"
             ],
@@ -7871,7 +7717,7 @@
                 "icebeam",
                 "freezedry",
                 "alluringvoice",
-                "shadowball"
+                "waterpulse"
             ],
             "id": "glaceon"
         },
@@ -7945,7 +7791,7 @@
             "ability": "adaptability",
             "item": "lifeorb",
             "moves": [
-                "hypervoice",
+                "triattack",
                 "thunderbolt",
                 "icebeam",
                 "nastyplot"
@@ -8223,7 +8069,7 @@
                 "leafstorm",
                 "thunderbolt",
                 "voltswitch",
-                "nastyplot"
+                "willowisp"
             ],
             "id": "rotommow"
         },
@@ -8277,7 +8123,7 @@
             "moves": [
                 "psychic",
                 "fireblast",
-                "thunder",
+                "thunderbolt",
                 "dazzlinggleam"
             ],
             "id": "azelf"
@@ -8287,7 +8133,7 @@
             "item": "focussash",
             "moves": [
                 "psychic",
-                "expandingforce",
+                "explosion",
                 "taunt",
                 "stealthrock"
             ],
@@ -8342,9 +8188,9 @@
             "item": "leftovers",
             "moves": [
                 "facade",
-                "protect",
+                "knockoff",
                 "substitute",
-                "thunderwave"
+                "protect"
             ],
             "id": "regigigas"
         },
@@ -8361,7 +8207,7 @@
         },
         {
             "ability": "levitate",
-            "item": "mentalherb",
+            "item": "rockyhelmet",
             "moves": [
                 "futuresight",
                 "icebeam",
@@ -8526,7 +8372,7 @@
         },
         {
             "ability": "contrary",
-            "item": "choicescarf",
+            "item": "heavydutyboots",
             "moves": [
                 "leafstorm",
                 "dragonpulse",
@@ -9109,11 +8955,22 @@
         },
         {
             "ability": "speedboost",
-            "item": "focussash",
+            "item": "lifeorb",
             "moves": [
+                "megahorn",
                 "poisonjab",
-                "endeavor",
-                "toxicspikes",
+                "earthquake",
+                "swordsdance"
+            ],
+            "id": "scolipede"
+        },
+        {
+            "ability": "speedboost",
+            "item": "heavydutyboots",
+            "moves": [
+                "megahorn",
+                "poisonjab",
+                "earthquake",
                 "spikes"
             ],
             "id": "scolipede"
@@ -9190,7 +9047,7 @@
             "moves": [
                 "wavecrash",
                 "headsmash",
-                "doubleedge",
+                "superpower",
                 "flipturn"
             ],
             "id": "basculinbluestriped"
@@ -9287,7 +9144,7 @@
             "ability": "stormdrain",
             "item": "leftovers",
             "moves": [
-                "energyball",
+                "gigadrain",
                 "leechseed",
                 "spikes",
                 "spikyshield"
@@ -9340,7 +9197,7 @@
         },
         {
             "ability": "moxie",
-            "item": "expertbelt",
+            "item": "lifeorb",
             "moves": [
                 "closecombat",
                 "knockoff",
@@ -9351,12 +9208,12 @@
         },
         {
             "ability": "moxie",
-            "item": "lifeorb",
+            "item": "choiceband",
             "moves": [
                 "closecombat",
                 "knockoff",
-                "trailblaze",
-                "swordsdance"
+                "drainpunch",
+                "ironhead"
             ],
             "id": "scrafty"
         },
@@ -9416,7 +9273,7 @@
             "id": "cofagrigus"
         },
         {
-            "ability": "swiftswim",
+            "ability": "solidrock",
             "item": "loadeddice",
             "moves": [
                 "rockblast",
@@ -9497,7 +9354,7 @@
             "item": "lifeorb",
             "moves": [
                 "darkpulse",
-                "flamethrower",
+                "focusblast",
                 "sludgebomb",
                 "nastyplot"
             ],
@@ -9609,7 +9466,7 @@
                 "bravebird",
                 "liquidation",
                 "knockoff",
-                "trailblaze"
+                "icebeam"
             ],
             "id": "swanna"
         },
@@ -9686,7 +9543,7 @@
                 "thunderbolt",
                 "airslash",
                 "energyball",
-                "uturn"
+                "encore"
             ],
             "id": "emolga"
         },
@@ -9934,12 +9791,12 @@
         },
         {
             "ability": "analytic",
-            "item": "powerherb",
+            "item": "weaknesspolicy",
             "moves": [
-                "psyshock",
-                "shadowball",
-                "meteorbeam",
-                "agility"
+                "storedpower",
+                "chargebeam",
+                "cosmicpower",
+                "recover"
             ],
             "id": "beheeyem"
         },
@@ -9993,7 +9850,7 @@
             "moves": [
                 "flamethrower",
                 "shadowball",
-                "trailblaze",
+                "energyball",
                 "calmmind"
             ],
             "id": "chandelure"
@@ -10054,7 +9911,7 @@
             "id": "beartic"
         },
         {
-            "ability": "slushrush",
+            "ability": "swiftswim",
             "item": "choiceband",
             "moves": [
                 "iciclecrash",
@@ -10132,12 +9989,12 @@
         },
         {
             "ability": "static",
-            "item": "choicespecs",
+            "item": "leftovers",
             "moves": [
                 "earthpower",
-                "thunderbolt",
-                "surf",
-                "voltswitch"
+                "voltswitch",
+                "scald",
+                "stealthrock"
             ],
             "id": "stunfisk"
         },
@@ -10191,7 +10048,7 @@
             "moves": [
                 "closecombat",
                 "tripleaxel",
-                "trailblaze",
+                "knockoff",
                 "swordsdance"
             ],
             "id": "mienshao"
@@ -10576,7 +10433,7 @@
             "moves": [
                 "closecombat",
                 "stoneedge",
-                "quickattack",
+                "earthquake",
                 "swordsdance"
             ],
             "id": "terrakion"
@@ -10586,7 +10443,7 @@
             "item": "lifeorb",
             "moves": [
                 "closecombat",
-                "trailblaze",
+                "leafblade",
                 "stoneedge",
                 "swordsdance"
             ],
@@ -10684,7 +10541,7 @@
             "ability": "prankster",
             "item": "heavydutyboots",
             "moves": [
-                "discharge",
+                "thunderbolt",
                 "uturn",
                 "taunt",
                 "thunderwave"
@@ -10739,7 +10596,7 @@
             "ability": "voltabsorb",
             "item": "choicescarf",
             "moves": [
-                "discharge",
+                "thunderbolt",
                 "grassknot",
                 "psychic",
                 "uturn"
@@ -10891,36 +10748,14 @@
         },
         {
             "ability": "serenegrace",
-            "item": "choiceband",
-            "moves": [
-                "closecombat",
-                "return",
-                "tripleaxel",
-                "uturn"
-            ],
-            "id": "meloettapirouette"
-        },
-        {
-            "ability": "serenegrace",
             "item": "lifeorb",
             "moves": [
                 "closecombat",
                 "return",
-                "knockoff",
-                "swordsdance"
+                "tripleaxel",
+                "relicsong"
             ],
-            "id": "meloettapirouette"
-        },
-        {
-            "ability": "serenegrace",
-            "item": "leftovers",
-            "moves": [
-                "drainpunch",
-                "return",
-                "swordsdance",
-                "substitute"
-            ],
-            "id": "meloettapirouette"
+            "id": "meloetta"
         },
         {
             "ability": "bulletproof",
@@ -10979,12 +10814,12 @@
         },
         {
             "ability": "magician",
-            "item": "weaknesspolicy",
+            "item": "throatspray",
             "moves": [
                 "flamethrower",
-                "storedpower",
+                "psychicnoise",
                 "focusblast",
-                "agility"
+                "encore"
             ],
             "id": "delphox"
         },
@@ -11104,19 +10939,19 @@
             "moves": [
                 "hurricane",
                 "bugbuzz",
-                "energyball",
+                "sleeppowder",
                 "quiverdance"
             ],
             "id": "vivillon"
         },
         {
-            "ability": "moxie",
-            "item": "heavydutyboots",
+            "ability": "unnerve",
+            "item": "choicescarf",
             "moves": [
-                "flareblitz",
-                "doubleedge",
-                "crunch",
-                "trailblaze"
+                "fireblast",
+                "flamethrower",
+                "hypervoice",
+                "darkpulse"
             ],
             "id": "pyroar"
         },
@@ -11366,7 +11201,7 @@
             "ability": "unburden",
             "item": "focussash",
             "moves": [
-                "dazzlinggleam",
+                "mistyexplosion",
                 "flamethrower",
                 "endeavor",
                 "stickyweb"
@@ -11517,9 +11352,14 @@
             "id": "tyrantrum"
         },
         {
-            "ability": "strongjaw",
-            "item": "",
-            "moves": [],
+            "ability": "rockhead",
+            "item": "loadeddice",
+            "moves": [
+                "headsmash",
+                "scaleshot",
+                "earthquake",
+                "rockpolish"
+            ],
             "id": "tyrantrum"
         },
         {
@@ -11601,11 +11441,11 @@
         },
         {
             "ability": "moldbreaker",
-            "item": "choicescarf",
+            "item": "heavydutyboots",
             "moves": [
                 "closecombat",
-                "bravebird",
                 "uturn",
+                "encore",
                 "defog"
             ],
             "id": "hawlucha"
@@ -11645,12 +11485,23 @@
         },
         {
             "ability": "sturdy",
-            "item": "weaknesspolicy",
+            "item": "rockyhelmet",
             "moves": [
-                "moonblast",
-                "stoneedge",
-                "earthpower",
-                "rockpolish"
+                "bodypress",
+                "mistyexplosion",
+                "stealthrock",
+                "spikes"
+            ],
+            "id": "carbink"
+        },
+        {
+            "ability": "clearbody",
+            "item": "leftovers",
+            "moves": [
+                "bodypress",
+                "irondefense",
+                "toxic",
+                "rest"
             ],
             "id": "carbink"
         },
@@ -11711,7 +11562,7 @@
         },
         {
             "ability": "sapsipper",
-            "item": "assaultvest",
+            "item": "leftovers",
             "moves": [
                 "ironhead",
                 "dragontail",
@@ -11781,8 +11632,8 @@
             "moves": [
                 "powerwhip",
                 "poltergeist",
-                "rockslide",
-                "explosion"
+                "shadowsneak",
+                "rockslide"
             ],
             "id": "gourgeist"
         },
@@ -11842,7 +11693,7 @@
             "id": "avalugghisui"
         },
         {
-            "ability": "strongjaw",
+            "ability": "sturdy",
             "item": "leftovers",
             "moves": [
                 "mountaingale",
@@ -12084,21 +11935,21 @@
             "id": "decidueyehisui"
         },
         {
-            "ability": "overgrow",
-            "item": "choicespecs",
+            "ability": "scrappy",
+            "item": "choicescarf",
             "moves": [
-                "leafstorm",
-                "focusblast",
-                "energyball",
+                "closecombat",
+                "triplearrows",
+                "leafblade",
                 "uturn"
             ],
             "id": "decidueyehisui"
         },
         {
             "ability": "intimidate",
-            "item": "assaultvest",
+            "item": "heavydutyboots",
             "moves": [
-                "overheat",
+                "flareblitz",
                 "knockoff",
                 "uturn",
                 "willowisp"
@@ -12195,7 +12046,7 @@
         },
         {
             "ability": "stakeout",
-            "item": "lifeorb",
+            "item": "choiceband",
             "moves": [
                 "doubleedge",
                 "earthquake",
@@ -12255,7 +12106,7 @@
                 "closecombat",
                 "icehammer",
                 "crabhammer",
-                "icepunch"
+                "thunderpunch"
             ],
             "id": "crabominable"
         },
@@ -13034,9 +12885,9 @@
             "item": "rockmemory",
             "moves": [
                 "multiattack",
-                "grasspledge",
-                "flamecharge",
-                "swordsdance"
+                "flamethrower",
+                "psychicfangs",
+                "grasspledge"
             ],
             "id": "silvally"
         },
@@ -13102,7 +12953,7 @@
                 "multiattack",
                 "thunderbolt",
                 "icebeam",
-                "substitute"
+                "partingshot"
             ],
             "id": "silvally"
         },
@@ -13392,12 +13243,12 @@
         },
         {
             "ability": "strongjaw",
-            "item": "lifeorb",
+            "item": "choicescarf",
             "moves": [
                 "psychicfangs",
                 "liquidation",
                 "crunch",
-                "agility"
+                "icefang"
             ],
             "id": "bruxish"
         },
@@ -13546,11 +13397,11 @@
         },
         {
             "ability": "electricsurge",
-            "item": "weaknesspolicy",
+            "item": "lifeorb",
             "moves": [
                 "thunderbolt",
                 "dazzlinggleam",
-                "storedpower",
+                "grassknot",
                 "calmmind"
             ],
             "id": "tapukoko"
@@ -13590,10 +13441,10 @@
         },
         {
             "ability": "psychicsurge",
-            "item": "leftovers",
+            "item": "lifeorb",
             "moves": [
-                "drainingkiss",
-                "storedpower",
+                "moonblast",
+                "psychic",
                 "focusblast",
                 "calmmind"
             ],
@@ -13612,12 +13463,12 @@
         },
         {
             "ability": "grassysurge",
-            "item": "leftovers",
+            "item": "assaultvest",
             "moves": [
                 "hornleech",
-                "dazzlinggleam",
-                "substitute",
-                "synthesis"
+                "highhorsepower",
+                "rockslide",
+                "naturesmadness"
             ],
             "id": "tapubulu"
         },
@@ -13769,7 +13620,7 @@
             "item": "leftovers",
             "moves": [
                 "heavyslam",
-                "flamecharge",
+                "flamethrower",
                 "protect",
                 "leechseed"
             ],
@@ -14065,7 +13916,7 @@
             "ability": "sniper",
             "item": "choicespecs",
             "moves": [
-                "hydrocannon",
+                "hydropump",
                 "icebeam",
                 "darkpulse",
                 "uturn"
@@ -14080,17 +13931,6 @@
                 "icebeam",
                 "darkpulse",
                 "focusenergy"
-            ],
-            "id": "inteleon"
-        },
-        {
-            "ability": "sniper",
-            "item": "lifeorb",
-            "moves": [
-                "liquidation",
-                "iciclespear",
-                "fellstinger",
-                "swordsdance"
             ],
             "id": "inteleon"
         },
@@ -14298,8 +14138,8 @@
             "moves": [
                 "flamethrower",
                 "meteorbeam",
-                "earthpower",
-                "rockpolish"
+                "powergem",
+                "earthpower"
             ],
             "id": "coalossal"
         },
@@ -14485,8 +14325,8 @@
             "moves": [
                 "firelash",
                 "leechlife",
-                "knockoff",
-                "thunderfang"
+                "powerwhip",
+                "knockoff"
             ],
             "id": "centiskorch"
         },
@@ -14558,17 +14398,6 @@
         },
         {
             "ability": "magicbounce",
-            "item": "lifeorb",
-            "moves": [
-                "playrough",
-                "psychocut",
-                "powerwhip",
-                "swordsdance"
-            ],
-            "id": "hatterene"
-        },
-        {
-            "ability": "magicbounce",
             "item": "assaultvest",
             "moves": [
                 "psychic",
@@ -14635,22 +14464,22 @@
         },
         {
             "ability": "toughclaws",
-            "item": "assaultvest",
+            "item": "choiceband",
             "moves": [
                 "ironhead",
                 "playrough",
-                "currencyflow",
+                "closecombat",
                 "uturn"
             ],
             "id": "perrserker"
         },
         {
-            "ability": "toughclaws",
+            "ability": "steelyspirit",
             "item": "lifeorb",
             "moves": [
                 "ironhead",
-                "closecombat",
-                "trailblaze",
+                "currencyflow",
+                "seedbomb",
                 "swordsdance"
             ],
             "id": "perrserker"
@@ -14991,7 +14820,7 @@
             "moves": [
                 "ironhead",
                 "playrough",
-                "zenheadbutt",
+                "rockslide",
                 "stealthrock"
             ],
             "id": "copperajah"
@@ -15233,7 +15062,7 @@
             "moves": [
                 "iciclespear",
                 "closecombat",
-                "trailblaze",
+                "highhorsepower",
                 "swordsdance"
             ],
             "id": "glastrier"
@@ -15486,8 +15315,8 @@
             "moves": [
                 "drainingkiss",
                 "earthpower",
-                "calmmind",
-                "agility"
+                "psychic",
+                "calmmind"
             ],
             "id": "enamorustherian"
         },
@@ -15673,7 +15502,7 @@
             "moves": [
                 "leechlife",
                 "knockoff",
-                "trailblaze",
+                "suckerpunch",
                 "swordsdance"
             ],
             "id": "lokix"
@@ -15981,7 +15810,7 @@
             "moves": [
                 "gunkshot",
                 "knockoff",
-                "uturn",
+                "acrobatics",
                 "swordsdance"
             ],
             "id": "grafaiai"
@@ -16255,7 +16084,7 @@
             "item": "loadeddice",
             "moves": [
                 "scaleshot",
-                "doubleedge",
+                "facade",
                 "temperflare",
                 "shiftgear"
             ],
@@ -16410,7 +16239,7 @@
             "moves": [
                 "liquidation",
                 "storedpower",
-                "icebeam",
+                "icefang",
                 "filletaway"
             ],
             "id": "veluza"
@@ -16507,8 +16336,8 @@
             "ability": "waterabsorb",
             "item": "rockyhelmet",
             "moves": [
-                "gunkshot",
                 "earthquake",
+                "poisonjab",
                 "spikes",
                 "recover"
             ],
@@ -17318,12 +17147,12 @@
             "id": "fezandipiti"
         },
         {
-            "ability": "toxicchain",
+            "ability": "technician",
             "item": "lifeorb",
             "moves": [
                 "gunkshot",
                 "playrough",
-                "lashout",
+                "doublekick",
                 "swordsdance"
             ],
             "id": "fezandipiti"
@@ -17847,12 +17676,12 @@
         },
         {
             "ability": "galvanize",
-            "item": "choicescarf",
+            "item": "choiceband",
             "moves": [
                 "doubleedge",
-                "hornleech",
+                "powerwhip",
                 "knockoff",
-                "rapidspin"
+                "quickattack"
             ],
             "id": "caribolt"
         },
@@ -18091,7 +17920,7 @@
             "ability": "shielddust",
             "item": "eviolite",
             "moves": [
-                "dragontail",
+                "voltswitch",
                 "whirlwind",
                 "healbell",
                 "slackoff"
@@ -18243,12 +18072,12 @@
         },
         {
             "ability": "naturalcure",
-            "item": "lifeorb",
+            "item": "choicescarf",
             "moves": [
-                "closecombat",
-                "playrough",
-                "bulkup",
-                "encore"
+                "moonblast",
+                "aurasphere",
+                "psychic",
+                "partingshot"
             ],
             "id": "kerfluffle"
         },
@@ -18512,7 +18341,7 @@
                 "outrage",
                 "spiritshackle",
                 "bravebird",
-                "toxicspikes"
+                "temperflare"
             ],
             "id": "pajantom"
         },
@@ -18902,12 +18731,12 @@
             "id": "volkraken"
         },
         {
-            "ability": "analytic",
+            "ability": "infiltrator",
             "item": "choicescarf",
             "moves": [
                 "hydropump",
                 "flamethrower",
-                "extrasensory",
+                "scorchingsands",
                 "uturn"
             ],
             "id": "volkraken"
@@ -21196,7 +21025,14 @@
                 "dragonpulse",
                 "acid",
                 "dracometeor",
-                "shellsmash",
+                "shellsmash"
+            ],
+            "id": "clamperldelta"
+        },
+        {
+            "ability": "battlearmor",
+            "item": "deepseatooth",
+            "moves": [
                 "dragonpulse",
                 "terablast",
                 "dracojet",
@@ -26982,7 +26818,7 @@
             "item": "leftovers",
             "moves": [
                 "leechlife",
-                "ironhead",
+                "bulletpunch",
                 "rockslide",
                 "bulkup"
             ],
@@ -27771,22 +27607,22 @@
         },
         {
             "ability": "sniper",
-            "item": "scopelens",
+            "item": "choiceband",
             "moves": [
-                "darkpulse",
+                "knockoff",
                 "jaggedshot",
-                "icebeam",
-                "focusenergy"
+                "triplearrows",
+                "uturn"
             ],
             "id": "decidueyeolul"
         },
         {
             "ability": "sniper",
-            "item": "choiceband",
+            "item": "choicescarf",
             "moves": [
-                "stoneedge",
                 "knockoff",
-                "triplearrows",
+                "jaggedshot",
+                "psychocut",
                 "uturn"
             ],
             "id": "decidueyeolul"
@@ -27795,9 +27631,9 @@
             "ability": "etherealshroud",
             "item": "weaknesspolicy",
             "moves": [
-                "knockoff",
-                "powergem",
-                "powertrip",
+                "jaggedshot",
+                "darkpulse",
+                "roost",
                 "rockpolish"
             ],
             "id": "decidueyeolul"

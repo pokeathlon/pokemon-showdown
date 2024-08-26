@@ -1,4 +1,5 @@
-**24 of August 2024**
+**24th of August 2024**
+
 - IF: Big Boss and Monotype format validators should work
 - PoA: Kaleidleon and Decidueye-Olul added
 - PoA: Jagged Shot added
@@ -6,13 +7,17 @@
 - PoA: Changed Incineroar-Olulian to Incineroar-Olul
 - PoA: Tier changes
 
-**03 of August 2024**
+
+**3rd of August 2024**
+
 - PoA: Sekrilon, Sekrilon-Mega, Penumbralith, and Growlsome added
 - PoA: Spirit Siphon, Comet Strike, Shock Bombs, Grounding Stomp added
 - PoA: Vigor Herb, Boomerang added
 - PoA: Cannoneer, Psycho Slider added
 
-**28 of July 2024**
+
+**28th of July 2024**
+
 - Insurgence: Added Missingno
 - Uranium: Added Hafli Berry
 - PoA: Added Harportia, Hisuian Cetitan, Suenami
@@ -21,14 +26,19 @@
 - PoA: Starmie eviolite compatibility
 - PoA: Tier changes
 
+
 **18th of July 2024**
+
 - No Guard no longer bypasses Mankey's Paw accuracy change
 
+
 **3rd of July 2024**
+
 - Chaos Fusions tier changes
 - Chaos tier changes
 - PoA tier changes + Multishot is now banned
 - PoA now also has a UU format
+
 
 **14th of June 2024**
 
