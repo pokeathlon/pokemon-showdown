@@ -158,7 +158,8 @@ const PoADex: {[k: string]: number} = {
 	"growlsome": 6061,
 	"primarinaolul": 6062,
 	"decidueyeolul": 6063,
-	"kaleidleon": 6064
+	"kaleidleon": 6064,
+	"parashukado": 6065
 };
 
 export const Scripts: ModdedBattleScriptsData = {
