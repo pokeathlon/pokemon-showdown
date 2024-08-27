@@ -628,4 +628,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
+	burstingspores: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.actions.useMove('leechseed', source, {target: target});
+			}
+		},
+		flags: {},
+		name: "Bursting Spores",
+		desc: "Pokemon making contact with this Pokemon sets Leech Seed on the user.",
+		shortDesc: "Pokemon making contact with this Pokemon have Leech Seed set on them",
+		rating: 2,
+		num: 0,
+	},
 };

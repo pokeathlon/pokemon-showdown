@@ -122,4 +122,27 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		spritenum: -3
 	},
+	ejectbandage: {
+		name: "Eject Bandage",
+		shortDesc: "If holder survives a hit, it immediately switches out to a chosen ally and heals 33%. Single use.",
+		spritenum: -3,
+		onAfterMoveSecondaryPriority: 2,
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && target.hp && move && move.category !== 'Status' && !move.flags['futuremove']) {
+				if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.beingCalledBack || target.isSkyDropped()) return;
+				if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+				}
+				target.heal(target.baseMaxhp / 3);
+				target.switchFlag = true;
+				if (target.useItem()) {
+					source.switchFlag = false;
+				} else {
+					target.switchFlag = false;
+				}
+			}
+		},
+		num: 0,
+	},
 };
