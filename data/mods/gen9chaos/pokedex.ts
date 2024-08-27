@@ -109,6 +109,16 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 45,
 		evos: ["Growlsome"],
 	},
+	kecleon: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Kaleidleon"],
+	},
+	parasect: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Parashukado"],
+	},
 	// other PoA changes
 	magmortar: {
 		inherit: true,
