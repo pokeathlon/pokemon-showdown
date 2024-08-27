@@ -632,7 +632,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				this.actions.useMove('leechseed', source, {target: target});
+				this.actions.useMove('leechseed', target, {target: source});
 			}
 		},
 		flags: {},
