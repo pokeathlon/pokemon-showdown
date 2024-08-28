@@ -158,6 +158,38 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	supercell: {
+		inherit: true,
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Typhlosion-Delta' || pokemon.transformed || !pokemon.isActive) return;
+			if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather()) && pokemon.species.id !== 'typhlosiondeltamegaactive') {
+				pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '[msg]');
+			} else if (pokemon.species.id === 'typhlosiondeltamegaactive') {
+				pokemon.formeChange('typhlosiondeltamega', this.effect, false, '[msg]');
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	phototroph: {
+		inherit: true,
+		onResidual(target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.heal(target.baseMaxhp / 8);
+			} else if (['raindance', 'primordialsea', 'newmoon', 'thunderstorm'].includes(target.effectiveWeather())){
+				return;
+			} else {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+	},
 
 	// IF
 	disguise: {

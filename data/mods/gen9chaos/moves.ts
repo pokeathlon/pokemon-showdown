@@ -23,6 +23,27 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 	},
 
+	electroshot: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (['raindance', 'primordialsea', 'thunderstorm'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+
 	// POA
 	payday: {
 		inherit: true,
@@ -722,6 +743,36 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			if (!success) return false;
 			this.add('-activate', source, 'move: Court Change');
+		},
+	},
+	spudmortar: {
+		inherit: true,
+		onTry(source, target) {
+			const item = source.getItem();
+			const futureMoveData = {
+				duration: 3,
+				move: 'spudmortar',
+				source: source,
+				moveData: {
+					id: 'spudmortar',
+					name: "Spud Mortar",
+					accuracy: 100,
+					basePower: item.isBerry? 180 : 120,
+					category: "Special",
+					priority: 0,
+					flags: {metronome: 1, futuremove: 1},
+					effectType: 'Move',
+					type: 'Grass',
+				},
+			};
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
+			if (source.hasAbility('periodicorbit')) {
+				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+			}
+			this.add('-start', source, 'move: Spud Mortar');
+			return this.NOT_FAIL;
 		},
 	},
 
