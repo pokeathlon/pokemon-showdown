@@ -5869,11 +5869,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	solarprominence: {
 		onSourceModifyDamage(damage, source, target, move) {
 				this.debug('Solar Prominence weaken');
-				return this.chainModify(0.66);
+				return this.chainModify(0.7);
 		},
 		flags: {breakable: 1},
 		name: "Solar Prominence",
-		shortDesc: "This Pokemon takes 1/3 less damage.",
+		shortDesc: "This Pokemon takes x0.7 damage.",
 		rating: 5,
 		num: 0,
 	},
@@ -5882,7 +5882,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	creamshield: {
 		onSourceModifyDamage(damage, source, target, move) {
 				this.debug('Cream Shield weaken');
-				return this.chainModify(Math.floor((-0.7*source.hp/source.maxhp)+1));
+				var dmgReduction = Math.floor(1-0.7*source.hp/source.maxhp);
+				return this.chainModify(dmgReduction);
 		},
 		flags: {breakable: 1},
 		name: "Cream Shield",
@@ -5891,12 +5892,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 0,
 	},
 
-	//Water Stream
 	waterstream: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.speed > target.speed) {
 				this.debug('Water Stream weaken');
-				return this.chainModify(0.5);
+				var dmgReduction = Math.floor(source.speed/target.speed)
+				if (dmgReduction > 1) dmgReduction = 1;
+				if (dmgReduction < 0.3) dmgReduction = 0.3;
+				dmgReduction = 1 - dmgReduction;
+				return this.chainModify(dmgReduction);
 			}
 	},
 		flags: {},
