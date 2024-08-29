@@ -2426,7 +2426,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	meloetta: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	meloettapirouette: {
