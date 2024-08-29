@@ -266,7 +266,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	nidoking: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	clefairy: {
@@ -286,7 +286,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ninetales: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	jigglypuff: {
@@ -496,7 +496,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	slowbro: {
 		inherit: true,
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	magnemite: {
@@ -566,7 +566,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gengar: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	onix: {
@@ -851,7 +851,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mew: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	chikorita: {
@@ -1026,7 +1026,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	politoed: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	hoppip: {
@@ -1071,7 +1071,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	quagsire: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	espeon: {
@@ -1091,7 +1091,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	slowking: {
 		inherit: true,
-		tier: "NU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	misdreavus: {
@@ -1161,7 +1161,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	shuckle: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	heracross: {
@@ -1181,7 +1181,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ursaring: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	slugma: {
@@ -1271,7 +1271,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	smeargle: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 	},
 	tyrogue: {
@@ -1321,7 +1321,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	suicune: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	larvitar: {
@@ -1351,7 +1351,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	celebi: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	azurill: {
@@ -1411,7 +1411,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	magnezone: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	lickilicky: {
@@ -1561,7 +1561,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	metagross: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	bidoof: {
@@ -1736,7 +1736,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	doublade: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	aegislash: {
@@ -1791,7 +1791,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sylveon: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	kyogre: {
@@ -1851,7 +1851,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kyurem: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	roserade: {
@@ -1936,7 +1936,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	haxorus: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	golurk: {
@@ -1981,7 +1981,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hydreigon: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	latias: {
@@ -1991,7 +1991,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	latios: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	deoxys: {
@@ -2301,7 +2301,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	noivern: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	swablu: {
@@ -2341,7 +2341,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	registeel: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	necrozma: {
@@ -2426,7 +2426,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	meloetta: {
 		inherit: true,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DUU",
 	},
 	meloettapirouette: {

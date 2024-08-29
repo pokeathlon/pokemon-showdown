@@ -1,3 +1,15 @@
+**29th of August 2024**
+
+- IF: Added IF Dex OU format
+- IF: Tier changes
+- Chaos: Chaos randbats added
+- Chaos: Thunderstorm is compatible with Electroshot and Supercell
+- Chaos: Periodic Orbit should work with Spud Mortar
+- PoA: Parashukado added
+- PoA: Bursting Spores added
+- PoA: Shadowbound added
+- PoA: Eject Bandage added
+
 **24th of August 2024**
 
 - IF: Big Boss and Monotype format validators should work
