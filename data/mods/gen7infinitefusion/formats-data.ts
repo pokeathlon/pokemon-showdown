@@ -251,7 +251,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	nidoqueen: {
 		inherit: true,
-		tier: "NU",
+		tier: "UUBL",
 		doublesTier: "(DUU)",
 	},
 	nidoranm: {
@@ -1991,7 +1991,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	latios: {
 		inherit: true,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	deoxys: {
