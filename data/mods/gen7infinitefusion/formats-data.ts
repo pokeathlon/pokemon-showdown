@@ -1981,7 +1981,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hydreigon: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	latias: {
