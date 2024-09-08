@@ -1629,7 +1629,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	dracat: {
 		num: 6067,
-		name: "dracat",
+		name: "Dracat",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 40, atk: 85, def: 45, spa: 20, spd: 85, spe: 75},
 		abilities: {0: "Technician", 1: "Fluffy", H: "Poison Point"},
