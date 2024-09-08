@@ -1671,6 +1671,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
+		cosmeticFormes: ["Hydroupa-Six", "Hydroupa-Seven", "Hydroupa-Eight", "Hydroupa-Nine",],
 		tier: "OU",
 		natDexTier: "UU",
 		doublesTier: "DOU",
