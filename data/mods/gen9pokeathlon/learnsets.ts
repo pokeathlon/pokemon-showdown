@@ -1213,6 +1213,11 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			bulletseed: ["9M"],
 			rockblast: ["9M"],
 			surf: ["9M"],
+			psychoshift: ["9M"],
+			fling: ["9M"],
+			explosion: ["9M"],
+			hyperbeam: ["9M"],
+			gigaimpact: ["9M"]
 		},
 	},
 	ockthane: {
