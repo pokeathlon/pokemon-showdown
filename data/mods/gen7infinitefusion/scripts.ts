@@ -506,6 +506,21 @@ const IFDex: {[k: string]: number} = {
 	"cresselia": 468,
 	"bruxish": 469,
 	"necrozmaultra": 470,
+	"jangmoo": 471,
+	"hakamoo": 472,
+	"kommoo": 473,
+	"fomantis": 476,
+	"lurantis": 477,
+	"carbink": 478,
+	"chespin": 479,
+	"quilladin": 480,
+	"chesnaught": 481,
+	"fennekin": 482,
+	"braixen": 483,
+	"delphox": 484,
+	"froakie": 485,
+	"frogadier": 486,
+	"greninja": 487
 };
 
 export const Scripts: ModdedBattleScriptsData = {

@@ -115,4 +115,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		battleOnly: null,
 		requiredItem: null,
 	},
+	greninja: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Protean"},
+	}
 };

@@ -2444,4 +2444,79 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NU",
 		doublesTier: "DOU",
 	},
+	jangmoo: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	hakamoo: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	kommoo: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DUU",
+	},
+	fomantis: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	lurantis: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	carbink: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	chespin: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	quilladin: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	chesnaught: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DUU",
+	},
+	fennekin: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	braixen: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	delphox: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	froakie: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	frogadier: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	greninja: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
