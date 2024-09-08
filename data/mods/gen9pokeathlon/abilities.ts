@@ -642,4 +642,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		num: 0,
 	},
+	belligerentquills: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(target.baseMaxhp / 8, target, source);
+			}
+		},
+		flags: {},
+		name: "Belligerent Quills",
+		shortDesc: "When dealing contact-based damage, deals an additional 1/16 max HP.",
+		rating: 4,
+		num: 0,
+	},
 };

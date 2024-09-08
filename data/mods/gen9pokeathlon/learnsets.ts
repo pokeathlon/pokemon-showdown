@@ -5502,4 +5502,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		'shadowclaw',
 		'terablast',
 		'uturn']),
+		scaleslash: flattenLearnset(baseLearnsets.sandslash,[],[
+			'faequills',
+			'playrough']),
 };

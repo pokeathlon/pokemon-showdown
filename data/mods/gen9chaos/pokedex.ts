@@ -119,6 +119,11 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 45,
 		evos: ["Parashukado"],
 	},
+	sandslash: {
+		inherit: true,
+		evoLevel: 45,
+		evos: ["Scaleslash"],
+	},
 	// other PoA changes
 	magmortar: {
 		inherit: true,
