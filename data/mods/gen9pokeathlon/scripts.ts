@@ -162,7 +162,8 @@ const PoADex: {[k: string]: number} = {
 	"parashukado": 6065,
 	"scaleslash": 6066,
 	"dracat": 6067,
-	"catzelwyrm": 6068
+	"catzelwyrm": 6068,
+	"hydroupa": 6069
 };
 
 export const Scripts: ModdedBattleScriptsData = {

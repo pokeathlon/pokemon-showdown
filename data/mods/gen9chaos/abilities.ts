@@ -190,6 +190,45 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	lernean: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id) || !pokemon.hp || pokemon.transformed) return;
+			
+			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ? 
+			['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] : ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
+			
+			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
+			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
+				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id)) return;
+			if (move.category === "Status" || !move.basePower) return;
+			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
+			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			if (move.secondaries) {
+			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+			   // Technically not a secondary effect, but it is negated
+			   delete move.self;
+			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+		   }
+		},
+		onBasePower(basePower, pokemon, target, move) {
+			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id)) return;
+			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
+			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			let nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+		},
+		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+			if (move.secondaries) {
+				delete move.secondaries;
+			}
+		},
+	},
 
 	// IF
 	disguise: {
