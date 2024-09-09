@@ -524,7 +524,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits twice. Doubles: Tries to hit each foe once.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		flags: {protect: 1, mirror: 1, noparentalbond: 1, wind: 1},
 		multihit: 2,
 		smartTarget: true,
 		secondary: null,
