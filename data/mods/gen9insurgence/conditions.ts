@@ -119,7 +119,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-weather', 'NewMoon', '[upkeep]');
-			if (this.field.isWeather('newmoon')) this.eachEvent('Weather');
+			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
