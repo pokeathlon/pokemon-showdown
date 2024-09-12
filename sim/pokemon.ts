@@ -794,6 +794,9 @@ export class Pokemon {
 			if (this.battle.activePerHalf > 1 && !move.tracksTarget) {
 				const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
 					!(move.id.startsWith('solarb') && ['sunnyday', 'desolateland'].includes(this.effectiveWeather())) &&
+					!(move.id.startsWith('lunarcannon') && ['newmoon'].includes(this.effectiveWeather())) &&
+					!(move.id.startsWith('phantomforce') && ['newmoon'].includes(this.effectiveWeather())) &&
+					!(move.id.startsWith('shadowforce') && ['newmoon'].includes(this.effectiveWeather())) &&
 					!(move.id === 'electroshot' && ['raindance', 'primordialsea'].includes(this.effectiveWeather())) &&
 					!(this.hasItem('powerherb') && move.id !== 'skydrop');
 				if (!isCharging) {
