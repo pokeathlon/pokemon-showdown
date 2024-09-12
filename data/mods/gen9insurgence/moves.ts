@@ -871,7 +871,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (attacker.effectiveWeather() === 'newmoon') {
+			if (['newmoon'].includes(attacker.effectiveWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
