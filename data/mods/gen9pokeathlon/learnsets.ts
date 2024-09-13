@@ -5749,6 +5749,14 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			gravity: ["9M"],
 			roar: ["9M"],
 			worryseed: ["9M"],
+			rest: ["9M"],
+			protect: ["9M"],
+			substitute: ["9M"],
+			facade: ["9M"],
+			sleeptalk: ["9M"],
+			return: ["9M"],
+			frustration: ["9M"],
+			terablast: ["9M"]
 		}
 	}
 };

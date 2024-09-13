@@ -2733,9 +2733,9 @@
             "item": "leftovers",
             "moves": [
                 "earthquake",
-                "seedbomb",
-                "toxic",
-                "stealthrock"
+                "bodypress",
+                "leechseed",
+                "coil"
             ],
             "id": "chronobour"
         },
