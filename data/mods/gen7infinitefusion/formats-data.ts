@@ -2456,7 +2456,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kommoo: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	fomantis: {
@@ -2486,7 +2486,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chesnaught: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	fennekin: {
@@ -2501,7 +2501,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	delphox: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	froakie: {
