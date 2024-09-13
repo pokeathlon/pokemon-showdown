@@ -662,34 +662,34 @@
         },
         {
             "ability": "sacredtreasures",
-            "item": "choicespecs",
+            "item": "fairyfeather",
             "moves": [
                 "moonblast",
                 "darkpulse",
-                "earthpower",
-                "icebeam"
-            ],
-            "id": "lunachi"
-        },
-        {
-            "ability": "sacredtreasures",
-            "item": "shedshell",
-            "moves": [
-                "spiritbreak",
-                "darkestlariat",
-                "bulkup",
-                "rest"
-            ],
-            "id": "lunachi"
-        },
-        {
-            "ability": "sacredtreasures",
-            "item": "choiceband",
-            "moves": [
                 "playrough",
+                "suckerpunch"
+            ],
+            "id": "lunachi"
+        },
+        {
+            "ability": "sacredtreasures",
+            "item": "lifeorb",
+            "moves": [
                 "darkestlariat",
-                "suckerpunch",
-                "facade"
+                "spiritbreak",
+                "bulkup",
+                "moonlight"
+            ],
+            "id": "lunachi"
+        },
+        {
+            "ability": "sacredtreasures",
+            "item": "flameorb",
+            "moves": [
+                "moonblast",
+                "darkpulse",
+                "icebeam",
+                "earthpower"
             ],
             "id": "lunachi"
         },
@@ -2716,6 +2716,39 @@
                 "swordsdance"
             ],
             "id": "scaleslash"
+        },
+        {
+            "ability": "shedskin",
+            "item": "leftovers",
+            "moves": [
+                "earthquake",
+                "powerwhip",
+                "rockslide",
+                "coil"
+            ],
+            "id": "chronobour"
+        },
+        {
+            "ability": "shedskin",
+            "item": "leftovers",
+            "moves": [
+                "earthquake",
+                "seedbomb",
+                "toxic",
+                "stealthrock"
+            ],
+            "id": "chronobour"
+        },
+        {
+            "ability": "slowlight",
+            "item": "powerherb",
+            "moves": [
+                "earthpower",
+                "meteorbeam",
+                "dragonpulse",
+                "surf"
+            ],
+            "id": "chronobour"
         },
         {
             "ability": "intimidate",
