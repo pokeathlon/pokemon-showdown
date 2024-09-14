@@ -396,7 +396,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 6016,
 		name: "Ockthane",
 		types: ["Ice", "Electric"],
-		baseStats: {hp: 87, atk: 93, def: 62, spa: 144, spd: 116, spe: 78},
+		baseStats: {hp: 87, atk: 73, def: 62, spa: 144, spd: 116, spe: 78},
 		abilities: {0: "Supreme Overlord", H: "Psychic Surge"},
 		heightm: 0.6,
 		weightkg: 17,
