@@ -2608,6 +2608,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			celebrate: ["9M"],
 			thunderclap: ["9M"],
 			swordsdance: ["9M"],
+			teatime: ["9M"]
 		},
 	},
 	bewitwing: {
@@ -4652,6 +4653,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			magnitude: ["9M"],
 			mudbomb: ["9M"],
 			rototiller: ["9M"],
+			triattack: ["9M"],
+			powergem: ["9M"]
 		},
 	},
 	dangonna: {
@@ -4866,6 +4869,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			chipaway: ["9M"],
 			feint: ["9M"],
 			closecombat: ["9M"],
+			headsmash: ["9M"]
 		}
 	},
 	rotomhisuiarmored: {
@@ -4953,6 +4957,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			chipaway: ["9M"],
 			feint: ["9M"],
 			closecombat: ["9M"],
+			headsmash: ["9M"]
 		}
 	},
 	harportia: {
