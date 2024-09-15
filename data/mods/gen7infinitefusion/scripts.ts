@@ -520,7 +520,9 @@ const IFDex: {[k: string]: number} = {
 	"delphox": 484,
 	"froakie": 485,
 	"frogadier": 486,
-	"greninja": 487
+	"greninja": 487,
+	"wimpod": 488,
+	"golisopod": 489
 };
 
 export const Scripts: ModdedBattleScriptsData = {

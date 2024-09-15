@@ -2519,4 +2519,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	wimpod: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	golisopod: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
