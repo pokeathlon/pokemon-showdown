@@ -583,7 +583,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	belligerentquills: {
 		onSourceDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target, true)) {
+			if (this.checkMoveMakesContact(move, source, target, true) && move.multihit) {
 				this.damage(target.baseMaxhp / 8, target, source);
 			}
 		},

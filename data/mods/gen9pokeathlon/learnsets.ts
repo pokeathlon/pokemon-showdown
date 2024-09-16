@@ -5580,20 +5580,13 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			suckerpunch: ["9M"],
 			throatchop: ["9M"],
 			thunderfang: ["9M"],
-			jumpkick: ["9M"],
-			lowkick: ["9M"],
-			superpower: ["9M"],
-			wakeupslap: ["9M"],
 			blazekick: ["9M"],
 			acrobatics: ["9M"],
 			spikes: ["9M"],
-			stompingtantrum: ["9M"],
-			coil: ["9M"],
 			crosspoison: ["9M"],
 			gunkshot: ["9M"],
 			poisonjab: ["9M"],
 			toxicspikes: ["9M"],
-			psychicfangs: ["9M"],
 			psychicnoise: ["9M"],
 			irontail: ["9M"],
 			chipaway: ["9M"],
@@ -5603,6 +5596,13 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			tailslap: ["9M"],
 			wrap: ["9M"],
 			wringout: ["9M"],
+			counter: ["9M"],
+			focusblast: ["9M"],
+			aerialace: ["9M"],
+			lick: ["9M"],
+			dig: ["9M"],
+			poisonsting: ["9M"],
+			smartstrike: ["9M"]
 		}
 	},
 	hydroupa: {
@@ -5709,7 +5709,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			thunderfang: ["9M"],
 			thunderbolt: ["9M"],
 			thunder: ["9M"],
-			detect: ["9M"],
+			detect: ["9M"]
 		}
 	},
 	chronobour: {
