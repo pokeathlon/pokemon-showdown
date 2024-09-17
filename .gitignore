@@ -3,6 +3,7 @@
 !/config/avatars/
 /replays/*.html
 /replays/replays.csv
+/server/artemis/venv
 /logs/**/*
 /test/modlogs
 /test/replays/*.html
