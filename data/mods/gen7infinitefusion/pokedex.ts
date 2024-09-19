@@ -118,5 +118,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	greninja: {
 		inherit: true,
 		abilities: {0: "Torrent", H: "Protean"},
+	},
+	rockruff: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "Steadfast"},
 	}
 };
