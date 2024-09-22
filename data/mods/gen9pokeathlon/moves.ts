@@ -1155,7 +1155,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Scarab\u2019s Sting",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
 		multihit: 2,
 		secondary: {
 			chance: 20,
