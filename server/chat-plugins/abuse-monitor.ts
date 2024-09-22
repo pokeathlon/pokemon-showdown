@@ -595,7 +595,7 @@ export const chatfilter: Chat.ChatFilter = function (message, user, room) {
 				}
 				notifyStaff();
 				hitThreshold = 1;
-				void room?.uploadReplay?.(user, this.connection, "forpunishment");
+				// void room?.uploadReplay?.(user, this.connection, "forpunishment");
 				await Chat.database.run(
 					`INSERT INTO perspective_flags (userid, score, certainty, type, roomid, time) VALUES (?, ?, ?, ?, ?, ?)`,
 					// response exists if we got this far
