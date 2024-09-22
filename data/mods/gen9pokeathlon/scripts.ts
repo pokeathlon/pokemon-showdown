@@ -165,7 +165,9 @@ const PoADex: {[k: string]: number} = {
 	"catzelwyrm": 6068,
 	"hydroupa": 6069,
 	"chronobour": 6070,
-	"gilotherma":6071
+	"gilotherma":6071,
+	"tyranisacer": 6072,
+	"mephistoxin": 6073
 };
 
 export const Scripts: ModdedBattleScriptsData = {
