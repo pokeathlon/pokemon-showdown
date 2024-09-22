@@ -5836,6 +5836,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	tyranisacer: {
 		learnset: {
+			scarabssting: ["9M"],
 			acidarmor: ["9M"],
 			acidspray: ["9M"],
 			ancientpower: ["9M"],
