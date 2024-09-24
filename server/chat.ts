@@ -1135,10 +1135,9 @@ export class CommandContext extends MessageContext {
 						throw new Chat.ErrorMessage(this.tr`You are ${lockType} and can't talk in chat. ${lockExpiration}`);
 					}
 				}
-				if (!room.persist && !room.roomid.startsWith('help-') && !(user.registered || user.autoconfirmed)) {
+				if (!room.persist && !room.roomid.startsWith('help-') && !user.autoconfirmed) {
 					this.sendReply(
-						this.tr`|html|<div class="message-error">You must be registered to chat in temporary rooms (like battles).</div>` +
-						this.tr`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
+						this.tr`|html|<div class="message-error">To speak in this room, your account must be autoconfirmed, which means being registered for at least one week and winning at least one rated game on https://play.pokemonshowdown.com/ (any game started through the 'Battle!' button).</div>`
 					);
 					throw new Chat.Interruption();
 				}
