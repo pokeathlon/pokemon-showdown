@@ -1125,7 +1125,7 @@ export class CommandContext extends MessageContext {
 			throw new Chat.ErrorMessage(this.tr`You must choose a name before you can talk.`);
 		}
 		Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: {"content": `**${message}** from user **${user.name}** ips: ${user.ips.join(', ')}`, "wait": 1},
+			body: {"content": `user **${user.name}** sent **"${message}"** in room **${this.room?.roomid}** ips: ${user.ips.join(', ')}`, "wait": 1},
 			timeout: 10 * 1000, // 10s
 		});
 		if (!user.can('bypassall')) {
