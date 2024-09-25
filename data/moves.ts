@@ -22128,7 +22128,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'brn',
 		},
 	},
-	bremandrhapsody: { 
+	bremandrhapsody: { // The more bremand the stronger the move (TODO)
 		num: 0, 
 		type: "Sound", 
 		accuracy: 100, 
@@ -22138,7 +22138,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		target: 4, 
+		target: "allAdjacentFoes",
 	},
 	jetstrike: { 
 		num: 0, 
@@ -22162,7 +22162,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20, 
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		target: 4, 
+		target: "allAdjacentFoes", 
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -22228,7 +22228,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		target: 4, 
+		target: "allAdjacentFoes",
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -22269,7 +22269,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal", 
 		recoil: [33,100],
 	},
-	dragonpledge: { 
+	dragonpledge: { // Added effects? (TODO)
 		num: 0, 
 		type: "Dragon", 
 		accuracy: 100, 
@@ -22281,7 +22281,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 	},
-	fairypledge: { 
+	fairypledge: { // Added effects? (TODO)
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 100, 
@@ -22360,7 +22360,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 		secondary: {
-			chance: 100,
+			chance: 30,
 			boosts: {
 				spd: -1,
 			},
@@ -22376,7 +22376,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 30, 
 		priority: 0, 
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1},
-		target: 4, 
+		target: "allAdjacentFoes",
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -22515,7 +22515,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: 20, 
+		target: "allySide", 
 	},
 	firekunai: { 
 		num: 0, 
@@ -22526,7 +22526,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Fire Kunai", 
 		pp: 10, 
 		priority: 1, 
-		flags: {contact: 1, mirror: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 		thawsTarget: true,
 		willCrit: true,
@@ -22553,8 +22553,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 0, 
 		flags: {metronome: 1},
-		target: 20, 
-		weather: 'RainDance',
+		target: "all",
+		weather: 'AcidRain',
 		secondary: null,
 	},
 	dragonendurance: { //Screen grants dragon resistances (TODO)
@@ -22567,9 +22567,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: 20, 
+		target: "allySide",
 	},
-	velvetscales: { //screen grants half damage from SE moves (TODO)
+	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TODO)
 		num: 0, 
 		type: "Dragon", 
 		accuracy: 0, 
@@ -22579,7 +22579,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: 80, 
+		target: "foeSide",
 	},
 	hawthorns: { // sets side-condition, heals itself and allies every turn(TODO)
 		num: 0, 
@@ -22591,7 +22591,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: 40, 
+		target: "allySide", 
 	},
 	scorchedashes: { // sets side-condition on foe that lowers attack on switch-in (TODO)
 		num: 0, 
@@ -22603,7 +22603,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20, 
 		priority: 0, 
 		flags: {reflectable: 1, metronome: 1},
-		target: 80, 
+		target: "foeSide", 
 	},
 	benevolence: { // side-condition that boosts ally healing for 6 turns (TODO)
 		num: 0, 
@@ -22615,7 +22615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {mirror: 1, metronome: 1},
-		target: 40, 
+		target: "allySide", 
 	},
 	cheering: { //grants ally +1 prio this turn (TODO)
 		num: 0, 
@@ -22627,7 +22627,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 4, 
 		flags: {mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
-		target: 5, 
+		target: "adjacentAlly",
 	},
 	magicwall: { //screen gives Fairy-type resistances (TODO)
 		num: 0, 
@@ -22639,7 +22639,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: 20, 
+		target: "allySide",
 	},
 	soundbarrier: { //screen gives Sound-type resistances (TODO)
 		num: 0, 
@@ -22651,7 +22651,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: 20, 
+		target: "allySide",
 	},
 	flavortest: { // Check how much it heals, add ice to effectiveness (TODO)
 		num: 0, 
