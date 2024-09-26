@@ -1,3 +1,8 @@
+**26th of September 2024**
+- IF: Added triple Battles
+- PoA: Added triple Battles
+- Chaos: Added triple Battles
+
 **19th of September 2024**
 - IF: Removed Own Tempo from Rockruff
 - Uranium: Tier changes

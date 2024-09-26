@@ -163,6 +163,33 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF Dex Triples OU",
+
+		mod: 'gen7infinitefusion',
+		gameType: 'triples',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Evasion Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', 'Fusion Species Clause',
+		],
+		banlist: [
+			'DUber',
+			'move:afteryou', 'move:boomburst',
+			'item:lightball', 'item:thickclub',
+			'ability:wonderguard', 'ability:hugepower',
+		],
+	},
+	{
+		name: "[Gen 7] IF Dex Triples AG",
+		searchShow: false,
+
+		mod: 'gen7infinitefusion',
+		gameType: 'triples',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause',
+		],
+	},
+	{
 		name: "[Gen 7] IF Dex Draft",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 		searchShow: false,
@@ -519,6 +546,29 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 9] Chaos Triples",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		gameType: 'triples',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions Triples",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		gameType: 'triples',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
 		name: "[Gen 9] Chaos Free-for-all",
 		searchShow: false,
 
@@ -706,6 +756,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard NatDex', 'Z-Move Clause',],
 		banlist: ['move:hiddenpower'],
+	},
+	{
+		name: "[Gen 9] PoA Dex Triples AG",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		gameType: 'triples',
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	{
 		name: "[Gen 9] PoA Custom Game",
