@@ -655,11 +655,7 @@ const IFDex: {[k: string]: number} = {
 
 for (var i of Dex.species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	if (i.id in IFDex) {
-		Pokedex[i.id].isNonstandard = null;
-		Pokedex[i.id].num = IFDex[i.id];
-	} else {
-		Pokedex[i.id].isNonstandard = "Unobtainable";
-		Pokedex[i.id].num = 0;
-	}
+	const isIF = i.id in IFDex;
+	Pokedex[i.id].isNonstandard = isIF ? null : "Unobtainable";
+	Pokedex[i.id].num = isIF ? IFDex[i.id] : 0;
 }
