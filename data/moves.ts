@@ -22269,7 +22269,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal", 
 		recoil: [33,100],
 	},
-	dragonpledge: { // Added effects? (TODO)
+	dragonpledge: { // No Added effects found 
 		num: 0, 
 		type: "Dragon", 
 		accuracy: 100, 
@@ -22281,7 +22281,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 	},
-	fairypledge: { // Added effects? (TODO)
+	fairypledge: { // No Added effects found
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 100, 
@@ -22567,7 +22567,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		target: "normal", 
 	},
-	acidrain: { //(TODO)
+	acidrain: { // 1/10th damage per turn to all non-poison non-water types (TODO)
 		num: 0, 
 		type: "Water", 
 		accuracy: true, 
@@ -22627,7 +22627,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, metronome: 1},
 		target: "foeSide",
 	},
-	hawthorns: { // sets side-condition, heals itself and allies for 1/10th at end of every turn(TODO)
+	hawthorns: { // sets self hazard, heals itself and allies for 1/10th at end of every turn(TODO)
 		num: 0, 
 		type: "Grass", 
 		accuracy: true, 
@@ -22639,7 +22639,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, metronome: 1},
 		target: "allySide", 
 	},
-	scorchedashes: { // sets side-condition on foe that lowers highest attack on switch-in (TODO)
+	scorchedashes: { // sets hazard on foe that lowers highest attack on switch-in (TODO)
 		//Magic Guard blocks this for some reason
 		num: 0, 
 		type: "Fire", 
@@ -22664,7 +22664,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {mirror: 1, metronome: 1},
 		target: "allySide", 
 	},
-	cheering: { //grants ally +2 prio this turn fucking broken in doubles (TODO)
+	cheering: { //grants ally +2 prio next( should b this, but dynamic speed) turn fucking broken in doubles (TODO)
 		num: 0, 
 		type: "Sound", 
 		accuracy: true, 
