@@ -22092,7 +22092,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		critRatio: 2,
 		target: "normal", 
 	},
-	papercut: { //Needs testing
+	papercut: { // (TEST)
 		num: 0, 
 		type: "Steel", 
 		accuracy: 90, 
@@ -22490,7 +22490,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal", 
 		willCrit: true,
 	},
-	starburst: { // Type changes depending on starter (TODO)
+	starburst: { // (TEST)
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 90, 
@@ -22503,9 +22503,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
+		onModifyType(move, pokemon, target) {
+			switch (pokemon.name) {
+				case 'Trishout':
+					move.type = 'Sound';
+					break;
+				case 'Shulong':
+					move.type = 'Dragon';
+					break;
+				default:
+					move.type = 'Fairy';
+				}
+		},
 		target: "normal", 
 	},
-	controllopolare: { //raises def & spdef for allies with Minus and Plus (TODO)
+	controllopolare: { // (TEST)
 		num: 0, 
 		type: "Electric", 
 		accuracy: 0, 
@@ -22515,7 +22527,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
-		target: "allySide", 
+		target: "adjacentAlly", 
+		onModifyMove(move, pokemon) {
+			if (!['Plus', 'Minus'].includes(pokemon.ability)) return;
+			move.secondaries = [];
+			if (['Plus', 'Minus'].includes(pokemon.ability)) {
+				move.secondaries.push({
+					boosts: {
+						def: 1,
+						spd: 1,
+					},
+				});
+			}
+		},
 	},
 	firekunai: { 
 		num: 0, 
@@ -22557,7 +22581,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		weather: 'AcidRain',
 		secondary: null,
 	},
-	dragonendurance: { //Screen grants dragon resistances (TODO)
+	dragonendurance: { // (TEST)
 		num: 0, 
 		type: "Dragon", 
 		accuracy: 0, 
@@ -22567,6 +22591,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'dragonendurance',
+		condition: {
+			duration: 5,
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && ['Electric', 'Fire', 'Water', 'Grass'].includes(move.type)) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Dragon Endurance weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Dragon Endurance');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Dragon Endurance');
+			},
+		},
 		target: "allySide",
 	},
 	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TODO)
@@ -22629,7 +22674,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
 		target: "adjacentAlly",
 	},
-	magicwall: { //screen gives Fairy-type resistances (TODO)
+	magicwall: { // (TEST)
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 0, 
@@ -22639,9 +22684,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'magicwall',
+		condition: {
+			duration: 5,
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && ['Dragon', 'Fighting', 'Bug', 'Dark'].includes(move.type)) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Sound Barrier weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Magic Wall');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Magic Wall');
+			},
+		},
 		target: "allySide",
 	},
-	soundbarrier: { //screen gives Sound-type resistances (TODO)
+	soundbarrier: { // (TEST)
 		num: 0, 
 		type: "Sound", 
 		accuracy: 0, 
@@ -22651,9 +22717,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15, 
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'soundbarrier',
+		condition: {
+			duration: 5,
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && ['Flying', 'Water', 'Fairy'].includes(move.type)) {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Sound Barrier weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Sound Barrier');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Sound Barrier');
+			},
+		},
 		target: "allySide",
 	},
-	flavortest: { // Check how much it heals, add ice to effectiveness (TODO)
+	flavortest: { // Check how much it's supposed to heal (TODO)
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 100, 
@@ -22663,6 +22750,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 0, 
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, heal: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ice', type);
+		},
 		heal: [1, 2],
 		target: "normal", 
 	},
@@ -22678,7 +22768,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {allyanim: 1, metronome: 1, futuremove: 1},
 		target: "normal", 
 	},
-	elepunch: { // Type depends on held weather stone (TODO)
+	elepunch: { // (TEST)
 		num: 0, 
 		type: "Normal", 
 		accuracy: 100, 
@@ -22688,6 +22778,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 0, 
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		onModifyType(move, pokemon, target) {
+			const item = pokemon.getItem();
+			switch (item.id) {
+				case 'smoothrock':
+					move.type = 'Electric';
+					break;
+				case 'heatrock':
+					move.type = 'Fire';
+					break;
+				case 'icyrock':
+					move.type = 'Ice';
+					break;
+				case 'ramprock':
+					move.type = 'Water';
+					break;
+				case 'kingsrock':
+					move.type = 'Rock';
+					break;
+				default:
+					move.type = 'Normal';
+				}
+		},
 		target: "normal", 
 	},
 };
