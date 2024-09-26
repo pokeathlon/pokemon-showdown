@@ -22082,7 +22082,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	lacerazionedigitale: { // Digital Tear ?
 		num: 0, 
 		type: "Steel", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 255, 
 		category: "Physical", 
 		name: "Lacerazionedigitale", 
@@ -22480,7 +22480,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	astrallance: { 
 		num: 0, 
 		type: "Astral Lance", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 80, 
 		category: "Special", 
 		name: "Astral Lance", 
@@ -22504,7 +22504,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		onModifyType(move, pokemon, target) {
-			switch (pokemon.name) {
+			switch (pokemon.species.baseSpecies) { // Requires these to be base species and the others forms
 				case 'Trishout':
 					move.type = 'Sound';
 					break;
@@ -22520,7 +22520,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	controllopolare: { // (TEST)
 		num: 0, 
 		type: "Electric", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Controllo Polare", 
@@ -22558,7 +22558,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	xtransform: { //random X pokemon, need to figure out what moves it takes. Keeps ditto IV and EV (TODO)
 		num: 0, 
 		type: "Normal", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "X Transform", 
@@ -22570,7 +22570,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	acidrain: { //(TODO)
 		num: 0, 
 		type: "Water", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Acid Rain", 
@@ -22584,7 +22584,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	dragonendurance: { // (TEST)
 		num: 0, 
 		type: "Dragon", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Dragon Endurance", 
@@ -22617,7 +22617,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TODO)
 		num: 0, 
 		type: "Dragon", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Velvet Scales", 
@@ -22629,7 +22629,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	hawthorns: { // sets side-condition, heals itself and allies every turn(TODO)
 		num: 0, 
 		type: "Grass", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Hawthorns", 
@@ -22641,7 +22641,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	scorchedashes: { // sets side-condition on foe that lowers attack on switch-in (TODO)
 		num: 0, 
 		type: "Fire", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Scorched Ashes", 
@@ -22650,10 +22650,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {reflectable: 1, metronome: 1},
 		target: "foeSide", 
 	},
-	benevolence: { // side-condition that boosts ally healing for 6 turns (TODO)
+	benevolence: { // side-condition that boosts ally healing by x1.5 for 6 turns (TODO)
 		num: 0, 
 		type: "Fairy", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Benevolence", 
@@ -22662,10 +22662,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {mirror: 1, metronome: 1},
 		target: "allySide", 
 	},
-	cheering: { //grants ally +1 prio this turn (TODO)
+	cheering: { //grants ally +2 prio this turn fucking broken in doubles (TODO)
 		num: 0, 
 		type: "Sound", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Cheering", 
@@ -22677,7 +22677,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	magicwall: { // (TEST)
 		num: 0, 
 		type: "Fairy", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Magic Wall", 
@@ -22710,7 +22710,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	soundbarrier: { // (TEST)
 		num: 0, 
 		type: "Sound", 
-		accuracy: 0, 
+		accuracy: true, 
 		basePower: 0, 
 		category: "Status", 
 		name: "Sound Barrier", 
@@ -22740,7 +22740,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "allySide",
 	},
-	flavortest: { // Check how much it's supposed to heal (TODO)
+	flavortest: { // (TEST) Heals for 1/10th, fucking weirdo
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 100, 
@@ -22753,7 +22753,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Ice', type);
 		},
-		heal: [1, 2],
+		heal: [1, 10],
 		target: "normal", 
 	},
 	divinejudgement: { // future move (TODO)
@@ -22801,5 +22801,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 		},
 		target: "normal", 
+	},
+	abguillotine: {
+		num: 12,
+		accuracy: 100,
+		basePower: 0,
+		category: "Physical",
+		name: "ABGuillotine",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		ohko: true,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
 	},
 };

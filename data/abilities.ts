@@ -5649,8 +5649,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 // Xenoverse
 
 // Dirty Pool when Chimaooze is implemented
+// Dirty Pool triggers if lvl > 20 and health < 25%
 
 	holyguard: {
+		// Add "<Pokemon> senses the opponents strengths!" message on trigger
 		onStart(pokemon) {
 			let totalatk = 0;
 			let totalspa = 0;
@@ -5674,7 +5676,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	mysticwind: {
 
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Bug' || move.type === 'Dark' || move.type === 'Fighting') {
+			if (move.type === 'Dragon' || move.type === 'Bug' || move.type === 'Dark' || move.type === 'Fighting') {
 				this.debug('Mystic Wind weaken');
 				return this.chainModify(0.5);
 			}
@@ -5771,6 +5773,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 
 // Cloud Burst when Rapidash X is implemented
+// Triggers when health <50%
 
 	equalize: {
 		onModifyTypePriority: -1,
@@ -5878,7 +5881,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 0,
 	},
 
-	//Cream Shield damage reduction unknown!
 	creamshield: {
 		onSourceModifyDamage(damage, source, target, move) {
 				this.debug('Cream Shield weaken');
@@ -5907,7 +5909,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Water Stream",
 		shortDesc: "This Pokemon takes 1/2 damage if faster than the opponent.",
 		rating: 2.5,
-		num: 148,
+		num: 0,
+	},
+	majesticaura: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Majestic Aura', move, '[of] ' + target);
+				return false;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Majestic Aura",
+		shortDesc: "This Pokemon and its allies are protected from opposing priority moves.",
+		rating: 2.5,
+		num: 0,
 	},
 	
 };
