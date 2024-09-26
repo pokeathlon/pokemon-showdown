@@ -22614,8 +22614,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "allySide",
 	},
-	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TODO)
-		//Magic Guard blocks this for some reason
+	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TEST)
 		num: 0, 
 		type: "Dragon", 
 		accuracy: true, 
@@ -22626,6 +22625,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
 		target: "foeSide",
+		sideCondition: 'velvetscales',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Velvet Scales');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('magicguard')) return; //Magic Guard blocks this for some reason
+				if (pokemon.getStat('def', false, true) > pokemon.getStat('spd', false, true)) {
+					this.boost({def: -1}, pokemon, null, null, true);
+				} else {
+					this.boost({spd: -1}, pokemon, null, null, true)
+				}
+			},
+		},
 	},
 	hawthorns: { // sets self hazard, heals itself and allies for 1/10th at end of every turn(TODO)
 		num: 0, 
@@ -22639,8 +22653,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, metronome: 1},
 		target: "allySide", 
 	},
-	scorchedashes: { // sets hazard on foe that lowers highest attack on switch-in (TODO)
-		//Magic Guard blocks this for some reason
+	scorchedashes: { // sets hazard on foe that lowers highest attack on switch-in (TEST)
 		num: 0, 
 		type: "Fire", 
 		accuracy: true, 
@@ -22651,6 +22664,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0, 
 		flags: {reflectable: 1, metronome: 1},
 		target: "foeSide", 
+		sideCondition: 'velvetscales',
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Scorched Ashes');
+			},
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('magicguard')) return; //Magic Guard blocks this for some reason
+				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+					this.boost({atk: -1}, pokemon, null, null, true);
+				} else {
+					this.boost({spa: -1}, pokemon, null, null, true)
+				}
+			},
+		},
 	},
 	benevolence: { // side-condition that boosts ally healing by x1.5 for 6 turns (TODO)
 		num: 0, 
@@ -22664,7 +22692,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {mirror: 1, metronome: 1},
 		target: "allySide", 
 	},
-	cheering: { //grants ally +2 prio next( should b this, but dynamic speed) turn fucking broken in doubles (TODO)
+	cheering: { //grants ally +2 prio next (should b this turn, but dynamic speed) turn fucking broken in doubles (TODO)
 		num: 0, 
 		type: "Sound", 
 		accuracy: true, 
