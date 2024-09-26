@@ -22128,7 +22128,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'brn',
 		},
 	},
-	bremandrhapsody: { // The more bremand the stronger the move (TODO)
+	bremandrhapsody: { // The more bremand the stronger the move, but not coded into the gamae
 		num: 0, 
 		type: "Sound", 
 		accuracy: 100, 
@@ -22615,6 +22615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allySide",
 	},
 	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TODO)
+		//Magic Guard blocks this for some reason
 		num: 0, 
 		type: "Dragon", 
 		accuracy: true, 
@@ -22626,7 +22627,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, metronome: 1},
 		target: "foeSide",
 	},
-	hawthorns: { // sets side-condition, heals itself and allies every turn(TODO)
+	hawthorns: { // sets side-condition, heals itself and allies for 1/10th at end of every turn(TODO)
 		num: 0, 
 		type: "Grass", 
 		accuracy: true, 
@@ -22638,7 +22639,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, metronome: 1},
 		target: "allySide", 
 	},
-	scorchedashes: { // sets side-condition on foe that lowers attack on switch-in (TODO)
+	scorchedashes: { // sets side-condition on foe that lowers highest attack on switch-in (TODO)
+		//Magic Guard blocks this for some reason
 		num: 0, 
 		type: "Fire", 
 		accuracy: true, 
