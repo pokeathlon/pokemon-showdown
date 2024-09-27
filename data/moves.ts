@@ -22293,6 +22293,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 	},
+	soundpledge: { // No Added effects found 
+		num: 0, 
+		type: "Sound", 
+		accuracy: 100, 
+		basePower: 80, 
+		category: "Special", 
+		name: "Sound Pledge", 
+		pp: 10, 
+		priority: 0, 
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		target: "normal", 
+	},
 	soundimpact: { 
 		num: 0, 
 		type: "Sound", 
@@ -22567,7 +22579,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		target: "normal", 
 	},
-	acidrain: { // 1/10th damage per turn to all non-poison non-water types (TODO)
+	acidrain: { // (TEST)
 		num: 0, 
 		type: "Water", 
 		accuracy: true, 

@@ -317,6 +317,13 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		activate: "  The mysterious strong winds weakened the attack!",
 		block: "  The mysterious strong winds blow on regardless!",
 	},
+	acidrain: {
+		weatherName: "Acid Rain",
+		start: "  Acid rain started to fall!",
+		end: "  The acid rain stopped.",
+		upkeep: "  (Acid rain continues to fall)",
+		damage: "  Acid rain inflicted damage to [POKEMON]!",
+	},
 
 	// terrain
 	electricterrain: {
