@@ -22577,7 +22577,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 0, 
 		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
-		target: "normal", 
+		target: "normal",
+		onHit(target, pokemon) {
+			if (!pokemon.transformInto(target)) {
+				return false;
+			}
+		}, 
 	},
 	acidrain: { // (TEST)
 		num: 0, 
@@ -22653,7 +22658,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	hawthorns: { // sets self hazard, heals itself and allies for 1/10th at end of every turn(TODO)
+	hawthorns: { // sets self hazard, heals itself and allies for 1/10th at end of every turn (TEST)
 		num: 0, 
 		type: "Grass", 
 		accuracy: true, 
@@ -22664,6 +22669,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
 		target: "allySide", 
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Hawthorns');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 4,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 10);
+			},
+		},
 	},
 	scorchedashes: { // sets hazard on foe that lowers highest attack on switch-in (TEST)
 		num: 0, 
@@ -22692,7 +22708,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	benevolence: { // side-condition that boosts ally healing by x1.5 for 6 turns (TODO)
+	benevolence: { // side-condition that boosts ally healing by x1.5 for 6 turns (TEST)
 		num: 0, 
 		type: "Fairy", 
 		accuracy: true, 
@@ -22703,8 +22719,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0, 
 		flags: {mirror: 1, metronome: 1},
 		target: "allySide", 
+		sideCondition: 'benevolence',
+		condition: {
+			duration: 6,
+			onTryHealPriority: 1,
+			onTryHeal(damage, target, source, effect) {
+					return this.chainModify([6144, 4096]);
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Benevolence');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Benevolence');
+			},
+		},
 	},
-	cheering: { //grants ally +2 prio next (should b this turn, but dynamic speed) turn fucking broken in doubles (TODO)
+	cheering: { //grants ally +2 prio (TEST)
 		num: 0, 
 		type: "Sound", 
 		accuracy: true, 
@@ -22715,6 +22747,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 4, 
 		flags: {mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
 		target: "adjacentAlly",
+		sideCondition: 'cheering',
+		condition: {
+			duration: 2,
+			onSideStart(side, source) {
+				this.add('-sidestart', side, 'move: Cheering');
+			},
+			onModifyPriority(priority, source, target, move) {
+				return priority + 2;
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 5,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Cheering');
+			},
+		},
 	},
 	magicwall: { // (TEST)
 		num: 0, 
@@ -22798,7 +22845,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		heal: [1, 10],
 		target: "normal", 
 	},
-	divinejudgement: { // future move (TODO)
+	divinejudgement: { // future move (TEST)
 		num: 0, 
 		type: "Normal", 
 		accuracy: 100, 
@@ -22809,6 +22856,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0, 
 		flags: {allyanim: 1, metronome: 1, futuremove: 1},
 		target: "normal", 
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'divinejudgement',
+				source: source,
+				moveData: {
+					id: 'divinejudgement',
+					name: "Divine Judgement",
+					accuracy: 100,
+					basePower: 255,
+					category: "Special",
+					priority: 0,
+					flags: {allyanim: 1, metronome: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Normal',
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
+		},
 	},
 	elepunch: { // (TEST)
 		num: 0, 
