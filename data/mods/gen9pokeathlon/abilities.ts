@@ -522,7 +522,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	spittingfire: {
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
-			if (move.type === 'Fire') move.flags.sound = 1;
+			if (move.type === 'Fire') {
+				move.flags.sound = 1;
+				move.flags.bypasssub = 1;
+			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
