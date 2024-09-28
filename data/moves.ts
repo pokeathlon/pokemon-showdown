@@ -22631,7 +22631,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "allySide",
 	},
-	velvetscales: { //Sets hazard that lower highest def/spdef of incoming foe (TEST)
+	velvetscales: { //Sets hazard that lower lowest def/spdef of incoming foe (TEST)
 		num: 0, 
 		type: "Dragon", 
 		accuracy: true, 
@@ -22650,7 +22650,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('magicguard')) return; //Magic Guard blocks this for some reason
-				if (pokemon.getStat('def', false, true) > pokemon.getStat('spd', false, true)) {
+				if (pokemon.getStat('def', false, true) < pokemon.getStat('spd', false, true)) {
 					this.boost({def: -1}, pokemon, null, null, true);
 				} else {
 					this.boost({spd: -1}, pokemon, null, null, true)
