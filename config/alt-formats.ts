@@ -745,7 +745,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Chaos Draft",
 		searchShow: false,
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon', '+item:berserkgene'],
 	},
 	{
 		name: "[Gen 9] Chaos Multi Battle",
