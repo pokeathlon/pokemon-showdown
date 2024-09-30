@@ -2536,7 +2536,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gourgeist: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	swirlix: {
@@ -2546,7 +2546,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	slurpuff: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 };
