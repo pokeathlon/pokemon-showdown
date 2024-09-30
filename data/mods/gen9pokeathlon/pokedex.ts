@@ -1766,4 +1766,18 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "RU",
 		doublesTier: "DOU",
 	},
+	slowbrorhinian: {
+		num: 6076,
+		name: "Slowbro-Rhinian",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 95, atk: 110, def: 100, spa: 75, spd: 80, spe: 30},
+		abilities: {0: "Full Plate", 1: "Iron Barbs", H: "Filter"},
+		heightm: 1.6,
+		weightkg: 118,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "UU",
+		doublesTier: "DOU",
+	},
 };

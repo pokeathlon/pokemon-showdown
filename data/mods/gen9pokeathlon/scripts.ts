@@ -169,7 +169,8 @@ const PoADex: {[k: string]: number} = {
 	"tyranisacer": 6072,
 	"mephistoxin": 6073,
 	"mjochiin": 6074,
-	"gelazura": 6075
+	"gelazura": 6075,
+	"slowbrorhinian": 6076,
 };
 
 export const Scripts: ModdedBattleScriptsData = {

@@ -636,4 +636,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4.5,
 		num: 0,
 	},
+	fullplate: {
+		onAfterEachBoost(boost, target, source, effect) {
+			let statsRaised = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					statsRaised = true;
+				}
+			}
+			if (statsRaised) {
+				this.boost({def: 1}, target, target, null, false, true);
+			}
+		},
+		flags: {},
+		name: "Full Plate",
+		desc: "This Pokemon's Defense is raised by 1 stage for each of its stat stages that is raised.",
+		shortDesc: "This Pokemon's Defense is raised by 1 for each of its stats that is raised",
+		rating: 3,
+		num: 0,
+	},
 };
