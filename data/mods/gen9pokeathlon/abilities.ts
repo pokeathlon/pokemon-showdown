@@ -637,10 +637,29 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	fullplate: {
-		onAfterBoost(boost, target, source, effect) {
-			if (boost) {
-				this.boost({def: 1}, target, target, null, false, true);
+		onAfterMove(source, target, move) {
+			let statBoosts = false;
+			if (move.boosts) {	
+				let i: BoostID;
+				for (i in move.boosts) {
+					if (move.boosts[i]! > 0) {
+						statBoosts = true;
+					}
+				}
 			}
+			if (statBoosts) this.boost({def: 1}, target, target, null, false, true);
+		},
+		onSourceAfterMove(source, target, move) {
+			let statBoosts = false;
+			if (move.boosts) {	
+				let i: BoostID;
+				for (i in move.boosts) {
+					if (move.boosts[i]! > 0) {
+						statBoosts = true;
+					}
+				}
+			}
+			if (statBoosts) this.boost({def: 1}, target, target, null, false, true);
 		},
 		flags: {},
 		name: "Full Plate",
