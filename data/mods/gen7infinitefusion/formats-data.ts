@@ -2529,4 +2529,24 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	pumpkaboo: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	gourgeist: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	swirlix: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	slurpuff: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };

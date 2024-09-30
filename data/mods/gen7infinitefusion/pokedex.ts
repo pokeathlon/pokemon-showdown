@@ -650,7 +650,11 @@ const IFDex: {[k: string]: number} = {
 	"delphox": 484,
 	"froakie": 485,
 	"frogadier": 486,
-	"greninja": 487
+	"greninja": 487,
+	"pumpkaboo": 489,
+	"gourgeist": 490,
+	"swirlix": 491,
+	"slurpuff": 492
 };
 
 for (var i of Dex.species.all()) {
