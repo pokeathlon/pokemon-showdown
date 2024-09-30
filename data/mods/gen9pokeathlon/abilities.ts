@@ -659,7 +659,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					}
 				}
 			}
-			if (statBoosts) this.boost({def: 1}, target, target, null, false, true);
+			if (statBoosts) this.boost({def: 1}, source, source, null, false, true);
 		},
 		flags: {},
 		name: "Full Plate",
