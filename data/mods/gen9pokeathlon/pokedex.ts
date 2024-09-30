@@ -1780,4 +1780,18 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "UU",
 		doublesTier: "DOU",
 	},
+	slowkingrhinian: {
+		num: 6076,
+		name: "Slowking-Rhinian",
+		types: ["Grass", "Steel"],
+		baseStats: {hp: 95, atk: 75, def: 110, spa: 105, spd: 75, spe: 30},
+		abilities: {0: "Full Plate", 1: "Iron Barbs", H: "Berserk"},
+		heightm: 1.8,
+		weightkg: 108,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "UU",
+		doublesTier: "DOU",
+	},
 };
