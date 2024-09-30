@@ -271,8 +271,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	etherealshroud: {
-		onImmunity(type, pokemon) {
-			if (type === 'Normal' || type === 'Fighting') return false;
+		onTryHit(target, source, move) {
+			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
+				return null;
+			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Bug' || move.type === 'Poison') {
