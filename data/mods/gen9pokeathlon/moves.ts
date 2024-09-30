@@ -1168,4 +1168,29 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "Hits twice, with each hit having a 20% chance to paralyze the target. If the first hit breaks the target's substitute, it will take damage for the second hit.",
 		shortDesc: "Hits 2 times. Each hit has 20% chance to paralyze.",
 	},
+	voidtentacle: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Void Tentacle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Poison",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Power is multiplied by 1.5 during Gravity's effect.",
+		shortDesc: "Target: 100% -1 Def. During Gravity: 1.5x power.",
+	},
 };
