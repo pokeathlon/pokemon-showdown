@@ -6221,7 +6221,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			counter: ["9M"],
 			quickguard: ["9M"],
 			screech: ["9M"],
-			irondefence: ["9M"],
+			irondefense: ["9M"],
 			autotomize: ["9M"],
 			bulkup: ["9M"],
 		}
