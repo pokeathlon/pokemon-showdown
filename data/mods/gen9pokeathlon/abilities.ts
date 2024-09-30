@@ -637,7 +637,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	fullplate: {
-		onAfterEachBoost(boost, target, source, effect) {
+		onAfterBoost(boost, target, source, effect) {
 			let statsRaised = false;
 			let i: BoostID;
 			for (i in boost) {
