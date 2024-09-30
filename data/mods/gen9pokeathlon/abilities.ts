@@ -637,7 +637,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	fullplate: {
-		onAfterMove(source, target, move) {
+		onAfterMove(target, source, move) {
 			let statBoosts = false;
 			if (move.boosts) {	
 				let i: BoostID;
@@ -649,7 +649,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (statBoosts) this.boost({def: 1}, target, target, null, false, true);
 		},
-		onSourceAfterMove(source, target, move) {
+		onAfterMoveSecondary(target, source, move) {
 			let statBoosts = false;
 			if (move.boosts) {	
 				let i: BoostID;
@@ -659,7 +659,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					}
 				}
 			}
-			if (statBoosts) this.boost({def: 1}, source, source, null, false, true);
+			if (statBoosts) this.boost({def: 1}, target, target);
 		},
 		flags: {},
 		name: "Full Plate",
