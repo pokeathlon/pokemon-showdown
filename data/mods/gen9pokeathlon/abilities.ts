@@ -637,29 +637,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	fullplate: {
-		onAfterMove(target, source, move) {
-			let statBoosts = false;
-			if (move.boosts) {	
-				let i: BoostID;
-				for (i in move.boosts) {
-					if (move.boosts[i]! > 0) {
-						statBoosts = true;
-					}
+		onTryBoost(boost, target, source, effect) {
+			let fullPlate = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					fullPlate = true;
 				}
 			}
-			if (statBoosts) this.boost({def: 1}, target, target, null, false, true);
-		},
-		onAfterMoveSecondary(target, source, move) {
-			let statBoosts = false;
-			if (move.boosts) {	
-				let i: BoostID;
-				for (i in move.boosts) {
-					if (move.boosts[i]! > 0) {
-						statBoosts = true;
-					}
-				}
+			if (fullPlate && !target.getVolatile('fullPlate')) {
+				target.addVolatile('fullPlate') //to break recursion
+				this.boost({def: 1}, target, target)
+			} else {
+				if (target.getVolatile('fullPlate')) target.removeVolatile('fullPlate'); //to reset for next move
 			}
-			if (statBoosts) this.boost({def: 1}, target, target);
 		},
 		flags: {},
 		name: "Full Plate",
