@@ -2539,6 +2539,21 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "UU",
 		doublesTier: "DOU",
 	},
+	gourgeistsmall: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	gourgeistlarge: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	gourgeistsuper: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DOU",
+	},
 	swirlix: {
 		inherit: true,
 		tier: "LC",

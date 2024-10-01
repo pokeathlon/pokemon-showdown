@@ -653,6 +653,9 @@ const IFDex: {[k: string]: number} = {
 	"greninja": 487,
 	"pumpkaboo": 489,
 	"gourgeist": 490,
+	"gourgeistsmall": 490,
+	"gourgeistlarge": 490,
+	"gourgeistsuper": 490,
 	"swirlix": 491,
 	"slurpuff": 492
 };
