@@ -6153,7 +6153,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			voidtentacle: ["9M"]
 		}
 	},
-	slowbrorhinian: {
+	slowpokerhinian: {
 		learnset: {
 			absorb: ["9M"],
 			megadrain: ["9M"],
@@ -6192,6 +6192,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			attract: ["9M"],
 			protect: ["9M"],
 			substitute: ["9M"],
+		}
+	},
+	slowbrorhinian: {
+		learnset: {
 			bulletpunch: ["9M"],
 			flashcannon: ["9M"],
 			ironhead: ["9M"],
@@ -6228,43 +6232,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	slowkingrhinian: {
 		learnset: {
-			absorb: ["9M"],
-			megadrain: ["9M"],
-			gigadrain: ["9M"],
-			energyball: ["9M"],
-			grassknot: ["9M"],
-			grassyterrain: ["9M"],
-			razorleaf: ["9M"],
-			solarbeam: ["9M"],
-			synthesis: ["9M"],
-			worryseed: ["9M"],
-			aquajet: ["9M"],
-			aquaring: ["9M"],
-			aquatail: ["9M"],
-			bubblebeam: ["9M"],
-			chillingwater: ["9M"],
-			surf: ["9M"],
-			liquidation: ["9M"],
-			waterfall: ["9M"],
-			brine: ["9M"],
-			doubleedge: ["9M"],
-			swift: ["9M"],
-			earthpower: ["9M"],
-			mudbomb: ["9M"],
-			amnesia: ["9M"],
-			calmmind: ["9M"],
-			bellydrum: ["9M"],
-			raindance: ["9M"],
-			safeguard: ["9M"],
-			slackoff: ["9M"],
-			yawn: ["9M"],
-			curse: ["9M"],
-			snore: ["9M"],
-			rest: ["9M"],
-			endure: ["9M"],
-			attract: ["9M"],
-			protect: ["9M"],
-			substitute: ["9M"],
 			bulletpunch: ["9M"],
 			flashcannon: ["9M"],
 			ironhead: ["9M"],
