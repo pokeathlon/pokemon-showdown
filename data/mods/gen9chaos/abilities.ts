@@ -178,18 +178,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
-	phototroph: {
-		inherit: true,
-		onResidual(target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
-				this.heal(target.baseMaxhp / 8);
-			} else if (['raindance', 'primordialsea', 'newmoon', 'thunderstorm'].includes(target.effectiveWeather())){
-				return;
-			} else {
-				this.heal(target.baseMaxhp / 16);
-			}
-		},
-	},
 	lernean: {
 		inherit: true,
 		onUpdate(pokemon) {
