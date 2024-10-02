@@ -730,7 +730,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Combusken-Delta"],
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "LC",
+		tier: "AG",
 	},
 	combuskendelta: {
 		num: 256,
@@ -744,7 +744,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Torchic-Delta",
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "NFE",
+		tier: "AG",
 	},
 	blazikendelta: {
 		num: 257,
@@ -757,9 +757,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Combusken-Delta",
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "OU",
+		tier: "AG",
 		natDexTier: "UU",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	blazikendeltamega: {
 		num: 257,
@@ -790,7 +790,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Grovyle-Delta"],
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "LC",
+		tier: "AG",
 	},
 	grovyledelta: {
 		num: 253,
@@ -804,7 +804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Treecko-Delta",
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "NFE",
+		tier: "AG",
 	},
 	sceptiledelta: {
 		num: 254,
@@ -817,7 +817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Grovyle-Delta",
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "RU",
+		tier: "AG",
 		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
