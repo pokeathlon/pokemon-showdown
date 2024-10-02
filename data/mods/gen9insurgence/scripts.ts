@@ -7,7 +7,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		for (const x of this.species.all()) {
 			var i = x.id;
-			if (this.modData('Learnsets', i).learnset) {
+			if (this.modData('Learnsets', i) && this.modData('Learnsets', i).learnset) {
 				if (!cantLearnTM.includes(i)) {
 					this.modData('Learnsets', i).learnset.achillesheel = ["6M"];
 				}
