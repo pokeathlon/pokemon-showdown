@@ -5,8 +5,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
-		for (const i in this.data.Pokedex) {
-			if (i in this.data.Learnsets && this.modData('Learnsets', i).learnset) {
+		for (const x of this.species.all()) {
+			var i = x.id;
+			if (this.modData('Learnsets', i).learnset) {
 				if (!cantLearnTM.includes(i)) {
 					this.modData('Learnsets', i).learnset.achillesheel = ["6M"];
 				}

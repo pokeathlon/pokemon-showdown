@@ -1,3 +1,4 @@
+const {Dex} = require('../../../sim/dex');
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	magnemite: {
 		inherit: true,

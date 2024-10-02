@@ -1,3 +1,4 @@
+const {Dex} = require('../../../sim/dex');
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Mods
 	payday: {
@@ -1194,3 +1195,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Target: 100% -1 Def. During Gravity: 1.5x power.",
 	},
 };
+
+for (var i of Dex.moves.all()) {
+	if (["Past", "Unobtainable"].includes(i.isNonstandard)) {
+		if (!Moves[i.id]) Moves[i.id] = {inherit: true};
+		Moves[i.id].isNonstandard = null;
+	}
+}
