@@ -310,8 +310,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	undeterred: {
-		onStart(pokemon) {
-			pokemon.addVolatile('item:heavydutyboots');
+		onDamage(damage, target, source, effect) {
+			if (effect && ['stealthrock', 'spikes', 'gmaxsteelsurge', 'hotcoals'].includes(effect.id)) {
+				return false;
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (effect && effect.id !== 'stickyweb') return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (effect && ['toxicspikes', 'permafrost', 'livewire'].includes(effect.id)) {
+				return false;
+			}
 		},
 		flags: {},
 		name: "Undeterred",
