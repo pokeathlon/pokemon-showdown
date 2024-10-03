@@ -638,7 +638,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	fullplate: {
 		onTryBoost(boost, target, source, effect) {
-			if (this.effectState.protean) return;
+			if (this.effectState.fullplate) return;
 			let fullPlate = false;
 			let i: BoostID;
 			for (i in boost) {
@@ -648,7 +648,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (fullPlate && !target.getVolatile('fullPlate')) {
 				target.addVolatile('fullPlate') //to break recursion
-				this.effectState.protean = true; // once per switch
+				this.effectState.fullplate = true; // once per switch
 				this.boost({def: 1}, target, target)
 			} else {
 				if (target.getVolatile('fullPlate')) target.removeVolatile('fullPlate'); //to reset for next move
