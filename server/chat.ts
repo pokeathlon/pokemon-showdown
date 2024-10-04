@@ -1125,8 +1125,13 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.tr`You must choose a name before you can talk.`);
 		}
+		const concerningWords = ["Careful!", "ped", "trans"];
+		var priority = false;
+		for (var word of concerningWords) {
+			if (message?.includes(word)) priority = true;
+		}
 		Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: {"content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}`, "wait": 1},
+			body: {"content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1},
 			timeout: 10 * 1000, // 10s
 		});
 		if (!user.can('bypassall')) {
