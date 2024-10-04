@@ -3230,7 +3230,48 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	poasametypeclause: {
+		effectType: 'ValidatorRule',
+		name: 'PoA Same Type Clause',
+		desc: "Forces all Pok&eacute;mon on a team to share a type with each other",
+		onBegin() {
+			this.add('rule', 'Same Type Clause: Pokémon in a team must share a type, or be cats');
+		},
+		onValidateTeam(team) {
+			let cats = ['berserkergene', 'bewitwing', 'catzelwyrm', 'dracat', 'enteisupra', 'felapstan', 'growlsome', 'incineroarolul', 'raikousupra'];
+			let monocat = false;
+			let typeTable: string[] = [];
+			for (const [i, set] of team.entries()) {
+				let species = this.dex.species.get(set.species);
+				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
+				if (i === 0) {
+					typeTable = species.types;
+					if (cats.includes(species.id)) monocat = true; // monocat
+				} else {
+					typeTable = typeTable.filter(type => species.types.includes(type));
+					if (monocat && !cats.includes(species.id)) monocat = false;
+				}
+				const item = this.dex.items.get(set.item);
+				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
+					species = this.dex.species.get(item.megaStone);
+					typeTable = typeTable.filter(type => species.types.includes(type));
+				}
+				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
+					species = this.dex.species.get("Necrozma-Ultra");
+					typeTable = typeTable.filter(type => species.types.includes(type));
+				}
+				if (!typeTable.length && monocat === false) return [`Your team must share a type, or be composed entirely of cats.`];
+			}
+			for (const set of team) {
+				if (this.gen === 9 && set.teraType &&
+						!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
+					return [`${set.species}'s Tera Type must match the team's type.`];
+				}
+			}
+		},
+	},
 };
+
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
 	"attackorder": [{"fusion": ["beedrill"]}],

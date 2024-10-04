@@ -592,6 +592,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	{
+		name: "[Gen 9] PoA Dex Mono",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard', 'Terastal Clause', 'PoA Same Type Clause', '+Pokeathlon', '- all Pokemon'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
+			'Focus Band', 'Quick Claw', 
+			'Berserker Gene', 'Electrode-Mega', 'Florges-Mega', 'Snorlax-Frost-Mega', 'Sceptile-Delta-Mega', 'Blaziken-Delta-Mega'],
+	},
+	{
 		name: "[Gen 9] PoA Custom Game",
 
 		mod: 'gen9pokeathlon',
