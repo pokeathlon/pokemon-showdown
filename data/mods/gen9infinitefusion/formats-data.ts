@@ -82,10 +82,9 @@ const doublesTiers = {
 };
 
 for (const i of Dex.species.all()) {
-	const baseSpecies = Dex.species.get(i.baseSpecies);
 	let finalTier: TierTypes.Other | TierTypes.Doubles | undefined = "(DUU)";
 	if ((!i.isNonstandard || i.isNonstandard === "Past" || i.isNonstandard === "Unobtainable") && i.natDexTier !== "Illegal") {
-		if (doublesTiers["DUber"].includes(i.id) || baseSpecies.tags?.includes('Mythical') || baseSpecies.tags?.includes('Restricted Legendary')) {
+		if (doublesTiers["DUber"].includes(i.id) || i.tags?.includes('Mythical') || i.tags?.includes('Restricted Legendary')) {
 			finalTier = "DUber";
 		} else if (doublesTiers["DOU"].includes(i.id)) {
 			finalTier = "DOU";
@@ -98,7 +97,7 @@ for (const i of Dex.species.all()) {
 		}
 		if (FormatsData[i.id]) {
 			FormatsData[i.id].doublesTier = finalTier;
-		} else if (!FormatsData[i.id] && !FormatsData[baseSpecies.id]) {
+		} else if (!FormatsData[i.id]) {
 			FormatsData[i.id] = {
 				inherit: true,
 				doublesTier: finalTier,
