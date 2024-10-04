@@ -1660,7 +1660,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Dracat",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Field"],
-		tier: "OU",
+		tier: "Uber",
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
