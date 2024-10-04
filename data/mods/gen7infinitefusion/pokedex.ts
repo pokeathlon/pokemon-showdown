@@ -1,5 +1,5 @@
 const {Dex} = require('../../../sim/dex');
-export var Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex),
 	gengar: {
 		inherit: true,
@@ -660,7 +660,7 @@ const IFDex: {[k: string]: number} = {
 	"slurpuff": 492
 };
 
-for (var i of Dex.species.all()) {
+for (var i of Dex.mod('gen9infinitefusion').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isIF = i.id in IFDex;
 	Pokedex[i.id].isNonstandard = isIF ? null : "Unobtainable";

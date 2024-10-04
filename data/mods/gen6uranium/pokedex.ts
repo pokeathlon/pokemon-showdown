@@ -1,5 +1,5 @@
 const {Dex} = require('../../../sim/dex');
-export var Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(require('../gen9uranium/pokedex').Pokedex);
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(require('../gen9uranium/pokedex').Pokedex);
 
 // Regional Dex Data
 const UDex: {[k: string]: number} = {
@@ -259,7 +259,7 @@ const UDex: {[k: string]: number} = {
 	"uraynebeta": 197,
 };
 
-for (var i of Dex.species.all()) {
+for (var i of Dex.mod('gen9uranium').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isU = i.id in UDex;
 	Pokedex[i.id].isNonstandard = isU ? null : "Unobtainable";
