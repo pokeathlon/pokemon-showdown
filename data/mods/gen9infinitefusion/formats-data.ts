@@ -104,4 +104,5 @@ for (const i of Dex.species.all()) {
 			};
 		}
 	}
+	if (i.id.includes('arceus')) FormatsData[i.id].natDexTier = "Uber";
 }
