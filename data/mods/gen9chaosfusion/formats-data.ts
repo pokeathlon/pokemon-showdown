@@ -1,3 +1,4 @@
+const {Dex} = require('../../../sim/dex');
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	frosthra: {
 		inherit: true,
@@ -72,3 +73,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Uber",
 	},
 };
+
+for (var i of Dex.species.all()) {
+	if (i.types.includes('Nuclear') && !FormatsData[i.id]) {
+		FormatsData[i.id] = {
+			inherit: true,
+			tier: "Uber",
+			natDexTier: "Uber"
+		};
+	}
+}

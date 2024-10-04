@@ -1125,7 +1125,7 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.tr`You must choose a name before you can talk.`);
 		}
-		const concerningWords = ["Careful!", "ped", "trans"];
+		const concerningWords = ["Careful!", " ped ", "Arcato"];
 		var priority = false;
 		for (var word of concerningWords) {
 			if (message?.includes(word)) priority = true;

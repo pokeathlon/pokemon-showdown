@@ -4,6 +4,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
+		// Pull alt content
 		const fangames = ['gen9insurgence', 'gen9uranium'];
 		const categories = ['Moves', 'Abilities', 'Conditions'];
 		for (var fangame of fangames) {
