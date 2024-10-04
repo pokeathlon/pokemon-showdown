@@ -159,7 +159,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 	},
 	supercell: {
-		inherit: true,
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
@@ -177,9 +176,30 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {},
+		name: "Supercell",
+		desc: "If New Moon/Rain is active, this Pokemon's Special Attack is multiplied by 1.5.",
+		shortDesc: "If New Moon/Rain is active, this Pokemon's Sp. Atk is 1.5x.",
+		rating: 2,
+		num: 0,
+	},
+	phototroph: {
+		onResidual(target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.heal(target.baseMaxhp / 8);
+			} else if (['raindance', 'primordialsea', 'newmoon', 'thunderstorm'].includes(target.effectiveWeather())){
+				return;
+			} else {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Phototroph",
+		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
+		rating: 1.5,
+		num: 0,
 	},
 	lernean: {
-		inherit: true,
 		onUpdate(pokemon) {
 			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id) || !pokemon.hp || pokemon.transformed) return;
 			
@@ -216,6 +236,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				delete move.secondaries;
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Lernean",
+		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
+		rating: 4.5,
+		num: 0,
 	},
 
 	// IF
