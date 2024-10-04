@@ -599,7 +599,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Terastal Clause', 'PoA Same Type Clause', '+Pokeathlon', '- all Pokemon'],
 		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
 			'Focus Band', 'Quick Claw', 
-			'Berserker Gene', 'Electrode-Mega', 'Florges-Mega', 'Snorlax-Frost-Mega', 'Sceptile-Delta-Mega', 'Blaziken-Delta-Mega'],
+			'Berserker Gene', 'Electrode-Mega', 'Florges-Mega', 'Snorlax-Frost-Mega', 'Sceptile-Delta-Mega', 'Blaziken-Delta-Mega', 'Suicune-Supra'],
 	},
 	{
 		name: "[Gen 9] PoA Custom Game",
