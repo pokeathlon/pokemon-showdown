@@ -82,7 +82,7 @@ const doublesTiers = {
 };
 
 for (const i of Dex.species.all()) {
-	const baseSpecies = i.baseSpecies ? Dex.species.get(i.baseSpecies) : i;
+	const baseSpecies = Dex.species.get(i.baseSpecies);
 	let finalTier: TierTypes.Other | TierTypes.Doubles | undefined = "(DUU)";
 	if ((!i.isNonstandard || i.isNonstandard === "Past" || i.isNonstandard === "Unobtainable") && i.natDexTier !== "Illegal") {
 		if (doublesTiers["DUber"].includes(i.id) || baseSpecies.tags?.includes('Mythical') || baseSpecies.tags?.includes('Restricted Legendary')) {
