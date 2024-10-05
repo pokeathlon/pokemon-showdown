@@ -440,7 +440,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
 		},
 		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if (move.secondaries) {
+			if (pokemon.species.id.startsWith('hydreigonmega') && move.secondaries) {
 				delete move.secondaries;
 			}
 		},

@@ -201,7 +201,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	lernean: {
 		onUpdate(pokemon) {
-			if ( (!['hydreigonmega'].includes(pokemon.species.id) && !['hydroupa'].includes(pokemon.species.id)) || !pokemon.hp || pokemon.transformed) return;
+			if ((!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) || !pokemon.hp || pokemon.transformed) return;
 			
 			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ? 
 			['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] : ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
@@ -212,7 +212,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if ( (!['hydreigonmega'].includes(pokemon.species.id) && !['hydroupa'].includes(pokemon.species.id))) return;
+			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
 			if (move.category === "Status" || !move.basePower) return;
 			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
 			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
@@ -225,14 +225,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		   }
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if ( (!['hydreigonmega'].includes(pokemon.species.id) && !['hydroupa'].includes(pokemon.species.id))) return;
+			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
 			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
 			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			let nhits = 5 + formes.indexOf(pokemon.species.id);
 			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
 		},
 		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if (move.secondaries) {
+			if ((pokemon.species.id.startsWith('hydreigonmega') || pokemon.species.id.startsWith('hydroupa')) && move.secondaries) {
 				delete move.secondaries;
 			}
 		},
