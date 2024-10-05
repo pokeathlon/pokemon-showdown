@@ -201,7 +201,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	lernean: {
 		onUpdate(pokemon) {
-			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id) || !pokemon.hp || pokemon.transformed) return;
+			if ( (!['hydreigonmega'].includes(pokemon.species.id) && !['hydroupa'].includes(pokemon.species.id)) || !pokemon.hp || pokemon.transformed) return;
 			
 			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ? 
 			['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] : ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
@@ -212,7 +212,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id)) return;
+			if ( (!['hydreigonmega'].includes(pokemon.species.id) && !['hydroupa'].includes(pokemon.species.id))) return;
 			if (move.category === "Status" || !move.basePower) return;
 			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
 			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
@@ -225,7 +225,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		   }
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if ( !['hydreigonmega', 'hydroupa'].includes(pokemon.species.id)) return;
+			if ( (!['hydreigonmega'].includes(pokemon.species.id) && !['hydroupa'].includes(pokemon.species.id))) return;
 			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
 			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			let nhits = 5 + formes.indexOf(pokemon.species.id);
