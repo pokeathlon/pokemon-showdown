@@ -5894,14 +5894,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 0,
 	},
 
-	waterstream: {
+	waterstream: { //TEST - not sure if source is source of move or you
 		onSourceModifyDamage(damage, source, target, move) {
 			if (source.speed > target.speed) {
 				this.debug('Water Stream weaken');
-				var dmgReduction = Math.floor(source.speed/target.speed)
+				var dmgReduction = Math.floor(target.speed/source.speed)
 				if (dmgReduction > 1) dmgReduction = 1;
 				if (dmgReduction < 0.3) dmgReduction = 0.3;
-				dmgReduction = 1 - dmgReduction;
 				return this.chainModify(dmgReduction);
 			}
 	},
