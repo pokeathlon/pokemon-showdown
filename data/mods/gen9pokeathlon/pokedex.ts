@@ -1850,7 +1850,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Hustle", 1: "Ice Cleats", H: "Super Luck"},
 		heightm: 1.5,
 		weightkg: 56.0,
-		evos: ["Scizor-Delta"],
+		evos: ["Scizor-Delta", "Kleavor-Delta"],
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
 		tier: "Illegal",
