@@ -700,10 +700,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	mountaineer: {
-		inherit: true,
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
 		flags: {breakable: 1},
 		name: "Mountaineer",
+		shortDesc: "On switch-in, this Pokemon avoids all Rock-type attacks and Stealth Rock.",
 		rating: 3,
-		num: -2,
+		num: 0,
 	},
 };
