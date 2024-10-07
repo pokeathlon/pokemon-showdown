@@ -1208,7 +1208,7 @@ export class CommandContext extends MessageContext {
 					!Users.Auth.hasPermission(targetUser, 'promote', Config.pmmodchat as GroupSymbol)) {
 					const groupName = Config.groups[Config.pmmodchat] && Config.groups[Config.pmmodchat].name || Config.pmmodchat;
 					this.sendReply(
-						this.tr`|html|<div class="message-error">On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm/" class="button">Discord</a> and typing your showdown name in #verify. You don't have to stay in the Discord server afterwards!</div>`
+						this.tr`|html|<div class="message-error">On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and typing your showdown name in #verify. You don't have to stay in the Discord server afterwards!</div>`
 					);
 					throw new Chat.Interruption();
 				}
