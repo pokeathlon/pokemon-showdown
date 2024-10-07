@@ -471,7 +471,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		infiltrates: true,
-		flags: {protect: 1, mirror: 1, punch: 1},
+		flags: {protect: 1, mirror: 1, punch: 1, contact: 1},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
