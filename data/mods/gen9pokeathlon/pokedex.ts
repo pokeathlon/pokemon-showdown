@@ -1853,9 +1853,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Scizor-Delta"],
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "UU",
+		tier: "Illegal",
 		natDexTier: "RU",
-		doublesTier: "(DUU)",
+		doublesTier: "Illegal",
 	},
 	scizordelta: {
 		num: 212,
@@ -1868,9 +1868,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Scyther-Delta",
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
-		tier: "UU",
+		tier: "Illegal",
 		natDexTier: "UU",
-		doublesTier: "DUU",
+		doublesTier: "Illegal",
 	},
 	kleavordelta: {
 		num: 6081,
