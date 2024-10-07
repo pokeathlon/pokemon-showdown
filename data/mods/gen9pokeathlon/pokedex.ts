@@ -1881,7 +1881,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		heightm: 1.8,
 		weightkg: 89.0,
 		prevo: "Scyther-Delta",
-		tags: ["Insurgence"],
+		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
 		tier: "UU",
 		natDexTier: "UU",
