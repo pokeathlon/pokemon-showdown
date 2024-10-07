@@ -651,13 +651,14 @@ const IFDex: {[k: string]: number} = {
 	"froakie": 485,
 	"frogadier": 486,
 	"greninja": 487,
+	"torkoal": 488,
 	"pumpkaboo": 489,
 	"gourgeist": 490,
 	"gourgeistsmall": 490,
 	"gourgeistlarge": 490,
 	"gourgeistsuper": 490,
 	"swirlix": 491,
-	"slurpuff": 492
+	"slurpuff": 492,
 };
 
 for (var i of Dex.mod('gen9infinitefusion').species.all()) {

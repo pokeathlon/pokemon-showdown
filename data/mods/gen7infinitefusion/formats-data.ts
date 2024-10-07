@@ -2564,4 +2564,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "UU",
 		doublesTier: "DOU",
 	},
+	torkoal: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
