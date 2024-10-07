@@ -683,4 +683,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
+	phototroph: {
+		onResidual(target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.heal(target.baseMaxhp / 8);
+			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())){
+				return;
+			} else {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Phototroph",
+		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
+		rating: 1.5,
+		num: 0,
+	},
 };
