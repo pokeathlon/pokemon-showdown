@@ -1883,8 +1883,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Scyther-Delta",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Undiscovered"],
-		tier: "UU",
-		natDexTier: "UU",
+		tier: "OU",
+		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
 };
