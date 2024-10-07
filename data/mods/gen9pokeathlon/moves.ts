@@ -1216,8 +1216,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "normal",
 		type: "Fire",
-		desc: "Applies the molten effect to foe. This causes the foe's Rock-type moves to become Fire-type.",
-		shortDesc: "Apples molten to foe.",
+		desc: "Changes foe's Rock-type moves to Fire-type moves for 2 turns.",
+		shortDesc: "Changes foe's Rock-type moves to Fire-type for 2 turns.",
 	},
 };
 
