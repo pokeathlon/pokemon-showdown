@@ -1207,7 +1207,8 @@ export class CommandContext extends MessageContext {
 				if (Config.pmmodchat && !Users.globalAuth.atLeast(user, Config.pmmodchat) &&
 					!Users.Auth.hasPermission(targetUser, 'promote', Config.pmmodchat as GroupSymbol)) {
 					const groupName = Config.groups[Config.pmmodchat] && Config.groups[Config.pmmodchat].name || Config.pmmodchat;
-					throw new Chat.ErrorMessage(`|html|<div class="message-error">${this.tr`On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our discord https://discord.gg/8zkgWW8PQm/ and typing your showdown name in #verify. You don't have to stay in the Discord server afterwards!`}</div>`);
+					this.sendReply(this.tr`|html|<div class="message-error">On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our discord https://discord.gg/8zkgWW8PQm/ and typing your showdown name in #verify. You don't have to stay in the Discord server afterwards!</div>`);
+					throw new Chat.Interruption();
 				}
 				if (!this.checkCanPM(targetUser)) {
 					Chat.maybeNotifyBlocked('pm', targetUser, user);
