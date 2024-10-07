@@ -1194,6 +1194,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Power is multiplied by 1.5 during Gravity's effect.",
 		shortDesc: "Target: 100% -1 Def. During Gravity: 1.5x power.",
 	},
+	flameaxe: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Flame Axe",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
+		volatileStatus: 'molten',
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Molten');
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.type === "Rock") move.type = "Fire";
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		desc: "Applies the molten effect to foe. This causes the foe's Rock-type moves to become Fire-type.",
+		shortDesc: "Apples molten to foe.",
+	},
 };
 
 for (var i of Dex.moves.all()) {

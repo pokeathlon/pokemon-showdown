@@ -34,6 +34,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	combuskendelta: flattenLearnset(insgLearnsets.combuskendelta),
 	blazikendelta: flattenLearnset(insgLearnsets.blazikendelta),
 	blazikendeltamega: flattenLearnset(insgLearnsets.blazikendelta),
+	scytherdelta: flattenLearnset(insgLearnsets.scytherdelta),
 	electrode: flattenLearnset(baseLearnsets.electrode, ['gigaimpact']),
 	lunatone: flattenLearnset(baseLearnsets.lunatone,[],['cometstrike']),
 	solrock: flattenLearnset(baseLearnsets.solrock,[],['cometstrike']),
@@ -6358,5 +6359,18 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			tickle: ["9M"],
 			wrap: ["9M"]
 		}
-	}
+	},
+	kleavordelta: flattenLearnset(insgLearnsets.scytherdelta,[],[
+		'burnup',
+		'fireblast',
+		'flameaxe',
+		'flamethrower',
+		'flareblitz',
+		'heatcrash',
+		'incinerate',
+		'morningsun',
+		'overheat',
+		'temperflare',
+		'wildfire',
+		'willowisp']),
 };
