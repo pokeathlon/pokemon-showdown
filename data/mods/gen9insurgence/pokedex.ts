@@ -4097,6 +4097,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.0,
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
+		gen: 6,
 		tier: "Uber",
 		natDexTier: "Uber",
 		doublesTier: "DUber",
