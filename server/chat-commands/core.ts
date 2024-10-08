@@ -79,7 +79,14 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 	},
 	rooms(target, user, trustable) {
 		if (!trustable) return false;
-		return Rooms.global.getRooms(user);
+
+		let searches: {[k: string]: number} = {};
+		for (var formatid of Ladders.searches.keys()) {
+			const size = Ladders.searches.get(formatid)?.searches.size;
+			if (size) searches[Dex.formats.get(formatid).name] = size;
+		}
+
+		return {...Rooms.global.getRooms(user), ladderSearches: searches};
 	},
 	laddertop(target, user, trustable) {
 		if (!trustable) return false;
@@ -175,16 +182,6 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 		}
 		return results;
 	},
-	queue(target, user, trustable) {
-		if (!trustable) return false;
-
-		let searches: {[k: string]: number} = {};
-		for (var formatid of Ladders.searches.keys()) {
-			const size = Ladders.searches.get(formatid)?.searches.size;
-			if (size) searches[Dex.formats.get(formatid).name] = size;
-		}
-		return searches;
-	}
 };
 
 export const commands: Chat.ChatCommands = {
