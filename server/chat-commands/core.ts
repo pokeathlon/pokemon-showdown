@@ -175,6 +175,16 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 		}
 		return results;
 	},
+	queue(target, user, trustable) {
+		if (!trustable) return false;
+
+		let searches: {[k: string]: number} = {};
+		for (var formatid of Ladders.searches.keys()) {
+			const size = Ladders.searches.get(formatid)?.searches.size;
+			if (size) searches[formatid] = size;
+		}
+		return searches;
+	}
 };
 
 export const commands: Chat.ChatCommands = {
