@@ -181,7 +181,7 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 		let searches: {[k: string]: number} = {};
 		for (var formatid of Ladders.searches.keys()) {
 			const size = Ladders.searches.get(formatid)?.searches.size;
-			if (size) searches[formatid] = size;
+			if (size) searches[Dex.formats.get(formatid).name] = size;
 		}
 		return searches;
 	}
