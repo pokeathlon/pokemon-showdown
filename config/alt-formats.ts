@@ -727,9 +727,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Custom Game",
+		searchShow: false,
 
 		mod: 'gen9chaos',
-		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
@@ -737,9 +737,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Fusion Custom Game",
+		searchShow: false,
 
 		mod: 'gen9chaosfusion',
-		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
@@ -748,20 +748,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Chaos Tera Preview Draft",
 		searchShow: false,
+
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+Pokeathlon']
 	},
 	{
 		name: "[Gen 9] Chaos Draft",
 		searchShow: false,
+
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon', '+item:berserkgene'],
 	},
 	{
 		name: "[Gen 9] Chaos Multi Battle",
+		searchShow: false,
+
 		mod: 'gen9chaos',
 		gameType: 'multi',
-		searchShow: false,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
 		banlist: [
 			'ND Uber', 'ND AG',
@@ -772,6 +775,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Fusions Multi Battle",
+		searchShow: false,
+
 		mod: 'gen9chaosfusion',
 		gameType: 'multi',
 		ruleset: [
