@@ -18265,7 +18265,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			swift:  ["6M"],
 			futuresight:  ["6M"],
 			psychup:  ["6M"],
-			miracleye:  ["6M"],
+			miracleeye:  ["6M"],
 			psychocut:  ["6M"],
 			powerswap:  ["6M"],
 			guardswap:  ["6M"],
