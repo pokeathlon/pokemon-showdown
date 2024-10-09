@@ -4088,7 +4088,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUber",
 	},
 	ufi: {
-		num: 6001,
+		num: 4001,
 		name: "Ufi",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},

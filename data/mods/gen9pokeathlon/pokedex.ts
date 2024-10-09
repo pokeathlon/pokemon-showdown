@@ -97,7 +97,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	// Resubmissions
 	soulply: {
-		num: 6001,
+		num: 3001,
 		name: "Soulply",
 		types: ["Ghost"],
 		baseStats: {hp: 110, atk: 90, def: 90, spa: 20, spd: 119, spe: 33},
@@ -112,7 +112,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	imitotion: {
-		num: 6002,
+		num: 3002,
 		name: "Imitotion",
 		types: ["Bug"],
 		baseStats: {hp: 70, atk: 50, def: 25, spa: 50, spd: 25, spe: 80},
@@ -129,7 +129,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	aviotion: {
-		num: 6003,
+		num: 3003,
 		name: "Aviotion",
 		types: ["Bug"],
 		baseStats: {hp: 90, atk: 70, def: 45, spa: 70, spd: 45, spe: 100},
@@ -147,7 +147,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "NFE",
 	},
 	dracotion: {
-		num: 6004,
+		num: 3004,
 		name: "Dracotion",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 120, atk: 100, def: 75, spa: 100, spd: 75, spe: 130},
@@ -163,7 +163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	bunnor: {
-		num: 6005,
+		num: 3005,
 		name: "Bunnor",
 		types: ["Normal", "Ice"],
 		baseStats: {hp: 30, atk: 75, def: 25, spa: 45, spd: 35, spe: 40},
@@ -179,7 +179,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	rabbicicle: {
-		num: 6006,
+		num: 3006,
 		name: "Rabbicicle",
 		types: ["Normal", "Ice"],
 		baseStats: {hp: 90, atk: 105, def: 65, spa: 65, spd: 75, spe: 100},
@@ -195,7 +195,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "(DUU)",
 	},
 	enchantobra: {
-		num: 6007,
+		num: 3007,
 		name: "Enchantobra",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 117, atk: 40, def: 60, spa: 117, spd: 60, spe: 116},
@@ -210,7 +210,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	eyespy: {
-		num: 6008,
+		num: 3008,
 		name: "Eyespy",
 		types: ["Psychic"],
 		gender: "N",
@@ -227,7 +227,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	icyall: {
-		num: 6009,
+		num: 3009,
 		name: "Icyall",
 		types: ["Psychic"],
 		gender: "N",
@@ -244,7 +244,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	ironeverlasting: {
-		num: 6010,
+		num: 3010,
 		name: "Iron Everlasting",
 		types: ["Normal", "Steel"],
 		gender: "N",
@@ -260,7 +260,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "(DUU)",
 	},
 	squice: {
-		num: 6011,
+		num: 3011,
 		name: "Squice",
 		types: ["Water", "Ice"],
 		baseStats: {hp: 65, atk: 30, def: 30, spa: 60, spd: 60, spe: 60},
@@ -276,7 +276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	toxice: {
-		num: 6012,
+		num: 3012,
 		name: "Toxice",
 		types: ["Poison", "Ice"],
 		baseStats: {hp: 92, atk: 92, def: 66, spa: 93, spd: 69, spe: 73},
@@ -328,7 +328,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	regimyo: {
-		num: 6013,
+		num: 3013,
 		name: "Regimyo",
 		types: ["Fighting"],
 		gender: "N",
@@ -344,7 +344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	jovianshk: {
-		num: 6014,
+		num: 3014,
 		name: "Jovianshk",
 		types: ["Dragon", "Psychic"],
 		baseStats: {hp: 125, atk: 77, def: 57, spa: 123, spd: 80, spe: 98},
@@ -359,7 +359,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	lunachi: {
-		num: 6015,
+		num: 3015,
 		name: "Lunachi",
 		types: ["Fairy", "Dark"],
 		baseStats: {hp: 108, atk: 87, def: 82, spa: 87, spd: 82, spe: 114},
@@ -376,7 +376,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	lunachibestowed: {
-		num: 6015,
+		num: 3015,
 		name: "Lunachi-Bestowed",
 		baseSpecies: "Lunachi",
 		forme: "Bestowed",
@@ -394,7 +394,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "Illegal",
 	},
 	ockthane: {
-		num: 6016,
+		num: 3016,
 		name: "Ockthane",
 		types: ["Ice", "Electric"],
 		baseStats: {hp: 87, atk: 73, def: 62, spa: 144, spd: 116, spe: 78},
@@ -409,7 +409,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	porygon2rhinian: {
-		num: 6017,
+		num: 3017,
 		name: "Porygon2-Rhinian",
 		baseSpecies: "Porygon2",
 		forme: "Rhinian",
@@ -427,7 +427,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	porygonzrhinian: {
-		num: 6018,
+		num: 3018,
 		name: "Porygon-Z-Rhinian",
 		baseSpecies: "Porygon-Z",
 		forme: "Rhinian",
@@ -535,7 +535,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	mosster: {
-		num: 6019,
+		num: 3019,
 		name: "Mosster",
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 120, atk: 90, def: 120, spa: 50, spd: 100, spe: 30},
@@ -550,7 +550,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	barrimander: {
-		num: 6020,
+		num: 3020,
 		name: "Barrimander",
 		types: ["Psychic", "Poison"],
 		baseStats: {hp: 50, atk: 70, def: 70, spa: 80, spd: 80, spe: 105},
@@ -565,7 +565,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUber",
 	},
 	staruhz: {
-		num: 6021,
+		num: 3021,
 		name: "Staruhz",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 70, atk: 75, def: 85, spa: 110, spd: 95, spe: 125},
@@ -581,7 +581,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	wrighvern: {
-		num: 6022,
+		num: 3022,
 		name: "Wrighvern",
 		types: ["Dragon", "Flying"],
 		baseStats: {hp: 90, atk: 85, def: 80, spa: 130, spd: 85, spe: 130},
@@ -596,7 +596,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	meditao: {
-		num: 6023,
+		num: 3023,
 		name: "Meditao",
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
@@ -650,7 +650,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	pandiz: {
-		num: 6024,
+		num: 3024,
 		name: "Pandiz",
 		types: ["Normal"],
 		baseStats: {hp: 90, atk: 110, def: 85, spa: 70, spd: 85, spe: 100},
@@ -840,7 +840,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUber",
 	},
 	felapstan: {
-		num: 6046,
+		num: 3046,
 		name: "Felapstan",
 		types: ["Ghost", "Electric"],
 		gender: "N",
@@ -857,7 +857,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		cosmeticFormes: ["Felapstan-Legacy"],
 	},
 	tinkastab: {
-		num: 6047,
+		num: 3047,
 		name: "Tinkastab",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 35, atk: 64, def: 58, spa: 45, spd: 45, spe: 50},
@@ -872,7 +872,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	tinkaslice: {
-		num: 6048,
+		num: 3048,
 		name: "Tinkaslice",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 45, atk: 82, def: 78, spa: 55, spd: 55, spe: 65},
@@ -887,7 +887,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "NFE",
 	},
 	tinkashank: {
-		num: 6049,
+		num: 3049,
 		name: "Tinkashank",
 		types: ["Steel", "Dark"],
 		baseStats: {hp: 70, atk: 105, def: 85, spa: 70, spd: 77, spe: 95},
@@ -902,7 +902,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	cetitanhisui: {
-		num: 6057,
+		num: 3057,
 		name: "Cetitan-Hisui",
 		baseSpecies: "Cetitan",
 		forme: "Hisui",
@@ -919,7 +919,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	primarinaolul: {
-		num: 6062,
+		num: 3062,
 		name: "Primarina-Olul",
 		types: ["Psychic", "Fire"],
 		forme: "Olul",
@@ -936,7 +936,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	decidueyeolul: {
-		num: 6063,
+		num: 3063,
 		name: "Decidueye-Olul",
 		types: ["Rock", "Dark"],
 		forme: "Olul",
@@ -953,7 +953,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	kaleidleon: {
-		num: 6064,
+		num: 3064,
 		name: "Kaleidleon",
 		types: ["Normal", "Dragon"],
 		baseStats: {hp: 70, atk: 100, def: 60, spa: 100, spd: 140, spe: 80},
@@ -969,7 +969,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	parashukado: {
-		num: 6065,
+		num: 3065,
 		name: "Parashukado",
 		types: ["Bug", "Ghost"],
 		baseStats: {hp: 85, atk: 115, def: 100, spa: 85, spd: 120, spe: 20},
@@ -987,7 +987,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 
 	// Pokeathlon
 	bewitwing: {
-		num: 6025,
+		num: 3025,
 		name: "Bewitwing",
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 85, atk: 100, def: 85, spa: 62, spd: 125, spe: 90},
@@ -1003,7 +1003,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		cosmeticFormes: ["Bewitwing-Legacy"],
 	},
 	eidolburgh: {
-		num: 6026,
+		num: 3026,
 		name: "Eidolburgh",
 		types: ["Bug", "Fairy"],
 		baseStats: {hp: 93, atk: 72, def: 117, spa: 133, spd: 132, spe: 53},
@@ -1068,7 +1068,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "(DUU)",
 	},
 	premotee: {
-		num: 6027,
+		num: 3027,
 		name: "Premotee",
 		types: ["Water"],
 		baseStats: {hp: 100, atk: 30, def: 50, spa: 70, spd: 75, spe: 35},
@@ -1085,7 +1085,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	sirentom: {
-		num: 6028,
+		num: 3028,
 		name: "Sirentom",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 150, atk: 70, def: 62, spa: 99, spd: 105, spe: 19},
@@ -1102,7 +1102,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	braskeptic: {
-		num: 6029,
+		num: 3029,
 		name: "Braskeptic",
 		types: ["Steel"],
 		baseStats: {hp: 110, atk: 98, def: 101, spa: 98, spd: 99, spe: 69},
@@ -1118,7 +1118,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		cosmeticFormes: ["Braskeptic-Legacy"],
 	},
 	maggony: {
-		num: 6030,
+		num: 3030,
 		name: "Maggony",
 		types: ["Bug"],
 		baseStats: {hp: 35, atk: 11, def: 12, spa: 11, spd: 12, spe: 9},
@@ -1133,7 +1133,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	sweepdol: {
-		num: 6031,
+		num: 3031,
 		name: "Sweepdol",
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 80, atk: 45, def: 80, spa: 90, spd: 115, spe: 88},
@@ -1148,7 +1148,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "(DUU)",
 	},
 	paldemaria: {
-		num: 6032,
+		num: 3032,
 		name: "Paldemaria",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 70, atk: 59, def: 75, spa: 105, spd: 110, spe: 106},
@@ -1163,7 +1163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	monetoad: {
-		num: 6033,
+		num: 3033,
 		name: "Monetoad",
 		types: ["Ground"],
 		baseStats: {hp: 148, atk: 168, def: 74, spa: 56, spd: 94, spe: 48},
@@ -1196,7 +1196,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	drifbozu: {
-		num: 6034,
+		num: 3034,
 		name: "Drifbozu",
 		types: ["Ghost", "Water"],
 		baseStats: {hp: 150, atk: 34, def: 70, spa: 74, spd: 60, spe: 120},
@@ -1213,7 +1213,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	voliable: {
-		num: 6035,
+		num: 3035,
 		name: "Voliable",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 74, atk: 40, def: 115, spa: 56, spd: 50, spe: 70},
@@ -1228,7 +1228,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "NFE",
 	},
 	nestitan: {
-		num: 6036,
+		num: 3036,
 		name: "Nestitan",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 100, atk: 52, def: 160, spa: 75, spd: 65, spe: 93},
@@ -1243,7 +1243,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	loxicant: {
-		num: 6037,
+		num: 3037,
 		name: "Loxicant",
 		types: ["Steel", "Poison"],
 		gender: "N",
@@ -1259,7 +1259,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	manacra: {
-		num: 6038,
+		num: 3038,
 		name: "Manacra",
 		baseForme: "Radial",
 		types: ["Rock", "Ghost"],
@@ -1278,7 +1278,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	manacraplated: {
-		num: 6038,
+		num: 3038,
 		name: "Manacra-Plated",
 		baseSpecies: "Manacra",
 		forme: "Plated",
@@ -1296,7 +1296,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	feidan: {
-		num: 6039,
+		num: 3039,
 		name: "Feidan",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 80, atk: 80, def: 130, spa: 80, spd: 130, spe: 25},
@@ -1311,7 +1311,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	niandertroll: {
-		num: 6040,
+		num: 3040,
 		name: "Niandertroll",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 108, atk: 127, def: 106, spa: 90, spd: 94, spe: 75},
@@ -1326,7 +1326,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	scorchingkiln: {
-		num: 6041,
+		num: 3041,
 		name: "Scorching Kiln",
 		types: ["Ground", "Fire"],
 		baseStats: {hp: 81, atk: 63, def: 105, spa: 99, spd: 135, spe: 87},
@@ -1342,7 +1342,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	berserkergene: {
-		num: 6042,
+		num: 3042,
 		name: "Berserker Gene",
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 99, atk: 139, def: 101, spa: 51, spd: 93, spe: 107},
@@ -1358,7 +1358,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	scalyterror: {
-		num: 6043,
+		num: 3043,
 		name: "Scaly Terror",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 75, atk: 127, def: 73, spa: 97, spd: 83, spe: 115},
@@ -1374,7 +1374,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	pestri: {
-		num: 6044,
+		num: 3044,
 		name: "Pestri",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 95, atk: 60, def: 90, spa: 100, spd: 105, spe: 80},
@@ -1389,7 +1389,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	sinistersickle: {
-		num: 6045,
+		num: 3045,
 		name: "Sinister Sickle",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 79, atk: 121, def: 73, spa: 121, spd: 73, spe: 103},
@@ -1405,7 +1405,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	grandmirage: {
-		num: 6050,
+		num: 3050,
 		name: "Grand Mirage",
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 91, atk: 115, def: 97, spa: 101, spd: 65, spe: 101},
@@ -1421,7 +1421,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	magnegauss: {
-		num: 6051,
+		num: 3051,
 		name: "Magnegauss",
 		types: ["Electric", "Grass"],
 		baseStats: {hp: 90, atk: 60, def: 115, spa: 130, spd: 90, spe: 50},
@@ -1436,7 +1436,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	dangonna: {
-		num: 6052,
+		num: 3052,
 		name: "Dangonna",
 		types: ["Normal"],
 		baseStats: {hp: 30, atk: 46, def: 50, spa: 46, spd: 60, spe: 22},
@@ -1453,7 +1453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	mochimechi: {
-		num: 6053,
+		num: 3053,
 		name: "Mochimechi",
 		types: ["Normal"],
 		baseStats: {hp: 99, atk: 89, def: 110, spa: 79, spd: 120, spe: 66},
@@ -1469,7 +1469,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	carcharus: {
-		num: 6054,
+		num: 3054,
 		name: "Carcharus",
 		types: ["Rock", "Ground"],
 		baseStats: {hp: 74, atk: 107, def: 98, spa: 50, spd: 59, spe: 107},
@@ -1484,7 +1484,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	rotomhisui: {
-		num: 6055,
+		num: 3055,
 		name: "Rotom-Hisui",
 		types: ["Poison", "Fairy"],
 		gender: "N",
@@ -1502,7 +1502,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "(DUU)",
 	},
 	rotomhisuiarmored: {
-		num: 6055,
+		num: 3055,
 		name: "Rotom-Hisui-Armored",
 		baseSpecies: "Rotom-Hisui",
 		types: ["Poison", "Ground"],
@@ -1519,7 +1519,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	harportia: {
-		num: 6056,
+		num: 3056,
 		name: "Harportia",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 91, atk: 105, def: 73, spa: 62, spd: 90, spe: 124},
@@ -1534,7 +1534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	suenami: {
-		num: 6058,
+		num: 3058,
 		name: "Suenami",
 		types: ["Water"],
 		baseStats: {hp: 85, atk: 63, def: 70, spa: 120, spd: 95, spe: 37},
@@ -1549,7 +1549,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	sekrilon: {
-		num: 6059,
+		num: 3059,
 		name: "Sekrilon",
 		types: ["Fighting", "Flying"],
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 40, spd: 70, spe: 99},
@@ -1564,7 +1564,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUU",
 	},
 	sekrilonmega: {
-		num: 6059,
+		num: 3059,
 		name: "Sekrilon-Mega",
 		baseSpecies: "Sekrilon",
 		forme: "Mega",
@@ -1582,7 +1582,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	penumbralith: {
-		num: 6060,
+		num: 3060,
 		name: "Penumbralith",
 		types: ["Rock", "Psychic"],
 		baseStats: {hp: 80, atk: 45, def: 120, spa: 100, spd: 100, spe: 55},
@@ -1598,7 +1598,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	growlsome: {
-		num: 6061,
+		num: 3061,
 		name: "Growlsome",
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 124, atk: 128, def: 70, spa: 52, spd: 62, spe: 104},
@@ -1614,7 +1614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	scaleslash: {
-		num: 6066,
+		num: 3066,
 		name: "Scaleslash",
 		types: ["Ground", "Fairy"],
 		baseStats: {hp: 90, atk: 115, def: 120, spa: 45, spd: 75, spe: 105},
@@ -1630,7 +1630,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	dracat: {
-		num: 6067,
+		num: 3067,
 		name: "Dracat",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 40, atk: 85, def: 45, spa: 20, spd: 85, spe: 75},
@@ -1648,7 +1648,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	catzelwyrm: {
-		num: 6068,
+		num: 3068,
 		name: "Catzelwyrm",
 		types: ["Dragon", "Fairy"],
 		baseStats: {hp: 75, atk: 125, def: 75, spa: 75, spd: 115, spe: 90},
@@ -1665,7 +1665,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	hydroupa: {
-		num: 6069,
+		num: 3069,
 		name: "Hydroupa",
 		types: ["Ghost", "Dragon"],
 		baseStats: {hp: 81, atk: 81, def: 108, spa: 81, spd: 99, spe: 45},
@@ -1681,7 +1681,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	chronobour: {
-		num: 6070,
+		num: 3070,
 		name: "Chronobour",
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 115, atk: 92, def: 129, spa: 92, spd: 66, spe: 66},
@@ -1696,7 +1696,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	gilotherma: {
-		num: 6071,
+		num: 3071,
 		name: "Gilotherma",
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 111, atk: 65, def: 99, spa: 103, spd: 82, spe: 70},
@@ -1711,7 +1711,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	tyranisacer: {
-		num: 6072,
+		num: 3072,
 		name: "Tyranisacer",
 		types: ["Bug", "Dark"],
 		baseStats: {hp: 100, atk: 134, def: 110, spa: 95, spd: 100, spe: 61},
@@ -1726,7 +1726,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	mephistoxin: {
-		num: 6073,
+		num: 3073,
 		name: "Mephistoxin",
 		types: ["Poison", "Steel"],
 		baseStats: {hp: 70, atk: 126, def: 70, spa: 76, spd: 60, spe: 117},
@@ -1740,7 +1740,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	mjochiin: {
-		num: 6074,
+		num: 3074,
 		name: "Mjochiin",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 89, atk: 118, def: 75, spa: 98, spd: 104, spe: 76},
@@ -1754,7 +1754,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	gelazura: {
-		num: 6075,
+		num: 3075,
 		name: "Gelazura",
 		types: ["Water", "Poison"],
 		baseStats: {hp: 122, atk: 116, def: 60, spa: 77, spd: 63, spe: 92},
@@ -1768,7 +1768,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	slowpokerhinian: {
-		num: 6076,
+		num: 3076,
 		name: "Slowpoke-Rhinian",
 		types: ["Grass", "Water"],
 		baseStats: {hp: 90, atk: 65, def: 65, spa: 40, spd: 40, spe: 15},
@@ -1783,7 +1783,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	slowbrorhinian: {
-		num: 6077,
+		num: 3077,
 		name: "Slowbro-Rhinian",
 		types: ["Water", "Steel"],
 		baseStats: {hp: 95, atk: 110, def: 100, spa: 75, spd: 80, spe: 30},
@@ -1798,7 +1798,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	slowkingrhinian: {
-		num: 6078,
+		num: 3078,
 		name: "Slowking-Rhinian",
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 95, atk: 75, def: 110, spa: 105, spd: 75, spe: 30},
@@ -1813,7 +1813,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 	trickin: {
-		num: 6079,
+		num: 3079,
 		name: "Trickin",
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 66, atk: 66, def: 39, spa: 66, spd: 41, spe: 31},
@@ -1828,7 +1828,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "LC",
 	},
 	treatern: {
-		num: 6080,
+		num: 3080,
 		name: "Treatern",
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 114, atk: 99, def: 80, spa: 99, spd: 84, spe: 55},
@@ -1873,7 +1873,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "Illegal",
 	},
 	kleavordelta: {
-		num: 6081,
+		num: 3081,
 		name: "Kleavor-Delta",
 		types: ["Ice", "Fire"],
 		baseStats: {hp: 70, atk: 135, def: 95, spa: 45, spd: 70, spe: 85},
