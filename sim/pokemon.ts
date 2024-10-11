@@ -1331,6 +1331,96 @@ export class Pokemon {
 
 		return true;
 	}
+	morphInto(target: Pokemon, effect?: Effect) {
+		if (!this.transformInto(target, effect)) return false;
+	if (target.species.id.includes('delta')) return true;
+	
+	let deltaID: ID = target.species.id as ID;
+	let extension = 'delta';
+
+	if (deltaID.includes('beldum')) extension = this.battle.sample(['deltaspider', 'deltaruin']);
+	if (deltaID.includes('metang')) extension = this.battle.sample(['deltaspider', 'deltaruin']);
+	if (deltaID.includes('metagross')) extension = this.battle.sample(['deltaspider', 'deltaruin']);
+	if (deltaID.includes('petilil')) extension = this.battle.sample(['deltawater', 'deltafire']);
+	if (deltaID.includes('lilligant')) extension = this.battle.sample(['deltawater', 'deltafire']);
+	if (deltaID.includes('dwebble')) extension = this.battle.sample(['deltacake', 'deltaberry']);
+	if (deltaID.includes('crustle')) extension = this.battle.sample(['deltacake', 'deltaberry']);
+
+	if (deltaID.endsWith('mega')) {
+		deltaID = deltaID.replace('mega', extension + 'mega') as ID;
+	} else {
+		deltaID = deltaID + extension as ID;
+	}
+
+	if(Object.keys(this.battle.dex.data.Pokedex).includes(deltaID)) {
+		const deltaSpecies = this.battle.dex.species.get(deltaID);
+		if (this.formeChange(deltaSpecies, effect)) {
+			// If deltaSpecies has multiple abilities, picks one at random.
+			let abilitySlot = 0; // abilitySlot is currently being used to count the amount of abilites deltaSpecies can have.
+			if (deltaSpecies.abilities[1]) abilitySlot++;
+			if (deltaSpecies.abilities['H']) abilitySlot++;
+			abilitySlot = abilitySlot > 0 ? this.battle.random(abilitySlot + 1) : 0; //Now abilitySlot is the randomly selected ability slot.
+			if (deltaSpecies.abilities['H'] && (abilitySlot === 2 || (abilitySlot === 1 && !deltaSpecies.abilities[1]))) {
+				this.setAbility(deltaSpecies.abilities['H'], this, true);
+			} else if (deltaSpecies.abilities[1] && abilitySlot === 1) {
+				this.setAbility(deltaSpecies.abilities[1], this, true);
+			} else this.setAbility(deltaSpecies.abilities[0], this, true);
+
+			const learnsetData = {...(this.battle.dex.data.Learnsets[deltaID.replace('mega', '')]?.learnset || {})};
+			const dict: any = {};
+			const oldDeltas = [ //Deltas that have no gen 6 level-up moves, but do have gen 5 ones.
+				'aerodactyldelta', 'aggrondeltai', 'blastoisedeltas', 'charizarddeltae',
+				'chimechodelta', 'houndoomdelta', 'machampdelta', 'miloticdeltaf',
+				'ninetalesdelta', 'pinsirdelta', 'raichudeltas', 'zangoosedelta',
+			];
+			const learnPrefix = oldDeltas.includes(deltaID) ? "5L" : "6L";
+
+			for (const move in learnsetData) {
+				const learnmoment = learnsetData[move as keyof typeof learnsetData].filter((learn: string) => learn.startsWith(learnPrefix));
+				if (learnmoment.length <= 0) continue;
+				const learnLvls: number[] = [];
+				for (let i=0; i < learnmoment.length; i++) {
+					if (learnmoment[i].length > 2) learnLvls[learnLvls.length] = parseInt(learnmoment[i].slice(2));
+				}
+				for (let i = learnLvls.length - 1; i >= 0; i--) {
+					if (learnLvls[i] <= target.level) {
+						dict[move] = learnLvls[i];
+						break;
+					}
+				}
+			}
+			const items = Object.keys(dict).map(function (key) {
+				return [key, dict[key]];
+			});
+			items.reverse();
+			items.sort(function (first, second) {
+				return second[1] - first[1];
+			});
+			let numberOfMoves = this.battle.ruleTable.maxMoveCount;
+			if (numberOfMoves <= 0) numberOfMoves = 4;
+			if (items.length < numberOfMoves) numberOfMoves = items.length;
+			if (numberOfMoves > 24) numberOfMoves = 24;
+			if (numberOfMoves > 0) {
+				this.moveSlots = [];
+				for (let i = 0; i < numberOfMoves; i++) {
+					const slotMove = this.battle.dex.moves.get(items[i][0]);
+					const slotPP = Math.floor(slotMove.noPPBoosts ? slotMove.pp : slotMove.pp * 8 / 5);
+					this.moveSlots.push({
+						move: slotMove.name,
+						id: slotMove.id,
+						pp: slotPP === 1 ? 1 : 5,
+						maxpp: slotPP === 1 ? 1 : 5,
+						target: slotMove.target,
+						disabled: false,
+						used: false,
+						virtual: true,
+					});
+				}
+			}
+		}
+	}
+		return true;
+	}
 
 	/**
 	 * Changes this Pokemon's species to the given speciesId (or species).

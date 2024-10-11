@@ -907,7 +907,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Rock",
 	},
 
-	//morph
+	morph: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Functions the same as Transform; however, if a Delta species of the target exists, the user will turn into that instead. If the target has multiple Delta Species, it will select one of them at random.",
+		shortDesc: "Transforms into the opponent, prioritizes Delta Form.",
+		name: "Morph",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onHit(target, pokemon) {
+			if (!pokemon.morphInto(target)) {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Clever",
+	},
 
 	nanorepair: {
 		num: 0,
