@@ -644,8 +644,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				for (const side of this.sides) {
 					let buf = ``;
 					for (const pokemon of side.pokemon) {
+						let spriteid = pokemon.baseSpecies? pokemon.baseSpecies.id : pokemon.species.id;
 						buf += buf ? ` / ` : `raw|${side.name}'s Tera Types:<br />`;
-						buf += `<psicon pokemon="${pokemon.species.id}" /><psicon type="${pokemon.teraType}" />`;
+						buf += `<psicon pokemon="${spriteid}" /><psicon type="${pokemon.teraType}" />`;
 					}
 					this.add(`${buf}`);
 				}
