@@ -22579,7 +22579,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
 		target: "normal",
 		onHit(target, pokemon) {
-			if (!pokemon.transformInto(target)) {
+			if (!pokemon.xtransformInto(target)) {
 				return false;
 			}
 		}, 

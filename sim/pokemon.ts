@@ -6,7 +6,7 @@
  */
 
 import {State} from './state';
-import {toID} from './dex';
+import Dex, {toID} from './dex';
 
 /** A Pokemon's move slot. */
 interface MoveSlot {
@@ -1315,6 +1315,87 @@ export class Pokemon {
 		if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
 		if (this.species.baseSpecies === 'Terapagos' && this.canTerastallize) this.canTerastallize = false;
 
+		return true;
+	}
+
+	xtransformInto(target: Pokemon, effect?: Effect) {
+		let battleDex = this.battle.dex.data.Pokedex;
+		let xenoDex = [];
+		for (const species in battleDex) {
+			console.log(species);
+		}
+	
+		let xID: ID = target.species.id as ID;
+		let extension = 'x';
+
+		if (xID.endsWith('mega')) {
+			xID = xID.replace('mega', extension + 'mega') as ID;
+		} else {
+			xID = xID + extension as ID;
+		}
+
+		if(Object.keys(this.battle.dex.data.Pokedex).includes(xID)) {
+			const xSpecies = this.battle.dex.species.get(xID);
+			if (this.formeChange(xSpecies, effect)) {
+				// If xSpecies has multiple abilities, picks one at random.
+				let abilitySlot = 0; // abilitySlot is currently being used to count the amount of abilites xSpecies can have.
+				if (xSpecies.abilities[1]) abilitySlot++;
+				if (xSpecies.abilities['H']) abilitySlot++;
+				abilitySlot = abilitySlot > 0 ? this.battle.random(abilitySlot + 1) : 0; //Now abilitySlot is the randomly selected ability slot.
+				if (xSpecies.abilities['H'] && (abilitySlot === 2 || (abilitySlot === 1 && !xSpecies.abilities[1]))) {
+					this.setAbility(xSpecies.abilities['H'], this, true);
+				} else if (xSpecies.abilities[1] && abilitySlot === 1) {
+					this.setAbility(xSpecies.abilities[1], this, true);
+				} else this.setAbility(xSpecies.abilities[0], this, true);
+
+				const learnsetData = {...(this.battle.dex.data.Learnsets[xID.replace('mega', '')]?.learnset || {})};
+				const dict: any = {};
+				const learnPrefix =  "6L";
+
+				for (const move in learnsetData) {
+					const learnmoment = learnsetData[move as keyof typeof learnsetData].filter((learn: string) => learn.startsWith(learnPrefix));
+					if (learnmoment.length <= 0) continue;
+					const learnLvls: number[] = [];
+					for (let i=0; i < learnmoment.length; i++) {
+						if (learnmoment[i].length > 2) learnLvls[learnLvls.length] = parseInt(learnmoment[i].slice(2));
+					}
+					for (let i = learnLvls.length - 1; i >= 0; i--) {
+						if (learnLvls[i] <= target.level) {
+							dict[move] = learnLvls[i];
+							break;
+						}
+					}
+				}
+				const items = Object.keys(dict).map(function (key) {
+					return [key, dict[key]];
+				});
+				items.reverse();
+				items.sort(function (first, second) {
+					return second[1] - first[1];
+				});
+				let numberOfMoves = this.battle.ruleTable.maxMoveCount;
+				if (numberOfMoves <= 0) numberOfMoves = 4;
+				if (items.length < numberOfMoves) numberOfMoves = items.length;
+				if (numberOfMoves > 24) numberOfMoves = 24;
+				if (numberOfMoves > 0) {
+					this.moveSlots = [];
+					for (let i = 0; i < numberOfMoves; i++) {
+						const slotMove = this.battle.dex.moves.get(items[i][0]);
+						const slotPP = Math.floor(slotMove.noPPBoosts ? slotMove.pp : slotMove.pp * 8 / 5);
+						this.moveSlots.push({
+							move: slotMove.name,
+							id: slotMove.id,
+							pp: slotPP === 1 ? 1 : 5,
+							maxpp: slotPP === 1 ? 1 : 5,
+							target: slotMove.target,
+							disabled: false,
+							used: false,
+							virtual: true,
+						});
+					}
+				}
+			}
+		}
 		return true;
 	}
 
