@@ -29,7 +29,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate',
+			`- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
 		],
 	},
 	{
@@ -45,7 +46,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber', 'OU', 'UUBL',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:necrozium',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate',
+			`- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
 		],
 	},
 	{
