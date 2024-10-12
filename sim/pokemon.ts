@@ -1318,7 +1318,12 @@ export class Pokemon {
 		return true;
 	}
 
-	xtransformInto(target: Pokemon, effect?: Effect) {
+	xtransformInto(target: Pokemon, effect?: Effect) { 
+		// the plan is the following:
+		//Generate a list of xSpecies by filtering the dex for mons with the tag "Xenoverse" and "-X" in their NAME, not ID
+		//Remove Mewtwo-X, Tyranitar-X, Bisharp-X, Raichu-X, Scoville-X, and Ditto-X from that list for some reason
+		//Sample that list to select 1 mon.
+		//Same logic as the learnset stuff for morph for the moves, though looking at the script it LOOKS like it takes the FIRST 4 moves learned by level...
 		let battleDex = this.battle.dex.data.Pokedex;
 		let xenoDex = [];
 		for (const species in battleDex) {
