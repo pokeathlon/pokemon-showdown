@@ -236,7 +236,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sandslash: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	nidoranf: {
@@ -541,7 +541,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	muk: {
 		inherit: true,
-		tier: "NU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	shellder: {
@@ -611,7 +611,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	exeggutor: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	cubone: {
@@ -881,7 +881,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	typhlosion: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	totodile: {
@@ -1121,7 +1121,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	forretress: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	dunsparce: {
@@ -1136,7 +1136,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	steelix: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	snubbull: {
@@ -1256,12 +1256,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	donphan: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	porygon2: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	stantler: {
@@ -1656,7 +1656,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dusclops: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	dusknoir: {
@@ -1726,7 +1726,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	probopass: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	honedge: {
@@ -1771,7 +1771,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	milotic: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	salamence: {
@@ -1891,7 +1891,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	reuniclus: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	whimsicott: {
@@ -1946,7 +1946,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pyukumuku: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	klefki: {
@@ -1986,7 +1986,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	latias: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	latios: {
@@ -2536,17 +2536,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gourgeist: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	gourgeistsmall: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	gourgeistlarge: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	gourgeistsuper: {
@@ -2565,6 +2565,21 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DOU",
 	},
 	torkoal: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	lotad: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	lombre: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	ludicolo: {
 		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
