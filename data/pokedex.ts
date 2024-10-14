@@ -19924,7 +19924,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	  },
 	  shulongastral: {
 		num: 745,
-		name: "Shulong",
+		name: "Shulong-Astral",
 		types: ["Water", "Dragon"],
 		baseSpecies: "Shulong",
 		baseStats: { hp: 143, atk: 80, def: 156, spa: 80, spd: 155, spe: 86 },

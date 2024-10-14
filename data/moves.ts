@@ -22111,6 +22111,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return bp;
 		},
 		target: "normal",
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectState.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
+				}
+				this.effectState.duration = 2;
+			},
+		},
 	},
 	hotchilipepper: { 
 		num: 0, 
@@ -22529,7 +22541,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal", 
 	},
-	controllopolare: { // (TEST)
+	controllopolare: { // (TEST) NO ONE LEARNS THIS??
 		num: 0, 
 		type: "Electric", 
 		accuracy: true, 
@@ -22567,7 +22579,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		thawsTarget: true,
 		willCrit: true,
 	},
-	xtransform: { //random X pokemon, need to figure out what moves it takes. Keeps ditto IV and EV (TODO)
+	xtransform: { //in Pokemon.ts
 		num: 0, 
 		type: "Normal", 
 		accuracy: true, 
@@ -22842,7 +22854,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Ice', type);
 		},
-		heal: [1, 10],
+		drain: [1, 10],
 		target: "normal", 
 	},
 	divinejudgement: { // future move (TEST)
