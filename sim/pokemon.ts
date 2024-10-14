@@ -1326,18 +1326,17 @@ export class Pokemon {
 		//Same logic as the learnset stuff for morph for the moves, though looking at the script it LOOKS like it takes the FIRST 4 moves learned by level...
 		let battleDex = this.battle.dex.data.Pokedex;
 		let xenoDex = [];
+		let currSpecies;
 		for (const species in battleDex) {
-			console.log(species);
+			currSpecies = this.battle.dex.species.get(species);
+			if (currSpecies.name.includes("-X") && currSpecies.tags.includes("Xenoverse") &&
+				!["mewtwox", "tyranitarx", "bisharpx", "raichux", "scovillex", "dittox"].includes(currSpecies.id)) {
+				xenoDex.push(currSpecies)
+			}
 		}
+		const randX = Math.floor(Math.random() * xenoDex.length);
 	
-		let xID: ID = target.species.id as ID;
-		let extension = 'x';
-
-		if (xID.endsWith('mega')) {
-			xID = xID.replace('mega', extension + 'mega') as ID;
-		} else {
-			xID = xID + extension as ID;
-		}
+		let xID: ID = xenoDex[randX].id;
 
 		if(Object.keys(this.battle.dex.data.Pokedex).includes(xID)) {
 			const xSpecies = this.battle.dex.species.get(xID);

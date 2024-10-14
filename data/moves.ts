@@ -22577,7 +22577,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10, 
 		priority: 0, 
 		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
-		target: "normal",
+		target: "self",
 		onHit(target, pokemon) {
 			if (!pokemon.xtransformInto(target)) {
 				return false;
