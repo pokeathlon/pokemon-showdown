@@ -1,5 +1,6 @@
 const {Dex} = require("../../../sim/dex");
 export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable = {
+	// Modded
 	ekans: {
 		inherit: true,
 		types: ["Poison", "Sound"],
@@ -28,6 +29,161 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Psychic", "Sound"],
 	},
+	pinsir: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 125, def: 100, spa: 70, spd: 85, spe: 55},
+	},
+	igglybuff: {
+		inherit: true,
+		types: ["Sound", "Fairy"],
+	},
+	whismur: {
+		inherit: true,
+		types: ["Sound"],
+	},
+	loudred: {
+		inherit: true,
+		types: ["Sound"],
+	},
+	exploud: {
+		inherit: true,
+		types: ["Sound"],
+	},
+	chimecho: {
+		inherit: true,
+		types: ["Psychic", "Sound"],
+	},
+	regirock: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Contrary", H: "Sturdy"},
+	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Contrary", H: "Ice Body"},
+	},
+	registeel: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Contrary", H: "Light Metal"},
+	},
+	kricketot: {
+		inherit: true,
+		types: ["Bug", "Sound"],
+	},
+	kricketune: {
+		inherit: true,
+		types: ["Bug", "Sound"],
+	},
+	chatot: {
+		inherit: true,
+		types: ["Sound", "Flying"],
+	},
+	regigigas: {
+		inherit: true,
+		abilities: {0: "Slow Start", H: "Titan"},
+	},
+	audino: {
+		inherit: true,
+		types: ["Normal", "Sound"],
+	},
+	zoroark: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 105, def: 60, spa: 60, spd: 105, spe: 120},
+	},
+	gothita: {
+		inherit: true,
+		abilities: {0: "Frisk", H: "Shadow Tag"},
+	},
+	alomomola: {
+		inherit: true,
+		abilities: {0: "Hydration", 1: "Healer", H: "Regenerator"},
+	},
+	meloetta: {
+		inherit: true,
+		types: ["Sound", "Psychic"],
+	},
+	litleo: {
+		inherit: true,
+		types: ["Fire", "Sound"],
+	},
+	pyroar: {
+		inherit: true,
+		types: ["Fire", "Sound"],
+	},
+	slurpuff: {
+		inherit: true,
+		abilities: {0: "Sweet Veil", 1: "Unaware", H: "Unburden"},
+	},
+	pumpkaboo: {
+		inherit: true,
+		baseStats: {hp: 59, atk: 66, def: 70, spa: 44, spd: 55, spe: 51},
+	},
+	gourgeist: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 100, def: 122, spa: 58, spd: 75, spe: 54},
+	},
+	noibat: {
+		inherit: true,
+		types: ["Sound", "Dragon"],
+	},
+	noivern: {
+		inherit: true,
+		types: ["Sound", "Dragon"],
+	},
+	popplio: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Synthesizer"},
+	},
+	brionne: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Synthesizer"},
+	},
+	passimian: {
+		inherit: true,
+		abilities: {0: "Scrappy", H: "Defiant"},
+	},
+	mimikyu: {
+		inherit: true,
+		abilities: {0: "Disguise", H: "Infiltrator"},
+	},
+	duraludon: {
+		inherit: true,
+		abilities: {0: "Light Metal", 1: "Heavy Metal", H: "Mold Breaker"},
+	},
+	salandit: {
+		inherit: true,
+		abilities: {0: "Poison Touch", H: "Oblivious"},
+	},
+	salazzle: {
+		inherit: true,
+		abilities: {0: "Poison Touch", H: "Oblivious"},
+	},
+	toxel: {
+		inherit: true,
+		types: ["Sound", "Poison"],
+	},
+	toxtricity: {
+		inherit: true,
+		types: ["Sound", "Poison"],
+	},
+	barbaracle: {
+		inherit: true,
+		baseStats: {hp: 72, atk: 105, def: 115, spa: 86, spd: 68, spe: 54},
+	},
+	tatsugiri: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 50, def: 60, spa: 120, spd: 82, spe: 92},
+		abilities: {0: "Multiscale", H: "Storm Drain"},
+	},
+	sprigatito: {
+		inherit: true,
+		baseStats: {hp: 61, atk: 80, def: 63, spa: 60, spd: 63, spe: 83},
+	},
+	floragato: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 62, def: 80, spa: 63, spd: 80, spe: 60},
+	},
+
+	// Additions
 	hypnomega: {
 		num: 97,
 		name: "Hypno-Mega",
@@ -44,14 +200,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
-	},
-	pinsir: {
-		inherit: true,
-		baseStats: {hp: 65, atk: 125, def: 100, spa: 70, spd: 85, spe: 55},
-	},
-	igglybuff: {
-		inherit: true,
-		types: ["Sound", "Fairy"],
 	},
 	bellossommega: {
 		num: 245,
@@ -138,42 +286,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	whismur: {
-		inherit: true,
-		types: ["Sound"],
-	},
-	loudred: {
-		inherit: true,
-		types: ["Sound"],
-	},
-	exploud: {
-		inherit: true,
-		types: ["Sound"],
-	},
-	chimecho: {
-		inherit: true,
-		types: ["Psychic", "Sound"],
-	},
-	regirock: {
-		inherit: true,
-		abilities: {0: "Clear Body", 1: "Contrary", H: "Sturdy"},
-	},
-	regice: {
-		inherit: true,
-		abilities: {0: "Clear Body", 1: "Contrary", H: "Ice Body"},
-	},
-	registeel: {
-		inherit: true,
-		abilities: {0: "Clear Body", 1: "Contrary", H: "Light Metal"},
-	},
-	kricketot: {
-		inherit: true,
-		types: ["Bug", "Sound"],
-	},
-	kricketune: {
-		inherit: true,
-		types: ["Bug", "Sound"],
-	},
 	luxraymega: {
 		num: 405,
 		name: "Luxray-Mega",
@@ -208,10 +320,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	chatot: {
-		inherit: true,
-		types: ["Sound", "Flying"],
-	},
 	weavilemega: {
 		num: 461,
 		name: "Weavile-Mega",
@@ -229,26 +337,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	regigigas: {
-		inherit: true,
-		abilities: {0: "Slow Start", H: "Titan"},
-	},
-	audino: {
-		inherit: true,
-		types: ["Normal", "Sound"],
-	},
-	zoroark: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 105, def: 60, spa: 60, spd: 105, spe: 120},
-	},
-	gothita: {
-		inherit: true,
-		abilities: {0: "Frisk", H: "Shadow Tag"},
-	},
-	alomomola: {
-		inherit: true,
-		abilities: {0: "Hydration", 1: "Healer", H: "Regenerator"},
-	},
 	mienshaomega: {
 		num: 620,
 		name: "Mienshao-Mega",
@@ -265,54 +353,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
-	},
-	meloetta: {
-		inherit: true,
-		types: ["Sound", "Psychic"],
-	},
-	litleo: {
-		inherit: true,
-		types: ["Fire", "Sound"],
-	},
-	pyroar: {
-		inherit: true,
-		types: ["Fire", "Sound"],
-	},
-	slurpuff: {
-		inherit: true,
-		abilities: {0: "Sweet Veil", 1: "Unaware", H: "Unburden"},
-	},
-	pumpkaboo: {
-		inherit: true,
-		baseStats: {hp: 59, atk: 66, def: 70, spa: 44, spd: 55, spe: 51},
-	},
-	gourgeist: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 100, def: 122, spa: 58, spd: 75, spe: 54},
-	},
-	noibat: {
-		inherit: true,
-		types: ["Sound", "Dragon"],
-	},
-	noivern: {
-		inherit: true,
-		types: ["Sound", "Dragon"],
-	},
-	popplio: {
-		inherit: true,
-		abilities: {0: "Torrent", H: "Synthesizer"},
-	},
-	brionne: {
-		inherit: true,
-		abilities: {0: "Torrent", H: "Synthesizer"},
-	},
-	passimian: {
-		inherit: true,
-		abilities: {0: "Scrappy", H: "Defiant"},
-	},
-	mimikyu: {
-		inherit: true,
-		abilities: {0: "Disguise", H: "Infiltrator"},
 	},
 	shyleon: {
 		num: 743,
@@ -5915,43 +5955,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
-	},
-	duraludon: {
-		inherit: true,
-		abilities: {0: "Light Metal", 1: "Heavy Metal", H: "Mold Breaker"},
-	},
-	salandit: {
-		inherit: true,
-		abilities: {0: "Poison Touch", H: "Oblivious"},
-	},
-	salazzle: {
-		inherit: true,
-		abilities: {0: "Poison Touch", H: "Oblivious"},
-	},
-	toxel: {
-		inherit: true,
-		types: ["Sound", "Poison"],
-	},
-	toxtricity: {
-		inherit: true,
-		types: ["Sound", "Poison"],
-	},
-	barbaracle: {
-		inherit: true,
-		baseStats: {hp: 72, atk: 105, def: 115, spa: 86, spd: 68, spe: 54},
-	},
-	tatsugiri: {
-		inherit: true,
-		baseStats: {hp: 68, atk: 50, def: 60, spa: 120, spd: 82, spe: 92},
-		abilities: {0: "Multiscale", H: "Storm Drain"},
-	},
-	sprigatito: {
-		inherit: true,
-		baseStats: {hp: 61, atk: 80, def: 63, spa: 60, spd: 63, spe: 83},
-	},
-	floragato: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 62, def: 80, spa: 63, spd: 80, spe: 60},
 	},
 	reginalous: {
 		num: 1108,
