@@ -45,6 +45,8 @@ try {
 	);
 }
 
+require('./tools/sheets').update();
+
 // for some reason, esbuild won't be requirable until a tick has passed
 // see https://stackoverflow.com/questions/53270058/node-cant-find-certain-modules-after-synchronous-install
 setImmediate(() => {
