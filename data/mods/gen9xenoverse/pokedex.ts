@@ -5972,18 +5972,3 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		doublesTier: "DOU",
 	},
 };
-
-console.log('gen5');
-for (var mon of Dex.species.all()) {
-	if (mon.id in Pokedex) {
-		let useful = false;
-		let changedkeys = [];
-		for (var thing of Object.keys(Pokedex[mon.id])) {
-			if (["baseStats", "types", "abilities"].includes(thing) && !(JSON.stringify(mon[thing]) === JSON.stringify(Pokedex[mon.id][thing]) || JSON.stringify(Dex.mod('gen5').species.get(mon.id)[thing]) === JSON.stringify(Pokedex[mon.id][thing]))) {
-				useful = true;
-				changedkeys.push(thing);
-			}
-		}
-		if (!useful) console.log(mon.id, changedkeys);
-	}
-}
