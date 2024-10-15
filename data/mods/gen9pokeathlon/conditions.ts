@@ -1,12 +1,12 @@
 const {treasures} = require('./abilities');
 
-export const Conditions: {[k: string]: ModdedConditionData} = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	lunachi: {
 		name: 'Lunachi',
 		onUpdate(pokemon) {
 			const curItem = pokemon.getItem();
 			if (curItem.id in treasures) {
-				if (pokemon.species.id === 'lunachi') {
+				if (pokemon.species.id === 'lunachi' && pokemon.ability === 'sacredtreasures') {
 					pokemon.formeChange('lunachibestowed', this.effect, true);
 				}
 			} else {

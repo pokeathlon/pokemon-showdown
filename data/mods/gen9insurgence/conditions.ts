@@ -1,4 +1,4 @@
-export const Conditions: {[k: string]: ModdedConditionData} = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	wish: {
 		name: 'Wish',
 		duration: 2,
@@ -119,7 +119,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-weather', 'NewMoon', '[upkeep]');
-			if (this.field.isWeather('newmoon')) this.eachEvent('Weather');
+			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');

@@ -1,2 +1,2 @@
 const {Dex} = require('../../../sim/dex');
-export const Conditions: {[k: string]: ModdedConditionData} = Dex.deepClone(require('../gen9insurgence/conditions').Conditions);
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(require('../gen9insurgence/conditions').Conditions);

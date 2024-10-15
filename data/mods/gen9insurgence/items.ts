@@ -1,4 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
 	deepseascale: {
 		inherit: true,
@@ -206,6 +206,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 		itemUser: ["Eevee"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.species.name === 'Vaporeon' || 
+				source.species.name === 'Jolteon' ||
+				source.species.name === 'Flareon' ||
+				source.species.name === 'Umbreon' ||
+				source.species.name === 'Espeon' ||
+				source.species.name === 'Glaceon' ||
+				source.species.name === 'Leafeon' ||
+				source.species.name === 'Sylveon') return false;
 			return true;
 		},
 		num: 0,

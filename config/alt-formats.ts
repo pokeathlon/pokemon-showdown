@@ -1,4 +1,4 @@
-export const Formats: FormatList = [
+export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "Infinite Fusion: Regional Dex",
 	},
@@ -29,7 +29,25 @@ export const Formats: FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate',
+			`- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+		],
+	},
+	{
+		name: "[Gen 7] IF Dex UU",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega', 'Uber', 'OU', 'UUBL',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:necrozium',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drought',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate',
+			`- Drizzle ++ Swift Swim`, 'Greninja-Bond', 'Greninja-Ash', 
 		],
 	},
 	{
@@ -85,7 +103,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Evasion Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', 'Fusion Species Clause',
 		],
 		banlist: [
 			'DUber',
@@ -147,6 +165,33 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF Dex Triples OU",
+
+		mod: 'gen7infinitefusion',
+		gameType: 'triples',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Evasion Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', 'Fusion Species Clause',
+		],
+		banlist: [
+			'DUber',
+			'move:afteryou', 'move:boomburst',
+			'item:lightball', 'item:thickclub',
+			'ability:wonderguard', 'ability:hugepower',
+		],
+	},
+	{
+		name: "[Gen 7] IF Dex Triples AG",
+		searchShow: false,
+
+		mod: 'gen7infinitefusion',
+		gameType: 'triples',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause',
+		],
+	},
+	{
 		name: "[Gen 7] IF Dex Draft",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 		searchShow: false,
@@ -193,6 +238,56 @@ export const Formats: FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
 	},
+
+	{
+		name: "[Gen 7] IF Dex Monogen",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Force Monogen',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+		],
+	},
+	{
+		name: "[Gen 7] IF Dex Big Boss",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Big Boss Rule',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite', 'item:necrozium',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+		],
+	},
+	{
+		name: "[Gen 7] IF Dex Monotype",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Fusion Same Type Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+		],
+	},
+	
 
 	{
 		section: "Fangames: Regional Dex",
@@ -386,107 +481,6 @@ export const Formats: FormatList = [
 	},
 
 	{
-		section: "Chaos",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] Chaos OU",
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
-		banlist: [
-			'ND Uber', 'ND AG',
-			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos AG",
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Fusions OU",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-
-		mod: 'gen9chaosfusion',
-		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
-		],
-		banlist: [
-			'ND AG', 'ND Uber', 'Mega',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher'
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Fusions AG",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-		searchShow: false,
-
-		mod: 'gen9chaosfusion',
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
-		],
-	},
-
-	{
-		section: "Chaos: Extras",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] Chaos Free-for-all",
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		gameType: 'freeforall',
-		rated: false,
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Fusions FFA",
-		searchShow: false,
-
-		mod: 'gen9chaosfusion',
-		gameType: 'freeforall',
-		rated: false,
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Custom Game",
-
-		mod: 'gen9chaos',
-		searchShow: false,
-		debug: true,
-		battle: {trunc: Math.trunc},
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
-	},
-	{
-		name: "[Gen 9] Chaos Fusion Custom Game",
-
-		mod: 'gen9chaosfusion',
-		searchShow: false,
-		debug: true,
-		battle: {trunc: Math.trunc},
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
-	},
-
-	{
 		section: "Pokéathlon: Regional Dex",
 		column: 3,
 	},
@@ -504,8 +498,9 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot'],
+		ruleset: ['Standard', 'Terastal Clause', '+Pokeathlon', '- all Pokemon'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
+			'Focus Band', 'Quick Claw', 'Permafrost', 'Livewire'],
 	},
 	{
 		name: "[Gen 9] PoA Dex AG",
@@ -519,8 +514,9 @@ export const Formats: FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot'],
+		ruleset: ['Standard', 'Terastal Clause', '+Nonexistent'],
+		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 
+			'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock', 'Focus Band', 'Quick Claw',],
 	},
 
 	{
@@ -531,10 +527,11 @@ export const Formats: FormatList = [
 		name: "[Gen 9] PoA National Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+Nonexistent'],
 		banlist: [
-			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
-			'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail'
+			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'Quick Claw', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Acupressure', 'Razor Fang', 'King\'s Rock',
+			'Focus Band',
 		],
 	},
 	{
@@ -589,6 +586,24 @@ export const Formats: FormatList = [
 		banlist: ['move:hiddenpower'],
 	},
 	{
+		name: "[Gen 9] PoA Dex Triples AG",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		gameType: 'triples',
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+	},
+	{
+		name: "[Gen 9] PoA Dex Mono",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard', 'Terastal Clause', 'PoA Same Type Clause', '+Pokeathlon', '- all Pokemon'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
+			'Focus Band', 'Quick Claw', 
+			'Berserker Gene', 'Electrode-Mega', 'Florges-Mega', 'Snorlax-Frost-Mega', 'Sceptile-Delta-Mega', 'Blaziken-Delta-Mega', 'Suicune-Supra'],
+	},
+	{
 		name: "[Gen 9] PoA Custom Game",
 
 		mod: 'gen9pokeathlon',
@@ -597,5 +612,184 @@ export const Formats: FormatList = [
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+
+	{
+		section: "Chaos",
+		column: 4,
+	},
+	{
+		name: "[Gen 9] Chaos Random Battle",
+		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
+
+		mod: 'gen9chaos',
+		team: 'random',
+		ruleset: [
+			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos OU",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos AG",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions OU",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen9chaosfusion',
+		ruleset: [
+			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'ND AG', 'ND Uber', 'Mega',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher'
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions AG",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
+
+	{
+		section: "Chaos: Extras",
+		column: 4,
+	},
+	{
+		name: "[Gen 9] Chaos Triples",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		gameType: 'triples',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions Triples",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		gameType: 'triples',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Free-for-all",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions FFA",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: [
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Custom Game",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
+	},
+	{
+		name: "[Gen 9] Chaos Fusion Custom Game",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
+	},
+	{
+		name: "[Gen 9] Chaos Tera Preview Draft",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+Pokeathlon']
+	},
+	{
+		name: "[Gen 9] Chaos Draft",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon', '+item:berserkgene'],
+	},
+	{
+		name: "[Gen 9] Chaos Multi Battle",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		gameType: 'multi',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Fusions Multi Battle",
+		searchShow: false,
+
+		mod: 'gen9chaosfusion',
+		gameType: 'multi',
+		ruleset: [
+			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'ND AG', 'ND Uber', 'Mega',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher'
+		],
 	},
 ];

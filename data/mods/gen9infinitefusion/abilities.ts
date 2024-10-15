@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	disguise: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -535,10 +535,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	noguard: {
 		inherit: true,
 		onAnyInvulnerability(target, source, move) {
-			if (move && !move.ohko && (source === this.effectState.target || target === this.effectState.target)) return 0;
+			if (move && !move.ohko && (!source.hasItem('mankeyspaw')) && (source === this.effectState.target || target === this.effectState.target)) return 0;
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && !move.ohko && (source === this.effectState.target || target === this.effectState.target)) {
+			if (move && !move.ohko && (!source.hasItem('mankeyspaw')) && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;

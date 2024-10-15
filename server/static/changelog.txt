@@ -1,8 +1,72 @@
+**26th of September 2024**
+- IF: Added triple Battles
+- PoA: Added triple Battles
+- Chaos: Added triple Battles
+
+**19th of September 2024**
+- IF: Removed Own Tempo from Rockruff
+- Uranium: Tier changes
+- PoA: Added Gilotherma
+- PoA: Braskeptic sprite change
+
+**8th of September 2024**
+- IF: Added Jangmoo line, Fomantis line, Carbink, Chespin line, Fennekin line, Froakie line.
+- PoA: Added Scaleslash, Catzelwyrm, Hydroupa
+- PoA: Sacred Treasures overhaul
+
+**29th of August 2024**
+
+- IF: Added IF Dex OU format
+- IF: Tier changes
+- Chaos: Chaos randbats added
+- Chaos: Thunderstorm is compatible with Electroshot and Supercell
+- Chaos: Periodic Orbit should work with Spud Mortar
+- PoA: Parashukado added
+- PoA: Bursting Spores added
+- PoA: Shadowbound added
+- PoA: Eject Bandage added
+
+**24th of August 2024**
+
+- IF: Big Boss and Monotype format validators should work
+- PoA: Kaleidleon and Decidueye-Olul added
+- PoA: Jagged Shot added
+- PoA: Hue Shift added
+- PoA: Changed Incineroar-Olulian to Incineroar-Olul
+- PoA: Tier changes
+
+
+**3rd of August 2024**
+
+- PoA: Sekrilon, Sekrilon-Mega, Penumbralith, and Growlsome added
+- PoA: Spirit Siphon, Comet Strike, Shock Bombs, Grounding Stomp added
+- PoA: Vigor Herb, Boomerang added
+- PoA: Cannoneer, Psycho Slider added
+
+
+**28th of July 2024**
+
+- Insurgence: Added Missingno
+- Uranium: Added Hafli Berry
+- PoA: Added Harportia, Hisuian Cetitan, Suenami
+- PoA: Sirentom stat changes
+- PoA: Felapstan learnset changes
+- PoA: Starmie eviolite compatibility
+- PoA: Tier changes
+
+
+**18th of July 2024**
+
+- No Guard no longer bypasses Mankey's Paw accuracy change
+
+
 **3rd of July 2024**
+
 - Chaos Fusions tier changes
 - Chaos tier changes
 - PoA tier changes + Multishot is now banned
 - PoA now also has a UU format
+
 
 **14th of June 2024**
 

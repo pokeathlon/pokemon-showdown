@@ -47,7 +47,7 @@ const DEFAULT_TRAINER_SPRITES = [1, 2, 101, 102, 169, 170, 265, 266];
 
 import {Utils, ProcessManager} from '../lib';
 import {
-	Auth, GlobalAuth, SECTIONLEADER_SYMBOL, PLAYER_SYMBOL, HOST_SYMBOL, RoomPermission, GlobalPermission,
+	Auth, GlobalAuth, PLAYER_SYMBOL, HOST_SYMBOL, RoomPermission, GlobalPermission,
 } from './user-groups';
 
 const MINUTES = 60 * 1000;
@@ -188,7 +188,7 @@ function isUsername(name: string) {
 function isTrusted(userid: ID) {
 	if (globalAuth.has(userid)) return userid;
 	for (const room of Rooms.global.chatRooms) {
-		if (room.persist && room.settings.isPrivate !== true && room.auth.isStaff(userid)) {
+		if (room.persist && !room.settings.isPrivate && room.auth.isStaff(userid)) {
 			return userid;
 		}
 	}
@@ -1762,7 +1762,6 @@ export const Users = {
 	isUsername,
 	isTrusted,
 	isPublicBot,
-	SECTIONLEADER_SYMBOL,
 	PLAYER_SYMBOL,
 	HOST_SYMBOL,
 	connections,

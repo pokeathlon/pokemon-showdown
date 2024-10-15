@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
 	trickroom: {
 		inherit: true,
@@ -871,7 +871,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (attacker.effectiveWeather() === 'newmoon') {
+			if (['newmoon'].includes(attacker.effectiveWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -907,7 +907,112 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 	},
 
-	//morph
+	morph: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Functions the same as Transform; however, if a Delta species of the target exists, the user will turn into that instead. If the target has multiple Delta Species, it will select one of them at random.",
+		shortDesc: "Transforms into the opponent, prioritizes Delta Form.",
+		name: "Morph",
+		pp: 10,
+		priority: 0,
+		flags: {allyanim: 1, failencore: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
+		onHit(target, pokemon) {
+			if (!pokemon.transformInto(target, this.effect)) return false;
+			if (target.species.id.includes('delta')) return true;
+			
+			let deltaID: ID = target.species.id as ID;
+			let extension = 'delta';
+
+			if (deltaID.includes('beldum')) extension = this.sample(['deltaspider', 'deltaruin']);
+			if (deltaID.includes('metang')) extension = this.sample(['deltaspider', 'deltaruin']);
+			if (deltaID.includes('metagross')) extension = this.sample(['deltaspider', 'deltaruin']);
+			if (deltaID.includes('petilil')) extension = this.sample(['deltawater', 'deltafire']);
+			if (deltaID.includes('lilligant')) extension = this.sample(['deltawater', 'deltafire']);
+			if (deltaID.includes('dwebble')) extension = this.sample(['deltacake', 'deltaberry']);
+			if (deltaID.includes('crustle')) extension = this.sample(['deltacake', 'deltaberry']);
+
+			if (deltaID.endsWith('mega')) {
+				deltaID = deltaID.replace('mega', extension + 'mega') as ID;
+			} else {
+				deltaID = deltaID + extension as ID;
+			}
+
+			if(Object.keys(this.dex.data.Pokedex).includes(deltaID)) {
+				const deltaSpecies = this.dex.species.get(deltaID);
+				if (pokemon.formeChange(deltaSpecies, this.effect)) {
+					// If deltaSpecies has multiple abilities, picks one at random.
+					let abilitySlot = 0; // abilitySlot is currently being used to count the amount of abilites deltaSpecies can have.
+					if (deltaSpecies.abilities[1]) abilitySlot++;
+					if (deltaSpecies.abilities['H']) abilitySlot++;
+					abilitySlot = abilitySlot > 0 ? this.random(abilitySlot + 1) : 0; //Now abilitySlot is the randomly selected ability slot.
+					if (deltaSpecies.abilities['H'] && (abilitySlot === 2 || (abilitySlot === 1 && !deltaSpecies.abilities[1]))) {
+						pokemon.setAbility(deltaSpecies.abilities['H'], pokemon, true);
+					} else if (deltaSpecies.abilities[1] && abilitySlot === 1) {
+						pokemon.setAbility(deltaSpecies.abilities[1], pokemon, true);
+					} else pokemon.setAbility(deltaSpecies.abilities[0], pokemon, true);
+
+					const learnsetData = {...(this.dex.data.Learnsets[deltaID.replace('mega', '')]?.learnset || {})};
+					const dict: any = {};
+					const oldDeltas = [ //Deltas that have no gen 6 level-up moves, but do have gen 5 ones.
+						'aerodactyldelta', 'aggrondeltai', 'blastoisedeltas', 'charizarddeltae',
+						'chimechodelta', 'houndoomdelta', 'machampdelta', 'miloticdeltaf',
+						'ninetalesdelta', 'pinsirdelta', 'raichudeltas', 'zangoosedelta',
+					];
+					const learnPrefix = oldDeltas.includes(deltaID) ? "5L" : "6L";
+
+					for (const move in learnsetData) {
+						const learnmoment = learnsetData[move as keyof typeof learnsetData].filter((learn: string) => learn.startsWith(learnPrefix));
+						if (learnmoment.length <= 0) continue;
+						const learnLvls: number[] = [];
+						for (let i=0; i < learnmoment.length; i++) {
+							if (learnmoment[i].length > 2) learnLvls[learnLvls.length] = parseInt(learnmoment[i].slice(2));
+						}
+						for (let i = learnLvls.length - 1; i >= 0; i--) {
+							if (learnLvls[i] <= target.level) {
+								dict[move] = learnLvls[i];
+								break;
+							}
+						}
+					}
+					const items = Object.keys(dict).map(function (key) {
+						return [key, dict[key]];
+					});
+					items.reverse();
+					items.sort(function (first, second) {
+						return second[1] - first[1];
+					});
+					let numberOfMoves = this.ruleTable.maxMoveCount;
+					if (numberOfMoves <= 0) numberOfMoves = 4;
+					if (items.length < numberOfMoves) numberOfMoves = items.length;
+					if (numberOfMoves > 24) numberOfMoves = 24;
+					if (numberOfMoves > 0) {
+						pokemon.moveSlots = [];
+						for (let i = 0; i < numberOfMoves; i++) {
+							const slotMove = this.dex.moves.get(items[i][0]);
+							const slotPP = Math.floor(slotMove.noPPBoosts ? slotMove.pp : slotMove.pp * 8 / 5);
+							pokemon.moveSlots.push({
+								move: slotMove.name,
+								id: slotMove.id,
+								pp: slotPP === 1 ? 1 : 5,
+								maxpp: slotPP === 1 ? 1 : 5,
+								target: slotMove.target,
+								disabled: false,
+								used: false,
+								virtual: true,
+							});
+						}
+					}
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Clever",
+	},
 
 	nanorepair: {
 		num: 0,

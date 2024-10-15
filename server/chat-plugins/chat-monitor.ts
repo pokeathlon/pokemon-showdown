@@ -8,7 +8,7 @@ const WRITE_THROTTLE_TIME = 5 * 60 * 1000;
 // Substitution dictionary adapted from https://github.com/ThreeLetters/NoSwearingPlease/blob/master/index.js
 // Licensed under MIT.
 const EVASION_DETECTION_SUBSTITUTIONS: {[k: string]: string[]} = {
-	a: ["a", "4", "@", "á", "â", "ã", "à", "ᗩ", "A", "ⓐ", "Ⓐ", "α", "͏", "₳", "ä", "Ä", "Ꮧ", "λ", "Δ", "Ḁ", "Ꭺ", "ǟ", "̾", "ａ", "Ａ", "ᴀ", "ɐ", "🅐", "𝐚", "𝐀", "𝘢", "𝘈", "𝙖", "𝘼", "𝒶", "𝓪", "𝓐", "𝕒", "𝔸", "𝔞", "𝔄", "𝖆", "𝕬", "🄰", "🅰", "𝒜", "𝚊", "𝙰", "ꍏ", "а", "𝓪"],
+	a: ["a", "4", "@", "á", "â", "ã", "à", "ᗩ", "A", "ⓐ", "Ⓐ", "α", "͏", "₳", "ä", "Ä", "Ꮧ", "λ", "Δ", "Ḁ", "Ꭺ", "ǟ", "̾", "ａ", "Ａ", "ᴀ", "ɐ", "🅐", "𝐚", "𝐀", "𝘢", "𝘈", "𝙖", "𝘼", "𝒶", "𝓪", "𝓐", "𝕒", "𝔸", "𝔞", "𝔄", "𝖆", "𝕬", "🄰", "🅰", "𝒜", "𝚊", "𝙰", "ꍏ", "а", "𝓪", "^", "8"],
 	b: ["b", "8", "ᗷ", "B", "ⓑ", "Ⓑ", "в", "฿", "ḅ", "Ḅ", "Ᏸ", "ϐ", "Ɓ", "ḃ", "Ḃ", "ɮ", "ｂ", "Ｂ", "ʙ", "🅑", "𝐛", "𝐁", "𝘣", "𝘉", "𝙗", "𝘽", "𝒷", "𝓫", "𝓑", "𝕓", "𝔹", "𝔟", "𝔅", "𝖇", "𝕭", "🄱", "🅱", "𝐵", "Ⴆ", "𝚋", "𝙱", "♭", "b"],
 	c: ["c", "ç", "ᑕ", "C", "ⓒ", "Ⓒ", "¢", "͏", "₵", "ċ", "Ċ", "ፈ", "ς", "ḉ", "Ḉ", "Ꮯ", "ƈ", "̾", "ｃ", "Ｃ", "ᴄ", "ɔ", "🅒", "𝐜", "𝐂", "𝘤", "𝘊", "𝙘", "𝘾", "𝒸", "𝓬", "𝓒", "𝕔", "ℂ", "𝔠", "ℭ", "𝖈", "𝕮", "🄲", "🅲", "𝒞", "𝚌", "𝙲", "☾", "с"],
 	d: ["d", "ᗪ", "D", "ⓓ", "Ⓓ", "∂", "Đ", "ď", "Ď", "Ꮄ", "Ḋ", "Ꭰ", "ɖ", "ｄ", "Ｄ", "ᴅ", "🅓", "𝐝", "𝐃", "𝘥", "𝘋", "𝙙", "𝘿", "𝒹", "𝓭", "𝓓", "𝕕", "​", "𝔡", "𝖉", "𝕯", "🄳", "🅳", "𝒟", "ԃ", "𝚍", "𝙳", "◗", "ⅾ"],
@@ -428,7 +428,7 @@ export const namefilter: Chat.NameFilter = (name, user) => {
 	if (Punishments.namefilterwhitelist.has(id)) return name;
 	if (Monitor.forceRenames.has(id)) {
 		if (typeof Monitor.forceRenames.get(id) === 'number') {
-			// we check this for hotpatching reasons, since on the initial chat patch this will still be a Utils.MultiSet
+			// we check this for hotpatching reasons, since on the initial chat patch this will still be a Utils.Multiset
 			// we're gonna assume no one has seen it since that covers people who _haven't_ actually, and those who have
 			// likely will not be attempting to log into it
 			Monitor.forceRenames.set(id, false);
@@ -742,14 +742,14 @@ export const commands: Chat.ChatCommands = {
 		},
 		testhelp: [
 			`/filter test [test string] - Tests whether or not the provided test string would trigger any of the chat monitors.`,
-			`Requires: % @ &`,
+			`Requires: % @ ~`,
 		],
 	},
 	filterhelp: [
-		`/filter add list, word, reason[, optional public reason] - Adds a word to the given filter list. Requires: &`,
-		`/filter remove list, words - Removes words from the given filter list. Requires: &`,
-		`/filter view - Opens the list of filtered words. Requires: % @ &`,
-		`/filter test [test string] - Tests whether or not the provided test string would trigger any of the chat monitors. Requires: % @ &`,
+		`/filter add list, word, reason[, optional public reason] - Adds a word to the given filter list. Requires: ~`,
+		`/filter remove list, words - Removes words from the given filter list. Requires: ~`,
+		`/filter view - Opens the list of filtered words. Requires: % @ ~`,
+		`/filter test [test string] - Tests whether or not the provided test string would trigger any of the chat monitors. Requires: % @ ~`,
 		`You may use / instead of , in /filter add if you want to specify a reason that includes commas.`,
 	],
 	allowname(target, room, user) {

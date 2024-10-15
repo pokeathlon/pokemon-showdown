@@ -1,4 +1,5 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+const {Dex} = require('../../../sim/dex');
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Mods
 	payday: {
 		inherit: true,
@@ -22,6 +23,84 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onTryImmunity(target) {
 			return !target.hasType('Grass') && !target.hasAbility('Ivy Wall');
+		},
+	},
+	fling: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.item === 'boomerang') {
+				move.multihit = 2
+			}
+		},
+		onPrepareHit(target, source, move) {
+			if (source.ignoringItem()) return false;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+			if (!item.fling) return false;
+			move.basePower = item.fling.basePower;
+			this.debug('BP: ' + move.basePower);
+			if (item.isBerry) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Eat', item, null, foe, null, null)) {
+						this.runEvent('EatItem', foe, null, null, item);
+						if (item.id === 'leppaberry') foe.staleness = 'external';
+					}
+					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.fling.effect) {
+				move.onHit = item.fling.effect;
+			} else {
+				if (!move.secondaries) move.secondaries = [];
+				if (item.fling.status) {
+					move.secondaries.push({status: item.fling.status});
+				} else if (item.fling.volatileStatus) {
+					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+				}
+			}
+			source.addVolatile('fling');
+		},
+		condition: {
+			onUpdate(pokemon) {
+				if (pokemon.item != 'boomerang') {
+					const item = pokemon.getItem();
+					pokemon.setItem('');
+					pokemon.lastItem = item.id;
+					pokemon.usedItemThisTurn = true;
+					this.add('-enditem', pokemon, item.name, '[from] move: Fling');
+					this.runEvent('AfterUseItem', pokemon, null, null, item);
+					pokemon.removeVolatile('fling');
+				}
+			},
+		},
+	},
+	pollenpuff: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.infiltrates = true;
+			}
+		},
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!this.heal(Math.floor(target.baseMaxhp * (source.ability === 'cannonner' ? 0.75 : 0.5)))) {
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
+					return this.NOT_FAIL;
+				}
+			}
 		},
 	},
 
@@ -392,7 +471,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		infiltrates: true,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, punch: 1, contact: 1},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -446,7 +525,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Hits twice. Doubles: Tries to hit each foe once.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		flags: {protect: 1, mirror: 1, noparentalbond: 1, wind: 1},
 		multihit: 2,
 		smartTarget: true,
 		secondary: null,
@@ -839,4 +918,312 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 	},
+	riftjump: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		slotCondition: 'riftjump',
+		condition: {
+			duration: 2,
+			onModifyPriority(priority, pokemon) {
+				return priority + 1;
+			},
+		},
+		category: "Status",
+		name: "Rift Jump",
+		desc: "User switches out. The Pokémon switching in will gain +1 priority to any move on their first turn out.",
+		shortDesc: "Switch out. Switch-in gains +1 prio for 1 turn.",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Electric",
+	},
+	superheatedcrash: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Superheated Crash",
+		desc: "If the target is burned, x1.5 damage.",
+		shortDesc: "If the target is burned, x1.5 damage.",
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'brn') {
+				return this.chainModify(1.5);
+			}
+		},
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	groundingstomp: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Grounding Stomp",
+		desc: "This move's type effectiveness against Poison is changed to be super effective no matter what this move's type is. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If this move hits a target under the effect of Bounce, Fly, Magnet Rise, or Telekinesis, the effect ends. If the target is a Flying type that has not used Roost this turn or a Pokemon with the Levitate Ability, it loses its immunity to Ground-type attacks and the Arena Trap Ability as long as it remains active. During the effect, Magnet Rise fails for the target and Telekinesis fails against the target.",
+		shortDesc: "Super effective on Poison. Removes the target's Ground immunity.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		volatileStatus: 'groundingstomp',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				let applies = false;
+				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
+				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
+					this.field.getPseudoWeather('gravity')) applies = false;
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					applies = true;
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+				}
+				if (pokemon.volatiles['magnetrise']) {
+					applies = true;
+					delete pokemon.volatiles['magnetrise'];
+				}
+				if (pokemon.volatiles['telekinesis']) {
+					applies = true;
+					delete pokemon.volatiles['telekinesis'];
+				}
+				if (!applies) return false;
+				this.add('-start', pokemon, 'Grounding Stomp');
+			},
+			onRestart(pokemon) {
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+					this.add('-start', pokemon, 'Grounding Stomp');
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	spiritsiphon: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Spirit Siphon",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+	},
+	cometstrike: {
+		num: 0,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Comet Strike",
+		desc: "Lowers the user's Special Attack by 2 stages. This move's power is x1.3 in gravity",
+		shortDesc: "Lowers the user's Sp. Atk by 2. x1.3 power in gravity.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(1.3);
+			}
+		},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	shockbombs: {
+		num: 0,
+		accuracy: 95,
+		basePower: 25,
+		category: "Physical",
+		name: "Shock Bombs",
+		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	jaggedshot: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Jagged Shot",
+		desc: "This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes. Always results in a critical hit.",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Always crits.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: null,
+		willCrit: true,
+		target: "normal",
+		type: "Rock",
+	},
+	shadowbound: {
+		num: 0,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Shadowbound",
+		desc: "Damage is calculated using the target's Special Attack stat, including stat stage changes. The user's Ability, item, and burn are used as normal.",
+		shortDesc: "Uses target's Sp.Attack stat in damage calculation.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		overrideOffensivePokemon: 'target',
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	faequills: {
+		num: 0,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Fae Quills",
+		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	venomousroar: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Venomous Roar",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
+		secondary: {
+			chance: 20,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+		desc: "Has a 30% chance to poison the target.",
+		shortDesc: "30% chance to poison the target.",
+	},
+	scarabssting: {
+		num: 0,
+		accuracy: 85,
+		basePower: 50,
+		category: "Physical",
+		name: "Scarab\u2019s Sting",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		multihit: 2,
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Bug",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+		desc: "Hits twice, with each hit having a 20% chance to paralyze the target. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+		shortDesc: "Hits 2 times. Each hit has 20% chance to paralyze.",
+	},
+	voidtentacle: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Void Tentacle",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower) {
+			if (this.field.getPseudoWeather('gravity')) {
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Poison",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Power is multiplied by 1.5 during Gravity's effect.",
+		shortDesc: "Target: 100% -1 Def. During Gravity: 1.5x power.",
+	},
+	flameaxe: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Flame Axe",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
+		volatileStatus: 'molten',
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Molten');
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.type === "Rock") move.type = "Fire";
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		desc: "Changes foe's Rock-type moves to Fire-type moves for 2 turns.",
+		shortDesc: "Changes foe's Rock-type moves to Fire-type for 2 turns.",
+	},
 };
+
+for (var i of Dex.moves.all()) {
+	if (["Past", "Unobtainable"].includes(i.isNonstandard)) {
+		if (!Moves[i.id]) Moves[i.id] = {inherit: true};
+		Moves[i.id].isNonstandard = null;
+	}
+}

@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	aerilate: {
 		inherit: true,
@@ -107,9 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bloodlust: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (this.checkMoveMakesContact(move, pokemon, target, false)) {
-				this.heal(pokemon.lastDamage / 6, target);
-			}
+			this.heal(pokemon.lastDamage / 6, pokemon);
 		},
 		flags: {},
 		name: "Blood Lust",

@@ -22,7 +22,7 @@ const eeveeabilities: {[k: string]: string} = {
 	"eeveemega": "proteanmaxima",
 };
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	noguard: {
 		inherit: true,
@@ -203,7 +203,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, pokemon, target) {
 			move.forceSTAB = true;
 			if (target?.runImmunity(move.type)) {
-				move.type = '???'
+				move.type = 'Crystal';
 			}
 		},
 		flags: {},
@@ -271,8 +271,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 0,
 	},
 	etherealshroud: {
-		onImmunity(type, pokemon) {
-			if (type === 'Normal' || type === 'Fighting') return false;
+		onTryHit(target, source, move) {
+			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
+				return null;
+			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Bug' || move.type === 'Poison') {
@@ -302,7 +304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
 			if (move.id === 'stealthrock') {
-				this.actions.useMove('hotcoals', pokemon, target);
+				this.actions.useMove('hotcoals', pokemon, {target: target});
 				return null;
 			}
 		},
@@ -422,14 +424,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMove(move, pokemon, target) {
 			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
 			if (move.category === "Status" || !move.basePower) return;
-			if (move.secondaries) {
-				delete move.secondaries;
-				// Technically not a secondary effect, but it is negated
-				delete move.self;
-				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-			}
 			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			if (move.secondaries) {
+			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+			   // Technically not a secondary effect, but it is negated
+			   delete move.self;
+			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+		   }
 		},
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
@@ -437,7 +439,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let nhits = 5 + formes.indexOf(pokemon.species.id);
 			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
 		},
-		flags: {},
+		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+			if (pokemon.species.id.startsWith('hydreigonmega') && move.secondaries) {
+				delete move.secondaries;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
 		name: "Lernean",
 		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
 		rating: 4.5,
@@ -472,7 +479,39 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	pendulum: {
 		onStart(pokemon) {
-			pokemon.addVolatile('item:metronome');
+			pokemon.addVolatile('pendulum');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectState.lastMove = '';
+				this.effectState.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasAbility('pendulum')) {
+					pokemon.removeVolatile('pendulum');
+					return;
+				}
+				if (move.callsMove) return;
+				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectState.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove']) {
+					if (this.effectState.lastMove !== move.id) {
+						this.effectState.numConsecutive = 1;
+					} else {
+						this.effectState.numConsecutive++;
+					}
+				} else {
+					this.effectState.numConsecutive = 0;
+				}
+				this.effectState.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
+				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				this.debug(`Current Pendulum boost: ${dmgMod[numConsecutive]}/4096`);
+				return this.chainModify([dmgMod[numConsecutive], 4096]);
+			},
 		},
 		flags: {},
 		name: "Pendulum",
@@ -506,7 +545,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	prismguard: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (!this.checkMoveMakesContact(move, source, target, true)) {
+			if (!move.flags['contact']) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
@@ -758,7 +797,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	vampiric: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (this.checkMoveMakesContact(move, pokemon, target, false)) {
-				this.heal(pokemon.lastDamage / 4, pokemon);
+				this.heal(pokemon.lastDamage / 4, pokemon, pokemon);
 			}
 		},
 		flags: {},
@@ -822,6 +861,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Winter Joy",
 		shortDesc: "Power is boosted from Nov-Feb, cut from May-Aug.",
 		rating: 3,
+		num: 0,
+	},
+	glitch: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-activate', target, 'ability: Glitch');
+				source.faint;
+			}
+		},
+		flags: {},
+		desc: "Pokémon making contact with this Pokémon faint.",
+		shortDesc: "Pokemon making contact with this Pokemon faint.",
+		name: "Glitch",
+		rating: 5,
 		num: 0,
 	},
 };

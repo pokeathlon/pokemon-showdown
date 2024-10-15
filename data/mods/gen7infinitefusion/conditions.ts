@@ -1,5 +1,5 @@
 const {Dex} = require('../../../sim/dex');
-export const Conditions: {[k: string]: ModdedConditionData} = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	...Dex.deepClone(require('../gen9infinitefusion/conditions').Conditions),
 	raindance: {
 		inherit: true,

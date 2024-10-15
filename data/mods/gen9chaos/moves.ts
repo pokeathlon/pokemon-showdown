@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Chaos
 	revivalblessing: {
 		inherit: true,
@@ -20,6 +20,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.accuracy = 50;
 				break;
 			}
+		},
+	},
+
+	electroshot: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (['raindance', 'primordialsea', 'thunderstorm'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 	},
 
@@ -46,6 +67,84 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onTryImmunity(target) {
 			return !target.hasType('Grass') && !target.hasAbility('Ivy Wall');
+		},
+	},
+	fling: {
+		inherit: true,
+		onModifyMove(move, source, target) {
+			if (source.item === 'boomerang') {
+				move.multihit = 2
+			}
+		},
+		onPrepareHit(target, source, move) {
+			if (source.ignoringItem()) return false;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+			if (!item.fling) return false;
+			move.basePower = item.fling.basePower;
+			this.debug('BP: ' + move.basePower);
+			if (item.isBerry) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Eat', item, null, foe, null, null)) {
+						this.runEvent('EatItem', foe, null, null, item);
+						if (item.id === 'leppaberry') foe.staleness = 'external';
+					}
+					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.fling.effect) {
+				move.onHit = item.fling.effect;
+			} else {
+				if (!move.secondaries) move.secondaries = [];
+				if (item.fling.status) {
+					move.secondaries.push({status: item.fling.status});
+				} else if (item.fling.volatileStatus) {
+					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+				}
+			}
+			source.addVolatile('fling');
+		},
+		condition: {
+			onUpdate(pokemon) {
+				if (pokemon.item != 'boomerang') {
+					const item = pokemon.getItem();
+					pokemon.setItem('');
+					pokemon.lastItem = item.id;
+					pokemon.usedItemThisTurn = true;
+					this.add('-enditem', pokemon, item.name, '[from] move: Fling');
+					this.runEvent('AfterUseItem', pokemon, null, null, item);
+					pokemon.removeVolatile('fling');
+				}
+			},
+		},
+	},
+	pollenpuff: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.infiltrates = true;
+			}
+		},
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!this.heal(Math.floor(target.baseMaxhp * (source.ability === 'cannonner' ? 0.75 : 0.5)))) {
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
+					return this.NOT_FAIL;
+				}
+			}
 		},
 	},
 

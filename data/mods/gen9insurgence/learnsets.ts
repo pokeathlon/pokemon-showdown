@@ -1,6 +1,6 @@
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// Modded
 	vibrava: {inherit: true, learnset: {...baseLearnsets.vibrava.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"]}},
 	flygon: {inherit: true, learnset: {...baseLearnsets.flygon.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"], wildfire: ["6M"], boomburst: ["6L1"]}},
@@ -18265,7 +18265,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift:  ["6M"],
 			futuresight:  ["6M"],
 			psychup:  ["6M"],
-			miracleye:  ["6M"],
+			miracleeye:  ["6M"],
 			psychocut:  ["6M"],
 			powerswap:  ["6M"],
 			guardswap:  ["6M"],
@@ -18387,5 +18387,25 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon:  ["6M"],
 			zenheadbutt:  ["6M"],
 		},
+	},
+	missingno: {
+		learnset: {
+			skyattack: ["6M"],
+			watergun: ["6M"],
+			toxic: ["6M"],
+			icebeam: ["6M"],
+			blizzard: ["6M"],
+			thunder: ["6M"],
+			earthquake: ["6M"],
+			psychic: ["6M"],
+			rest: ["6M"],
+			thunderwave: ["6M"],
+			swordsdance: ["6M"],
+			substitute: ["6M"],
+			cut: ["6M"],
+			fly: ["6M"],
+			doubleedge: ["6M"],
+			seismictoss: ["6M"],
+		}
 	},
 };

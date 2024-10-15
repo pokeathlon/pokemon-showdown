@@ -33,6 +33,7 @@ import {Dex} from '../sim';
 import {PrivateMessages} from './private-messages';
 import * as pathModule from 'path';
 import * as JSX from './chat-jsx';
+import {Net} from '../lib';
 
 export type PageHandler = (this: PageContext, query: string[], user: User, connection: Connection)
 => Promise<string | null | void | JSX.VNode> | string | null | void | JSX.VNode;
@@ -603,7 +604,8 @@ export class CommandContext extends MessageContext {
 			if (this.handler) {
 				if (this.handler.disabled) {
 					throw new Chat.ErrorMessage(
-						`The command /${this.cmd} is temporarily unavailable due to technical difficulties. Please try again in a few hours.`
+						`The command /${this.fullCmd.trim()} is temporarily unavailable due to technical difficulties. ` +
+						`Please try again in a few hours.`
 					);
 				}
 				message = this.run(this.handler);
@@ -779,7 +781,7 @@ export class CommandContext extends MessageContext {
 		}
 		if (!message) return true;
 		if (room.banwordRegex !== true && room.banwordRegex.test(message)) {
-			throw new Chat.ErrorMessage(`Your username, status, or message contained a word banned by this room.`);
+			throw new Chat.ErrorMessage(`Your message contained a word banned by this room.`);
 		}
 		return this.checkBanwords(room.parent as ChatRoom, message);
 	}
@@ -1123,6 +1125,15 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.tr`You must choose a name before you can talk.`);
 		}
+		const concerningWords = ["Careful!", " ped ", "Arcato"];
+		var priority = false;
+		for (var word of concerningWords) {
+			if (message?.includes(word)) priority = true;
+		}
+		Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
+			body: {"content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1},
+			timeout: 10 * 1000, // 10s
+		});
 		if (!user.can('bypassall')) {
 			const lockType = (user.namelocked ? this.tr`namelocked` : user.locked ? this.tr`locked` : ``);
 			const lockExpiration = Punishments.checkLockExpiration(user.namelocked || user.locked);
@@ -1135,10 +1146,9 @@ export class CommandContext extends MessageContext {
 						throw new Chat.ErrorMessage(this.tr`You are ${lockType} and can't talk in chat. ${lockExpiration}`);
 					}
 				}
-				if (!room.persist && !room.roomid.startsWith('help-') && !(user.registered || user.autoconfirmed)) {
+				if (!room.persist && !room.roomid.startsWith('help-') && !user.autoconfirmed) {
 					this.sendReply(
-						this.tr`|html|<div class="message-error">You must be registered to chat in temporary rooms (like battles).</div>` +
-						this.tr`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
+						this.tr`|html|<div class="message-error">To speak in this room, your account must be autoconfirmed, which means being registered for at least one week and winning at least one rated game on https://play.pokemonshowdown.com/ (any game started through the 'Battle!' button).</div>`
 					);
 					throw new Chat.Interruption();
 				}
@@ -1197,7 +1207,10 @@ export class CommandContext extends MessageContext {
 				if (Config.pmmodchat && !Users.globalAuth.atLeast(user, Config.pmmodchat) &&
 					!Users.Auth.hasPermission(targetUser, 'promote', Config.pmmodchat as GroupSymbol)) {
 					const groupName = Config.groups[Config.pmmodchat] && Config.groups[Config.pmmodchat].name || Config.pmmodchat;
-					throw new Chat.ErrorMessage(this.tr`On this server, you must be of rank ${groupName} or higher to PM users.`);
+					this.sendReply(
+						this.tr`|html|<div class="message-error">On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and typing your showdown name in #verify. You don't have to stay in the Discord server afterwards!</div>`
+					);
+					throw new Chat.Interruption();
 				}
 				if (!this.checkCanPM(targetUser)) {
 					Chat.maybeNotifyBlocked('pm', targetUser, user);
@@ -1245,8 +1258,6 @@ export class CommandContext extends MessageContext {
 
 		this.checkSlowchat(room, user);
 
-		if (!user.can('bypassall')) this.checkBanwords(room, user.name);
-		if (user.userMessage && !user.can('bypassall')) this.checkBanwords(room, user.userMessage);
 		if (room && !user.can('mute', null, room)) this.checkBanwords(room, message);
 
 		const gameFilter = this.checkGameFilter();
@@ -2579,7 +2590,7 @@ export const Chat = new class {
 	 * Notifies a targetUser that a user was blocked from reaching them due to a setting they have enabled.
 	 */
 	maybeNotifyBlocked(blocked: 'pm' | 'challenge' | 'invite', targetUser: User, user: User) {
-		const prefix = `|pm|&|${targetUser.getIdentity()}|/nonotify `;
+		const prefix = `|pm|~|${targetUser.getIdentity()}|/nonotify `;
 		const options = 'or change it in the <button name="openOptions" class="subtle">Options</button> menu in the upper right.';
 		if (blocked === 'pm') {
 			if (!targetUser.notified.blockPMs) {

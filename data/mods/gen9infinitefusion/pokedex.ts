@@ -1,4 +1,5 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+const {Dex} = require('../../../sim/dex');
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	magnemite: {
 		inherit: true,
 		types: ["Steel", "Electric"],
@@ -20,7 +21,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Ghost"],
 	},
 	bulbmantle: {
-		num: 6001,
+		num: 2001,
 		name: "Bulbmantle",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -36,7 +37,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "LC",
 	},
 	ivymelortle: {
-		num: 6002,
+		num: 2002,
 		name: "Ivymelortle",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -52,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "NFE",
 	},
 	venustoizard: {
-		num: 6003,
+		num: 2003,
 		name: "Venustoizard",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -69,7 +70,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	totoritaquil: {
-		num: 6004,
+		num: 2004,
 		name: "Totoritaquil",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -85,7 +86,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "LC",
 	},
 	baylavanaw: {
-		num: 6005,
+		num: 2005,
 		name: "Baylavanaw",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -101,7 +102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "NFE",
 	},
 	megaligasion: {
-		num: 6006,
+		num: 2006,
 		name: "Megaligasion",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -118,7 +119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	torkipcko: {
-		num: 6007,
+		num: 2007,
 		name: "Torkipcko",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -134,7 +135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "LC",
 	},
 	gromarshken: {
-		num: 6008,
+		num: 2008,
 		name: "Gromarshken",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -150,7 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "NFE",
 	},
 	swamptiliken: {
-		num: 6009,
+		num: 2009,
 		name: "Swamptiliken",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -167,7 +168,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	turcharlup: {
-		num: 6010,
+		num: 2010,
 		name: "Turcharlup",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -183,7 +184,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "LC",
 	},
 	prinfernotle: {
-		num: 6011,
+		num: 2011,
 		name: "Prinfernotle",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -199,7 +200,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		natDexTier: "NFE",
 	},
 	torterneon: {
-		num: 6012,
+		num: 2012,
 		name: "Torterneon",
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
@@ -216,7 +217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	zapmolticuno: {
-		num: 6013,
+		num: 2013,
 		name: "Zapmolticuno",
 		types: ["Flying", "Ice", "Fire", "Electric"],
 		gender: "N",
@@ -233,7 +234,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	enraicune: {
-		num: 6014,
+		num: 2014,
 		name: "Enraicune",
 		types: ["Fire", "Water", "Electric"],
 		gender: "N",
@@ -250,7 +251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	kyodonquaza: {
-		num: 6015,
+		num: 2015,
 		name: "Kyodonquaza",
 		types: ["Water", "Ground", "Flying"],
 		gender: "N",
@@ -267,7 +268,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUber",
 	},
 	paldiatina: {
-		num: 6016,
+		num: 2016,
 		name: "Paldiatina",
 		types: ["Dragon", "Ghost", "Steel", "Water"],
 		gender: "N",
@@ -284,7 +285,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUber",
 	},
 	zekyushiram: {
-		num: 6017,
+		num: 2017,
 		name: "Zekyushiram",
 		types: ["Dragon", "Ice", "Fire", "Electric"],
 		gender: "N",
@@ -301,7 +302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUber",
 	},
 	celemewchi: {
-		num: 6018,
+		num: 2018,
 		name: "Celemewchi",
 		types: ["Psychic", "Grass", "Steel"],
 		gender: "N",
@@ -318,7 +319,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "(DUU)",
 	},
 	regitrio: {
-		num: 6019,
+		num: 2019,
 		name: "Regitrio",
 		types: ["Ice", "Rock", "Steel"],
 		gender: "N",
@@ -335,7 +336,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUU",
 	},
 	deosectwo: {
-		num: 6020,
+		num: 2020,
 		name: "Deosectwo",
 		types: ["Bug", "Steel", "Psychic"],
 		gender: "N",

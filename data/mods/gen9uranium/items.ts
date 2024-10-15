@@ -1,4 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	nucleararbokite: {
 		name: "Nuclear Arbokite",
 		desc: "If held by a Nuclear Arbok, this item allows it to Mega Evolve in battle.",
@@ -244,6 +244,29 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: 0,
+	},
+	hafliberry: {
+		name: "Hafli Berry",
+		spritenum: -2,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Nuclear",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Nuclear' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
 		num: 0,
 	},
 };

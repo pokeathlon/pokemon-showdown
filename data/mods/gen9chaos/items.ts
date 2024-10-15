@@ -1,4 +1,9 @@
-export const Items: {[k: string]: ModdedItemData} = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
+	//Other
+	berserkgene: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	// IF
 	deepseascale: {
 		inherit: true,

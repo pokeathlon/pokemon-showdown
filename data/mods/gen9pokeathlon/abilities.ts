@@ -2,96 +2,6 @@ const {Dex} = require('../../../sim/dex');
 const InsgAbilities = Dex.deepClone(require('../gen9insurgence/abilities').Abilities);
 
 export const treasures: {[k: string]: string} = {
-	abilityshield: 'klutz',
-	absorbbulb: 'waterabsorb',
-	adrenalineorb: 'defiant',
-	airballoon: 'windrider',
-	amuletcoin: 'goodasgold',
-	assaultvest: 'bulletproof',
-	bigroot: 'sapsipper',
-	bindingband: 'suctioncups',
-	blackbelt: 'unseenfist',
-	blackglasses: 'darkaura',
-	blacksludge: 'liquidooze',
-	blunderpolicy: 'hustle',
-	brightpowder: 'dazzling',
-	cellbattery: 'lightningrod',
-	charcoal: 'drought',
-	choiceband: 'toughclaws',
-	choicescarf: 'bushido',
-	choicespecs: 'hubris',
-	clearamulet: 'unaware',
-	covertcloak: 'sheerforce',
-	damprock: 'swiftswim',
-	destinyknot: 'perishbody',
-	dragonfang: 'dragonsmaw',
-	ejectbutton: 'regenerator',
-	ejectpack: 'clearbody',
-	electricseed: 'electricsurge',
-	eviolite: 'imposter',
-	expertbelt: 'neuroforce',
-	flameorb: 'flareboost',
-	floatstone: 'levitate',
-	focusband: 'stamina',
-	focussash: 'angershell',
-	fullincense: 'neutralizinggas',
-	grassyseed: 'grassysurge',
-	gripclaw: 'persistent',
-	heatrock: 'chlorophyll',
-	heavydutyboots: 'mountaineer',
-	icyrock: 'slushrush',
-	ironball: 'slowlight',
-	kingsrock: 'stench',
-	laggingtail: 'stall',
-	leftovers: 'harvest',
-	lifeorb: 'magicguard',
-	lightclay: 'filter',
-	loadeddice: 'technician',
-	luminousmoss: 'stormdrain',
-	magnet: 'magnetpull',
-	mail: 'consumerexchange',
-	mentalherb: 'oblivious',
-	metalcoat: 'filter',
-	metronome: 'skilllink',
-	miracleseed: 'overcoat',
-	mirrorherb: 'opportunist',
-	mistyseed: 'mistysurge',
-	mysticwater: 'drizzle',
-	nevermeltice: 'snowwarning',
-	poisonbarb: 'toxicchain',
-	powerherb: 'soulheart',
-	protectivepads: 'rockhead',
-	psychicseed: 'pyschicsurge',
-	punchingglove: 'ironfist',
-	quickclaw: 'quickdraw',
-	razorclaw: 'sharpness',
-	redcard: 'fairylaw',
-	ringtarget: 'mummy',
-	rockyhelmet: 'ironbarbs',
-	roomservice: 'inertia',
-	safetygoggles: 'keeneye',
-	scopelens: 'sniper',
-	sharpbeak: 'galewings',
-	shedshell: 'shedskin',
-	shellbell: 'healer',
-	silkscarf: 'adaptability',
-	silverpowder: 'swarm',
-	smoothrock: 'sandrush',
-	softsand: 'sandstream',
-	spelltag: 'cursedbody',
-	stickybarb: 'fluffy',
-	terrainextender: 'cloudnine',
-	throatspray: 'punkrock',
-	toxicorb: 'poisonheal',
-	twistedspoon: 'analytic',
-	utilityumbrella: 'cloudnine',
-	weaknesspolicy: 'weakarmor',
-	whiteherb: 'unburden',
-	widelens: 'compoundeyes',
-	wiseglasses: 'innerfocus',
-	zoomlens: 'sniper',
-	bignugget: 'goodasgold',
-	pomegberry: 'eartheater',
 	dracoplate: 'protean',
 	dreadplate: 'protean',
 	earthplate: 'protean',
@@ -109,9 +19,38 @@ export const treasures: {[k: string]: string} = {
 	stoneplate: 'protean',
 	toxicplate: 'protean',
 	zapplate: 'protean',
+	choiceband: 'toughclaws',
+	muscleband: 'toughclaws',
+	choicespecs: 'analytic',
+	wiseglasses: 'analytic',
+	choicescarf: 'bushido',
+	lifeorb: 'magicguard',
+	flameorb: 'flareboost',
+	toxicorb: 'poisonheal',
+	mirrorherb: 'opportunist',
+	whiteherb: 'opportunist',
+	vigorherb: 'opportunist',
+	silverpowder: 'adaptability',
+	blackglasses: 'adaptability',
+	dragonfang: 'adaptability',
+	magnet: 'adaptability',
+	fairyfeather: 'adaptability',
+	charcoal: 'adaptability',
+	sharpbeak: 'adaptability',
+	spelltag: 'adaptability',
+	miracleseed: 'adaptability',
+	softsand: 'adaptability',
+	nevermeltice: 'adaptability',
+	silkscarf: 'adaptability',
+	poisonbarb: 'adaptability',
+	twistedspoon: 'adaptability',
+	hardstone: 'adaptability',
+	metalcoat: 'adaptability',
+	mysticwater: 'adaptability',
+	
 };
 
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	consumerexchange: {
 		onSourceDamagingHit(damage, target, source, move) {
 			if (this.effectState.exchange !== false) {
@@ -371,8 +310,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 0,
 	},
 	undeterred: {
-		onStart(pokemon) {
-			pokemon.addVolatile('item:heavydutyboots');
+		onDamage(damage, target, source, effect) {
+			if (effect && ['stealthrock', 'spikes', 'gmaxsteelsurge', 'hotcoals'].includes(effect.id)) {
+				return false;
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (effect && effect.id !== 'stickyweb') return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (effect && ['toxicspikes', 'permafrost', 'livewire'].includes(effect.id)) {
+				return false;
+			}
 		},
 		flags: {},
 		name: "Undeterred",
@@ -539,6 +496,225 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Glutinous Rice",
 		shortDesc: "Takes 1/4 damage from Fighting-type attacks.",
 		rating: 2,
+		num: 0,
+	},
+	clairvoyance: {
+		onChargeMove(pokemon, target, move) {
+				this.debug('clairvoyance - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+		},
+		flags: {breakable: 1},
+		name: "Clairvoyance",
+		shortDesc: "Charge moves do not require a charge turn",
+		rating: 5,
+		num: 0,
+	},
+	cannoneer: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Cannoneer",
+		desc: "This Pokemon's bullet-based attacks have their power multiplied by 1.5.",
+		shortDesc: "This Pokemon's bullet-based attacks have 1.5x power. Pollen Puff heals 50% more.",
+		rating: 3,
+		num: 0,
+	},
+	psychoslider: {
+		onModifySpe(spe) {
+			if (this.field.isTerrain('psychicterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Psycho Slider",
+		shortDesc: "If Psychic Terrain is active, this Pokemon's Speed is doubled.",
+		rating: 3,
+		num: 0,
+	},
+	spittingfire: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.type === 'Fire') {
+				move.flags.sound = 1;
+				move.flags.bypasssub = 1;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags.sound) return this.chainModify([4915, 4096]);
+		},
+		flags: {breakable: 1},
+		name: "Spitting Fire",
+		shortDesc: "Fire-type moves are now sound-based. Sound-based moves have 1.2x power.",
+		rating: 3,
+		num: 0,
+	},
+	hueshift: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Hue Shift');
+			}
+		},
+		onSwitchIn() {},
+		flags: {},
+		name: "Hue Shift",
+		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
+		rating: 4,
+		num: 0,
+	},
+	etherealshroud: {
+		onTryHit(target, source, move) {
+			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
+				return null;
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Bug' || move.type === 'Poison') {
+				this.debug('Ethereal Shroud weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Ethereal Shroud",
+		shortDesc: "Grants the user Ghost-type immunities and resistances.",
+		rating: 3,
+		num: 0,
+	},
+	burstingspores: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.actions.useMove('leechseed', target, {target: source});
+			}
+		},
+		flags: {},
+		name: "Bursting Spores",
+		desc: "Pokemon making contact with this Pokemon sets Leech Seed on the user.",
+		shortDesc: "Pokemon making contact with this Pokemon have Leech Seed set on them",
+		rating: 2,
+		num: 0,
+	},
+	belligerentquills: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true) && !move.multihit) {
+				this.damage(target.baseMaxhp / 16, target, source);
+			}
+		},
+		flags: {},
+		name: "Belligerent Quills",
+		shortDesc: "When dealing contact-based damage, deals an additional 1/16 max HP.",
+		rating: 4,
+		num: 0,
+	},
+	lernean: {
+		onUpdate(pokemon) {
+			if (!pokemon.species.id.startsWith('hydroupa') || !pokemon.hp || pokemon.transformed) return;
+			const formeOrder = ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
+			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
+			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
+				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!pokemon.species.id.startsWith('hydroupa')) return;
+			if (move.category === "Status" || !move.basePower) return;
+			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			if (move.secondaries) {
+			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+			   // Technically not a secondary effect, but it is negated
+			   delete move.self;
+			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+		   }
+		},
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.species.id.startsWith('hydroupa')) return;
+			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			let nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+		},
+		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+			if (pokemon.species.id.startsWith('hydroupa') && move.secondaries) {
+				delete move.secondaries;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Lernean",
+		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
+		rating: 4.5,
+		num: 0,
+	},
+	fullplate: {
+		onTryBoost(boost, target, source, effect) {
+			if (this.effectState.fullplate) return;
+			let fullPlate = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					fullPlate = true;
+				}
+			}
+			if (fullPlate && !target.getVolatile('fullPlate')) {
+				target.addVolatile('fullPlate') //to break recursion
+				this.effectState.fullplate = true; // once per switch
+				this.boost({def: 1}, target, target)
+			} else {
+				if (target.getVolatile('fullPlate')) target.removeVolatile('fullPlate'); //to reset for next move
+			}
+			
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.fullplate;
+		},
+		flags: {},
+		name: "Full Plate",
+		desc: "This Pokemon's Defense is raised by 1 stage for each of its stat stages that is raised.",
+		shortDesc: "This Pokemon's Defense is raised by 1 for each of its stats that is raised",
+		rating: 3,
+		num: 0,
+	},
+	phototroph: {
+		onResidual(target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.heal(target.baseMaxhp / 8);
+			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())){
+				return;
+			} else {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Phototroph",
+		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
+		rating: 1.5,
+		num: 0,
+	},
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Mountaineer",
+		shortDesc: "On switch-in, this Pokemon avoids all Rock-type attacks and Stealth Rock.",
+		rating: 3,
 		num: 0,
 	},
 };

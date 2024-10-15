@@ -1,3 +1,6 @@
+import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
+import {ModdedLearnsetData} from '../../../sim/dex-species';
+
 const baseLearnsets = require('../../learnsets').Learnsets;
 
 export function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
@@ -10,11 +13,11 @@ export function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 		
 		for (const move in moves) {
 			if (!(move in finalLearnset.learnset)) {
-				finalLearnset.learnset[move] = learnset.learnset[move];
+				finalLearnset.learnset[move as keyof typeof finalLearnset.learnset] = learnset.learnset[move as keyof typeof learnset.learnset];
 			} else {
-				for (const source of learnset.learnset[move]) {
-					if (!finalLearnset.learnset[move].includes(source)) {
-						finalLearnset.learnset[move].push(source);
+				for (const source of learnset.learnset[move as keyof typeof learnset.learnset]) {
+					if (!finalLearnset.learnset[move as keyof typeof finalLearnset.learnset].includes(source)) {
+						finalLearnset.learnset[move as keyof typeof finalLearnset.learnset].push(source);
 					}
 				}
 			}
@@ -23,7 +26,7 @@ export function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 	return finalLearnset;
 }
 
-export const Learnsets: {[k: string]: ModdedLearnsetData} = {
+export const Learnsets: ModdedLearnsetDataTable = {
 	bulbmantle: combineLearnsets
 	(
 		baseLearnsets.bulbasaur,

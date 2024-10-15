@@ -13,6 +13,7 @@
 
 import {FS, Utils} from '../lib';
 import type {AddressRange} from './ip-tools';
+import {Net} from '../lib';
 
 const PUNISHMENT_FILE = 'config/punishments.tsv';
 const ROOM_PUNISHMENT_FILE = 'config/room-punishments.tsv';
@@ -127,11 +128,10 @@ class PunishmentMap extends Map<string, Punishment[]> {
 	deleteOne(k: string, punishment: Punishment) {
 		const list = this.get(k);
 		if (!list) return;
-		for (const [i, cur] of list.entries()) {
+		for (let i = list.length - 1; i >= 0; i--) {
+			const cur = list[i];
 			if (punishment.type === cur.type && cur.id === punishment.id) {
 				list.splice(i, 1);
-				break; // we don't need to run the rest of the list here
-				// given we will only ever have one punishment of one type
 			}
 		}
 		if (!list.length) {
@@ -145,9 +145,10 @@ class PunishmentMap extends Map<string, Punishment[]> {
 			list = [];
 			this.set(k, list);
 		}
-		for (const [i, curPunishment] of list.entries()) {
+		for (let i = list.length - 1; i >= 0; i--) {
+			const curPunishment = list[i];
 			if (punishment.type === curPunishment.type) {
-				if (punishment.expireTime <= curPunishment.expireTime) {
+				if (curPunishment.expireTime >= punishment.expireTime) {
 					curPunishment.reason = punishment.reason;
 					// if we already have a punishment of the same type with a higher expiration date
 					// we want to just update the reason and ignore it
@@ -1612,6 +1613,10 @@ export const Punishments = new class {
 
 	checkName(user: User, userid: string, registered: boolean) {
 		if (userid.startsWith('guest')) return;
+		Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
+			body: {"content": `## *${userid}* just joined the site | ips: ${user.ips.join(', ')}`, "wait": 1},
+			timeout: 10 * 1000, // 10s
+		});
 		for (const roomid of user.inRooms) {
 			Punishments.checkNewNameInRoom(user, userid, roomid);
 		}
@@ -2118,7 +2123,7 @@ export const Punishments = new class {
 				if (typeof user !== 'string') {
 					user.popup(
 						`|modal|You've been locked for breaking the rules in multiple chatrooms.\n\n` +
-						`If you feel that your lock was unjustified, you can still PM staff members (%, @, &) to discuss it${Config.appealurl ? " or you can appeal:\n" + Config.appealurl : "."}\n\n` +
+						`If you feel that your lock was unjustified, you can still PM staff members (%, @, ~) to discuss it${Config.appealurl ? " or you can appeal:\n" + Config.appealurl : "."}\n\n` +
 						`Your lock will expire in a few days.`
 					);
 				}

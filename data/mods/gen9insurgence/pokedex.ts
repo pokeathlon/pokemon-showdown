@@ -1,5 +1,9 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	// Modded
+	missingno: {
+		inherit: true,
+		abilities: {0: "Glitch"},
+	},
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Winter Joy"},
@@ -141,6 +145,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		tags: ["Insurgence"],
 		requiredItem: "Mewtwo Armor",
+		changesFrom: "Mewtwo",
 		tier: "Uber",
 		natDexTier: "Uber",
 		doublesTier: "DUber",
@@ -158,6 +163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		tags: ["Insurgence"],
 		requiredItem: "Tyranitar Armor",
+		changesFrom: "Tyranitar",
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -193,6 +199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		tags: ["Insurgence"],
 		requiredItem: "Leavanny Armor",
+		changesFrom: "Leavanny",
 		tier: "UU",
 		natDexTier: "RU",
 		doublesTier: "(DUU)",
@@ -211,6 +218,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		tags: ["Insurgence"],
 		requiredItem: "Zekrom Armor",
+		changesFrom: "Zekrom",
 		tier: "Uber",
 		natDexTier: "Uber",
 		doublesTier: "DUber",
@@ -228,6 +236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		tags: ["Insurgence"],
 		requiredItem: "Volcarona-Delta Armor",
+		changesFrom: "Volcarona-Delta",
 		tier: "Uber",
 		natDexTier: "Uber",
 		doublesTier: "DUber",
@@ -279,6 +288,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Insurgence"],
 		eggGroups: ["Mineral"],
 		requiredItem: "Steelixite Fire",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	flygonmega: {
 		num: 330,
@@ -4084,7 +4096,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		doublesTier: "DUber",
 	},
 	ufi: {
-		num: 6001,
+		num: 4001,
 		name: "Ufi",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
@@ -4093,6 +4105,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 9.0,
 		tags: ["Insurgence"],
 		eggGroups: ["Undiscovered"],
+		gen: 6,
 		tier: "Uber",
 		natDexTier: "Uber",
 		doublesTier: "DUber",
