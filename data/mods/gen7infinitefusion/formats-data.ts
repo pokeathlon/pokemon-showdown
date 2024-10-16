@@ -2581,7 +2581,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ludicolo: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 };

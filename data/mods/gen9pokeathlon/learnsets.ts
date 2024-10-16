@@ -5598,7 +5598,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			facade: ["9M"],
 			doubleedge: ["9M"],
 			scaryface: ["9M"],
-			thrash: ["9M"]
+			thrash: ["9M"],
+			blazekick: ["9M"],
+			extremespeed: ["9M"]
 		}
 	},
 	hydroupa: {
