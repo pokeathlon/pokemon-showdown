@@ -11,6 +11,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1}, 
 		target: "normal",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 	},
 	lacerazionedigitale: { // Digital Tear ?
 		num: 0, 
@@ -18,14 +20,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true, 
 		basePower: 255, 
 		category: "Physical", 
-		name: "Lacerazionedigitale", 
+		name: "Lacerazione Digitale", 
 		pp: 30, 
 		priority: 0, 
 		flags: {contact: 1, protect: 1, mirror: 1},
 		critRatio: 2,
 		target: "normal", 
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 	},
-	papercut: { // (TEST)
+	papercut: {
 		num: 0, 
 		type: "Steel", 
 		accuracy: 90, 
@@ -56,6 +60,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.effectState.duration = 2;
 			},
 		},
+		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used.",
+		shortDesc: "Power doubles with each hit, up to 160.",
 	},
 	hotchilipepper: { 
 		num: 0, 
@@ -72,6 +78,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 30,
 			status: 'brn',
 		},
+		desc: "Has a 30% chance to burn the target.",
+		shortDesc: "30% chance to burn the target.",
 	},
 	bremandrhapsody: { // The more bremand the stronger the move, but not coded into the gamae
 		num: 0, 
@@ -84,6 +92,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		target: "allAdjacentFoes",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect. Hits adjacent foes.",
 	},
 	jetstrike: { 
 		num: 0, 
@@ -96,6 +106,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 3, 
 		flags: {contact: 1, protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		target: "normal", 
+		desc: "No additional effect.",
+		shortDesc: "Nearly always goes first.",
 	},
 	subwoofer: { 
 		num: 0, 
@@ -112,6 +124,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 30,
 			volatileStatus: 'flinch',
 		},
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target flinch. Hits adjacent foes.",
 	},
 	wilddance: { 
 		num: 0, 
@@ -133,6 +147,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		secondary: null,
 		target: "randomNormal",
+		desc: "The user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect if it is not already. This move targets an opposing Pokemon at random on each turn. If the user is prevented from moving, is asleep at the beginning of a turn, or the attack is not successful against the target on the first turn of the effect or the second turn of a three-turn effect, the effect ends without causing confusion. If this move is called by Sleep Talk and the user is asleep, the move is used for one turn and does not confuse the user.",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
 	},
 	noiseburst: { 
 		num: 0, 
@@ -146,6 +162,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, cantusetwice: 1, metronome: 1},
 		target: "normal", 
 		secondary: null,
+		shortDesc: "Cannot be selected the turn after it's used.",
 	},
 	perfectglare: { 
 		num: 0, 
@@ -162,6 +179,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 100,
 			status: 'par',
 		},
+		desc: "Usually goes first. Paralyzes the target.",
+		shortDesc: "Usually goes first. Paralyzes the target.",
 	},
 	primalscream: { 
 		num: 0, 
@@ -180,6 +199,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				atk: -1,
 			},
 		},
+		desc: "Lowers the foe's Attack by 1 stage. Hits adjacent foes.",
+		shortDesc: "Lowers the foe's Atk by 1. Hits adjacent foes.",
 	},
 	revup: { 
 		num: 0, 
@@ -200,6 +221,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		desc: "Raises the user's Speed by 1 stage.",
+		shortDesc: "Raises the user's Speed by 1.",
 	},
 	sugarrush: { 
 		num: 0, 
@@ -213,6 +236,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 		recoil: [33,100],
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/3 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/3 recoil.",
 	},
 	dragonpledge: { // No Added effects found 
 		num: 0, 
@@ -225,6 +250,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
+		shortDesc: "No additional effect.",
 	},
 	fairypledge: { // No Added effects found
 		num: 0, 
@@ -237,6 +263,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
+		shortDesc: "No additional effect.",
 	},
 	soundpledge: { // No Added effects found 
 		num: 0, 
@@ -249,6 +276,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
+		shortDesc: "No additional effect.",
 	},
 	soundimpact: { 
 		num: 0, 
@@ -261,6 +289,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
 		target: "normal", 
+		shortDesc: "No additional effect.",
 	},
 	frostbite: { 
 		num: 0, 
@@ -277,6 +306,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 30,
 			status: 'par',
 		},
+		desc: "Has a 30% chance to paralyze the target.",
+		shortDesc: "30% chance to paralyze the target.",
 	},
 	feralclutch: { 
 		num: 0, 
@@ -291,6 +322,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal", 
 		volatileStatus: 'partiallytrapped',
 		secondary: null,
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
 	tidaldragoon: { 
 		num: 0, 
@@ -303,7 +336,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, pulse: 1},
 		target: "normal", 
-		multihit: [2, 5]
+		multihit: [2, 5],
+		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
 	},
 	darkeningbolt: { 
 		num: 0, 
@@ -322,6 +357,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				spd: -1,
 			},
 		},
+		desc: "Has a 30% chance to lower the target's Sp. Defense by 1 stage.",
+		shortDesc: "30% chance to lower the target's Sp. Defense by 1.",
 	},
 	hiss: { 
 		num: 0, 
@@ -340,6 +377,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				spd: -2,
 			},
 		},
+		desc: "Has a 100% chance to lower the target's Sp. Defense by 2 stages.",
+		shortDesc: "100% chance to lower the foe(s) Sp. Defense by 2.",
 	},
 	discofever: { 
 		num: 0, 
@@ -356,6 +395,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 100,
 			volatileStatus: 'confusion',
 		},
+		desc: "Causes the target to become confused.",
+		shortDesc: "Confuses the target.",
 	},
 	electroswing: { 
 		num: 0, 
@@ -372,6 +413,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 100,
 			status: 'par',
 		},
+		desc: "Paralyzes the target.",
+		shortDesc: "Paralyzes the target.",
 	},
 	bluenote: { 
 		num: 0, 
@@ -386,6 +429,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal", 
 		status: 'slp',
 		secondary: null,
+		shortDesc: "Causes the target to fall asleep.",
 	},
 	creamwhip: { 
 		num: 0, 
@@ -404,6 +448,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				spe: -1,
 			},
 		},
+		desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "100% chance lower target's Speed by 1.",
 	},
 	thunderhammer: { 
 		num: 0, 
@@ -420,6 +466,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			volatileStatus: 'mustrecharge',
 		},
 		secondary: null,
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
+		shortDesc: "User cannot move next turn.",
 	},
 	voidstar: { 
 		num: 0, 
@@ -433,6 +481,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, metronome: 1, heal: 1},
 		target: "normal", 
 		drain: [1, 2],
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt.",
 	},
 	astrallance: { 
 		num: 0, 
@@ -446,8 +496,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		target: "normal", 
 		willCrit: true,
+		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or has the Battle Armor or Shell Armor Abilities. This move does not check accuracy.",
+		shortDesc: "Always results in a critical hit. This mvoe does not check accuracy.",
 	},
-	starburst: { // (TEST)
+	starburst: { // Needs tooltip
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 90, 
@@ -473,30 +525,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 		},
 		target: "normal", 
-	},
-	controllopolare: { // (TEST) NO ONE LEARNS THIS??
-		num: 0, 
-		type: "Electric", 
-		accuracy: true, 
-		basePower: 0, 
-		category: "Status", 
-		name: "Controllo Polare", 
-		pp: 20, 
-		priority: 0, 
-		flags: {snatch: 1, metronome: 1},
-		target: "adjacentAlly", 
-		onModifyMove(move, pokemon) {
-			if (!['Plus', 'Minus'].includes(pokemon.ability)) return;
-			move.secondaries = [];
-			if (['Plus', 'Minus'].includes(pokemon.ability)) {
-				move.secondaries.push({
-					boosts: {
-						def: 1,
-						spd: 1,
-					},
-				});
-			}
-		},
+		desc: "This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes. This move and its effects ignore the Abilities of other Pokemon. This move's type depends on the user's species. This move will be Sound-type if the user is Trishout, Dragon-type if the user is Shulong.",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Ignores Abilities. Sound-type if Trishout, Dragon-type if Shulong, otherwise Fairy-type",
 	},
 	firekunai: { 
 		num: 0, 
@@ -511,6 +541,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal", 
 		thawsTarget: true,
 		willCrit: true,
+		desc: "Will always result in a critical hit. Thaws user.",
+		shortDesc: "Nearly always goes first. Always crits. Thaws user.",
 	},
 	xtransform: { //in Pokemon.ts
 		num: 0, 
@@ -528,8 +560,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return false;
 			}
 		}, 
+		desc: "User transforms into a random X Pokémon. It will select a random ability from that species, and pick the last four moves it can learn by level. The IVs, EVs, and Nature remain that of the user.",
+		shortDesc: "User transforms into a random X Pokémon."
 	},
-	acidrain: { // (TEST)
+	acidrain: {
 		num: 0, 
 		type: "Water", 
 		accuracy: true, 
@@ -542,8 +576,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "all",
 		weather: 'AcidRain',
 		secondary: null,
+		desc: "For 5 turns, the weather becomes Acid Rain. At the end of each turn except the last, all active Pokemon lose 1/10 of their maximum HP, rounded down, unless they are a Water, or Poison type, or have the Magic Guard, or Overcoat Abilities. Fails if the current weather is Acid Rain.",
+		shortDesc: "For 5 turns, a acid rain falls.",
 	},
-	dragonendurance: { // (TEST)
+	dragonendurance: {
 		num: 0, 
 		type: "Dragon", 
 		accuracy: true, 
@@ -575,8 +611,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 		target: "allySide",
+		desc: "For 5 turns, the user and its party members take 0.5x (0.66x if more than one Pokémon are active on this side) damage from Electric, Fire, Water, or Grass type attacks. Fails if the effect is already active on the user's side.",
+		shortDesc: "For 5 turns, allies gain Dragon-type resistances.",
 	},
-	velvetscales: { //Sets hazard that lower lowest def/spdef of incoming foe (TEST)
+	velvetscales: {
 		num: 0, 
 		type: "Dragon", 
 		accuracy: true, 
@@ -602,8 +640,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
+		desc: "Sets up a hazard on the opposing side of the field, lowering the lowest defense stat of the Pokémon switching in. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Lower's foe's lowest defense on switch-in.",
 	},
-	hawthorns: { // sets self hazard, heals itself and allies for 1/10th at end of every turn (TEST)
+	hawthorns: {
 		num: 0, 
 		type: "Grass", 
 		accuracy: true, 
@@ -614,6 +654,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {snatch: 1, metronome: 1},
 		target: "allySide", 
+		sideCondition: 'hawthorns',
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
@@ -625,8 +666,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.heal(pokemon.baseMaxhp / 10);
 			},
 		},
+		
+		desc: "Sets up a hazard on the user's side of the field, healing the user and allies for 1/10 of their max HP every turn. Fails if the effect is already active on the user's side. Can be removed from the user's side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Heals user for 1/10 max HP every turn.",
 	},
-	scorchedashes: { // sets hazard on foe that lowers highest attack on switch-in (TEST)
+	scorchedashes: {
 		num: 0, 
 		type: "Fire", 
 		accuracy: true, 
@@ -637,7 +681,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {reflectable: 1, metronome: 1},
 		target: "foeSide", 
-		sideCondition: 'velvetscales',
+		sideCondition: 'scorchedashes',
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
@@ -652,8 +696,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
+		desc: "Sets up a hazard on the opposing side of the field, lowering the highest attacking stat of the Pokémon switching in. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Lower's foe's highest attack stat on switch-in.",
 	},
-	benevolence: { // side-condition that boosts ally healing by x1.5 for 6 turns (TEST)
+	benevolence: {
 		num: 0, 
 		type: "Fairy", 
 		accuracy: true, 
@@ -680,6 +726,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-sideend', side, 'move: Benevolence');
 			},
 		},
+		desc: "For 6 turns, the user and its party members' healing is boosted 1.5x. Fails if the effect is already active on the user's side.",
+		shortDesc: "For 6 turns, allies' healing is boosted 1.5x.",
 	},
 	cheering: { //grants ally +2 prio (TEST)
 		num: 0, 
@@ -707,8 +755,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-sideend', side, 'move: Cheering');
 			},
 		},
+		desc: "For 2 turns, the target has its Priority increased by 2. Fails if this move is already in effect for the user's side.",
+		shortDesc: "For 2 turns, target get +2 Priority.",
 	},
-	magicwall: { // (TEST)
+	magicwall: {
 		num: 0, 
 		type: "Fairy", 
 		accuracy: true, 
@@ -724,7 +774,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onAnyModifyDamage(damage, source, target, move) {
 				if (target !== source && this.effectState.target.hasAlly(target) && ['Dragon', 'Fighting', 'Bug', 'Dark'].includes(move.type)) {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
-						this.debug('Sound Barrier weaken');
+						this.debug('Magic Wall weaken');
 						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
 						return this.chainModify(0.5);
 					}
@@ -740,8 +790,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 		target: "allySide",
+		desc: "For 5 turns, the user and its party members take 0.5x (0.66x if more than one Pokémon are active on this side) damage from Dragon, Fighting, Bug, or Dark type attacks. Fails if the effect is already active on the user's side.",
+		shortDesc: "For 5 turns, allies gain Fairy-type resistances.",
 	},
-	soundbarrier: { // (TEST)
+	soundbarrier: {
 		num: 0, 
 		type: "Sound", 
 		accuracy: true, 
@@ -773,8 +825,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 		target: "allySide",
+		desc: "For 5 turns, the user and its party members take 0.5x (0.66x if more than one Pokémon are active on this side) damage from Flying, Fairy, or Water type attacks. Fails if the effect is already active on the user's side.",
+		shortDesc: "For 5 turns, allies gain Sound-type resistances.",
 	},
-	flavortest: { // (TEST) Heals for 1/10th, fucking weirdo
+	flavortest: { // Heals for 1/10th, fucking weirdo
 		num: 0, 
 		type: "Fairy", 
 		accuracy: 100, 
@@ -789,8 +843,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		drain: [1, 10],
 		target: "normal", 
+		desc: "The user recovers 1/10 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. This move combines Flying in its type effectiveness against the target. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
+		shortDesc: "User recovers 10% of the damage dealt. Combines Flying in its type effectiveness.",
 	},
-	divinejudgement: { // future move (TEST)
+	divinejudgement: {
 		num: 0, 
 		type: "Normal", 
 		accuracy: 100, 
@@ -823,8 +879,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-start', source, 'move: Future Sight');
 			return this.NOT_FAIL;
 		},
+		desc: "Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Doom Desire is already in effect for the target's position.",
+		shortDesc: "Hits two turns after being used.",
 	},
-	elepunch: { // (TEST)
+	elepunch: {
 		num: 0, 
 		type: "Normal", 
 		accuracy: 100, 
@@ -846,7 +904,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				case 'icyrock':
 					move.type = 'Ice';
 					break;
-				case 'ramprock':
+				case 'damprock':
 					move.type = 'Water';
 					break;
 				case 'kingsrock':
@@ -857,6 +915,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 		},
 		target: "normal", 
+		desc: "This move's type depends on the user's held item. The interactions are as follows: Electric with Smooth Rock, Fire with Heat Rock, Water with Damp Rock, Ice with Icy Rock, and Rock with King's Rock.",
+		shortDesc: "Type varies based on the held item.",
 	},
 	abguillotine: {
 		num: 12,
@@ -871,5 +931,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokemon with the Sturdy Ability are immune.",
+		shortDesc: "OHKOs the target. Fails if user is a lower level.",
 	},
 };

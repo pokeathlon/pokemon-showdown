@@ -7631,6 +7631,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	sabolt: {
 		learnset: {
+			darkeningbolt: ["9M"],
 			roar: ["9M"],
 			toxic: ["9M"],
 			hiddenpower: ["9M"],
@@ -8241,6 +8242,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	shulong: {
 		learnset: {
+			tidaldragoon: ["9M"],
 			dragonclaw: ["9M"],
 			toxic: ["9M"],
 			hiddenpower: ["9M"],
@@ -8298,6 +8300,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	shyleon: {
 		learnset: {
+			feralclutch: ["9M"],
 			calmmind: ["9M"],
 			roar: ["9M"],
 			toxic: ["9M"],
@@ -9514,6 +9517,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	trishout: {
 		learnset: {
+			primalscream: ["9M"],
 			roar: ["9M"],
 			toxic: ["9M"],
 			hiddenpower: ["9M"],
