@@ -874,9 +874,10 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	bremandvocalist: {
+	bremand: {
 		num: 752,
-		name: "Bremand-Vocalist",
+		name: "Bremand",
+		baseForme: "Vocalist",
 		types: ["Ghost", "Sound"],
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
 		abilities: {0: "Mold Breaker"},
@@ -888,9 +889,11 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	bremandguitarrist: {
+	bremandguitarist: {
 		num: 752,
-		name: "Bremand-Guitarrist",
+		name: "Bremand-Guitarist",
+		baseSpecies: "Bremand",
+		forme: "Guitarist",
 		types: ["Electric", "Sound"],
 		baseStats: {hp: 60, atk: 60, def: 80, spa: 100, spd: 100, spe: 80},
 		abilities: {0: "Mold Breaker"},
@@ -905,6 +908,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bremanddrummer: {
 		num: 752,
 		name: "Bremand-Drummer",
+		baseSpecies: "Bremand",
+		forme: "Drummer",
 		types: ["Fighting", "Sound"],
 		baseStats: {hp: 100, atk: 100, def: 80, spa: 60, spd: 80, spe: 60},
 		abilities: {0: "Mold Breaker"},
@@ -919,6 +924,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bremandbassist: {
 		num: 752,
 		name: "Bremand-Bassist",
+		baseSpecies: "Bremand",
+		forme: "Bassist",
 		types: ["Dark", "Sound"],
 		baseStats: {hp: 80, atk: 60, def: 100, spa: 80, spd: 60, spe: 100},
 		abilities: {0: "Mold Breaker"},
