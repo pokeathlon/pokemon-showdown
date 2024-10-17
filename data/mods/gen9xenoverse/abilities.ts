@@ -1,7 +1,36 @@
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	// Additions
-	// Dirty Pool when Chimaooze is implemented
-	// Dirty Pool triggers if lvl > 20 and health < 25%
+	dirtypool: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Chimaooze' || pokemon.transformed) return;
+			if (pokemon.level > 20 && pokemon.hp < pokemon.maxhp / 4) {
+				if (pokemon.species.forme !== 'Monster') {
+					pokemon.formeChange('Chimaooze-Monster');
+				}
+			} else {
+				if (pokemon.species.forme === 'Monster') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Chimaooze' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.level > 20 && pokemon.hp < pokemon.maxhp / 4) {
+				if (pokemon.species.forme !== 'Monster') {
+					pokemon.formeChange('Chimaooze-Monster');
+				}
+			} else {
+				if (pokemon.species.forme === 'Monster') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		flags: {},
+		name: "Dirty Pool",
+		shortDesc: "If Chimaooze, switch-in/end of turn it changes to Monster at 1/2 max HP or less.",
+		rating: 4,
+		num: 0,
+	},
 
 	holyguard: {
 		// Add "<Pokemon> senses the opponents strengths!" message on trigger
@@ -116,8 +145,38 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 
-	// Cloud Burst when Rapidash X is implemented
-	// Triggers when health <50%
+	cloudburst: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Rapidash-X' || pokemon.transformed) return;
+			if (pokemon.hp < pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Storm') {
+					pokemon.formeChange('Rapidash-X-Storm');
+				}
+			} else {
+				if (pokemon.species.forme === 'Storm') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Rapidash-X' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp < pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Storm') {
+					pokemon.formeChange('Rapidash-X-Storm');
+				}
+			} else {
+				if (pokemon.species.forme === 'Storm') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		flags: {},
+		name: "Cloud Burst",
+		shortDesc: "If Rapidash-X, switch-in/end of turn it changes to Storm at 1/2 max HP or less.",
+		rating: 4,
+		num: 0,
+	},
 
 	equalize: {
 		onModifyTypePriority: -1,
