@@ -311,7 +311,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Water Stream",
-		shortDesc: "This Pokemon takes 1/2 damage if faster than the opponent.",
+		shortDesc: "This Pokemon takes reduced damage if faster than the opponent.",
 		rating: 2.5,
 		num: 0,
 	},
