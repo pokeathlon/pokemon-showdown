@@ -2,7 +2,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	dirtypool: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Chimaooze' || pokemon.transformed) return;
-			if (pokemon.level > 20 && pokemon.hp < pokemon.maxhp / 4) {
+			if (pokemon.level > 20 && pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.forme !== 'Monster') {
 					pokemon.formeChange('Chimaooze-Monster');
 				}
@@ -15,7 +15,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Chimaooze' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.level > 20 && pokemon.hp < pokemon.maxhp / 4) {
+			if (pokemon.level > 20 && pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.forme !== 'Monster') {
 					pokemon.formeChange('Chimaooze-Monster');
 				}
@@ -74,13 +74,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 0,
 		num: 0,
 	},
-	raptor: {
-		onModifyPriority(priority, pokemon, target) {
-			if (target.hp <= Math.floor(target.maxhp/4)) return priority + 1;
+	raptor: { //Need to make it work for doubles, currently it just doesn't work (on purpose, to avoid a crash)
+		onModifyPriority(priority, source, pokemon, move) {
+			let target = source.getMoveTargets(move, pokemon).targets
+			if (target.length > 1) {
+				console.log("more than 1 target")
+				return;
+			}
+			if (source && target[0].hp) {
+				if (target[0].hp <= Math.floor(target[0].maxhp/4)) return priority + 1;
+			}
 		},
 		flags: {},
 		name: "Raptor",
-		shortDesc: "+1 priority if foe has 1/4 HP or less.",
+		shortDesc: "+1 priority if target has 1/4 HP or less.",
 		rating: 4.5,
 		num: 0,
 	},
@@ -88,7 +95,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Sound') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Synthesizer');
+					this.add('-immune', source, '[from] ability: Synthesizer');
 				}
 				return null;
 			}
@@ -195,7 +202,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		flags: {},
-		name: "equalize",
+		name: "Equalize",
 		shortDesc: "This Pokemon's Normal-type moves become Sound type and have 1.2x power.",
 		rating: 4,
 		num: 0,
@@ -217,7 +224,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		flags: {},
-		name: "scalate",
+		name: "Scalate",
 		shortDesc: "This Pokemon's Normal-type moves become Dragon type and have 1.2x power.",
 		rating: 4,
 		num: 0,
