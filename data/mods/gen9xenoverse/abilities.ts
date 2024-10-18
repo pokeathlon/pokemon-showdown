@@ -289,7 +289,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	creamshield: {
 		onSourceModifyDamage(damage, source, target, move) {
 				this.debug('Cream Shield weaken');
-				var dmgReduction = Math.floor(1-0.7*source.hp/source.maxhp);
+				let targethpRatio = target.hp/target.maxhp;
+				var dmgReduction =  (1 - 0.7*targethpRatio);
 				return this.chainModify(dmgReduction);
 		},
 		flags: {breakable: 1},
@@ -300,9 +301,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	waterstream: { //TEST - not sure if source is source of move or you
 		onSourceModifyDamage(damage, source, target, move) {
-			if (source.speed > target.speed) {
+			if (target.speed > source.speed) {
 				this.debug('Water Stream weaken');
-				var dmgReduction = Math.floor(target.speed/source.speed)
+				var dmgReduction = (source.speed/target.speed)
 				if (dmgReduction > 1) dmgReduction = 1;
 				if (dmgReduction < 0.3) dmgReduction = 0.3;
 				return this.chainModify(dmgReduction);
