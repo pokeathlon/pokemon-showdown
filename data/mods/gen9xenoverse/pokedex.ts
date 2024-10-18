@@ -153,7 +153,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Poison Touch", H: "Oblivious"},
 		cosmeticFormes: ["Salandit-Salabel"],
-		formeOrder: ["Salandit", "Salandit-Salabel"],
 	},
 	salazzle: {
 		inherit: true,
@@ -187,72 +186,58 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	leafeon: {
 		inherit: true,
 		cosmeticFormes: ["Leafeon-Brilliant"],
-		formeOrder: ["Leafeon", "Leafeon-Brilliant"],
 	},
 	glaceon: {
 		inherit: true,
 		cosmeticFormes: ["Glacecon-Shining"],
-		formeOrder: ["Glaceon", "Glaceon-Shining"],
 	},
 	lucario: {
 		inherit: true,
 		cosmeticFormes: ["Lucario-Platinum"],
-		formeOrder: ["Lucario", "Lucario-Platinum"],
 	},
 	treeckolampecko: {
 		inherit: true,
 		cosmeticFormes: ["Treecko-Lampecko"],
-		formeOrder: ["Treecko", "Treecko-Lampecko"],
 	},
 	grovylelampecko: {
 		inherit: true,
 		cosmeticFormes: ["Grovyle-Lampecko"],
-		formeOrder: ["Grovyle", "Grovyle-Lampecko"],
 	},
 	sceptilelampecko: {
 		inherit: true,
 		cosmeticFormes: ["Sceptile-Lampecko"],
-		formeOrder: ["Sceptile", "Sceptile-Lampecko"],
 	},
 	krookodile: {
 		inherit: true,
 		cosmeticFormes: ["Krookodile-Ash"],
-		formeOrder: ["Krookodile", "Krookodile-Ash"],
 	},
 	dittohalloween: {
 		inherit: true,
 		cosmeticFormes: ["Ditto-Halloween"],
-		formeOrder: ["Ditto", "Ditto-Halloween"],
 	},
 	mrmimehalloween: {
 		inherit: true,
 		cosmeticFormes: ["Mr. Mime-Halloween"],
-		formeOrder: ["Mr. Mime", "Mr.Mime-Halloween"],
 	},
 	gengarhalloween: {
 		inherit: true,
 		cosmeticFormes: ["Gengar-Halloween"],
-		formeOrder: ["Gengar", "Gengar-Halloween"],
 	},
 	inkay: {
 		inherit: true,
 		cosmeticFormes: ["Inkay-Mewaii"],
-		formeOrder: ["Inkay", "Inkay-Mewaii"],
 	},
 	linoone: {
 		inherit: true,
 		cosmeticFormes: ["Linoone-Vortail"],
-		formeOrder: ["Linoone", "Linoone-Vortail"],
 	},
 	torracat: {
 		inherit: true,
 		cosmeticFormes: ["Torracat-Ozelash"],
-		formeOrder: ["Torracat", "Torracat-Ozelash"],
 	},
 	xatu: {
 		inherit: true,
 		cosmeticFormes: ["Xatu-Queccha"],
-		formeOrder: ["Xatu", "Xatu-Queccha"],
 	},
 
 	arceus: {
@@ -260,12 +245,12 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		otherFormes: [
 			"Arceus-Bug", "Arceus-Dark", "Arceus-Dragon", "Arceus-Electric", "Arceus-Fairy", "Arceus-Fighting", "Arceus-Fire", "Arceus-Flying", 
 			"Arceus-Ghost", "Arceus-Grass", "Arceus-Ground", "Arceus-Ice", "Arceus-Poison", "Arceus-Psychic", "Arceus-Rock", "Arceus-Steel", "Arceus-Water",
-			"Arceus-Sound"	
+			"Arceus-Sound",
 		],
 		formeOrder: [
 			"Arceus", "Arceus-Fighting", "Arceus-Flying", "Arceus-Poison", "Arceus-Ground", "Arceus-Rock", "Arceus-Bug", "Arceus-Ghost", "Arceus-Steel",
 			"Arceus-Fire", "Arceus-Water", "Arceus-Grass", "Arceus-Electric", "Arceus-Psychic", "Arceus-Ice", "Arceus-Dragon", "Arceus-Dark", "Arceus-Fairy",
-			"Arceus-Sound"
+			"Arceus-Sound",
 		],
 	},
 
@@ -467,8 +452,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 5.0,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
-		otherFormes: ["Shyleon-Astral"],
-		formeOrder: ["Shyleon", "Shyleon-Astral"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -531,8 +514,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 6.5,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
-		otherFormes: ["Trishout-Astral"],
-		formeOrder: ["Trishout", "Trishout-Astral"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -595,8 +576,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 7.0,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
-		otherFormes: ["Shulong-Astral"],
-		formeOrder: ["Shulong", "Shulong-Astral"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -1231,7 +1210,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Field", "Mineral"],
 		cosmeticFormes: ["Koinkoin-Lechonk"],
-		formeOrder: ["Koinkoin", "Koinkoin-Lechonk"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -1369,7 +1347,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
 		cosmeticFormes: ["Gachigachoo-Pawmi"],
-		formeOrder: ["Gachigachoo", "Gachigachoo-Pawmi"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -1386,7 +1363,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Grass", "Fairy"],
 		evos: ["Wystearia"],
 		cosmeticFormes: ["Hystearic-Smoliv"],
-		formeOrder: ["Hystearic", "Hystearic-Smoliv"],
 		tier: "LC",
 		natDexTier: "LC",
 		doublesTier: "LC",
@@ -1403,7 +1379,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Grass", "Fairy"],
 		prevo: "Hystearic",
 		cosmeticFormes: ["Wystearia-Smoliv"],
-		formeOrder: ["Wystearia", "Wystearia-Smoliv"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -1673,7 +1648,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Bug", "Mineral"],
 		prevo: "Vroombug",
 		cosmeticFormes: ["Skravroom-Miraidon", "Skravroom-Koraidon"],
-		formeOrder: ["Skravroom", "Skravroom-Miraidon", "Skravroom-Koraidon"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -1780,6 +1754,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 2.0,
 		color: "Green",
 		eggGroups: ["Amorphous"],
+		cosmeticFormes: ["Tokakle-Red", "Tokakle-Yellow", "Tokakle-Blue", "Tokakle-Purple", "Tokakle-Orange"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -1808,8 +1783,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 0.1,
 		color: "Blue",
 		eggGroups: ["Amorphous", "Water3"],
-		otherFormes: ["Chimaooze-Monster"],
-		formeOrder: ["Chimaooze", "Chimaooze-Monster"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -2387,8 +2360,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["29"],
 		prevo: "Ponyta-X",
 		tags: ["Xenoverse"],
-		otherFormes: ["Rapidash-X-Storm"],
-		formeOrder: ["Rapidash-X", "Rapidash-X-Storm"],
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -6387,11 +6358,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
 		cosmeticFormes: ["Bidoof-Bug", "Bidoof-Dark", "Bidoof-Dragon", "Bidoof-Electric", "Bidoof-Fairy", "Bidoof-Fighting", "Bidoof-Fire", "Bidoof-Flying", "Bidoof-Ghost", "Bidoof-Grass", "Bidoof-Ground", "Bidoof-Ice", "Bidoof-Poison", "Bidoof-Psychic", "Bidoof-Rock", "Bidoof-Steel", "Bidoof-Water"],
-		formeOrder: [
-			"Bidoof", "Bidoof-Fighting", "Bidoof-Flying", "Bidoof-Poison", "Bidoof-Ground", "Bidoof-Rock", "Bidoof-Bug", "Bidoof-Ghost", "Bidoof-Steel",
-			"Bidoof-Fire", "Bidoof-Water", "Bidoof-Grass", "Bidoof-Electric", "Bidoof-Psychic", "Bidoof-Ice", "Bidoof-Dragon", "Bidoof-Dark", "Bidoof-Fairy",
-			"Bidoof-Sound"
-		],
 	},
 
 	//Arceus-Sound
