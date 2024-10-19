@@ -1,4 +1,299 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+	// Modded - most of these need type changed to Sound + bypasssub + sound flags
+	chatter: {
+		inherit: true,
+		type: "Sound",
+	},
+	hypervoice: {
+		inherit: true,
+		type: "Sound",
+	},
+	uproar: {
+		inherit: true,
+		type: "Sound",
+	},
+	relicsong: {
+		inherit: true,
+		type: "Sound",
+	},
+	round: {
+		inherit: true,
+		type: "Sound",
+	},
+	echoedvoice: {
+		inherit: true,
+		type: "Sound",
+	},
+	snore: {
+		inherit: true,
+		type: "Sound",
+	},
+	sonicboom: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
+		type: "Sound",
+	},
+	bellydrum: {
+		inherit: true,
+		flags: {protect: 1, metronome: 1, sound: 1, bypasssub: 1},
+		type: "Sound",
+	},
+	growl: {
+		inherit: true,
+		type: "Sound",
+	},
+	healbell: {
+		inherit: true,
+		type: "Sound",
+	},
+	howl: {
+		inherit: true,
+		flags: {snatch: 1, sound: 1, metronome: 1, bypasssub: 1},
+		type: "Sound",
+	},
+	perishsong: {
+		inherit: true,
+		type: "Sound",
+	},
+	roar: {
+		inherit: true,
+		type: "Sound",
+	},
+	screech: {
+		inherit: true,
+		type: "Sound",
+	},
+	sing: {
+		inherit: true,
+		type: "Sound",
+	},
+	sleeptalk: {
+		inherit: true,
+		type: "Sound",
+	},
+	supersonic: {
+		inherit: true,
+		type: "Sound",
+	},
+	synchronoise: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
+		type: "Sound",
+	},
+	nobleroar: {
+		inherit: true,
+		type: "Sound",
+	},
+	boomburst: {
+		inherit: true,
+		type: "Sound",
+	},
+	confide: {
+		inherit: true,
+		type: "Sound",
+	},
+	minimize: {
+		inherit: true,
+		volatileStatus: 'minimize',
+		condition: {
+			noCopy: true,
+			onRestart: () => null,
+			onSourceModifyDamage(damage, source, target, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'flavortest',
+				];
+				if (boostedMoves.includes(move.id)) {
+					return this.chainModify(2);
+				}
+			},
+			onAccuracy(accuracy, target, source, move) {
+				const boostedMoves = [
+					'stomp', 'steamroller', 'bodyslam', 'flyingpress', 'dragonrush', 'heatcrash', 'heavyslam', 'maliciousmoonsault', 'flavortest,'
+				];
+				if (boostedMoves.includes(move.id)) {
+					return true;
+				}
+				return accuracy;
+			},
+		},
+		boosts: {
+			evasion: 2,
+		},
+	},
+	rapidspin: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'scorchedashes', 'velvetscales'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				const foesideConditions = ['hawthorns'];
+				for (const condition of foesideConditions) {
+					if (pokemon.hp && target.side.removeSideCondition(condition)) {
+						this.add('-sideend', target.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'scorchedashes', 'velvetscales'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				const foesideConditions = ['hawthorns'];
+				for (const condition of foesideConditions) {
+					if (pokemon.hp && target.side.removeSideCondition(condition)) {
+						this.add('-sideend', target.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+	},
+	tidyup: {
+		inherit: true,
+		onHit(pokemon) {
+			let success = false;
+			for (const active of this.getAllActive()) {
+				if (active.removeVolatile('substitute')) success = true;
+			}
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'scorchedashes', 'velvetscales', 'hawthorns'];
+			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
+			for (const side of sides) {
+				for (const sideCondition of removeAll) {
+					if (side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
+						success = true;
+					}
+				}
+			}
+			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
+			return !!this.boost({atk: 1, spe: 1}, pokemon, pokemon, null, false, true) || success;
+		},
+	},
+	mortalspin: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'scorchedashes', 'velvetscales'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				const foesideConditions = ['hawthorns'];
+				for (const condition of foesideConditions) {
+					if (pokemon.hp && target.side.removeSideCondition(condition)) {
+						this.add('-sideend', target.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'scorchedashes', 'velvetscales'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				const foesideConditions = ['hawthorns'];
+				for (const condition of foesideConditions) {
+					if (pokemon.hp && target.side.removeSideCondition(condition)) {
+						this.add('-sideend', target.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+	},
+	defog: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1},
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				'velvetscales', 'scorchedashes', 'hawthorns', 'soundbarrier', 'dragonendurance', 'soundbarrier', 'benevolence'
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'velvetscales', 'scorchedashes', 'hawthorns'
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+	},
+	psychicfangs: {
+		inherit: true,
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('soundbarrier');
+			pokemon.side.removeSideCondition('magicwall');
+			pokemon.side.removeSideCondition('dragonendurance');
+			pokemon.side.removeSideCondition('benevolence');
+		},
+	},
+	brickbreak: {
+		inherit: true,
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('soundbarrier');
+			pokemon.side.removeSideCondition('magicwall');
+			pokemon.side.removeSideCondition('dragonendurance');
+			pokemon.side.removeSideCondition('benevolence');
+		},
+	},
+
 	// Additions
 	babble: { 
 		num: 0, 
@@ -11,21 +306,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0, 
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1}, 
 		target: "normal",
-		desc: "No additional effect.",
-		shortDesc: "No additional effect.",
-	},
-	lacerazionedigitale: { // Digital Tear ?
-		num: 0, 
-		type: "Steel", 
-		accuracy: true, 
-		basePower: 255, 
-		category: "Physical", 
-		name: "Lacerazione Digitale", 
-		pp: 30, 
-		priority: 0, 
-		flags: {contact: 1, protect: 1, mirror: 1},
-		critRatio: 2,
-		target: "normal", 
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
 	},
