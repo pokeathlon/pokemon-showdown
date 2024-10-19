@@ -890,7 +890,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 3049,
 		name: "Tinkashank",
 		types: ["Steel", "Dark"],
-		baseStats: {hp: 70, atk: 105, def: 85, spa: 70, spd: 77, spe: 95},
+		baseStats: {hp: 70, atk: 95, def: 85, spa: 70, spd: 87, spe: 95},
 		abilities: {0: "Mold Breaker", 1: "Sharpness", H: "Guts"},
 		heightm: 1.2,
 		weightkg: 8.4,

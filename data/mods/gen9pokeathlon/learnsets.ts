@@ -2328,7 +2328,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	tinkastab: {
 		learnset: {
-			knockoff: ["9M"],
 			foulplay: ["9M"],
 			assurance: ["9M"],
 			brutalswing: ["9M"],
@@ -2369,7 +2368,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	tinkaslice: {
 		learnset: {
-			knockoff: ["9M"],
 			foulplay: ["9M"],
 			assurance: ["9M"],
 			brutalswing: ["9M"],
@@ -2429,7 +2427,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	tinkashank: {
 		learnset: {
-			knockoff: ["9M"],
 			foulplay: ["9M"],
 			assurance: ["9M"],
 			brutalswing: ["9M"],
@@ -4959,7 +4956,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	harportia: {
 		learnset: {
 			acrobatics: ["9M"],
-			bravebird: ["9M"],
 			dualwingbeat: ["9M"],
 			aerialace: ["9M"],
 			aircutter: ["9M"],
