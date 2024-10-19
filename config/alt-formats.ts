@@ -803,15 +803,27 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
 	{
-		name: "[Gen 9] Xenoverse OU",
+		name: "[Gen 5] Xenoverse OU",
 
-		mod: 'gen9xenoverse',
+		mod: 'gen5xenoverse',
 		ruleset: ['Standard', 'Swagger Clause'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew',
 			'move:batonpass'
+		],
+	},
+	{
+		name: "[Gen 9] Xenoverse NatDex OU",
+
+		mod: 'gen9xenoverse',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
 		],
 	},
 ];
