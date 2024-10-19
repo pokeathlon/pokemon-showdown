@@ -659,6 +659,8 @@ const IFDex: {[k: string]: number} = {
 	"gourgeistsuper": 490,
 	"swirlix": 491,
 	"slurpuff": 492,
+	"scraggy": 493,
+	"scrafty": 494,
 	"lotad": 495,
 	"lombre": 496,
 	"ludicolo": 497

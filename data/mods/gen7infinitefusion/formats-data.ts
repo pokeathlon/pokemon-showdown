@@ -2584,4 +2584,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "RU",
 		doublesTier: "DOU",
 	},
+	scraggy: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	scrafty: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
