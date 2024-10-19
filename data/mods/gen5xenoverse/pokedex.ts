@@ -611,7 +611,7 @@ const XDex: {[k: string]: number} = {
 	"mewtwo": 583,
 };
 
-for (var i of Dex.mod('gen9insurgence').species.all()) {
+for (var i of Dex.mod('gen9xenoverse').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isX = i.id in XDex;
 	Pokedex[i.id].isNonstandard = isX ? null : "Unobtainable";
