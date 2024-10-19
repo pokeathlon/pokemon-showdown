@@ -690,7 +690,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		rated: false,
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
 	{
@@ -702,6 +701,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		rated: false,
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
 	{
