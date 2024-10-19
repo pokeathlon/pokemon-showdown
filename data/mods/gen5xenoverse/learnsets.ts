@@ -7042,6 +7042,16 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			cosmicpower: ["9L55"],
 			recover: ["9L61"],
 			psychoboost: ["9L67"],
+			superpower: ["9L49"],
+			zapcannon: ["9L81"],
+			spikes: ["9L33"],
+			irondefense: ["9L73"],
+			amnesia: ["9L73"],
+			counter: ["9L97"],
+			mirrorcoat: ["9L97"],
+			swirft: ["9L49"],
+			agility: ["9L73"],
+			extremespeed: ["9L97"]
 		},
 	},
 	dewgong: {
