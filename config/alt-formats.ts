@@ -803,9 +803,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
 	{
-		name: "[Gen 5] Xenoverse OU",
+		name: "[Gen 9] Xenoverse OU",
 
-		mod: 'gen5xenoverse',
+		mod: 'gen9xenoverse',
 		ruleset: ['Standard', 'Swagger Clause'],
 		banlist: [
 			'AG', 'Uber',
