@@ -1,5 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
+	...Dex.deepClone(require('../gen9xenoverse/learnsets').Conditions),
 	abomasnow: {
 		learnset: {
 			icepunch: ["9L1"],
