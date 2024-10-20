@@ -746,7 +746,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			fireblast: ["5L43"],
 		},
 	},
-	bremandvocalist: {
+	bremand: {
 		learnset: {
 			roar: ["5M"],
 			toxic: ["5M"],
@@ -8295,7 +8295,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			snore: ["5T"],
 			waterpulse: ["5T"],
 			dragonpledge: ["5T"],
-			starburstshu: ["5T"],
+			starburst: ["5T"],
 			dragonendurance: ["5T", "5L38"],
 			velvetscales: ["5T", "5L48"],
 			acidrain: ["5T", "5L54"],
@@ -8360,7 +8360,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			synthesis: ["5T", "5L40"],
 			worryseed: ["5T", "5L51"],
 			fairypledge: ["5T"],
-			starburstshy: ["5T"],
+			starburst: ["5T"],
 			hawthorns: ["5T"],
 			benevolence: ["5T"],
 			magicwall: ["5T"],
@@ -9588,7 +9588,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			snore: ["5T"],
 			uproar: ["5T", "5L23"],
 			soundimpact: ["5T"],
-			starbursttri: ["5T"],
+			starburst: ["5T"],
 			scorchedashes: ["5T"],
 			cheering: ["5T"],
 			soundbarrier: ["5T"],
