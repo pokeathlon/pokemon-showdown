@@ -766,7 +766,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	astrallance: { 
 		num: 0, 
-		type: "Astral Lance", 
+		type: "Steel", 
 		accuracy: true, 
 		basePower: 80, 
 		category: "Special", 
