@@ -345,9 +345,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	shiftrymega: {
+	shiftrymegax: {
 		num: 275,
-		name: "Shiftry-Mega",
+		name: "Shiftry-Mega-X",
 		baseSpecies: "Shiftry",
 		forme: "Mega",
 		types: ["Flying", "Dark"],
@@ -357,7 +357,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 59.65,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
-		requiredItem: "Shiftryite",
+		requiredItem: "Shiftryitex",
 		tags: ["Xenoverse"],
 		tier: "UU",
 		natDexTier: "RU",
