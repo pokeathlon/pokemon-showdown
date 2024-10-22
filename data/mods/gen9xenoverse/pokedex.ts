@@ -183,6 +183,10 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 60, atk: 62, def: 80, spa: 63, spd: 80, spe: 60},
 	},
+	landorustherian: {
+		inherit: true,
+		baseStats: {hp: 89, atk: 145, def: 90, spa: 105, spd: 80, spe: 71},
+	},
 	leafeon: {
 		inherit: true,
 		cosmeticFormes: ["Leafeon-Brilliant"],
