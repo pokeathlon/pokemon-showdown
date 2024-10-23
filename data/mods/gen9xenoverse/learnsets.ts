@@ -8304,6 +8304,25 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			rest: ["5L37"],
 		},
 	},
+	shulongx: {
+		learnset: {
+		  watergun: ["9L1"],
+		  tackle: ["9L1"],
+		  twister: ["9L6"],
+		  harden: ["9L9"],
+		  bide: ["9L12"],
+		  bubblebeam: ["9L18"],
+		  dragonbreath: ["9L23"],
+		  protect: ["9L28"],
+		  muddywater: ["9L32"],
+		  dragontail: ["9L36"],
+		  recover: ["9L40"],
+		  dragonpulse: ["9L45"],
+		  acidarmor: ["9L51"],
+		  raindance: ["9L56"],
+		  hydropump: ["9L61"],
+		},
+	  },
 	shulong: {
 		learnset: {
 			tidaldragoon: ["5M"],
@@ -8369,6 +8388,24 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			takedown: ["5L41"]
 		},
 	},
+	shyleonx: {
+		learnset: {
+		  absorb: ["9L1"],
+		  pound: ["9L1"],
+		  disarmingvoice: ["9L6"],
+		  camouflage: ["9L13"],
+		  leaftornado: ["9L18"],
+		  magicalleaf: ["9L23"],
+		  agility: ["9L28"],
+		  gigadrain: ["9L32"],
+		  dazzlinggleam: ["9L36"],
+		  synthesis: ["9L40"],
+		  moonblast: ["9L45"],
+		  worryseed: ["9L51"],
+		  futuresight: ["9L56"],
+		  leafstorm: ["9L61"],
+		},
+	  },
 	shyleon: {
 		learnset: {
 			feralclutch: ["5M"],
@@ -9598,6 +9635,25 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			flamethrower: ["5L31"],
 		},
 	},
+	trishoutx: {
+		learnset: {
+		  ember: ["9L1"],
+		  tackle: ["9L1"],
+		  babble: ["9L6"],
+		  howl: ["9L9"],
+		  takedown: ["9L13"],
+		  firefang: ["9L18"],
+		  uproar: ["9L22"],
+		  crunch: ["9L26"],
+		  screech: ["9L28"],
+		  flamethrower: ["9L32"],
+		  hypervoice: ["9L36"],
+		  swagger: ["9L40"],
+		  boomburst: ["9L45"],
+		  inferno: ["9L51"],
+		  flareblitz: ["9L61"],
+		},
+	  },
 	trishout: {
 		learnset: {
 			primalscream: ["5M"],
