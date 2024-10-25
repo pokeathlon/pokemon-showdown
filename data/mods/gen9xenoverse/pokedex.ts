@@ -6545,12 +6545,12 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 20,
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
-		cosmeticFormes: ["Bidoof-Bug", "Bidoof-Dark", "Bidoof-Dragon", "Bidoof-Electric", "Bidoof-Fairy", "Bidoof-Fighting", "Bidoof-Fire", "Bidoof-Flying", "Bidoof-Ghost", "Bidoof-Grass", "Bidoof-Ground", "Bidoof-Ice", "Bidoof-Poison", "Bidoof-Psychic", "Bidoof-Rock", "Bidoof-Steel", "Bidoof-Water"],
+		cosmeticFormes: ["Bidoof-Legend-Bug", "Bidoof-Legend-Dark", "Bidoof-Legend-Dragon", "Bidoof-Legend-Electric", "Bidoof-Legend-Fairy", "Bidoof-Legend-Fighting", "Bidoof-Legend-Fire", "Bidoof-Legend-Flying", "Bidoof-Legend-Ghost", "Bidoof-Legend-Grass", "Bidoof-Legend-Ground", "Bidoof-Legend-Ice", "Bidoof-Legend-Poison", "Bidoof-Legend-Psychic", "Bidoof-Legend-Rock", "Bidoof-Legend-Steel", "Bidoof-Legend-Water"],
 	},
 	
-	bidoofbug: {
+	bidooflegendbug: {
 		num: 493,
-		name: "Bidoof-Bug",
+		name: "Bidoof-Legend-Bug",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Bug",
 		types: ["Bug"],
@@ -6563,9 +6563,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Insect Plate", "Buginium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofdark: {
+	bidooflegenddark: {
 		num: 493,
-		name: "Bidoof-Dark",
+		name: "Bidoof-Legend-Dark",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Dark",
 		types: ["Dark"],
@@ -6578,9 +6578,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Dread Plate", "Darkinium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofdragon: {
+	bidooflegenddragon: {
 		num: 493,
-		name: "Bidoof-Dragon",
+		name: "Bidoof-Legend-Dragon",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Dragon",
 		types: ["Dragon"],
@@ -6593,9 +6593,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Draco Plate", "Dragonium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofelectric: {
+	bidooflegendelectric: {
 		num: 493,
-		name: "Bidoof-Electric",
+		name: "Bidoof-Legend-Electric",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Electric",
 		types: ["Electric"],
@@ -6608,9 +6608,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Zap Plate", "Electrium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidooffairy: {
+	bidooflegendfairy: {
 		num: 493,
-		name: "Bidoof-Fairy",
+		name: "Bidoof-Legend-Fairy",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Fairy",
 		types: ["Fairy"],
@@ -6623,9 +6623,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Pixie Plate", "Fairium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidooffighting: {
+	bidooflegendfighting: {
 		num: 493,
-		name: "Bidoof-Fighting",
+		name: "Bidoof-Legend-Fighting",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Fighting",
 		types: ["Fighting"],
@@ -6638,9 +6638,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Fist Plate", "Fightinium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidooffire: {
+	bidooflegendfire: {
 		num: 493,
-		name: "Bidoof-Fire",
+		name: "Bidoof-Legend-Fire",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Fire",
 		types: ["Fire"],
@@ -6653,9 +6653,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Flame Plate", "Firium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofflying: {
+	bidooflegendflying: {
 		num: 493,
-		name: "Bidoof-Flying",
+		name: "Bidoof-Legend-Flying",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Flying",
 		types: ["Flying"],
@@ -6668,9 +6668,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Sky Plate", "Flynium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofghost: {
+	bidooflegendghost: {
 		num: 493,
-		name: "Bidoof-Ghost",
+		name: "Bidoof-Legend-Ghost",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Ghost",
 		types: ["Ghost"],
@@ -6683,9 +6683,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Spooky Plate", "Ghostium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofgrass: {
+	bidooflegendgrass: {
 		num: 493,
-		name: "Bidoof-Grass",
+		name: "Bidoof-Legend-Grass",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Grass",
 		types: ["Grass"],
@@ -6698,9 +6698,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Meadow Plate", "Grassium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofground: {
+	bidooflegendground: {
 		num: 493,
-		name: "Bidoof-Ground",
+		name: "Bidoof-Legend-Ground",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Ground",
 		types: ["Ground"],
@@ -6713,9 +6713,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Earth Plate", "Groundium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofice: {
+	bidooflegendice: {
 		num: 493,
-		name: "Bidoof-Ice",
+		name: "Bidoof-Legend-Ice",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Ice",
 		types: ["Ice"],
@@ -6728,9 +6728,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Icicle Plate", "Icium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofpoison: {
+	bidooflegendpoison: {
 		num: 493,
-		name: "Bidoof-Poison",
+		name: "Bidoof-Legend-Poison",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Poison",
 		types: ["Poison"],
@@ -6743,9 +6743,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Toxic Plate", "Poisonium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofpsychic: {
+	bidooflegendpsychic: {
 		num: 493,
-		name: "Bidoof-Psychic",
+		name: "Bidoof-Legend-Psychic",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Psychic",
 		types: ["Psychic"],
@@ -6758,9 +6758,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Mind Plate", "Psychium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofrock: {
+	bidooflegendrock: {
 		num: 493,
-		name: "Bidoof-Rock",
+		name: "Bidoof-Legend-Rock",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Rock",
 		types: ["Rock"],
@@ -6773,9 +6773,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Stone Plate", "Rockium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofsteel: {
+	bidooflegendsteel: {
 		num: 493,
-		name: "Bidoof-Steel",
+		name: "Bidoof-Legend-Steel",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Steel",
 		types: ["Steel"],
@@ -6788,9 +6788,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Iron Plate", "Steelium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofwater: {
+	bidooflegendwater: {
 		num: 493,
-		name: "Bidoof-Water",
+		name: "Bidoof-Legend-Water",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Water",
 		types: ["Water"],
@@ -6803,9 +6803,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		requiredItems: ["Splash Plate", "Waterium Z"],
 		changesFrom: "Bidoof-Legend",
 	},
-	bidoofsound: {
+	bidooflegendsound: {
 		num: 493,
-		name: "Bidoof-Sound",
+		name: "Bidoof-Legend-Sound",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Sound",
 		types: ["Sound"],
