@@ -74,7 +74,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 };
 
-for (var i of Dex.species.all()) {
+for (var i of Dex.mod('gen9chaos').species.all()) {
 	if (i.types.includes('Nuclear') && !FormatsData[i.id]) {
 		FormatsData[i.id] = {
 			inherit: true,
