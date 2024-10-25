@@ -6613,6 +6613,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Insect Plate", "Buginium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegenddark: {
 		num: 399,
@@ -6628,6 +6631,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Dread Plate", "Darkinium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegenddragon: {
 		num: 399,
@@ -6643,6 +6649,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Draco Plate", "Dragonium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendelectric: {
 		num: 399,
@@ -6658,6 +6667,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Zap Plate", "Electrium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendfairy: {
 		num: 399,
@@ -6673,6 +6685,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Pixie Plate", "Fairium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendfighting: {
 		num: 399,
@@ -6688,6 +6703,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Fist Plate", "Fightinium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendfire: {
 		num: 399,
@@ -6703,6 +6721,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Flame Plate", "Firium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendflying: {
 		num: 399,
@@ -6718,6 +6739,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Sky Plate", "Flynium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendghost: {
 		num: 399,
@@ -6733,6 +6757,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Spooky Plate", "Ghostium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendgrass: {
 		num: 399,
@@ -6748,6 +6775,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Meadow Plate", "Grassium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendground: {
 		num: 399,
@@ -6763,6 +6793,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Earth Plate", "Groundium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendice: {
 		num: 399,
@@ -6778,6 +6811,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Icicle Plate", "Icium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendpoison: {
 		num: 399,
@@ -6793,6 +6829,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Toxic Plate", "Poisonium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendpsychic: {
 		num: 399,
@@ -6808,6 +6847,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Mind Plate", "Psychium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendrock: {
 		num: 399,
@@ -6823,6 +6865,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Stone Plate", "Rockium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendsteel: {
 		num: 399,
@@ -6838,6 +6883,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Iron Plate", "Steelium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendwater: {
 		num: 399,
@@ -6853,6 +6901,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Splash Plate", "Waterium Z"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bidooflegendsound: {
 		num: 399,
@@ -6868,6 +6919,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		eggGroups: ["Water 1", "Field"],
 		requiredItems: ["Sound Plate"],
 		changesFrom: "Bidoof-Legend",
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 
 	//Arceus-Sound
