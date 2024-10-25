@@ -6551,7 +6551,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofbug: {
 		num: 493,
 		name: "Bidoof-Bug",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Bug",
 		types: ["Bug"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6566,7 +6566,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofdark: {
 		num: 493,
 		name: "Bidoof-Dark",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Dark",
 		types: ["Dark"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6581,7 +6581,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofdragon: {
 		num: 493,
 		name: "Bidoof-Dragon",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Dragon",
 		types: ["Dragon"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6596,7 +6596,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofelectric: {
 		num: 493,
 		name: "Bidoof-Electric",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Electric",
 		types: ["Electric"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6611,7 +6611,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidooffairy: {
 		num: 493,
 		name: "Bidoof-Fairy",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Fairy",
 		types: ["Fairy"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6626,7 +6626,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidooffighting: {
 		num: 493,
 		name: "Bidoof-Fighting",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Fighting",
 		types: ["Fighting"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6641,7 +6641,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidooffire: {
 		num: 493,
 		name: "Bidoof-Fire",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Fire",
 		types: ["Fire"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6656,7 +6656,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofflying: {
 		num: 493,
 		name: "Bidoof-Flying",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Flying",
 		types: ["Flying"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6671,7 +6671,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofghost: {
 		num: 493,
 		name: "Bidoof-Ghost",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Ghost",
 		types: ["Ghost"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6686,7 +6686,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofgrass: {
 		num: 493,
 		name: "Bidoof-Grass",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Grass",
 		types: ["Grass"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6701,7 +6701,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofground: {
 		num: 493,
 		name: "Bidoof-Ground",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Ground",
 		types: ["Ground"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6716,7 +6716,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofice: {
 		num: 493,
 		name: "Bidoof-Ice",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Ice",
 		types: ["Ice"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6731,7 +6731,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofpoison: {
 		num: 493,
 		name: "Bidoof-Poison",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Poison",
 		types: ["Poison"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6746,7 +6746,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofpsychic: {
 		num: 493,
 		name: "Bidoof-Psychic",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Psychic",
 		types: ["Psychic"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6761,7 +6761,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofrock: {
 		num: 493,
 		name: "Bidoof-Rock",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Rock",
 		types: ["Rock"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6776,7 +6776,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofsteel: {
 		num: 493,
 		name: "Bidoof-Steel",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Steel",
 		types: ["Steel"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6791,7 +6791,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofwater: {
 		num: 493,
 		name: "Bidoof-Water",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Water",
 		types: ["Water"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
@@ -6806,7 +6806,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	bidoofsound: {
 		num: 493,
 		name: "Bidoof-Sound",
-		baseSpecies: "Bidoof",
+		baseSpecies: "Bidoof-Legend",
 		forme: "Sound",
 		types: ["Sound"],
 		baseStats: {hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31},
