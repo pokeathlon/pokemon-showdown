@@ -1173,7 +1173,7 @@ export class CommandContext extends MessageContext {
 					const groupName = Config.groups[room.settings.modchat] && Config.groups[room.settings.modchat].name ||
 						room.settings.modchat;
 					throw new Chat.ErrorMessage(
-						this.tr`Because moderated chat is set, you must be of rank ${groupName} or higher to speak in this room.`
+						this.tr`Because moderated chat is set, you must be of rank ${groupName} or higher to speak in this room. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and typing your showdown name in #verify. You don't have to stay in the Discord server afterwards!`
 					);
 				}
 				if (!this.bypassRoomCheck && !(user.id in room.users)) {
