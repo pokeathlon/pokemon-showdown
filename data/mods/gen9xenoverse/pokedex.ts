@@ -6267,6 +6267,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Pichu",
 		evoType: "levelFriendship",
 		eggGroups: ["Field", "Fairy"],
+		tier: "ZU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	pikachufly: {
 		num: 25,
@@ -6280,6 +6283,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Pichu",
 		evoType: "levelFriendship",
 		eggGroups: ["Field", "Fairy"],
+		tier: "ZU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	bulbasaurswap: {
 		num: 1,
@@ -6293,6 +6299,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Ivysaur"],
 		eggGroups: ["Monster", "Grass"],
+		tier: "LC",
+		natDexTier: "LC",
 	},
 	ivysaurswap: {
 		num: 2,
@@ -6308,6 +6316,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		evoLevel: 16,
 		evos: ["Venusaur"],
 		eggGroups: ["Monster", "Grass"],
+		tier: "NFE",
+		natDexTier: "NFE",
 	},
 	venusaurswap: {
 		num: 3,
@@ -6322,6 +6332,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Ivysaur",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
+		tier: "UU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	charmanderswap: {
 		num: 4,
@@ -6335,6 +6348,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Charmeleon"],
 		eggGroups: ["Monster", "Dragon"],
+		tier: "LC",
+		natDexTier: "LC",
 	},
 	charmeleonswap: {
 		num: 5,
@@ -6350,6 +6365,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		evoLevel: 16,
 		evos: ["Charizard"],
 		eggGroups: ["Monster", "Dragon"],
+		tier: "NFE",
+		natDexTier: "NFE",
 	},
 	charizardswap: {
 		num: 6,
@@ -6364,6 +6381,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Charmeleon",
 		evoLevel: 36,
 		eggGroups: ["Monster", "Dragon"],
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	squirtleswap: {
 		num: 7,
@@ -6377,6 +6397,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Wartortle"],
 		eggGroups: ["Monster", "Water 1"],
+		tier: "LC",
+		natDexTier: "LC",
 	},
 	wartortleswap: {
 		num: 8,
@@ -6392,6 +6414,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		evoLevel: 16,
 		evos: ["Blastoise"],
 		eggGroups: ["Monster", "Water 1"],
+		tier: "NFE",
+		natDexTier: "NFE",
 	},
 	blastoiseswap: {
 		num: 9,
@@ -6406,6 +6430,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Wartortle",
 		evoLevel: 36,
 		eggGroups: ["Monster", "Water 1"],
+		tier: "RU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	chikoritaswap: {
 		num: 152,
@@ -6419,6 +6446,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Bayleef"],
 		eggGroups: ["Monster", "Grass"],
+		tier: "LC",
+		natDexTier: "LC",
 	},
 	bayleefswap: {
 		num: 153,
@@ -6434,6 +6463,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		evoLevel: 16,
 		evos: ["Meganium"],
 		eggGroups: ["Monster", "Grass"],
+		tier: "NFE",
+		natDexTier: "NFE",
 	},
 	meganiumswap: {
 		num: 154,
@@ -6448,6 +6479,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Bayleef",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
+		tier: "RU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	cyndaquilswap: {
 		num: 155,
@@ -6461,6 +6495,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Quilava"],
 		eggGroups: ["Field"],
+		tier: "LC",
+		natDexTier: "LC",
 	},
 	quilavaswap: {
 		num: 156,
@@ -6476,6 +6512,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		evoLevel: 14,
 		evos: ["Typhlosion", "Typhlosion-Hisui"],
 		eggGroups: ["Field"],
+		tier: "NFE",
+		natDexTier: "NFE",
 	},
 	typhlosionswap: {
 		num: 157,
@@ -6490,6 +6528,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Quilava",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	totodileswp: {
 		num: 158,
@@ -6503,6 +6544,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Croconaw"],
 		eggGroups: ["Monster", "Water 1"],
+		tier: "LC",
+		natDexTier: "LC",
 	},
 	croconawswap: {
 		num: 159,
@@ -6518,6 +6561,8 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		evoLevel: 18,
 		evos: ["Feraligatr"],
 		eggGroups: ["Monster", "Water 1"],
+		tier: "NFE",
+		natDexTier: "NFE",
 	},
 	feraligatrswap: {
 		num: 160,
@@ -6532,6 +6577,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		prevo: "Croconaw",
 		evoLevel: 30,
 		eggGroups: ["Monster", "Water 1"],
+		tier: "RU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 
 	//Bidoof Legend
@@ -6546,6 +6594,9 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
 		cosmeticFormes: ["Bidoof-Legend-Bug", "Bidoof-Legend-Dark", "Bidoof-Legend-Dragon", "Bidoof-Legend-Electric", "Bidoof-Legend-Fairy", "Bidoof-Legend-Fighting", "Bidoof-Legend-Fire", "Bidoof-Legend-Flying", "Bidoof-Legend-Ghost", "Bidoof-Legend-Grass", "Bidoof-Legend-Ground", "Bidoof-Legend-Ice", "Bidoof-Legend-Poison", "Bidoof-Legend-Psychic", "Bidoof-Legend-Rock", "Bidoof-Legend-Steel", "Bidoof-Legend-Water"],
+		tier: "PU",
+		natDexTier: "RU",
+		doublesTier: "(DOU)",
 	},
 	
 	bidooflegendbug: {
