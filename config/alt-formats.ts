@@ -192,33 +192,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 7] IF Dex Draft",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-		searchShow: false,
-
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
-		],
-		banlist: [
-			'Mega',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',
-		],
-	},
-	{
-		name: "[Gen 9] IF NatDex Draft",
-		searchShow: false,
-
-		mod: 'gen9infinitefusion',
-		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
-			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
-		],
-	},
-	{
 		name: "[Gen 9] IF Custom Game",
 
 		mod: 'gen9infinitefusion',
@@ -461,24 +434,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
 	},
-	{
-		name: "[Gen 9] Ins NatDex Draft",
-		searchShow: false,
-
-		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
-		banlist: ['move:hiddenpower'],
-	},
-	{
-		name: "[Gen 9] Ins NatDex VGC Draft",
-		searchShow: false,
-		mod: 'gen9insurgence',
-		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Best of = 3', `Picked Team Size = 4`],
-		banlist: ['move:hiddenpower', 'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream', 
-				'ability:moody', 'ability:illuminate', 'ability:winterjoy',
-		],
-	},
 
 	{
 		section: "Pokéathlon: Regional Dex",
@@ -576,14 +531,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
 		],
-	},
-	{
-		name: "[Gen 9] PoA National Dex Draft",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Z-Move Clause',],
-		banlist: ['move:hiddenpower'],
 	},
 	{
 		name: "[Gen 9] PoA Dex Triples AG",
@@ -748,20 +695,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
 	},
 	{
-		name: "[Gen 9] Chaos Tera Preview Draft",
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+Pokeathlon']
-	},
-	{
-		name: "[Gen 9] Chaos Draft",
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon', '+item:berserkgene'],
-	},
-	{
 		name: "[Gen 9] Chaos Multi Battle",
 		searchShow: false,
 
@@ -791,5 +724,78 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher'
 		],
+	},
+
+	// Draft Formats
+	{
+		section: "Drafts",
+		column: 5,
+	},
+	{
+		name: "[Gen 7] IF Dex Draft",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Misc', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',
+		],
+	},
+	{
+		name: "[Gen 9] IF NatDex Draft",
+		searchShow: false,
+
+		mod: 'gen9infinitefusion',
+		ruleset: [
+			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', '!Obtainable Misc', 'Species Reveal Clause', '!Nickname Clause',
+		],
+	},
+	{
+		name: "[Gen 9] Ins NatDex Draft",
+		searchShow: false,
+
+		mod: 'gen9insurgence',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
+		banlist: ['move:hiddenpower'],
+	},
+	{
+		name: "[Gen 9] Ins NatDex VGC Draft",
+		searchShow: false,
+		mod: 'gen9insurgence',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Best of = 3', `Picked Team Size = 4`],
+		banlist: ['move:hiddenpower', 'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream', 
+				'ability:moody', 'ability:illuminate', 'ability:winterjoy',
+		],
+	},
+	{
+		name: "[Gen 9] PoA National Dex Draft",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Z-Move Clause',],
+		banlist: ['move:hiddenpower'],
+	},
+	{
+		name: "[Gen 9] Chaos Tera Preview Draft",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+Pokeathlon']
+	},
+	{
+		name: "[Gen 9] Chaos Draft",
+		searchShow: false,
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon', '+item:berserkgene'],
 	},
 ];
