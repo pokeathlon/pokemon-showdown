@@ -19,4 +19,31 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-weather', 'none');
 		},
 	},
+	bidoof: {
+		name: 'Bidoof-Legend',
+		onBeforeSwitchIn(pokemon) {
+			pokemon.setType('Normal');
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.id === 'bidooflegend') {
+				const item = pokemon.getItem();
+				const targetForme = (item?.onPlate ? 'Bidoof-' + item.onPlate : 'Bidoof-Legend');
+				if (pokemon.species.name !== targetForme) {
+					pokemon.formeChange(targetForme);
+				}
+			}
+		},
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8 || !['arceus', 'bidooflegend'].includes(pokemon.baseSpecies.id)) return types;
+			let type: string | undefined = 'Normal';
+			if (pokemon.ability === 'multitype' || pokemon.baseSpecies.id == 'bidooflegend') {
+				type = pokemon.getItem().onPlate;
+				if (!type) {
+					type = 'Normal';
+				}
+			}
+			return [type];
+		},
+	},
 };
