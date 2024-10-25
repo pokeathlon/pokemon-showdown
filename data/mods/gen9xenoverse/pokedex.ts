@@ -6600,7 +6600,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	},
 	
 	bidooflegendbug: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Bug",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Bug",
@@ -6615,7 +6615,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegenddark: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Dark",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Dark",
@@ -6630,7 +6630,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegenddragon: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Dragon",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Dragon",
@@ -6645,7 +6645,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendelectric: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Electric",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Electric",
@@ -6660,7 +6660,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendfairy: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Fairy",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Fairy",
@@ -6675,7 +6675,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendfighting: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Fighting",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Fighting",
@@ -6690,7 +6690,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendfire: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Fire",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Fire",
@@ -6705,7 +6705,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendflying: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Flying",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Flying",
@@ -6720,7 +6720,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendghost: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Ghost",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Ghost",
@@ -6735,7 +6735,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendgrass: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Grass",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Grass",
@@ -6750,7 +6750,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendground: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Ground",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Ground",
@@ -6765,7 +6765,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendice: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Ice",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Ice",
@@ -6780,7 +6780,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendpoison: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Poison",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Poison",
@@ -6795,7 +6795,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendpsychic: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Psychic",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Psychic",
@@ -6810,7 +6810,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendrock: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Rock",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Rock",
@@ -6825,7 +6825,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendsteel: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Steel",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Steel",
@@ -6840,7 +6840,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendwater: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Water",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Water",
@@ -6855,7 +6855,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		changesFrom: "Bidoof-Legend",
 	},
 	bidooflegendsound: {
-		num: 493,
+		num: 399,
 		name: "Bidoof-Legend-Sound",
 		baseSpecies: "Bidoof-Legend",
 		forme: "Sound",
