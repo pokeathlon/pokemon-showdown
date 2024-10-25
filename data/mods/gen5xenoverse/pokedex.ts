@@ -9,7 +9,6 @@ const XDex: {[k: string]: number} = {
 	"zigzagoon": 4,
 	"linoone": 5,
 	"bidoof": 6,
-	"bidooflegend": 6,	
 	"bibarel": 7,
 	"sparkowl": 8,
 	"shawkbird": 9,
