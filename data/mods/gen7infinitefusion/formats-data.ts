@@ -2591,6 +2591,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	scrafty: {
 		inherit: true,
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	minior: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	miniormeteor: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 	},
