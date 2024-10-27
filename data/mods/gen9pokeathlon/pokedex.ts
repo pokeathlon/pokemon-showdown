@@ -1896,7 +1896,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		heightm: 1.5,
 		weightkg: 42.6,
 		gender: "F",
-		prevo: "Scyther-Delta",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Humanlike", "Amorphous"],
 		tier: "OU",
