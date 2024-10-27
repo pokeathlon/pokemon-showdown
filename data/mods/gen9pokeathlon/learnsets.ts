@@ -6436,7 +6436,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			darkpulse: ["9M"],
 			focusblast: ["9M"],
 			gunkshot: ["9M"],
-			sluldgewave: ["9M"],
+			sludgewave: ["9M"],
 			throatchop: ["9M"],
 			takedown: ["9M"],
 			trailblaze: ["9M"],
