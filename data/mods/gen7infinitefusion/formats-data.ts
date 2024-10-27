@@ -2596,12 +2596,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	minior: {
 		inherit: true,
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "RU",
+		doublesTier: "DUU",
 	},
 	miniormeteor: {
 		inherit: true,
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "RU",
+		doublesTier: "DUU",
 	},
 };

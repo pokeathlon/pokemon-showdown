@@ -1887,6 +1887,22 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	miasmiss: {
+		num: 3082,
+		name: "Miasmiss",
+		types: ["Fighting", "Poison"],
+		baseStats: {hp: 74, atk: 96, def: 92, spa: 118, spd: 52, spe: 108},
+		abilities: {0: "Neutralizing Gas", 1: "Queenly Majesty", H: "Aftermath"},
+		heightm: 1.5,
+		weightkg: 42.6,
+		gender: "F",
+		prevo: "Scyther-Delta",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Humanlike", "Amorphous"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 // Regional Dex Data
@@ -2067,6 +2083,7 @@ const PoADex: {[k: string]: number} = {
 	"trickin": 6079,
 	"treatern": 6080,
 	"kleavordelta": 6081,
+	"miasmiss": 6082,
 };
 
 for (var i of Dex.species.all()) {
