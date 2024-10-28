@@ -2263,7 +2263,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	},
 	electabuzzx: {
 		num: 821,
-		name: "Electabuzz",
+		name: "Electabuzz-X",
 		types: ["Fire"],
 		baseStats: {hp: 65, atk: 83, def: 57, spa: 95, spd: 85, spe: 105},
 		abilities: {0: "Aftermath", H: "Vital Spirit"},
