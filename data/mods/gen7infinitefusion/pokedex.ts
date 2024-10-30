@@ -659,9 +659,13 @@ const IFDex: {[k: string]: number} = {
 	"gourgeistsuper": 490,
 	"swirlix": 491,
 	"slurpuff": 492,
+	"scraggy": 493,
+	"scrafty": 494,
 	"lotad": 495,
 	"lombre": 496,
-	"ludicolo": 497
+	"ludicolo": 497,
+	"miniormeteor": 498,
+	"minior": 499
 };
 
 for (var i of Dex.mod('gen9infinitefusion').species.all()) {

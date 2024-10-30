@@ -2581,7 +2581,27 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ludicolo: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 		doublesTier: "DOU",
+	},
+	scraggy: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
+	},
+	scrafty: {
+		inherit: true,
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	minior: {
+		inherit: true,
+		tier: "RU",
+		doublesTier: "DUU",
+	},
+	miniormeteor: {
+		inherit: true,
+		tier: "RU",
+		doublesTier: "DUU",
 	},
 };
