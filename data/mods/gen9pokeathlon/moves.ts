@@ -1202,7 +1202,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Flame Axe",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1},
 		volatileStatus: 'molten',
 		condition: {
 			duration: 2,
@@ -1218,6 +1218,49 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Fire",
 		desc: "Changes foe's Rock-type moves to Fire-type moves for 2 turns.",
 		shortDesc: "Changes foe's Rock-type moves to Fire-type for 2 turns.",
+	},
+	shroudedblows: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Shrouded Blows",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1},
+		volatileStatus: 'taunt',
+		condition: {
+			duration: 2,
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectState.duration++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		desc: "Taunts foe for 2 turns.",
+		shortDesc: "Taunts foe for 2 turns.",
 	},
 };
 
