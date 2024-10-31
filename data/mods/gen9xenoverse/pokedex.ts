@@ -6532,7 +6532,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "RU",
 		doublesTier: "(DOU)",
 	},
-	totodileswp: {
+	totodileswap: {
 		num: 158,
 		name: "Totodile-Swap",
 		types: ["Fire"],
