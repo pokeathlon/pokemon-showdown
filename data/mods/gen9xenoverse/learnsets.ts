@@ -1,3 +1,4 @@
+const {Dex} = require("../../../sim/dex");
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	abravintage: {learnset: {teleport: ["5L1"]}},
 	aegislashx: {
@@ -243,28 +244,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			boomburst: ["5L50"],
 		},
 	},
-	barbaracleold: {
-		learnset: {
-			stoneedge: ["5L1", "5L60"],
-			skullbash: ["5L1", "5L65"],
-			shellsmash: ["5L1"],
-			scratch: ["5L1"],
-			sandattack: ["5L1"],
-			watergun: ["5L4"],
-			withdraw: ["5L7"],
-			furyswipes: ["5L10"],
-			slash: ["5L13"],
-			mudslap: ["5L18"],
-			clamp: ["5L20"],
-			rockpolish: ["5L24"],
-			ancientpower: ["5L28"],
-			honeclaws: ["5L32"],
-			furycutter: ["5L37"],
-			nightslash: ["5L44"],
-			razorshell: ["5L48"],
-			crosschop: ["5L55"],
-		},
-	},
 	batnana: {
 		learnset: {
 			toxic: ["5M"],
@@ -439,30 +418,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			worryseed: ["5E"],
 		},
 	},
-	binacleold: {
-		learnset: {
-			shellsmash: ["5L1"],
-			scratch: ["5L1"],
-			sandattack: ["5L1"],
-			watergun: ["5L4"],
-			withdraw: ["5L7"],
-			furyswipes: ["5L10"],
-			slash: ["5L13"],
-			mudslap: ["5L18"],
-			clamp: ["5L20"],
-			rockpolish: ["5L24"],
-			ancientpower: ["5L28"],
-			honeclaws: ["5L32"],
-			furycutter: ["5L37"],
-			nightslash: ["5L41"],
-			razorshell: ["5L45"],
-			crosschop: ["5L49"],
-			helpinghand: ["5E"],
-			switcheroo: ["5E"],
-			tickle: ["5E"],
-			watersport: ["5E"],
-		},
-	},
 	birigiri: {
 		learnset: {
 			toxic: ["5M"],
@@ -591,25 +546,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			snore: ["5T"],
 			spite: ["5T"],
 			stealthrock: ["5T"],
-		},
-	},
-	blastoisesilvia: {
-		learnset: {
-			flashcannon: ["5L1"],
-			tackle: ["5L1"],
-			tailwhip: ["5L1", "5L4"],
-			bubble: ["5L1", "5L7"],
-			withdraw: ["5L1", "5L10"],
-			watergun: ["5L13"],
-			bite: ["5L16"],
-			rapidspin: ["5L20"],
-			protect: ["5L24"],
-			waterpulse: ["5L28"],
-			aquatail: ["5L32"],
-			skullbash: ["5L39"],
-			irondefense: ["5L46"],
-			raindance: ["5L53"],
-			hydropump: ["5L60"],
 		},
 	},
 	blastoisevintage: {
@@ -821,7 +757,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			luckychant: ["5E"],
 		},
 	},
-	bremandguitarrist: {
+	bremandguitarist: {
 		learnset: {
 			roar: ["5M"],
 			toxic: ["5M"],
@@ -1734,31 +1670,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			fissure: ["5L49"],
 		},
 	},
-	displacementx: {
-		learnset: {
-			firekunai: ["5L1", "5L75"],
-			nightdaze: ["5L1"],
-			haze: ["5L1", "5L56"],
-			nightslash: ["5L1", "5L70"],
-			roleplay: ["5L1"],
-			darkpulse: ["5L1"],
-			pound: ["5L1"],
-			focusenergy: ["5L1"],
-			firespin: ["5L5"],
-			quickattack: ["5L8"],
-			lick: ["5L10"],
-			shadowball: ["5L14"],
-			smokescreen: ["5L20"],
-			shadowsneak: ["5L23"],
-			spikes: ["5L23"],
-			feintattack: ["5L33"],
-			blazekick: ["5L36"],
-			substitute: ["5L43"],
-			extrasensory: ["5L49"],
-			doubleteam: ["5L52"],
-			fireblast: ["5L60"],
-		},
-	},
 	dittovintage: {learnset: {transform: ["5L1"]}},
 	dittox: {learnset: {xtransform: ["5L1"]}},
 	donanas: {
@@ -1898,38 +1809,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			iciclecrash: ["5L63"],
 			fissure: ["5L75"],
 			outrage: ["5L82"],
-		},
-	},
-	dragaliskfuria: {
-		learnset: {
-			hail: ["5M"],
-			hiddenpower: ["5M"],
-			icebeam: ["5M", "5L63"],
-			blizzard: ["5M"],
-			protect: ["5M"],
-			smackdown: ["5M"],
-			thunderbolt: ["5M"],
-			psychic: ["5M"],
-			shadowball: ["5M"],
-			leechlife: ["5M"],
-			sludgebomb: ["5M"],
-			sandstorm: ["5M"],
-			stoneedge: ["5M"],
-			rockslide: ["5M"],
-			substitute: ["5M"],
-			dragonpulse: ["5T"],
-			voidstar: ["5L1", "5L70"],
-			haze: ["5L1"],
-			freezedry: ["5L14"],
-			nastyplot: ["5L20"],
-			iciclecrash: ["5L27"],
-			bulldoze: ["5L35"],
-			earthquake: ["5L42"],
-			glaciate: ["5L48"],
-			earthpower: ["5L55"],
-			fissure: ["5L75"],
-			outrage: ["5L82"],
-			hyperbeam: ["5L88"],
 		},
 	},
 	dragonairvintage: {
@@ -2672,7 +2551,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			eruption: ["5E"],
 		},
 	},
-	bullervin: {
+	bullverin: {
 		learnset: {
 			toxic: ["5M"],
 			hiddenpower: ["5M"],
@@ -3070,26 +2949,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			quickattack: ["5E"],
 			rapidspin: ["5E"],
 			splash: ["5E"],
-		},
-	},
-	gigaslurpuffx: {
-		learnset: {
-			sweetscent: ["5L1"],
-			tackle: ["5L1"],
-			fairywind: ["5L5"],
-			playnice: ["5L8"],
-			faketears: ["5L10"],
-			round: ["5L13"],
-			cottonspore: ["5L17"],
-			endeavor: ["5L21"],
-			aromatherapy: ["5L26"],
-			drainingkiss: ["5L31"],
-			energyball: ["5L36"],
-			cottonguard: ["5L41"],
-			wish: ["5L45"],
-			playrough: ["5L49"],
-			lightscreen: ["5L58"],
-			safeguard: ["5L67"],
 		},
 	},
 	girafarigvintage: {
@@ -6459,7 +6318,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			outrage: ["5E"],
 		},
 	},
-	persianeldiw: {
+	persage: {
 		learnset: {
 			honeclaws: ["5M"],
 			psyshock: ["5M"],
@@ -6643,7 +6502,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			boomburst: ["5L44"],
 		},
 	},
-	pikachuxfemale: {
+	pikachufx: {
 		learnset: {
 			quickattack: ["5L1"],
 			tailwhip: ["5L1"],
@@ -7338,7 +7197,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			speedswap: ["5L72"],
 		},
 	},
-	reindar: {
+	reindear: {
 		learnset: {
 			toxic: ["5M"],
 			hail: ["5M"],
@@ -10071,23 +9930,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thrash: ["5L59"],
 		},
 	},
-	vakum: {
-		learnset: {
-			dragonbreath: ["5L1"],
-			scaryface: ["5L1"],
-			ominouswind: ["5L6"],
-			ancientpower: ["5L10"],
-			slash: ["5L15"],
-			shadowsneak: ["5L19"],
-			destinybond: ["5L24"],
-			dragonclaw: ["5L28"],
-			earthpower: ["5L33"],
-			aurasphere: ["5L37"],
-			shadowclaw: ["5L42"],
-			shadowforce: ["5L46"],
-			hex: ["5L50"],
-		},
-	},
 	vaporeonvintage: {
 		learnset: {
 			tackle: ["5L1"],
@@ -10165,25 +10007,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			growth: ["5L41"],
 			synthesis: ["5L53"],
 			solarbeam: ["5L65"],
-		},
-	},
-	versildragalisk: {
-		learnset: {
-			voidstar: ["5L1", "5L70"],
-			scaryface: ["5L1"],
-			haze: ["5L1"],
-			bulldoze: ["5L7"],
-			glaciate: ["5L14"],
-			darkpulse: ["5L20"],
-			freezedry: ["5L27"],
-			icebeam: ["5L35"],
-			earthquake: ["5L42"],
-			nastyplot: ["5L48"],
-			earthpower: ["5L55"],
-			iciclecrash: ["5L63"],
-			fissure: ["5L75"],
-			outrage: ["5L82"],
-			hyperbeam: ["5L88"],
 		},
 	},
 	victreebellvintage: {
@@ -10302,7 +10125,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thrash: ["5L60"],
 		},
 	},
-	weedlestarkey: {learnset: {poisonsting: ["5L1"], stringshot: ["5L1"]}},
+	weedlebeta: {learnset: {poisonsting: ["5L1"], stringshot: ["5L1"]}},
 	weedlevintage: {learnset: {poisonsting: ["5L1"], stringshot: ["5L1"]}},
 	weepinbellvintage: {
 		learnset: {
@@ -10674,7 +10497,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			watersport: ["5M"],
 		},
 	},
-	pikachusurf: {
+	pikachusurfing: {
 		learnset: {
 			charm: ["5L1"],
 			growl: ["5L1"],
@@ -10698,7 +10521,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunder: ["5L44"],
 		},
 	},
-	pikachufly: {
+	pikachuflying: {
 		learnset: {
 			charm: ["5L1"],
 			growl: ["5L1"],

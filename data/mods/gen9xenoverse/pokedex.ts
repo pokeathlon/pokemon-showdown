@@ -9,10 +9,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Poison", "Sound"],
 	},
-	clefairy: {
-		inherit: true,
-		abilities: {0: "Cute Charm", 1: "Magic Guard", H: "Friend Guard"},
-	},
 	jigglypuff: {
 		inherit: true,
 		types: ["Sound", "Fairy"],
@@ -29,10 +25,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Psychic", "Sound"],
 	},
-	pinsir: {
-		inherit: true,
-		baseStats: {hp: 65, atk: 125, def: 100, spa: 70, spd: 85, spe: 55},
-	},
 	igglybuff: {
 		inherit: true,
 		types: ["Sound", "Fairy"],
@@ -48,10 +40,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	exploud: {
 		inherit: true,
 		types: ["Sound"],
-	},
-	chimecho: {
-		inherit: true,
-		types: ["Psychic", "Sound"],
 	},
 	regirock: {
 		inherit: true,
@@ -85,14 +73,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Normal", "Sound"],
 	},
-	zoroark: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 105, def: 60, spa: 60, spd: 105, spe: 120},
-	},
-	gothita: {
-		inherit: true,
-		abilities: {0: "Frisk", H: "Shadow Tag"},
-	},
 	alomomola: {
 		inherit: true,
 		abilities: {0: "Hydration", 1: "Healer", H: "Regenerator"},
@@ -112,14 +92,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	slurpuff: {
 		inherit: true,
 		abilities: {0: "Sweet Veil", 1: "Unaware", H: "Unburden"},
-	},
-	pumpkaboo: {
-		inherit: true,
-		baseStats: {hp: 59, atk: 66, def: 70, spa: 44, spd: 55, spe: 51},
-	},
-	gourgeist: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 100, def: 122, spa: 58, spd: 75, spe: 54},
 	},
 	noibat: {
 		inherit: true,
@@ -242,20 +214,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 	xatu: {
 		inherit: true,
 		cosmeticFormes: ["Xatu-Queccha"],
-	},
-
-	arceus: {
-		inherit: true,
-		otherFormes: [
-			"Arceus-Bug", "Arceus-Dark", "Arceus-Dragon", "Arceus-Electric", "Arceus-Fairy", "Arceus-Fighting", "Arceus-Fire", "Arceus-Flying", 
-			"Arceus-Ghost", "Arceus-Grass", "Arceus-Ground", "Arceus-Ice", "Arceus-Poison", "Arceus-Psychic", "Arceus-Rock", "Arceus-Steel", "Arceus-Water",
-			"Arceus-Sound",
-		],
-		formeOrder: [
-			"Arceus", "Arceus-Fighting", "Arceus-Flying", "Arceus-Poison", "Arceus-Ground", "Arceus-Rock", "Arceus-Bug", "Arceus-Ghost", "Arceus-Steel",
-			"Arceus-Fire", "Arceus-Water", "Arceus-Grass", "Arceus-Electric", "Arceus-Psychic", "Arceus-Ice", "Arceus-Dragon", "Arceus-Dark", "Arceus-Fairy",
-			"Arceus-Sound",
-		],
 	},
 
 	// Additions
@@ -1716,7 +1674,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
-	reindar: {
+	reindear: {
 		num: 788,
 		name: "Reindear",
 		types: ["Fairy"],
@@ -2121,7 +2079,7 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		natDexTier: "LC",
 		doublesTier: "LC",
 	},
-	bullervin: {
+	bullverin: {
 		num: 812,
 		name: "Bullverin",
 		types: ["Fire"],
@@ -2565,7 +2523,6 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 90.0,
 		color: "White",
 		eggGroups: ["29"],
-		prevo: "Ponyta-X",
 		requiredAbility: "Cloud Burst",
 		battleOnly: "Rapidash-X",
 		tags: ["Xenoverse"],
@@ -6925,23 +6882,5 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		tier: "PU",
 		natDexTier: "RU",
 		doublesTier: "(DOU)",
-	},
-
-	//Arceus-Sound
-	arceussound: {
-		num: 493,
-		name: "Arceus-Sound",
-		baseSpecies: "Arceus",
-		forme: "Sound",
-		types: ["Sound"],
-		gender: "N",
-		baseStats: {hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120},
-		abilities: {0: "Multitype"},
-		heightm: 3.2,
-		weightkg: 320,
-		color: "Black",
-		eggGroups: ["Undiscovered"],
-		requiredItems: ["Sound Plate"],
-		changesFrom: "Arceus",
 	},
 };

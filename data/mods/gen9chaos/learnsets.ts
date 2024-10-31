@@ -1,7 +1,4 @@
-const {flattenLearnset} = require('../gen9pokeathlon/learnsets');
 const baseLearnsets = require('../../learnsets').Learnsets;
-const insgLearnsets = require('../gen9insurgence/learnsets').Learnsets;
-const uLearnsets = require('../gen9uranium/learnsets').Learnsets;
 
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// POA mixed with other fangames...
