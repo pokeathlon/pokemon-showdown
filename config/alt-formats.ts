@@ -298,6 +298,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 5] Xenoverse OU",
+
+		mod: 'gen5xenoverse',
+		ruleset: ['Standard', 'Swagger Clause'],
+		banlist: [
+			'AG', 'Uber',
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew',
+			'move:batonpass',
+		],
+	},
+	{
 		name: "[Gen 6] Insurgence AG",
 		searchShow: false,
 
@@ -309,6 +321,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen6uranium',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 5] Xenoverse AG",
+		searchShow: false,
+
+		mod: 'gen5xenoverse',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 
@@ -341,6 +360,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Xenoverse NatDex OU",
+
+		mod: 'gen9xenoverse',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
 		name: "[Gen 9] Insurgence NatDex AG",
 		searchShow: false,
 
@@ -352,6 +383,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9uranium',
+		ruleset: ['Standard NatDex'],
+	},
+	{
+		name: "[Gen 9] Xenoverse NatDex AG",
+		searchShow: false,
+
+		mod: 'gen9xenoverse',
 		ruleset: ['Standard NatDex'],
 	},
 
@@ -376,6 +414,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
+		name: "[Gen 5] Xeno Dex Doubles AG",
+		searchShow: false,
+
+		mod: 'gen5xenoverse',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
 		name: "[Gen 9] Ins NatDex Doubles AG",
 		searchShow: false,
 
@@ -388,6 +434,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9uranium',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex'],
+	},
+	{
+		name: "[Gen 9] Xeno NatDex Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9xenoverse',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex'],
 	},
@@ -415,6 +469,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex'],
 	},
 	{
+		name: "[Gen 9] Xeno Free-For-All",
+
+		mod: 'gen9uranium',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: ['Standard NatDex'],
+	},
+	{
 		name: "[Gen 9] Ins Custom Game",
 
 		mod: 'gen9insurgence',
@@ -428,6 +490,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Uranium Custom Game",
 
 		mod: 'gen9uranium',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
+	},
+	{
+		name: "[Gen 9] Xeno Custom Game",
+
+		mod: 'gen9xenoverse',
 		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
