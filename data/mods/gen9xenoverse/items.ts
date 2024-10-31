@@ -84,8 +84,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	shiftryitex: { //-X denominates it's the Xenoverse one
-		name: "Shiftryite-X",
+	shiftryitex: {
+		name: "Shiftryite X",
 		desc: "If held by a Luxray, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
 		megaStone: "Shiftry-Mega-X",

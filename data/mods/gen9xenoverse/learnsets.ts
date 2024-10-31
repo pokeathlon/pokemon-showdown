@@ -119,7 +119,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunder: ["5L57"],
 		},
 	},
-	anchoragevintage: {
+	anchorage: {
 		learnset: {
 			tackle: ["5L1"],
 			tailwhip: ["5L1"],
@@ -764,7 +764,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			doubleedge: ["5L57"],
 		},
 	},
-	bomseakervintage: {
+	bomseaker: {
 		learnset: {
 			tackle: ["5L1"],
 			tailwhip: ["5L1"],
@@ -2267,7 +2267,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			screech: ["5L42"],
 		},
 	},
-	electygervintage: {
+	electiger: {
 		learnset: {
 			growl: ["5L1"],
 			thundershock: ["5L1"],
@@ -3270,7 +3270,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			heatcrash: ["5L60"],
 		},
 	},
-	gorochuvintage: {
+	gorochu: {
 		learnset: {
 			thunderhammer: ["5L1"],
 			thundershock: ["5L1"],
@@ -3380,7 +3380,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			sludgebomb: ["5L50"],
 		},
 	},
-	grotessvintage: {
+	grotess: {
 		learnset: {
 			tackle: ["5L1"],
 			tailwhip: ["5L1"],
@@ -4219,7 +4219,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			reflect: ["5L45"],
 		},
 	},
-	kakunastarkey: {learnset: {harden: ["5L7"]}},
+	kakunabeta: {learnset: {harden: ["5L7"]}},
 	kakunavintage: {learnset: {harden: ["5L7"]}},
 	kangaskhanvintage: {
 		learnset: {
@@ -4253,7 +4253,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			uproar: ["5E"],
 		},
 	},
-	kasangyvintage: {
+	kasanagy: {
 		learnset: {
 			furyattack: ["5L1", "5L10"],
 			focusenergy: ["5L15"],
@@ -5706,7 +5706,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			solarbeam: ["5L61"],
 		},
 	},
-	meowsyvintage: {
+	meowsy: {
 		learnset: {
 			scratch: ["5L1"],
 			growl: ["5L1"],
@@ -6338,7 +6338,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			sweetscent: ["5E"],
 		},
 	},
-	paravintage: {
+	para: {
 		learnset: {
 			scratch: ["5L1"],
 			stunspore: ["5L6"],
@@ -9193,7 +9193,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			stealthrock: ["5E"],
 		},
 	},
-	sunmolavintage: {
+	sunmola: {
 		learnset: {
 			tackle: ["5L1"],
 			tailwhip: ["5L1"],
@@ -9543,7 +9543,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thrash: ["5L50"],
 		},
 	},
-	tigrettevintage: {
+	tigrette: {
 		learnset: {
 			growl: ["5L1"],
 			thundershock: ["5L1"],
@@ -10289,7 +10289,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			hydropump: ["5L53"],
 		},
 	},
-	warwolfvintage: {
+	warwolf: {
 		learnset: {
 			tackle: ["5L1"],
 			growl: ["5L1"],
@@ -10405,7 +10405,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			doubleslap: ["5L1"],
 		},
 	},
-	wolfmanvintage: {
+	wolfman: {
 		learnset: {
 			tackle: ["5L1"],
 			growl: ["5L1"],
