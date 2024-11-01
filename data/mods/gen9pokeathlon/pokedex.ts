@@ -1,7 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-// Vanilla modifications
-	// Eviolite
+	// Modded
 	starmie: {
 		inherit: true,
 		evoLevel: 45,
@@ -66,7 +65,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
-	// Other changes
 	magmortar: {
 		inherit: true,
 		abilities: {0: "Flame Body", 1:"Cannoneer", H: "Vital Spirit"},
@@ -95,7 +93,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Psycho Slider", H: "Sharpness"},
 	},
-	// Resubmissions
+
+	// Resubs
 	soulply: {
 		num: 3001,
 		name: "Soulply",
@@ -1900,6 +1899,23 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Humanlike", "Amorphous"],
 		tier: "OU",
 		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
+	guarig: {
+		num: 3083,
+		name: "Guarig",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 80, atk: 115, def: 130, spa: 35, spd: 85, spe: 30},
+		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Aqua Guard"},
+		heightm: 1.2,
+		weightkg: 121,
+		color: "Red",
+		tags: ["Pokeathlon"],
+		prevo: "Krabby",
+		evoLevel: 28,
+		eggGroups: ["Water 3"],
+		tier: "OU",
+		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
 };
@@ -2083,6 +2099,7 @@ const PoADex: {[k: string]: number} = {
 	"treatern": 3080,
 	"kleavordelta": 3081,
 	"miasmiss": 3082,
+	"guarig": 3083,
 };
 
 for (var i of Dex.species.all()) {

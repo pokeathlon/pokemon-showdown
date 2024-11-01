@@ -572,24 +572,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 0,
 	},
-	etherealshroud: {
-		onTryHit(target, source, move) {
-			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
-				return null;
-			}
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Bug' || move.type === 'Poison') {
-				this.debug('Ethereal Shroud weaken');
-				return this.chainModify(0.5);
-			}
-		},
-		flags: {breakable: 1},
-		name: "Ethereal Shroud",
-		shortDesc: "Grants the user Ghost-type immunities and resistances.",
-		rating: 3,
-		num: 0,
-	},
 	burstingspores: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -683,38 +665,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
-	phototroph: {
-		onResidual(target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
-				this.heal(target.baseMaxhp / 8);
-			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())){
-				return;
-			} else {
-				this.heal(target.baseMaxhp / 16);
+	aquaguard: {
+		onFoeBeforeMove(source, target, move) {
+			if (source !== target && move.category !== "Status") {
+				source.addVolatile('gastroacid');
 			}
+		},
+		onFoeAfterMove(source, target, move) {
+			source.removeVolatile('gastroacid');
+			this.add('-ability', source, source.getAbility(), '[silent]');
 		},
 		flags: {},
-		name: "Phototroph",
-		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
-		rating: 1.5,
-		num: 0,
-	},
-	mountaineer: {
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock') {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && !target.activeTurns) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				return null;
-			}
-		},
-		flags: {breakable: 1},
-		name: "Mountaineer",
-		shortDesc: "On switch-in, this Pokemon avoids all Rock-type attacks and Stealth Rock.",
+		name: "Aqua Guard",
+		shortDesc: "Ignores opposing Pokemon's abilities when taking damage.",
 		rating: 3,
 		num: 0,
-	},
+	}
 };
