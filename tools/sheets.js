@@ -13,6 +13,7 @@ ok we actually can't check that an ability is real from here, at least not using
 
 var {google} = require('googleapis');
 var fs = require('fs');
+var {Pokedex} = require('../dist/data/pokedex');
 
 var key = require('../config/config').googleSheetsKey;
 
@@ -43,7 +44,7 @@ function pull(sheetid) {
 	return connection.spreadsheets.values.get({
 		auth: googleAuth,
 		spreadsheetId: sheetid,
-		range: `Pokedex!A3:AE5`,
+		range: `Pokedex!A3:T200`,
 	});
 }
 
@@ -51,19 +52,26 @@ function write(info) {
 	const dexData = info.data.values;
 	out = {};
 	for (var line of dexData) {
-		const baseStats = getStats(line, 1);
-		const abilities = getAbilities(line, 7);
-		const types = getTypes(line, 10);
-		const gender = getGender(line[20]);
+		const baseStats = getStats(line, 3);
+		const abilities = getAbilities(line, 9);
+		const types = getTypes(line, 1);
+		const gender = getGender(line[15]);
+		const evoInfo = resolveEvos(line, dexData);
 		if (baseStats && abilities && types) {
 			out[toID(line[0])] = {
 				name: line[0],
 				types: types,
 				abilities: abilities,
 				baseStats: baseStats,
+				weightkg: parseFloat(line[12]),
+				heightm: parseFloat(line[13]),
 			}
 			if (gender) {
 				out[toID(line[0])].gender = gender;
+			} if (line[14]) {
+				out[toID(line[0])].prevo = line[14];
+			} if (evoInfo.length) {
+				out[toID(line[0])].evos = evoInfo;
 			}
 		}
 	}
@@ -107,17 +115,27 @@ function getAbilities(info, start) {
 		abilities[1] = info[start + 1];
 	}
 	if (info[start + 2]) {
-		abilities[H] = info[start + 2];
+		abilities.H = info[start + 2];
 	}
 	return abilities;
 }
 
 function getGender(text) {
-	if (['N', 'M', 'F'].includes(text.trim().toUpperCase())) {
+	if (text && ['N', 'M', 'F'].includes(text.trim().toUpperCase())) {
 		return text;
 	} else {
 		return false;
 	}
+}
+
+function resolveEvos(line, dexData) {
+	evoInfo = [];
+	for (info of dexData) {
+		if (info[14] === line[0]) {
+			evoInfo.push(info[0]);
+		}
+	}
+	return evoInfo;
 }
 
 exports.update = update;
