@@ -1918,9 +1918,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
-	tofarig: {
+	tofagrif: {
 		num: 3084,
-		name: "Tofarig",
+		name: "Tofagrif",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 82, atk: 77, def: 56, spa: 53, spd: 115, spe: 92},
 		abilities: {0: "Gooey", 1: "Intimidate", H: "Dry Skin"},
@@ -2130,7 +2130,7 @@ const PoADex: {[k: string]: number} = {
 	"kleavordelta": 3081,
 	"miasmiss": 3082,
 	"guarig": 3083,
-	"tofarig": 3084,
+	"tofagrif": 3084,
 	"crayzigater": 3085
 };
 

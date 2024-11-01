@@ -6682,7 +6682,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			honeclaws: ["9M"],
 			icespinner: ["9M"],
 			wavecrash: ["9M"],
-			accupressure: ["9M"],
+			acupressure: ["9M"],
 			risingvoltage: ["9M"],
 			aquatail: ["9M"],
 			discharge: ["9M"],
