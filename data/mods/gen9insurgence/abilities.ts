@@ -273,12 +273,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	etherealshroud: {
 		onTryHit(target, source, move) {
 			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
+				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return null;
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Bug' || move.type === 'Poison') {
-				this.debug('Ethereal Shroud weaken');
+				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return this.chainModify(0.5);
 			}
 		},
