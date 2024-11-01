@@ -3065,6 +3065,29 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onBegin() {
 			this.add('rule', 'Infinite Fusion Mod: Pok\u00e9mon can fuse with other Pok\u00e9mon!');
 		},
+		onChangeSet(set) {
+			const species = this.dex.species.get(set.species);
+
+			if (species.gender) {
+				if (set.gender !== species.gender) {
+					set.gender = species.gender;
+				}
+			} else {
+				if (set.gender !== 'M' && set.gender !== 'F') {
+					set.gender = '';
+				}
+			}
+
+			if (set.moves) {
+				const hasMove: {[k: string]: true} = {};
+				for (const moveId of set.moves) {
+					const move = this.dex.moves.get(moveId);
+					const moveid = move.id;
+					if (hasMove[moveid]) return [`${species.baseSpecies} has multiple copies of ${move.name}.`];
+					hasMove[moveid] = true;
+				}
+			}
+		},
 		onValidateSet(set) {
 			if (this.format.id.includes("custom")) return;
 			let problems: string[] = [];
