@@ -6616,6 +6616,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			trickortreat: ["9M"],
 			whirlwind: ["9M"],
 			worryseed: ["9M"],
+			delightandflight: ["9M"]
 		}
 	},
 	crayzigater: {
