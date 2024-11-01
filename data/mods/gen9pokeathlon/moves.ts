@@ -1262,6 +1262,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "Taunts foe for 2 turns.",
 		shortDesc: "Taunts foe for 2 turns.",
 	},
+	delightandflight: {
+		num: 0,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Delight and Flight",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
 };
 
 for (var i of Dex.moves.all()) {

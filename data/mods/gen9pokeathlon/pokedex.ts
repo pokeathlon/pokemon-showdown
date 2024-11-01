@@ -1918,6 +1918,36 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	tofarig: {
+		num: 3084,
+		name: "Tofarig",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 82, atk: 77, def: 56, spa: 53, spd: 115, spe: 92},
+		abilities: {0: "Gooey", 1: "Intimidate", H: "Dry Skin"},
+		heightm: 0.9,
+		weightkg: 30,
+		color: "Brown",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
+	crayzigater: {
+		num: 3085,
+		name: "Crayzigater",
+		types: ["Water"],
+		baseStats: {hp: 115, atk: 103, def: 103, spa: 57, spd: 85, spe: 33},
+		abilities: {0: "Immunity", 1: "Own Tempo", H: "Static"},
+		heightm: 2.8,
+		weightkg: 210,
+		color: "Blue",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 // Regional Dex Data
@@ -2100,6 +2130,8 @@ const PoADex: {[k: string]: number} = {
 	"kleavordelta": 3081,
 	"miasmiss": 3082,
 	"guarig": 3083,
+	"tofarig": 3084,
+	"crayzigater": 3085
 };
 
 for (var i of Dex.species.all()) {
