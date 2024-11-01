@@ -6553,12 +6553,10 @@ export const Pokedex: import("../../../sim/dex-species").ModdedSpeciesDataTable 
 		weightkg: 20,
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
-		cosmeticFormes: ["Bidoof-Legend-Bug", "Bidoof-Legend-Dark", "Bidoof-Legend-Dragon", "Bidoof-Legend-Electric", "Bidoof-Legend-Fairy", "Bidoof-Legend-Fighting", "Bidoof-Legend-Fire", "Bidoof-Legend-Flying", "Bidoof-Legend-Ghost", "Bidoof-Legend-Grass", "Bidoof-Legend-Ground", "Bidoof-Legend-Ice", "Bidoof-Legend-Poison", "Bidoof-Legend-Psychic", "Bidoof-Legend-Rock", "Bidoof-Legend-Steel", "Bidoof-Legend-Water"],
 		tier: "PU",
 		natDexTier: "RU",
 		doublesTier: "(DOU)",
 	},
-	
 	bidooflegendbug: {
 		num: 399,
 		name: "Bidoof-Legend-Bug",
