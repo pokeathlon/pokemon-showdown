@@ -6225,6 +6225,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			irondefense: ["9M"],
 			autotomize: ["9M"],
 			bulkup: ["9M"],
+			spikes: ["9M"]
 		}
 	},
 	slowkingrhinian: {
@@ -6258,6 +6259,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			imprison: ["9M"],
 			reflect: ["9M"],
 			lightscreen: ["9M"],
+			spikes: ["9M"]
 		}
 	},
 	trickin: {
