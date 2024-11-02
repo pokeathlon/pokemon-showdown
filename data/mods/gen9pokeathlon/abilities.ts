@@ -675,6 +675,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			source.removeVolatile('gastroacid');
 			this.add('-ability', source, source.getAbility(), '[silent]');
 		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			source.removeVolatile('gastroacid');
+			this.add('-ability', source, source.getAbility(), '[silent]');
+		},
 		flags: {},
 		name: "Aqua Guard",
 		shortDesc: "Ignores opposing Pokemon's abilities when taking damage.",
