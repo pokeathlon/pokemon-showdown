@@ -1,6 +1,7 @@
 /config/*
 !/config/*formats.ts
 !/config/avatars/
+/data/mods/*/remote.json
 /replays/*.html
 /replays/replays.csv
 /logs/**/*

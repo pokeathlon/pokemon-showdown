@@ -453,9 +453,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause', '+Pokeathlon', '- all Pokemon'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band', 'Quick Claw', 'Permafrost', 'Livewire'],
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['Uber', 'AG'],
 	},
 	{
 		name: "[Gen 9] PoA Dex AG",
@@ -469,9 +468,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause', '+Nonexistent'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 
-			'Shed Tail', 'Multishot',  'Acupressure', 'Razor Fang', 'King\'s Rock', 'Focus Band', 'Quick Claw',],
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['OU', 'UUBL', 'Uber', 'AG'],
 	},
 
 	{
@@ -482,12 +480,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA National Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+Nonexistent'],
-		banlist: [
-			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Quick Claw', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail',  'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band',
-		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		banlist: ['ND Uber', 'ND AG'],
 	},
 	{
 		name: "[Gen 9] PoA National Dex AG",
@@ -545,10 +539,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause', 'PoA Same Type Clause', '+Pokeathlon', '- all Pokemon'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Multishot', 'Acupressure', 'Razor Fang', 'King\'s Rock',
-			'Focus Band', 'Quick Claw', 
-			'Berserker Gene', 'Electrode-Mega', 'Florges-Mega', 'Snorlax-Frost-Mega', 'Sceptile-Delta-Mega', 'Blaziken-Delta-Mega', 'Suicune-Supra'],
+		ruleset: ['Standard', 'Terastal Clause', 'PoA Same Type Clause'],
+		banlist: [],
 	},
 	{
 		name: "[Gen 9] PoA Custom Game",
@@ -777,26 +769,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] PoA National Dex Draft",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Z-Move Clause',],
-		banlist: ['move:hiddenpower'],
-	},
-	{
 		name: "[Gen 9] Chaos Tera Preview Draft",
 		searchShow: false,
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+Pokeathlon']
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial']
 	},
 	{
 		name: "[Gen 9] Chaos Draft",
 		searchShow: false,
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+Pokeathlon', '+item:berserkgene'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+item:berserkgene'],
 	},
 	{
 		name: "[Gen 9] Random Ability Draft",
