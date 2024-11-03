@@ -686,40 +686,55 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
-	sweettooth: {
-		onEatItem(item, pokemon) {
-			pokemon.addVolatile('nosweettooth');
-		},
-		onUpdate(pokemon) {
-			if (pokemon.item || !pokemon.lastItem || pokemon.getVolatile('nosweettooth')) return false;
-			if ((pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry)) {
-				pokemon.addVolatile('sweettooth');
+	sweettooth: { //Redoing this to check before and after a move
+		onBeforeMove(source, target, move) {
+			if ((source.item && !this.dex.items.get(source.item).isBerry) || !source.item) {
+				source.addVolatile('nosweettooth');
 			}
-			if (['caramitti'].includes(pokemon.species.id)) {
-				const speciesid = pokemon.getVolatile('sweettooth') ? 'Caramitti-Crazed' : 'Caramitti';
-				pokemon.formeChange(speciesid, this.effect, false);
-				if (pokemon.species.id === 'caramitticrazed') this.add('-activate', pokemon, 'ability: Sweet Tooth');
+		},
+		onHit(target, source, move)  { //check for when they use trick/switcheroo on you
+			if (target.takeItem() || source.takeItem()) {
+				source.addVolatile('nosweettooth')
+			}
+		},
+		onFoeHit(target, source, move)  { //check for when you use trick/switcheroo on them
+			if (target.takeItem() || source.takeItem()) {
+				source.addVolatile('nosweettooth')
+			}
+		},
+		onEatItem(item, pokemon) {
+			pokemon.addVolatile('sweettooth')
+		},
+		onAfterMove(source, target, move) {
+			if (!source.getVolatile('nosweettooth') && !source.item) { //this might trigger if trick is used on an itemless foe...
+				source.addVolatile('sweettooth')
+			}
+			if (source.species.baseSpecies === 'caramitti') {
+				const speciesid = source.getVolatile('sweettooth') ? 'Caramitti-Crazed' : 'Caramitti';
+				source.formeChange(speciesid)
 			}
 		},
 		onSwitchOut(pokemon) {
 			pokemon.removeVolatile('sweettooth');
-			if (!pokemon.item || pokemon.item === '') pokemon.addVolatile('nosweettooth');
+			if (pokemon.species.baseSpecies === 'caramitti') {
+				const speciesid = pokemon.getVolatile('sweettooth') ? 'Caramitti-Crazed' : 'Caramitti';
+				pokemon.formeChange(speciesid)
+			}
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-activate', target, 'ability: Sweet Tooth')
+			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
-				if (attacker.hasAbility('sweettooth')) {
-					this.debug('Sweet Tooth boost');
-					return this.chainModify(1.3);
-				}
+				this.debug('Sweet Tooth boost');
+				return this.chainModify(1.3);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(atk, attacker, defender, move) {
-				if (attacker.hasAbility('sweettooth')) {
-					this.debug('Sweet Tooth boost');
-					return this.chainModify(1.3);
-				}
+				this.debug('Sweet Tooth boost');
+				return this.chainModify(1.3);
 			},
 		},
 		flags: {},
