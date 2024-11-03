@@ -2179,4 +2179,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	hydroupaseven: "Hydroupa",
 	hydroupaeight: "Hydroupa",
 	hydroupanine: "Hydroupa",
+
+	caramitticrazed: "Caramitti",
 };

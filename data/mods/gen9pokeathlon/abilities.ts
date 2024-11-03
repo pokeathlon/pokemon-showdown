@@ -686,7 +686,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
-	caramitti: {
+	sweettooth: {
 		onUpdate(pokemon) {
 			if (pokemon.item || !pokemon.lastItem) return false;
 			if ((pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry)) {

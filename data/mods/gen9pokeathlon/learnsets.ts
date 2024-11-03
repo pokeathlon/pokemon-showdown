@@ -6723,7 +6723,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			supersonic: ["9M"],
 			whirlwind: ["9M"],
 			naturalgift: ["9M"],
-			naturalpower: ["9M"],
+			naturepower: ["9M"],
 			teatime: ["9M"],
 			recycle: ["9M"],
 			encore: ["9M"],
@@ -6741,7 +6741,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			taunt: ["9M"],
 			flatter: ["9M"],
 			faketears: ["9M"],
-			switcharoo: ["9M"],
+			switcheroo: ["9M"],
 			torment: ["9M"],
 			partingshot: ["9M"],
 			icefang: ["9M"],
@@ -6788,6 +6788,13 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			steelwing: ["9M"],
 			metalsound: ["9M"],
 			mirrorshot: ["9M"],
+			protect: ["9M"],
+			substitute: ["9M"],
+			rest: ["9M"],
+			sleeptalk: ["9M"],
+			terablast: ["9M"],
+			return: ["9M"],
+			frustration: ["9M"],
 		}
 	}
 };
