@@ -2276,4 +2276,9 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		start: "  [SOURCE]'s flock became enraged!",
 		damage: "  [POKEMON] was attacked by the flock!",
 	},
+	sweettooth: {
+		name: "Sweet Tooth",
+		
+		start: " [SOURCE] has become sugar crazed!"
+	}
 };

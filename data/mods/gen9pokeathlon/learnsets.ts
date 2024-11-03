@@ -6767,7 +6767,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			ominouswind: ["9M"],
 			hex: ["9M"],
 			shadowball: ["9M"],
-			spiritsyphon: ["9M"],
+			spiritsiphon: ["9M"],
 			confuseray: ["9M"],
 			extrasensory: ["9M"],
 			psyshock: ["9M"],
