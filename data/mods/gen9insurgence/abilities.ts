@@ -576,6 +576,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
 				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(eeveeabilities[pokemon.species.id]).name);
 
+				// In Insurgence, the action order is recalculated for a Protean Maxima transform.
+				for (const [i, queuedAction] of this.queue.list.entries()) {
+					if (queuedAction.pokemon === pokemon && queuedAction.choice === 'move') {
+						this.queue.list.splice(i, 1);
+						this.queue.insertChoice(queuedAction, true);
+						break;
+					}
+				}
+
 				pokemon.baseMaxhp = Math.floor(Math.floor(
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
