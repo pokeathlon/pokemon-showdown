@@ -687,16 +687,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 	sweettooth: {
+		onEatItem(item, pokemon) {
+			pokemon.addVolatile('berryeaten');
+		},
 		onUpdate(pokemon) {
-			if (pokemon.item || !pokemon.lastItem) return false;
+			if (pokemon.item || !pokemon.lastItem || pokemon.getVolatile('berryeaten')) return false;
 			if ((pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry)) {
 				pokemon.addVolatile('sweettooth');
-				if (pokemon.species.id == 'caramitti') {
-					pokemon.formeChange('caramitticrazed', this.effect, false, '[msg]')
-				}
 			}
-			if (!pokemon.getVolatile('sweettooth') && pokemon.species.id == 'caramitticrazed') {
-				pokemon.formeChange('caramitti', this.effect, false, '[msg]')
+			if (['caramitti'].includes(pokemon.species.id)) {
+				const speciesid = pokemon.getVolatile('sweettooth') ? 'Caramitti-Crazed' : 'Caramitti';
+				pokemon.formeChange(speciesid, this.effect, false);
+				if (pokemon.species.id === 'caramitticrazed') this.add('-activate', pokemon, 'ability: Sweet Tooth');
 			}
 		},
 		onSwitchOut(pokemon) {
@@ -704,9 +706,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(target) {
-				this.add('-start', target, 'ability: Sweet Tooth');
-			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, attacker, defender, move) {
 				if (attacker.hasAbility('sweettooth')) {
@@ -721,12 +720,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					return this.chainModify(1.3);
 				}
 			},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Sweet Tooth', '[silent]');
-			},
 		},
 		flags: {},
 		name: "Sweet Tooth",
-		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack."
+		shortDesc: "After consuming berry via move, x1.3 to Attack and Sp. Attack."
 	}
 };
