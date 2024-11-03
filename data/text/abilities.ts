@@ -2279,6 +2279,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	sweettooth: {
 		name: "Sweet Tooth",
 		
-		start: " [SOURCE] has become sugar crazed!"
+		activate: "  [POKEMON] became sugar crazed!",
 	}
 };
