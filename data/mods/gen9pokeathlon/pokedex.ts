@@ -1969,7 +1969,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseSpecies: "Caramitti",
 		forme: "Crazed",
 		types: ["Fairy", "Flying"],
-		baseStats: {hp: 89, atk: 73, def: 25, spa: 86, spd: 72, spe: 140},
+		baseStats: {hp: 89, atk: 103, def: 25, spa: 116, spd: 72, spe: 140},
 		abilities: {0: "Sweet Tooth", 1: "Gluttony", H: "Rivalry"},
 		heightm: 0.4,
 		weightkg: 0.9,

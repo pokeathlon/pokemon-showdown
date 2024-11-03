@@ -685,56 +685,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
-	sweettooth: { //Redoing this to check before and after a move
-		onBeforeMove(source, target, move) {
-			if ((source.item && !this.dex.items.get(source.item).isBerry) || !source.item) {
-				source.addVolatile('nosweettooth');
-			}
-		},
-		onHit(target, source, move)  { //check for when they use trick/switcheroo on you
-			if (target.takeItem() || source.takeItem()) {
-				source.addVolatile('nosweettooth')
-			}
-		},
-		onFoeHit(target, source, move)  { //check for when you use trick/switcheroo on them
-			if (target.takeItem() || source.takeItem()) {
-				source.addVolatile('nosweettooth')
-			}
-		},
-		onEatItem(item, pokemon) {
-			pokemon.addVolatile('sweettooth')
-		},
-		onAfterMove(source, target, move) {
-			if (!source.getVolatile('nosweettooth') && !source.item) { //this might trigger if trick is used on an itemless foe...
-				source.addVolatile('sweettooth')
-			}
-			if (source.species.baseSpecies === 'caramitti') {
-				const speciesid = source.getVolatile('sweettooth') ? 'Caramitti-Crazed' : 'Caramitti';
-				source.formeChange(speciesid)
-			}
-		},
-		onSwitchOut(pokemon) {
-			pokemon.removeVolatile('sweettooth');
-			if (pokemon.species.baseSpecies === 'caramitti') {
-				const speciesid = pokemon.getVolatile('sweettooth') ? 'Caramitti-Crazed' : 'Caramitti';
-				pokemon.formeChange(speciesid)
-			}
-		},
-		condition: {
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(target) {
-				this.add('-activate', target, 'ability: Sweet Tooth')
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, attacker, defender, move) {
-				this.debug('Sweet Tooth boost');
-				return this.chainModify(1.3);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(atk, attacker, defender, move) {
-				this.debug('Sweet Tooth boost');
-				return this.chainModify(1.3);
-			},
+	sweettooth: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target || !item.isBerry) return;
+			pokemon.formeChange('Caramitti-Crazed', this.effect, true);
 		},
 		flags: {},
 		name: "Sweet Tooth",
