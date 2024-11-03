@@ -1,5 +1,4 @@
 const {Dex} = require('../../../sim/dex');
-const InsgAbilities = Dex.deepClone(require('../gen9insurgence/abilities').Abilities);
 
 export const treasures: {[k: string]: string} = {
 	dracoplate: 'protean',

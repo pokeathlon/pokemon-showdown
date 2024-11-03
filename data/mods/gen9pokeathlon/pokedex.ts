@@ -1962,7 +1962,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
-		cosmeticFormes: ["Caramitti-Crazed"],
 	},
 };
 
