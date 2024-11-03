@@ -494,7 +494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		tags: ["Pokeathlon", "Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
-		tier: "OU",
+		tier: "Uber",
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
