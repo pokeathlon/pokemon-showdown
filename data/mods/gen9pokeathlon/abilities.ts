@@ -688,10 +688,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	sweettooth: {
 		onEatItem(item, pokemon) {
-			pokemon.addVolatile('berryeaten');
+			pokemon.addVolatile('nosweettooth');
 		},
 		onUpdate(pokemon) {
-			if (pokemon.item || !pokemon.lastItem || pokemon.getVolatile('berryeaten')) return false;
+			if (pokemon.item || !pokemon.lastItem || pokemon.getVolatile('nosweettooth')) return false;
 			if ((pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry)) {
 				pokemon.addVolatile('sweettooth');
 			}
@@ -703,6 +703,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSwitchOut(pokemon) {
 			pokemon.removeVolatile('sweettooth');
+			if (!pokemon.item) pokemon.addVolatile('nosweettooth');
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
