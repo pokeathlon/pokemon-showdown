@@ -703,7 +703,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSwitchOut(pokemon) {
 			pokemon.removeVolatile('sweettooth');
-			if (!pokemon.item) pokemon.addVolatile('nosweettooth');
+			if (!pokemon.item || pokemon.item === '') pokemon.addVolatile('nosweettooth');
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
