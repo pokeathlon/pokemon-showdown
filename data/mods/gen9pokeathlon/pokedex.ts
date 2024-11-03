@@ -1948,6 +1948,22 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	caramitti: {
+		num: 3086,
+		name: "Caramitti",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 89, atk: 73, def: 25, spa: 86, spd: 72, spe: 140},
+		abilities: {0: "Sweet Tooth", 1: "Gluttony", H: "Rivalry"},
+		heightm: 0.4,
+		weightkg: 0.9,
+		color: "Yellow",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+		cosmeticFormes: ["Caramitti-Crazed"],
+	},
 };
 
 // Regional Dex Data
@@ -2131,7 +2147,8 @@ const PoADex: {[k: string]: number} = {
 	"miasmiss": 3082,
 	"guarig": 3083,
 	"tofagrif": 3084,
-	"crayzigater": 3085
+	"crayzigater": 3085,
+	"caramitti": 3086
 };
 
 for (var i of Dex.species.all()) {

@@ -685,5 +685,42 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "Ignores opposing Pokemon's abilities when taking damage.",
 		rating: 3,
 		num: 0,
+	},
+	caramitti: {
+		onUpdate(pokemon) {
+			if (pokemon.item || !pokemon.lastItem) return false;
+			if ((pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry)) {
+				pokemon.addVolatile('sweettooth');
+				if (pokemon.species.baseSpecies == 'Caramitti') {
+					pokemon.formeChange('caramitticrazed')
+				}
+			}
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Sweet Tooth');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (attacker.hasAbility('sweettooth')) {
+					this.debug('Sweet Tooth boost');
+					return this.chainModify(1.3);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (attacker.hasAbility('sweettooth')) {
+					this.debug('Sweet Tooth boost');
+					return this.chainModify(1.3);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Sweet Tooth', '[silent]');
+			},
+		},
+		flags: {},
+		name: "Sweet Tooth",
+		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack."
 	}
 };
