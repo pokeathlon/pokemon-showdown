@@ -739,6 +739,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Sweet Tooth",
-		shortDesc: "After consuming berry via move, x1.3 to Attack and Sp. Attack."
+		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack."
 	}
 };
