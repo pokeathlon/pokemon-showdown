@@ -692,14 +692,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if ((pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry)) {
 				pokemon.addVolatile('sweettooth');
 				if (pokemon.species.id == 'caramitti') {
-					pokemon.formeChange('caramitticrazed')
+					pokemon.formeChange('caramitticrazed', this.effect, false, '[msg]')
 				}
 			}
 			if (!pokemon.getVolatile('sweettooth') && pokemon.species.id == 'caramitticrazed') {
-				pokemon.formeChange('caramitti')
+				pokemon.formeChange('caramitti', this.effect, false, '[msg]')
 			}
 		},
-		
+		onSwitchOut(pokemon) {
+			pokemon.removeVolatile('sweettooth');
+		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(target) {
