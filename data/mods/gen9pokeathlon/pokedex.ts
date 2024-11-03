@@ -1963,6 +1963,24 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	caramitticrazed: {
+		num: 3086,
+		name: "Caramitti-Crazed",
+		baseSpecies: "Caramitti",
+		forme: "Crazed",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 89, atk: 73, def: 25, spa: 86, spd: 72, spe: 140},
+		abilities: {0: "Sweet Tooth", 1: "Gluttony", H: "Rivalry"},
+		heightm: 0.4,
+		weightkg: 0.9,
+		color: "Yellow",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		battleOnly: "Caramitti",
+		tier: "Illegal",
+		natDexTier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };
 
 // Regional Dex Data
