@@ -665,7 +665,9 @@ const IFDex: {[k: string]: number} = {
 	"lombre": 496,
 	"ludicolo": 497,
 	"miniormeteor": 498,
-	"minior": 499
+	"minior": 499,
+	"diancie": 500,
+	"luvdisc": 501
 };
 
 for (var i of Dex.mod('gen9infinitefusion').species.all()) {
