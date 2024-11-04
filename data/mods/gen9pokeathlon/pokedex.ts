@@ -1970,7 +1970,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		forme: "Crazed",
 		types: ["Fairy", "Flying"],
 		baseStats: {hp: 89, atk: 103, def: 25, spa: 116, spd: 72, spe: 140},
-		abilities: {0: "Sweet Tooth", 1: "Gluttony", H: "Rivalry"},
+		abilities: {0: "Sweet Tooth"},
 		heightm: 0.4,
 		weightkg: 0.9,
 		color: "Yellow",
