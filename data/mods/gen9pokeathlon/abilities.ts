@@ -607,8 +607,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!pokemon.species.id.startsWith('hydroupa')) return;
-			if (move.category === "Status" || !move.basePower) return;
+			if (!pokemon.species.id.startsWith('hydroupa') || move.category === "Status" || !move.basePower) return;
 			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
 			if (move.secondaries) {
