@@ -103,6 +103,7 @@ additions.sort();
 
 var ctr = 3001;
 for (var mon of additions) {
+	console.log(mon);
 	const cur = remote.dex[mon];
 
 	const baseSpecies = Dex.toID(cur.name.split('-').slice(0, -1).join('-')) in Pokedex ? Pokedex[Dex.toID(cur.name.split('-').slice(0, -1).join('-'))] : Dex.mod('gen9chaos').species.get(cur.name.split('-').slice(0, -1).join('-'));
