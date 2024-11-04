@@ -140,6 +140,15 @@ for (var mon of additions) {
 
 	if (cur.megastone) entry.requiredItem = cur.megastone;
 
+	if (cur.cosmetics) {
+		var cosmeticFormes: string[] = [];
+		cur.cosmetics.split(',').forEach((item: string) => (cur.name + '-' + item.trim()));
+		entry.cosmeticFormes = cosmeticFormes;
+		for (var skin of cosmeticFormes) {
+			Dex.data.Aliases[Dex.toID(skin)] = cur.name;
+		}
+	}
+
 	Pokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
 }
 
