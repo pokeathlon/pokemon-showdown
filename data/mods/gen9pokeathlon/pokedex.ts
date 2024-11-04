@@ -1,7 +1,8 @@
 const {Dex} = require('../../../sim/dex');
 const remote = require('./remote.json');
+import {ModdedSpeciesDataTable, ModdedSpeciesData} from '../../../sim/dex-species';
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+export const Pokedex: ModdedSpeciesDataTable = {
 	// Modded
 	starmie: {
 		inherit: true,
@@ -104,21 +105,14 @@ var ctr = 3001;
 for (var mon of additions) {
 	const cur = remote.dex[mon];
 
-	var num = 0;
-	const baseSpecies = Dex.mod('gen9chaos').species.get(cur.name.split('-').slice(0, -1).join('-')) || Pokedex[Dex.toID(cur.name.split('-').slice(0, -1).join('-'))];
+	const baseSpecies = Dex.toID(cur.name.split('-').slice(0, -1).join('-')) in Pokedex ? Pokedex[Dex.toID(cur.name.split('-').slice(0, -1).join('-'))] : Dex.mod('gen9chaos').species.get(cur.name.split('-').slice(0, -1).join('-'));
 	const forme = cur.name.split('-').slice(-1).join('');
-	if (baseSpecies.name && forme !== 'Delta') {
-		num = baseSpecies.num;
-	} else {
-		num = ctr;
-		ctr++;
-	}
 
 	var types = [];
 	for (var mtype of cur["types"]) if (mtype) types.push(mtype);
 
-	Pokedex[Dex.toID(mon)] = {
-		num: num,
+	var entry: AnyObject = {
+		num: 0,
 		name: cur["name"],
 		types: types,
 		baseStats: cur["baseStats"],
@@ -131,6 +125,22 @@ for (var mon of additions) {
 		natDexTier: cur["natDexTier"],
 		doublesTier: cur["doublesTier"],
 	};
+
+	if (baseSpecies.name && forme !== 'Delta') {
+		entry.num = baseSpecies.num;
+		entry.baseSpecies = baseSpecies.name;
+		entry.forme = forme;
+		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in Pokedex)) {
+			Pokedex[Dex.toID(baseSpecies.name)] = Dex.mod('gen9chaos').data.Pokedex[Dex.toID(baseSpecies.name)];
+		}
+	} else {
+		entry.num = ctr;
+		ctr++;
+	}
+
+	if (cur.megastone) entry.requiredItem = cur.megastone;
+
+	Pokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
 }
 
 for (var formatname in remote.banlists) {
@@ -138,28 +148,28 @@ for (var formatname in remote.banlists) {
 	const format = Dex.formats.get(formatname);
 	if (cur.pokemon) {
 		for (var pokeban of cur.pokemon.split(',')) {
-			if (Dex.mod('gen9pokeathlon').species.get(pokeban)) {
+			if (Dex.mod('gen9chaos').species.get(pokeban)) {
 				format.banlist.push('pokemon:' + Dex.toID(pokeban));
 			}
 		}
 	}
 	if (cur.abilities) {
 		for (var pokeban of cur.abilities.split(',')) {
-			if (Dex.mod('gen9pokeathlon').abilities.get(pokeban)) {
+			if (Dex.mod('gen9chaos').abilities.get(pokeban)) {
 				format.banlist.push('ability:' + Dex.toID(pokeban));
 			}
 		}
 	}
 	if (cur.moves) {
 		for (var pokeban of cur.moves.split(',')) {
-			if (Dex.mod('gen9pokeathlon').moves.get(pokeban)) {
+			if (Dex.mod('gen9chaos').moves.get(pokeban)) {
 				format.banlist.push('move:' + Dex.toID(pokeban));
 			}
 		}
 	}
 	if (cur.items) {
 		for (var pokeban of cur.items.split(',')) {
-			if (Dex.mod('gen9pokeathlon').items.get(pokeban)) {
+			if (Dex.mod('gen9chaos').items.get(pokeban)) {
 				format.banlist.push('item:' + Dex.toID(pokeban));
 			}
 		}
