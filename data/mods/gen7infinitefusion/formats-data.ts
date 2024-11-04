@@ -2471,7 +2471,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	carbink: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	chespin: {
@@ -2603,5 +2603,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 		doublesTier: "DUU",
+	},
+	luvdisc: {
+		inherit: true,
+		tier: "NU",
+		doublesTier: "(DUU)",
+	},
+	diancie: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 };

@@ -1,5 +1,4 @@
 const {Dex} = require('../../../sim/dex');
-const InsgAbilities = Dex.deepClone(require('../gen9insurgence/abilities').Abilities);
 
 export const treasures: {[k: string]: string} = {
 	dracoplate: 'protean',
@@ -608,8 +607,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!pokemon.species.id.startsWith('hydroupa')) return;
-			if (move.category === "Status" || !move.basePower) return;
+			if (!pokemon.species.id.startsWith('hydroupa') || move.category === "Status" || !move.basePower) return;
 			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
 			if (move.secondaries) {
@@ -675,10 +673,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			source.removeVolatile('gastroacid');
 			this.add('-ability', source, source.getAbility(), '[silent]');
 		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			source.removeVolatile('gastroacid');
+			this.add('-ability', source, source.getAbility(), '[silent]');
+		},
 		flags: {},
 		name: "Aqua Guard",
 		shortDesc: "Ignores opposing Pokemon's abilities when taking damage.",
 		rating: 3,
 		num: 0,
+	},
+	sweettooth: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target || !item.isBerry) return;
+			pokemon.formeChange('Caramitti-Crazed', this.effect, true);
+		},
+		flags: {},
+		name: "Sweet Tooth",
+		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack."
 	}
 };
