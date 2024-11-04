@@ -6850,7 +6850,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			futuresight: ["9M"],
 			psychicnoise: ["9M"],
 			spiritsiphon: ["9M"],
-			egg: ["9M"],
 			howl: ["9M"],
 			aromatherapy: ["9M"],
 			memento: ["9M"],
