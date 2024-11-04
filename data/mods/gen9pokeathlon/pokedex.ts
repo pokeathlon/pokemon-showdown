@@ -138,7 +138,13 @@ for (var mon of additions) {
 		ctr++;
 	}
 
-	if (cur.megastone) entry.requiredItem = cur.megastone;
+	if (cur.formeinfo) {
+		if (Dex.toID(cur.formeinfo) === 'battleonly') {
+			entry.battleOnly = baseSpecies.name;
+		} else {
+			entry.requiredItem = cur.formeinfo;
+		}
+	}
 
 	if (cur.cosmetics) {
 		var cosmeticFormes: string[] = [];

@@ -21,7 +21,7 @@ const allSheets = [
 	{id: "1aS2bM27i28iJWG5MSmxmzTNP0_NkAEPpbUgw6SHFa6k", mod: "gen9pokeathlon", owner: "everyone"},
 ];
 
-const loc = {types: 8, stats: 10, abilities: 16, weight: 19, height: 20, prevo: 21, gender: 22, megastone: 23, cosmeticFormes: 24, tiers: 26, learnset: 30};
+const loc = {types: 8, stats: 10, abilities: 16, weight: 19, height: 20, prevo: 21, gender: 22, formeinfo: 23, cosmeticFormes: 24, tiers: 26, learnset: 30};
 
 function c(item) {
 	return item ? item : undefined;
@@ -87,7 +87,7 @@ function formatDex(pokedex) {
 			},
 			weightkg:    parseFloat(c(line[loc.weight])),
 			heightm:     parseFloat(c(line[loc.height])),
-			megastone:   c(line[loc.megastone]),
+			formeinfo:   c(line[loc.formeinfo]),
 			cosmetics:   c(line[loc.cosmeticFormes]),
 			tier:        c(line[loc.tiers + 0]),
 			natDexTier:  c(line[loc.tiers + 1]),
