@@ -1981,6 +1981,21 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	calobera: {
+		num: 3087,
+		name: "Calobera",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 80, atk: 60, def: 70, spa: 104, spd: 108, spe: 94},
+		abilities: {0: "Grassy Surge", 1: "Insomnia", H: "Friend Guard"},
+		heightm: 1.1,
+		weightkg: 31.8,
+		color: "Brown",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Undiscovered"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 // Regional Dex Data
@@ -2165,7 +2180,8 @@ const PoADex: {[k: string]: number} = {
 	"guarig": 3083,
 	"tofagrif": 3084,
 	"crayzigater": 3085,
-	"caramitti": 3086
+	"caramitti": 3086,
+	"calobera": 3087,
 };
 
 for (var i of Dex.species.all()) {
