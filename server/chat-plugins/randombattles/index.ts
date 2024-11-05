@@ -742,7 +742,7 @@ export const commands: Chat.ChatCommands = {
 
 			switch (key) {
 			case 'moves':
-				for (const rawMove of value.split('~')) {
+				for (const rawMove of value.split('&')) {
 					const move = dex.moves.get(rawMove);
 					if (!move.exists) {
 						throw new Chat.ErrorMessage(`"${rawMove}" is not a move in the specified format.`);
@@ -857,7 +857,7 @@ export const commands: Chat.ChatCommands = {
 
 		if (!target) return this.parse('/help generateteam');
 		const format = Dex.formats.get(target);
-		if (!format.exists) throw new Chat.ErrorMessage(`"${target}" is not a recognized format.`);
+		if (format.effectType !== 'Format') throw new Chat.ErrorMessage(`"${target}" is not a recognized format.`);
 		if (!format.team) throw new Chat.ErrorMessage(`"${format.name}" requires you to bring your own team.`);
 
 		const team = Teams.getGenerator(format).getTeam();

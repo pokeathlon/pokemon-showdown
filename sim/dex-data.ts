@@ -34,7 +34,19 @@ export function toID(text: any): ID {
 	/* eslint-enable @typescript-eslint/prefer-optional-chain */
 }
 
-export class BasicEffect implements EffectData {
+/**
+ * Like Object.assign but only assigns fields missing from self.
+ * Facilitates consistent field ordering in constructors.
+ * Modifies self in-place.
+ */
+export function assignMissingFields(self: AnyObject, data: AnyObject) {
+	for (const k in data) {
+		if (k in self) continue;
+		self[k] = data[k];
+	}
+}
+
+export abstract class BasicEffect implements EffectData {
 	/**
 	 * ID. This will be a lowercase version of the name with all the
 	 * non-alphanumeric characters removed. So, for instance, "Mr. Mime"
@@ -102,14 +114,11 @@ export class BasicEffect implements EffectData {
 	sourceEffect: string;
 
 	constructor(data: AnyObject) {
-		this.exists = true;
-		Object.assign(this, data);
-
 		this.name = Utils.getString(data.name).trim();
 		this.id = data.realMove ? toID(data.realMove) : toID(this.name); // Hidden Power hack
 		this.fullname = Utils.getString(data.fullname) || this.name;
 		this.effectType = Utils.getString(data.effectType) as EffectType || 'Condition';
-		this.exists = !!(this.exists && this.id);
+		this.exists = data.exists ?? !!this.id;
 		this.num = data.num || 0;
 		this.gen = data.gen || 0;
 		this.shortDesc = data.shortDesc || '';
@@ -134,16 +143,16 @@ export class Nature extends BasicEffect implements Readonly<BasicEffect & Nature
 	readonly minus?: StatIDExceptHP;
 	constructor(data: AnyObject) {
 		super(data);
-		// eslint-disable-next-line @typescript-eslint/no-this-alias
-		data = this;
-
 		this.fullname = `nature: ${this.name}`;
 		this.effectType = 'Nature';
 		this.gen = 3;
 		this.plus = data.plus || undefined;
 		this.minus = data.minus || undefined;
+		assignMissingFields(this, data);
 	}
 }
+
+const EMPTY_NATURE = Utils.deepFreeze(new Nature({name: '', exists: false}));
 
 export interface NatureData {
 	name: string;
@@ -167,10 +176,10 @@ export class DexNatures {
 
 	get(name: string | Nature): Nature {
 		if (name && typeof name !== 'string') return name;
-
 		return this.getByID(toID(name));
 	}
 	getByID(id: ID): Nature {
+		if (id === '') return EMPTY_NATURE;
 		let nature = this.natureCache.get(id);
 		if (nature) return nature;
 
@@ -255,24 +264,24 @@ export class TypeInfo implements Readonly<TypeData> {
 	readonly HPdvs: SparseStatsTable;
 
 	constructor(data: AnyObject) {
-		this.exists = true;
-		Object.assign(this, data);
-
 		this.name = data.name;
 		this.id = data.id;
 		this.effectType = Utils.getString(data.effectType) as TypeInfoEffectType || 'Type';
-		this.exists = !!(this.exists && this.id);
+		this.exists = data.exists ?? !!this.id;
 		this.gen = data.gen || 0;
 		this.isNonstandard = data.isNonstandard || null;
 		this.damageTaken = data.damageTaken || {};
 		this.HPivs = data.HPivs || {};
 		this.HPdvs = data.HPdvs || {};
+		assignMissingFields(this, data);
 	}
 
 	toString() {
 		return this.name;
 	}
 }
+
+const EMPTY_TYPE_INFO = Utils.deepFreeze(new TypeInfo({name: '', id: '', exists: false, effectType: 'EffectType'}));
 
 export class DexTypes {
 	readonly dex: ModdedDex;
@@ -290,6 +299,7 @@ export class DexTypes {
 	}
 
 	getByID(id: ID): TypeInfo {
+		if (id === '') return EMPTY_TYPE_INFO;
 		let type = this.typeCache.get(id);
 		if (type) return type;
 
