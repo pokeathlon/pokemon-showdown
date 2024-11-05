@@ -120,7 +120,7 @@ for (var mon of additions) {
 		heightm: parseFloat(cur["heightm"]),
 		weightkg: parseFloat(cur["weightkg"]),
 		tags: ["Pokeathlon"],
-		eggGroups: ["Poa"],
+		eggGroups: ["Pokeathlon"],
 		tier: cur["tier"],
 		natDexTier: cur["natDexTier"],
 		doublesTier: cur["doublesTier"],
