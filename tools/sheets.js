@@ -87,6 +87,7 @@ function formatDex(pokedex) {
 			},
 			weightkg:    parseFloat(c(line[loc.weight])),
 			heightm:     parseFloat(c(line[loc.height])),
+			prevo:       c(line[loc.prevo]),
 			formeinfo:   c(line[loc.formeinfo]),
 			cosmetics:   c(line[loc.cosmeticFormes]),
 			tier:        c(line[loc.tiers + 0]),

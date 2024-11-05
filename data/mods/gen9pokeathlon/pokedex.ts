@@ -122,7 +122,7 @@ for (var mon of additions) {
 		entry.num = baseSpecies.num;
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
-		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in Pokedex)) {
+		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in Pokedex) && !baseSpecies.name === cur.name) {
 			Pokedex[Dex.toID(baseSpecies.name)] = {...Dex.mod('gen9chaos').data.Pokedex[Dex.toID(baseSpecies.name)], isNonstandard: "Unobtainable"};
 		}
 	} else {
@@ -146,6 +146,25 @@ for (var mon of additions) {
 			Dex.data.Aliases[Dex.toID(skin)] = cur.name;
 		}
 	}
+
+	if (cur.prevo) {
+		entry.prevo = cur.prevo;
+		if (!(Dex.toID(entry.prevo) in remote.dex) && Dex.mod('gen9chaos').species.get(cur.prevo).id) {
+			Pokedex[Dex.toID(cur.prevo)] = {
+				evos: [cur.name],
+				inherit: true,
+			};
+		}
+	}
+	
+	const evos = additions.filter((addition) => (remote.dex[addition].prevo && remote.dex[addition].prevo === cur.name));
+	if (evos.length) {
+		entry.evos = [];
+		for (var evo of evos) {
+			entry.evos.push(remote.dex[evo].name);
+		}
+	} 
+	console.log(entry);
 
 	Pokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
 }
