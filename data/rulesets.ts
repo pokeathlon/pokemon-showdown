@@ -3062,7 +3062,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: "No Event Moves",
 		desc: "Removes verification of event moves.",
-		ruleset: ["!Obtainable Misc"],
+		ruleset: ["Obtainable", "!Obtainable Misc"],
 		onChangeSet(set) {
 			const species = this.dex.species.get(set.species);
 
