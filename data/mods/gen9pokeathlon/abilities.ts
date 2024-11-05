@@ -687,7 +687,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sweettooth: {
 		onAfterUseItem(item, pokemon) {
 			if (pokemon !== this.effectState.target || !item.isBerry) return;
-			pokemon.formeChange('Caramitti-Crazed', this.effect, true);
+			if (pokemon.species.id === 'caramitti') pokemon.formeChange('Caramitti-Crazed', this.effect, true);
+			if (this.dex.toID(pokemon.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
 		},
 		flags: {},
 		name: "Sweet Tooth",
