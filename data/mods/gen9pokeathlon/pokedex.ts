@@ -123,7 +123,7 @@ for (var mon of additions) {
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
 		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in Pokedex)) {
-			Pokedex[Dex.toID(baseSpecies.name)] = {...Dex.mod('gen9chaos').data.Pokedex[Dex.toID(baseSpecies.name)], tier: "Illegal"};
+			Pokedex[Dex.toID(baseSpecies.name)] = {...Dex.mod('gen9chaos').data.Pokedex[Dex.toID(baseSpecies.name)], isNonstandard: "Unobtainable"};
 		}
 	} else {
 		entry.num = ctr;
