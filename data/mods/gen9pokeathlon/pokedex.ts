@@ -123,7 +123,6 @@ for (var mon of additions) {
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
 		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in Pokedex)) {
-			console.log(baseSpecies.name);
 			Pokedex[Dex.toID(baseSpecies.name)] = {...Dex.mod('gen9chaos').data.Pokedex[Dex.toID(baseSpecies.name)], isNonstandard: "Unobtainable"};
 		}
 	} else {
@@ -164,7 +163,7 @@ for (var mon of additions) {
 		for (var evo of evos) {
 			entry.evos.push(remote.dex[evo].name);
 		}
-	} 
+	}
 
 	Pokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
 }
