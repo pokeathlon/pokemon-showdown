@@ -3058,13 +3058,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             }
         },
     },
-	infinitefusionmod: {
-		effectType: 'Rule',
-		name: "Infinite Fusion Mod",
-		desc: `Pok&eacute;mon can fuse with other Pok&eacute;mon!`,
-		onBegin() {
-			this.add('rule', 'Infinite Fusion Mod: Pok\u00e9mon can fuse with other Pok\u00e9mon!');
-		},
+	noeventmoves: {
+		effectType: 'ValidatorRule',
+		name: "No Event Moves",
+		desc: "Removes verification of event moves.",
+		ruleset: ["!Obtainable Misc"],
 		onChangeSet(set) {
 			const species = this.dex.species.get(set.species);
 
@@ -3087,6 +3085,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					hasMove[moveid] = true;
 				}
 			}
+		},
+	},
+	infinitefusionmod: {
+		effectType: "Rule",
+		name: "Infinite Fusion Mod",
+		desc: `Pok&eacute;mon can fuse with other Pok&eacute;mon!`,
+		onBegin() {
+			this.add('rule', 'Infinite Fusion Mod: Pok\u00e9mon can fuse with other Pok\u00e9mon!');
 		},
 		onValidateSet(set) {
 			if (this.format.id.includes("custom")) return;

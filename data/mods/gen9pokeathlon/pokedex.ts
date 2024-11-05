@@ -195,6 +195,5 @@ for (var i of Dex.species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isPoA = i.id in additions;
 	Pokedex[i.id].isNonstandard = isPoA ? null : "Unobtainable";
-	Pokedex[i.id].num = isPoA ? Pokedex[i.id].num : 0;
 	Pokedex[i.id].gen = isPoA ? 6 : undefined;
 }
