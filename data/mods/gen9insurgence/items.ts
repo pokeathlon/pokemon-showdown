@@ -1,4 +1,5 @@
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
+const {Dex} = require('../../../sim/dex');
+export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
 	deepseascale: {
 		inherit: true,
@@ -895,3 +896,4 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 	},
 };
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(ModItems);

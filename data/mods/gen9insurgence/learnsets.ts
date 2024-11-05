@@ -1,6 +1,7 @@
+const {Dex} = require('../../../sim/dex');
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
+export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	// Modded
 	vibrava: {inherit: true, learnset: {...baseLearnsets.vibrava.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"]}},
 	flygon: {inherit: true, learnset: {...baseLearnsets.flygon.learnset, ancientroar: ["6M"], dracojet: ["6M"], drakonvoice: ["6M"], jetstream: ["6M"], wildfire: ["6M"], boomburst: ["6L1"]}},
@@ -18409,3 +18410,4 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		}
 	},
 };
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);

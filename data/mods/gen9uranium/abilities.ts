@@ -1,4 +1,5 @@
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+const {Dex} = require('../../../sim/dex');
+export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	aerilate: {
 		inherit: true,
@@ -341,3 +342,4 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 };
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);

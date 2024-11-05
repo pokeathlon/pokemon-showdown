@@ -1,6 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/moves').Moves),
+	...Dex.deepClone(require('../gen9infinitefusion/moves').ModMoves),
 	lightofruin: {
 		inherit: true,
 		isNonstandard: null,

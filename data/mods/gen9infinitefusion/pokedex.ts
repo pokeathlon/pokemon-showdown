@@ -1,5 +1,5 @@
 const {Dex} = require('../../../sim/dex');
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	magnemite: {
 		inherit: true,
 		types: ["Steel", "Electric"],
@@ -353,3 +353,4 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		doublesTier: "DUber",
 	},
 };
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);

@@ -1,6 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex),
+	...Dex.deepClone(require('../gen9infinitefusion/pokedex').ModPokedex),
 	gengar: {
 		inherit: true,
 		abilities: {0: "Levitate"},
