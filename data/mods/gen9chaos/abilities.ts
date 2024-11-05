@@ -163,12 +163,24 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Typhlosion-Delta' || pokemon.transformed || !pokemon.isActive) return;
-			if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather()) && pokemon.species.id !== 'typhlosiondeltamegaactive') {
-				pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '[msg]');
-			} else if (pokemon.species.id === 'typhlosiondeltamegaactive') {
-				pokemon.formeChange('typhlosiondeltamega', this.effect, false, '[msg]');
+			if (pokemon.transformed || !pokemon.isActive) return;
+			if (pokemon.species.name.startsWith('Typhlosion-Delta-Mega')) {
+				if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather()) && pokemon.species.id !== 'typhlosiondeltamegaactive') {
+					pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '[msg]');
+				} else if (pokemon.species.id === 'typhlosiondeltamegaactive') {
+					pokemon.formeChange('typhlosiondeltamega', this.effect, false, '[msg]');
+				}
 			}
+			if (pokemon.fusion?.startsWith('Typhlosion-Delta-Mega')) {
+				if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather()) && pokemon.fusion !== 'Typhlosion-Delta-Mega-Active') {
+					pokemon.fusionChange('typhlosiondeltamegaactive', this.effect);
+				} else if (pokemon.fusion === 'Typhlosion-Delta-Mega-Active') {
+					pokemon.fusionChange('typhlosiondeltamega', this.effect);
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.fusion === 'Typhlosion-Delta-Mega-Active') pokemon.fusionChange('typhlosiondeltamega', this.effect);
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
@@ -204,7 +216,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if ((!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) || !pokemon.hp || pokemon.transformed) return;
 			
 			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ? 
-			['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] : ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
+			['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] :
+			['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
 			
 			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
 			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
@@ -215,7 +228,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
 			if (move.category === "Status" || !move.basePower) return;
 			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
-			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
+			['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
 			if (move.secondaries) {
 			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
@@ -227,7 +241,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
 			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
-			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] : ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
+			['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			let nhits = 5 + formes.indexOf(pokemon.species.id);
 			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
 		},
