@@ -707,6 +707,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {breakable: 1},
 		name: "Lucky Charm",
+		shortDesc: "User's side is protected from critical hits and move secondaries.",
 		rating: 2.5,
 		num: 214,
 	},
