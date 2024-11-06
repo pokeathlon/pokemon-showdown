@@ -693,5 +693,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Sweet Tooth",
 		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack."
-	}
+	},
+	
+	luckycharm: {
+		condition: {
+			noCopy: true,
+			onRestart: () => null,
+			onModifySecondaries(secondaries) {
+				this.debug('Lucky Charm prevent secondary');
+				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			},
+			onCriticalHit: false,
+		},
+		flags: {breakable: 1},
+		name: "Lucky Charm",
+		rating: 2.5,
+		num: 214,
+	},
 };
