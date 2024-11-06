@@ -701,7 +701,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			pokemon.side.addSideCondition('luckycharm');
 		},
 		onSwitchOut(pokemon) {
-			this.add('-end', pokemon, 'ability: Lucky Charm');
 			pokemon.side.removeSideCondition('luckycharm');
 		},
 		flags: {breakable: 1},
