@@ -695,15 +695,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack."
 	},
 	
-	luckycharm: {
-		condition: {
-			noCopy: true,
-			onRestart: () => null,
-			onModifySecondaries(secondaries) {
-				this.debug('Lucky Charm prevent secondary');
-				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
-			},
-			onCriticalHit: false,
+	luckycharm: { //condition implemented in conditions.ts
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Lucky Charm');
+			pokemon.side.addSideCondition('luckycharm');
+		},
+		onSwitchOut(pokemon) {
+			this.add('-end', pokemon, 'ability: Lucky Charm');
+			pokemon.side.removeSideCondition('luckycharm');
 		},
 		flags: {breakable: 1},
 		name: "Lucky Charm",
