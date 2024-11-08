@@ -3,82 +3,25 @@ const remote = require('./remote.json');
 import {ModdedSpeciesDataTable, ModdedSpeciesData} from '../../../sim/dex-species';
 
 export const ModPokedex: ModdedSpeciesDataTable = {
-	// Modded
-	starmie: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Staruhz"],
-		natDexTier: "NFE",
-		doublesTier: "NFE",
-	},
-	spinda: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Pandiz"],
-		natDexTier: "LC",
-		doublesTier: "LC",
-	},
-	purugly: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Growlsome"],
-		natDexTier: "LC",
-		doublesTier: "LC",
-	},
-	solrock: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Penumbralith"],
-		natDexTier: "LC",
-		doublesTier: "LC",
-	},
-	lunatone: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Penumbralith"],
-		natDexTier: "LC",
-		doublesTier: "LC",
-	},
-	kecleon: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Kaleidleon"],
-		natDexTier: "LC",
-		doublesTier: "LC",
-	},
-	parasect: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Parashukado"],
-		natDexTier: "NFE",
-		doublesTier: "NFE",
-	},
-	sandslash: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Scaleslash"],
-		natDexTier: "NFE",
-		doublesTier: "NFE",
-	},
 	magmortar: {
 		inherit: true,
 		abilities: {0: "Flame Body", 1:"Cannoneer", H: "Vital Spirit"},
 	},
 	remoraid: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Sniper", H: "Moody", S:"Cannoneer"},
+		abilities: {0: "Hustle", 1: "Sniper", H: "Moody", S: "Cannoneer"},
 	},
 	octillery: {
 		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Sniper", H: "Moody", S:"Cannoneer"},
+		abilities: {0: "Suction Cups", 1: "Sniper", H: "Moody", S: "Cannoneer"},
 	},
 	rhyperior: {
 		inherit: true,
-		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Reckless", S:"Cannoneer"},
+		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Reckless", S: "Cannoneer"},
 	},
 	toucannon: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Skill Link", H: "Sheer Force", S:"Cannoneer"},
+		abilities: {0: "Keen Eye", 1: "Skill Link", H: "Sheer Force", S: "Cannoneer"},
 	},
 	raichualola: {
 		inherit: true,
@@ -105,8 +48,9 @@ var ctr = 3001;
 for (var mon of additions) {
 	const cur = remote.dex[mon];
 
-	const baseSpecies = Dex.toID(cur.name.split('-').slice(0, -1).join('-')) in ModPokedex ? ModPokedex[Dex.toID(cur.name.split('-').slice(0, -1).join('-'))] : findSpecies(cur.name.split('-').slice(0, -1).join('-'));
+	var baseSpecies = cur.name.split('-').slice(0, -1).join('-');
 	const forme = cur.name.split('-').slice(-1).join('');
+	baseSpecies = Dex.toID(baseSpecies) in ModPokedex ? ModPokedex[Dex.toID(baseSpecies)] : findSpecies(baseSpecies);
 
 	var types = [];
 	for (var mtype of cur["types"]) if (mtype) types.push(mtype);
@@ -126,7 +70,7 @@ for (var mon of additions) {
 		doublesTier: cur["doublesTier"],
 	};
 
-	if (baseSpecies.name && forme !== 'Delta') {
+	if (baseSpecies.name && forme !== 'Delta' && forme !== 'Frost') {
 		entry.num = baseSpecies.num;
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
@@ -157,10 +101,13 @@ for (var mon of additions) {
 
 	if (cur.prevo) {
 		entry.prevo = cur.prevo;
-		if (!(Dex.toID(entry.prevo) in remote.dex) && findSpecies(cur.prevo).id) {
+		const prevo = findSpecies(cur.prevo);
+		if (!(Dex.toID(prevo.id) in remote.dex)) {
 			ModPokedex[Dex.toID(cur.prevo)] = {
-				evos: [cur.name],
 				inherit: true,
+				evos: [cur.name],
+				natDexTier: prevo.prevo ? "NFE" : "LC",
+				doublesTier: prevo.prevo ? "NFE" : "LC",
 			};
 		}
 	}
