@@ -2,7 +2,7 @@ const {Dex} = require('../../../sim/dex');
 const remote = require('./remote.json');
 import {ModdedSpeciesDataTable, ModdedSpeciesData} from '../../../sim/dex-species';
 
-export const Pokedex: ModdedSpeciesDataTable = {
+export const ModPokedex: ModdedSpeciesDataTable = {
 	// Modded
 	starmie: {
 		inherit: true,
@@ -90,6 +90,14 @@ export const Pokedex: ModdedSpeciesDataTable = {
 	},
 };
 
+function findSpecies(name: string) {
+	for (var mod of ["gen9insurgence", "gen9uranium"]) {
+		const result = Dex.mod(mod).species.get(name);
+		if (result.exists) return result;
+	}
+	return {};
+}
+
 const additions = Object.keys(remote.dex);
 additions.sort();
 
@@ -97,7 +105,7 @@ var ctr = 3001;
 for (var mon of additions) {
 	const cur = remote.dex[mon];
 
-	const baseSpecies = Dex.toID(cur.name.split('-').slice(0, -1).join('-')) in Pokedex ? Pokedex[Dex.toID(cur.name.split('-').slice(0, -1).join('-'))] : Dex.mod('gen9chaos').species.get(cur.name.split('-').slice(0, -1).join('-'));
+	const baseSpecies = Dex.toID(cur.name.split('-').slice(0, -1).join('-')) in ModPokedex ? ModPokedex[Dex.toID(cur.name.split('-').slice(0, -1).join('-'))] : findSpecies(cur.name.split('-').slice(0, -1).join('-'));
 	const forme = cur.name.split('-').slice(-1).join('');
 
 	var types = [];
@@ -122,8 +130,8 @@ for (var mon of additions) {
 		entry.num = baseSpecies.num;
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
-		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in Pokedex)) {
-			Pokedex[Dex.toID(baseSpecies.name)] = {...Dex.mod('gen9chaos').data.Pokedex[Dex.toID(baseSpecies.name)], isNonstandard: "Unobtainable"};
+		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in ModPokedex)) {
+			ModPokedex[Dex.toID(baseSpecies.name)] = {...findSpecies(Dex.toID(baseSpecies.name)), isNonstandard: "Unobtainable"};
 		}
 	} else {
 		entry.num = ctr;
@@ -149,8 +157,8 @@ for (var mon of additions) {
 
 	if (cur.prevo) {
 		entry.prevo = cur.prevo;
-		if (!(Dex.toID(entry.prevo) in remote.dex) && Dex.mod('gen9chaos').species.get(cur.prevo).id) {
-			Pokedex[Dex.toID(cur.prevo)] = {
+		if (!(Dex.toID(entry.prevo) in remote.dex) && findSpecies(cur.prevo).id) {
+			ModPokedex[Dex.toID(cur.prevo)] = {
 				evos: [cur.name],
 				inherit: true,
 			};
@@ -165,8 +173,17 @@ for (var mon of additions) {
 		}
 	}
 
-	Pokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
+	ModPokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
 }
+
+for (var i of Dex.species.all()) {
+	if (!ModPokedex[i.id]) ModPokedex[i.id] = {inherit: true};
+	const isPoA = i.id in additions;
+	ModPokedex[i.id].isNonstandard = isPoA ? null : "Unobtainable";
+	ModPokedex[i.id].gen = isPoA ? 6 : undefined;
+}
+
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
 
 for (var formatname in remote.banlists) {
 	const cur = remote.banlists[formatname];
@@ -199,11 +216,4 @@ for (var formatname in remote.banlists) {
 			}
 		}
 	}
-}
-
-for (var i of Dex.species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	const isPoA = i.id in additions;
-	Pokedex[i.id].isNonstandard = isPoA ? null : "Unobtainable";
-	Pokedex[i.id].gen = isPoA ? 6 : undefined;
 }
