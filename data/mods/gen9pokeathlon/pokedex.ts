@@ -102,7 +102,7 @@ for (var mon of additions) {
 	if (cur.prevo) {
 		entry.prevo = cur.prevo;
 		const prevo = findSpecies(cur.prevo);
-		if (!(Dex.toID(prevo.id) in remote.dex)) {
+		if (!(Dex.toID(prevo.id) in remote.dex) && !(Dex.toID(cur.prevo) in remote.dex)) {
 			ModPokedex[Dex.toID(cur.prevo)] = {
 				inherit: true,
 				evos: [cur.name],
