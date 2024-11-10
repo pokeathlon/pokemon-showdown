@@ -1,4 +1,5 @@
-export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
+const {Dex} = require('../../../sim/dex');
+export const ModConditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	// Modded
 	slp: {
 		name: 'slp',
@@ -110,3 +111,4 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 	},
 };
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(ModConditions);

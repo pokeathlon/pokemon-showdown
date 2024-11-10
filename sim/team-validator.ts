@@ -323,6 +323,9 @@ export class TeamValidator {
 	readonly toID: (str: any) => ID;
 	constructor(format: string | Format, dex = Dex) {
 		this.format = dex.formats.get(format);
+		if (this.format.effectType !== 'Format') {
+			throw new Error(`format should be a 'Format', but was a '${this.format.effectType}'`);
+		}
 		this.dex = dex.forFormat(this.format);
 		this.gen = this.dex.gen;
 		this.ruleTable = this.dex.formats.getRuleTable(this.format);
@@ -465,7 +468,7 @@ export class TeamValidator {
 		}
 
 		for (const rule of ruleTable.keys()) {
-			if ('!+-'.includes(rule.charAt(0))) continue;
+			if ('!+-*'.includes(rule.charAt(0))) continue;
 			const subformat = dex.formats.get(rule);
 			if (subformat.onValidateTeam && ruleTable.has(subformat.id)) {
 				problems = problems.concat(subformat.onValidateTeam.call(this, team, format, teamHas) || []);
@@ -617,7 +620,7 @@ export class TeamValidator {
 		const setSources = this.allSources(species);
 
 		for (const [rule] of ruleTable) {
-			if ('!+-'.includes(rule.charAt(0))) continue;
+			if ('!+-*'.includes(rule.charAt(0))) continue;
 			const subformat = dex.formats.get(rule);
 			if (subformat.onChangeSet && ruleTable.has(subformat.id)) {
 				problems = problems.concat(subformat.onChangeSet.call(this, set, format, setHas, teamHas) || []);
@@ -1048,7 +1051,7 @@ export class TeamValidator {
 		}
 
 		for (const [rule] of ruleTable) {
-			if ('!+-'.includes(rule.charAt(0))) continue;
+			if ('!+-*'.includes(rule.charAt(0))) continue;
 			const subformat = dex.formats.get(rule);
 			if (subformat.onValidateSet && ruleTable.has(subformat.id)) {
 				problems = problems.concat(subformat.onValidateSet.call(this, set, format, setHas, teamHas) || []);
@@ -2568,7 +2571,7 @@ export class TeamValidator {
 					continue;
 				}
 
-				if (!species.isNonstandard) {
+				if (species.isNonstandard !== 'CAP') {
 					// HMs can't be transferred
 					if (dex.gen >= 4 && learnedGen <= 3 && [
 						'cut', 'fly', 'surf', 'strength', 'flash', 'rocksmash', 'waterfall', 'dive',

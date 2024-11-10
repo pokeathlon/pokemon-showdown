@@ -25,7 +25,7 @@ const eeveeabilities: {[k: string]: string} = {
 };
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Dex.deepClone(require('../gen9insurgence/abilities').Abilities),
+	...Dex.deepClone(require('../gen9insurgence/abilities').ModAbilities),
 	intoxicate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {

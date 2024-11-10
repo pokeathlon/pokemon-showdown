@@ -1,6 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/pokedex').Pokedex),
+	...Dex.deepClone(require('../gen9infinitefusion/pokedex').ModPokedex),
 	gengar: {
 		inherit: true,
 		abilities: {0: "Levitate"},
@@ -665,7 +665,9 @@ const IFDex: {[k: string]: number} = {
 	"lombre": 496,
 	"ludicolo": 497,
 	"miniormeteor": 498,
-	"minior": 499
+	"minior": 499,
+	"diancie": 500,
+	"luvdisc": 501
 };
 
 for (var i of Dex.mod('gen9infinitefusion').species.all()) {

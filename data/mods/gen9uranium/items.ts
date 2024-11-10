@@ -1,4 +1,5 @@
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
+const {Dex} = require('../../../sim/dex');
+export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	nucleararbokite: {
 		name: "Nuclear Arbokite",
 		desc: "If held by a Nuclear Arbok, this item allows it to Mega Evolve in battle.",
@@ -270,3 +271,4 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 	},
 };
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(ModItems);

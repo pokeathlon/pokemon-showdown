@@ -1,5 +1,7 @@
+import { MoveEventMethods } from '../../../sim/dex-moves';
+
 const {Dex} = require('../../../sim/dex');
-const InsgAbilities = Dex.deepClone(require('../gen9insurgence/abilities').Abilities);
+const {MoveEventMethods} = require('../../../sim/dex-moves');
 
 export const treasures: {[k: string]: string} = {
 	dracoplate: 'protean',
@@ -51,6 +53,46 @@ export const treasures: {[k: string]: string} = {
 };
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+	// Modded
+	lernean: {
+		onUpdate(pokemon) {
+			if (!pokemon.species.id.startsWith('hydroupa') || !pokemon.hp || pokemon.transformed) return;
+			const formeOrder = ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
+			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
+			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
+				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!pokemon.species.id.startsWith('hydroupa') || move.category === "Status" || !move.basePower) return;
+			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			if (move.secondaries) {
+			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+			   // Technically not a secondary effect, but it is negated
+			   delete move.self;
+			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+		   }
+		},
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.species.id.startsWith('hydroupa')) return;
+			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			let nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+		},
+		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+			if (pokemon.species.id.startsWith('hydroupa') && move.secondaries) {
+				delete move.secondaries;
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Lernean",
+		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
+		rating: 4.5,
+		num: 0,
+	},
+
+	// Additions
 	consumerexchange: {
 		onSourceDamagingHit(damage, target, source, move) {
 			if (this.effectState.exchange !== false) {
@@ -433,28 +475,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 0,
 	},
-	vaporization: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
-				this.add('-immune', target, '[from] ability: Vaporization');
-				return null;
-			}
-		},
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			for (const target of this.getAllActive()) {
-				if (!target || !target.hp) continue;
-				if (target.hasType('Water')) {
-					this.damage(target.maxhp / 8, target, pokemon);
-				}
-			}
-		},
-		name: "Vaporization",
-		shortDesc: "Vaporizes Water-Type attacks and damages water types.",
-		flags: {breakable: 1},
-		rating: 3.5,
-		num: 0,
-	},
 	zealousflock: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -572,24 +592,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 0,
 	},
-	etherealshroud: {
-		onTryHit(target, source, move) {
-			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
-				return null;
-			}
-		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (move.type === 'Bug' || move.type === 'Poison') {
-				this.debug('Ethereal Shroud weaken');
-				return this.chainModify(0.5);
-			}
-		},
-		flags: {breakable: 1},
-		name: "Ethereal Shroud",
-		shortDesc: "Grants the user Ghost-type immunities and resistances.",
-		rating: 3,
-		num: 0,
-	},
 	burstingspores: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -614,44 +616,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Belligerent Quills",
 		shortDesc: "When dealing contact-based damage, deals an additional 1/16 max HP.",
 		rating: 4,
-		num: 0,
-	},
-	lernean: {
-		onUpdate(pokemon) {
-			if (!pokemon.species.id.startsWith('hydroupa') || !pokemon.hp || pokemon.transformed) return;
-			const formeOrder = ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
-			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
-			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
-				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
-			}
-		},
-		onModifyMove(move, pokemon, target) {
-			if (!pokemon.species.id.startsWith('hydroupa')) return;
-			if (move.category === "Status" || !move.basePower) return;
-			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
-			move.multihit = 5 + formes.indexOf(pokemon.species.id);
-			if (move.secondaries) {
-			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
-			   // Technically not a secondary effect, but it is negated
-			   delete move.self;
-			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-		   }
-		},
-		onBasePower(basePower, pokemon, target, move) {
-			if (!pokemon.species.id.startsWith('hydroupa')) return;
-			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
-			let nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
-		},
-		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if (pokemon.species.id.startsWith('hydroupa') && move.secondaries) {
-				delete move.secondaries;
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Lernean",
-		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
-		rating: 4.5,
 		num: 0,
 	},
 	fullplate: {
@@ -683,38 +647,51 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3,
 		num: 0,
 	},
-	phototroph: {
-		onResidual(target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
-				this.heal(target.baseMaxhp / 8);
-			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())){
-				return;
-			} else {
-				this.heal(target.baseMaxhp / 16);
+	aquaguard: {
+		onFoeBeforeMove(source, target, move) {
+			if (source !== target && move.category !== "Status") {
+				source.addVolatile('gastroacid');
 			}
+		},
+		onFoeAfterMove(source, target, move) {
+			source.removeVolatile('gastroacid');
+			this.add('-ability', source, source.getAbility(), '[silent]');
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			source.removeVolatile('gastroacid');
+			this.add('-ability', source, source.getAbility(), '[silent]');
 		},
 		flags: {},
-		name: "Phototroph",
-		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
-		rating: 1.5,
-		num: 0,
-	},
-	mountaineer: {
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock') {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && !target.activeTurns) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				return null;
-			}
-		},
-		flags: {breakable: 1},
-		name: "Mountaineer",
-		shortDesc: "On switch-in, this Pokemon avoids all Rock-type attacks and Stealth Rock.",
+		name: "Aqua Guard",
+		shortDesc: "Ignores opposing Pokemon's abilities when taking damage.",
 		rating: 3,
 		num: 0,
+	},
+	sweettooth: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target || !item.isBerry) return;
+			if (pokemon.species.id === 'caramitti') pokemon.formeChange('Caramitti-Crazed', this.effect, true);
+			if (this.dex.toID(pokemon.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
+		},
+		flags: {},
+		name: "Sweet Tooth",
+		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack.",
+		rating: 2.5,
+		num: 0,
+	},
+	luckycharm: { //condition implemented in conditions.ts
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Lucky Charm');
+			pokemon.side.addSideCondition('luckycharm');
+		},
+		onSwitchOut(pokemon) {
+			pokemon.side.removeSideCondition('luckycharm');
+		},
+		flags: {breakable: 1},
+		name: "Lucky Charm",
+		shortDesc: "User's side is protected from critical hits and move secondaries.",
+		rating: 2.5,
+		num: 214,
 	},
 };

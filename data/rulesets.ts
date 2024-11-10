@@ -3058,8 +3058,37 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
             }
         },
     },
+	noeventmoves: {
+		effectType: 'ValidatorRule',
+		name: "No Event Moves",
+		desc: "Removes verification of event moves.",
+		ruleset: ["Obtainable", "!Obtainable Misc"],
+		onChangeSet(set) {
+			const species = this.dex.species.get(set.species);
+
+			if (species.gender) {
+				if (set.gender !== species.gender) {
+					set.gender = species.gender;
+				}
+			} else {
+				if (set.gender !== 'M' && set.gender !== 'F') {
+					set.gender = '';
+				}
+			}
+
+			if (set.moves) {
+				const hasMove: {[k: string]: true} = {};
+				for (const moveId of set.moves) {
+					const move = this.dex.moves.get(moveId);
+					const moveid = move.id;
+					if (hasMove[moveid]) return [`${species.baseSpecies} has multiple copies of ${move.name}.`];
+					hasMove[moveid] = true;
+				}
+			}
+		},
+	},
 	infinitefusionmod: {
-		effectType: 'Rule',
+		effectType: "Rule",
 		name: "Infinite Fusion Mod",
 		desc: `Pok&eacute;mon can fuse with other Pok&eacute;mon!`,
 		onBegin() {

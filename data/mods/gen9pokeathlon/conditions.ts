@@ -32,4 +32,16 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-sidestart', target, 'move: Scattered Coins');
 		},
 	},
+	luckycharm: {
+		name: 'Lucky Charm',
+		noCopy: true,
+		onSideStart(target, source, sourceEffect) {
+			this.add('-sidestart', target, 'ability: Lucky Charm');
+		},
+		onModifySecondaries(secondaries) {
+			this.debug('Lucky Charm prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		onCriticalHit: false,
+	},
 };

@@ -586,7 +586,7 @@ export const commands: Chat.ChatCommands = {
 		const gen = parseInt(cmd.substr(-1));
 		if (gen) target += `, gen${gen}`;
 
-		const {dex, format, targets} = this.splitFormat(target, true);
+		const {dex, format, targets} = this.splitFormat(target, true, true);
 
 		let buffer = '';
 		target = targets.join(',');
@@ -1605,7 +1605,7 @@ export const commands: Chat.ChatCommands = {
 			`% <strong>Global Driver</strong> - Like Voice, and they can lock users and check for alts`,
 			`@ <strong>Global Moderator</strong> - The above, and they can globally ban users`,
 			`* <strong>Global Bot</strong> - An automated account that can use HTML anywhere`,
-			`&amp; <strong>Global Administrator</strong> - They can do anything, like change what this message says and promote users globally`,
+			`~ <strong>Global Administrator</strong> - They can do anything, like change what this message says and promote users globally`,
 		];
 
 		this.sendReplyBox(
@@ -1842,18 +1842,6 @@ export const commands: Chat.ChatCommands = {
 		`/cap - Provides an introduction to the Create-A-Pok\u00e9mon project.`,
 		`!cap - Show everyone that information. Requires: + % @ # ~`,
 	],
-
-	gennext(target, room, user) {
-		if (!this.runBroadcast()) return;
-		this.sendReplyBox(
-			"NEXT (also called Gen-NEXT) is a mod that makes changes to the game:<br />" +
-			`- <a href="https://github.com/smogon/pokemon-showdown/blob/master/data/mods/gennext/README.md">README: overview of NEXT</a><br />` +
-			"Example replays:<br />" +
-			`- <a href="https://replay.pokemonshowdown.com/gennextou-120689854">Zergo vs Mr Weegle Snarf</a><br />` +
-			`- <a href="https://replay.pokemonshowdown.com/gennextou-130756055">NickMP vs Khalogie</a>`
-		);
-	},
-	gennexthelp: [`/gennext - Provides information on the Gen-NEXT mod.`],
 
 	battlerules(target, room, user) {
 		return this.parse(`/join view-battlerules`);
@@ -2842,7 +2830,7 @@ export const commands: Chat.ChatCommands = {
 			allowEmpty: true, useIDs: false,
 		});
 		const format = Dex.formats.get(toID(args.format[0]));
-		if (!format.exists) {
+		if (format.effectType !== 'Format') {
 			return this.popupReply(`The format '${format}' does not exist.`);
 		}
 		delete args.format;
@@ -3193,8 +3181,8 @@ export const pages: Chat.PageTable = {
 		buf += `<hr />`;
 		const formatId = toID(query[0]);
 		const format = Dex.formats.get(formatId);
-		if (!formatId || !format.exists) {
-			if (formatId && !format.exists) {
+		if (!formatId || format.effectType !== 'Format') {
+			if (formatId) {
 				buf += `<div class="message-error">The format '${formatId}' does not exist.</div><br />`;
 			}
 			buf += `<form data-submitsend="/buildformat {format}">`;

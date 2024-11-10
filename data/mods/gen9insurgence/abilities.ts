@@ -1,3 +1,4 @@
+const {Dex} = require('../../../sim/dex');
 const eeveelutions: {[k: string]: string} = {
 	"Water": "vaporeon",
 	"Fire": "flareon",
@@ -22,7 +23,7 @@ const eeveeabilities: {[k: string]: string} = {
 	"eeveemega": "proteanmaxima",
 };
 
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	noguard: {
 		inherit: true,
@@ -273,12 +274,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	etherealshroud: {
 		onTryHit(target, source, move) {
 			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
+				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return null;
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Bug' || move.type === 'Poison') {
-				this.debug('Ethereal Shroud weaken');
+				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return this.chainModify(0.5);
 			}
 		},
@@ -574,6 +576,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				pokemon.formeChange(eeveelutions[move.type], this.dex.abilities.get('Protean Maxima'), true);
 				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
 				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(eeveeabilities[pokemon.species.id]).name);
+
+				// In Insurgence, the action order is recalculated for a Protean Maxima transform.
+				for (const [i, queuedAction] of this.queue.list.entries()) {
+					if (queuedAction.pokemon === pokemon && queuedAction.choice === 'move') {
+						this.queue.list.splice(i, 1);
+						this.queue.insertChoice(queuedAction, true);
+						break;
+					}
+				}
 
 				pokemon.baseMaxhp = Math.floor(Math.floor(
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
@@ -879,3 +890,4 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 	},
 };
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);
