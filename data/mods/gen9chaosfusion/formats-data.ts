@@ -72,6 +72,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	chanseyegho: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	necturine: {
+		inherit: true,
+		natDexTier: "Uber",
+	}
 };
 
 for (var i of Dex.mod('gen9chaos').species.all()) {
