@@ -1,6 +1,6 @@
 const {Dex} = require('../../../sim/dex');
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
-	...Dex.deepClone(require('../gen9insurgence/learnsets').ModLearnsets),
+	...Dex.deepClone(require('../gen9infinity/learnsets').ModLearnsets),
 	caterpie: {
 		learnset: {
 			tackle: ["6L1"],
