@@ -2934,11 +2934,57 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	pikachu: {
+		inherit: true,
+		evos: ["Raichu", "Raichu-Alola", "Gorochu"],
+	},
+	dunsparce: {
+		inherit: true,
+		evos: ["Dudunsparce", "Dudunsparce-Three-Segment", "Quezsparce"],
+	},
+	persian: {
+		inherit: true,
+		evos: ["Faeralynx"],
+	},
+	shellder: {
+		inherit: true,
+		evos: ["Cloyster", "Shellder-Egho"],
+	},
+	eevee: {
+		inherit: true,
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Omeon", "Champeon", "Lepideon", "Guardeon", "Obsideon", "Scorpeon", "Sphynxeon", "Nimbeon", "Draconeon", "Eeveeon", "Vareon"],
+	},
+	marowak: {
+		inherit: true,
+		evos: ["Terathwack"],
+	},
+	sunflora: {
+		inherit: true,
+		evos: ["Sunflorid"],
+	},
+	jynx: {
+		inherit: true,
+		evos: ["Sorcerice"],
+	},
+	kecleon: {
+		inherit: true,
+		evos: ["Kecleodon"],
+	},
+	mightyena: {
+		inherit: true,
+		evos: ["Wereyena"],
+	},
+	delibird: {
+		inherit: true,
+		evos: ["Jollibird"],
+	},
+	qwilfish: {
+		inherit: true,
+		evos: ["Kablowfish"],
+	},
+	girafarig: {
+		inherit: true,
+		evos: ["Girafaraf", "Giragira"],
+	},
 };
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
-
-for (var mon in ModPokedex) {
-	if (ModPokedex[mon as keyof typeof ModPokedex].prevo) {
-
-	}
-}
