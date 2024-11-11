@@ -425,6 +425,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
 	{
+		name: "[Gen 9] Inf Custom Game",
+
+		mod: 'gen9infinity',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 150', 'Overflow Stat Mod'],
+	},
+	{
 		name: "[Gen 9] Uranium Custom Game",
 
 		mod: 'gen9uranium',
