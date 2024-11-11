@@ -298,6 +298,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 6] Infinity OU",
+
+		mod: 'gen6infinity',
+		ruleset: ['Standard', 'Swagger Clause', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		banlist: [
+			'AG', 'Uber',
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew',
+			'move:batonpass',
+		],
+	},
+	{
 		name: "[Gen 6] Insurgence AG",
 		searchShow: false,
 
@@ -310,6 +322,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen6uranium',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves'],
+	},
+	{
+		name: "[Gen 6] Infinity AG",
+		searchShow: false,
+
+		mod: 'gen6infinity',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
 	},
 
 	{
@@ -341,6 +360,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Infinity NatDex OU",
+
+		mod: 'gen9infinity',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
 		name: "[Gen 9] Insurgence NatDex AG",
 		searchShow: false,
 
@@ -353,6 +384,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9uranium',
 		ruleset: ['Standard NatDex', 'No Event Moves'],
+	},
+	{
+		name: "[Gen 9] Infinity NatDex AG",
+		searchShow: false,
+
+		mod: 'gen9infinity',
+		ruleset: ['Standard NatDex', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
 	},
 
 	{
@@ -376,6 +414,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves'],
 	},
 	{
+		name: "[Gen 6] Inf Dex Doubles AG",
+		searchShow: false,
+
+		mod: 'gen6infinity',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+	},
+	{
 		name: "[Gen 9] Ins NatDex Doubles AG",
 		searchShow: false,
 
@@ -390,6 +436,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9uranium',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'No Event Moves'],
+	},
+	{
+		name: "[Gen 9] Inf NatDex Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9infinity',
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
 	},
 
 	{
@@ -415,6 +469,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'No Event Moves'],
 	},
 	{
+		name: "[Gen 9] Inf Free-For-All",
+
+		mod: 'gen9infinity',
+		gameType: 'freeforall',
+		rated: false,
+		ruleset: ['Standard NatDex', 'No Event Moves'],
+	},
+	{
 		name: "[Gen 9] Ins Custom Game",
 
 		mod: 'gen9insurgence',
@@ -425,16 +487,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 120', 'Overflow Stat Mod'],
 	},
 	{
-		name: "[Gen 9] Inf Custom Game",
-
-		mod: 'gen9infinity',
-		searchShow: false,
-		debug: true,
-		battle: {trunc: Math.trunc},
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 150', 'Overflow Stat Mod'],
-	},
-	{
 		name: "[Gen 9] Uranium Custom Game",
 
 		mod: 'gen9uranium',
@@ -443,6 +495,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
+	},
+	{
+		name: "[Gen 9] Inf Custom Game",
+
+		mod: 'gen9infinity',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 150', 'Overflow Stat Mod'],
 	},
 
 	{
