@@ -245,7 +245,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			const removeTarget = [
 				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
-				'velvetscales', 'scorchedashes', 'hawthorns', 'soundbarrier', 'dragonendurance', 'soundbarrier', 'benevolence'
+				'velvetscales', 'scorchedashes', 'hawthorns', 'soundbarrier', 'dragonendurance', 'magicwall', 'benevolence',
 			];
 			const removeAll = [
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'velvetscales', 'scorchedashes', 'hawthorns'
