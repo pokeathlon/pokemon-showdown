@@ -1,9 +1,8 @@
 /config/*
 !/config/*formats.ts
-!/config/avatars/
 /data/mods/*/remote.json
-/replays/*.html
-/replays/replays.csv
+server/static/replays/*.html
+server/static/replays/replays.csv
 /logs/**/*
 /test/modlogs
 /test/replays/*.html
