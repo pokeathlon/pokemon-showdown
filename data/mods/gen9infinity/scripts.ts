@@ -47,7 +47,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		for (let i in this.data.Pokedex) {
 			const mon = this.data.Pokedex[i];
-			if (mon.evos && mon.evos.length > 1) {
+			if (mon.evos && mon.evos.length > 1 && !["Digimon"].includes(mon.eggGroups[1])) {
 				for (var receiver of [mon.name].concat(mon.evos)) {
 					if (!(this.toID(receiver) in this.data.Learnsets)) continue;
 					var learnset = this.data.Learnsets[this.toID(receiver)].learnset;
