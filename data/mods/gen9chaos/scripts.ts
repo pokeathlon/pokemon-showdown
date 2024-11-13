@@ -1,5 +1,9 @@
 const {Dex} = require('../../../sim/dex');
 
+const reversal: string[] = [
+	"gloom", "poliwhirl", "slowpoke", "tyrogue", "eevee", "clamperl", "gloomegho",
+];
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
@@ -16,20 +20,20 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
-		for (let i in this.data.Pokedex) {
-			const mon = this.data.Pokedex[i];
-			if (mon.evos && mon.evos.length > 1 && !["Digimon"].includes(mon.eggGroups[1])) {
+		for (var i in reversal) {
+			const mon = this.species.get(this.toID(i));
+			if (mon.evos && mon.evos.length > 1) {
 				for (var receiver of [mon.name].concat(mon.evos)) {
 					if (!(this.toID(receiver) in this.data.Learnsets)) continue;
 					var learnset = this.data.Learnsets[this.toID(receiver)].learnset;
 					if (!learnset) learnset = {};
 					for (var evo of mon.evos) {
-						if (this.toID(evo) in this.data.Learnsets) {
-							var toadd = this.data.Learnsets[this.toID(evo)].learnset;
-							for (var move in toadd) {
-								for (var method of toadd[move as keyof typeof toadd]) {
+						if (this.toID(evo) in Dex.mod('gen6infinity').data.Learnsets) {
+							var tomerge = Dex.mod('gen6infinity').data.Learnsets[this.toID(evo)].learnset;
+							for (var move in tomerge) {
+								for (var lMethod of tomerge[move as keyof typeof tomerge]) {
 									if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
-									if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
+									if (!learnset[move as keyof typeof learnset].includes(lMethod)) learnset[move as keyof typeof learnset].push(lMethod);
 								}
 							}
 						}
