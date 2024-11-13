@@ -200,4 +200,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		evos: ["Girafaraf", "Giragira"],
 	},
+	porygon2: {
+		inherit: true,
+		evos: ["Porygon-Z", "Porygon-X"],
+	},
 };
