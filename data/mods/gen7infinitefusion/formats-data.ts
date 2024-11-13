@@ -1836,7 +1836,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	genesect: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 	},
 	reshiram: {
