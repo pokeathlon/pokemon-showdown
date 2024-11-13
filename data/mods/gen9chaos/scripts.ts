@@ -20,7 +20,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
-		for (var i in reversal) {
+		for (var i of reversal) {
 			const mon = this.species.get(this.toID(i));
 			if (mon.evos && mon.evos.length > 1) {
 				for (var receiver of [mon.name].concat(mon.evos)) {
