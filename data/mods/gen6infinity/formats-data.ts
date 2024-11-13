@@ -1264,4 +1264,46 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "RU",
 	},
+
+	// NU
+	kokismash: {
+		inherit: true,
+		tier: "NU",
+	},
+	mukegho: {
+		inherit: true,
+		tier: "NU",
+	},
+	scorpeon: {
+		inherit: true,
+		tier: "NU",
+	},
+	numemon: {
+		inherit: true,
+		tier: "NU",
+	},
+	togemon: {
+		inherit: true,
+		tier: "NU",
+	},
+	garurumon: {
+		inherit: true,
+		tier: "NU",
+	},
+	ikkakumon: {
+		inherit: true,
+		tier: "NU",
+	},
+	mojyamon: {
+		inherit: true,
+		tier: "NU",
+	},
+	frigimon: {
+		inherit: true,
+		tier: "NU",
+	},
+	coelamon: {
+		inherit: true,
+		tier: "NU",
+	},
 };

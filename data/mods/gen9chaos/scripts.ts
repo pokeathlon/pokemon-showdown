@@ -1,9 +1,5 @@
 const {Dex} = require('../../../sim/dex');
 
-const reversal: string[] = [
-	"gloom", "poliwhirl", "slowpoke", "tyrogue", "eevee", "clamperl", "gloomegho",
-];
-
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
