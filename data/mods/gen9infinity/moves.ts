@@ -429,7 +429,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	tartantrum: {
 		num: 0,
 		accuracy: 95,
-		basePower: 90,
+		basePower: 115,
 		category: "Physical",
 		name: "Tar-Tantrum",
 		desc: "The user throws powerful tar-fists at his foe. It may also lower the foes' Speed stat.",
@@ -1227,7 +1227,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	heavensknuckle: {
 		num: 0,
 		accuracy: 85,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
 		name: "Heaven's Knuckle",
 		desc: "The user blasts a beam of holy energy from their fist. It does not make contact.",
@@ -1260,7 +1260,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	duoscissorclaw: {
 		num: 0,
 		accuracy: 90,
-		basePower: 95,
+		basePower: 105,
 		category: "Physical",
 		name: "Duo Scissor Claw",
 		desc: "A scissor-armed attack that can tear through diamond. It may lower the target's Defense.",
@@ -1621,7 +1621,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	kablow: {
 		num: 0,
 		accuracy: 100,
-		basePower: 160,
+		basePower: 155,
 		category: "Physical",
 		name: "Kablow!",
 		desc: "The user detonates to inflict damage on those around it. Rusty shrapnel is launched at the opponent.",
