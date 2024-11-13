@@ -301,7 +301,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 6] Infinity OU",
 
 		mod: 'gen6infinity',
-		ruleset: ['Standard', 'Swagger Clause', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard', 'Swagger Clause', 'No Event Moves'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
@@ -328,7 +328,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen6infinity',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves'],
 	},
 
 	{
@@ -363,7 +363,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Infinity NatDex OU",
 
 		mod: 'gen9infinity',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'No Event Moves'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -390,7 +390,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9infinity',
-		ruleset: ['Standard NatDex', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'No Event Moves'],
 	},
 
 	{
@@ -419,7 +419,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen6infinity',
 		gameType: 'doubles',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves'],
 	},
 	{
 		name: "[Gen 9] Ins NatDex Doubles AG",
@@ -443,7 +443,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinity',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Max Level = 150', 'Default Level = 150', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'No Event Moves'],
 	},
 
 	{
@@ -504,7 +504,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 150', 'Overflow Stat Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
 	},
 
 	{
