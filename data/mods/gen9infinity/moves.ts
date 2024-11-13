@@ -579,7 +579,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		name: "Big Bang",
 		desc: "The Pokémon unleashes a burst of cosmic energy that hits all in battle, and may leave a status condition.",
-		shortDesc: "50% chance to burn, freezr, or paralyze target.",
+		shortDesc: "50% chance to burn, freeze, or paralyze target.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
