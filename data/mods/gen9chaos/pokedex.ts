@@ -21,6 +21,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Winter Joy"},
+		evos: ["Jollibird"],
 	},
 	whismur: {
 		inherit: true,
@@ -112,7 +113,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	kecleon: {
 		inherit: true,
 		evoLevel: 45,
-		evos: ["Kaleidleon"],
+		evos: ["Kaleidleon", "Kecleodon"],
 	},
 	parasect: {
 		inherit: true,
@@ -152,5 +153,51 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	veluza: {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Psycho Slider", H: "Sharpness"},
+	},
+
+	// Infinity
+	pikachu: {
+		inherit: true,
+		evos: ["Raichu", "Raichu-Alola", "Gorochu"],
+	},
+	dunsparce: {
+		inherit: true,
+		evos: ["Dudunsparce", "Dudunsparce-Three-Segment", "Quezsparce"],
+	},
+	persian: {
+		inherit: true,
+		evos: ["Faeralynx"],
+	},
+	shellder: {
+		inherit: true,
+		evos: ["Cloyster", "Shellder-Egho"],
+	},
+	eevee: {
+		inherit: true,
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Omeon", "Champeon", "Lepideon", "Guardeon", "Obsideon", "Scorpeon", "Sphynxeon", "Nimbeon", "Draconeon", "Eeveeon", "Vareon"],
+	},
+	marowak: {
+		inherit: true,
+		evos: ["Terathwack"],
+	},
+	sunflora: {
+		inherit: true,
+		evos: ["Sunflorid"],
+	},
+	jynx: {
+		inherit: true,
+		evos: ["Sorcerice"],
+	},
+	mightyena: {
+		inherit: true,
+		evos: ["Wereyena"],
+	},
+	qwilfish: {
+		inherit: true,
+		evos: ["Kablowfish"],
+	},
+	girafarig: {
+		inherit: true,
+		evos: ["Girafaraf", "Giragira"],
 	},
 };
