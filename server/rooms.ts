@@ -2069,9 +2069,9 @@ export class GameRoom extends BasicRoom {
 
 		const replayName = `${toID(battle.p1.name)}-${toID(battle.p2.name)}${battle.p3 ? '-' + toID(battle.p3.name) : ''}${battle.p4 ? '-' + toID(battle.p4.name) : ''}-${Date.now()}`;
 
-		FS(`replays/${replayName}.html`).writeSync(buf);
+		FS(`server/static/replays/${replayName}.html`).writeSync(buf);
 
-		FS('replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
+		FS('server/static/replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
 
 		connection?.popup(
 			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
