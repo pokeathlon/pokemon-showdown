@@ -5,13 +5,33 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen9',
 	init() {
 		// Pull alt content
-		const fangames = ['gen9insurgence', 'gen9uranium', 'gen9infinitefusion', 'gen9pokeathlon'];
+		const fangames = ['gen9insurgence', 'gen9uranium', 'gen9infinitefusion', 'gen9pokeathlon', 'gen9infinity'];
 		const categories = ['Pokedex', 'Moves', 'Abilities', 'Conditions', 'Items', 'Learnsets']
 		for (var fangame of fangames) {
 			for (var category of categories) {
 				for (var item in Dex.mod(fangame).data[category]) {
 					if (!(item in this.data[category as keyof typeof this.data])) {
 						this.data[category as keyof typeof this.data][item] = Dex.deepClone(Dex.mod(fangame).data[category][item]);
+					}
+				}
+			}
+		}
+		for (let i in this.data.Pokedex) {
+			const mon = this.data.Pokedex[i];
+			if (mon.evos && mon.evos.length > 1) {
+				var learnset = this.data.Learnsets[this.toID(mon.name)].learnset;
+				if (!learnset) learnset = {};
+				for (var evo of mon.evos) {
+					if (this.toID(evo) in this.data.Learnsets) {
+						var toadd = this.data.Learnsets[this.toID(evo)].learnset;
+						for (var move in toadd) {
+							for (var method of toadd[move as keyof typeof toadd]) {
+								if (method.startsWith('6')) {
+									if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
+									if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
+								}
+							}
+						}
 					}
 				}
 			}

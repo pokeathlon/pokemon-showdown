@@ -9449,7 +9449,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			thunderpunch: ["6T"],
 		},
 	},
-	vegimon: {
+	vegiemon: {
 		learnset: {
 			compostbomber: ["6L0", "6L4"],
 			leechseed: ["6L0", "6L4"],
@@ -9473,7 +9473,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			dazzlinggleam: ["6T"],
 		},
 	},
-	redvegimon: {
+	redvegiemon: {
 		learnset: {
 			powerwhip: ["6L0", "6L4"],
 			gunkshot: ["6L0", "6L4"],
