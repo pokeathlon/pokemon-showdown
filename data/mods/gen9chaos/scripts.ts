@@ -24,8 +24,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			const mon = this.species.get(this.toID(i));
 			if (mon.evos && mon.evos.length > 1) {
 				for (var receiver of [mon.name].concat(mon.evos)) {
-					if (!(this.toID(receiver) in this.data.Learnsets)) continue;
-					var locallearnset = Dex.mod('gen9chaos').learnsets.get(this.toID(receiver)).learnset;
+					if (!(this.toID(receiver) in Dex.mod('gen9chaos').data.Learnsets)) continue;
+					var locallearnset = Dex.mod('gen9chaos').data.Learnsets[this.toID(receiver)].learnset;
 					if (!locallearnset) locallearnset = {};
 					for (var evo of mon.evos) {
 						if (this.toID(evo) in Dex.mod('gen6infinity').data.Learnsets) {
