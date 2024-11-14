@@ -3372,6 +3372,12 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	sketchclause: {
+		effectType: 'ValidatorRule',
+		name: 'Sketch Clause',
+		desc: "Removes Sketch-Move legality entirely.",
+		// Hardcoded in team-validator.ts
+	},
 };
 
 

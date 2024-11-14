@@ -2495,7 +2495,9 @@ export class TeamValidator {
 			if (moveid === 'sketch') {
 				sketch = true;
 			} else if (learnset['sketch']) {
-				if (move.flags['nosketch'] || move.isZ || move.isMax) {
+				if (ruleTable.has('sketchclause')) {
+					cantLearnReason = `can't be Sketched because Sketch is banned in this format.`;
+				} else if (move.flags['nosketch'] || move.isZ || move.isMax) {
 					cantLearnReason = `can't be Sketched.`;
 				} else if (move.gen > 7 && !canSketchPostGen7Moves &&
 					(dex.gen === 8 ||
