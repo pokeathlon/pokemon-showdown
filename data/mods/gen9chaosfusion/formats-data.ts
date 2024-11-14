@@ -44,18 +44,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	necturna: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
-	smeargle: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
-	raffiti: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
 	blissey: {
 		inherit: true,
 		natDexTier: "Uber",
