@@ -5,6 +5,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 for (const i of Dex.moves.all()) {
 	if (i.isNonstandard) {
-		Moves[i.id] = {inherit: true, isNonstandard: null};
+		Moves[i.id] = {inherit: true, isNonstandard: null, gen: 6};
 	}
 }

@@ -5,6 +5,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 
 for (const i of Dex.abilities.all()) {
 	if (i.isNonstandard) {
-		Abilities[i.id] = {inherit: true, isNonstandard: null};
+		Abilities[i.id] = {inherit: true, isNonstandard: null, gen: 6};
 	}
 }
