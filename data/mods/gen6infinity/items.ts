@@ -43,7 +43,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 };
 
-for (var i of Dex.items.all()) {
+for (const i of Dex.items.all()) {
 	if (i.megaStone) {
 		Items[i.id] = {inherit: true, isNonstandard: "Unobtainable"};
 	}

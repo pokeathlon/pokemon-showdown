@@ -27,13 +27,12 @@ import type {RoomPermission, GlobalPermission} from './user-groups';
 import type {Punishment} from './punishments';
 import type {PartialModlogEntry} from './modlog';
 import {FriendsDatabase, PM} from './friends';
-import {SQL, Repl, FS, Utils} from '../lib';
+import {Net, SQL, Repl, FS, Utils} from '../lib';
 import * as Artemis from './artemis';
 import {Dex} from '../sim';
 import {PrivateMessages} from './private-messages';
 import * as pathModule from 'path';
 import * as JSX from './chat-jsx';
-import {Net} from '../lib';
 
 export type PageHandler = (this: PageContext, query: string[], user: User, connection: Connection)
 => Promise<string | null | void | JSX.VNode> | string | null | void | JSX.VNode;
@@ -1126,11 +1125,11 @@ export class CommandContext extends MessageContext {
 			throw new Chat.ErrorMessage(this.tr`You must choose a name before you can talk.`);
 		}
 		const concerningWords = ["Careful!", " ped ", "Arcato"];
-		var priority = false;
-		for (var word of concerningWords) {
+		let priority = false;
+		for (const word of concerningWords) {
 			if (message?.includes(word)) priority = true;
 		}
-		Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
+		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
 			body: {"content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1},
 			timeout: 10 * 1000, // 10s
 		});

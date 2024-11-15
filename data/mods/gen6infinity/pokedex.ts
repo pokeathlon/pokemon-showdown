@@ -930,7 +930,7 @@ const InfDex: {[k: string]: number} = {
 	"wizardmon": 903,
 };
 
-for (var i of Dex.mod('gen9infinity').species.all()) {
+for (const i of Dex.mod('gen9infinity').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isInf = i.id in InfDex;
 	Pokedex[i.id].isNonstandard = isInf ? null : "Unobtainable";

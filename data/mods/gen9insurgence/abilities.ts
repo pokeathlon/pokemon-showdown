@@ -401,7 +401,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			const curType = target.getTypes();
 			target.setType('???');
 			move.ignoreImmunity = {};
-			for (var type of this.dex.types.all()) {
+			for (const type of this.dex.types.all()) {
 				if (target.runImmunity(type.name)) {
 					move.ignoreImmunity[type.name] = true;
 				}
@@ -418,7 +418,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onUpdate(pokemon) {
 			if (!pokemon.species.id.startsWith('hydreigonmega') || !pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'];
-			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
+			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
 			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
 				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
 			}
@@ -438,10 +438,10 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
 			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
-			let nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+			const nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
 		},
-		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
 			if (pokemon.species.id.startsWith('hydreigonmega') && move.secondaries) {
 				delete move.secondaries;
 			}
@@ -532,7 +532,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onResidual(target, source, effect) {
 			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
 				this.heal(target.baseMaxhp / 8);
-			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())){
+			} else if (['raindance', 'primordialsea', 'newmoon'].includes(target.effectiveWeather())) {
 				return;
 			} else {
 				this.heal(target.baseMaxhp / 16);
@@ -628,7 +628,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onSourceDamagingHit(damage, target, source, move) {
 			if (source === target || target.fainted || target.isSemiInvulnerable()) return;
 			if (!source.species.name.includes('Muk-Delta')) return;
-			let muktype = source.species.name.includes('Muk-Delta-') ? source.species.name.replace('Muk-Delta-', '') : 'Water';
+			const muktype = source.species.name.includes('Muk-Delta-') ? source.species.name.replace('Muk-Delta-', '') : 'Water';
 			if (this.dex.getImmunity(muktype, target)) {
 				this.damage((target.maxhp / 6) * (2 ** this.dex.getEffectiveness(muktype, target)), target, source);
 			}
@@ -878,8 +878,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				this.add('-activate', target, 'ability: Glitch');
-				source.faint;
+				source.faint(target, this.effect);
 			}
 		},
 		flags: {},

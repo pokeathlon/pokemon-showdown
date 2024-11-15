@@ -16,7 +16,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	
+
 
 	// CAP
 	syclar: {

@@ -128,23 +128,23 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	// other PoA changes
 	magmortar: {
 		inherit: true,
-		abilities: {0: "Flame Body", 1:"Cannoneer", H: "Vital Spirit"},
+		abilities: {0: "Flame Body", 1: "Cannoneer", H: "Vital Spirit"},
 	},
 	remoraid: {
 		inherit: true,
-		abilities: {0: "Hustle", 1: "Sniper", H: "Moody", S:"Cannoneer"},
+		abilities: {0: "Hustle", 1: "Sniper", H: "Moody", S: "Cannoneer"},
 	},
 	octillery: {
 		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Sniper", H: "Moody", S:"Cannoneer"},
+		abilities: {0: "Suction Cups", 1: "Sniper", H: "Moody", S: "Cannoneer"},
 	},
 	rhyperior: {
 		inherit: true,
-		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Reckless", S:"Cannoneer"},
+		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Reckless", S: "Cannoneer"},
 	},
 	toucannon: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Skill Link", H: "Sheer Force", S:"Cannoneer"},
+		abilities: {0: "Keen Eye", 1: "Skill Link", H: "Sheer Force", S: "Cannoneer"},
 	},
 	raichualola: {
 		inherit: true,

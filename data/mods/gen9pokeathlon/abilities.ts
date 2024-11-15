@@ -1,8 +1,3 @@
-import { MoveEventMethods } from '../../../sim/dex-moves';
-
-const {Dex} = require('../../../sim/dex');
-const {MoveEventMethods} = require('../../../sim/dex-moves');
-
 export const treasures: {[k: string]: string} = {
 	dracoplate: 'protean',
 	dreadplate: 'protean',
@@ -49,7 +44,7 @@ export const treasures: {[k: string]: string} = {
 	hardstone: 'adaptability',
 	metalcoat: 'adaptability',
 	mysticwater: 'adaptability',
-	
+
 };
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
@@ -58,7 +53,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onUpdate(pokemon) {
 			if (!pokemon.species.id.startsWith('hydroupa') || !pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
-			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
+			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
 			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
 				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
 			}
@@ -77,10 +72,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydroupa')) return;
 			const formes = ['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
-			let nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+			const nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
 		},
-		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
 			if (pokemon.species.id.startsWith('hydroupa') && move.secondaries) {
 				delete move.secondaries;
 			}
@@ -207,7 +202,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			} else {
 				this.field.addPseudoWeather('gravity');
 			}
-			
 		},
 		flags: {},
 		name: "Slow Light",
@@ -303,7 +297,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
@@ -318,8 +312,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				pokemon.removeVolatile("mustrecharge");
 				this.add("cant", pokemon, "recharge");
 				return;
-			}
-			else {
+			} else {
 				this.actions.useMove("Self-Destruct", pokemon);
 			}
 		},
@@ -360,7 +353,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (effect && effect.id !== 'stickyweb') return;
-			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
@@ -382,16 +374,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	necromancy: {
 		onStart(target) {
 			let zombie;
-			let log = this.dex.deepClone(this.log);
+			const log = this.dex.deepClone(this.log);
 			log.reverse();
-			for (let line of log) {
+			for (const line of log) {
 				if (zombie) break;
 				if (line.includes('|faint|')) {
-					let faintName = line.slice(12);
-					let player = line.slice(7, 9);
+					const faintName = line.slice(12);
+					const player = line.slice(7, 9);
 					const side = player === 'p1' ? this.p1 : player === 'p2' ? this.p2 : player === 'p3' ? this.p3 : this.p4;
 					if (side) {
-						for (let mon of side.pokemon) {
+						for (const mon of side.pokemon) {
 							if (mon.name === faintName) zombie = mon;
 						}
 					}
@@ -399,16 +391,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (zombie) {
 				const species = this.runEvent('ModifySpecies', this, null, this.effect, zombie.species);
-				let newSpecies: Species = this.dex.deepClone(species);
+				const newSpecies: Species = this.dex.deepClone(species);
 
-				let moves = zombie.moveSlots;
-				
+				const moves = zombie.moveSlots;
+
 				this.add('-activate', target, 'ability: Necromancy');
 				this.add('-message', `${target.name} has gained control over the body of ${zombie.name}!`);
 
-				let newType: string[] = [];
+				const newType: string[] = [];
 
-				for (let type of [...target.getTypes(), ...zombie.getTypes()]) {
+				for (const type of [...target.getTypes(), ...zombie.getTypes()]) {
 					if (!newType.includes(type)) {
 						newType.push(type);
 					}
@@ -429,7 +421,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
-			breakable: 1, notransform: 1,},
+			breakable: 1, notransform: 1},
 		name: "Necromancy",
 		shortDesc: "This Pokemon can control the body of the last Pokemon who fainted.",
 		rating: 4,
@@ -508,7 +500,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	glutinousrice: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Fighting') {
-				this.debug("Glutinous Rice reduction")
+				this.debug("Glutinous Rice reduction");
 				return this.chainModify(0.25);
 			}
 		},
@@ -520,10 +512,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	clairvoyance: {
 		onChargeMove(pokemon, target, move) {
-				this.debug('clairvoyance - remove charge turn for ' + move.id);
-				this.attrLastMove('[still]');
-				this.addMove('-anim', pokemon, move.name, target);
-				return false; // skip charge turn
+			this.debug('clairvoyance - remove charge turn for ' + move.id);
+			this.attrLastMove('[still]');
+			this.addMove('-anim', pokemon, move.name, target);
+			return false; // skip charge turn
 		},
 		flags: {breakable: 1},
 		name: "Clairvoyance",
@@ -629,13 +621,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 			if (fullPlate && !target.getVolatile('fullPlate')) {
-				target.addVolatile('fullPlate') //to break recursion
+				target.addVolatile('fullPlate'); // to break recursion
 				this.effectState.fullplate = true; // once per switch
-				this.boost({def: 1}, target, target)
+				this.boost({def: 1}, target, target);
 			} else {
-				if (target.getVolatile('fullPlate')) target.removeVolatile('fullPlate'); //to reset for next move
+				if (target.getVolatile('fullPlate')) target.removeVolatile('fullPlate'); // to reset for next move
 			}
-			
 		},
 		onSwitchIn(pokemon) {
 			delete this.effectState.fullplate;
@@ -680,7 +671,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2.5,
 		num: 0,
 	},
-	luckycharm: { //condition implemented in conditions.ts
+	luckycharm: { // condition implemented in conditions.ts
 		onStart(pokemon) {
 			this.add('-activate', pokemon, 'ability: Lucky Charm');
 			pokemon.side.addSideCondition('luckycharm');

@@ -154,9 +154,9 @@ export const PrivateMessages = new class {
 		return PM.run(statements.clearSeen, [Date.now(), SEEN_EXPIRY_TIME]);
 	}
 	send(message: string, user: User, pmTarget: User, onlyRecipient: User | null = null) {
-		var display = true;
+		let display = true;
 		for (const line of Chat.filterWords['shadowban']) {
-			let ret = line.regex.exec(message)?.[0];
+			const ret = line.regex.exec(message)?.[0];
 			if (typeof ret === 'string' || ret === false) {
 				display = false;
 			}

@@ -207,7 +207,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		itemUser: ["Eevee"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			if (source.species.name === 'Vaporeon' || 
+			if (source.species.name === 'Vaporeon' ||
 				source.species.name === 'Jolteon' ||
 				source.species.name === 'Flareon' ||
 				source.species.name === 'Umbreon' ||

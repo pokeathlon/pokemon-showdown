@@ -7,9 +7,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Pull alt content
 		const fangames = ['gen9insurgence', 'gen9uranium'];
 		const categories = ['Moves', 'Abilities', 'Conditions'];
-		for (var fangame of fangames) {
-			for (var category of categories) {
-				for (var item in Dex.mod(fangame).data[category]) {
+		for (const fangame of fangames) {
+			for (const category of categories) {
+				for (const item in Dex.mod(fangame).data[category]) {
 					if (!(item in this.data[category as keyof typeof this.data])) {
 						this.data[category as keyof typeof this.data][item] = Dex.deepClone(Dex.mod(fangame).data[category][item]);
 					}
@@ -23,7 +23,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.hint("A switch failed because the Pokémon trying to switch in is already in.");
 				return false;
 			}
-	
+
 			const side = pokemon.side;
 			if (pos >= side.active.length) {
 				throw new Error(`Invalid switch position ${pos} / ${side.active.length}`);
@@ -51,7 +51,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					// Warning: DO NOT interrupt a switch-out if you just want to trap a pokemon.
 					// To trap a pokemon and prevent it from switching out, (e.g. Mean Look, Magnet Pull)
 					// use the 'trapped' flag instead.
-	
+
 					// Note: Nothing in the real games can interrupt a switch-out (except Pursuit KOing,
 					// which is handled elsewhere); this is just for custom formats.
 					return false;
@@ -60,15 +60,15 @@ export const Scripts: ModdedBattleScriptsData = {
 					// a pokemon fainted from Pursuit before it could switch
 					return 'pursuitfaint';
 				}
-	
+
 				// will definitely switch out at this point
-	
+
 				oldActive.illusion = null;
 				this.battle.singleEvent('End', oldActive.getAbility(), oldActive.abilityState, oldActive);
-	
+
 				// if a pokemon is forced out by Whirlwind/etc or Eject Button/Pack, it can't use its chosen move
 				this.battle.queue.cancelAction(oldActive);
-	
+
 				let newMove = null;
 				if (this.battle.gen === 4 && sourceEffect) {
 					newMove = oldActive.lastMove;
@@ -106,7 +106,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			pokemon.abilityOrder = this.battle.abilityOrder++;
 			if (isDrag && this.battle.gen === 2) pokemon.draggedIn = this.battle.turn;
 			pokemon.previouslySwitchedIn++;
-	
+
 			if (isDrag && this.battle.gen >= 5) {
 				// runSwitch happens immediately so that Mold Breaker can make hazards bypass Clear Body and Levitate
 				this.battle.singleEvent('PreStart', pokemon.getAbility(), pokemon.abilityState, pokemon);
@@ -115,7 +115,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.queue.insertChoice({choice: 'runUnnerve', pokemon});
 				this.battle.queue.insertChoice({choice: 'runSwitch', pokemon});
 			}
-	
+
 			return true;
 		},
 	},

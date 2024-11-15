@@ -1,5 +1,5 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
-	//Other
+	// Other
 	berserkgene: {
 		inherit: true,
 		isNonstandard: null,

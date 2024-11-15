@@ -149,7 +149,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		abilities: {0: "Unaware", 1: "Illusion", H: "Analytic"},
 		baseStats: {hp: 111, atk: 100, def: 110, spa: 110, spd: 101, spe: 0},
 	},
-	
+
 	butterfree: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 80, spd: 80, spe: 70},

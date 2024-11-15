@@ -29,7 +29,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.item === 'boomerang') {
-				move.multihit = 2
+				move.multihit = 2;
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -61,7 +61,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		condition: {
 			onUpdate(pokemon) {
-				if (pokemon.item != 'boomerang') {
+				if (pokemon.item !== 'boomerang') {
 					const item = pokemon.getItem();
 					pokemon.setItem('');
 					pokemon.lastItem = item.id;
@@ -634,7 +634,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (move.willChangeForme) {
 				if (pokemon.species.baseSpecies === 'Manacra') {
 					const manacraForme = pokemon.species.id === 'manacraplated' ? '' : '-Plated';
-				pokemon.formeChange('Manacra' + manacraForme, this.effect, true, '[msg]');
+					pokemon.formeChange('Manacra' + manacraForme, this.effect, true, '[msg]');
 				} else if (pokemon.fusion?.includes('Manacra')) {
 					const manacraForme = pokemon.fusion === 'Manacra-Plated' ? '' : '-Plated';
 					pokemon.fusionChange('Manacra' + manacraForme, this.effect);
@@ -804,31 +804,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	lycanpounce: {
 		num: 0,
-        accuracy: 100,
-        basePower: 100,
-        category: "Physical",
-        name: "Lycan Pounce",
-        shortDesc: "High crit ratio. Disguises as the first damaging move in the user's moveset.",
-        pp: 5,
-        priority: 0,
-        flags: {contact: 1, protect: 1, mirror: 1},
-        critRatio: 2,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Lycan Pounce",
+		shortDesc: "High crit ratio. Disguises as the first damaging move in the user's moveset.",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
 		onModifyMove(move, pokemon, target) {
-            let newMoveName;
-            for (const moveSlot of pokemon.moveSlots) {
-                const temp = this.dex.moves.get(moveSlot.id);
-                if(temp.category !== 'Status') {
-                    newMoveName = temp.name;
-                    break;
-                }
-            }
+			let newMoveName;
+			for (const moveSlot of pokemon.moveSlots) {
+				const temp = this.dex.moves.get(moveSlot.id);
+				if (temp.category !== 'Status') {
+					newMoveName = temp.name;
+					break;
+				}
+			}
 			// @ts-ignore
 			if (newMoveName) move.name = newMoveName;
-        },
-        secondary: null,
-        target: "normal",
-        type: "Fighting",
-    },
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
 	spudmortar: {
 		num: 0,
 		accuracy: 100,
@@ -850,7 +850,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					id: 'spudmortar',
 					name: "Spud Mortar",
 					accuracy: 100,
-					basePower: item.isBerry? 180 : 120,
+					basePower: item.isBerry ? 180 : 120,
 					category: "Special",
 					priority: 0,
 					flags: {metronome: 1, futuremove: 1},
@@ -867,7 +867,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			this.add('-start', source, 'Spud Mortar');
 			return this.NOT_FAIL;
-			
 		},
 		secondary: null,
 		target: "normal",
@@ -1280,7 +1279,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 };
 
-for (var i of Dex.moves.all()) {
+for (const i of Dex.moves.all()) {
 	if (["Past", "Unobtainable"].includes(i.isNonstandard)) {
 		if (!Moves[i.id]) Moves[i.id] = {inherit: true};
 		Moves[i.id].isNonstandard = null;

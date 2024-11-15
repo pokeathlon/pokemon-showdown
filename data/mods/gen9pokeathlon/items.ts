@@ -102,7 +102,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	vigorherb: {
 		name: "Vigor Herb",
 		desc: "Holder's recharge turn is skipped. Single use.",
-		onUpdate(pokemon) {	
+		onUpdate(pokemon) {
 			if (pokemon.volatiles["mustrecharge"] && pokemon.useItem()) {
 				pokemon.removeVolatile("mustrecharge");
 				this.add("cant", pokemon, "recharge");
@@ -117,10 +117,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		desc: "Holder takes half the recoil damage.",
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
-			if (move.recoil) move.recoil[1] = move.recoil[1]*2;
+			if (move.recoil) move.recoil[1] = move.recoil[1] * 2;
 		},
 		num: 0,
-		spritenum: -3
+		spritenum: -3,
 	},
 	ejectbandage: {
 		name: "Eject Bandage",

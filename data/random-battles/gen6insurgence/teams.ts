@@ -14,7 +14,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const seed = this.prng.seed;
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool = Object.keys(this.randomSets);
+		const pool = Object.keys(this.randomSets);
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSpecies = this.sampleNoReplace(pool);

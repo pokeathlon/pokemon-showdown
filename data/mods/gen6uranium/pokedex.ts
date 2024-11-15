@@ -259,7 +259,7 @@ const UDex: {[k: string]: number} = {
 	"uraynebeta": 197,
 };
 
-for (var i of Dex.mod('gen9uranium').species.all()) {
+for (const i of Dex.mod('gen9uranium').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isU = i.id in UDex;
 	Pokedex[i.id].isNonstandard = isU ? null : "Unobtainable";

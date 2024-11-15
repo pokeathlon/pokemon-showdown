@@ -6,12 +6,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			isPermanent?: boolean, message?: string
 		) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
-	
+
 			const species = this.setSpecies(rawSpecies, source);
 			if (!species) return false;
-	
+
 			if (this.battle.gen <= 2) return true;
-	
+
 			// The species the opponent sees
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
@@ -41,11 +41,11 @@ export const Scripts: ModdedBattleScriptsData = {
 						if (this.illusion) {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
-							for (var item of allowedItems) {
+							for (const item of allowedItems) {
 								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
 							}
 							if (megaForme) {
-								const illusionDetails = this.illusion.setSpecies(megaForme, source).name + 
+								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
@@ -82,6 +82,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.apparentType = this.terastallized;
 			}
 			return true;
-		}
+		},
 	},
 };

@@ -11,7 +11,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.modData('Learnsets', i).learnset.achillesheel = ["6M"];
 				}
 				if (i in learnsetAdditions) {
-					for (var move of learnsetAdditions[i]) {
+					for (const move of learnsetAdditions[i]) {
 						this.modData('Learnsets', i).learnset[move] = ["9M"];
 					}
 				}
@@ -36,7 +36,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return item.megaStone;
 			}
 			return null;
-		}
+		},
 	},
 	pokemon: {
 		setStatus(
@@ -52,7 +52,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
 			if (!source) source = this;
-	
+
 			if (this.status === status.id) {
 				if ((sourceEffect as Move)?.status === this.status) {
 					this.battle.add('-fail', this, this.status);
@@ -62,7 +62,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				return false;
 			}
-			
+
 			if (source?.hasAbility('venomous') && status.id === 'psn') status = this.battle.dex.conditions.get('tox');
 
 			if (!ignoreImmunities && status.id &&
@@ -85,7 +85,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return result;
 				}
 			}
-	
+
 			this.status = status.id;
 			this.statusState = {id: status.id, target: this};
 			if (source) this.statusState.source = source;
@@ -93,7 +93,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (status.durationCallback) {
 				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
-	
+
 			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
 				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus
@@ -111,12 +111,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			isPermanent?: boolean, message?: string
 		) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
-	
+
 			const species = this.setSpecies(rawSpecies, source);
 			if (!species) return false;
-	
+
 			if (this.battle.gen <= 2) return true;
-	
+
 			// The species the opponent sees
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
@@ -146,11 +146,11 @@ export const Scripts: ModdedBattleScriptsData = {
 						if (this.illusion) {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
-							for (var item of allowedItems) {
+							for (const item of allowedItems) {
 								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
 							}
 							if (megaForme) {
-								const illusionDetails = this.illusion.setSpecies(megaForme, source).name + 
+								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);

@@ -122,7 +122,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	rockruff: {
 		inherit: true,
 		abilities: {0: "Keen Eye", 1: "Vital Spirit", H: "Steadfast"},
-	}
+	},
 };
 
 // Regional Dex Data
@@ -667,10 +667,10 @@ const IFDex: {[k: string]: number} = {
 	"miniormeteor": 498,
 	"minior": 499,
 	"diancie": 500,
-	"luvdisc": 501
+	"luvdisc": 501,
 };
 
-for (var i of Dex.mod('gen9infinitefusion').species.all()) {
+for (const i of Dex.mod('gen9infinitefusion').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isIF = i.id in IFDex;
 	Pokedex[i.id].isNonstandard = isIF ? null : "Unobtainable";

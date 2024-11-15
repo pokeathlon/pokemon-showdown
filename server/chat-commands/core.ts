@@ -80,8 +80,8 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 	rooms(target, user, trustable) {
 		if (!trustable) return false;
 
-		let searches: {[k: string]: number} = {};
-		for (var formatid of Ladders.searches.keys()) {
+		const searches: {[k: string]: number} = {};
+		for (const formatid of Ladders.searches.keys()) {
 			const size = Ladders.searches.get(formatid)?.searches.size;
 			if (size) searches[Dex.formats.get(formatid).name] = size;
 		}

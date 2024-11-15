@@ -5,7 +5,7 @@ import {ModdedSpeciesDataTable, ModdedSpeciesData} from '../../../sim/dex-specie
 export const ModPokedex: ModdedSpeciesDataTable = {
 	magmortar: {
 		inherit: true,
-		abilities: {0: "Flame Body", 1:"Cannoneer", H: "Vital Spirit"},
+		abilities: {0: "Flame Body", 1: "Cannoneer", H: "Vital Spirit"},
 	},
 	remoraid: {
 		inherit: true,
@@ -34,7 +34,7 @@ export const ModPokedex: ModdedSpeciesDataTable = {
 };
 
 function findSpecies(name: string) {
-	for (var mod of ["gen9insurgence", "gen9uranium"]) {
+	for (const mod of ["gen9insurgence", "gen9uranium"]) {
 		const result = Dex.mod(mod).species.get(name);
 		if (result.exists) return result;
 	}
@@ -44,18 +44,18 @@ function findSpecies(name: string) {
 const additions = Object.keys(remote.dex);
 additions.sort();
 
-var ctr = 3001;
-for (var mon of additions) {
+let ctr = 3001;
+for (const mon of additions) {
 	const cur = remote.dex[mon];
 
-	var baseSpecies = cur.name.split('-').slice(0, -1).join('-');
+	let baseSpecies = cur.name.split('-').slice(0, -1).join('-');
 	const forme = cur.name.split('-').slice(-1).join('');
 	baseSpecies = Dex.toID(baseSpecies) in ModPokedex ? ModPokedex[Dex.toID(baseSpecies)] : findSpecies(baseSpecies);
 
-	var types = [];
-	for (var mtype of cur["types"]) if (mtype) types.push(mtype);
+	const types = [];
+	for (const mtype of cur["types"]) if (mtype) types.push(mtype);
 
-	var entry: AnyObject = {
+	const entry: AnyObject = {
 		num: 0,
 		name: cur["name"],
 		types: types,
@@ -91,10 +91,10 @@ for (var mon of additions) {
 	}
 
 	if (cur.cosmetics) {
-		var cosmeticFormes: string[] = [];
+		const cosmeticFormes: string[] = [];
 		cur.cosmetics.split(',').forEach((item: string) => cosmeticFormes.push(cur.name + '-' + item.trim()));
 		entry.cosmeticFormes = cosmeticFormes;
-		for (var skin of cosmeticFormes) {
+		for (const skin of cosmeticFormes) {
 			Dex.data.Aliases[Dex.toID(skin)] = cur.name;
 		}
 	}
@@ -111,11 +111,11 @@ for (var mon of additions) {
 			};
 		}
 	}
-	
+
 	const evos = additions.filter((addition) => (remote.dex[addition].prevo && remote.dex[addition].prevo === cur.name));
 	if (evos.length) {
 		entry.evos = [];
-		for (var evo of evos) {
+		for (const evo of evos) {
 			entry.evos.push(remote.dex[evo].name);
 		}
 	}
@@ -123,7 +123,7 @@ for (var mon of additions) {
 	ModPokedex[Dex.toID(mon)] = entry as ModdedSpeciesData;
 }
 
-for (var i of Dex.species.all()) {
+for (const i of Dex.species.all()) {
 	if (!ModPokedex[i.id]) ModPokedex[i.id] = {inherit: true};
 	const isPoA = i.id in additions;
 	ModPokedex[i.id].isNonstandard = isPoA ? null : "Unobtainable";
@@ -132,32 +132,32 @@ for (var i of Dex.species.all()) {
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
 
-for (var formatname in remote.banlists) {
+for (const formatname in remote.banlists) {
 	const cur = remote.banlists[formatname];
 	const format = Dex.formats.get(formatname);
 	if (cur.pokemon) {
-		for (var pokeban of cur.pokemon.split(',')) {
+		for (const pokeban of cur.pokemon.split(',')) {
 			if (Dex.mod('gen9chaos').species.get(pokeban)) {
 				format.banlist.push('pokemon:' + Dex.toID(pokeban));
 			}
 		}
 	}
 	if (cur.abilities) {
-		for (var pokeban of cur.abilities.split(',')) {
+		for (const pokeban of cur.abilities.split(',')) {
 			if (Dex.mod('gen9chaos').abilities.get(pokeban)) {
 				format.banlist.push('ability:' + Dex.toID(pokeban));
 			}
 		}
 	}
 	if (cur.moves) {
-		for (var pokeban of cur.moves.split(',')) {
+		for (const pokeban of cur.moves.split(',')) {
 			if (Dex.mod('gen9chaos').moves.get(pokeban)) {
 				format.banlist.push('move:' + Dex.toID(pokeban));
 			}
 		}
 	}
 	if (cur.items) {
-		for (var pokeban of cur.items.split(',')) {
+		for (const pokeban of cur.items.split(',')) {
 			if (Dex.mod('gen9chaos').items.get(pokeban)) {
 				format.banlist.push('item:' + Dex.toID(pokeban));
 			}

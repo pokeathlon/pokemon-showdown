@@ -17,7 +17,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 	},
-	
+
 	// Additions
 	atomicpunch: {
 		num: 0,

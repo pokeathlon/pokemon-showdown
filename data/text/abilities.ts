@@ -2268,7 +2268,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		activate: "  [POKEMON] extends [MOVE] by 2 turns!",
 	},
-	
+
 	// Pokeathlon
 	zealousflock: {
 		name: "Zealous Flock",
@@ -2278,7 +2278,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	sweettooth: {
 		name: "Sweet Tooth",
-		
+
 		activate: "  [POKEMON] became sugar crazed!",
-	}
+	},
 };

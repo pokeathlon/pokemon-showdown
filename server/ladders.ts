@@ -15,7 +15,6 @@ const LadderStore: typeof import('./ladders-remote').LadderStore = (
 const SECONDS = 1000;
 const PERIODIC_MATCH_INTERVAL = 60 * SECONDS;
 
-import {Net} from '../lib';
 import type {ChallengeType} from './room-battle';
 import {BattleReady, BattleChallenge, GameChallenge, BattleInvite, challenges} from './ladders-challenges';
 

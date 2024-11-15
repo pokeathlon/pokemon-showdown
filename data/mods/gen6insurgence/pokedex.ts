@@ -1055,7 +1055,7 @@ const InsgDex: {[k: string]: number} = {
 	"ufi": 926,
 };
 
-for (var i of Dex.mod('gen9insurgence').species.all()) {
+for (const i of Dex.mod('gen9insurgence').species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isInsg = i.id in InsgDex;
 	Pokedex[i.id].isNonstandard = isInsg ? null : "Unobtainable";

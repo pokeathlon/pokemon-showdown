@@ -73,7 +73,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (source.item === 'boomerang') {
-				move.multihit = 2
+				move.multihit = 2;
 			}
 		},
 		onPrepareHit(target, source, move) {
@@ -105,7 +105,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		condition: {
 			onUpdate(pokemon) {
-				if (pokemon.item != 'boomerang') {
+				if (pokemon.item !== 'boomerang') {
 					const item = pokemon.getItem();
 					pokemon.setItem('');
 					pokemon.lastItem = item.id;
@@ -215,7 +215,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
 			if (source.hasAbility('periodicorbit')) {
 				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
-				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'], {...futureMoveData, duration: 5});
 			}
 			this.add('-start', source, 'move: Future Sight');
 			return this.NOT_FAIL;
@@ -243,7 +243,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
 			if (source.hasAbility('periodicorbit')) {
 				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
-				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'], {...futureMoveData, duration: 5});
 			}
 			this.add('-start', source, 'Doom Desire');
 			return this.NOT_FAIL;
@@ -452,7 +452,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
-			} else if (pokemon.effectiveWeather() === 'newmoon') return this.chainModify(0.3);
+			} else if (pokemon.effectiveWeather() === 'newmoon') { return this.chainModify(0.3); }
 		},
 	},
 	surf: {

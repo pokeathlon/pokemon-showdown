@@ -644,9 +644,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				for (const side of this.sides) {
 					let buf = ``;
 					for (const pokemon of side.pokemon) {
-						let spriteid = pokemon.species.baseSpecies? this.dex.toID(pokemon.species.baseSpecies) : pokemon.species.id;
 						buf += buf ? ` / ` : `raw|${side.name}'s Tera Types:<br />`;
-						buf += `<psicon pokemon="${spriteid}" /><psicon type="${pokemon.teraType}" />`;
+						buf += `<psicon pokemon="${pokemon.species.id}" /><psicon type="${pokemon.teraType}" />`;
 					}
 					this.add(`${buf}`);
 				}
@@ -2938,103 +2937,66 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			pokemon.baseAbility = pokemon.ability;
 		},
 	},
-	forcemonogen: {
-		effectType: 'ValidatorRule',
-		name: 'Force Monogen',
-		desc: `Forces all teams to belong to the same generation.`,
-		onValidateTeam(team, format) {
-			const speciesTable = new Set<number>();
-			var monogen
-			for (let i = 0; i < team.length; i ++) {
-				const curSpecies = Dex.species.get(team[i].species);
-				const curFusion = Dex.species.get(team[i].fusion);
-
-				if (!curFusion || !curFusion.exists) return [`${curSpecies} must be fused.`];
-
-				if (i === 0) { //Checking lead
-					speciesTable.add(curSpecies.gen);
-					if (curFusion && curFusion.gen === curSpecies.gen) return [`Each fusion component must be of a different gen.`]
-					speciesTable.add(curFusion.gen);
-				}
-				if (i === 1) { //Deciding which gen is the monogen
-					console.log(i)
-					if (speciesTable.has(curSpecies.gen)) monogen = curSpecies.gen
-					if (!monogen && speciesTable.has(curFusion.gen)) monogen = curFusion.gen
-					if (!monogen) return ['No single generation is present across the entire team.']
-				}
-				console.log(monogen)
-				if (i != 0) {
-					if (curSpecies.gen != monogen && speciesTable.has(curSpecies.gen)) return [`${curSpecies} is from gen ${curSpecies.gen}, which has already been used.`]
-					if (curFusion && curFusion.gen != monogen && speciesTable.has(curFusion.gen)) return [`${curFusion} is from gen ${curFusion.gen}, which has already been used.`]
-					if (curFusion && curFusion.gen === curSpecies.gen) return [`Each fusion component must be of a different gen.`]
-					speciesTable.add(curSpecies.gen);
-					speciesTable.add(curFusion.gen);
-				}
-			}
-		},
-	},
 	bigbossrule: {
-        effectType: "Rule",
-        name: "Big Boss Rule",
-        desc: `The first Pok&eacute;mon on the team must be fully-evolved with an evolution line; if this Pok&eacute;mon faints, the team loses. The rest of the team must be a fusion of NFE Pok&eacute;mon of the same evolution line.`,
-        onValidateTeam(team) {
-            let bossSpecies;
+		effectType: "Rule",
+		name: "Big Boss Rule",
+		desc: `The first Pok&eacute;mon on the team must be fully-evolved with an evolution line; if this Pok&eacute;mon faints, the team loses. The rest of the team must be a fusion of NFE Pok&eacute;mon of the same evolution line.`,
+		onValidateTeam(team) {
+			let bossSpecies;
 			let bossFusion;
-			var bossBans: Array<string> = ['Scyther', 'Scizor', 'Misdreavus', 'Mismagius', 'Porygon', 'Porygon2', 'Porygon-Z'];
-            for (let i = 0; i < team.length; i ++){
-                const curSpecies = this.dex.species.get(team[i].species);
+			const bossBans: string[] = ['Scyther', 'Scizor', 'Misdreavus', 'Mismagius', 'Porygon', 'Porygon2', 'Porygon-Z'];
+			for (let i = 0; i < team.length; i++) {
+				const curSpecies = this.dex.species.get(team[i].species);
 				const curFusion = this.dex.species.get(team[i].fusion);
-				
-				//Checking that all mons are fused
-				if (!curFusion.exists || !curFusion) return [`All Pokemon must be fused. ${curSpecies} is not fused.`]
-                
-				if(i === 0) { //First pokemon checks
-					//Checking boss validity
-                    if ((curSpecies.prevo === "" || curSpecies.nfe) || (curFusion && (curFusion.prevo === "" || curFusion.nfe)))
-                        return [`The first Pokemon on the team and its fusion must be fully-evolved with an evolution line.`];
-					//Checking Boss bans
-					if (bossBans.includes(curSpecies.name)) return [`${curSpecies} cannot be used as a boss.`]
-					if (bossBans.includes(curFusion.name)) return [`${curFusion} cannot be used as a boss.`]
-                    else {
-                        bossSpecies = curSpecies;
+
+				// Checking that all mons are fused
+				if (!curFusion.exists || !curFusion) return [`All Pokemon must be fused. ${curSpecies} is not fused.`];
+
+				if (i === 0) { // First pokemon checks
+					// Checking boss validity
+					if ((curSpecies.prevo === "" || curSpecies.nfe) || (curFusion && (curFusion.prevo === "" || curFusion.nfe))) { return [`The first Pokemon on the team and its fusion must be fully-evolved with an evolution line.`]; }
+					// Checking Boss bans
+					if (bossBans.includes(curSpecies.name)) return [`${curSpecies} cannot be used as a boss.`];
+					if (bossBans.includes(curFusion.name)) { return [`${curFusion} cannot be used as a boss.`]; } else {
+						bossSpecies = curSpecies;
 						bossFusion = curFusion;
-                    } 
-                } else if (bossSpecies && bossFusion) { //Rest of party checks
-				if ( //NFE checks
-					(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
+					}
+				} else if (bossSpecies && bossFusion) { // Rest of party checks
+					if ( // NFE checks
+						(this.dex.species.get(curSpecies).prevo && !curSpecies.nfe) ||
 					(this.dex.species.get(curFusion).prevo && !curFusion.nfe)
-				) 	return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`];
-				if (i != 0 && //Legendary and Mythical are only allowed for the boss
-					((curSpecies.tags.includes("Sub-Legendary") || 
+					) 	return [`Your only fully-evolved pokemon can be ${bossSpecies} or ${bossFusion}`];
+					if (i !== 0 && // Legendary and Mythical are only allowed for the boss
+					((curSpecies.tags.includes("Sub-Legendary") ||
 					curSpecies.tags.includes("Restricted Legendary") ||
 					curSpecies.tags.includes("Mythical") ||
 					curFusion.tags.includes("Sub-Legendary") ||
 					curFusion.tags.includes("Restricted Legendary") ||
 					curFusion.tags.includes("Mythical")))
-				) return [`Legendaries and Mythicals cannot be used as fusion components in this format.`]
-				//Check boss BST
-				var bossBST = 0;
-				for (const stat in bossSpecies.baseStats) {
-					if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
-						bossBST += Math.floor((bossSpecies.baseStats[stat] * 2 / 3) + (bossFusion.baseStats[stat] * 1 / 3));
+					) return [`Legendaries and Mythicals cannot be used as fusion components in this format.`];
+					// Check boss BST
+					let bossBST = 0;
+					for (const stat in bossSpecies.baseStats) {
+						if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
+							bossBST += Math.floor((bossSpecies.baseStats[stat] * 2 / 3) + (bossFusion.baseStats[stat] * 1 / 3));
+						}
+						if (stat === 'atk' || stat === 'def' || stat === 'spe') {
+							bossBST += Math.floor((bossSpecies.baseStats[stat] * 1 / 3) + (bossFusion.baseStats[stat] * 2 / 3));
+						}
 					}
-					if (stat === 'atk' || stat === 'def' || stat === 'spe') {
-						bossBST += Math.floor((bossSpecies.baseStats[stat] * 1 / 3) + (bossFusion.baseStats[stat] * 2 / 3));
+					// Check member BST
+					let componentBST = 0;
+					for (const stat in curSpecies.baseStats) {
+						if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
+							componentBST += Math.floor((curSpecies.baseStats[stat] * 2 / 3) + (curFusion.baseStats[stat] * 1 / 3));
+						}
+						if (stat === 'atk' || stat === 'def' || stat === 'spe') {
+							componentBST += Math.floor((curSpecies.baseStats[stat] * 1 / 3) + (curFusion.baseStats[stat] * 2 / 3));
+						}
+						if (componentBST > bossBST) return [`${curSpecies}/${curFusion}'s BST exceeds the boss BST.`];
 					}
-				}
-				//Check member BST
-				var componentBST = 0;
-				for (const stat in curSpecies.baseStats) {
-					if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
-						componentBST += Math.floor((curSpecies.baseStats[stat] * 2 / 3) + (curFusion.baseStats[stat] * 1 / 3));
-					}
-					if (stat === 'atk' || stat === 'def' || stat === 'spe') {
-						componentBST += Math.floor((curSpecies.baseStats[stat] * 1 / 3) + (curFusion.baseStats[stat] * 2 / 3));
-					}
-					if (componentBST > bossBST) return [`${curSpecies}/${curFusion}'s BST exceeds the boss BST.`];
-				}
-                if( //Checking one of the components evolves into one of the bosses
-					(curSpecies.name) === bossSpecies?.prevo || 
+					if ( // Checking one of the components evolves into one of the bosses
+						(curSpecies.name) === bossSpecies?.prevo ||
 					(curFusion.name) === bossSpecies?.prevo ||
 					(curSpecies.name) === bossFusion?.prevo ||
 					(curFusion.name) === bossFusion?.prevo ||
@@ -3042,22 +3004,22 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					(curFusion.name) === this.dex.species.get(bossSpecies?.prevo).prevo ||
 					(curSpecies.name) === this.dex.species.get(bossFusion?.prevo).prevo ||
 					(curFusion.name) === this.dex.species.get(bossFusion?.prevo).prevo
-				) continue;
-               	else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
-            }
-		}
-        },
-        onBegin() {
-            this.add('rule', 'Big Boss Rule: If the fully-evolved boss faints, that team loses.');
-        },
-        onFaint(target) {
-			var fusion = this.dex.species.get(target.fusion);
-            if((!target.baseSpecies.nfe && target.baseSpecies.prevo) || (!fusion.nfe && fusion.prevo)) {
-                this.add('-message', `${target.side.name}'s boss has fallen!`);
-                this.lose(target.side);
-            }
-        },
-    },
+					) continue;
+					else return [`The rest of the Pokemon must evolve into ${bossSpecies} or ${bossFusion}.`];
+				}
+			}
+		},
+		onBegin() {
+			this.add('rule', 'Big Boss Rule: If the fully-evolved boss faints, that team loses.');
+		},
+		onFaint(target) {
+			const fusion = this.dex.species.get(target.fusion);
+			if ((!target.baseSpecies.nfe && target.baseSpecies.prevo) || (!fusion.nfe && fusion.prevo)) {
+				this.add('-message', `${target.side.name}'s boss has fallen!`);
+				this.lose(target.side);
+			}
+		},
+	},
 	noeventmoves: {
 		effectType: 'ValidatorRule',
 		name: "No Event Moves",
@@ -3096,7 +3058,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onValidateSet(set) {
 			if (this.format.id.includes("custom")) return;
-			let problems: string[] = [];
+			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 
 			const species = this.dex.species.get(set.species);
@@ -3108,11 +3070,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (fusion.exists) {
 				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion"))) return [`You cannot fuse with triple fusions.`];
 
-				let reverse_set = Dex.deepClone(set);
+				const reverse_set = Dex.deepClone(set);
 				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
 				const [outOfBattleSpecies, tierSpecies] = this.getValidationSpecies(reverse_set);
 				problems.push(...this.validateForme(reverse_set));
-				let problem = this.checkSpecies(reverse_set, fusion, tierSpecies, setHas);
+				const problem = this.checkSpecies(reverse_set, fusion, tierSpecies, setHas);
 				if (problem) problems.push(problem);
 				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
 				set = Dex.deepClone(reverse_set);
@@ -3197,23 +3159,21 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const baseCanLearn = this.checkCanLearn(move, species, this.allSources(species), set);
 
 			if (fusion.exists && species.exists) {
-
 				if (!this.checkCanLearn(move, fusion, this.allSources(fusion), set) || !baseCanLearn) return null;
 
 				if (move.id in fusionMoves) {
-
-					let allCombinations: string[][] = [];
-					let fusionLine: string[] = [fusion.name];
-					let speciesLine: string[] = [species.name];
+					const allCombinations: string[][] = [];
+					const fusionLine: string[] = [fusion.name];
+					const speciesLine: string[] = [species.name];
 
 					if (fusion.prevo) fusionLine.push(fusion.prevo);
 					if (this.dex.species.get(fusion.prevo).prevo) fusionLine.push(this.dex.species.get(fusion.prevo).prevo);
-					
+
 					if (species.prevo) speciesLine.push(species.prevo);
 					if (this.dex.species.get(species.prevo).prevo) fusionLine.push(this.dex.species.get(species.prevo).prevo);
 
-					for (let head of fusionLine) {
-						for (let body of speciesLine) {
+					for (const head of fusionLine) {
+						for (const body of speciesLine) {
 							allCombinations.push(...[[head, body], [body, head]]);
 						}
 					}
@@ -3221,7 +3181,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					for (const combination of allCombinations) {
 						const combination_head = this.dex.species.get(combination[0]);
 						const combination_body = this.dex.species.get(combination[1]);
-						
+
 						// fusion-based move additions
 						let speciesTypes = combination_head.types;
 						let fusionTypes = combination_body.types;
@@ -3235,19 +3195,19 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 						if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
 
 						const data = fusionMoves[move.id];
-						for (let possibleSource of data) {
+						for (const possibleSource of data) {
 							let canLearn = true;
 							if ("fusion" in possibleSource) {
 								if (!possibleSource["fusion"].includes(combination_head.id) && !possibleSource["fusion"].includes(combination_body.id)) canLearn = false;
 							}
 							if ("type" in possibleSource) {
-								for (let type of possibleSource["type"]) {
+								for (const type of possibleSource["type"]) {
 									if (!typesSet.has(type)) canLearn = false;
 								}
 							}
 							if ("learns" in possibleSource) {
 								let canLearnReqMove = false;
-								for (let reqMove of possibleSource["learns"]) {
+								for (const reqMove of possibleSource["learns"]) {
 									if (!this.checkCanLearn(this.dex.moves.get(reqMove), combination_head, this.allSources(combination_head), set) || !this.checkCanLearn(this.dex.moves.get(reqMove), combination_body, this.allSources(combination_body), set)) canLearnReqMove = true;
 								}
 								if (!canLearnReqMove) canLearn = false;
@@ -3291,22 +3251,22 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			let typeTable: string[] = [];
 			for (const [i, set] of team.entries()) {
 				let species = this.dex.species.get(set.species);
-				let fusion = this.dex.species.get(set.fusion);
+				const fusion = this.dex.species.get(set.fusion);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (fusion && !fusion.types) return [`Invalid fusion ${set.fusion}`];
 
 				let speciesTypes = species.types;
 				let fusionTypes = fusion.types;
-	
+
 				if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
 				if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
-	
+
 				const typesSet = new Set([speciesTypes[0]]);
 				const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
 				if (bonusType.exists) typesSet.add(bonusType.name);
 				if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
 
-				var fusedTypes = [...typesSet];
+				const fusedTypes = [...typesSet];
 
 				if (i === 0) {
 					typeTable = fusedTypes;
@@ -3340,7 +3300,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Same Type Clause: Pokémon in a team must share a type, or be cats');
 		},
 		onValidateTeam(team) {
-			let cats = ['berserkergene', 'bewitwing', 'catzelwyrm', 'dracat', 'enteisupra', 'felapstan', 'growlsome', 'incineroarolul', 'raikousupra'];
+			const cats = ['berserkergene', 'bewitwing', 'catzelwyrm', 'dracat', 'enteisupra', 'felapstan', 'growlsome', 'incineroarolul', 'raikousupra'];
 			let monocat = false;
 			let typeTable: string[] = [];
 			for (const [i, set] of team.entries()) {

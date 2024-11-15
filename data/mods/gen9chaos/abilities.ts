@@ -199,7 +199,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidual(target, source, effect) {
 			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
 				this.heal(target.baseMaxhp / 8);
-			} else if (['raindance', 'primordialsea', 'newmoon', 'thunderstorm'].includes(target.effectiveWeather())){
+			} else if (['raindance', 'primordialsea', 'newmoon', 'thunderstorm'].includes(target.effectiveWeather())) {
 				return;
 			} else {
 				this.heal(target.baseMaxhp / 16);
@@ -214,12 +214,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	lernean: {
 		onUpdate(pokemon) {
 			if ((!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) || !pokemon.hp || pokemon.transformed) return;
-			
-			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ? 
-			['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] :
-			['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
-			
-			const targetForme = Math.ceil((pokemon.hp/pokemon.maxhp) * 5) - 1;
+
+			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ?
+				['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] :
+				['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
+
+			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
 			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
 				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
 			}
@@ -227,9 +227,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyMove(move, pokemon, target) {
 			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
 			if (move.category === "Status" || !move.basePower) return;
-			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
-			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
-			['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			const formes = pokemon.species.id.startsWith('hydreigonmega') ?
+				['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
+				['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
 			if (move.secondaries) {
 			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
@@ -240,13 +240,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
-			const formes = pokemon.species.id.startsWith('hydreigonmega') ? 
-			['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
-			['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
-			let nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5)))/nhits);
+			const formes = pokemon.species.id.startsWith('hydreigonmega') ?
+				['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
+				['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
+			const nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
 		},
-		onSourceDamagingHit(damage, target, pokemon, move) { //onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
 			if ((pokemon.species.id.startsWith('hydreigonmega') || pokemon.species.id.startsWith('hydroupa')) && move.secondaries) {
 				delete move.secondaries;
 			}

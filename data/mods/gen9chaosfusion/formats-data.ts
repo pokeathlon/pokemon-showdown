@@ -67,15 +67,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	necturine: {
 		inherit: true,
 		natDexTier: "Uber",
-	}
+	},
 };
 
-for (var i of Dex.mod('gen9chaos').species.all()) {
+for (const i of Dex.mod('gen9chaos').species.all()) {
 	if (i.types.includes('Nuclear') && !FormatsData[i.id]) {
 		FormatsData[i.id] = {
 			inherit: true,
 			tier: "Uber",
-			natDexTier: "Uber"
+			natDexTier: "Uber",
 		};
 	}
 }

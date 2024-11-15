@@ -2046,7 +2046,6 @@ export class GameRoom extends BasicRoom {
 
 		let rating = 0;
 		if (battle.ended && this.rated) rating = this.rated;
-		const {id, password} = this.getReplayData();
 
 		if (battle.replaySaved) {
 			connection?.popup(`The replay for this battle was already saved. You can find it at https://replay.pokeathlon.com/`);

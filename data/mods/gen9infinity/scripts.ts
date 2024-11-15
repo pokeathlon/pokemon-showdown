@@ -1,5 +1,3 @@
-const {Dex} = require('../../../sim/dex');
-
 const prevos: {[k: string]: string[]} = {
 	"unimon": ["Elecmon", "Biyomon", "Patamon"],
 	"mojyamon": ["Elecmon", "Gomamon"],
@@ -20,14 +18,14 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
-		for (var mon in prevos) {
-			var learnset = this.data.Learnsets[this.toID(mon)].learnset;
+		for (const mon in prevos) {
+			let learnset = this.data.Learnsets[this.toID(mon)].learnset;
 			if (!learnset) learnset = {};
-			var learnfrom = prevos[mon];
-			var foundnew = true;
+			const learnfrom = prevos[mon];
+			let foundnew = true;
 			while (foundnew) {
 				foundnew = false;
-				for (var prevo of learnfrom) {
+				for (const prevo of learnfrom) {
 					const species = this.species.get(prevo);
 					if (species.prevo && !learnfrom.includes(species.prevo)) {
 						learnfrom.push(species.prevo);
@@ -35,10 +33,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 			}
-			for (var prevo of learnfrom) {
-				var toadd = this.data.Learnsets[this.toID(prevo)].learnset;
-				for (var move in toadd) {
-					for (var method of toadd[move as keyof typeof toadd]) {
+			for (const prevo of learnfrom) {
+				const toadd = this.data.Learnsets[this.toID(prevo)].learnset;
+				for (const move in toadd) {
+					for (const method of toadd[move as keyof typeof toadd]) {
 						if (method.startsWith('6')) {
 							if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
 							if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
@@ -47,5 +45,5 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
-	}
+	},
 };

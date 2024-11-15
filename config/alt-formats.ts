@@ -30,7 +30,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate',
-			`- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			`- Drizzle ++ Swift Swim`, `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash',
 		],
 	},
 	{
@@ -47,7 +47,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:necrozium',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drought',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate',
-			`- Drizzle ++ Swift Swim`, 'Greninja-Bond', 'Greninja-Ash', 
+			`- Drizzle ++ Swift Swim`, 'Greninja-Bond', 'Greninja-Ash',
 		],
 	},
 	{
@@ -225,7 +225,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', `- Drizzle ++ Swift Swim`, `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash',
 		],
 	},
 	{
@@ -241,7 +241,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite', 'item:necrozium',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', `- Drizzle ++ Swift Swim`, `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash',
 		],
 	},
 	{
@@ -257,10 +257,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',  `- Drizzle ++ Swift Swim`,  `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash', 
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', `- Drizzle ++ Swift Swim`, `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash',
 		],
 	},
-	
+
 
 	{
 		section: "Fangames: Regional Dex",
@@ -534,7 +534,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-	},	
+	},
 	{
 		name: "[Gen 9] PoA Dex UU",
 		searchShow: false,
@@ -560,7 +560,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
+		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial'],
 	},
 
 	{
@@ -581,7 +581,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',],
+		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial'],
 	},
 
 	{
@@ -673,7 +673,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND AG', 'ND Uber', 'Mega',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher'
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher',
 		],
 	},
 	{
@@ -786,7 +786,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND AG', 'ND Uber', 'Mega',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher'
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher',
 		],
 	},
 
@@ -836,8 +836,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9insurgence',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Best of = 3', `Picked Team Size = 4`],
-		banlist: ['move:hiddenpower', 'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream', 
-				'ability:moody', 'ability:illuminate', 'ability:winterjoy',
+		banlist: ['move:hiddenpower', 'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream',
+			'ability:moody', 'ability:illuminate', 'ability:winterjoy',
 		],
 	},
 	{
@@ -845,7 +845,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial']
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', '+CAP', '+item:crucibellite', '+item:vilevial'],
 	},
 	{
 		name: "[Gen 9] Chaos Draft",

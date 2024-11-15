@@ -6,10 +6,10 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		// Pull alt content
 		const fangames = ['gen9insurgence', 'gen9uranium', 'gen9infinitefusion', 'gen9pokeathlon', 'gen9infinity'];
-		const categories = ['Pokedex', 'Moves', 'Abilities', 'Conditions', 'Items', 'Learnsets']
-		for (var fangame of fangames) {
-			for (var category of categories) {
-				for (var item in Dex.mod(fangame).data[category]) {
+		const categories = ['Pokedex', 'Moves', 'Abilities', 'Conditions', 'Items', 'Learnsets'];
+		for (const fangame of fangames) {
+			for (const category of categories) {
+				for (const item in Dex.mod(fangame).data[category]) {
 					if (!(item in this.data[category as keyof typeof this.data])) {
 						this.data[category as keyof typeof this.data][item] = Dex.deepClone(Dex.mod(fangame).data[category][item]);
 					}
@@ -41,7 +41,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.hint("A switch failed because the Pokémon trying to switch in is already in.");
 				return false;
 			}
-	
+
 			const side = pokemon.side;
 			if (pos >= side.active.length) {
 				throw new Error(`Invalid switch position ${pos} / ${side.active.length}`);
@@ -69,7 +69,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					// Warning: DO NOT interrupt a switch-out if you just want to trap a pokemon.
 					// To trap a pokemon and prevent it from switching out, (e.g. Mean Look, Magnet Pull)
 					// use the 'trapped' flag instead.
-	
+
 					// Note: Nothing in the real games can interrupt a switch-out (except Pursuit KOing,
 					// which is handled elsewhere); this is just for custom formats.
 					return false;
@@ -78,15 +78,15 @@ export const Scripts: ModdedBattleScriptsData = {
 					// a pokemon fainted from Pursuit before it could switch
 					return 'pursuitfaint';
 				}
-	
+
 				// will definitely switch out at this point
-	
+
 				oldActive.illusion = null;
 				this.battle.singleEvent('End', oldActive.getAbility(), oldActive.abilityState, oldActive);
-	
+
 				// if a pokemon is forced out by Whirlwind/etc or Eject Button/Pack, it can't use its chosen move
 				this.battle.queue.cancelAction(oldActive);
-	
+
 				let newMove = null;
 				if (this.battle.gen === 4 && sourceEffect) {
 					newMove = oldActive.lastMove;
@@ -124,7 +124,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			pokemon.abilityOrder = this.battle.abilityOrder++;
 			if (isDrag && this.battle.gen === 2) pokemon.draggedIn = this.battle.turn;
 			pokemon.previouslySwitchedIn++;
-	
+
 			if (isDrag && this.battle.gen >= 5) {
 				// runSwitch happens immediately so that Mold Breaker can make hazards bypass Clear Body and Levitate
 				this.battle.singleEvent('PreStart', pokemon.getAbility(), pokemon.abilityState, pokemon);
@@ -133,7 +133,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.queue.insertChoice({choice: 'runUnnerve', pokemon});
 				this.battle.queue.insertChoice({choice: 'runSwitch', pokemon});
 			}
-	
+
 			return true;
 		},
 	},
@@ -143,12 +143,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			isPermanent?: boolean, message?: string
 		) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
-	
+
 			const species = this.setSpecies(rawSpecies, source);
 			if (!species) return false;
-	
+
 			if (this.battle.gen <= 2) return true;
-	
+
 			// The species the opponent sees
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
@@ -179,11 +179,11 @@ export const Scripts: ModdedBattleScriptsData = {
 						if (this.illusion) {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
-							for (var item of allowedItems) {
+							for (const item of allowedItems) {
 								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
 							}
 							if (megaForme) {
-								const illusionDetails = this.illusion.setSpecies(megaForme, source).name + 
+								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
 										(this.illusion.fusion ? ', fusion: ' + this.illusion.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
@@ -235,7 +235,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
 			if (!source) source = this;
-	
+
 			if (this.status === status.id) {
 				if ((sourceEffect as Move)?.status === this.status) {
 					this.battle.add('-fail', this, this.status);
@@ -245,7 +245,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				return false;
 			}
-			
+
 			if (source?.hasAbility('venomous') && status.id === 'psn') status = this.battle.dex.conditions.get('tox');
 
 			if (!ignoreImmunities && status.id &&
@@ -268,7 +268,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return result;
 				}
 			}
-	
+
 			this.status = status.id;
 			this.statusState = {id: status.id, target: this};
 			if (source) this.statusState.source = source;
@@ -276,7 +276,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (status.durationCallback) {
 				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
-	
+
 			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
 				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus

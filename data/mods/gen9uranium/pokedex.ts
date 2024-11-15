@@ -209,7 +209,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
-	
+
 	// New pokemon
 	orchynx: {
 		num: 5001,

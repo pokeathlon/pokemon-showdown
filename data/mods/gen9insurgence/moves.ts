@@ -67,7 +67,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
 			if (source.hasAbility('periodicorbit')) {
 				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
-				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'], {...futureMoveData, duration: 5});
 			}
 			this.add('-start', source, 'move: Future Sight');
 			return this.NOT_FAIL;
@@ -95,7 +95,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], futureMoveData);
 			if (source.hasAbility('periodicorbit')) {
 				if (!target.side.addSlotCondition(target, 'orbitalfuturemove')) return false;
-				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'],{...futureMoveData, duration: 5});
+				Object.assign(target.side.slotConditions[target.position]['orbitalfuturemove'], {...futureMoveData, duration: 5});
 			}
 			this.add('-start', source, 'Doom Desire');
 			return this.NOT_FAIL;
@@ -286,7 +286,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
-			} else if (pokemon.effectiveWeather() === 'newmoon') return this.chainModify(0.3);
+			} else if (pokemon.effectiveWeather() === 'newmoon') { return this.chainModify(0.3); }
 		},
 	},
 	surf: {
@@ -671,7 +671,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		contestType: "Beautiful",
 	},
 
-	//custom move
+	// custom move
 
 	darkmatter: {
 		num: 0,
@@ -922,8 +922,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onHit(target, pokemon) {
 			if (!pokemon.transformInto(target, this.effect)) return false;
 			if (target.species.id.includes('delta')) return true;
-			
-			let deltaID: ID = target.species.id as ID;
+
+			let deltaID: ID = target.species.id;
 			let extension = 'delta';
 
 			if (deltaID.includes('beldum')) extension = this.sample(['deltaspider', 'deltaruin']);
@@ -940,23 +940,23 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				deltaID = deltaID + extension as ID;
 			}
 
-			if(Object.keys(this.dex.data.Pokedex).includes(deltaID)) {
+			if (Object.keys(this.dex.data.Pokedex).includes(deltaID)) {
 				const deltaSpecies = this.dex.species.get(deltaID);
 				if (pokemon.formeChange(deltaSpecies, this.effect)) {
 					// If deltaSpecies has multiple abilities, picks one at random.
 					let abilitySlot = 0; // abilitySlot is currently being used to count the amount of abilites deltaSpecies can have.
 					if (deltaSpecies.abilities[1]) abilitySlot++;
 					if (deltaSpecies.abilities['H']) abilitySlot++;
-					abilitySlot = abilitySlot > 0 ? this.random(abilitySlot + 1) : 0; //Now abilitySlot is the randomly selected ability slot.
+					abilitySlot = abilitySlot > 0 ? this.random(abilitySlot + 1) : 0; // Now abilitySlot is the randomly selected ability slot.
 					if (deltaSpecies.abilities['H'] && (abilitySlot === 2 || (abilitySlot === 1 && !deltaSpecies.abilities[1]))) {
 						pokemon.setAbility(deltaSpecies.abilities['H'], pokemon, true);
 					} else if (deltaSpecies.abilities[1] && abilitySlot === 1) {
 						pokemon.setAbility(deltaSpecies.abilities[1], pokemon, true);
-					} else pokemon.setAbility(deltaSpecies.abilities[0], pokemon, true);
+					} else { pokemon.setAbility(deltaSpecies.abilities[0], pokemon, true); }
 
 					const learnsetData = {...(this.dex.data.Learnsets[deltaID.replace('mega', '')]?.learnset || {})};
 					const dict: any = {};
-					const oldDeltas = [ //Deltas that have no gen 6 level-up moves, but do have gen 5 ones.
+					const oldDeltas = [ // Deltas that have no gen 6 level-up moves, but do have gen 5 ones.
 						'aerodactyldelta', 'aggrondeltai', 'blastoisedeltas', 'charizarddeltae',
 						'chimechodelta', 'houndoomdelta', 'machampdelta', 'miloticdeltaf',
 						'ninetalesdelta', 'pinsirdelta', 'raichudeltas', 'zangoosedelta',
@@ -967,8 +967,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						const learnmoment = learnsetData[move as keyof typeof learnsetData].filter((learn: string) => learn.startsWith(learnPrefix));
 						if (learnmoment.length <= 0) continue;
 						const learnLvls: number[] = [];
-						for (let i=0; i < learnmoment.length; i++) {
-							if (learnmoment[i].length > 2) learnLvls[learnLvls.length] = parseInt(learnmoment[i].slice(2));
+						for (const moment of learnmoment) {
+							if (moment.length > 2) learnLvls[learnLvls.length] = parseInt(moment.slice(2));
 						}
 						for (let i = learnLvls.length - 1; i >= 0; i--) {
 							if (learnLvls[i] <= target.level) {
@@ -1218,7 +1218,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
 			if (target.hasType("Grass")) {
-				for (var enemy of target.side.pokemon) {
+				for (const enemy of target.side.pokemon) {
 					if (enemy !== target && enemy.runEffectiveness(move) > 0 && !enemy.status) {
 						enemy.trySetStatus('brn', source);
 					}

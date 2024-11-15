@@ -130,7 +130,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		natDexTier: "AG",
 		doublesTier: "DUber",
 	},
-	
+
 	// Armored Formes
 	mewtwoarmor: {
 		num: 150,
@@ -867,7 +867,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		tags: ["Insurgence"],
 		eggGroups: ["Insurgence"],
 		requiredItem: "Hydreigonite",
-		cosmeticFormes: ["Hydreigon-Mega-Six", "Hydreigon-Mega-Seven", "Hydreigon-Mega-Eight", "Hydreigon-Mega-Nine",],
+		cosmeticFormes: ["Hydreigon-Mega-Six", "Hydreigon-Mega-Seven", "Hydreigon-Mega-Eight", "Hydreigon-Mega-Nine"],
 		tier: "Uber",
 		natDexTier: "Uber",
 		doublesTier: "DUber",

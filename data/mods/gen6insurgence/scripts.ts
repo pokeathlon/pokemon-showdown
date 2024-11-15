@@ -1,15 +1,15 @@
 const cantLearnTM = ['beldum', 'blipbug', 'burmy', 'cascoon', 'caterpie', 'combee', 'cosmoem', 'cosmog', 'ditto', 'kakuna', 'kricketot', 'magikarp', 'metapod', 'scatterbug', 'silcoon', 'smeargle', 'tynamo', 'unown', 'weedle', 'wobbuffet', 'wurmple', 'wynaut'];
-const availableTMs = ['honeclaws', 'dragonclaw', 'bulldoze', 'calmmind', 'roar', 'toxic', 'hail', 'bulkup', 'dragonpulse', 'hiddenpower', 'sunnyday', 'taunt', 'icebeam', 'blizzard', 'hyperbeam', 'lightscreen', 'protect', 'raindance', 'snatch', 'safeguard', 'frustration', 'solarbeam', 'irontail', 'thunderbolt', 'thunder', 'earthquake', 'return', 'dig', 'psychic', 'shadowball', 'brickbreak', 'doubleteam', 'reflect', 'sludgewave', 'flamethrower', 'sludgebomb', 'sandstorm', 'fireblast', 'rocktomb', 'aerialace', 'torment', 'facade', 'flamecharge', 'rest', 'attract', 'thief', 'lowsweep', 'scald', 'recycle', 'overheat', 'roost', 'focusblast', 'energyball', 'falseswipe', 'brine', 'fling', 'chargebeam', 'psyshock', 'skillswap', 'dragontail', 'willowisp', 'newmoon', 'embargo', 'explosion', 'shadowclaw', 'payback', 'retaliate', 'gigaimpact', 'rockpolish', 'jetstream', 'stoneedge', 'psychup', 'thunderwave', 'gyroball', 'swordsdance', 'venoshock', 'wildcharge', 'drainpunch', 'voltswitch', 'rockslide', 'xscissor', 'livewire', 'shockwave', 'poisonjab', 'dreameater', 'grassknot', 'swagger', 'poweruppunch', 'uturn', 'substitute', 'flashcannon', 'trickroom', 'dracojet', 'smackdown', 'sleeptalk', 'steelwing', 'frostbreath', 'acrobatics', 'darkpulse', 'dazzlinggleam', 'achillesheel', 'avalanche', 'silverwind', 'lunarcannon', 'incinerate', 'skydrop', 'allyswitch', 'echoedvoice', 'round', 'captivate', 'permafrost', 'snarl', 'corrode', 'confide', 'pluck', 'dragonify', 'quash', 'wildfire', 'darkmatter', 'infestation', 'spikes', 'secretpower', 'strugglebug', 'rockclimb', 'flash', 'rocksmash', 'workup', 'naturepower', 'telekinesis', 'cut', 'fly', 'surf', 'strength', 'waterfall', 'dive']
-const availableTutors = ['drillrun', 'earthpower', 'ancientpower', 'mudslap', 'rollout', 'gunkshot', 'acid', 'bounce', 'heatwave', 'skyattack', 'tailwind', 'icywind', 'aircutter', 'ominouswind', 'bind', 'snore', 'covet', 'superfang', 'endeavor', 'lastresort', 'block', 'roleplay', 'gastroacid', 'worryseed', 'afteryou', 'helpinghand', 'swift', 'endure', 'doubleedge', 'batonpass', 'celebrate', 'happyhour', 'holdhands', 'holdback', 'bodyslam', 'metronome', 'mimic', 'fakeout', 'healbell', 'softboiled', 'morningsun', 'wish', 'uproar', 'hypervoice', 'boomburst', 'selfdestruct', 'waterpulse', 'aquatail', 'octazooka', 'whirlpool', 'defog', 'ironhead', 'magnetrise', 'irondefense', 'meteormash', 'zapcannon', 'electroball', 'shiftgear', 'bugbite', 'signalbeam', 'electroweb', 'furycutter', 'stringshot', 'megahorn', 'zenheadbutt', 'trick', 'magiccoat', 'magicroom', 'wonderroom', 'gravity', 'hypnosis', 'stealthrock', 'painsplit', 'spite', 'ominouswind', 'gigadrain', 'seedbomb', 'synthesis', 'bulletseed', 'dracometeor', 'dualchop', 'outrage', 'twister', 'knockoff', 'foulplay', 'suckerpunch', 'nastyplot', 'lowkick', 'thunderpunch', 'firepunch', 'icepunch', 'superpower', 'focuspunch', 'vacuumwave', 'highjumpkick', 'aurasphere', 'seismictoss', 'blazekick', 'counter', 'megakick', 'megapunch', 'dynamicpunch']
+const availableTMs = ['honeclaws', 'dragonclaw', 'bulldoze', 'calmmind', 'roar', 'toxic', 'hail', 'bulkup', 'dragonpulse', 'hiddenpower', 'sunnyday', 'taunt', 'icebeam', 'blizzard', 'hyperbeam', 'lightscreen', 'protect', 'raindance', 'snatch', 'safeguard', 'frustration', 'solarbeam', 'irontail', 'thunderbolt', 'thunder', 'earthquake', 'return', 'dig', 'psychic', 'shadowball', 'brickbreak', 'doubleteam', 'reflect', 'sludgewave', 'flamethrower', 'sludgebomb', 'sandstorm', 'fireblast', 'rocktomb', 'aerialace', 'torment', 'facade', 'flamecharge', 'rest', 'attract', 'thief', 'lowsweep', 'scald', 'recycle', 'overheat', 'roost', 'focusblast', 'energyball', 'falseswipe', 'brine', 'fling', 'chargebeam', 'psyshock', 'skillswap', 'dragontail', 'willowisp', 'newmoon', 'embargo', 'explosion', 'shadowclaw', 'payback', 'retaliate', 'gigaimpact', 'rockpolish', 'jetstream', 'stoneedge', 'psychup', 'thunderwave', 'gyroball', 'swordsdance', 'venoshock', 'wildcharge', 'drainpunch', 'voltswitch', 'rockslide', 'xscissor', 'livewire', 'shockwave', 'poisonjab', 'dreameater', 'grassknot', 'swagger', 'poweruppunch', 'uturn', 'substitute', 'flashcannon', 'trickroom', 'dracojet', 'smackdown', 'sleeptalk', 'steelwing', 'frostbreath', 'acrobatics', 'darkpulse', 'dazzlinggleam', 'achillesheel', 'avalanche', 'silverwind', 'lunarcannon', 'incinerate', 'skydrop', 'allyswitch', 'echoedvoice', 'round', 'captivate', 'permafrost', 'snarl', 'corrode', 'confide', 'pluck', 'dragonify', 'quash', 'wildfire', 'darkmatter', 'infestation', 'spikes', 'secretpower', 'strugglebug', 'rockclimb', 'flash', 'rocksmash', 'workup', 'naturepower', 'telekinesis', 'cut', 'fly', 'surf', 'strength', 'waterfall', 'dive'];
+const availableTutors = ['drillrun', 'earthpower', 'ancientpower', 'mudslap', 'rollout', 'gunkshot', 'acid', 'bounce', 'heatwave', 'skyattack', 'tailwind', 'icywind', 'aircutter', 'ominouswind', 'bind', 'snore', 'covet', 'superfang', 'endeavor', 'lastresort', 'block', 'roleplay', 'gastroacid', 'worryseed', 'afteryou', 'helpinghand', 'swift', 'endure', 'doubleedge', 'batonpass', 'celebrate', 'happyhour', 'holdhands', 'holdback', 'bodyslam', 'metronome', 'mimic', 'fakeout', 'healbell', 'softboiled', 'morningsun', 'wish', 'uproar', 'hypervoice', 'boomburst', 'selfdestruct', 'waterpulse', 'aquatail', 'octazooka', 'whirlpool', 'defog', 'ironhead', 'magnetrise', 'irondefense', 'meteormash', 'zapcannon', 'electroball', 'shiftgear', 'bugbite', 'signalbeam', 'electroweb', 'furycutter', 'stringshot', 'megahorn', 'zenheadbutt', 'trick', 'magiccoat', 'magicroom', 'wonderroom', 'gravity', 'hypnosis', 'stealthrock', 'painsplit', 'spite', 'ominouswind', 'gigadrain', 'seedbomb', 'synthesis', 'bulletseed', 'dracometeor', 'dualchop', 'outrage', 'twister', 'knockoff', 'foulplay', 'suckerpunch', 'nastyplot', 'lowkick', 'thunderpunch', 'firepunch', 'icepunch', 'superpower', 'focuspunch', 'vacuumwave', 'highjumpkick', 'aurasphere', 'seismictoss', 'blazekick', 'counter', 'megakick', 'megapunch', 'dynamicpunch'];
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen6',
 	init() {
 		for (const x of this.species.all()) {
-			var i = x.id;
+			const i = x.id;
 			if (!cantLearnTM.includes(i) && i in this.data.Learnsets && this.modData('Learnsets', i).learnset) {
 				this.modData('Learnsets', i).learnset.achillesheel = ["6M"];
-				for (var tm of availableTMs) {
+				for (const tm of availableTMs) {
 					if (tm in this.modData('Learnsets', i).learnset) {
 						if (
 							this.modData('Learnsets', i).learnset[tm].includes("1M") ||
@@ -22,7 +22,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 					}
 				}
-				for (var tutor of availableTutors) {
+				for (const tutor of availableTutors) {
 					if (tutor in this.modData('Learnsets', i).learnset) {
 						if (
 							this.modData('Learnsets', i).learnset[tutor].includes("1T") ||
@@ -56,7 +56,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return item.megaStone;
 			}
 			return null;
-		}
+		},
 	},
 	pokemon: {
 		setStatus(
@@ -72,7 +72,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
 			if (!source) source = this;
-	
+
 			if (this.status === status.id) {
 				if ((sourceEffect as Move)?.status === this.status) {
 					this.battle.add('-fail', this, this.status);
@@ -82,7 +82,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				return false;
 			}
-			
+
 			if (source?.hasAbility('venomous') && status.id === 'psn') status = this.battle.dex.conditions.get('tox');
 
 			if (!ignoreImmunities && status.id &&
@@ -105,7 +105,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return result;
 				}
 			}
-	
+
 			this.status = status.id;
 			this.statusState = {id: status.id, target: this};
 			if (source) this.statusState.source = source;
@@ -113,7 +113,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (status.durationCallback) {
 				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
-	
+
 			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
 				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus
@@ -131,12 +131,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			isPermanent?: boolean, message?: string
 		) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
-	
+
 			const species = this.setSpecies(rawSpecies, source);
 			if (!species) return false;
-	
+
 			if (this.battle.gen <= 2) return true;
-	
+
 			// The species the opponent sees
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
@@ -166,11 +166,11 @@ export const Scripts: ModdedBattleScriptsData = {
 						if (this.illusion) {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
-							for (var item of allowedItems) {
+							for (const item of allowedItems) {
 								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
 							}
 							if (megaForme) {
-								const illusionDetails = this.illusion.setSpecies(megaForme, source).name + 
+								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);

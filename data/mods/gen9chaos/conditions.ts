@@ -44,7 +44,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			return false;
 		},
 	},
-	
+
 	// Insurgence
 	wish: {
 		name: 'Wish',
