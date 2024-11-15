@@ -2937,6 +2937,41 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			pokemon.baseAbility = pokemon.ability;
 		},
 	},
+	forcemonogen: {
+		effectType: 'ValidatorRule',
+		name: 'Force Monogen',
+		desc: `Forces all teams to belong to the same generation.`,
+		onValidateTeam(team, format) {
+			const speciesTable = new Set<number>();
+			var monogen
+			for (let i = 0; i < team.length; i ++) {
+				const curSpecies = Dex.species.get(team[i].species);
+				const curFusion = Dex.species.get(team[i].fusion);
+
+				if (!curFusion || !curFusion.exists) return [`${curSpecies} must be fused.`];
+
+				if (i === 0) { //Checking lead
+					speciesTable.add(curSpecies.gen);
+					if (curFusion && curFusion.gen === curSpecies.gen) return [`Each fusion component must be of a different gen.`]
+					speciesTable.add(curFusion.gen);
+				}
+				if (i === 1) { //Deciding which gen is the monogen
+					console.log(i)
+					if (speciesTable.has(curSpecies.gen)) monogen = curSpecies.gen
+					if (!monogen && speciesTable.has(curFusion.gen)) monogen = curFusion.gen
+					if (!monogen) return ['No single generation is present across the entire team.']
+				}
+				console.log(monogen)
+				if (i != 0) {
+					if (curSpecies.gen != monogen && speciesTable.has(curSpecies.gen)) return [`${curSpecies} is from gen ${curSpecies.gen}, which has already been used.`]
+					if (curFusion && curFusion.gen != monogen && speciesTable.has(curFusion.gen)) return [`${curFusion} is from gen ${curFusion.gen}, which has already been used.`]
+					if (curFusion && curFusion.gen === curSpecies.gen) return [`Each fusion component must be of a different gen.`]
+					speciesTable.add(curSpecies.gen);
+					speciesTable.add(curFusion.gen);
+				}
+			}
+		},
+	},
 	bigbossrule: {
 		effectType: "Rule",
 		name: "Big Boss Rule",
