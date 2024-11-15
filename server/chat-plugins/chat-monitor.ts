@@ -362,6 +362,13 @@ Chat.registerMonitor('shorteners', {
 	},
 });
 
+Chat.registerMonitor('shadowban', {
+	location: 'EVERYWHERE',
+	punishment: 'SHADOWBAN',
+	label: 'Phrases to Shadowban',
+	condition: 'notStaff',
+});
+
 /*
  * Columns Location and Punishment use keywords. Possible values:
  *
