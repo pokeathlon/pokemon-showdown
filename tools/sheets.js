@@ -90,7 +90,7 @@ function formatDex(pokedex) {
 
 function formatBans(bans) {
 	const formatsData = bans.data.values;
-	banlists = {};
+	let banlists = {};
 	for (const line of formatsData) {
 		banlists[line[0]] = {
 			pokemon: line[1],
