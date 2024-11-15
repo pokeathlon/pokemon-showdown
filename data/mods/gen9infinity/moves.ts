@@ -66,6 +66,33 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	rapidspin: {
+		inherit: true,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	darkvoid: {
+		inherit: true,
+		accuracy: 50,
+	},
+	teleport: {
+		inherit: true,
+		priority: -6,
+		flags: {metronome: 1},
+		onTry(source) {
+			return !!this.canSwitch(source.side);
+		},
+		selfSwitch: true,
+	},
 
 	// Additions
 	vicegrip: {
