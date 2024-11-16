@@ -668,6 +668,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	raichu: {
 		learnset: {
+			aurasphere: ["6M"],
 			thundershock: ["6L1"],
 			tailwhip: ["6L1"],
 			quickattack: ["6L1"],
@@ -6781,6 +6782,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	tauros: {
 		learnset: {
+			flamecharge: ["6M"],
 			tackle: ["6L1"],
 			tailwhip: ["6L3"],
 			rage: ["6L5"],
@@ -7546,6 +7548,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	aerodactyl: {
 		learnset: {
+			acrobatics: ["6M"],
 			icefang: ["6L1"],
 			firefang: ["6L1"],
 			thunderfang: ["6L1"],
@@ -8403,6 +8406,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	meganium: {
 		learnset: {
+			uturn: ["6M"],
 			tackle: ["6L1"],
 			growl: ["6L1"],
 			razorleaf: ["6L1", "6L6"],
@@ -11615,6 +11619,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	steelix: {
 		learnset: {
+			coil: ["6M"],
 			thunderfang: ["6L1"],
 			icefang: ["6L1"],
 			firefang: ["6L1"],
@@ -13154,6 +13159,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	donphan: {
 		learnset: {
+			slackoff: ["6M"],
 			firefang: ["6L1"],
 			thunderfang: ["6L1"],
 			hornattack: ["6L1"],
@@ -17309,6 +17315,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	mawile: {
 		learnset: {
+			dragondance: ["6M"],
 			fairywind: ["6L1"],
 			astonish: ["6L1"],
 			faketears: ["6L6"],
@@ -22471,6 +22478,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	torterra: {
 		learnset: {
+			hornleech: ["6M"],
 			woodhammer: ["6L1"],
 			tackle: ["6L1"],
 			withdraw: ["6L1", "6L5"],
@@ -23355,6 +23363,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	luxray: {
 		learnset: {
+			playrough: ["6M"],
+			honeclaws: ["6M"],
 			tackle: ["6L1"],
 			leer: ["6L1", "6L5"],
 			charge: ["6L1", "6L9"],
@@ -24634,6 +24644,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	mismagius: {
 		learnset: {
+			quiverdance: ["6M"],
 			luckychant: ["6L1"],
 			magicalleaf: ["6L1"],
 			growl: ["6L1"],
@@ -26596,6 +26607,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	weavile: {
 		learnset: {
+			jumpkick: ["6M"],
 			embargo: ["6L1", "6M"],
 			revenge: ["6L1"],
 			assurance: ["6L1"],

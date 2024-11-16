@@ -1,9 +1,31 @@
 const {Dex} = require('../../../sim/dex');
 export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	// Modded
+	litwick: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Infiltrator"},
+	},
+	lampent: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Infiltrator"},
+	},
+	chandelure: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Infiltrator"},
+	},
 	torkoal: {
 		inherit: true,
 		abilities: {0: "White Smoke", 1: "Drought", H: "Shell Armor"},
+	},
+	pelipper: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Drizzle", H: "Rain Dish"},
+		baseStats: {hp: 60, atk: 50, def: 100, spa: 85, spd: 70, spe: 65},
+	},
+	gigalith: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Sand Force"},
+		baseStats: {hp: 85, atk: 135, def: 130, spa: 60, spd: 70, spe: 25},
 	},
 	metapod: {
 		inherit: true,
@@ -268,10 +290,6 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		inherit: true,
 		baseStats: {hp: 60, atk: 85, def: 60, spa: 50, spd: 50, spe: 125},
 	},
-	pelipper: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 50, def: 100, spa: 85, spd: 70, spe: 65},
-	},
 	masquerain: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 60, def: 62, spa: 80, spd: 82, spe: 60},
@@ -323,10 +341,6 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 	unfezant: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 105, def: 80, spa: 65, spd: 55, spe: 93},
-	},
-	gigalith: {
-		inherit: true,
-		baseStats: {hp: 85, atk: 135, def: 130, spa: 60, spd: 70, spe: 25},
 	},
 	woobat: {
 		inherit: true,

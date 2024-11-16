@@ -1444,6 +1444,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	gorochu: {
 		learnset: {
+			swordsdance: ["6M"],
 			firepunch: ["6L0", "6T"],
 			thunderpunch: ["6L0", "6T"],
 			agility: ["6L1"],
@@ -2273,6 +2274,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	champeon: {
 		learnset: {
+			playrough: ["6M"],
 			reversal: ["6L0"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -2609,6 +2611,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	scorpeon: {
 		learnset: {
+			closecombat: ["6M"],
 			venomswipe: ["6L0"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -2848,6 +2851,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	draconeon: {
 		learnset: {
+			leechlife: ["6M"],
 			dragonclaw: ["6L0", "6M"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -3598,6 +3602,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	azumarillegho: {
 		learnset: {
+			accelerock: ["6M"],
 			reversal: ["6L0"],
 			karatechop: ["6L1"],
 			rollout: ["6L1", "6T"],
@@ -4092,6 +4097,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	ludicoloegho: {
 		learnset: {
+			nastyplot: ["6M"],
 			fierydance: ["6L0", "6L1"],
 			autotomize: ["6L1"],
 			sizzleslam: ["6L1"],
@@ -6815,6 +6821,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	tyrannomon: {
 		learnset: {
+			dragondance: ["6M"],
 			dinokick: ["6L0", "6L4"],
 			searingslash: ["6L0", "6L4"],
 			flamecharge: ["6L0", "6L4"],
@@ -7310,6 +7317,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	shroomage: {
 		learnset: {
+			aurasphere: ["6M"],
 			energyball: ["6L0", "6M"],
 			trickroom: ["6L1", "6M"],
 			calmmind: ["6L1", "6M"],
@@ -8954,6 +8962,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	shellmon: {
 		learnset: {
+			toxicspikes: ["6M"],
+			acidspray: ["6M"],
 			spikes: ["6L0", "6L4"],
 			shellsmash: ["6L0", "6L4"],
 			hydropump: ["6L0", "6L4"],

@@ -1,6 +1,22 @@
 const {Dex} = require('../../../sim/dex');
 export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
+	wildcharge: {
+		inherit: true,
+		recoil: [1, 3],
+	},
+	strength: {
+		inherit: true,
+		basePower: 90,
+		secondary: {
+			chance: 30,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+	},
 	dig: {
 		inherit: true,
 		condition: {
@@ -65,33 +81,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
-	},
-	rapidspin: {
-		inherit: true,
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Normal",
-		contestType: "Cool",
-	},
-	darkvoid: {
-		inherit: true,
-		accuracy: 50,
-	},
-	teleport: {
-		inherit: true,
-		priority: -6,
-		flags: {metronome: 1},
-		onTry(source) {
-			return !!this.canSwitch(source.side);
-		},
-		selfSwitch: true,
 	},
 
 	// Additions
