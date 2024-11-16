@@ -6,6 +6,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (JSON.stringify(Dex.mod('gen9infinity').data.Moves[move]) !== JSON.stringify(this.data.Moves[move])) {
 				this.data.Moves[move] = Dex.deepClone(Dex.mod('gen9infinity').data.Moves[move]);
 			}
+			delete this.data.Moves[move].isNonstandard;
 		}
 	}
 };
