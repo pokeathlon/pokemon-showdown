@@ -17,6 +17,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	cut: {
+		inherit: true,
+		basePower: 60,
+		critRatio: 2,
+	},
 	dig: {
 		inherit: true,
 		condition: {
