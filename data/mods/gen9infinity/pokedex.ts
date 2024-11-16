@@ -1,6 +1,10 @@
 const {Dex} = require('../../../sim/dex');
 export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	// Modded
+	torkoal: {
+		inherit: true,
+		abilities: {0: "White Smoke", 1: "Drought", H: "Shell Armor"},
+	},
 	metapod: {
 		inherit: true,
 		abilities: {0: "Shed Skin", H: "Shed Skin"},
