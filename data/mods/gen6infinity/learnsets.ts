@@ -13213,7 +13213,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			gunkshot: ["6T"],
 		},
 	},
-	porygonegho: {
+	porygon2: {
 		learnset: {
 			conversion: ["6L1"],
 			conversion2: ["6L1"],

@@ -566,7 +566,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	darmanitan: {inherit: true, learnset: {...baseLearnsets.darmanitan.learnset, wildfire: ["6M"]}},
 	heatmor: {inherit: true, learnset: {...baseLearnsets.heatmor.learnset, wildfire: ["6M"]}},
 	larvesta: {inherit: true, learnset: {...baseLearnsets.larvesta.learnset, wildfire: ["6M"]}},
-	fenniken: {inherit: true, learnset: {...baseLearnsets.fennekin.learnset, wildfire: ["6M"]}},
+	fennekin: {inherit: true, learnset: {...baseLearnsets.fennekin.learnset, wildfire: ["6M"]}},
 	braixen: {inherit: true, learnset: {...baseLearnsets.braixen.learnset, wildfire: ["6M"]}},
 	delphox: {inherit: true, learnset: {...baseLearnsets.delphox.learnset, wildfire: ["6M"]}},
 	volcanion: {inherit: true, learnset: {...baseLearnsets.volcanion.learnset, wildfire: ["6M"]}},
