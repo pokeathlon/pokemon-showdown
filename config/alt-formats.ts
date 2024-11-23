@@ -527,19 +527,27 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Uber', 'AG'],
 	},
 	{
-		name: "[Gen 9] PoA Dex AG",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-	},
-	{
 		name: "[Gen 9] PoA Dex UU",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['OU', 'UUBL', 'Uber', 'AG'],
+	},
+	{
+		name: "[Gen 9] PoA Dex LC",
+		searchShow: false,
+
+		mod: 'gen9',
+		ruleset: ['Little Cup', 'Standard', 'Terastal Clause'],
+		banlist: [],
+	},
+	{
+		name: "[Gen 9] PoA Dex AG",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 
 	{
