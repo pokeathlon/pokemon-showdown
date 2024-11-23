@@ -538,7 +538,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA Dex LC",
 		searchShow: false,
 
-		mod: 'gen9',
+		mod: 'gen9pokeathlon',
 		ruleset: ['Little Cup', 'Standard', 'Terastal Clause'],
 		banlist: [],
 	},
