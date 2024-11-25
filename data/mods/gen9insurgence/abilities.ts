@@ -625,7 +625,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		num: 0,
 	},
 	regurgitation: {
-		onSourceDamagingHit(damage, target, source, move) {
+		onAfterMove(source, target, move) {
 			if (source === target || target.fainted || target.isSemiInvulnerable()) return;
 			if (!source.species.name.includes('Muk-Delta')) return;
 			const muktype = source.species.name.includes('Muk-Delta-') ? source.species.name.replace('Muk-Delta-', '') : 'Water';
