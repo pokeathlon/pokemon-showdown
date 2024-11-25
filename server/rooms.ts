@@ -1630,12 +1630,16 @@ export class GlobalRoomState {
 	}
 
 	onCreateBattleRoom(players: User[], room: GameRoom, options: AnyObject) {
+		let blockBattle = false;
 		for (const player of players) {
 			if (player.statusType === 'idle') {
 				player.setStatusType('online');
 			}
+			if (player.locked || !player.registered) {
+				blockBattle = true;
+			}
 		}
-		if (Config.reportbattles) {
+		if (Config.reportbattles && !blockBattle) {
 			if (typeof Config.reportbattles === 'string') {
 				Config.reportbattles = [Config.reportbattles];
 			} else if (Config.reportbattles === true) {

@@ -1210,6 +1210,7 @@ HOST,sakuraserver.com
 HOST,sakuraserver.co
 HOST,seflow.it
 HOST,clouvider.net
+HOST,heficed.com
 RANGE,2.56.9.192,2.56.9.207,wxz.group?/proxy
 RANGE,2.56.188.0,2.56.191.255,clouvider.net?/proxy
 RANGE,2.57.122.0,2.57.123.255,pptechnology.cc?/proxy
