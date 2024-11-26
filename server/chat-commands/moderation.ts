@@ -1120,7 +1120,7 @@ export const commands: Chat.ChatCommands = {
 		}
 		const {privateReason, publicReason} = this.parseSpoiler(reason);
 		targetUser?.popup(
-			`|modal|${user.name} has globally banned you.${(publicReason ? `\n\nReason: ${publicReason}` : ``)} ` +
+			`|modal|You've been globally banned.${(publicReason ? `\n\nReason: ${publicReason}` : ``)} ` +
 			`${(Config.appealurl ? `\n\nIf you feel that your ban was unjustified, you can appeal:\n${Config.appealurl}` : ``)}` +
 			`\n\nYour ban will expire in a few days.`
 		);
