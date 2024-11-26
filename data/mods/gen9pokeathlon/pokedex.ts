@@ -85,7 +85,7 @@ for (const mon of additions) {
 	if (cur.formeinfo) {
 		if (Dex.toID(cur.formeinfo) === 'battleonly') {
 			entry.battleOnly = baseSpecies.name;
-		} else {
+		} else if (Dex.toID(cur.formeinfo) !== 'separate') {
 			entry.requiredItem = cur.formeinfo;
 		}
 	}
