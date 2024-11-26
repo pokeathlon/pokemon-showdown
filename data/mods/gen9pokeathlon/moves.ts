@@ -943,19 +943,32 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	superheatedcrash: {
 		num: 0,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 100,
 		category: "Physical",
 		name: "Superheated Crash",
-		desc: "If the target is burned, x1.5 damage.",
-		shortDesc: "If the target is burned, x1.5 damage.",
-		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'brn') {
-				return this.chainModify(1.5);
-			}
+		desc: "If the user is hit by a contact move this turn before it can execute this move, the attacker is burned.",
+		shortDesc: "Burns on contact with the user before it moves.",
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('superheatedcrash');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Superheated Crash');
+			},
+			onHit(target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('brn', target);
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('superheatedcrash')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('superheatedcrash');
 		},
 		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, contact: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fire",

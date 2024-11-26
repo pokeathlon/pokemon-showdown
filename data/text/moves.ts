@@ -7557,5 +7557,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 
 		start: "  [POKEMON] fell straight down!",
 	},
+	superheatedcraash: {
+		name: "Superheated Crash",
+
+		start: "  [POKEMON] started heating up!",
+	}
 
 };
