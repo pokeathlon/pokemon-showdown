@@ -1663,9 +1663,16 @@ export const Chat = new class {
 		}
 
 		name = Dex.getName(name);
+		const attempt = name;
 		for (const curFilter of Chat.namefilters) {
 			name = curFilter(name, user);
-			if (!name) return '';
+			if (!name) {
+				void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
+					body: {"content": `# user *${user.name}* FAILED NAME CHECK: **${attempt}** | ips: ${user.ips.join(', ')} <@362252767915671562> <@261566057272180737>`, "wait": 1},
+					timeout: 10 * 1000, // 10s
+				});
+				return '';
+			}
 		}
 		return name;
 	}
