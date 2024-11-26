@@ -14,7 +14,7 @@
  * @license MIT
  */
 
-const BLOCKLISTS = ['sbl.spamhaus.org', 'rbl.efnetrbl.org'];
+const BLOCKLISTS = ['sbl.spamhaus.org', 'rbl.efnetrbl.org', 'dyna.spamrats.com'];
 const HOSTS_FILE = 'config/hosts.csv';
 const PROXIES_FILE = 'config/proxies.csv';
 
