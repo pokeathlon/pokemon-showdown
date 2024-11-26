@@ -86,7 +86,7 @@ export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 			if (size) searches[Dex.formats.get(formatid).name] = size;
 		}
 
-		return {...Rooms.global.getRooms(user), ladderSearches: searches};
+		return {...Rooms.global.getRooms(user), ladderSearches: user.registered ? searches : {}};
 	},
 	laddertop(target, user, trustable) {
 		if (!trustable) return false;
