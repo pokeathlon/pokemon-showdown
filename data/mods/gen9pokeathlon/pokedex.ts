@@ -70,7 +70,7 @@ for (const mon of additions) {
 		doublesTier: cur["doublesTier"],
 	};
 
-	if (baseSpecies.name && forme !== 'Delta' && forme !== 'Frost') {
+	if (baseSpecies.name && (!cur.formeinfo || (cur.formeinfo && Dex.toID(cur.formeinfo) !== 'separate'))) {
 		entry.num = baseSpecies.num;
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
