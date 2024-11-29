@@ -458,7 +458,7 @@ export const namefilter: Chat.NameFilter = (name, user) => {
 		.replace(/\u0435/g, 'e')
 		.replace(/\u039d/g, 'e');
 	// Remove false positives.
-	lcName = lcName.replace('herapist', '').replace('grape', '').replace('scrape', '');
+	// lcName = lcName.replace('herapist', '').replace('grape', '').replace('scrape', '');
 
 	for (const list in filterWords) {
 		if (!Chat.monitors[list] || Chat.monitors[list].location === 'BATTLES') continue;
