@@ -2521,6 +2521,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	obsideon: {
 		learnset: {
+			flareblitz: ["6T"],
 			pressurize: ["6L0"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
