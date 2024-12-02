@@ -525,7 +525,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Confuses user. 100% chance to lower foe's speed by 2 stages.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1},
 		onHit(target, source, move) {
 			source.addVolatile('confusion');
 		},
