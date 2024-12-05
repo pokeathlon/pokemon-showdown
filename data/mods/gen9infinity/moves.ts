@@ -127,7 +127,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Special",
 		name: "Nostril Flare",
 		desc: "Before the opponent attacks, the user unleashes a quick flame from its nostrils.",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 		pp: 20,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
