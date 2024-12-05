@@ -180,6 +180,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Fighting",
+		zMove: {effect: 'healreplacement'},
 		contestType: "Beautiful",
 	},
 	bloomsday: {
@@ -289,6 +290,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Psychic",
+		zMove: {boost: {def: 1, spd: 1}},
 		contestType: "Clever",
 	},
 	pixietrick: {
@@ -406,7 +408,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "adjacentAllyOrSelf",
 		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Beautiful",
 	},
 	hyperheal: {
@@ -643,6 +645,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "self",
 		type: "Ghost",
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
 	moltenglaze: {
@@ -939,6 +942,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Electric",
+		zMove: {effect: 'healreplacement'},
 	},
 	superheatedcrash: {
 		num: 0,

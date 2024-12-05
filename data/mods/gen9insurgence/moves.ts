@@ -710,6 +710,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 	},
 	dracojet: {
 		num: 0,
@@ -810,7 +811,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "allySide",
 		type: "Dragon",
-		zMove: {effect: 'crit2'},
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
 	livewire: {
@@ -906,6 +907,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 	},
 
 	morph: {
@@ -1014,7 +1016,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
 	},
-
 	nanorepair: {
 		num: 0,
 		accuracy: true,
@@ -1111,6 +1112,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "any",
 		type: "Normal",
+		zMove: {boost: {def: 3, spd: 3}}
 	},
 	spiritaway: {
 		num: 0,

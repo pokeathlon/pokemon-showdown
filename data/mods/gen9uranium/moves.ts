@@ -130,6 +130,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Nuclear",
+		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
 	fissionburst: {
@@ -387,6 +388,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Nuclear",
+		zMove: {boost: {def: 2}},
 		contestType: "Clever",
 	},
 	nuclearwind: {
@@ -567,6 +569,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Electric",
+		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
 };

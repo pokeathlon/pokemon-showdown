@@ -379,6 +379,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
 	},
 	astralshot: {
 		num: 0,
@@ -517,6 +518,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Rock",
+		zMove: {effect: 'crit2'},
 	},
 	vanish: {
 		num: 0,
@@ -535,6 +537,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Ghost",
+		zMove: {effect: 'clearnegativeboost'},
 	},
 	cactussmash: {
 		num: 0,
@@ -577,6 +580,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 	},
 	dejavu: {
 		num: 0,
@@ -1003,6 +1007,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+		zMove: {boost: {atk: 1}},
 	},
 	hornbuster: {
 		num: 0,
@@ -1150,6 +1155,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Fairy",
+		zMove: {boost: {def: 1}},
 	},
 	icewolfclaw: {
 		num: 0,
@@ -1338,6 +1344,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Dark",
+		zMove: {effect: 'clearnegativeboost'},
 	},
 	evilwing: {
 		num: 0,
@@ -1375,6 +1382,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Dark",
+		zMove: {boost: {def: 1}},
 	},
 	bugblaster: {
 		num: 0,
