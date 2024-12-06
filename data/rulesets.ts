@@ -3373,6 +3373,26 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: "Removes Sketch-Move legality entirely.",
 		// Hardcoded in team-validator.ts
 	},
+	nuclearclause: {
+		effectType: 'Rule',
+		name: 'Nuclear Clause',
+		desc: "Prevents non-Nuclear Pok&eacute;mon from using Nuclear moves",
+		onValidateSet(set) {
+			let problems = [];
+			const species = this.dex.species.get(set.species);
+			if (set.teraType === 'Nuclear' && !species.types.includes('Nuclear')) {
+				problems.push(`Your ${species.name} has Tera-type Nuclear, but is not a Nuclear type.`);
+			}
+			if (species.types.includes('Nuclear')) {
+				for (const move of set.moves) {
+					if (this.dex.moves.get(move).type === 'Nuclear') {
+						problems.push(`The Nuclear-type move ${move} cannot be used on non-Nuclear-type pokémon ${species.name}.`);
+					}
+				}
+			}
+			if (problems.length) return problems;
+		},
+	},
 };
 
 

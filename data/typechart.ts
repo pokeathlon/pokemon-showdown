@@ -28,6 +28,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 		HPdvs: {atk: 13, def: 13},
 	},
 	cosmic: {
+		isNonstandard: "Custom",
 		damageTaken: {
 			Bug: 0,
 			Crystal: 0,
@@ -54,6 +55,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 		},
 	},
 	crystal: {
+		isNonstandard: "Custom",
 		damageTaken: {
 			Bug: 0,
 			Crystal: 0,
@@ -421,6 +423,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 		},
 	},
 	nuclear: {
+		isNonstandard: "Custom",
 		damageTaken: {
 			fallout: 3,
 			Bug: 1,
