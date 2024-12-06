@@ -3387,7 +3387,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				for (const move of set.moves) {
 
 					if (this.dex.moves.get(move).type === 'Nuclear') {
-						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used on non-Nuclear-type pokémon ${species.name}.`);
+						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used on non-Nuclear-type Pokémon ${species.name}.`);
 					}
 				}
 			}

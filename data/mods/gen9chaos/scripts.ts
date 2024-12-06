@@ -16,6 +16,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
+		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard) delete this.data.Moves[move].isNonstandard;
 	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
