@@ -1671,6 +1671,8 @@ export const Chat = new class {
 					body: {"content": `# user *${user.name}* FAILED NAME CHECK: **${attempt}** | ips: ${user.ips.join(', ')} <@362252767915671562> <@261566057272180737>`, "wait": 1},
 					timeout: 10 * 1000, // 10s
 				});
+				Punishments.punishRange('IP ' + user.ips[0], 'Caught by name filter.', Date.now() + 1000 * 60 * 5, user.locked ? 'BAN' : 'LOCK');
+				user.send('|refresh|');
 				return '';
 			}
 		}
