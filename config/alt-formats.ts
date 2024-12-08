@@ -527,6 +527,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Uber', 'AG'],
 	},
 	{
+		name: "[Gen 9] PoA Dex Ubers",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['AG'],
+	},
+	{
 		name: "[Gen 9] PoA Dex UU",
 		searchShow: false,
 
