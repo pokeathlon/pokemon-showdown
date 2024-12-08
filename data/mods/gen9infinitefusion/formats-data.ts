@@ -73,6 +73,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	gholdengo: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	terapagos: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 };
 
 const doublesTiers = {

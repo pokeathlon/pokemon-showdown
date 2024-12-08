@@ -66,7 +66,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	necturine: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 };
 
