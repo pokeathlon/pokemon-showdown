@@ -837,11 +837,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['move:hiddenpower'],
 	},
 	{
-		name: "[Gen 9] Ins NatDex VGC Draft",
+		name: "[Gen 9] Ins NatDex LC Draft",
 		searchShow: false,
 		mod: 'gen9insurgence',
-		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Best of = 3', `Picked Team Size = 4`],
+		ruleset: ['Little Cup', 'Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Overflow Stat Mod', 'Item Clause = 2'],
 		banlist: ['move:hiddenpower', 'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream',
 			'ability:moody', 'ability:illuminate', 'ability:winterjoy',
 		],
