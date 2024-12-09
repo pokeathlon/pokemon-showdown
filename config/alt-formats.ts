@@ -40,7 +40,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Evasion Clause', 'OHKO Clause', 'Sleep Clause Mod', 'Z-Move Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause',
 		],
 		banlist: [
 			'Mega',
