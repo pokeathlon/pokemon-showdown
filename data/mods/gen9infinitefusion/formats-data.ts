@@ -81,6 +81,186 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	gengarmega: {
+		inherit: true,
+		natDexTier: "AG",
+	},
+	mawilemega: {
+		inherit: true,
+		natDexTier: "AG",
+	},
+	medichammega: {
+		inherit: true,
+		natDexTier: "AG",
+	},
+	blazikenmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	kangaskhanmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	mewtwomegax: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	mewtwomegay: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	rayquazamega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	aerodactylmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	alakazammega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	ampharosmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	beedrillmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	blastoisemega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	dianciemega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	lucariomega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	metagrossmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	pidgeotmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	pinsirmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	salamencemega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	swampertmega: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
+	aggronmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	altariamega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	cameruptmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	charizardmegax: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	charizardmegay: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	glaliemega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	lopunnymega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	sableyemega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	tyranitarmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	absolmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	audinomega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	banettemega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	gardevoirmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	garchompmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	heracrossmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	houndoommega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	latiasmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	latiosmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	manectricmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	slowbromega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	steelixmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	venusaurmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	abomasnowmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gallademega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	sharpedomega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 };
 
 const doublesTiers = {

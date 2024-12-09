@@ -34,6 +34,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF Dex Ubers",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Evasion Clause', 'OHKO Clause', 'Sleep Clause', 'Z-Move Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega',
+			'ability:hugepower', 'ability:moody', 'ability:wonderguard', 'ability:shadowtag', 'ability:arenatrap',
+			'move:spore', 'move:bellydrum', 'move:shellsmash', 'move:batonpass', 'move:vcreate',
+		],
+	},
+	{
 		name: "[Gen 7] IF Dex UU",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
@@ -75,10 +90,26 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
-			'ND AG', 'ND Uber', 'Mega',
+			'ND AG', 'ND Uber',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
+		],
+	},
+	{
+		name: "[Gen 9] IF National Dex Ubers",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen9infinitefusion',
+		ruleset: [
+			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'ND AG',
+			'item:gengarite', 'item:medichamite', 'item:mawilite', 'item:kangaskhanite',
+			'ability:hugepower', 'ability:purepower', 'ability:arenatrap', 'ability:moody', 'ability:wonderguard', 'ability:shadowtag', 'ability:parentalbond', 'ability:comatose', 'ability:hadronengine', 'ability:orichalcumpulse', 
+			'move:spore', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:lastrespects', 'move:assist', 'move:doubleironbash', 'move:batonpass',
 		],
 	},
 	{
