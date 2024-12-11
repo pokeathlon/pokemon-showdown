@@ -1060,5 +1060,4 @@ for (const i of Dex.mod('gen9insurgence').species.all()) {
 	const isInsg = i.id in InsgDex;
 	Pokedex[i.id].isNonstandard = isInsg ? null : "Unobtainable";
 	Pokedex[i.id].num = isInsg ? InsgDex[i.id] : 0;
-	Pokedex[i.id].gen = isInsg ? 6 : undefined;
 }
