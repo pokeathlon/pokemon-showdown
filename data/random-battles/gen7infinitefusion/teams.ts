@@ -14,12 +14,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const seed = this.prng.seed;
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		const pool = Object.keys(this.randomSets);
+		const pool = this.randomSets.random_sets;
 		const usedSpecies: string[] = [];
 
 		while (pokemon.length < this.maxTeamSize) {
-			const curSpecies = this.sampleNoReplace(pool);
-			const curSet: Partial<RandomTeamsTypes.RandomSet> = this.sample(this.randomSets[curSpecies]);
+			const curSet = this.sampleNoReplace(pool);
 
 			const speciesS = this.dex.species.get(curSet.species).baseStats;
 			const fusionS = this.dex.species.get(curSet.fusion).baseStats;

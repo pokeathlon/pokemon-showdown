@@ -3,7 +3,7 @@ import {PRNG, PRNGSeed} from '../../../sim/prng';
 
 
 export class RandomGen7Teams extends RandomGen8Teams {
-	randomSets: AnyObject = require('./data.json');
+	randomSets: AnyObject = require('../gen9chaos/data.json');
 
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
@@ -14,11 +14,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const seed = this.prng.seed;
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		const pool = Object.keys(this.randomSets);
+		let pool: AnyObject[] = this.randomSets.random_sets.filter((set: AnyObject) => this.dex.species.get(set.species).tags?.includes('Pokeathlon'));
 
 		while (pokemon.length < this.maxTeamSize) {
-			const curSpecies = this.sampleNoReplace(pool);
-			const curSet: Partial<RandomTeamsTypes.RandomSet> = this.sample(this.randomSets[curSpecies]);
+			const curSet = this.sampleNoReplace(pool);
+			const curSpecies = curSet.species;
 
 			// Level balance--calculate directly from stats rather than using some silly lookup table
 			const mbstmin = 1307;
@@ -53,7 +53,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				}
 			}
 
-			if (curSet.moves && curSet.ability && curSet.item && curSet.teraType) {
+			if (curSet.moves && curSet.ability && curSet.item) {
 				pokemon.push({
 					name: this.dex.species.get(curSpecies).name,
 					species: this.dex.species.get(curSpecies).name,
@@ -68,6 +68,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 					evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
 					ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 				});
+				pool = pool.filter(set => set.species !== curSpecies);
 			}
 		}
 

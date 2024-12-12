@@ -18,7 +18,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSet = this.sampleNoReplace(pool);
-			const curSpecies = curSet.id;
+			const curSpecies = curSet.species;
 
 			// Level balance--calculate directly from stats rather than using some silly lookup table
 			const mbstmin = 1307;
@@ -67,7 +67,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 					evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
 					ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 				});
-				pool = pool.filter(set => set.id !== curSpecies);
+				pool = pool.filter(set => set.species !== curSpecies);
 			}
 			if (pokemon.filter(set => this.dex.items.get(set.item).megaEvolves).length === 1) {
 				pool = pool.filter(set => !this.dex.items.get(set.item).megaEvolves);

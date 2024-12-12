@@ -6,9 +6,20 @@ const path = require('path');
 
 const key = require('../config/config').googleSheetsKey;
 
-const allSheets = [
+const googleAuth = new google.auth.JWT(
+	key.client_email,
+	null,
+	key.private_key.replace(/\\n/g, '\n'),
+	'https://www.googleapis.com/auth/spreadsheets'
+);
+
+const connection = google.sheets({version: 'v4', auth: googleAuth});
+
+const allFormats = [
 	{id: "1aS2bM27i28iJWG5MSmxmzTNP0_NkAEPpbUgw6SHFa6k", mod: "gen9pokeathlon", owner: "everyone"},
 ];
+
+const randbats = "1z5oK9_nqsjBzSqiK8M97-TZGyOosL9irW4ItO4yrUNE";
 
 const loc = {types: 8, stats: 10, abilities: 16, weight: 19, height: 20, prevo: 21, gender: 22, formeinfo: 23, cosmeticFormes: 24, tiers: 26, learnset: 30};
 
@@ -21,9 +32,9 @@ function toID(text) {
 }
 
 async function update() {
-	for (const sheet of allSheets) {
-		const dex = await pull(sheet.id, 'Pokedex');
-		const bans = await pull(sheet.id, 'Formats');
+	for (const sheet of allFormats) {
+		const dex = await pullFormat(sheet.id, 'Pokedex');
+		const bans = await pullFormat(sheet.id, 'Formats');
 
 		const out = {
 			dex: formatDex(dex),
@@ -32,18 +43,34 @@ async function update() {
 
 		fs.writeFileSync(path.resolve(__dirname, '../data/mods/' + sheet.mod + '/remote.json'), JSON.stringify(out, null, '\t'));
 	}
+	await pullRandbats(randbats);
 }
 
-function pull(sheetid, section) {
-	const googleAuth = new google.auth.JWT(
-		key.client_email,
-		null,
-		key.private_key.replace(/\\n/g, '\n'),
-		'https://www.googleapis.com/auth/spreadsheets'
-	);
+async function pullRandbats(sheetid) {
+	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
+		let randbats_sets = {random_sets: []};
+		const data = await connection.spreadsheets.values.get({
+			auth: googleAuth,
+			spreadsheetId: sheetid,
+			range: `${mod}!A2:K`,
+		});
+		for (const line of data.data.values) {
+			const key_index = ['name', 'species', 'fusion', 'alt', 'item', 'ability', 'teraType'];
+			let cur_set = {moves: []};
+			for (const item in line) {
+				if (item >= key_index.length) {
+					cur_set.moves.push(line[item]);
+				} else {
+					cur_set[key_index[item]] = line[item];
+				}
+			}
+			randbats_sets.random_sets.push(cur_set);
+		}
+		fs.writeFileSync(path.resolve(__dirname, '../data/random-battles/' + mod + '/data.json'), JSON.stringify(randbats_sets, null, '\t'));
+	}
+}
 
-	const connection = google.sheets({version: 'v4', auth: googleAuth});
-
+function pullFormat(sheetid, section) {
 	return connection.spreadsheets.values.get({
 		auth: googleAuth,
 		spreadsheetId: sheetid,
