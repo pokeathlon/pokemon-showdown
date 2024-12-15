@@ -14,25 +14,26 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const seed = this.prng.seed;
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		const pool = this.randomSets.random_sets;
-		const usedSpecies: string[] = [];
+		let pool: AnyObject[] = this.randomSets.random_sets.filter((set: AnyObject) => set.fusion);
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSet = this.sampleNoReplace(pool);
-
-			const speciesS = this.dex.species.get(curSet.species).baseStats;
-			const fusionS = this.dex.species.get(curSet.fusion).baseStats;
+			const curSpecies = curSet.species;
+			const curFusion = curSet.fusion;
 
 			// Level balance--calculate directly from stats rather than using some silly lookup table
 			const mbstmin = 1307;
 
+			const species_stats = this.dex.species.get(curSpecies).baseStats;
+			const fusion_stats = this.dex.species.get(curFusion).baseStats
+
 			const stats = {
-				hp: Math.floor((speciesS.hp * (2 / 3)) + (fusionS.hp * (1 / 3))),
-				spa: Math.floor((speciesS.spa * (2 / 3)) + (fusionS.spa * (1 / 3))),
-				spd: Math.floor((speciesS.spd * (2 / 3)) + (fusionS.spd * (1 / 3))),
-				atk: Math.floor((speciesS.atk * (1 / 3)) + (fusionS.atk * (2 / 3))),
-				def: Math.floor((speciesS.def * (1 / 3)) + (fusionS.def * (2 / 3))),
-				spe: Math.floor((speciesS.spe * (1 / 3)) + (fusionS.spe * (2 / 3))),
+				hp: Math.floor((species_stats.hp * (2 / 3)) + (fusion_stats.hp * (1 / 3))),
+				spa: Math.floor((species_stats.spa * (2 / 3)) + (fusion_stats.spa * (1 / 3))),
+				spd: Math.floor((species_stats.spd * (2 / 3)) + (fusion_stats.spd * (1 / 3))),
+				atk: Math.floor((species_stats.atk * (1 / 3)) + (fusion_stats.atk * (2 / 3))),
+				def: Math.floor((species_stats.def * (1 / 3)) + (fusion_stats.def * (2 / 3))),
+				spe: Math.floor((species_stats.spe * (1 / 3)) + (fusion_stats.spe * (2 / 3))),
 			};
 
 			// Modified base stat total assumes 31 IVs, 85 EVs in every stat
@@ -63,23 +64,23 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				}
 			}
 
-			if ((curSet.name === "" || curSet.name) && curSet.species && curSet.fusion && curSet.moves && curSet.ability && curSet.item && !usedSpecies.includes(curSet.species) && !usedSpecies.includes(curSet.fusion)) {
+			if (curSet.moves && curSet.ability && curSet.item) {
 				pokemon.push({
-					name: curSet.name,
-					species: this.dex.species.get(curSet.species).name,
-					fusion: this.dex.species.get(curSet.fusion).name,
+					name: curSet.name ? curSet.name : this.dex.species.get(curSpecies).name,
+					species: this.dex.species.get(curSpecies).name,
+					fusion: this.dex.species.get(curFusion).name,
 					happiness: curSet.moves.includes('frustration') ? 0 : 255,
-					alt: curSet.alt,
-					shiny: this.randomChance(1, 1024),
+					shiny: false,
 					level: level,
-					gender: this.dex.species.get(curSet.species).gender,
+					gender: this.dex.species.get(curSpecies).gender,
 					moves: curSet.moves,
 					ability: curSet.ability,
 					item: curSet.item,
+					teraType: this.dex.types.get(curSet.teraType).name,
 					evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
 					ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 				});
-				usedSpecies.push(...[curSet.species, curSet.fusion]);
+				pool = pool.filter(set => ![set.species, set.fusion].includes(curSpecies) && ![set.species, set.fusion].includes(curFusion));
 			}
 		}
 
