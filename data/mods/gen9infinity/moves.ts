@@ -1659,11 +1659,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
 		onHit(target, source, move) {
-			if (!move.hasSheerForce && source.hp) {
-				for (const side of source.side.foeSidesWithConditions()) {
-					side.addSideCondition('spikes');
-					side.addSideCondition('toxicspikes');
-				}
+			for (const side of source.side.foeSidesWithConditions()) {
+				side.addSideCondition('spikes');
+				side.addSideCondition('toxicspikes');
 			}
 		},
 		selfdestruct: "always",
