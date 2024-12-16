@@ -9,10 +9,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	shuckle: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
 	smeargle: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -57,6 +53,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	gholdengo: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	terapagos: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	regieleki: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	shuckle: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	annihilape: {
 		inherit: true,
 		natDexTier: "OU",
@@ -73,14 +85,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
-	gholdengo: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
-	terapagos: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
+
+	// Megas
 	gengarmega: {
 		inherit: true,
 		natDexTier: "AG",
