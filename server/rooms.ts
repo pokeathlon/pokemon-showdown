@@ -1635,7 +1635,7 @@ export class GlobalRoomState {
 			if (player.statusType === 'idle') {
 				player.setStatusType('online');
 			}
-			if (player.locked || !player.registered) {
+			if (player.locked || !player.autoconfirmed) {
 				blockBattle = true;
 			}
 		}
