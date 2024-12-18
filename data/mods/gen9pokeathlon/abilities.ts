@@ -665,6 +665,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.species.id === 'caramitti') pokemon.formeChange('Caramitti-Crazed', this.effect, true);
 			if (this.dex.toID(pokemon.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
 		},
+		onEatItem(item, pokemon) {
+			if (pokemon.species.id === 'caramitti') pokemon.formeChange('Caramitti-Crazed', this.effect, true);
+			if (this.dex.toID(pokemon.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
+		},
 		flags: {},
 		name: "Sweet Tooth",
 		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack.",
