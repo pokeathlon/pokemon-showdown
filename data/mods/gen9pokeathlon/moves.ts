@@ -75,22 +75,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	pollenpuff: {
 		inherit: true,
-		onTryHit(target, source, move) {
-			if (source.isAlly(target)) {
-				move.basePower = 0;
-				move.infiltrates = true;
-			}
-		},
-		onTryMove(source, target, move) {
-			if (source.isAlly(target) && source.volatiles['healblock']) {
-				this.attrLastMove('[still]');
-				this.add('cant', source, 'move: Heal Block', move);
-				return false;
-			}
-		},
 		onHit(target, source, move) {
 			if (source.isAlly(target)) {
-				if (!this.heal(Math.floor(target.baseMaxhp * (source.ability === 'cannonner' ? 0.75 : 0.5)))) {
+				if (!this.heal(Math.floor(target.baseMaxhp * (source.ability === 'cannoneer' ? 0.75 : 0.5)))) {
 					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
 						this.attrLastMove('[still]');
 						// Wrong error message, correct one not supported yet
@@ -482,19 +469,50 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	sirensong: {
 		num: 0,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 95,
 		category: "Special",
 		name: "Siren Song",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Fairy', type);
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.infiltrates = true;
+			}
 		},
-		secondary: null,
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
+					return this.NOT_FAIL;
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target?.statsRaisedThisTurn) {
+					target.addVolatile('yawn', source, move);
+				}
+			},
+		},
 		shortDesc: "This move combines Fairy in its type effectiveness against the target. Hits adjacent foes.",
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Water",
 		contestType: "Cool",
 	},
 	mindwipe: {
