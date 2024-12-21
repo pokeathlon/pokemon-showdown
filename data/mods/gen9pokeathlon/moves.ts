@@ -510,8 +510,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
-		shortDesc: "This move combines Fairy in its type effectiveness against the target. Hits adjacent foes.",
-		target: "allAdjacentFoes",
+		shortDesc: "Drowsys if target boosts stats. Heals if target is ally.",
+		target: "any",
 		type: "Water",
 		contestType: "Cool",
 	},
