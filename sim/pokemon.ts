@@ -312,7 +312,7 @@ export class Pokemon {
 		}
 		this.speciesState = {id: this.species.id};
 
-		this.name = set.name.substr(0, 200);
+		this.name = set.name.substr(0, 20);
 		this.fullname = this.side.id + ': ' + this.name;
 		this.fusion = this.battle.format.ruleset.includes('Infinite Fusion Mod') ? this.set.fusion : undefined;
 
