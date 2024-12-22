@@ -826,7 +826,7 @@ const InsgDex: {[k: string]: number} = {
 	"diancie": 719,
 	"dianciemega": 719,
 	"hoopa": 720,
-	"hoopadeltaunleashed": 720,
+	"hoopaunbound": 720,
 	"volcanion": 721,
 	"missingno": 722,
 	"bulbasaurdelta": 727,
@@ -1050,9 +1050,10 @@ const InsgDex: {[k: string]: number} = {
 	"regicedelta": 921,
 	"registeeldelta": 922,
 	"meloettadelta": 923,
-	"meloettadeltamagician": 924,
-	"hoopadelta": 925,
-	"ufi": 926,
+	"meloettadeltamagician": 9230,
+	"hoopadelta": 924,
+	"hoopadeltaunleashed": 924,
+	"ufi": 925,
 };
 
 for (const i of Dex.mod('gen9insurgence').species.all()) {
