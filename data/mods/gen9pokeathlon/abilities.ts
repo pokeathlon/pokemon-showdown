@@ -588,8 +588,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				if (target.hasType('Grass')) return null;
-				target.addVolatile('leechseed', source);
+				if (source.hasType('Grass')) return null;
+				source.addVolatile('leechseed', target);
 			}
 		},
 		flags: {},
