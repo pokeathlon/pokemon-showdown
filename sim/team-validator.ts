@@ -562,11 +562,11 @@ export class TeamValidator {
 			if (set.name && set.name.endsWith('-Gmax')) set.name = species.baseSpecies;
 			set.gigantamax = true;
 		}
-		if (set.name && set.name.length > 20) {
+		if (set.name && set.name.length > 200) {
 			if (set.name === set.species) {
 				set.name = species.baseSpecies;
 			} else {
-				problems.push(`Nickname "${set.name}" is ${set.name.length} characters (should be 20 characters or fewer)`);
+				problems.push(`Nickname "${set.name}" is ${set.name.length} characters (should be 200 characters or fewer)`);
 			}
 		}
 		set.name = dex.getName(set.name);
