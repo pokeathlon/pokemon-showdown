@@ -751,6 +751,8 @@ const InsgDex: {[k: string]: number} = {
 	"landorus": 645,
 	"landorustherian": 645,
 	"kyurem": 646,
+	"kyuremblack": 646,
+	"kyuremwhite": 646,
 	"keldeo": 647,
 	"meloetta": 648,
 	"genesect": 649,
