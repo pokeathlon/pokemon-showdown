@@ -20,6 +20,14 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		inherit: true,
 		types: ["Grass", "Ghost"],
 	},
+	ferroseed: {
+		inherit: true,
+		types: ["Steel", "Grass"],
+	},
+	ferrothorn: {
+		inherit: true,
+		types: ["Steel", "Grass"],
+	},
 	bulbmantle: {
 		num: 2001,
 		name: "Bulbmantle",
