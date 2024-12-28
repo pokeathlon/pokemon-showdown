@@ -56,6 +56,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	ferrothorn: {
 		inherit: true,
 		abilities: {0: "Iron Barbs"},
+		types: ["Steel", "Grass"],
 	},
 	unown: {
 		inherit: true,
