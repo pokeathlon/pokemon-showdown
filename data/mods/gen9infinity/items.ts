@@ -7,7 +7,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 90,
 		},
 		onModifyCritRatio(critRatio, user) {
-			if (user.baseSpecies.baseSpecies === 'Terathwak') {
+			if (user.baseSpecies.baseSpecies === 'Terathwak' || user.fusion === 'Terathwak') {
 				return critRatio + 2;
 			}
 		},
