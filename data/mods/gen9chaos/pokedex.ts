@@ -16,6 +16,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Grass", "Ghost"],
 	},
+	ferroseed: {
+		inherit: true,
+		types: ["Steel", "Grass"],
+	},
+	ferrothorn: {
+		inherit: true,
+		types: ["Steel", "Grass"],
+	},
 
 	// Insurgence
 	delibird: {
