@@ -1,6 +1,8 @@
 const {Dex} = require('../../../sim/dex');
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	...Dex.deepClone(require('../gen9infinitefusion/items').ModItems),
+
+	// Legalize Gems
 	buggem: {inherit: true, isNonstandard: null},
 	darkgem: {inherit: true, isNonstandard: null},
 	dragongem: {inherit: true, isNonstandard: null},
@@ -18,6 +20,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	rockgem: {inherit: true, isNonstandard: null},
 	steelgem: {inherit: true, isNonstandard: null},
 	watergem: {inherit: true, isNonstandard: null},
+
+	// SE Berries
 	babiriberry: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
@@ -271,6 +275,195 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 					return this.chainModify(0.5);
 				}
 			}
+		},
+	},
+
+	// Arceus Plates
+	dracoplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	dreadplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	earthplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	fistplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	flameplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	icicleplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	insectplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	ironplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	meadowplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	mindplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	pixieplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	skyplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	splashplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	spookyplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	stoneplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	toxicplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
+		},
+	},
+	zapplate: {
+		inherit: true,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
+				return false;
+			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+				return false;
+			}
+			return true;
 		},
 	},
 };
