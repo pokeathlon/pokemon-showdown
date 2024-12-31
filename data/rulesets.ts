@@ -2959,12 +2959,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					speciesTable.add(curFusion.gen);
 				}
 				if (i === 1) { //Deciding which gen is the monogen
-					console.log(i)
 					if (speciesTable.has(curSpecies.gen)) monogen = curSpecies.gen
 					if (!monogen && speciesTable.has(curFusion.gen)) monogen = curFusion.gen
 					if (!monogen) return ['No single generation is present across the entire team.']
 				}
-				console.log(monogen)
 				if (i != 0) {
 					if (curSpecies.gen != monogen && speciesTable.has(curSpecies.gen)) return [`${curSpecies} is from gen ${curSpecies.gen}, which has already been used.`]
 					if (curFusion && curFusion.gen != monogen && speciesTable.has(curFusion.gen)) return [`${curFusion} is from gen ${curFusion.gen}, which has already been used.`]
