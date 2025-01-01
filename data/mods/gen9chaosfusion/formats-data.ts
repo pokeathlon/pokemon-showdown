@@ -68,6 +68,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	metalgreymon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	reaptide: {
+		inherit: true,
+		tier: "OU",
+	},
 };
 
 for (const i of Dex.mod('gen9chaos').species.all()) {
