@@ -74,7 +74,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	reaptide: {
 		inherit: true,
-		tier: "OU",
+		natDexTier: "OU",
 	},
 };
 
