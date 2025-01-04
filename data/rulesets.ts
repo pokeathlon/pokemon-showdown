@@ -3395,7 +3395,32 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (problems.length) return problems;
 		},
 	},
+	nuclearmoveclause: {
+		effectType: 'Rule',
+		name: 'Nuclear Move Clause',
+		desc: "Prevents Nuclear moves from being used",
+		onValidateSet(set) {
+			let problems = [];
+			const species = this.dex.species.get(set.species);
+				for (const move of set.moves) {
+					//Prevents tera nuclear terablast and rev dance
+					if (set.teraType === 'Nuclear' && ['terablast', 'revelationdance'].includes(this.dex.moves.get(move).id)) {
+						problems.push(`The combination of Nuclear Tera-type with ${this.dex.moves.get(move).name} cannot be used.`);
+					}
+					//Prevents hafli berry + natural gift
+					if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id == 'naturalgift') {
+						problems.push(`The combination of ${set.item} with ${this.dex.moves.get(move).name} cannot be used.`);
+					}
+					//Prevents nuclear moves
+					if (this.dex.moves.get(move).type === 'Nuclear') {
+						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
+					}
+				}
+			if (problems.length) return problems;
+		},
+	},
 };
+
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
 	"attackorder": [{"fusion": ["beedrill"]}],
