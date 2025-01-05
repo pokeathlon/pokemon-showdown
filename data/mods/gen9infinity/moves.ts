@@ -1311,7 +1311,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		name: "Nuclear Punch",
 		desc: "The target is hit with a Chrome Digizoid hardened fist. It may raise the user's Attack.",
-		shortDesc: "100% chance to raise the user's Attack by 1.",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
