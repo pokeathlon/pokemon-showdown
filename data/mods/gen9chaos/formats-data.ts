@@ -829,6 +829,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
+	nucleon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 
 	//Vanilla Retiers
 	roaringmoon: {
