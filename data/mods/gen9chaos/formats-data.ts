@@ -656,7 +656,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	serperiodelta: {
+	serperiordelta: {
 		inherit: true,
 		natDexTier: "OU",
 	},
