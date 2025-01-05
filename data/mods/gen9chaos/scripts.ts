@@ -18,9 +18,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard) delete this.data.Moves[move].isNonstandard;
 		for (const i in this.data.Pokedex) {
-			let pokemon = this.data.Pokedex[i];
-			if (pokemon.types.includes("Nuclear") && !(pokemon.id in require('./formats-data').ModFormatsData)) {
-				pokemon = {...pokemon, tier: "RU", natDexTier: "RU"};
+			if (this.data.Pokedex[i].types.includes("Nuclear") && !(i in require('./formats-data').ModFormatsData)) {
+				this.modData('Pokedex', i).natDexTier = "RU";
 			}
 		}
 	},
