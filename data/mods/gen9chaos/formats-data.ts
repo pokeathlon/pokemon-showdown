@@ -40,6 +40,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	actan: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	angemon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	arbokmega: {
 		inherit: true,
 		natDexTier: "RU",
@@ -347,6 +355,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	scalyterror: {
 		inherit: true,
 		natDexTier: "RU",
+	},
+	scorchingkiln: {
+		inherit: true,
+		natDexTier: "OU",
 	},
 	sekrilonmega: {
 		inherit: true,
