@@ -1,4 +1,5 @@
-export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
+const {Dex} = require('../../../sim/dex');
+export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// Tiering
 	emolgadelta: {
 		inherit: true,
@@ -1253,3 +1254,4 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 };
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Dex.deepClone(ModFormatsData);

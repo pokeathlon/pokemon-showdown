@@ -17,6 +17,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard) delete this.data.Moves[move].isNonstandard;
+		for (let pokemon of this.species.all()) {
+			if (pokemon.types.includes("Nuclear") && !(pokemon.id in require('./formats-data').ModFormatsData)) {
+				pokemon = {...pokemon, natDexTier: "RU"};
+			}
+		}
 	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
