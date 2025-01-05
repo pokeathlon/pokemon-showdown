@@ -344,7 +344,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 6] Infinity OU",
 
 		mod: 'gen6infinity',
-		ruleset: ['Standard', 'Swagger Clause', 'Baton Pass Clause', 'No Event Moves'],
+		ruleset: ['Standard', 'Swagger Clause', 'Baton Pass Clause', 'No Event Moves', 'Overflow Stat Mod'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:purefocus',
@@ -406,7 +406,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Infinity NatDex OU",
 
 		mod: 'gen9infinity',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'No Event Moves', 'Overflow Stat Mod'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -433,7 +433,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9infinity',
-		ruleset: ['Standard NatDex', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 
 	{
@@ -462,7 +462,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen6infinity',
 		gameType: 'doubles',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves'],
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 	{
 		name: "[Gen 9] Ins NatDex Doubles AG",
@@ -486,7 +486,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinity',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 
 	{
@@ -517,7 +517,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinity',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: ['Standard NatDex', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 	{
 		name: "[Gen 9] Ins Custom Game",
@@ -547,7 +547,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Overflow Stat Mod'],
 	},
 
 	{
@@ -695,14 +695,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaos',
 		team: 'random',
 		ruleset: [
-			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause',
+			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause','Overflow Stat Mod',
 		],
 	},
 	{
 		name: "[Gen 9] Chaos OU",
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial','Overflow Stat Mod'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -716,7 +716,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9chaos',
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', 'Overflow Stat Mod'
 		],
 	},
 	{
@@ -726,7 +726,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaosfusion',
 		ruleset: [
 			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod'
 		],
 		banlist: [
 			'ND AG', 'ND Uber', 'Mega',
@@ -743,7 +743,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaosfusion',
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 'Overflow Stat Mod',
 		],
 	},
 
@@ -759,7 +759,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'triples',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', 'Overflow Stat Mod'
 		],
 	},
 	{
@@ -771,7 +771,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		rated: false,
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 'Overflow Stat Mod'
 		],
 	},
 	{
@@ -782,7 +782,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
+			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', 'Overflow Stat Mod'
 		],
 	},
 	{
@@ -794,7 +794,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		rated: false,
 		ruleset: [
 			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 'Overflow Stat Mod'
 		],
 	},
 	{
@@ -803,7 +803,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9chaos',
 		gameType: 'multi',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial', 'Overflow Stat Mod'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -819,7 +819,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'multi',
 		ruleset: [
 			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Overflow Stat Mod'
 		],
 		banlist: [
 			'ND AG', 'ND Uber', 'Mega',
@@ -836,7 +836,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod',],
 	},
 	{
 		name: "[Gen 9] Chaos Fusion Custom Game",
@@ -846,7 +846,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		debug: true,
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod', 'Overflow Stat Mod'],
 	},
 
 	// Draft Formats
