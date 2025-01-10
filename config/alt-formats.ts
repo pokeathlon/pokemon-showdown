@@ -214,6 +214,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 7] IF Dex Triples OU",
+		searchShow: false,
 
 		mod: 'gen7infinitefusion',
 		gameType: 'triples',
