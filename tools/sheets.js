@@ -74,7 +74,7 @@ function pullFormat(sheetid, section) {
 	return connection.spreadsheets.values.get({
 		auth: googleAuth,
 		spreadsheetId: sheetid,
-		range: `${section}!A3:AE`,
+		range: `${section}!A3:AG`,
 	});
 }
 
