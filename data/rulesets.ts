@@ -3419,6 +3419,19 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (problems.length) return problems;
 		},
 	},
+	
+	megaformclause: {
+		effectType: 'Rule',
+		name: 'Mega Form Clause',
+		desc: "Prevents Pokémon from mega-evolving from a different form.",
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			const item = this.dex.items.get(set.item);
+			if ((!species.isMega && item.megaEvolves && this.toID(item.megaEvolves) != species.id)) {
+				return [`${set.species} cannot hold ${set.item}.`]
+			}
+		}
+	},
 };
 
 
