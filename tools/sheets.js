@@ -21,7 +21,7 @@ const allFormats = [
 
 const randbats = "1z5oK9_nqsjBzSqiK8M97-TZGyOosL9irW4ItO4yrUNE";
 
-const loc = {types: 8, stats: 10, abilities: 16, weight: 19, height: 20, prevo: 21, gender: 22, formeinfo: 23, cosmeticFormes: 24, tiers: 26, learnset: 30};
+const loc = {types: 10, stats: 12, abilities: 18, weight: 21, height: 22, prevo: 23, gender: 24, formeinfo: 25, cosmeticFormes: 26, tiers: 28, learnset: 32};
 
 function c(item) {
 	return item ? item : undefined;
