@@ -774,6 +774,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos UU",
+		searchShow: false,
 
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Form Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial','Overflow Stat Mod'],
