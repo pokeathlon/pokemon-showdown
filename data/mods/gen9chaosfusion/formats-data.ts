@@ -373,13 +373,3 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 };
-
-for (const i of Dex.mod('gen9chaos').species.all()) {
-	if (i.types.includes('Nuclear') && !FormatsData[i.id]) {
-		FormatsData[i.id] = {
-			inherit: true,
-			tier: "Uber",
-			natDexTier: "Uber",
-		};
-	}
-}
