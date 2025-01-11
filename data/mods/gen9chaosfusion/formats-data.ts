@@ -1,5 +1,5 @@
 const {Dex} = require('../../../sim/dex');
-export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
+export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	frosthra: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -373,3 +373,4 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 };
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Dex.deepClone(ModFormatsData);
