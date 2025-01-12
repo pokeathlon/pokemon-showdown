@@ -833,7 +833,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	grimmfowl: {
+	grimfowl: {
 		inherit: true,
 		natDexTier: "OU",
 	},
