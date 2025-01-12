@@ -15,8 +15,8 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 			}
-		}
-		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE') delete this.data.Moves[move].isNonstandard;
+		} //I hate Suenami and Bouncy Bubble and LGPE moves I hate them I hate them I hate them
+		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE' || this.data.Moves[move].name === 'Bouncy Bubble') delete this.data.Moves[move].isNonstandard;
 		for (const i in this.data.Pokedex) {
 			if (this.data.Pokedex[i].types.includes("Nuclear") && !(i in require('./formats-data').ModFormatsData)) {
 				this.modData('Pokedex', i).natDexTier = "RU";
