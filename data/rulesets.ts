@@ -3280,13 +3280,33 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 	},
 	nuclearmoveclause: {
-		effectType: 'Rule',
+		effectType: 'ValidatorRule',
 		name: 'Nuclear Move Clause',
 		desc: "Prevents Nuclear moves from being used",
 		onValidateSet(set) {
 			let problems = [];
 			const species = this.dex.species.get(set.species);
 				for (const move of set.moves) {
+					if (set.fusion) {
+						//Checking if fusion contains Nuclear Type
+						const fusion = this.dex.species.get(set.fusion);
+						let speciesTypes = species.types;
+						let fusionTypes = fusion.types;
+
+						if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
+						if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
+
+						const typesSet = new Set([speciesTypes[0]]);
+						const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
+						if (bonusType.exists) typesSet.add(bonusType.name);
+						if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
+
+						const fusedTypes = [...typesSet];
+						// Nuclear Rev Dance on Fusions
+						if (fusedTypes[0] === 'Nuclear' && this.dex.moves.get(move).id === 'revelationdance') {
+							problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
+						}
+					}
 					//Prevents tera nuclear terablast and rev dance
 					if (set.teraType === 'Nuclear' && ['terablast', 'revelationdance'].includes(this.dex.moves.get(move).id)) {
 						problems.push(`The combination of Nuclear Tera-type with ${this.dex.moves.get(move).name} cannot be used.`);
@@ -3295,9 +3315,27 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id == 'naturalgift') {
 						problems.push(`The combination of ${set.item} with ${this.dex.moves.get(move).name} cannot be used.`);
 					}
-					//Prevents nuclear moves
-					if (this.dex.moves.get(move).type === 'Nuclear') {
+					//Prevents nuclear moves (!set.fusion is to prevent the error from appearing twice, since the earlier if should catch it.)
+					if (this.dex.moves.get(move).type === 'Nuclear' || ( !set.fusion && species.types[0] === 'Nuclear' && this.dex.moves.get(move).id === 'revelationdance')) {
 						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
+					}
+				}
+			if (problems.length) return problems;
+		},
+	},
+	lgpeclause: {
+		effectType: 'ValidatorRule',
+		name: 'LGPE Clause',
+		desc: "Prevents LGPE moves from being used",
+		onValidateSet(set) {
+			let problems = [];
+			const species = this.dex.species.get(set.species);
+				for (const move of set.moves) {
+					console.log(move)
+					console.log(this.dex.moves.get(move).isNonstandard)
+					//Prevents lgpe moves
+					if (this.dex.moves.get(move).isNonstandard === 'LGPE') {
+						problems.push(`The LGPE move ${this.dex.moves.get(move).name} cannot be used.`);
 					}
 				}
 			if (problems.length) return problems;

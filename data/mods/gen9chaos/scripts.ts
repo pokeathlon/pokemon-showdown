@@ -16,7 +16,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
-		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard) delete this.data.Moves[move].isNonstandard;
+		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE') delete this.data.Moves[move].isNonstandard;
 		for (const i in this.data.Pokedex) {
 			if (this.data.Pokedex[i].types.includes("Nuclear") && !(i in require('./formats-data').ModFormatsData)) {
 				this.modData('Pokedex', i).natDexTier = "RU";
