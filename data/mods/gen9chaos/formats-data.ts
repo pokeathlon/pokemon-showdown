@@ -849,6 +849,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
+	paldiatina: {
+		inherit: true,
+		natDexTier: "(OU)",
+	},
 
 	//Vanilla Retiers
 	roaringmoon: {
