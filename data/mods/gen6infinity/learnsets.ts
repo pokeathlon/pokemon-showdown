@@ -34557,7 +34557,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			honeclaws: ["6M"],
 			toxic: ["6M"],
 			hiddenpower: ["6M"],
-				sunnyday: ["6M"],
+			sunnyday: ["6M"],
 			protect: ["6M"],
 			frustration: ["6M"],
 			solarbeam: ["6M"],
