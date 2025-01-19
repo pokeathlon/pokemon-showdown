@@ -853,6 +853,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "(OU)",
 	},
+	infermon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 
 	//Vanilla Retiers
 	roaringmoon: {
