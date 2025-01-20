@@ -372,5 +372,9 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
+	infermon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 };
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Dex.deepClone(ModFormatsData);
