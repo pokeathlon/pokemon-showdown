@@ -603,7 +603,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 
 	{
-		section: "Pokéathlon: Regional Dex",
+		section: "Pokéathlon: Full Dex",
 		column: 3,
 	},
 	{
@@ -612,16 +612,50 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		team: 'random',
-		ruleset: [
-			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause',
-		],
+		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause'],
 	},
 	{
-		name: "[Gen 9] [Gen 1] PoA Dex OU",
+		name: "[Gen 9] PoA OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['Uber', 'AG'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: ['ND Uber', 'ND AG'],
+	},
+	{
+		name: "[Gen 9] PoA Ubers",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: ['ND AG'],
+	},
+	{
+		name: "[Gen 9] PoA UU",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: ['ND Uber', 'ND AG', 'ND OU'],
+	},
+	{
+		name: "[Gen 9] PoA LC",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Little Cup', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		banlist: [],
+	},
+	{
+		name: "[Gen 9] PoA AG",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
+	},
+
+	{
+		section: "Pokéathlon: Gen 2",
+		column: 3,
 	},
 	{
 		name: "[Gen 9] [Gen 2] PoA Dex OU",
@@ -631,15 +665,34 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Uber', 'AG'],
 	},
 	{
-		name: "[Gen 9] PoA Dex Ubers",
+		name: "[Gen 9] [Gen 2] PoA Dex UU",
 		searchShow: false,
+
+		mod: 'gen9pokeathlon2',
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['OU', 'UUBL', 'Uber', 'AG'],
+	},
+	{
+		name: "[Gen 9] [Gen 2] PoA Dex AG",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon2',
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause'],
+	},
+
+	{
+		section: "Pokéathlon: Gen 1",
+		column: 3,
+	},
+	{
+		name: "[Gen 9] [Gen 1] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause'],
-		banlist: ['AG'],
+		banlist: ['Uber', 'AG'],
 	},
 	{
-		name: "[Gen 9] PoA Dex UU",
+		name: "[Gen 9] [Gen 1] PoA Dex UU",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
@@ -647,38 +700,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['OU', 'UUBL', 'Uber', 'AG'],
 	},
 	{
-		name: "[Gen 9] PoA Dex LC",
+		name: "[Gen 9] [Gen 1] PoA Dex AG",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Little Cup', 'Standard', 'Terastal Clause'],
-		banlist: [],
-	},
-	{
-		name: "[Gen 9] PoA Dex AG",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-	},
-
-	{
-		section: "Pokéathlon: National Dex",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] PoA National Dex OU",
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
-		banlist: ['ND Uber', 'ND AG'],
-	},
-	{
-		name: "[Gen 9] PoA National Dex AG",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause'],
 	},
 
 	{
@@ -686,20 +712,28 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
-		name: "[Gen 9] PoA Dex Doubles AG",
+		name: "[Gen 9] PoA Doubles AG",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 	},
 	{
-		name: "[Gen 9] PoA NatDex Doubles AG",
+		name: "[Gen 9] [Gen 2] PoA Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon2',
+		gameType: 'doubles',
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause'],
+	},
+	{
+		name: "[Gen 9] [Gen 1] PoA Doubles AG",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause'],
 	},
 
 	{
@@ -713,24 +747,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-		],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 	},
 	{
-		name: "[Gen 9] PoA Dex Triples AG",
+		name: "[Gen 9] PoA Triples AG",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		gameType: 'triples',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 	},
 	{
-		name: "[Gen 9] PoA Dex Mono",
+		name: "[Gen 9] PoA Mono",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause', 'PoA Same Type Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'PoA Same Type Clause'],
 		banlist: [],
 	},
 	{
