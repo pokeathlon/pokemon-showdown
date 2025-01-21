@@ -84,6 +84,8 @@ function formatDex(pokedex) {
 	for (const line of dexData) {
 		dex[toID(line[0])] = {
 			name: line[0],
+			gen1: line[1] === "TRUE" ? 1 : 0,
+			gen2: line[2] === "TRUE" ? 1 : 0,
 			types: [
 				c(line[loc.types + 0]),
 				c(line[loc.types + 1]),

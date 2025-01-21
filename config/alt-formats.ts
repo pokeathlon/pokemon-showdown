@@ -617,9 +617,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] PoA Dex OU",
+		name: "[Gen 9] [Gen 1] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
+		ruleset: ['Standard', 'Terastal Clause'],
+		banlist: ['Uber', 'AG'],
+	},
+	{
+		name: "[Gen 9] [Gen 2] PoA Dex OU",
+
+		mod: 'gen9pokeathlon2',
 		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['Uber', 'AG'],
 	},

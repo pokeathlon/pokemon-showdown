@@ -34,7 +34,7 @@ export const ModPokedex: ModdedSpeciesDataTable = {
 };
 
 function findSpecies(name: string) {
-	for (const mod of ["gen9insurgence", "gen9uranium"]) {
+	for (const mod of ["gen9insurgence", "gen9uranium", "gen9infinity"]) {
 		const result = Dex.mod(mod).species.get(name);
 		if (result.exists) return result;
 	}
@@ -68,6 +68,7 @@ for (const mon of additions) {
 		tier: cur["tier"],
 		natDexTier: cur["natDexTier"],
 		doublesTier: cur["doublesTier"],
+		isNonstandard: cur.gen1 ? null : "Unobtainable",
 	};
 
 	if (baseSpecies.name && (!cur.formeinfo || (cur.formeinfo && Dex.toID(cur.formeinfo) !== 'separate'))) {
@@ -125,9 +126,8 @@ for (const mon of additions) {
 
 for (const i of Dex.species.all()) {
 	if (!ModPokedex[i.id]) ModPokedex[i.id] = {inherit: true};
-	const isPoA = i.id in additions;
-	ModPokedex[i.id].isNonstandard = isPoA ? null : "Unobtainable";
-	ModPokedex[i.id].gen = isPoA ? 6 : undefined;
+	const isPoA = i.id in additions && remote.dex[i.id].gen1;
+	ModPokedex[i.id].isNonstandard = isPoA ? null : "Custom";
 }
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
