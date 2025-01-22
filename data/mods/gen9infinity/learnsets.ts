@@ -10484,7 +10484,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 };
 
-const gen6lsets = require('../gen6infinity/learnsets').Learnsets
+const gen6lsets = require('../gen6infinity/learnsets').ModLearnsets
 for (const learnset in gen6lsets) {
 	if (learnset in baseLearnsets && !(learnset in ModLearnsets)) {
 		if (!gen6lsets[learnset].learnset || !baseLearnsets[learnset].learnset) continue;
