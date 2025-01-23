@@ -1140,7 +1140,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "This move does not check accuracy.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -1530,7 +1530,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 1,
 		noPPBoosts: true,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		onHit(target, source, move) {
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
