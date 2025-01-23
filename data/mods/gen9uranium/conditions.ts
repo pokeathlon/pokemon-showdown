@@ -72,7 +72,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		onWeather(target) {
 			if (this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('thunderstorm')), -6, 6);
-				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				if (target.runImmunity('Electric')) this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
 			}
 		},
 		onFieldEnd() {
