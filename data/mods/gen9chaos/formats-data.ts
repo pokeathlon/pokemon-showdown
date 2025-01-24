@@ -185,6 +185,30 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	growlsome: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	berserkergene: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	suicunesupra: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	enteisupra: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	snorlaxfrostmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	florgesmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	mockroach: {
 		inherit: true,
 		natDexTier: "UU",
@@ -642,6 +666,38 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	zapdosgalar: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	enchantobra: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	gelazura: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	lunachi: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	mosster: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	ockthane: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	paldemaria: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	staruhz: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	wrighvern: {
 		inherit: true,
 		natDexTier: "UU",
 	},
