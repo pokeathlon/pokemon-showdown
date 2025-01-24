@@ -42352,8 +42352,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			outrage: ["6T"],
 		},
 	},
-}
+};
+
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	...Dex.deepClone(require('../gen9infinity/learnsets').ModLearnsets),
 	...ModLearnsets,
-}
+};
