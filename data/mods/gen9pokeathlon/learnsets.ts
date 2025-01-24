@@ -24,7 +24,7 @@ export function flattenLearnset(learnset: ModdedLearnsetData, removals: string[]
 	return finalLearnset;
 }
 
-export const Learnsets: ModdedLearnsetDataTable = {
+export const ModLearnsets: ModdedLearnsetDataTable = {
 	// Modded
 	// Bringing learnset into PoA
 	florges: flattenLearnset(baseLearnsets.florges),
@@ -121,6 +121,8 @@ for (var mon in remoteLearnsets) {
 		for (var movename of remoteLearnsets[mon].learnset.split(', ')) {
 			out[Dex.toID(movename)] = ["9M"];
 		}
-		Learnsets[Dex.toID(mon)] = {learnset: out};
+		ModLearnsets[Dex.toID(mon)] = {learnset: out};
 	}
 }
+
+export const Learnsets: ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);
