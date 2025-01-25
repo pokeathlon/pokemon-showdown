@@ -2977,7 +2977,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Infinite Fusion Mod: Pok\u00e9mon can fuse with other Pok\u00e9mon!');
 		},
 		onValidateSet(set) {
-			if (this.format.id.includes("custom")) return;
+			if (this.format.id.includes("custom") || this.format.id.includes("CG")) return;
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 
