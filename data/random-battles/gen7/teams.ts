@@ -902,7 +902,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		const scarfReqs = (
 			role !== 'Wallbreaker' &&
-			species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
+			species.baseStats.spe >= 60 && species.baseStats.spe <= 109 &&
 			!counter.get('priority') && !moves.has('pursuit')
 		);
 
@@ -1182,7 +1182,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 	randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
 
-		const seed = this.prng.seed;
+		const seed = this.prng.getSeed();
 		const ruleTable = this.dex.formats.getRuleTable(this.format);
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
 

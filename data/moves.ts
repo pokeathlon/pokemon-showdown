@@ -7352,7 +7352,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		isMax: "Snorlax",
 		self: {
 			onHit(source) {
-				if (this.random(2) === 0) return;
+				if (this.randomChance(1, 2)) return;
 				for (const pokemon of source.alliesAndSelf()) {
 					if (pokemon.item) continue;
 
@@ -7448,12 +7448,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		isMax: "Grimmsnarl",
 		onHit(target) {
 			if (target.status || !target.runStatusImmunity('slp')) return;
-			if (this.random(2) === 0) return;
+			if (this.randomChance(1, 2)) return;
 			target.addVolatile('yawn');
 		},
 		onAfterSubDamage(damage, target) {
 			if (target.status || !target.runStatusImmunity('slp')) return;
-			if (this.random(2) === 0) return;
+			if (this.randomChance(1, 2)) return;
 			target.addVolatile('yawn');
 		},
 		secondary: null,
@@ -9578,10 +9578,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.volatiles['iceball'] || pokemon.status === 'slp' || !target) return;
 			pokemon.addVolatile('iceball');
-			// @ts-ignore
-			// TS thinks pokemon.volatiles['iceball'] doesn't exist because of the condition on the return above
-			// but it does exist now because addVolatile created it
-			pokemon.volatiles['iceball'].targetSlot = move.sourceEffect ? pokemon.lastMoveTargetLoc : pokemon.getLocOf(target);
+			if (move.sourceEffect) pokemon.lastMoveTargetLoc = pokemon.getLocOf(target);
 		},
 		onAfterMove(source, target, move) {
 			const iceballData = source.volatiles["iceball"];
@@ -12187,9 +12184,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1},
-		onHit(target, source, effect) {
+		onHit(pokemon) {
 			const moves = this.dex.moves.all().filter(move => (
-				(![2, 4].includes(this.gen) || !source.moves.includes(move.id)) &&
 				(!move.isNonstandard || move.isNonstandard === 'Unobtainable') &&
 				move.flags['metronome']
 			));
@@ -12199,8 +12195,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				randomMove = this.sample(moves).id;
 			}
 			if (!randomMove) return false;
-			source.side.lastSelectedMove = this.toID(randomMove);
-			this.actions.useMove(randomMove, target);
+			this.actions.useMove(randomMove, pokemon);
 		},
 		callsMove: true,
 		secondary: null,
@@ -15946,10 +15941,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.volatiles['rollout'] || pokemon.status === 'slp' || !target) return;
 			pokemon.addVolatile('rollout');
-			// @ts-ignore
-			// TS thinks pokemon.volatiles['rollout'] doesn't exist because of the condition on the return above
-			// but it does exist now because addVolatile created it
-			pokemon.volatiles['rollout'].targetSlot = move.sourceEffect ? pokemon.lastMoveTargetLoc : pokemon.getLocOf(target);
+			if (move.sourceEffect) pokemon.lastMoveTargetLoc = pokemon.getLocOf(target);
 		},
 		onAfterMove(source, target, move) {
 			const rolloutData = source.volatiles["rollout"];
@@ -16820,7 +16812,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			const spd = target.getStat('spd', false, true);
 			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
 			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
-			if (physical > special || (physical === special && this.random(2) === 0)) {
+			if (physical > special || (physical === special && this.randomChance(1, 2))) {
 				move.category = 'Physical';
 				move.flags.contact = 1;
 			}
