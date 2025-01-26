@@ -37073,6 +37073,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			dazzlinggleam: ["6M"],
 			confide: ["6M"],
 			poweruppunch: ["6M"],
+			glaciate: ["6M"]
 		},
 	},
 	snivy: {
