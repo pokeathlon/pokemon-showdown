@@ -71,15 +71,15 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	cresselia: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	cameruptmega: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	spiritomb: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	sceptiledeltamega: {
 		inherit: true,
