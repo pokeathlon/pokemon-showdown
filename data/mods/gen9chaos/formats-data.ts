@@ -41,7 +41,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	rafitti: {
+	rafiti: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
