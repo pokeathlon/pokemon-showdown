@@ -164,6 +164,14 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	ogerponhearthflame: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	darkrai: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	arctozolt: {
 		inherit: true,
 		natDexTier: "UU",

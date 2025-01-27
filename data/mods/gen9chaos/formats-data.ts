@@ -67,7 +67,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	annihilape: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	cresselia: {
 		inherit: true,
