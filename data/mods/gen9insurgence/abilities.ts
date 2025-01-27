@@ -627,6 +627,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	regurgitation: {
 		onAfterMove(source, target, move) {
 			if (source === target || target.fainted || target.isSemiInvulnerable()) return;
+			if (move.category === "Special" && move.target !== "normal") return;
 			if (!source.species.name.includes('Muk-Delta')) return;
 			const muktype = source.species.name.includes('Muk-Delta-') ? source.species.name.replace('Muk-Delta-', '') : 'Water';
 			if (this.dex.getImmunity(muktype, target)) {
