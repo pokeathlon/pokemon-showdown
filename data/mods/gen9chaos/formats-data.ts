@@ -41,7 +41,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	rafiti: {
+	raffiti: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
@@ -58,10 +58,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "Uber",
 	},
 	paldiatina: {
-		inherit: true,
-		natDexTier: "(OU)",
-	},
-	slowbromega: {
 		inherit: true,
 		natDexTier: "(OU)",
 	},
@@ -90,10 +86,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "OU",
 	},
 	avaluggdelta: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	scorchingkiln: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -165,9 +157,25 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	scorchingkiln: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	slowbromega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	miasmiss: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	loxicant: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	enteisupra: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	florgesmega: {
 		inherit: true,
