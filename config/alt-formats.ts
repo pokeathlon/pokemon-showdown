@@ -335,7 +335,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "NatDex VGC Draft",
+		name: "[Gen 9] NatDex VGC Draft",
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
