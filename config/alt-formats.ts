@@ -338,9 +338,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] NatDex VGC Draft",
 		mod: 'gen9',
 		gameType: 'doubles',
-		ruleset: [
+		ruleset: [ 'Standard NatDex',
 			'Picked Team Size = 4', 'Evasion Clause', 'Tera Type Preview', 
 			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Adjust Level Down = 50', 'Cancel Mod', 
+			'+Unobtainable', '+Past', 'Sketch Post-Gen 7 Moves', 'HP Percentage Mod', 'Endless Battle Clause',
 		],
 	},
 
