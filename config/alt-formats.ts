@@ -334,6 +334,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Endless Battle Clause', 'HP Percentage Mod', 'Obtainable Moves', 'Obtainable Misc', 'Nickname Clause',
 		],
 	},
+	{
+		name: "NatDex VGC Draft",
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: [
+			'Picked Team Size = 4', 'Evasion Clause', 'Terastal Clause', 'Tera Type Preview', 'Flat Rules', '!! Adjust Level = 50', 
+		],
+	},
 
 	{
 		section: "Insurgence Formats",
