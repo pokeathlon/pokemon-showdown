@@ -340,7 +340,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 		ruleset: [ 'Standard NatDex',
 			'Picked Team Size = 4', 'Evasion Clause', 'Tera Type Preview', 
-			'Team Preview', 'Species Clause', 'Item Clause = 1', 'Adjust Level Down = 50', 
+			'Species Clause', 'Item Clause = 1', 'Adjust Level Down = 50', 
 		],
 	},
 
