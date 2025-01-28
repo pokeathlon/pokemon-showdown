@@ -339,7 +339,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: [
-			'Picked Team Size = 4', 'Evasion Clause', 'Terastal Clause', 'Tera Type Preview', 
+			'Picked Team Size = 4', 'Evasion Clause', 'Tera Type Preview', 
 			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Adjust Level Down = 50', 'Cancel Mod', 
 		],
 	},
