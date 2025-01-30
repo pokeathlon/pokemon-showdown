@@ -3276,7 +3276,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					problems.push(`Your ${species.name} has Tera-type Nuclear, but is not a Nuclear type.`);
 				}
 				for (const move of set.moves) {
-
 					if (this.dex.moves.get(move).type === 'Nuclear') {
 						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used on non-Nuclear-type Pokémon ${species.name}.`);
 					}
@@ -3294,7 +3293,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const species = this.dex.species.get(set.species);
 				for (const move of set.moves) {
 					if (set.fusion) {
-						//Checking if fusion contains Nuclear Type
 						const fusion = this.dex.species.get(set.fusion);
 						let speciesTypes = species.types;
 						let fusionTypes = fusion.types;
@@ -3313,16 +3311,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 							problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
 						}
 					}
-					//Prevents tera nuclear terablast and rev dance
+					//  Prevents tera nuclear terablast and rev dance
 					if (set.teraType === 'Nuclear' && ['terablast', 'revelationdance'].includes(this.dex.moves.get(move).id)) {
 						problems.push(`The combination of Nuclear Tera-type with ${this.dex.moves.get(move).name} cannot be used.`);
 					}
-					//Prevents hafli berry + natural gift
+					// Prevents hafli berry + natural gift
 					if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id == 'naturalgift') {
 						problems.push(`The combination of ${set.item} with ${this.dex.moves.get(move).name} cannot be used.`);
 					}
-					//Prevents nuclear moves (!set.fusion is to prevent the error from appearing twice, since the earlier if should catch it.)
-					if (this.dex.moves.get(move).type === 'Nuclear' || ( !set.fusion && species.types[0] === 'Nuclear' && this.dex.moves.get(move).id === 'revelationdance')) {
+					// Prevents nuclear moves (!set.fusion is to prevent the error from appearing twice, since the earlier if should catch it.)
+					if (this.dex.moves.get(move).type === 'Nuclear') {
 						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
 					}
 				}
@@ -3332,18 +3330,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	lgpeclause: {
 		effectType: 'ValidatorRule',
 		name: 'LGPE Clause',
-		desc: "Prevents LGPE moves from being used",
+		desc: "Prevents LGPE moves from being used.",
 		onValidateSet(set) {
 			let problems = [];
-			const species = this.dex.species.get(set.species);
-				for (const move of set.moves) {
-					console.log(move)
-					console.log(this.dex.moves.get(move).isNonstandard)
-					//Prevents lgpe moves
-					if (this.dex.moves.get(move).isNonstandard === 'LGPE') {
-						problems.push(`The LGPE move ${this.dex.moves.get(move).name} cannot be used.`);
-					}
+			for (const move of set.moves) {
+				if (this.dex.moves.get(move).isNonstandard === 'LGPE') {
+					problems.push(`The LGPE move ${this.dex.moves.get(move).name} cannot be used.`);
 				}
+			}
 			if (problems.length) return problems;
 		},
 	},

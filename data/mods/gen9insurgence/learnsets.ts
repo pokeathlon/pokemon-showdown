@@ -23,7 +23,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			gigadrain: ["6T"],
 			blizzard: ["6T"],
 			dazzlinggleam: ["6T"],
-			gigaimpact: ["6T"]
+			gigaimpact: ["6T"],
 		}
 	},
 	flareon: {
