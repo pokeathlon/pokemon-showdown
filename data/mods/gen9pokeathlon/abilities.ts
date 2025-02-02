@@ -588,13 +588,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
-				if (source.hasType('Grass')) return null;
-				source.addVolatile('leechseed', target);
+				this.damage(source.baseMaxhp / 8, source, target);
+				this.heal(source.baseMaxhp / 8, target, source, 'drain');
+
 			}
 		},
 		flags: {},
 		name: "Bursting Spores",
-		shortDesc: "Pokemon making contact with this Pokemon have Leech Seed set on them",
+		shortDesc: "Pokemon making contact with this Pokemon take 1/8 max HP recoil. User is healed for same amount.",
 		rating: 2,
 		num: 0,
 	},
