@@ -263,8 +263,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 90,
 		category: "Physical",
 		name: "Infernal Blade",
-		desc: "This move's type effectiveness against a Pokemon with the Fairy type is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Super effective on Pokemon with the Fairy type.",
+		desc: "This move's type effectiveness against a Pokemon with the Fairy type is changed to be super effective no matter what this move's type is. Has a 10% chance to burn.",
+		shortDesc: "Super effective on Pokemon with the Fairy type. 10% burn chance.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
@@ -273,6 +273,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (type === 'Fairy') return 1;
 				else return 0;
 			}
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
 		},
 		target: "normal",
 		type: "Fire",
@@ -326,12 +330,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		name: "Metal Cruncher",
 		desc: "Has an 85% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "85% chance to lower the target's Defense by 1.",
+		shortDesc: "70% chance to lower the target's Defense by 1.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
 		secondary: {
-			chance: 85,
+			chance: 70,
 			boosts: {
 				def: -1,
 			},
