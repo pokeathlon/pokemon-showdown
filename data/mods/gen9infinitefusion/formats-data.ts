@@ -267,6 +267,78 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	arceus: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusbug: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusdark: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusdragon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuselectric: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusfairy: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusfighting: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusfire: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusflying: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusghost: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusgrass: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusground: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusice: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuspoison: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuspsychic: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusrock: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceussteel: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuswater: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 };
 
 const doublesTiers = {
@@ -277,7 +349,7 @@ const doublesTiers = {
 
 for (const i of Dex.species.all()) {
 	let finalTier: TierTypes.Other | TierTypes.Doubles | undefined = "(DUU)";
-	if ((!i.isNonstandard || i.isNonstandard === "Past" || i.isNonstandard === "Unobtainable") && i.natDexTier !== "Illegal") {
+	if (((!i.isNonstandard || i.isNonstandard === "Past" || i.isNonstandard === "Unobtainable") && i.natDexTier !== "Illegal") && ([...doublesTiers["DUber"], ...doublesTiers["DOU"], ...doublesTiers["DUU"]].includes(i.id) || i.baseSpecies === i.name)) {
 		if (doublesTiers["DUber"].includes(i.id) || i.tags?.includes('Mythical') || i.tags?.includes('Restricted Legendary')) {
 			finalTier = "DUber";
 		} else if (doublesTiers["DOU"].includes(i.id)) {
@@ -298,5 +370,4 @@ for (const i of Dex.species.all()) {
 			};
 		}
 	}
-	if (i.id.includes('arceus')) FormatsData[i.id].natDexTier = "Uber";
 }
