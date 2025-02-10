@@ -1,3 +1,5 @@
+const {Dex} = require('../../../sim/dex');
+
 import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
 import {ModdedLearnsetData} from '../../../sim/dex-species';
 
@@ -198,4 +200,4 @@ export const ModLearnsets: ModdedLearnsetDataTable = {
 // 	}
 // }
 
-export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);
+export const Learnsets: ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);
