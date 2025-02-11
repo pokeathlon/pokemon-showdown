@@ -1,23 +1,23 @@
 const {Dex} = require('../../../sim/dex');
 export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
-	deepseascale: {
+	dragonfang: {
 		inherit: true,
-		onModifySpD(spd, pokemon) {
-			if (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name)) {
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.name === 'Clamperl-Delta' || pokemon.fusion === 'Clamperl-Delta') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Clamperl", "Clamperl-Delta"],
+		itemUser: ["Clamperl-Delta"],
 	},
-	deepseatooth: {
+	dragonscale: {
 		inherit: true,
-		onModifySpA(spa, pokemon) {
-			if (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name)) {
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.name === 'Clamperl-Delta' || pokemon.fusion === 'Clamperl-Delta') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Clamperl", "Clamperl-Delta"],
+		itemUser: ["Clamperl-Delta"],
 	},
 	lightball: {
 		inherit: true,

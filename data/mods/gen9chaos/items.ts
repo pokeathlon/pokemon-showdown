@@ -5,25 +5,23 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: null,
 	},
 	// IF
-	deepseascale: {
+	dragonfang: {
 		inherit: true,
-		isNonstandard: null,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.fusion && (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name) || ['Clamperl', 'Clamperl-Delta'].includes(pokemon.fusion))) {
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.name === 'Clamperl-Delta' || pokemon.fusion === 'Clamperl-Delta') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Clamperl", "Clamperl-Delta"],
+		itemUser: ["Clamperl-Delta"],
 	},
-	deepseatooth: {
+	dragonscale: {
 		inherit: true,
-		isNonstandard: null,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.fusion && (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name) || ['Clamperl', 'Clamperl-Delta'].includes(pokemon.fusion))) {
+		onModifyDef(def, pokemon) {
+			if (pokemon.species.name === 'Clamperl-Delta' || pokemon.fusion === 'Clamperl-Delta') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Clamperl", "Clamperl-Delta"],
+		itemUser: ["Clamperl-Delta"],
 	},
 	eviolite: {
 		inherit: true,
