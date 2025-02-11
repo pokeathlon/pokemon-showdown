@@ -204,7 +204,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onModifyMove(move, pokemon, target) {
 			move.forceSTAB = true;
 			if (target?.runImmunity(move.type)) {
-				move.type = 'Crystal';
+				move.type = '???';
 			}
 		},
 		flags: {},

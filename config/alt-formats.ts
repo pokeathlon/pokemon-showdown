@@ -627,7 +627,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: ['ND Uber', 'ND AG'],
 	},
 	{
@@ -635,7 +635,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: ['ND AG'],
 	},
 	{
@@ -643,7 +643,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: ['ND Uber', 'ND AG', 'ND OU'],
 	},
 	{
@@ -651,7 +651,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Little Cup', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Little Cup', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: [],
 	},
 	{
@@ -726,7 +726,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 9] [Gen 2] PoA Doubles AG",
@@ -756,7 +756,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: ['Standard NatDex', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 9] PoA Triples AG",
@@ -764,14 +764,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		gameType: 'triples',
-		ruleset: ['Standard NatDex', 'Terastal Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 9] PoA Mono",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'PoA Same Type Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'PoA Same Type Clause'],
 		banlist: [],
 	},
 	{
