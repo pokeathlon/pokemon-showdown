@@ -74,7 +74,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 		onModifyCritRatio(critRatio, user) {
-			if (user.baseSpecies.name === 'Chansey' || user.fusion === 'Chansey') {
+			if (user.baseSpecies.name.includes('Chansey') || user.fusion?.includes('Chansey')) {
 				return critRatio + 2;
 			}
 		},

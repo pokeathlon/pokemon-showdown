@@ -1,5 +1,17 @@
 const {Dex} = require('../../../sim/dex');
 export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
+	// Modded
+	luckypunch: {
+		inherit: true,
+		onModifyCritRatio(critRatio, user) {
+			if (user.baseSpecies.name.includes('Chansey') || user.fusion?.includes('Chansey')) {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Chansey", "Chansey-Egho"],
+	},
+
+	// Additions
 	longclub: {
 		name: "Long Club",
 		spritenum: -4,
