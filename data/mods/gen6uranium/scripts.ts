@@ -1,5 +1,38 @@
+const prevos: {[k: string]: string[]} = {
+	"seikamater": ["Sponee", "Smore", "Tricwe"],
+};
+
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen6',
+	init() {
+		for (const mon in prevos) {
+			let learnset = this.data.Learnsets[this.toID(mon)].learnset;
+			if (!learnset) learnset = {};
+			const learnfrom = prevos[mon];
+			let foundnew = true;
+			while (foundnew) {
+				foundnew = false;
+				for (const prevo of learnfrom) {
+					const species = this.species.get(prevo);
+					if (species.prevo && !learnfrom.includes(species.prevo)) {
+						learnfrom.push(species.prevo);
+						foundnew = true;
+					}
+				}
+			}
+			for (const prevo of learnfrom) {
+				const toadd = this.data.Learnsets[this.toID(prevo)].learnset;
+				for (const move in toadd) {
+					for (const method of toadd[move as keyof typeof toadd]) {
+						if (method.startsWith('6')) {
+							if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
+							if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
+						}
+					}
+				}
+			}
+		}
+	},
 	pokemon: {
 		formeChange(
 			speciesId: string | Species, source: Effect | null = null,
