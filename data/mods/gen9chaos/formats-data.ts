@@ -61,15 +61,23 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	paldiatina: {
+	lanthan: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
 	},
-	cresselia: {
+	paldiatina: {
 		inherit: true,
 		natDexTier: "OU",
 	},
-	cameruptmega: {
+	megakabuterimon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	cresselia: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -82,10 +90,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "OU",
 	},
 	escavalierdelta: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	avaluggdelta: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -149,13 +153,65 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	berserkergene: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	suicunesupra: {
 		inherit: true,
 		natDexTier: "OU",
+	},
+	harportia: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	roseradedelta: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	heatran: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	weregarurumon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	tracton: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	palafinhero: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	kiricornmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	florgesmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	porygonx: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	cameruptmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	baariettemega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	crawdauntmega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	berserkergene: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	avaluggdelta: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	scorchingkiln: {
 		inherit: true,
@@ -176,10 +232,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	enteisupra: {
 		inherit: true,
 		natDexTier: "UU",
-	},
-	florgesmega: {
-		inherit: true,
-		natDexTier: "OU",
 	},
 	mockroach: {
 		inherit: true,
@@ -274,10 +326,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	grasquatch: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	harportia: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1349,7 +1397,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	kitsunoh: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	monohm: {
 		inherit: true,
