@@ -65,6 +65,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	jerboltanuclear: {
+		inherit: true,
+		natDexTier: "(Uber)",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
@@ -828,6 +832,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	malaconda: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	jerbolta: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	urayne: {
 		inherit: true,
