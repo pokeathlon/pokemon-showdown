@@ -129,10 +129,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	palafin: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	gougingfire: {
 		inherit: true,
 		natDexTier: "OU",
@@ -178,6 +174,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	palafinhero: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	palafin: {
 		inherit: true,
 		natDexTier: "UU",
 	},
