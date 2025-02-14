@@ -4,7 +4,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
-		// Pull alt content
 		const fangames = ['gen9insurgence', 'gen9uranium', 'gen9infinitefusion', 'gen9pokeathlon', 'gen9infinity'];
 		const categories = ['Pokedex', 'Moves', 'Abilities', 'Conditions', 'Items', 'Learnsets'];
 		for (const fangame of fangames) {
@@ -15,7 +14,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 			}
-		} //I hate Suenami and Bouncy Bubble and LGPE moves I hate them I hate them I hate them
+		}
 		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE' || this.data.Moves[move].name === 'Bouncy Bubble') delete this.data.Moves[move].isNonstandard;
 		for (const i in this.data.Pokedex) {
 			if (this.data.Pokedex[i].types.includes("Nuclear") && !(i in require('./formats-data').ModFormatsData)) {
