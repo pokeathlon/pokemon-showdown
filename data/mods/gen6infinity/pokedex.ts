@@ -1,5 +1,11 @@
 const {Dex} = require('../../../sim/dex');
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(require('../gen9infinity/pokedex').ModPokedex);
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+	aegislash: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 50, def: 140, spa: 50, spd: 140, spe: 60},
+	},
+	...Dex.deepClone(require('../gen9infinity/pokedex').ModPokedex),
+};
 
 // Regional Dex Data
 const InfDex: {[k: string]: number} = {
@@ -675,6 +681,8 @@ const InfDex: {[k: string]: number} = {
 	"landorus": 645,
 	"landorustherian": 645,
 	"kyurem": 646,
+	"kyuremblack": 646,
+	"kyuremwhite": 646,
 	"keldeo": 647,
 	"meloetta": 648,
 	"genesect": 649,
