@@ -49,7 +49,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	deltablazikenite: {
 		name: "Delta Blazikenite",
 		desc: "If held by a Blaziken-Delta, this item allows it to Mega Evolve in battle.",
-		spritenum: 623,
+		spritenum: -3,
 		megaStone: "Blaziken-Delta-Mega",
 		megaEvolves: "Blaziken-Delta",
 		itemUser: ["Blaziken-Delta"],
@@ -62,7 +62,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	deltasceptilite: {
 		name: "Delta Sceptilite",
 		desc: "If held by a Sceptile-Delta, this item allows it to Mega Evolve in battle.",
-		spritenum: 623,
+		spritenum: -3,
 		megaStone: "Sceptile-Delta-Mega",
 		megaEvolves: "Sceptile-Delta",
 		itemUser: ["Sceptile-Delta"],
