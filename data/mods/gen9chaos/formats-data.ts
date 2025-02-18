@@ -83,7 +83,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	cresselia: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	spiritomb: {
 		inherit: true,
@@ -95,7 +95,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	escavalierdelta: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	chatotmega: {
 		inherit: true,
