@@ -1141,6 +1141,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onModifyPriority(priority, pokemon) {
 				return priority + 1;
 			},
+			onSwitchIn(pokemon) {
+				this.add('-start', pokemon, 'Rift Jump');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Rift Jump');
+			}
 		},
 		category: "Status",
 		name: "Rift Jump",
