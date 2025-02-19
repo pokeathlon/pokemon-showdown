@@ -828,8 +828,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Mega Form Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial','Overflow Stat Mod', 'LGPE Clause'],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU',
-			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock',
 			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel',
 		],
 	},
