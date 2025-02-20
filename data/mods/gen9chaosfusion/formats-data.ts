@@ -64,6 +64,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	barrimander: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	infermon: {
 		inherit: true,
 		natDexTier: "OU",
