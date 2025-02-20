@@ -73,17 +73,13 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "(OU)",
 	},
-	paldiatina: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	megakabuterimon: {
 		inherit: true,
 		natDexTier: "OU",
 	},
-	cresselia: {
+	barrimander: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	spiritomb: {
 		inherit: true,
@@ -92,10 +88,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	sceptiledeltamega: {
 		inherit: true,
 		natDexTier: "OU",
-	},
-	escavalierdelta: {
-		inherit: true,
-		natDexTier: "UU",
 	},
 	chatotmega: {
 		inherit: true,
@@ -164,6 +156,14 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	roseradedelta: {
 		inherit: true,
 		natDexTier: "OU",
+	},
+	escavalierdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	cresselia: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	heatran: {
 		inherit: true,
