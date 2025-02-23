@@ -1377,7 +1377,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	fidgit: {
 		inherit: true,
-		tier: "Uber",
+		tier: "(OU)",
 	},
 	rebble: {
 		inherit: true,

@@ -586,7 +586,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		zMove: {effect: 'clearnegativeboost'},
 	},
 	dejavu: {
 		num: 0,
