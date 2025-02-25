@@ -213,34 +213,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 7] IF Dex Triples OU",
-		searchShow: false,
-
-		mod: 'gen7infinitefusion',
-		gameType: 'triples',
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Evasion Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause',
-		],
-		banlist: [
-			'DUber',
-			'move:afteryou', 'move:boomburst',
-			'item:lightball', 'item:thickclub',
-			'ability:wonderguard', 'ability:hugepower',
-		],
-	},
-	{
-		name: "[Gen 7] IF Dex Triples AG",
-		searchShow: false,
-
-		mod: 'gen7infinitefusion',
-		gameType: 'triples',
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause',
-		],
-	},
-	{
 		name: "[Gen 9] IF Custom Game",
 
 		mod: 'gen9infinitefusion',
@@ -759,14 +731,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
-		name: "[Gen 9] PoA Triples AG",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		gameType: 'triples',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
-	},
-	{
 		name: "[Gen 9] PoA Mono",
 		searchShow: false,
 
@@ -864,29 +828,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "Chaos: Extras",
 		column: 4,
-	},
-	{
-		name: "[Gen 9] Chaos Triples",
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		gameType: 'triples',
-		rated: false,
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', 'Overflow Stat Mod'
-		],
-	},
-	{
-		name: "[Gen 9] Chaos Fusions Triples",
-		searchShow: false,
-
-		mod: 'gen9chaosfusion',
-		gameType: 'triples',
-		rated: false,
-		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 'Overflow Stat Mod'
-		],
 	},
 	{
 		name: "[Gen 9] Chaos Free-for-all",
