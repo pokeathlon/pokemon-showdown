@@ -2,7 +2,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Chaos
 	revivalblessing: {
 		inherit: true,
-		flags: {heal: 1, noassist: 1},
+		flags: {heal: 1, noassist: 1, nosketch: 1},
 	},
 
 	// Uranium
