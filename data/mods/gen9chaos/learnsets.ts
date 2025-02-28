@@ -1,7 +1,30 @@
 const {Dex} = require('../../../sim/dex');
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {};
+export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
+	eevee: {
+		learnset: {
+			roost: ["9M"],
+			bravebird: ["9M"],
+			uturn: ["9M"],
+			bugbuzz: ["9M"],
+			dracometeor: ["9M"],
+			dragonclaw: ["9M"],
+			flashcannon: ["9M"],
+			ironhead: ["9M"],
+			venomswipe: ["9M"],
+			sludgebomb: ["9M"],
+			bonemerang: ["9M"],
+			earthpower: ["9M"],
+			headsmash: ["9M"],
+			stealthrock: ["9M"],
+			highjumpkick: ["9M"],
+			aurasphere: ["9M"],
+			shadowball: ["9M"],
+			shadowsneak: ["9M"],
+		},
+	},
+};
 
 for (const mod of ['pokeathlon', 'insurgence', 'uranium', 'infinity']) {
 	const changes = require('../gen9' + mod + '/learnsets').ModLearnsets;
