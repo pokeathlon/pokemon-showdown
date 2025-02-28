@@ -2176,6 +2176,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	omeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			vanish: ["6L0"],
 			teleport: ["6L1"],
 			helpinghand: ["6L1", "6T"],
@@ -2274,6 +2275,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	champeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			playrough: ["6M"],
 			reversal: ["6L0"],
 			helpinghand: ["6L1", "6T"],
@@ -2359,6 +2361,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	lepideon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			signalbeam: ["6L0", "6T"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -2439,6 +2442,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	guardeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			irondefense: ["6L0"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -2521,6 +2525,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	obsideon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			flareblitz: ["6T"],
 			pressurize: ["6L0"],
 			helpinghand: ["6L1", "6T"],
@@ -2612,6 +2617,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	scorpeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			closecombat: ["6M"],
 			venomswipe: ["6L0"],
 			helpinghand: ["6L1", "6T"],
@@ -2697,6 +2703,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	sphynxeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			bonemerang: ["6L0"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -2776,6 +2783,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	nimbeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			roost: ["6L0", "6T"],
 			helpinghand: ["6L1", "6T"],
 			tackle: ["6L1", "6T"],
@@ -2852,6 +2860,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	draconeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			leechlife: ["6M"],
 			dragonclaw: ["6L0", "6M"],
 			helpinghand: ["6L1", "6T"],
@@ -2929,6 +2938,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	eeveeon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			eevoboost: ["6L0"],
 			workup: ["6L1", "6M"],
 			helpinghand: ["6L1", "6T"],
@@ -2997,6 +3007,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	vareon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			curse: ["6L0"],
 			sandattack: ["6L1", "6T"],
 			growl: ["6L1", "6T"],
