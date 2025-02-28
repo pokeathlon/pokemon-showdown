@@ -855,4 +855,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+
+	// Secret Additions
+	babyonboard: {
+		onStart(pokemon) {
+			let nfes = 0;
+			for (const teammate of pokemon.side.pokemon) {
+				if (teammate.species.nfe) nfes += 1;
+			}
+			this.boost({def: nfes}, pokemon);
+		},
+		flags: {},
+		name: "Baby on Board",
+		shortDesc: "Raises the user's Defense one stage for each unfainted NFE on its team.",
+		rating: 5,
+		num: 0,
+	},
 };

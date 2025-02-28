@@ -101,8 +101,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: undefined,
 	},
 
-	// PoA
-	// eviolite
+	// PoA Evos
 	starmie: {
 		inherit: true,
 		evoLevel: 45,
@@ -133,7 +132,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evoLevel: 45,
 		evos: ["Scaleslash"],
 	},
-	// other PoA changes
+
+	// Other PoA changes
 	magmortar: {
 		inherit: true,
 		abilities: {0: "Flame Body", 1: "Cannoneer", H: "Vital Spirit"},
@@ -212,4 +212,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		evos: ["Porygon-Z", "Porygon-X"],
 	},
+
+	// Secret changes
+	revavroom: {
+		inherit: true,
+		abilities: {0: "Overcoat", 1: "Baby on Board", H: "Filter"},
+	}
 };
