@@ -214,8 +214,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 
 	// Secret changes
-	revavroom: {
-		inherit: true,
-		abilities: {0: "Overcoat", 1: "Baby on Board", H: "Filter"},
-	}
+	// revavroom: {
+	// 	inherit: true,
+	// 	abilities: {0: "Overcoat", 1: "Baby on Board", H: "Filter"},
+	// }
 };
