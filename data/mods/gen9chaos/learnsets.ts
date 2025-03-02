@@ -18,7 +18,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			earthpower: ["9M"],
 			headsmash: ["9M"],
 			stealthrock: ["9M"],
-			highjumpkick: ["9M"],
+			brickbreak: ["9M"],
 			aurasphere: ["9M"],
 			shadowball: ["9M"],
 			shadowsneak: ["9M"],
