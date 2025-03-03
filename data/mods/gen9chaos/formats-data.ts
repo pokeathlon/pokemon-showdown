@@ -95,11 +95,11 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	haxorusdelta: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	lopunnydeltamega: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	sorchingkiln: {
 		inherit: true,
@@ -115,7 +115,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	grimfowl: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	galladedeltamega: {
 		inherit: true,
@@ -131,7 +131,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	sneasler: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	walkingwake: {
 		inherit: true,
@@ -156,6 +156,22 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	roseradedelta: {
 		inherit: true,
 		natDexTier: "OU",
+	},
+	airdramon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	terapagos: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	terapagosterastal: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	escavalierdelta: {
 		inherit: true,
@@ -295,7 +311,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	electruxomega: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	escartress: {
 		inherit: true,
@@ -1353,7 +1369,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	syclant: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	revenankh: {
 		inherit: true,
@@ -1461,7 +1477,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	mollux: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 	},
 	cupra: {
 		inherit: true,

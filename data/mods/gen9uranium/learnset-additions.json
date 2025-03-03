@@ -985,7 +985,8 @@
         "icespinner",
         "wavecrash",
         "charge",
-        "supercellslam"
+        "supercellslam",
+        "voltswitch"
     ],
     "eletux": [
         "spotlight",
@@ -1140,7 +1141,8 @@
         "takedown",
         "terablast",
         "trailblaze",
-        "pouncechillingwater",
+        "pounce",
+        "chillingwater",
         "doubleedge"
     ],
     "feliger": [
