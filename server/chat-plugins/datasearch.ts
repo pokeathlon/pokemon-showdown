@@ -655,6 +655,11 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		water1: 'Water 1',
 		water2: 'Water 2',
 		water3: 'Water 3',
+		pokeathlon: 'Pokeathlon',
+		poa: 'POA',
+		insurgence: 'Insurgence',
+		uranium: 'Uranium',
+		infinity: 'Infinity',
 	});
 	const allFormes = ['alola', 'galar', 'hisui', 'paldea', 'primal', 'therian', 'totem'];
 	const allStats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe', 'bst', 'weight', 'height', 'gen'];
