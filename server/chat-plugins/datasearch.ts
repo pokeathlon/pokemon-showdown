@@ -660,6 +660,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		insurgence: 'Insurgence',
 		uranium: 'Uranium',
 		infinity: 'Infinity',
+		digimon: 'Digimon',
+		mysterygift: 'Mystery Gift',
 	});
 	const allFormes = ['alola', 'galar', 'hisui', 'paldea', 'primal', 'therian', 'totem'];
 	const allStats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe', 'bst', 'weight', 'height', 'gen'];
