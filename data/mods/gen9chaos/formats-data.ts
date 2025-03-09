@@ -79,7 +79,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	barrimander: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	spiritomb: {
 		inherit: true,
@@ -156,6 +156,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	roseradedelta: {
 		inherit: true,
 		natDexTier: "OU",
+	},
+	scizormega: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	airdramon: {
 		inherit: true,
