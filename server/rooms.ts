@@ -2073,6 +2073,17 @@ export class GameRoom extends BasicRoom {
 		const replayName = `${toID(battle.p1.name)}-${toID(battle.p2.name)}${battle.p3 ? '-' + toID(battle.p3.name) : ''}${battle.p4 ? '-' + toID(battle.p4.name) : ''}-${Date.now()}`;
 
 		FS(`server/static/replays/${replayName}.html`).writeSync(buf);
+		FS(`server/static/replays/${replayName}.json`).writeSync(JSON.stringify({
+			id: replayName,
+			log: data,
+			players: battle.players.map(p => p.name),
+			format: format.name,
+			formatid: format.id,
+			rating: rating || null,
+			private: 0,
+			password: null,
+			uploadtime: Math.trunc(Date.now() / 1000),
+		}));
 
 		FS('server/static/replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
 
