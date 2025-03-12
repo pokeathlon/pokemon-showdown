@@ -249,6 +249,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	hafliberry: {
 		name: "Hafli Berry",
+		shortDesc: "Halves damage taken from a supereffective Nuclear-type attack. Single use.",
 		spritenum: -2,
 		isBerry: true,
 		naturalGift: {
