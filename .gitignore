@@ -4,6 +4,8 @@
 /data/random-battles/gen9chaos/data.json
 /data/random-battles/gen7infinitefusion/data.json
 server/static/replays/*.html
+server/static/replays/*.json
+server/static/replays/*.log
 server/static/replays/replays.csv
 /logs/**/*
 /test/modlogs
