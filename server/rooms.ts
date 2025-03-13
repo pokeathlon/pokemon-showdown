@@ -2079,7 +2079,7 @@ export class GameRoom extends BasicRoom {
 			players: battle.players.map(p => p.name),
 			format: format.name,
 			formatid: format.id,
-			rating: rating || null,
+			rating: this.rated || null,
 			private: 0,
 			password: null,
 			uploadtime: Math.trunc(Date.now() / 1000),
