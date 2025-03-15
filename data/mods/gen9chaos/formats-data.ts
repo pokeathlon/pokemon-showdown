@@ -157,6 +157,30 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	beliaddonkrampus: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	escartresspechy: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	glavinugjellybean: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	herolunehalloween: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	laissurehershey: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	tractoncrumbles: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	scizormega: {
 		inherit: true,
 		natDexTier: "UU",
