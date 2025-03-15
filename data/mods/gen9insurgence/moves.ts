@@ -752,7 +752,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Hot Coals",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, metronome: 1, mustpressure: 1},
+		flags: {reflectable: 1, metronome: 1, mustpressure: 1, nosketch: 1},
 		sideCondition: 'hotcoals',
 		condition: {
 			// this is a side condition
