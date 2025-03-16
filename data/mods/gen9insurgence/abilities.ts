@@ -203,9 +203,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	ancientpresence: {
 		onModifyMove(move, pokemon, target) {
 			move.forceSTAB = true;
-			if (target?.runImmunity(move.type)) {
+			if (!target || !target.hp) return;
+			const curType = target.getTypes();
+			target.setType('???')
+			if (target.runImmunity(move.type)) {
 				move.type = '???';
 			}
+			target.setType(curType);
 		},
 		flags: {},
 		name: "Ancient Presence",
