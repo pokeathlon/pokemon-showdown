@@ -89,10 +89,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	chatotmega: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	haxorusdelta: {
 		inherit: true,
 		natDexTier: "UU",
@@ -153,9 +149,125 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	zudomon: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	fafninter: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	fafninterchristmas: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	champeon: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	palafin: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	palafinhero: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	bisharpmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	volcarona: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	lopunnymega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	medichamdeltamega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	ragingbolt: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	chatotmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	zamazenta: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	joltalope: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	omeon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	megaligasion: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	zapmolticuno: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	mukdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	noiverndelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	tangrowthdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	navighast: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	catzelwyrm: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	primarinaolul: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	regimyo: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	ludicoloegho: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	blacephalon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	sableyemega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	regicedelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	roseradedelta: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
+	},
+	garchomp: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	beliaddonkrampus: {
 		inherit: true,
@@ -218,14 +330,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	tracton: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	palafinhero: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	palafin: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -310,10 +414,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	cetitanhisui: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	champeon: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -917,14 +1017,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "RU",
 	},
-	omeon: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	regimyo: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	regitrio: {
 		inherit: true,
 		natDexTier: "RU",
@@ -946,10 +1038,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "RU",
 	},
 	whamon: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	zapmolticuno: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1042,10 +1130,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "RU",
 	},
 	caramitti: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	catzelwyrm: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1173,10 +1257,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "RU",
 	},
-	navighast: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	numemon: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1194,10 +1274,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "RU",
 	},
 	parashukado: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	primarinaolul: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1501,7 +1577,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	necturna: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 	},
 	mollux: {
 		inherit: true,
