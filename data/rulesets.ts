@@ -3092,11 +3092,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					const fusionLine: string[] = [fusion.name];
 					const speciesLine: string[] = [species.name];
 
+					if (fusion.changesFrom) fusionLine.push(fusion.changesFrom);
 					if (fusion.prevo) fusionLine.push(fusion.prevo);
 					if (this.dex.species.get(fusion.prevo).prevo) fusionLine.push(this.dex.species.get(fusion.prevo).prevo);
 
+					if (species.changesFrom) speciesLine.push(species.changesFrom);
 					if (species.prevo) speciesLine.push(species.prevo);
-					if (this.dex.species.get(species.prevo).prevo) fusionLine.push(this.dex.species.get(species.prevo).prevo);
+					if (this.dex.species.get(species.prevo).prevo) speciesLine.push(this.dex.species.get(species.prevo).prevo);
 
 					for (const head of fusionLine) {
 						for (const body of speciesLine) {
@@ -3291,39 +3293,39 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			let problems = [];
 			const species = this.dex.species.get(set.species);
-				for (const move of set.moves) {
-					if (set.fusion) {
-						const fusion = this.dex.species.get(set.fusion);
-						let speciesTypes = species.types;
-						let fusionTypes = fusion.types;
+			for (const move of set.moves) {
+				if (set.fusion) {
+					const fusion = this.dex.species.get(set.fusion);
+					let speciesTypes = species.types;
+					let fusionTypes = fusion.types;
 
-						if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
-						if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
+					if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
+					if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
 
-						const typesSet = new Set([speciesTypes[0]]);
-						const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
-						if (bonusType.exists) typesSet.add(bonusType.name);
-						if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
+					const typesSet = new Set([speciesTypes[0]]);
+					const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
+					if (bonusType.exists) typesSet.add(bonusType.name);
+					if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
 
-						const fusedTypes = [...typesSet];
-						// Nuclear Rev Dance on Fusions
-						if (fusedTypes[0] === 'Nuclear' && this.dex.moves.get(move).id === 'revelationdance') {
-							problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
-						}
-					}
-					//  Prevents tera nuclear terablast and rev dance
-					if (set.teraType === 'Nuclear' && ['terablast', 'revelationdance'].includes(this.dex.moves.get(move).id)) {
-						problems.push(`The combination of Nuclear Tera-type with ${this.dex.moves.get(move).name} cannot be used.`);
-					}
-					// Prevents hafli berry + natural gift
-					if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id == 'naturalgift') {
-						problems.push(`The combination of ${set.item} with ${this.dex.moves.get(move).name} cannot be used.`);
-					}
-					// Prevents nuclear moves (!set.fusion is to prevent the error from appearing twice, since the earlier if should catch it.)
-					if (this.dex.moves.get(move).type === 'Nuclear') {
+					const fusedTypes = [...typesSet];
+					// Nuclear Rev Dance on Fusions
+					if (fusedTypes[0] === 'Nuclear' && this.dex.moves.get(move).id === 'revelationdance') {
 						problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
 					}
 				}
+				//  Prevents tera nuclear terablast and rev dance
+				if (set.teraType === 'Nuclear' && ['terablast', 'revelationdance'].includes(this.dex.moves.get(move).id)) {
+					problems.push(`The combination of Nuclear Tera-type with ${this.dex.moves.get(move).name} cannot be used.`);
+				}
+				// Prevents hafli berry + natural gift
+				if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id == 'naturalgift') {
+					problems.push(`The combination of ${set.item} with ${this.dex.moves.get(move).name} cannot be used.`);
+				}
+				// Prevents nuclear moves (!set.fusion is to prevent the error from appearing twice, since the earlier if should catch it.)
+				if (this.dex.moves.get(move).type === 'Nuclear') {
+					problems.push(`The Nuclear-type move ${this.dex.moves.get(move).name} cannot be used.`);
+				}
+			}
 			if (problems.length) return problems;
 		},
 	},
