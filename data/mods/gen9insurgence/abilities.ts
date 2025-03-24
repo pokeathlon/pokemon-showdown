@@ -729,7 +729,6 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	speedswap: {
 		onStart(pokemon) {
-			this.add('-activate', pokemon, 'ability: Speed Swap');
 			this.field.addPseudoWeather('trickroom');
 		},
 		flags: {},
