@@ -117,10 +117,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	gougingfire: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	sneasler: {
 		inherit: true,
 		natDexTier: "UU",
@@ -144,6 +140,22 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	harportia: {
 		inherit: true,
 		natDexTier: "OU",
+	},
+	eeveemega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	oblivicornmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	dianciemega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	gougingfire: {
+		inherit: true,
+		natDexTier: "UUBL",
 	},
 	zudomon: {
 		inherit: true,
@@ -202,6 +214,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UUBL",
 	},
 	joltalope: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	gabodoregho: {
 		inherit: true,
 		natDexTier: "UU",
 	},
