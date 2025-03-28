@@ -69,6 +69,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	reuniclusmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
@@ -443,7 +447,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	flymon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "Uber",
 	},
 	garganacl: {
 		inherit: true,
@@ -607,7 +611,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	eeveeon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "Uber",
 	},
 	heracrossubarctic: {
 		inherit: true,
