@@ -6,15 +6,6 @@ const path = require('path');
 
 const key = require('../config/config').googleSheetsKey;
 
-const googleAuth = new google.auth.JWT(
-	key.client_email,
-	null,
-	key.private_key.replace(/\\n/g, '\n'),
-	'https://www.googleapis.com/auth/spreadsheets'
-);
-
-const connection = google.sheets({version: 'v4', auth: googleAuth});
-
 const allFormats = [
 	{id: "1aS2bM27i28iJWG5MSmxmzTNP0_NkAEPpbUgw6SHFa6k", mod: "gen9pokeathlon", owner: "everyone"},
 ];
@@ -32,9 +23,20 @@ function toID(text) {
 }
 
 async function update() {
+	if (!key) return;
+
+	const googleAuth = new google.auth.JWT(
+		key.client_email,
+		null,
+		key.private_key.replace(/\\n/g, '\n'),
+		'https://www.googleapis.com/auth/spreadsheets'
+	);
+	
+	const connection = google.sheets({version: 'v4', auth: googleAuth});
+
 	for (const sheet of allFormats) {
-		const dex = await pullFormat(sheet.id, 'Pokedex');
-		const bans = await pullFormat(sheet.id, 'Formats');
+		const dex = await pullFormat(connection, sheet.id, 'Pokedex');
+		const bans = await pullFormat(connection, sheet.id, 'Formats');
 
 		const out = {
 			dex: formatDex(dex),
@@ -43,10 +45,10 @@ async function update() {
 
 		fs.writeFileSync(path.resolve(__dirname, '../data/mods/' + sheet.mod + '/remote.json'), JSON.stringify(out, null, '\t'));
 	}
-	await pullRandbats(randbats);
+	await pullRandbats(connection, randbats);
 }
 
-async function pullRandbats(sheetid) {
+async function pullRandbats(connection, sheetid) {
 	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
 		let randbats_sets = {random_sets: []};
 		const data = await connection.spreadsheets.values.get({
@@ -70,7 +72,7 @@ async function pullRandbats(sheetid) {
 	}
 }
 
-function pullFormat(sheetid, section) {
+function pullFormat(connection, sheetid, section) {
 	return connection.spreadsheets.values.get({
 		auth: googleAuth,
 		spreadsheetId: sheetid,
