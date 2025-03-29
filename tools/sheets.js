@@ -35,8 +35,8 @@ async function update() {
 	const connection = google.sheets({version: 'v4', auth: googleAuth});
 
 	for (const sheet of allFormats) {
-		const dex = await pullFormat(connection, sheet.id, 'Pokedex');
-		const bans = await pullFormat(connection, sheet.id, 'Formats');
+		const dex = await pullFormat(connection, googleAuth, sheet.id, 'Pokedex');
+		const bans = await pullFormat(connection, googleAuth, sheet.id, 'Formats');
 
 		const out = {
 			dex: formatDex(dex),
@@ -45,10 +45,10 @@ async function update() {
 
 		fs.writeFileSync(path.resolve(__dirname, '../data/mods/' + sheet.mod + '/remote.json'), JSON.stringify(out, null, '\t'));
 	}
-	await pullRandbats(connection, randbats);
+	await pullRandbats(connection, googleAuth, randbats);
 }
 
-async function pullRandbats(connection, sheetid) {
+async function pullRandbats(connection, googleAuth, sheetid) {
 	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
 		let randbats_sets = {random_sets: []};
 		const data = await connection.spreadsheets.values.get({
@@ -72,7 +72,7 @@ async function pullRandbats(connection, sheetid) {
 	}
 }
 
-function pullFormat(connection, sheetid, section) {
+function pullFormat(connection, googleAuth, sheetid, section) {
 	return connection.spreadsheets.values.get({
 		auth: googleAuth,
 		spreadsheetId: sheetid,
