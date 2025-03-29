@@ -688,6 +688,55 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Lucky Charm",
 		shortDesc: "User's side is protected from critical hits and move secondaries.",
 		rating: 2.5,
-		num: 214,
+		num: 0,
+	},
+	crystalmana: { // Works
+		onTerrainChange(pokemon) {
+			if (this.field.terrain) {
+				this.add('-activate', pokemon, 'ability: Crystal Mana');
+				this.boost({def: 1, spd: 1})
+			}
+		},
+		flags: {},
+		name: "Crystal Mana",
+		shortDesc: "Raises Def and Sp.Def by 1 stage upon terrain change.",
+		rating: 2.5,
+		num: 0,
+	},
+	kleptomancy: {
+		onUpdate(pokemon) { // This method is stupid and awful, but onAllySideCondition only triggers when the foe uses Pay Day for some reason
+			if (!pokemon.side.sideConditions['scatteredcoins']) pokemon.abilityState.coins = false;
+			if (pokemon.side.sideConditions['scatteredcoins'] && !pokemon.abilityState.coins) {
+				pokemon.abilityState.coins = true;
+				this.heal(pokemon.maxhp / 3, pokemon, pokemon);
+			}
+		},
+		flags: {},
+		name: "Kleptomancy",
+		shortDesc: "When coins are scattered, recovers 1/3 max HP. 2/3 if holding Amulet Coin.",
+		rating: 2.5,
+		num: 0,
+	},
+	adaptivearmor: { // Works
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target.abilityState.type === undefined) {
+				target.abilityState.type = move.type;
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === target.abilityState.type) {
+				this.debug('Adaptive Armor neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		onSwitchIn(pokemon) {
+			pokemon.abilityState.type = undefined;
+		},
+		flags: {breakable: 1},
+		name: "Adaptive Armor",
+		shortDesc: "While user is on the field, resists type of first move user is hit by.",
+		rating: 2.5,
+		num: 0,
 	},
 };

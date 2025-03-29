@@ -283,6 +283,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-activate', source, 'move: Court Change');
 		},
 	},
+	mistyterrain: {
+		inherit: true,
+		condition: {
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable() && move.id != 'mistbarrage') {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+		}
+	},
 	// Additions
 	boxin: {
 		num: 0,
@@ -1510,6 +1522,112 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "User switches out after damaging the target.",
 		target: "normal",
 		type: "Grass",
+	},
+	bitethedust: {
+		num: 0,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Bite The Dust",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, bite: 1, metronome: 1},
+		secondary: null,
+		onAfterMove(source, target, move) {
+			return this.heal(source.maxhp / 8, source, source, move);
+		},
+		target: "normal",
+		shortDesc: "Heals for 1/8th max HP on hit.",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	pumpup: {
+        num: 0,
+        accuracy: true,
+        basePower: 0,
+        category: "Status",
+        name: "Pump Up",
+        pp: 20,
+        priority: 0,
+        flags: { snatch: 1, metronome: 1 },
+        onHit(pokemon) {
+            const stat = pokemon.getBestStat(true, true);
+            if (pokemon.boosts[stat] >= 6) return false;
+            this.boost({[stat]: 2}, pokemon);
+        },
+        secondary: null,
+        target: "self",
+        type: "Water",
+		shortDesc: "Raises highest stat by 2 stages.",
+        zMove: {boost: {atk: 1}},
+        contestType: "Tough",
+    },
+	lucky7s: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		name: "Lucky 7s",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		secondary: null,
+		onBasePower(basePower, source, target, move) {
+			var sevens = 0;
+				sevens += (source.baseStoredStats.hp.toString().match(/7/g) || []).length;
+				sevens += (source.baseStoredStats.atk.toString().match(/7/g) || []).length;
+				sevens += (source.baseStoredStats.def.toString().match(/7/g) || []).length;
+				sevens += (source.baseStoredStats.spa.toString().match(/7/g) || []).length;
+				sevens += (source.baseStoredStats.spd.toString().match(/7/g) || []).length;
+				sevens += (source.baseStoredStats.spe.toString().match(/7/g) || []).length;
+			return basePower += sevens*5;
+		},
+		target: "normal",
+		shortDesc: "+5 BP for each 7 in the user's stats.",
+		type: "Dark",
+		contestType: "Tough",
+	},
+	meltingaroma: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Melting Aroma",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, bypasssub: 1, allyanim: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		shortDesc: "Heals user and allies for 1/4 of max HP and cures status conditions.",
+		target: "allies",
+		type: "Fairy",
+	},
+	mistbarrage: {
+		num: 0,
+		accuracy: 95,
+		basePower: 80,
+		category: "Physical",
+		name: "Mist Barrage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('mistyterrain')) {
+				this.debug('Mist Barrage Misty Terrain Boost');
+				return this.chainModify(1.5);
+			}
+		},
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
+		target: "allAdjacentFoes",
+		shortDesc: "Ignores Misty Terrain debuff, x1.5 power in Misty Terrain.",
+		type: "Dragon",
+		contestType: "Tough",
 	},
 };
 
