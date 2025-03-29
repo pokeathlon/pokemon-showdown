@@ -833,7 +833,6 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			for (const target of this.getAllActive()) {
 				if (!target || !target.hp) continue;
 				if (target.hasType('Water') && !(target.teraType === 'Stellar' && target.terastallized)) {
-					console.log(target.types)
 					this.damage(target.maxhp / 8, target, pokemon);
 				}
 			}
