@@ -7,7 +7,7 @@ for (const i in remote.dex) {
 		ModPokedex[i as ID] = {inherit: true, isNonstandard: null};
 	}
 	else {
-		ModPokedex[i as ID] = {inherit: true, isNonstandard: "Unobtainable"};
+		ModPokedex[i as ID] = {inherit: true, isNonstandard: "Past"};
 	}
 }
 
