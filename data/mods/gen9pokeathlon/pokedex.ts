@@ -126,7 +126,7 @@ for (const mon of additions) {
 
 for (const i of Dex.species.all()) {
 	if (!ModPokedex[i.id]) ModPokedex[i.id] = {inherit: true};
-	const isPoA = i.id in additions && remote.dex[i.id].gen1;
+	const isPoA = i.id in additions;
 	ModPokedex[i.id].isNonstandard = isPoA ? null : "Custom";
 }
 
