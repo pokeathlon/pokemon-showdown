@@ -68,7 +68,7 @@ for (const mon of additions) {
 		tier: cur["tier"],
 		natDexTier: cur["natDexTier"],
 		doublesTier: cur["doublesTier"],
-		isNonstandard: cur.gen1 ? null : "Future",
+		isNonstandard: cur.gen1 ? null : "Unobtainable",
 	};
 
 	if (baseSpecies.name && (!cur.formeinfo || (cur.formeinfo && Dex.toID(cur.formeinfo) !== 'separate'))) {
