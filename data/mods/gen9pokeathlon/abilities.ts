@@ -690,7 +690,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2.5,
 		num: 0,
 	},
-	crystalmana: { // Works
+	crystalmana: {
 		onTerrainChange(pokemon) {
 			if (this.field.terrain) {
 				this.add('-activate', pokemon, 'ability: Crystal Mana');
@@ -717,7 +717,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2.5,
 		num: 0,
 	},
-	adaptivearmor: { // Works
+	adaptivearmor: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.abilityState.type === undefined) {
@@ -736,6 +736,36 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {breakable: 1},
 		name: "Adaptive Armor",
 		shortDesc: "While user is on the field, resists type of first move user is hit by.",
+		rating: 2.5,
+		num: 0,
+	},
+	momentum: {
+		onStart(target) {
+			target.abilityState.boostArray = [];
+		},
+		onAfterBoost(boost, target, source, effect) {
+			for (const stat in boost) {
+				const statBoost = boost[stat as keyof BoostsTable];
+				if (statBoost && statBoost !== 0) {
+					boost[stat as keyof BoostsTable] = statBoost / Math.abs(statBoost);
+				}
+			}
+			
+			target.abilityState.boost = boost; // Ensure only the last boost carries over before onResidual
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			// Append empty boost to delay activation if there is no boost for this turn.
+			if (!pokemon.abilityState.boostArray[0]) pokemon.abilityState.boostArray.push({});
+			pokemon.abilityState.boostArray.push(pokemon.abilityState.boost)	
+			let boost = pokemon.abilityState.boostArray[0]
+			this.boost(boost, pokemon, pokemon)
+			pokemon.abilityState.boostArray.shift()
+		},
+		flags: {breakable: 1},
+		name: "Momentum",
+		shortDesc: "Last stat boost the user is subject to this turn is repeated at the end of the next with a value of 1.",
 		rating: 2.5,
 		num: 0,
 	},

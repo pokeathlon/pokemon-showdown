@@ -1533,8 +1533,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, bite: 1, metronome: 1},
 		secondary: null,
-		onAfterMove(source, target, move) {
-			return this.heal(source.maxhp / 8, source, source, move);
+		self: {
+			onHit(pokemon, source, move) {
+				this.heal(source.maxhp / 8, source, source, move);
+			},
 		},
 		target: "normal",
 		shortDesc: "Heals for 1/8th max HP on hit.",
