@@ -102,7 +102,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	urshifu: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	lukagon: {
 		inherit: true,
