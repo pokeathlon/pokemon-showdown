@@ -1294,7 +1294,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	gravitas: "G-Max Gravitas",
 	hydrosnipe: "G-Max Hydrosnipe",
 	malodor: "G-Max Malodor",
-	meltdown: "G-Max Meltdown",
+	//meltdown: "G-Max Meltdown",
 	oneblow: "G-Max One Blow",
 	rapidflow: "G-Max Rapid Flow",
 	replenish: "G-Max Replenish",
