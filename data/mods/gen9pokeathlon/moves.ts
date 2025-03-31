@@ -428,7 +428,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 80,
 		category: "Special",
 		name: "Desert Tempest",
-		shortDesc: "Summons Sandstorm. 1.2x damage if user is holding a Smooth Rock.",
+		shortDesc: "Summons Sandstorm. Smooth Rock: x1.2 damage.",
 		pp: 15,
 		priority: 0,
 		onBasePower(basePower, pokemon, target) {
@@ -451,7 +451,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 80,
 		category: "Physical",
 		name: "Subzero Storm",
-		shortDesc: "Summons Hail. 1.2x damage if user is holding an Icy Rock.",
+		shortDesc: "Summons Snow. Icy Rock: x1.2 damage.",
 		pp: 15,
 		priority: 0,
 		onBasePower(basePower, pokemon, target) {
@@ -474,7 +474,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 80,
 		category: "Special",
 		name: "Fiery Maelstrom",
-		shortDesc: "Summons Sun. 1.2x damage if user is holding a Heat Rock.",
+		shortDesc: "Summons Sun. Heat Rock: x1.2 damage.",
 		pp: 15,
 		priority: 0,
 		onBasePower(basePower, pokemon, target) {
