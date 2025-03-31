@@ -295,6 +295,33 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		}
 	},
+	haze: {
+		inherit: true,
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			}
+		},
+	},
+	freezyfrost: {
+		inherit: true,
+		onHit() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			}
+		},
+	},
+	clearsmog: {
+		inherit: true,
+		onHit(target) {
+			if (!target.hasItem('managel')) {
+				target.clearBoosts();
+				this.add('-clearboost', target);
+			}
+		},
+	},
 	// Additions
 	boxin: {
 		num: 0,
@@ -1627,7 +1654,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			volatileStatus: 'confusion',
 		},
 		target: "allAdjacentFoes",
-		shortDesc: "Ignores Misty Terrain debuff, x1.5 power in Misty Terrain.",
+		shortDesc: "During Misty Surge: 1.5x damage instead of half. 10% chance to confuse.",
 		type: "Dragon",
 		contestType: "Tough",
 	},

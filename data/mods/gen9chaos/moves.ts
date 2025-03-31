@@ -147,6 +147,45 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 	},
+	mistyterrain: {
+		inherit: true,
+		condition: {
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable() && move.id != 'mistbarrage') {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+		}
+	},
+	haze: {
+		inherit: true,
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			}
+		},
+	},
+	freezyfrost: {
+		inherit: true,
+		onHit() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			}
+		},
+	},
+	clearsmog: {
+		inherit: true,
+		onHit(target) {
+			if (!target.hasItem('managel')) {
+				target.clearBoosts();
+				this.add('-clearboost', target);
+			}
+		},
+	},
 
 	// Insurgence
 	trickroom: {

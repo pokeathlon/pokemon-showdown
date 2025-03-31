@@ -744,6 +744,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			target.abilityState.boostArray = [];
 		},
 		onAfterBoost(boost, target, source, effect) {
+			if (target.abilityState.momentumBoost) {
+				console.log("Momentum caused this to happen " + target.abilityState.momentumBoost);
+			}
 			for (const stat in boost) {
 				const statBoost = boost[stat as keyof BoostsTable];
 				if (statBoost && statBoost !== 0) {
@@ -756,16 +759,19 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			// Append empty boost to delay activation if there is no boost for this turn.
 			if (!pokemon.abilityState.boostArray[0]) pokemon.abilityState.boostArray.push({});
-			pokemon.abilityState.boostArray.push(pokemon.abilityState.boost)	
+			if (pokemon.statsLoweredThisTurn || pokemon.statsRaisedThisTurn) {
+				pokemon.abilityState.boostArray.push(pokemon.abilityState.boost);
+			} else {
+				pokemon.abilityState.boostArray.push({})
+			}
 			let boost = pokemon.abilityState.boostArray[0]
 			this.boost(boost, pokemon, pokemon)
 			pokemon.abilityState.boostArray.shift()
 		},
 		flags: {breakable: 1},
 		name: "Momentum",
-		shortDesc: "Last stat boost the user is subject to this turn is repeated at the end of the next with a value of 1.",
+		shortDesc: "The last stat changes in a turn are repeated next turn at 1 stage.",
 		rating: 2.5,
 		num: 0,
 	},

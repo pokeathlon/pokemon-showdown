@@ -1,3 +1,5 @@
+import { fail } from 'assert';
+
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
 	fullincense: {
@@ -129,6 +131,56 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onSwitchOut(source) {
 			source.heal(source.maxhp / 3);
 			source.useItem();
+		},
+		num: 0,
+	},
+	energydrink: {
+		name: "Energy Drink",
+		desc: "The holder was very tired and thus downed 17 cans of Red Bull, preventing it from falling asleep for the next 9 days.",
+		shortDesc: "This Pokemon cannot fall asleep.",
+		spritenum: -3,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'item: Energy Drink');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if ((effect as Move)?.status) {
+				this.add('-activate', target, 'item: Energy Drink');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-activate', target, 'item: Energy Drink');
+				return null;
+			}
+		},
+		num: 0,
+	},
+	managel: { // Can't figure out how to make it not clearBoosts(), so modifying moves instead 
+		name: "Mana Gel",
+		shortDesc: "The holder cannot have its stat changes cleared or Stolen. Psych Up will fail when used against the holder.",
+		spritenum: -3,
+		onFoeModifyMove(move, source, target) {
+			if (move.stealsBoosts) move.stealsBoosts = false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'psychup') return false;
+		},
+		num: 0,
+	},
+	buddylantern: {
+		name: "Buddy Lantern",
+		shortDesc: "Holder deals x0.125 damage to allies.",
+		spritenum: -3,
+		onModifyDamage(damage, source, target, move) {
+			if (target.isAlly(source)) {
+				this.debug('Buddy Lantern neutralize');
+				return this.chainModify(0.125);
+			}
 		},
 		num: 0,
 	},

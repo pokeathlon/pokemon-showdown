@@ -2436,4 +2436,11 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 		name: "Vile Vial",
 		shortDesc: "If held by a Venomicon, its Poison- and Flying-type attacks have 1.2x power.",
 	},
+	energydrink: {
+		name: "Energy Drink",
+		shortDesc: "This Pokemon cannot fall asleep.",
+
+		activate: "  [POKEMON] is too energized to fall asleep!",
+		block: "  [POKEMON] is too energized to fall asleep!",
+	},
 };
