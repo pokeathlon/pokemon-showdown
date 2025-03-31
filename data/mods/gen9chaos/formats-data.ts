@@ -29,6 +29,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	feraligatregho: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	nucleon: {
 		inherit: true,
 		natDexTier: "Uber",
