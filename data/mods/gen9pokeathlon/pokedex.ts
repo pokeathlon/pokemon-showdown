@@ -76,7 +76,7 @@ for (const mon of additions) {
 		entry.baseSpecies = baseSpecies.name;
 		entry.forme = forme;
 		if (!Dex.species.get(baseSpecies.name).exists && !(Dex.toID(baseSpecies.name) in ModPokedex)) {
-			ModPokedex[Dex.toID(baseSpecies.name)] = {...findSpecies(Dex.toID(baseSpecies.name)), isNonstandard: "Unobtainable"};
+			ModPokedex[Dex.toID(baseSpecies.name)] = {...findSpecies(Dex.toID(baseSpecies.name)), isNonstandard: "Custom"};
 		}
 	} else {
 		entry.num = ctr;
@@ -107,8 +107,8 @@ for (const mon of additions) {
 			ModPokedex[Dex.toID(cur.prevo)] = {
 				inherit: true,
 				evos: [cur.name],
-				natDexTier: prevo.prevo ? "NFE" : "LC",
-				doublesTier: prevo.prevo ? "NFE" : "LC",
+				natDexTier: "Illegal",
+				doublesTier: "Illegal",
 			};
 		}
 	}
