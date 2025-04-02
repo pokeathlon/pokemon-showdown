@@ -708,7 +708,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!pokemon.side.sideConditions['scatteredcoins']) pokemon.abilityState.coins = false;
 			if (pokemon.side.sideConditions['scatteredcoins'] && !pokemon.abilityState.coins) {
 				pokemon.abilityState.coins = true;
-				this.heal(pokemon.maxhp / 3, pokemon, pokemon);
+				if (pokemon.hasItem('amuletcoin')) {
+					this.heal(pokemon.maxhp * 2 / 3, pokemon, pokemon);
+				} else {
+					this.heal(pokemon.maxhp / 3, pokemon, pokemon);
+				}
+				
 			}
 		},
 		flags: {},
