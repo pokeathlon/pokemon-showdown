@@ -125,10 +125,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	sneasler: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	walkingwake: {
 		inherit: true,
 		natDexTier: "OU",
@@ -221,6 +217,46 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UUBL",
 	},
+	torterneon: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	leomon: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	crawdauntmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	deoxysspeed: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	wrighvern: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	roseradedelta: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	regimyo: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	sneasler: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	mawilemega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	manacra: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
 	joltalope: {
 		inherit: true,
 		natDexTier: "UU",
@@ -265,19 +301,11 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	regimyo: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	ludicoloegho: {
 		inherit: true,
 		natDexTier: "UU",
 	},
 	regicedelta: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	roseradedelta: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -354,10 +382,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	baariettemega: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	crawdauntmega: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -631,7 +655,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	baxcalibur: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 	},
 	ceruledge: {
 		inherit: true,
@@ -717,10 +741,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	mawilemega: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	medichammega: {
 		inherit: true,
 		natDexTier: "UU",
@@ -765,10 +785,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	wrighvern: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	chuggalong: {
 		inherit: true,
 		natDexTier: "UU",
@@ -778,10 +794,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	empirilla: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	deoxysspeed: {
 		inherit: true,
 		natDexTier: "UU",
 	},
