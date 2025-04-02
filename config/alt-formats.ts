@@ -644,7 +644,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] [Gen 2] PoA Dex OU",
 
 		mod: 'gen9pokeathlon2',
-		ruleset: ['Standard', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:shadowtag',
@@ -676,7 +676,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] [Gen 1] PoA Dex OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:shadowtag',
