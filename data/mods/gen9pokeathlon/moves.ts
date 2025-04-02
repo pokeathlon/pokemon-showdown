@@ -1595,7 +1595,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		num: 0,
 		accuracy: 100,
 		basePower: 65,
-		category: "Physical",
+		category: "Special",
 		name: "Lucky 7s",
 		pp: 10,
 		priority: 0,
