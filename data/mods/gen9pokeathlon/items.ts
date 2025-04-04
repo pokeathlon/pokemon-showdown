@@ -1,4 +1,5 @@
 import { fail } from 'assert';
+import { getBattleLog } from '../../../server/chat-plugins/helptickets';
 
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
@@ -182,6 +183,16 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(0.125);
 			}
 		},
+		num: 0,
+	},
+	doubledip: {
+		name: "Double Dip",
+		shortDesc: "If move misses, consumes item and uses move again.",
+		spritenum: -3,
+		fling: {
+			basePower: 80,
+		},
+		// Effect immplemented in scripts under hitStepAccuracy
 		num: 0,
 	},
 };

@@ -61,7 +61,7 @@ export const ModLearnsets: ModdedLearnsetDataTable = {
 	drifloon: {inherit: true, learnset: {...baseLearnsets.drifloon.learnset, spiritsiphon: ["9M"]}},
 	froslass: {inherit: true, learnset: {...baseLearnsets.froslass.learnset, spiritsiphon: ["9M"]}},
 	frillish: {inherit: true, learnset: {...baseLearnsets.frillish.learnset, spiritsiphon: ["9M"]}},
-	honedge: {inherit: true, learnset: {...baseLearnsets.honedge.learnset, spiritsiphon: ["9M"], mightycleave: ["9M"], throwingknives: ["9M"]}},
+	honedge: {inherit: true, learnset: {...baseLearnsets.honedge.learnset, spiritsiphon: ["9M"], heavycleave: ["9M"], throwingknives: ["9M"]}},
 	sandygast: {inherit: true, learnset: {...baseLearnsets.sandygast.learnset, spiritsiphon: ["9M"]}},
 	bramblin: {inherit: true, learnset: {...baseLearnsets.bramblin.learnset, spiritsiphon: ["9M"]}},
 	alakazam: {inherit: true, learnset: {...baseLearnsets.alakazam.learnset, cometstrike: ["9M"]}},
