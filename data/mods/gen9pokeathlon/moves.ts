@@ -1688,8 +1688,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return move.basePower;
 		},
 		onTryHit(target, source, move) {
-			if (!source.status) return false;
-			move.status = source.status;
+			if (source.status) move.status = source.status;
 		},
 		self: {
 			onHit(pokemon) {
