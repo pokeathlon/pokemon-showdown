@@ -335,6 +335,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Mariomon VGC",
+		mod: 'gen9mariomon',
+		gameType: 'doubles',
+		searchShow: false,
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets'],
+	},
+	{
 		name: "[Gen 9] Mariomon Custom Game",
 
 		mod: 'gen9mariomon',
