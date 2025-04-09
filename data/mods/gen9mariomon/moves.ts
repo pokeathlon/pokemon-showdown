@@ -40,7 +40,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		name: "Boomerang",
 		shortDesc: "Hits 2 times. 15% chance to flinch.",
-		multihit: 3,
+		multihit: 2,
 		secondary: {
 			chance: 15,
 			volatileStatus: 'flinch'
