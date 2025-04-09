@@ -281,6 +281,7 @@ interface ModdedBattlePokemon {
 	fusionChange?: (
 		this: Pokemon, speciesId: string | Species, source: Effect
 	) => boolean;
+	tryTrap?: (this: Pokemon, isHidden?: boolean) => void;
 	formeChange?: (
 		this: Pokemon, speciesId: string | Species, source: Effect, isPermanent?: boolean, message?: string
 	) => boolean;

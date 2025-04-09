@@ -323,10 +323,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] Mariomon AG",
+		mod: 'gen9mariomon',
+		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', '+LGPE'],
+	},
+	{
 		name: "[Gen 9] Mariomon OU",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves'],
+		ruleset: ['Standard', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
@@ -338,9 +343,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon VGC",
 		mod: 'gen9mariomon',
 		gameType: 'doubles',
-		searchShow: false,
+
 		bestOfDefault: true,
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets'],
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
 	},
 	{
 		name: "[Gen 9] Mariomon Custom Game",
@@ -349,7 +354,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Overflow Stat Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod'],
 	},
 
 	{

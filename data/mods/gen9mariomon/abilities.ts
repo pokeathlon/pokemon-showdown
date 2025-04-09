@@ -148,7 +148,30 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Transmutate",
+		desc: "This Pokemon's Normal-type moves become Psychic-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type.",
+		shortDesc: "This Pokemon's Normal-type moves become Psychic type and have 1.2x power.",
 		rating: 4,
+		num: 0,
+	},
+	chaosemeralds: {
+		onDamagePriority: -40,
+		onDamage(damage, target, source, effect) {
+			if (target.species.id === 'sonic' && damage >= target.hp && effect && effect.effectType === 'Move') {
+				return target.hp - 1;
+			}
+		},
+		onResidualOrder: 1,
+		onResidual(pokemon) {
+			if (!['sonic', 'supersonic'].includes(pokemon.species.id) || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.species.id === 'supersonic' || pokemon.hp !== 1) return;
+			this.add('-activate', pokemon, 'ability: Chaos Emeralds');
+			pokemon.formeChange('Super Sonic', this.effect, true);
+			this.heal(pokemon.baseMaxhp);
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Chaos Emeralds",
+		shortDesc: "When Sonic reaches 1 HP, fully heal and transform into Super Sonic.",
+		rating: 5,
 		num: 0,
 	},
 };
