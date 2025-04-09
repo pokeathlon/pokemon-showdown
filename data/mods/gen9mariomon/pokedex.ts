@@ -1552,7 +1552,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Maw-Maw",
 		types: ["Dragon", "Normal"],
 		baseStats: {hp: 77, atk: 110, def: 103, spa: 55, spd: 90, spe: 50},
-		abilities: {0: "Cheek Pouch", 1: "Strong Jaw", H: "Dragon’s Maw"},
+		abilities: {0: "Cheek Pouch", 1: "Strong Jaw", H: "Dragon's Maw"},
 		heightm: 0.5,
 		weightkg: 75.6,
 		gen: 3,
