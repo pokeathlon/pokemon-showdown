@@ -49,15 +49,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.species.id !== 'hammerbrosunny') forme = 'Hammer Bro-Sunny';
+				if (pokemon.species.id !== 'firebro') forme = 'Fire Bro';
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				if (pokemon.species.id !== 'hammerbrorainy') forme = 'Hammer Bro-Rainy';
+				if (pokemon.species.id !== 'boomerangbro') forme = 'Boomerang Bro';
 				break;
 			case 'hail':
 			case 'snow':
-				if (pokemon.species.id !== 'hammerbrosnowy') forme = 'Hammer Bro-Snowy';
+				if (pokemon.species.id !== 'icebro') forme = 'Ice Bro';
 				break;
 			default:
 				if (pokemon.species.id !== 'hammerbro') forme = 'Hammer Bro';
