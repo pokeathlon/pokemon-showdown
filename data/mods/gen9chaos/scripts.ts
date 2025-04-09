@@ -35,7 +35,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
-				// Mega Sunfloras
 				if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
 				return item.megaStone;
 			}
@@ -168,11 +167,11 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (accuracy !== true) {
 						let boost = 0;
 						if (!move.ignoreAccuracy) {
-							const boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+							const boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, { ...pokemon.boosts });
 							boost = this.battle.clampIntRange(boosts['accuracy'], -6, 6);
 						}
 						if (!move.ignoreEvasion) {
-							const boosts = this.battle.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+							const boosts = this.battle.runEvent('ModifyBoost', target, null, null, { ...target.boosts });
 							boost = this.battle.clampIntRange(boost - boosts['evasion'], -6, 6);
 						}
 						if (boost > 0) {
@@ -182,8 +181,10 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 					}
 				}
-				if (move.alwaysHit || (move.id === 'toxic' && this.battle.gen >= 8 && pokemon.hasType('Poison')) ||
-						(move.target === 'self' && move.category === 'Status' && !target.isSemiInvulnerable())) {
+				if (
+					move.alwaysHit || (move.id === 'toxic' && this.battle.gen >= 8 && pokemon.hasType('Poison')) ||
+					(move.target === 'self' && move.category === 'Status' && !target.isSemiInvulnerable())
+				) {
 					accuracy = true; // bypasses ohko accuracy modifiers
 				} else {
 					accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
@@ -196,7 +197,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.battle.add('-miss', pokemon, target);
 					}
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
-						this.battle.boost({spe: 2}, pokemon);
+						this.battle.boost({ spe: 2 }, pokemon);
 					}
 					if (!move.ohko && pokemon.hasItem('doubledip') && pokemon.useItem()) {
 						this.battle.actions.useMove(move, pokemon);
@@ -207,12 +208,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				hitResults[i] = true;
 			}
 			return hitResults;
-		}
+		},
 	},
 	pokemon: {
 		formeChange(
 			speciesId: string | Species, source: Effect | null = null,
-			isPermanent?: boolean, message?: string
+			isPermanent?: boolean, abilitySlot = '0', message?: string
 		) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
 
@@ -225,6 +226,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
+				if (!this.transformed) this.regressionForme = true;
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
@@ -240,7 +242,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (source.zMove) {
 						this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
 						this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
-					} else if (source.onPrimal) {
+					} else if (source.isPrimalOrb) {
 						if (this.illusion) {
 							this.ability = '';
 							this.battle.add('-primal', this.illusion, species.requiredItem);
@@ -283,10 +285,11 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.ability = ''; // Don't allow Illusion to wear off
 					this.addVolatile('ability:illusion');
 				}
+				const ability = species.abilities[abilitySlot] || species.abilities['0'];
 				// Ogerpon's forme change doesn't override permanent abilities
-				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
+				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
 				// However, its ability does reset upon switching out
-				this.baseAbility = Dex.toID(species.abilities['0']);
+				this.baseAbility = Dex.toID(ability);
 			}
 			if (this.terastallized) {
 				this.knownType = true;
@@ -320,8 +323,9 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (source?.hasAbility('venomous') && status.id === 'psn') status = this.battle.dex.conditions.get('tox');
 
-			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+			if (
+				!ignoreImmunities && status.id && !(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))
+			) {
 				// the game currently never ignores immunities
 				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 					this.battle.debug('immune to status');
@@ -342,7 +346,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			this.status = status.id;
-			this.statusState = {id: status.id, target: this};
+			this.statusState = this.battle.initEffectState({ id: status.id, target: this });
 			if (source) this.statusState.source = source;
 			if (status.duration) this.statusState.duration = status.duration;
 			if (status.durationCallback) {
@@ -363,10 +367,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		transformInto(pokemon, effect) {
 			const species = pokemon.species;
-			if (pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
+			if (
+				pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 				(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5) ||
-				species.name === 'Eternatus-Eternamax' || (['Ogerpon', 'Terapagos'].includes(species.baseSpecies) &&
-				(this.terastallized || pokemon.terastallized)) || this.terastallized === 'Stellar') {
+				species.name === 'Eternatus-Eternamax' ||
+				(['Ogerpon', 'Terapagos'].includes(species.baseSpecies) && (this.terastallized || pokemon.terastallized)) ||
+				this.terastallized === 'Stellar'
+			) {
 				return false;
 			}
 
@@ -419,13 +426,14 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.boosts[boostName] = pokemon.boosts[boostName];
 			}
 			if (this.battle.gen >= 6) {
+				// we need to remove all of the overlapping crit volatiles before adding any of them
 				const volatilesToCopy = ['dragoncheer', 'focusenergy', 'gmaxchistrike', 'laserfocus'];
+				for (const volatile of volatilesToCopy) this.removeVolatile(volatile);
 				for (const volatile of volatilesToCopy) {
 					if (pokemon.volatiles[volatile]) {
 						this.addVolatile(volatile);
 						if (volatile === 'gmaxchistrike') this.volatiles[volatile].layers = pokemon.volatiles[volatile].layers;
-					} else {
-						this.removeVolatile(volatile);
+						if (volatile === 'dragoncheer') this.volatiles[volatile].hasDragonType = pokemon.volatiles[volatile].hasDragonType;
 					}
 				}
 			}
@@ -463,8 +471,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// Pokemon transformed into Ogerpon cannot Terastallize
 			// restoring their ability to tera after they untransform is handled ELSEWHERE
-			if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
-			if (this.species.baseSpecies === 'Terapagos' && this.canTerastallize) this.canTerastallize = false;
+			if (['Ogerpon', 'Terapagos'].includes(this.species.baseSpecies) && this.canTerastallize) this.canTerastallize = false;
 
 			return true;
 		},
@@ -472,6 +479,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 			if ('smackdown' in this.volatiles) return true;
+			if ('groundingstomp' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.

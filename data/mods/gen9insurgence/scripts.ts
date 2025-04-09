@@ -31,7 +31,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
-				// Mega Sunfloras
 				if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
 				return item.megaStone;
 			}
@@ -65,8 +64,9 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (source?.hasAbility('venomous') && status.id === 'psn') status = this.battle.dex.conditions.get('tox');
 
-			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+			if (
+				!ignoreImmunities && status.id && !(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))
+			) {
 				// the game currently never ignores immunities
 				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 					this.battle.debug('immune to status');
@@ -87,7 +87,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			this.status = status.id;
-			this.statusState = {id: status.id, target: this};
+			this.statusState = this.battle.initEffectState({ id: status.id, target: this });
 			if (source) this.statusState.source = source;
 			if (status.duration) this.statusState.duration = status.duration;
 			if (status.durationCallback) {
@@ -108,7 +108,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		formeChange(
 			speciesId: string | Species, source: Effect | null = null,
-			isPermanent?: boolean, message?: string
+			isPermanent?: boolean, abilitySlot = '0', message?: string
 		) {
 			const rawSpecies = this.battle.dex.species.get(speciesId);
 
@@ -121,9 +121,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
+				if (!this.transformed) this.regressionForme = true;
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
-					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
+					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
+						(this.fusion ? ', fusion: ' + this.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				if (!this.illusion) this.battle.add('detailschange', this, details);
@@ -135,7 +137,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (source.zMove) {
 						this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
 						this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
-					} else if (source.onPrimal) {
+					} else if (source.isPrimalOrb) {
 						if (this.illusion) {
 							this.ability = '';
 							this.battle.add('-primal', this.illusion, species.requiredItem);
@@ -151,7 +153,8 @@ export const Scripts: ModdedBattleScriptsData = {
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
-									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
+									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
+										(this.illusion.fusion ? ', fusion: ' + this.illusion.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
 								this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
@@ -177,10 +180,11 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.ability = ''; // Don't allow Illusion to wear off
 					this.addVolatile('ability:illusion');
 				}
+				const ability = species.abilities[abilitySlot] || species.abilities['0'];
 				// Ogerpon's forme change doesn't override permanent abilities
-				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
+				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
 				// However, its ability does reset upon switching out
-				this.baseAbility = Dex.toID(species.abilities['0']);
+				this.baseAbility = Dex.toID(ability);
 			}
 			if (this.terastallized) {
 				this.knownType = true;
@@ -192,6 +196,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 			if ('smackdown' in this.volatiles) return true;
+			if ('groundingstomp' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
