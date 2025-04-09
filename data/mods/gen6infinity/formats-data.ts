@@ -150,6 +150,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "Uber",
 	},
+	leomon: {
+		inherit: true,
+		tier: "Uber",
+	},
 
 	// OU
 	airdramon: {
@@ -197,10 +201,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 	infermon: {
-		inherit: true,
-		tier: "OU",
-	},
-	leomon: {
 		inherit: true,
 		tier: "OU",
 	},
