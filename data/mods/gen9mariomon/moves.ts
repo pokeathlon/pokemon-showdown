@@ -70,3 +70,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ice",
 	},
 };
+
+for (const i of Dex.moves.all()) {
+	if (["Past", "Unobtainable"].includes(i.isNonstandard)) {
+		if (!Moves[i.id]) Moves[i.id] = {inherit: true};
+		Moves[i.id].isNonstandard = null;
+	}
+}
