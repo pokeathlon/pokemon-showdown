@@ -86,7 +86,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinitefusion',
 		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1',
+			'Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
@@ -102,7 +102,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinitefusion',
 		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 
+			'Standard NatDex',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
@@ -118,7 +118,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinitefusion',
 		ruleset: [
-			'Standard NatDex',
+			'Standard AG', 'NatDex Mod',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [],
@@ -160,7 +160,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinitefusion',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard NatDex', 'Sleep Clause Mod', 'Evasion Clause',
+			'Standard NatDex',
 			'Infinite Fusion Mod', 'IF Move Legality', 'Fusion Species Clause', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
@@ -176,7 +176,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinitefusion',
 		gameType: 'doubles',
 		ruleset: [
-			'Standard NatDex',
+			'Standard AG', 'NatDex Mod',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
@@ -192,7 +192,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex',
+			'Standard AG', 'NatDex Mod',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
@@ -259,7 +259,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinitefusion',
 		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod',
+			'Standard NatDex',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 	},
@@ -268,14 +268,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod'],
 		banlist: ['move:hiddenpower'],
 	},
 	{
 		name: "[Gen 9] Ins NatDex LC Draft",
 		searchShow: false,
 		mod: 'gen9insurgence',
-		ruleset: ['Little Cup', 'Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'OHKO Clause', 'Evasion Clause', 'Overflow Stat Mod', 'Item Clause = 2'],
+		ruleset: ['Little Cup', 'Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Overflow Stat Mod', 'Item Clause = 2'],
 		banlist: [
 			'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream',
 			'ability:moody', 'ability:illuminate', 'ability:winterjoy',
@@ -286,14 +286,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Mega Forme Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Mega Forme Clause', '+CAP', '+item:crucibellite', '+item:vilevial'],
 	},
 	{
 		name: "[Gen 9] Chaos Draft",
 		searchShow: false,
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod', 'Mega Forme Clause', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+item:berserkgene'],
+		ruleset: ['Standard NatDex', 'Mega Forme Clause', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+item:berserkgene'],
 	},
 	{
 		name: "[Gen 9] Random Ability Draft",
@@ -312,10 +312,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		gameType: 'doubles',
-		ruleset: [ 'Standard NatDex',
-			'Picked Team Size = 4', 'Evasion Clause', 'Tera Type Preview', 
-			'Species Clause', 'Item Clause = 1', 'Adjust Level Down = 50', 
-		],
+		ruleset: [ 'Standard NatDex', 'Picked Team Size = 4', 'Tera Type Preview', 'Item Clause = 1', 'Adjust Level Down = 50'],
 	},
 
 	{
@@ -391,7 +388,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Insurgence NatDex OU",
 
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -404,7 +401,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves'],
 	},
 	{
 		name: "[Gen 6] Ins Dex Doubles AG",
@@ -420,7 +417,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9insurgence',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves'],
 	},
 	{
 		name: "[Gen 9] Ins Free-For-All",
@@ -430,7 +427,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves',
+			'Standard AG', 'NatDex Mod', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves',
 		],
 	},
 	{
@@ -478,7 +475,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Uranium NatDex OU",
 
 		mod: 'gen9uranium',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Nuclear Clause'],
+		ruleset: ['Standard NatDex', 'Nuclear Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -491,7 +488,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9uranium',
-		ruleset: ['Standard NatDex'],
+		ruleset: ['Standard AG', 'NatDex Mod',],
 	},
 	{
 		name: "[Gen 6] Ura Dex Doubles AG",
@@ -507,7 +504,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9uranium',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex'],
+		ruleset: ['Standard AG', 'NatDex Mod',],
 	},
 	{
 		name: "[Gen 9] Ura Free-For-All",
@@ -516,7 +513,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9uranium',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: ['Standard NatDex'],
+		ruleset: ['Standard AG', 'NatDex Mod',],
 	},
 	{
 		name: "[Gen 9] Uranium Custom Game",
@@ -563,7 +560,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Infinity NatDex OU",
 
 		mod: 'gen9infinity',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'No Event Moves', 'Overflow Stat Mod'],
+		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -576,7 +573,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9infinity',
-		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 	{
 		name: "[Gen 6] Inf Dex Doubles AG",
@@ -592,7 +589,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9infinity',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 	{
 		name: "[Gen 9] Inf Free-For-All",
@@ -601,7 +598,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinity',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: ['Standard NatDex', 'No Event Moves', 'Overflow Stat Mod'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'No Event Moves', 'Overflow Stat Mod'],
 	},
 	{
 		name: "[Gen 9] Inf Custom Game",
@@ -640,7 +637,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA OU",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: ['ND Uber', 'ND AG'],
 	},
 	{
@@ -648,7 +645,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: ['ND AG'],
 	},
 	{
@@ -656,7 +653,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: ['ND Uber', 'ND AG', 'ND OU'],
 	},
 	{
@@ -664,7 +661,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Little Cup', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause'],
 		banlist: [],
 	},
 	{
@@ -672,7 +669,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Terastal Clause'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause'],
 	},
 
 	{
@@ -749,7 +746,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 9] [Gen 2] PoA Doubles AG",
@@ -779,7 +776,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		gameType: 'freeforall',
 		rated: false,
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 9] PoA Mono",
@@ -818,7 +815,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Chaos OU",
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
@@ -832,14 +829,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9chaos',
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod'
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod'
 		],
 	},
 	{
 		name: "[Gen 9] Chaos UU",
 
 		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause'],
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
@@ -853,7 +850,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9chaosfusion',
 		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod'
 		],
 		banlist: [
@@ -870,7 +867,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9chaosfusion',
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 'Overflow Stat Mod',
 		],
 	},
@@ -887,7 +884,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod'
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod'
 		],
 	},
 	{
@@ -898,7 +895,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: [
-			'Standard NatDex', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 'Overflow Stat Mod'
 		],
 	},
@@ -908,7 +905,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9chaos',
 		gameType: 'multi',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod'],
+		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod'],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -923,7 +920,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaosfusion',
 		gameType: 'multi',
 		ruleset: [
-			'Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Standard AG', 'NatDex Mod', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Overflow Stat Mod'
 		],
 		banlist: [
