@@ -4,7 +4,8 @@
  * @author mia-pi-git
  */
 
-import {PostgresDatabase, FS, Utils} from '../../lib';
+import { PostgresDatabase, FS, Utils } from '../../lib';
+import * as crypto from 'crypto';
 
 /** Maximum amount of teams a user can have stored at once. */
 const MAX_TEAMS = 200;
@@ -261,7 +262,7 @@ export const TeamsHandler = new class {
 	}
 	generatePassword(len = 20) {
 		let pw = '';
-		for (let i = 0; i < len; i++) pw += ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
+		for (let i = 0; i < len; i++) pw += ALPHABET[crypto.randomInt(0, ALPHABET.length - 1)];
 		return pw;
 	}
 	updateViews(teamid: string) {
@@ -282,7 +283,7 @@ export const TeamsHandler = new class {
 		if (teamData.private) buf += ` (Private)`;
 		buf += `</strong><br />`;
 		buf += `<small>Uploaded by: <strong>${teamData.ownerid}</strong></small><br />`;
-		buf += `<small>Uploaded on: ${Chat.toTimestamp(teamData.date, {human: true})}</small><br />`;
+		buf += `<small>Uploaded on: ${Chat.toTimestamp(teamData.date, { human: true })}</small><br />`;
 		buf += `<small>Format: ${Dex.formats.get(teamData.format).name}</small><br />`;
 		buf += `<small>Views: ${teamData.views === -1 ? 0 : teamData.views}</small>`;
 		const team = Teams.import(teamData.team);
@@ -357,7 +358,7 @@ export const TeamsHandler = new class {
 	}
 	async count(user: string | User) {
 		const id = toID(user);
-		const result = await this.query<{count: number}>(`SELECT count(*) AS count FROM teams WHERE ownerid = $1`, [id]);
+		const result = await this.query<{ count: number }>(`SELECT count(*) AS count FROM teams WHERE ownerid = $1`, [id]);
 		return result?.[0]?.count || 0;
 	}
 	async get(teamid: number | string): Promise<StoredTeam | null> {
@@ -417,12 +418,11 @@ export const commands: Chat.ChatCommands = {
 
 			const page = isEdit ? 'edit' : 'upload';
 			if (id) {
-				connection.send(`|queryresponse|teamupload|` + JSON.stringify({teamid: id, teamName}));
+				connection.send(`|queryresponse|teamupload|` + JSON.stringify({ teamid: id, teamName }));
 				connection.send(`>view-teams-${page}\n|deinit`);
 				this.parse(`/join view-teams-view-${id}-${id}`);
 			} else {
 				this.parse(`/join view-teams-${page}`);
-				return;
 			}
 		},
 		''(target) {
@@ -458,7 +458,7 @@ export const commands: Chat.ChatCommands = {
 			const teamData = await TeamsHandler.get(teamid);
 			if (!teamData) return this.popupReply(`Team not found.`);
 			if (teamData.ownerid !== user.id && !user.can('rangeban')) {
-				return this.errorReply("You cannot delete teams you do not own.");
+				throw new Chat.ErrorMessage("You cannot delete teams you do not own.");
 			}
 			await TeamsHandler.delete(teamid);
 			this.popupReply(`Team ${teamid} deleted.`);
@@ -556,7 +556,7 @@ export const pages: Chat.PageTable = {
 			let count = Number(query.shift()) || 50;
 			if (count > MAX_TEAMS) count = MAX_TEAMS;
 			let teams: StoredTeam[] = [], title = '';
-			const buttons: {[k: string]: string} = {
+			const buttons: { [k: string]: string } = {
 				views: `<button class="button" name="send" value="/teams mostviews">Sort by most views</button>`,
 				latest: `<button class="button" name="send" value="/teams latest">Sort by most recent upload</button>`,
 			};
@@ -598,11 +598,11 @@ export const pages: Chat.PageTable = {
 			const team = await TeamsHandler.get(teamid);
 			if (!team) {
 				this.title = `[Invalid Team]`;
-				return this.errorReply(`No team with the ID ${teamid} was found.`);
+				throw new Chat.ErrorMessage(`No team with the ID ${teamid} was found.`);
 			}
 			if (team?.private && user.id !== team.ownerid && password !== team.private) {
 				this.title = `[Private Team]`;
-				return this.errorReply(`That team is private.`);
+				throw new Chat.ErrorMessage(`That team is private.`);
 			}
 			this.title = `[Team] ${team.teamid}`;
 			if (user.id !== team.ownerid && team.views >= 0) {
@@ -639,12 +639,12 @@ export const pages: Chat.PageTable = {
 			TeamsHandler.validateAccess(connection);
 			const teamID = toID(query.shift() || "");
 			if (!teamID.length) {
-				return this.errorReply(`Invalid team ID.`);
+				throw new Chat.ErrorMessage(`Invalid team ID.`);
 			}
 			this.title = `[Edit Team] ${teamID}`;
 			const data = await TeamsHandler.get(teamID);
 			if (!data) {
-				return this.errorReply(`Team ${teamID} not found.`);
+				throw new Chat.ErrorMessage(`Team ${teamID} not found.`);
 			}
 			let buf = `<div class="ladder pad"><h2>Edit team ${teamID}</h2>${refresh(this)}<hr />`;
 			// let [teamName, formatid, rawPrivacy, rawTeam] = Utils.splitFirst(target, ',', 4);
@@ -702,15 +702,15 @@ export const pages: Chat.PageTable = {
 			const [rawOwner, rawFormat, rawPokemon, rawMoves, rawAbilities, rawGen] = query;
 			const owner = toID(rawOwner);
 			if (owner.length > 18) {
-				return this.errorReply(`Invalid owner name. Names must be under 18 characters long.`);
+				throw new Chat.ErrorMessage(`Invalid owner name. Names must be under 18 characters long.`);
 			}
 			const format = toID(rawFormat);
 			if (format && !Dex.formats.get(format).exists) {
-				return this.errorReply(`Format ${format} not found.`);
+				throw new Chat.ErrorMessage(`Format ${format} not found.`);
 			}
 			const gen = Number(rawGen);
 			if (rawGen && (isNaN(gen) || (gen < 1 || gen > Dex.gen))) {
-				return this.errorReply(`Invalid generation: '${rawGen}'`);
+				throw new Chat.ErrorMessage(`Invalid generation: '${rawGen}'`);
 			}
 
 			const pokemon = rawPokemon?.split(',').map(toID).filter(Boolean);
@@ -764,7 +764,7 @@ export const pages: Chat.PageTable = {
 				queryStr += ` ORDER BY date DESC`;
 				break;
 			default:
-				return this.errorReply(`Invalid sort term '${sorter}'. Must be either 'views' or 'latest'.`);
+				throw new Chat.ErrorMessage(`Invalid sort term '${sorter}'. Must be either 'views' or 'latest'.`);
 			}
 			queryStr += ` LIMIT ${count}`;
 			let buf = `<div class="pad"><h2>Browse ${name} teams</h2>`;
