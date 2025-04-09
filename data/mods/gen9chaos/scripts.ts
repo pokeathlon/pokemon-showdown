@@ -88,6 +88,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 				oldActive.illusion = null;
 				this.battle.singleEvent('End', oldActive.getAbility(), oldActive.abilityState, oldActive);
+				this.battle.singleEvent('End', oldActive.getItem(), oldActive.itemState, oldActive);
 
 				// if a pokemon is forced out by Whirlwind/etc or Eject Button/Pack, it can't use its chosen move
 				this.battle.queue.cancelAction(oldActive);
@@ -109,6 +110,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				oldActive.statsRaisedThisTurn = false;
 				oldActive.statsLoweredThisTurn = false;
 				oldActive.position = pokemon.position;
+				if (oldActive.fainted) oldActive.status = '';
 				pokemon.position = pos;
 				side.pokemon[pokemon.position] = pokemon;
 				side.pokemon[oldActive.position] = oldActive;
@@ -120,23 +122,22 @@ export const Scripts: ModdedBattleScriptsData = {
 			for (const moveSlot of pokemon.moveSlots) {
 				moveSlot.used = false;
 			}
+			pokemon.abilityState.effectOrder = this.battle.effectOrder++;
+			pokemon.itemState.effectOrder = this.battle.effectOrder++;
 			this.battle.runEvent('BeforeSwitchIn', pokemon);
 			if (sourceEffect) {
-				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getDetails, '[from] ' + sourceEffect);
+				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails, `[from] ${sourceEffect}`);
 			} else {
-				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getDetails);
+				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails);
 			}
-			pokemon.abilityOrder = this.battle.abilityOrder++;
 			if (isDrag && this.battle.gen === 2) pokemon.draggedIn = this.battle.turn;
 			pokemon.previouslySwitchedIn++;
 
 			if (isDrag && this.battle.gen >= 5) {
 				// runSwitch happens immediately so that Mold Breaker can make hazards bypass Clear Body and Levitate
-				this.battle.singleEvent('PreStart', pokemon.getAbility(), pokemon.abilityState, pokemon);
 				this.runSwitch(pokemon);
 			} else {
-				this.battle.queue.insertChoice({choice: 'runUnnerve', pokemon});
-				this.battle.queue.insertChoice({choice: 'runSwitch', pokemon});
+				this.battle.queue.insertChoice({ choice: 'runSwitch', pokemon });
 			}
 
 			return true;
