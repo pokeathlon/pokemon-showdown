@@ -480,7 +480,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				forme = 'Castform-Snowy';
 				break;
 			case 'sandstorm':

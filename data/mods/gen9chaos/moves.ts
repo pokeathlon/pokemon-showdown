@@ -350,7 +350,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Rock';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				move.type = 'Ice';
 				break;
 			case 'newmoon':
@@ -378,7 +378,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.basePower *= 2;
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				move.basePower *= 2;
 				break;
 			case 'newmoon':
@@ -410,7 +410,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 			case 'fallout':
 			case 'thunderstorm':
 				factor = 0.25;
@@ -440,7 +440,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 			case 'fallout':
 			case 'thunderstorm':
 				factor = 0.25;
@@ -470,7 +470,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 			case 'fallout':
 			case 'thunderstorm':
 				factor = 0.25;

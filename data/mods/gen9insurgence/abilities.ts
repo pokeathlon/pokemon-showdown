@@ -52,7 +52,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			case 'sandstorm':

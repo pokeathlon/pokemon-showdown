@@ -56,7 +56,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (pokemon.species.id !== 'boomerangbro') forme = 'Boomerang Bro';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'icebro') forme = 'Ice Bro';
 				break;
 			default:
