@@ -2283,8 +2283,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			nightslash: ["9M"],
 			ominouswind: ["9M"],
 			payback: ["9M"],
-			poisonfang: ["9M"],
-			poisonguard: ["9L20"],
+			poisonfang: ["9L20", "9M"],
 			poisonsting: ["9L6"],
 			protect: ["9M"],
 			psychicfangs: ["9M"],
@@ -5041,7 +5040,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			coaching: ["9M"],
 			copycat: ["9L20"],
 			darkpulse: ["9M"],
-			doubleswap: ["9L1"],
+			doubleslap: ["9L1"],
 			drainpunch: ["9M"],
 			dualchop: ["9M"],
 			falseswipe: ["9M"],
@@ -5194,7 +5193,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			scaleshot: ["9M"],
 			shadowball: ["9M"],
 			shadowbone: ["9L54"],
-			shadowstreak: ["9L36"],
+			shadowsneak: ["9L36"],
 			sleeptalk: ["9M"],
 			snore: ["9M"],
 			stompingtantrum: ["9M"],
@@ -6215,7 +6214,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			blizzard: ["9L50", "9M"],
 			camouflage: ["9L5"],
 			encore: ["9L10"],
-			entertainment: ["9L45"],
+			entrainment: ["9L45"],
 			faketears: ["9L20", "9M"],
 			frostbreath: ["9L30"],
 			frustration: ["9M"],
@@ -6247,7 +6246,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			blizzard: ["9L50", "9M"],
 			camouflage: ["9L5"],
 			encore: ["9L10"],
-			entertainment: ["9L45"],
+			entrainment: ["9L45"],
 			faketears: ["9L20", "9M"],
 			freezedry: ["9L0"],
 			frostbreath: ["9L30"],
@@ -6508,7 +6507,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			revenge: ["9M"],
 			safeguard: ["9M"],
 			scaryface: ["9L8"],
-			shadowstreak: ["9L19"],
+			shadowsneak: ["9L19"],
 			signalbeam: ["9M"],
 			skittersmack: ["9L40", "9M"],
 			sleeptalk: ["9M"],
@@ -7612,3 +7611,9 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		},
 	},
 };
+
+for (const mon in Learnsets) {
+	for (const move in Learnsets[mon as keyof typeof Learnsets].learnset) {
+		if (!Dex.moves.get(move).exists) console.log(move);
+	}
+}
