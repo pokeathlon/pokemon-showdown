@@ -81,6 +81,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "(OU)",
 	},
+	dragapult: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	megakabuterimon: {
 		inherit: true,
 		natDexTier: "OU",
@@ -93,14 +97,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	haxorusdelta: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	lopunnydeltamega: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	sorchingkiln: {
 		inherit: true,
 		natDexTier: "OU",
@@ -112,10 +108,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	vespiquendelta: {
 		inherit: true,
 		natDexTier: "OU",
-	},
-	grimfowl: {
-		inherit: true,
-		natDexTier: "UU",
 	},
 	galladedeltamega: {
 		inherit: true,
@@ -144,6 +136,18 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	harportia: {
 		inherit: true,
 		natDexTier: "OU",
+	},
+	haxorusdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	lopunnydeltamega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	grimfowl: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	eeveemega: {
 		inherit: true,

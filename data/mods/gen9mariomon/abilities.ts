@@ -156,7 +156,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	chaosemeralds: {
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
-			if (target.species.id === 'sonic' && damage >= target.hp && effect && effect.effectType === 'Move') {
+			if (target.species.id === 'sonic' && !target.transformed && damage >= target.hp && effect && effect.effectType === 'Move') {
 				return target.hp - 1;
 			}
 		},
