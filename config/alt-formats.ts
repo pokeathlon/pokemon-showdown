@@ -328,7 +328,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon OU",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
