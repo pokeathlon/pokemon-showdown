@@ -3698,6 +3698,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			safeguard: ["9L28"],
 			sleeptalk: ["9M"],
 			sludgebomb: ["9M"],
+			soak: ["9L32"],
 			snore: ["9M"],
 			strugglebug: ["9M"],
 			substitute: ["9M"],
