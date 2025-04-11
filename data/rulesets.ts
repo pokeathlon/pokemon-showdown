@@ -3354,7 +3354,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	},
 };
 
-
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
 	"attackorder": [{"fusion": ["beedrill"]}],
 	"firstimpression": [{"fusion": ["scyther", "scizor", "pinsir", "farfetchd", "trapinch", "vibrava", "flygon", "kabutops", "armaldo"]}],
@@ -3428,7 +3427,6 @@ const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
 	"prismaticlaser": [{"fusion": ["lanturn", "ampharos", "hooh", "deoxys", "mewtwo", "mew"], "type": ["Psychic"]}],
 	"photongeyser": [{"fusion": ["lanturn", "ampharos", "hooh", "deoxys", "mewtwo", "mew"], "type": ["Psychic"]}],
 	"lunardance": [{"fusion": ["clefairy", "clefable", "staryu", "starmie"]}],
-	"diamondstorm": [{"type": ["Fairy", "Rock"]}, {"type": ["Steel", "Rock"]}, {"fusion": ["dialga", "steelix"]}],
 	"sunsteelstrike": [{"fusion": ["charizard", "volcarona", "flareon", "ninetales", "entei", "hooh", "rapidash"], "type": ["Steel"]}],
 	"doubleironbash": [{"type": ["Steel"], "learns": ["doubleslap"]}],
 	"steameruption": [{"type": ["Water"], "learns": ["eruption"]}],
