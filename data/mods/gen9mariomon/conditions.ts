@@ -22,11 +22,19 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	},
 	raindance: {
 		inherit: true,
-		onWeather(target) {
-			for (const move of target.moveSlots) {
-				if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
-					move.id = 'boomerang' as ID;
-					move.move = 'Boomerang';
+		onFieldStart(field, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'RainDance', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'RainDance');
+			}
+			for (const target of this.getAllPokemon()) {
+				for (const move of target.moveSlots) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+						move.id = 'boomerang' as ID;
+						move.move = 'Boomerang';
+					}
 				}
 			}
 		},
@@ -44,11 +52,14 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	},
 	primordialsea: {
 		inherit: true,
-		onWeather(target) {
-			for (const move of target.moveSlots) {
-				if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
-					move.id = 'boomerang' as ID;
-					move.move = 'Boomerang';
+		onFieldStart(field, source, effect) {
+			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect.name, `[of] ${source}`);
+			for (const target of this.getAllPokemon()) {
+				for (const move of target.moveSlots) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+						move.id = 'boomerang' as ID;
+						move.move = 'Boomerang';
+					}
 				}
 			}
 		},
@@ -66,11 +77,19 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	},
 	sunnyday: {
 		inherit: true,
-		onWeather(target) {
-			for (const move of target.moveSlots) {
-				if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
-					move.id = 'fireball' as ID;
-					move.move = 'Fire Ball';
+		onFieldStart(battle, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'SunnyDay');
+			}
+			for (const target of this.getAllPokemon()) {
+				for (const move of target.moveSlots) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+						move.id = 'fireball' as ID;
+						move.move = 'Fire Ball';
+					}
 				}
 			}
 		},
@@ -87,11 +106,14 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 	},
 	desolateland: {
-		onWeather(target) {
-			for (const move of target.moveSlots) {
-				if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
-					move.id = 'fireball' as ID;
-					move.move = 'Fire Ball';
+		onFieldStart(field, source, effect) {
+			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect.name, `[of] ${source}`);
+			for (const target of this.getAllPokemon()) {
+				for (const move of target.moveSlots) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+						move.id = 'fireball' as ID;
+						move.move = 'Fire Ball';
+					}
 				}
 			}
 		},
@@ -109,14 +131,21 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	},
 	hail: {
 		inherit: true,
-		onWeather(target) {
-			for (const move of target.moveSlots) {
-				if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
-					move.id = 'icetoss' as ID;
-					move.move = 'Ice Toss';
+		onFieldStart(field, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'Hail', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'Hail');
+			}
+			for (const target of this.getAllPokemon()) {
+				for (const move of target.moveSlots) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+						move.id = 'icetoss' as ID;
+						move.move = 'Ice Toss';
+					}
 				}
 			}
-			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
@@ -132,11 +161,19 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	},
 	snowscape: {
 		inherit: true,
-		onWeather(target) {
-			for (const move of target.moveSlots) {
-				if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
-					move.id = 'icetoss' as ID;
-					move.move = 'Ice Toss';
+		onFieldStart(field, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'Snowscape', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'Snowscape');
+			}
+			for (const target of this.getAllPokemon()) {
+				for (const move of target.moveSlots) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+						move.id = 'icetoss' as ID;
+						move.move = 'Ice Toss';
+					}
 				}
 			}
 		},

@@ -333,7 +333,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew',
-			'move:batonpass',
+			'move:batonpass', 'move:electrify',
 		],
 	},
 	{
