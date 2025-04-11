@@ -282,7 +282,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	solarbeam: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snowscape'];
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
@@ -1084,7 +1084,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				} else if (pokemon.hasItem('heavydutyboots')) {
 					return;
 				} else {
-					if (this.randomChance(this.effectState.layers * (this.field.isWeather(['hail', 'snow']) ? 2 : 1), 10)) {
+					if (this.randomChance(this.effectState.layers * (this.field.isWeather(['hail', 'snowscape']) ? 2 : 1), 10)) {
 						pokemon.trySetStatus('frz', pokemon.side.foe.active[0]);
 					}
 				}

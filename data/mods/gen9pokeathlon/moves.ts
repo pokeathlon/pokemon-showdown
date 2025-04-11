@@ -460,7 +460,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 		onHit(source) {
-			this.field.setWeather('snow');
+			this.field.setWeather('snowscape');
 		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
@@ -593,7 +593,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1, 2],
 		onAfterMove(source, target, move) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
 				this.boost({def: 1}, source, source);
 			}
 		},

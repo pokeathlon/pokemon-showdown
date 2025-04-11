@@ -487,7 +487,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	solarbeam: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow', 'fallout', 'thunderstorm'];
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snowscape', 'fallout', 'thunderstorm'];
 			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);

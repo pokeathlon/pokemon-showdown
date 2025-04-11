@@ -7612,9 +7612,3 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		},
 	},
 };
-
-for (const mon in Learnsets) {
-	for (const move in Learnsets[mon as keyof typeof Learnsets].learnset) {
-		if (!Dex.moves.get(move).exists) console.log(move);
-	}
-}

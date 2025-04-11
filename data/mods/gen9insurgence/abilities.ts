@@ -366,7 +366,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	icecleats: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
 				return this.chainModify(2);
 			}
 		},

@@ -1,6 +1,18 @@
 export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	frz: {
 		inherit: true,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
+			} else {
+				this.add('-status', target, 'frz');
+			}
+			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
+				target.formeChange('Shaymin', this.effect, true);
+				target.regressionForme = false;
+			}
+			this.add('-message', 'Freeze is replaced with Frostbite in Super Mariomon (special damage is halved, and 1/16 HP is lost each turn).');
+		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 10,
 		onResidual(pokemon) {
@@ -118,7 +130,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-weather', 'none');
 		},
 	},
-	snow: {
+	snowscape: {
 		inherit: true,
 		onWeather(target) {
 			for (const move of target.moveSlots) {

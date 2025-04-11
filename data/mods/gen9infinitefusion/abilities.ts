@@ -193,7 +193,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	iceface: {
 		inherit: true,
 		onStart(pokemon) {
-			if (this.field.isWeather(['hail', 'snow']) && !pokemon.transformed) {
+			if (this.field.isWeather(['hail', 'snowscape']) && !pokemon.transformed) {
 				if (pokemon.species.id === 'eiscuenoice') {
 					this.add('-activate', pokemon, 'ability: Ice Face');
 					this.effectState.busted = false;
@@ -245,7 +245,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow']) && !pokemon.transformed) {
+			if (this.field.isWeather(['hail', 'snowscape']) && !pokemon.transformed) {
 				if (pokemon.species.id === 'eiscuenoice') {
 					this.add('-activate', pokemon, 'ability: Ice Face');
 					this.effectState.busted = false;
