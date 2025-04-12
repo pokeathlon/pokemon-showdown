@@ -13,7 +13,7 @@ export class RandomIFTeams extends RandomTeams {
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: AnyObject[] = this.data.sets.filter((set: AnyObject) => set.fusion);
+		let pool: AnyObject[] = this.dex.deepClone(this.data.sets).filter((set: AnyObject) => set.fusion);
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSet = this.sampleNoReplace(pool);
