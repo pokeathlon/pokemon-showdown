@@ -1,5 +1,20 @@
 const {Dex} = require('../../../sim/dex');
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+	// Modded
+	darkvoid: {
+		inherit: true,
+		accuracy: 80,
+		onTry(source, target, move) {
+			if (source.species.name === 'Antasma' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Dark Void');
+			this.hint("Only a Pokemon whose form is Antasma can use this move.");
+			return null;
+		},
+	},
+
+	// Additions
 	hammerthrow: {
 		num: 0,
 		accuracy: 85,
