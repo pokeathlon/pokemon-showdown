@@ -1,20 +1,18 @@
-import {RandomGen8Teams} from '../gen8/teams';
-import {PRNG, PRNGSeed} from '../../../sim/prng';
+import type { PRNG, PRNGSeed } from "../../../sim/prng";
+import { RandomTeams, type MoveCounter } from "../gen9/teams";
 
-
-export class RandomGen7Teams extends RandomGen8Teams {
-	randomSets: AnyObject = require('./data.json');
-
+export class RandomChaosTeams extends RandomTeams {
+	data: {[key: string]: AnyObject[]} = require('./data.json');
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 	}
 
-	randomTeam() {
+	override randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
 
-		const seed = this.prng.seed;
+		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: AnyObject[] = this.randomSets.random_sets;
+		let pool: AnyObject[] = this.data.sets;
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSet = this.sampleNoReplace(pool);
@@ -75,7 +73,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			if (pokemon.filter(set => !this.dex.items.get(set.item).megaEvolves).length === 5) {
 				pool = pool.filter(set => this.dex.items.get(set.item).megaEvolves);
 			}
-			if (pokemon.filter(set => this.dex.mod('gen9').species.get(set.species).exists).length === 4) {
+			if (pokemon.filter(set => this.dex.mod('gen9').species.get(set.species).exists).length === 5) {
 				pool = pool.filter(set => !this.dex.mod('gen9').species.get(set.id).exists);
 			}
 		}
@@ -87,4 +85,4 @@ export class RandomGen7Teams extends RandomGen8Teams {
 	}
 }
 
-export default RandomGen7Teams;
+export default RandomChaosTeams;

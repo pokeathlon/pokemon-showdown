@@ -1,8 +1,8 @@
 import type { PRNG, PRNGSeed } from "../../../sim/prng";
 import { RandomTeams, type MoveCounter } from "../gen9/teams";
 
-export class RandomPOATeams extends RandomTeams {
-	data: {[key: string]: AnyObject[]} = require('../gen9chaos/data.json');
+export class RandomMarioTeams extends RandomTeams {
+	data: {[key: string]: AnyObject[]} = require('./data.json');
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 	}
@@ -12,7 +12,7 @@ export class RandomPOATeams extends RandomTeams {
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: AnyObject[] = this.data.sets.filter((set: AnyObject) => this.dex.species.get(set.species).tags?.includes('Pokeathlon'));
+		let pool: AnyObject[] = this.data.sets;
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSet = this.sampleNoReplace(pool);
@@ -76,4 +76,4 @@ export class RandomPOATeams extends RandomTeams {
 	}
 }
 
-export default RandomPOATeams;
+export default RandomMarioTeams;

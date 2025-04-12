@@ -49,8 +49,8 @@ async function update() {
 }
 
 async function pullRandbats(connection, googleAuth, sheetid) {
-	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
-		let randbats_sets = {random_sets: []};
+	for (const mod of ['gen9chaos', 'gen7infinitefusion', 'gen9mariomon']) {
+		let randbats_sets = {sets: []};
 		const data = await connection.spreadsheets.values.get({
 			auth: googleAuth,
 			spreadsheetId: sheetid,
@@ -66,9 +66,9 @@ async function pullRandbats(connection, googleAuth, sheetid) {
 					cur_set[key_index[item]] = line[item];
 				}
 			}
-			randbats_sets.random_sets.push(cur_set);
+			randbats_sets.sets.push(cur_set);
 		}
-		fs.writeFileSync(path.resolve(__dirname, '../data/random-battles/' + mod + '/data.json'), JSON.stringify(randbats_sets, null, '\t'));
+		fs.writeFileSync(path.resolve(__dirname, '../data/random-battles/' + mod + '/data.json'), JSON.stringify(randbats_sets, null, '\t'), { flag: "w" });
 	}
 }
 

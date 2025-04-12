@@ -1,20 +1,18 @@
-import {RandomGen8Teams} from '../gen8/teams';
-import {PRNG, PRNGSeed} from '../../../sim/prng';
+import type { PRNG, PRNGSeed } from "../../../sim/prng";
+import { RandomTeams, type MoveCounter } from "../gen9/teams";
 
-
-export class RandomGen7Teams extends RandomGen8Teams {
-	randomSets: AnyObject = require('../gen9chaos/data.json');
-
+export class RandomInfTeams extends RandomTeams {
+	data: {[key: string]: AnyObject[]} = require('../gen9chaos/data.json');
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 	}
 
-	randomTeam() {
+	override randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
 
-		const seed = this.prng.seed;
+		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: AnyObject[] = this.randomSets.random_sets.filter((set: AnyObject) => this.dex.species.get(set.species).tags?.includes('Infinity'));
+		let pool: AnyObject[] = this.data.sets.filter((set: AnyObject) => this.dex.species.get(set.species).tags?.includes('Infinity'));
 
 		while (pokemon.length < this.maxTeamSize) {
 			const curSet = this.sampleNoReplace(pool);
@@ -59,12 +57,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 					species: this.dex.species.get(curSpecies).name,
 					happiness: curSet.moves.includes('frustration') ? 0 : 255,
 					shiny: this.randomChance(1, 1024),
-					level: level,
+					level: curSet.ability === 'necromancy' ? 70 : level,
 					gender: this.dex.species.get(curSpecies).gender,
 					moves: curSet.moves,
 					ability: curSet.ability,
 					item: curSet.item,
-					teraType: this.dex.types.get(curSet.teraType).name,
 					evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84},
 					ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31},
 				});
@@ -79,4 +76,4 @@ export class RandomGen7Teams extends RandomGen8Teams {
 	}
 }
 
-export default RandomGen7Teams;
+export default RandomInfTeams;
