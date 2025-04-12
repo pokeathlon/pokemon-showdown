@@ -73,7 +73,7 @@ export class RandomChaosTeams extends RandomTeams {
 			if (pokemon.filter(set => !this.dex.items.get(set.item).megaEvolves).length === 5) {
 				pool = pool.filter(set => this.dex.items.get(set.item).megaEvolves);
 			}
-			if (pokemon.filter(set => this.dex.mod('gen9').species.get(set.species).exists).length === 5) {
+			if (pokemon.filter(set => this.dex.mod('gen9').species.get(set.species).exists).length === 1) {
 				pool = pool.filter(set => !this.dex.mod('gen9').species.get(set.id).exists);
 			}
 		}
