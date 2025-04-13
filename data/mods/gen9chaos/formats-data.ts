@@ -77,9 +77,17 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	leomon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
+	},
+	superfly: {
+		inherit: true,
+		natDexTier: "OU",
 	},
 	dragapult: {
 		inherit: true,
@@ -222,10 +230,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UUBL",
 	},
 	torterneon: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
-	leomon: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
