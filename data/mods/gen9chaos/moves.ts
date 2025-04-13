@@ -818,7 +818,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	darkvoid: {
 		inherit: true,
 		onTry(source, target, move) {
-			if ([source.species.name, source.fusion].includes('Darkrai') || move.hasBounced) {
+			if ([source.species.name, source.fusion].includes('Darkrai') || [source.species.name, source.fusion].includes('Antasma') || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', source, 'move: Dark Void');

@@ -49,7 +49,7 @@ async function update() {
 }
 
 async function pullRandbats(connection, googleAuth, sheetid) {
-	for (const mod of ['gen9chaos', 'gen7infinitefusion', 'gen9mariomon']) {
+	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
 		let randbats_sets = {sets: []};
 		const data = await connection.spreadsheets.values.get({
 			auth: googleAuth,

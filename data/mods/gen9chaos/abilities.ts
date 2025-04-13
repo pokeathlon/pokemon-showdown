@@ -350,7 +350,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	disguise: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
-			if (effect?.effectType === 'Move' && (['mimikyu', 'mimikyutotem'].includes(target.species.id) || ['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)))) {
+			if (
+				effect?.effectType === 'Move' &&
+				(['mimikyu', 'mimikyutotem'].includes(target.species.id) || ['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)) ||
+				['uproot'].includes(target.species.id) || ['uproot'].includes(this.dex.toID(target.fusion)))
+			) {
 				this.add('-activate', target, 'ability: Disguise');
 				this.effectState.busted = true;
 				return 0;
@@ -358,7 +362,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onCriticalHit(target, source, move) {
 			if (!target) return;
-			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) && ['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion))) {
+			if (
+				!['mimikyu', 'mimikyutotem'].includes(target.species.id) && !['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)) &&
+				!['uproot'].includes(target.species.id) && !['uproot'].includes(this.dex.toID(target.fusion))
+			) {
 				return;
 			}
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
@@ -369,7 +376,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target || move.category === 'Status') return;
-			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) && ['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion))) {
+			if (
+				!['mimikyu', 'mimikyutotem'].includes(target.species.id) && !['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)) &&
+				!['uproot'].includes(target.species.id) && !['uproot'].includes(this.dex.toID(target.fusion))
+			) {
 				return;
 			}
 
@@ -388,6 +398,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					valid = true;
 				} if (['mimikyu', 'mimikyutotem'].includes(this.dex.toID(pokemon.fusion))) {
 					const fusionid = this.dex.toID(pokemon.fusion) === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
+					pokemon.fusionChange(fusionid, this.effect);
+					valid = true;
+				} if (['uproot'].includes(pokemon.species.id)) {
+					const speciesid = 'Uproot-Naked';
+					pokemon.formeChange(speciesid, this.effect, true);
+					valid = true;
+				} if (['uproot'].includes(this.dex.toID(pokemon.fusion))) {
+					const fusionid = 'Uproot-Naked';
 					pokemon.fusionChange(fusionid, this.effect);
 					valid = true;
 				} if (valid) {
@@ -469,35 +487,51 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		onWeatherChange(pokemon) {
 			if (pokemon.transformed) return;
-			let forme = null;
+			let castforme = null;
+			let broforme = null;
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				forme = 'Castform-Sunny';
+				castforme = 'Castform-Sunny';
+				broforme = 'Fire Bro';
 				break;
 			case 'raindance':
 			case 'primordialsea':
-				forme = 'Castform-Rainy';
+				castforme = 'Castform-Rainy';
+				broforme = 'Boomerang Bro';
 				break;
 			case 'hail':
 			case 'snowscape':
-				forme = 'Castform-Snowy';
+				castforme = 'Castform-Snowy';
+				broforme = 'Ice Bro';
 				break;
 			case 'sandstorm':
-				forme = 'Castform-Sandy';
+				castforme = 'Castform-Sandy';
 				break;
 			case 'newmoon':
-				forme = 'Castform-Cloudy';
+				castforme = 'Castform-Cloudy';
 				break;
 			default:
-				forme = 'Castform';
+				castforme = 'Castform';
+				broforme = 'Hammer Bro';
 				break;
 			}
-			if (pokemon.isActive && forme) {
-				if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== forme) {
-					pokemon.formeChange(forme, this.effect, false, '[msg]');
-				} else if (pokemon.fusion?.includes('Castform') && pokemon.fusion !== forme) {
-					pokemon.fusionChange(forme, this.effect);
+			if (pokemon.isActive) {
+				if (castforme) {
+					if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== castforme) {
+						pokemon.formeChange(castforme, this.effect, false, '[msg]');
+					} 
+					if (pokemon.fusion?.includes('Castform') && pokemon.fusion !== castforme) {
+						pokemon.fusionChange(castforme, this.effect);
+					}
+				}
+				if (broforme) {
+					if (pokemon.baseSpecies.baseSpecies === 'Hammer Bro' && pokemon.species.name !== broforme) {
+						pokemon.formeChange(broforme, this.effect, false, '[msg]');
+					} 
+					if (pokemon.fusion?.endsWith(' Bro') && pokemon.fusion !== broforme) {
+						pokemon.fusionChange(broforme, this.effect);
+					}
 				}
 			}
 		},
@@ -601,37 +635,70 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	schooling: {
 		inherit: true,
 		onStart(pokemon) {
-			if ((pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) || pokemon.level < 20 || pokemon.transformed) return;
+			if (
+				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.fusion?.includes('Fuzzy')) ||
+				pokemon.level < 20 || pokemon.transformed
+			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
-				} else if (pokemon.fusion === 'Wishiwashi') {
+				}
+				if (pokemon.fusion === 'Wishiwashi') {
 					pokemon.fusionChange('Wishiwashi-School');
+				}
+				if (pokemon.species.id === 'fuzzy') {
+					pokemon.formeChange('Fuzzy-Swarm');
+				}
+				if (pokemon.fusion === 'Fuzzy') {
+					pokemon.fusionChange('Fuzzy-Swarm');
 				}
 			} else {
 				if (pokemon.species.id === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
-				} else if (pokemon.fusion === 'Wishiwashi-School') {
+				}
+				if (pokemon.fusion === 'Wishiwashi-School') {
 					pokemon.fusionChange('Wishiwashi');
+				}
+				if (pokemon.species.id === 'fuzzyswarm') {
+					pokemon.formeChange('Fuzzy');
+				}
+				if (pokemon.fusion === 'Fuzzy-Swarm') {
+					pokemon.fusionChange('Fuzzy');
 				}
 			}
 		},
 		onResidual(pokemon) {
 			if (
 				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.fusion?.includes('Fuzzy')) ||
 				pokemon.level < 20 || pokemon.transformed || !pokemon.hp
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
-				} else if (pokemon.fusion === 'Wishiwashi') {
+				}
+				if (pokemon.fusion === 'Wishiwashi') {
 					pokemon.fusionChange('Wishiwashi-School');
+				}
+				if (pokemon.species.id === 'fuzzy') {
+					pokemon.formeChange('Fuzzy-Swarm');
+				}
+				if (pokemon.fusion === 'Fuzzy') {
+					pokemon.fusionChange('Fuzzy-Swarm');
 				}
 			} else {
 				if (pokemon.species.id === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
-				} else if (pokemon.fusion === 'Wishiwashi-School') {
+				}
+				if (pokemon.fusion === 'Wishiwashi-School') {
 					pokemon.fusionChange('Wishiwashi');
+				}
+				if (pokemon.species.id === 'fuzzyswarm') {
+					pokemon.formeChange('Fuzzy');
+				}
+				if (pokemon.fusion === 'Fuzzy-Swarm') {
+					pokemon.fusionChange('Fuzzy');
 				}
 			}
 		},
@@ -852,6 +919,41 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
 				target.addVolatile('confusion');
+			}
+		},
+	},
+
+	// Mariomon
+	defeatist: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				if (pokemon.species.id === 'rex') pokemon.formeChange('Rex-Squished', this.effect, true);
+				if (pokemon.fusion === 'Rex') pokemon.fusionChange('Rex-Squished', this.effect);
+			} else {
+				if (pokemon.species.id === 'rexsquished') pokemon.formeChange('Rex', this.effect, true);
+				if (pokemon.fusion === 'Rex-Squished') pokemon.fusionChange('Rex', this.effect);
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpA(atk, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+	},
+	angerpoint: {
+		inherit: true,
+		onHit(target, source, move) {
+			if (!target.hp) return;
+			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
+				if (target.species.id === 'wiggler') target.formeChange('Wiggler-Angry');
+				if (target.fusion === 'Wiggler') target.fusionChange('Wiggler-Angry');
+				this.boost({atk: 12}, target, target);
 			}
 		},
 	},
