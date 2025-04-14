@@ -15,6 +15,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
+		for (const i in this.data.Pokedex) {
+			if (this.data.Pokedex[i].types.includes("Nuclear") && !require('./formats-data').ModFormatsData[i]) {
+				this.modData('Pokedex', i).natDexTier = "RU";
+			}
+		}
 		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE' || this.data.Moves[move].name === 'Bouncy Bubble') delete this.data.Moves[move].isNonstandard;
 	},
 	actions: {

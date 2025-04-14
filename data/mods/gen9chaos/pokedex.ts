@@ -246,10 +246,3 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 };
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
-
-for (const i in Pokedex) {
-	const mon = i as keyof typeof Pokedex;
-	if (Pokedex[mon].types?.includes('Nuclear')) {
-		Pokedex[mon] = {...Pokedex[mon], natDexTier: "RU"};
-	}
-}
