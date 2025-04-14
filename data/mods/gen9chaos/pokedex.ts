@@ -1,4 +1,5 @@
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
+const {Dex} = require('../../../sim/dex');
+export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	// IF
 	magnemite: {
 		inherit: true,
@@ -243,3 +244,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	// 	abilities: {0: "Overcoat", 1: "Baby on Board", H: "Filter"},
 	// }
 };
+
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
+
+for (const i in Pokedex) {
+	const mon = i as keyof typeof Pokedex;
+	if (Pokedex[mon].types?.includes('Nuclear')) {
+		Pokedex[mon] = {...Pokedex[mon], natDexTier: "RU"};
+	}
+}
