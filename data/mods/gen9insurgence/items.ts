@@ -76,13 +76,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		desc: "If held by Giratina/Arceus/Regigigas, this item triggers its Primal Reversion.",
 		spritenum: -1,
 		itemUser: ["Arceus", "Giratina", "Regigigas"],
+		onSwitchInPriority: -1,
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && ['Arceus', 'Giratina', 'Regigigas'].includes(pokemon.baseSpecies.name)) {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
-			}
-		},
-		onPrimal(pokemon) {
-			if (['Arceus', 'Giratina', 'Regigigas'].includes(pokemon.baseSpecies.name)) {
+			if (pokemon.isActive && ['Arceus', 'Giratina', 'Regigigas'].includes(pokemon.baseSpecies.name) && !pokemon.transformed) {
 				pokemon.formeChange(pokemon.baseSpecies.name + '-Primal', this.effect, true);
 			}
 		},

@@ -724,9 +724,9 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "Uber",
-		natDexTier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	crazeedayzee: {
 		num: 10044,
