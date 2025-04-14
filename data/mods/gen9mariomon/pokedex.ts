@@ -13,7 +13,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	peeweepiranha: {
@@ -30,7 +29,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	peteypiranha: {
@@ -46,7 +44,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	blooper: {
@@ -62,7 +59,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	bubbleblooper: {
@@ -79,7 +75,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	gooperblooper: {
@@ -95,7 +90,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	bobomb: {
@@ -111,7 +105,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	chuckya: {
@@ -128,7 +121,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	kingbobomb: {
@@ -144,7 +136,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	goomba: {
@@ -160,7 +151,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	goombastack: {
@@ -176,7 +166,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	anttrooper: {
@@ -192,7 +181,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	hornedanttrooper: {
@@ -208,7 +196,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	cheepcheep: {
@@ -224,7 +211,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	cheepchomp: {
@@ -241,7 +227,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	porcupuffer: {
@@ -257,7 +242,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	podoboo: {
@@ -273,7 +257,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	blargg: {
@@ -289,7 +272,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	biddybud: {
@@ -305,7 +287,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	parabiddy: {
@@ -321,7 +302,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	shyguy: {
@@ -337,7 +317,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	sniffit: {
@@ -353,7 +332,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	fuzzy: {
@@ -368,7 +346,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	fuzzyswarm: {
@@ -387,7 +364,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	lavadrop: {
@@ -402,7 +378,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	montymole: {
@@ -418,7 +393,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Uber",
-		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
 	megamole: {
@@ -435,7 +409,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Uber",
-		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
 	majorburrows: {
@@ -451,7 +424,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Uber",
-		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
 	thwimp: {
@@ -467,7 +439,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	thwomp: {
@@ -483,7 +454,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	whomp: {
@@ -498,7 +468,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	boo: {
@@ -514,7 +483,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	balloonboo: {
@@ -531,7 +499,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	kingboo: {
@@ -547,7 +514,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	dinotorch: {
@@ -563,7 +529,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	dinorhino: {
@@ -579,7 +544,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	rex: {
@@ -594,7 +558,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	rexsquished: {
@@ -613,7 +576,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	babyyoshi: {
@@ -629,7 +591,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	yoshi: {
@@ -646,7 +607,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	yoob: {
@@ -662,7 +622,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	redyoshi: {
@@ -678,7 +637,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	blueyoshi: {
@@ -694,7 +652,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	yellowyoshi: {
@@ -710,7 +667,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	birdo: {
@@ -725,7 +681,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	crazeedayzee: {
@@ -741,7 +696,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	amazydayzee: {
@@ -757,7 +711,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	fang: {
@@ -773,7 +726,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	swoop: {
@@ -789,7 +741,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	baldcleft: {
@@ -805,7 +756,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	ironcleft: {
@@ -822,7 +772,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	bristle: {
@@ -838,7 +787,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	bulletbill: {
@@ -854,7 +802,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	banzaibill: {
@@ -870,7 +817,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	duplighost: {
@@ -885,7 +831,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	broozer: {
@@ -900,7 +845,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	charginchuck: {
@@ -915,7 +859,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	babypenguin: {
@@ -931,7 +874,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	penguin: {
@@ -947,7 +889,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	buzzybeetle: {
@@ -963,7 +904,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	spiketop: {
@@ -979,7 +919,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	spiny: {
@@ -995,7 +934,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	lakitu: {
@@ -1011,7 +949,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	spike: {
@@ -1027,7 +964,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	clubba: {
@@ -1043,7 +979,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	pokey: {
@@ -1059,7 +994,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	poisonpokey: {
@@ -1075,7 +1009,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	koopatroopa: {
@@ -1091,7 +1024,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	paratroopa: {
@@ -1107,7 +1039,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	drybones: {
@@ -1124,7 +1055,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	cataquack: {
@@ -1140,7 +1070,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	plungelo: {
@@ -1156,7 +1085,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	chainchomp: {
@@ -1171,7 +1099,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	hammerbro: {
@@ -1186,7 +1113,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	firebro: {
@@ -1204,7 +1130,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	boomerangbro: {
@@ -1222,7 +1147,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	icebro: {
@@ -1240,7 +1164,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	bully: {
@@ -1256,7 +1179,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	chillbully: {
@@ -1272,7 +1194,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	gushen: {
@@ -1288,7 +1209,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	mollusquelanceur: {
@@ -1304,7 +1224,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	trex: {
@@ -1319,7 +1238,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	foo: {
@@ -1335,7 +1253,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	tyfoo: {
@@ -1351,7 +1268,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	uproot: {
@@ -1366,7 +1282,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	uprootnaked: {
@@ -1385,7 +1300,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	klepto: {
@@ -1400,7 +1314,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	strollinstu: {
@@ -1415,7 +1328,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	chincho: {
@@ -1430,7 +1342,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	fighterfly: {
@@ -1446,7 +1357,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	superfly: {
@@ -1462,7 +1372,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Uber",
-		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
 	beanie: {
@@ -1478,7 +1387,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	parabeanie: {
@@ -1494,7 +1402,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	wiggler: {
@@ -1509,7 +1416,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	wigglerangry: {
@@ -1528,7 +1434,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 	trunkle: {
@@ -1543,7 +1448,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	mawmaw: {
@@ -1558,7 +1462,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	shrooblet: {
@@ -1574,7 +1477,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	shroob: {
@@ -1591,7 +1493,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "NFE",
-		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	shrooboid: {
@@ -1607,7 +1508,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	crystalking: {
@@ -1622,7 +1522,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	pidgit: {
@@ -1637,7 +1536,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	tuffpuff: {
@@ -1653,7 +1551,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	huffnpuff: {
@@ -1669,7 +1566,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	minion: {
@@ -1685,7 +1581,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	hisstocrat: {
@@ -1701,7 +1596,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	lilsparky: {
@@ -1717,7 +1611,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	spark: {
@@ -1733,7 +1626,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	handfake: {
@@ -1748,7 +1640,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	sprangler: {
@@ -1764,7 +1655,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	tarantox: {
@@ -1780,7 +1670,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	fishbone: {
@@ -1795,7 +1684,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	snoozorb: {
@@ -1810,7 +1698,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	happymoon: {
@@ -1825,7 +1712,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	angrysun: {
@@ -1840,7 +1726,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	luma: {
@@ -1856,7 +1741,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	lubba: {
@@ -1872,7 +1756,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	starbag: {
@@ -1887,7 +1770,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	chillvirus: {
@@ -1902,7 +1784,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	fevervirus: {
@@ -1917,7 +1798,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	weirdvirus: {
@@ -1932,7 +1812,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	eerie: {
@@ -1947,7 +1826,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	nipper: {
@@ -1963,7 +1841,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	muncher: {
@@ -1979,7 +1856,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	sumobro: {
@@ -1994,7 +1870,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	mechakoopa: {
@@ -2010,7 +1885,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	mechachomp: {
@@ -2026,7 +1900,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	pyoro: {
@@ -2041,7 +1914,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	toady: {
@@ -2057,7 +1929,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	magikoopa: {
@@ -2073,7 +1944,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	madpiano: {
@@ -2088,7 +1958,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	freezie: {
@@ -2104,7 +1973,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	mrblizzard: {
@@ -2120,7 +1988,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	heaveho: {
@@ -2135,7 +2002,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	mri: {
@@ -2150,7 +2016,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	mawray: {
@@ -2165,7 +2030,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	ukiki: {
@@ -2180,7 +2044,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	skeeter: {
@@ -2196,7 +2059,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	scuttlebug: {
@@ -2212,7 +2074,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	twirlip: {
@@ -2228,7 +2089,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	spindrift: {
@@ -2244,7 +2104,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	bandit: {
@@ -2259,7 +2118,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	xnaut: {
@@ -2275,7 +2133,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	elitexnaut: {
@@ -2291,7 +2148,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	jabble: {
@@ -2307,7 +2163,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	jabbi: {
@@ -2323,7 +2178,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	ghostmouse: {
@@ -2339,7 +2193,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	twirler: {
@@ -2355,7 +2208,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	brolder: {
@@ -2371,7 +2223,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	bossbrolder: {
@@ -2387,7 +2238,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	phanto: {
@@ -2402,7 +2252,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "RU",
-		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	tweester: {
@@ -2417,7 +2266,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	miniyux: {
@@ -2433,7 +2281,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "LC",
-		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	yux: {
@@ -2449,7 +2296,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	exor: {
@@ -2464,7 +2310,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	hooktail: {
@@ -2479,7 +2324,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
 		tier: "UU",
-		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	gloomtail: {
@@ -2494,7 +2338,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	bonetail: {
@@ -2509,7 +2352,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	antasma: {
@@ -2524,7 +2366,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
 		tier: "OU",
-		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	sonic: {
@@ -2539,7 +2380,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
 		tier: "Uber",
-		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
 	supersonic: {
@@ -2556,7 +2396,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
 		tier: "Illegal",
-		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
 };
