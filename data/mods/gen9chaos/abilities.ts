@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 
 const eeveelutions: {[k: string]: string} = {
 	"Water": "vaporeon",
@@ -977,4 +977,4 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	// },
 };
 
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Utils.deepClone(ModAbilities);

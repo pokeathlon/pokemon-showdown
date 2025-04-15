@@ -1,6 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Conditions as Base } from '../../conditions';
+import { Conditions as Parent} from '../gen9infinitefusion/conditions';
+
 export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/conditions').ModConditions),
+	...Parent,
 	raindance: {
 		inherit: true,
 		onFieldStart(field, source, effect) {

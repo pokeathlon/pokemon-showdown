@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// Tiering
 	emolgadelta: {
@@ -2276,4 +2276,4 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 };
-export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Dex.deepClone(ModFormatsData);
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Utils.deepClone(ModFormatsData);

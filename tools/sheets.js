@@ -6,11 +6,11 @@ const path = require('path');
 
 const key = require('../config/config').googleSheetsKey;
 
-function toID(text) {
+const toID = (text) => {
 	return (text && typeof text === "string" ? text : "").toLowerCase().replace(/[^a-z0-9]+/g, "");
 }
 
-function createConnection(key) {
+const createConnection = (key) => {
 	if (!key || !key.client_email || !key.private_key) return [null, null];
 
 	const auth = new google.auth.JWT(key.client_email, null, key.private_key.replace(/\\n/g, '\n'), 'https://www.googleapis.com/auth/spreadsheets');
@@ -18,8 +18,6 @@ function createConnection(key) {
 
 	return [auth, connection];
 }
-
-const [auth, connection] = createConnection(key);
 
 const allFormats = [
 	{id: "1aS2bM27i28iJWG5MSmxmzTNP0_NkAEPpbUgw6SHFa6k", mod: "gen9pokeathlon", owner: "everyone"},
@@ -29,22 +27,7 @@ const randbats = "1z5oK9_nqsjBzSqiK8M97-TZGyOosL9irW4ItO4yrUNE";
 
 const loc = {types: 10, stats: 12, abilities: 18, weight: 21, height: 22, prevo: 23, gender: 24, formeinfo: 25, cosmeticFormes: 26, tiers: 28, learnset: 32};
 
-async function update() {
-	if (!auth || !connection) return;
-
-	for (const sheet of allFormats) {
-		const dex = await pullFormat(sheet.id, 'Pokedex');
-		const bans = await pullFormat(sheet.id, 'Formats');
-
-		const out = {
-			dex: formatDex(dex),
-			banlists: formatBans(bans),
-		};
-
-		fs.writeFileSync(path.resolve(__dirname, '../data/mods/' + sheet.mod + '/remote.json'), JSON.stringify(out, null, '\t'));
-	}
-	await pullRandbats(randbats);
-}
+const [auth, connection] = createConnection(key);
 
 async function pullRandbats(sheetid) {
 	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
@@ -74,18 +57,41 @@ function pullFormat(sheetid, section) {
 	return connection.spreadsheets.values.get({
 		auth: auth,
 		spreadsheetId: sheetid,
-		range: `${section}!A3:AG`,
+		range: `${section}!A1:AG`,
 	});
 }
 
+function getIndexes(labels, targets) {
+	let index = {};
+
+	for (const target of targets) {
+		index[target] = labels.findIndex((label) => toID(label) === target);
+	}
+	return index;
+}
+
 function formatDex(pokedex) {
-	const dexData = pokedex.data.values;
+	let data = pokedex.data.values;
+	for (const i in data[0]) if (!data[1][i]) data[1][i] = data[0][i];
+
+	const targets = [
+		'name', '1', '2',
+		'type1', 'type2',
+		'hp', 'atk', 'def', 'spa', 'spd', 'spe',
+		'ability1', 'ability2', 'hiddenability',
+		'weightkg', 'heightm', 'gender',
+		'prevo', 'formeinfo', 'cosmeticformes',
+		'tier', 'natdextier', 'doublestier',
+		'learnset',
+	];
+	const index = getIndexes(data[1], targets);
+
 	const dex = {};
-	for (const line of dexData) {
+	for (const line of data.slice(2)) {
 		dex[toID(line[0])] = {
-			name: line[0],
-			gen1: line[1] === "TRUE" ? 1 : 0,
-			gen2: line[2] === "TRUE" ? 1 : 0,
+			name: line[index.name],
+			gen1: line[index['1']] === "TRUE",
+			gen2: line[index['2']] === "TRUE",
 			types: [
 				line[loc.types + 0] || undefined,
 				line[loc.types + 1] || undefined,
@@ -132,4 +138,19 @@ function formatBans(bans) {
 	return banlists;
 }
 
-exports.update = update;
+exports.update = async () => {
+	if (!auth || !connection) return;
+
+	for (const sheet of allFormats) {
+		const dex = await pullFormat(sheet.id, 'Pokedex');
+		const bans = await pullFormat(sheet.id, 'Formats');
+
+		const out = {
+			dex: formatDex(dex),
+			banlists: formatBans(bans),
+		};
+
+		fs.writeFileSync(path.resolve(__dirname, '../data/mods/' + sheet.mod + '/remote.json'), JSON.stringify(out, null, '\t'));
+	}
+	await pullRandbats(randbats);
+}

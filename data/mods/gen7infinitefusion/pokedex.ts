@@ -1,6 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Pokedex as Base } from '../../pokedex';
+import { Pokedex as Parent} from '../gen9infinitefusion/pokedex';
+
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/pokedex').ModPokedex),
+	...Parent,
 	gengar: {
 		inherit: true,
 		abilities: {0: "Levitate"},
@@ -108,13 +110,13 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	meloettapirouette: {
 		inherit: true,
-		battleOnly: null,
-		requiredMove: null,
+		battleOnly: "",
+		requiredMove: "",
 	},
 	necrozmaultra: {
 		inherit: true,
-		battleOnly: null,
-		requiredItem: null,
+		battleOnly: "",
+		requiredItem: "",
 	},
 	greninja: {
 		inherit: true,
@@ -127,7 +129,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 };
 
 // Regional Dex Data
-const IFDex: {[k: string]: number} = {
+const cutDex: {[k: string]: number} = {
 	"bulbmantle": 1001,
 	"ivymelortle": 1002,
 	"venustoizard": 1003,
@@ -671,9 +673,10 @@ const IFDex: {[k: string]: number} = {
 	"luvdisc": 501,
 };
 
-for (const i of Dex.mod('gen9infinitefusion').species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	const isIF = i.id in IFDex;
-	Pokedex[i.id].isNonstandard = isIF ? null : "Unobtainable";
-	Pokedex[i.id].num = isIF ? IFDex[i.id] : 0;
+for (const key in {...Base, ...Pokedex}) {
+	const id = key as keyof typeof Base;
+	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	Pokedex[id] = {...Pokedex[id], isNonstandard: "Unobtainable", num: 0};
+
+	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 7};
 }

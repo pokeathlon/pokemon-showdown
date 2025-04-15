@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
 	thunder: {
 		inherit: true,
@@ -578,4 +577,3 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		contestType: "Beautiful",
 	},
 };
-export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);

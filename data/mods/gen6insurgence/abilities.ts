@@ -1,7 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Abilities as Base } from '../../abilities';
+import { Abilities as Parent} from '../gen9insurgence/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Dex.deepClone(require('../gen9insurgence/abilities').ModAbilities),
+	...Parent,
 	intoxicate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {

@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModConditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	// Uranium
 	slp: {
@@ -322,4 +322,4 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	},
 };
 
-export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(ModConditions);
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Utils.deepClone(ModConditions);

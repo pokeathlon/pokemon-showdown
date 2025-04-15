@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	eevee: {
 		learnset: {
@@ -45,4 +45,4 @@ for (const mod of ['pokeathlon', 'insurgence', 'uranium', 'infinity']) {
 	}
 }
 
-export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);
+export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = Utils.deepClone(ModLearnsets);

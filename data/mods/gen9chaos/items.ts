@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Other
 	berserkgene: {
@@ -114,4 +114,4 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 };
 
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(ModItems);
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Utils.deepClone(ModItems);

@@ -1,2 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(require('../gen9uranium/items').ModItems);
+import { Items as Base } from '../../items';
+import { Items as Parent} from '../gen9uranium/items';
+
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Parent;

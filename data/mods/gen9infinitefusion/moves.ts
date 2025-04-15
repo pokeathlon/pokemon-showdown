@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	watershuriken: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
@@ -172,4 +171,3 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 	},
 };
-export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);

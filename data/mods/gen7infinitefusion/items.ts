@@ -1,6 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Items as Base } from '../../items';
+import { Items as Parent} from '../gen9infinitefusion/items';
+
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/items').ModItems),
+	...Parent,
 
 	// Legalize Gems
 	buggem: {inherit: true, isNonstandard: null},

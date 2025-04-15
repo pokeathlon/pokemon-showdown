@@ -1,5 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Moves as Base } from '../../moves';
+import { Moves as Parent} from '../gen9uranium/moves';
+
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+	...Parent,
 	rest: {
 		inherit: true,
 		onTry(pokemon) {
@@ -41,5 +44,4 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.actions.useMove(randomMove, pokemon);
 		},
 	},
-	...Dex.deepClone(require('../gen9uranium/moves').ModMoves)
 };

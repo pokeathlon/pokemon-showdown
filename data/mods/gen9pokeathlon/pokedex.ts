@@ -1,4 +1,5 @@
 const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 const remote = require('./remote.json');
 import {ModdedSpeciesDataTable, ModdedSpeciesData} from '../../../sim/dex-species';
 
@@ -130,7 +131,7 @@ for (const i of Dex.species.all()) {
 	ModPokedex[i.id].isNonstandard = isPoA ? null : "Custom";
 }
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(ModPokedex);
 
 for (const formatname in remote.banlists) {
 	const cur = remote.banlists[formatname];

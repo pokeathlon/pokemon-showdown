@@ -1,7 +1,7 @@
-const {Dex} = require('../../../sim/dex');
+import { Learnsets as Base } from '../../learnsets';
 
-import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
-import {ModdedLearnsetData} from '../../../sim/dex-species';
+import { ModdedLearnsetDataTable } from '../../../sim/dex-species';
+import { ModdedLearnsetData } from '../../../sim/dex-species';
 
 function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 	let finalLearnset: ModdedLearnsetData = {learnset: {}, eventData: []};
@@ -26,7 +26,7 @@ function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 	return finalLearnset;
 }
 
-export const ModLearnsets: ModdedLearnsetDataTable = {
+export const Learnsets: ModdedLearnsetDataTable = {
 	bulbasaur: {
 		learnset: {
 			tackle: ["7L1"],
@@ -32303,161 +32303,159 @@ export const ModLearnsets: ModdedLearnsetDataTable = {
 	},
 };
 
-ModLearnsets.bulbmantle = combineLearnsets
+Learnsets.bulbmantle = combineLearnsets
 (
-	ModLearnsets.bulbasaur,
-	ModLearnsets.charmander,
-	ModLearnsets.squirtle,
+	Learnsets.bulbasaur,
+	Learnsets.charmander,
+	Learnsets.squirtle,
 );
-ModLearnsets.ivymelortle = combineLearnsets
+Learnsets.ivymelortle = combineLearnsets
 (
-	ModLearnsets.bulbasaur,
-	ModLearnsets.charmander,
-	ModLearnsets.squirtle,
-	ModLearnsets.ivysaur,
-	ModLearnsets.charmeleon,
-	ModLearnsets.wartortle,
+	Learnsets.bulbasaur,
+	Learnsets.charmander,
+	Learnsets.squirtle,
+	Learnsets.ivysaur,
+	Learnsets.charmeleon,
+	Learnsets.wartortle,
 );
-ModLearnsets.venustoizard = combineLearnsets
+Learnsets.venustoizard = combineLearnsets
 (
-	ModLearnsets.bulbasaur,
-	ModLearnsets.charmander,
-	ModLearnsets.squirtle,
-	ModLearnsets.ivysaur,
-	ModLearnsets.charmeleon,
-	ModLearnsets.wartortle,
-	ModLearnsets.venusaur,
-	ModLearnsets.charizard,
-	ModLearnsets.blastoise,
+	Learnsets.bulbasaur,
+	Learnsets.charmander,
+	Learnsets.squirtle,
+	Learnsets.ivysaur,
+	Learnsets.charmeleon,
+	Learnsets.wartortle,
+	Learnsets.venusaur,
+	Learnsets.charizard,
+	Learnsets.blastoise,
 );
-ModLearnsets.totoritaquil = combineLearnsets
+Learnsets.totoritaquil = combineLearnsets
 (
-	ModLearnsets.totodile,
-	ModLearnsets.chikorita,
-	ModLearnsets.cyndaquil,
+	Learnsets.totodile,
+	Learnsets.chikorita,
+	Learnsets.cyndaquil,
 );
-ModLearnsets.baylavanaw = combineLearnsets
+Learnsets.baylavanaw = combineLearnsets
 (
-	ModLearnsets.totodile,
-	ModLearnsets.chikorita,
-	ModLearnsets.cyndaquil,
-	ModLearnsets.bayleef,
-	ModLearnsets.quilava,
-	ModLearnsets.croconaw,
+	Learnsets.totodile,
+	Learnsets.chikorita,
+	Learnsets.cyndaquil,
+	Learnsets.bayleef,
+	Learnsets.quilava,
+	Learnsets.croconaw,
 );
-ModLearnsets.megaligasion = combineLearnsets
+Learnsets.megaligasion = combineLearnsets
 (
-	ModLearnsets.totodile,
-	ModLearnsets.chikorita,
-	ModLearnsets.cyndaquil,
-	ModLearnsets.bayleef,
-	ModLearnsets.quilava,
-	ModLearnsets.croconaw,
-	ModLearnsets.meganium,
-	ModLearnsets.feraligatr,
-	ModLearnsets.typhlosion,
+	Learnsets.totodile,
+	Learnsets.chikorita,
+	Learnsets.cyndaquil,
+	Learnsets.bayleef,
+	Learnsets.quilava,
+	Learnsets.croconaw,
+	Learnsets.meganium,
+	Learnsets.feraligatr,
+	Learnsets.typhlosion,
 );
-ModLearnsets.torkipcko = combineLearnsets
+Learnsets.torkipcko = combineLearnsets
 (
-	ModLearnsets.torchic,
-	ModLearnsets.mudkip,
-	ModLearnsets.treecko,
+	Learnsets.torchic,
+	Learnsets.mudkip,
+	Learnsets.treecko,
 );
-ModLearnsets.gromarshken = combineLearnsets
+Learnsets.gromarshken = combineLearnsets
 (
-	ModLearnsets.torchic,
-	ModLearnsets.mudkip,
-	ModLearnsets.treecko,
-	ModLearnsets.grovyle,
-	ModLearnsets.marshtomp,
-	ModLearnsets.combusken,
+	Learnsets.torchic,
+	Learnsets.mudkip,
+	Learnsets.treecko,
+	Learnsets.grovyle,
+	Learnsets.marshtomp,
+	Learnsets.combusken,
 );
-ModLearnsets.swamptiliken = combineLearnsets
+Learnsets.swamptiliken = combineLearnsets
 (
-	ModLearnsets.torchic,
-	ModLearnsets.mudkip,
-	ModLearnsets.treecko,
-	ModLearnsets.grovyle,
-	ModLearnsets.marshtomp,
-	ModLearnsets.combusken,
-	ModLearnsets.swampert,
-	ModLearnsets.sceptile,
-	ModLearnsets.blaziken,
+	Learnsets.torchic,
+	Learnsets.mudkip,
+	Learnsets.treecko,
+	Learnsets.grovyle,
+	Learnsets.marshtomp,
+	Learnsets.combusken,
+	Learnsets.swampert,
+	Learnsets.sceptile,
+	Learnsets.blaziken,
 );
-ModLearnsets.turcharlup = combineLearnsets
+Learnsets.turcharlup = combineLearnsets
 (
-	ModLearnsets.turtwig,
-	ModLearnsets.chimchar,
-	ModLearnsets.piplup,
+	Learnsets.turtwig,
+	Learnsets.chimchar,
+	Learnsets.piplup,
 );
-ModLearnsets.prinfernotle = combineLearnsets
+Learnsets.prinfernotle = combineLearnsets
 (
-	ModLearnsets.turtwig,
-	ModLearnsets.chimchar,
-	ModLearnsets.piplup,
-	ModLearnsets.prinplup,
-	ModLearnsets.monferno,
-	ModLearnsets.grotle,
+	Learnsets.turtwig,
+	Learnsets.chimchar,
+	Learnsets.piplup,
+	Learnsets.prinplup,
+	Learnsets.monferno,
+	Learnsets.grotle,
 );
-ModLearnsets.torterneon = combineLearnsets
+Learnsets.torterneon = combineLearnsets
 (
-	ModLearnsets.turtwig,
-	ModLearnsets.chimchar,
-	ModLearnsets.piplup,
-	ModLearnsets.prinplup,
-	ModLearnsets.monferno,
-	ModLearnsets.grotle,
-	ModLearnsets.torterra,
-	ModLearnsets.infernape,
-	ModLearnsets.empoleon,
+	Learnsets.turtwig,
+	Learnsets.chimchar,
+	Learnsets.piplup,
+	Learnsets.prinplup,
+	Learnsets.monferno,
+	Learnsets.grotle,
+	Learnsets.torterra,
+	Learnsets.infernape,
+	Learnsets.empoleon,
 );
-ModLearnsets.zapmolticuno = combineLearnsets
+Learnsets.zapmolticuno = combineLearnsets
 (
-	ModLearnsets.zapdos,
-	ModLearnsets.moltres,
-	ModLearnsets.articuno,
+	Learnsets.zapdos,
+	Learnsets.moltres,
+	Learnsets.articuno,
 );
-ModLearnsets.enraicune = combineLearnsets
+Learnsets.enraicune = combineLearnsets
 (
-	ModLearnsets.entei,
-	ModLearnsets.raikou,
-	ModLearnsets.suicune,
+	Learnsets.entei,
+	Learnsets.raikou,
+	Learnsets.suicune,
 );
-ModLearnsets.kyodonquaza = combineLearnsets
+Learnsets.kyodonquaza = combineLearnsets
 (
-	ModLearnsets.kyogre,
-	ModLearnsets.groudon,
-	ModLearnsets.rayquaza,
+	Learnsets.kyogre,
+	Learnsets.groudon,
+	Learnsets.rayquaza,
 );
-ModLearnsets.paldiatina = combineLearnsets
+Learnsets.paldiatina = combineLearnsets
 (
-	ModLearnsets.palkia,
-	ModLearnsets.dialga,
-	ModLearnsets.giratina,
+	Learnsets.palkia,
+	Learnsets.dialga,
+	Learnsets.giratina,
 );
-ModLearnsets.zekyushiram = combineLearnsets
+Learnsets.zekyushiram = combineLearnsets
 (
-	ModLearnsets.zekrom,
-	ModLearnsets.kyurem,
-	ModLearnsets.reshiram,
+	Learnsets.zekrom,
+	Learnsets.kyurem,
+	Learnsets.reshiram,
 );
-ModLearnsets.celemewchi = combineLearnsets
+Learnsets.celemewchi = combineLearnsets
 (
-	ModLearnsets.celebi,
-	ModLearnsets.mew,
-	ModLearnsets.jirachi,
+	Learnsets.celebi,
+	Learnsets.mew,
+	Learnsets.jirachi,
 );
-ModLearnsets.regitrio = combineLearnsets
+Learnsets.regitrio = combineLearnsets
 (
-	ModLearnsets.registeel,
-	ModLearnsets.regirock,
-	ModLearnsets.regice,
+	Learnsets.registeel,
+	Learnsets.regirock,
+	Learnsets.regice,
 );
-ModLearnsets.deosectwo = combineLearnsets
+Learnsets.deosectwo = combineLearnsets
 (
-	ModLearnsets.deoxys,
-	ModLearnsets.genesect,
-	ModLearnsets.mewtwo,
+	Learnsets.deoxys,
+	Learnsets.genesect,
+	Learnsets.mewtwo,
 );
-
-export const Learnsets: ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);

@@ -1,8 +1,9 @@
-const {Dex} = require('../../../sim/dex');
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(require('../gen9insurgence/pokedex').ModPokedex);
+import { Pokedex as Base } from '../../pokedex';
+import { Pokedex as Parent} from '../gen9insurgence/pokedex';
 
-// Regional Dex Data
-const InsgDex: {[k: string]: number} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Parent;
+
+const cutDex: {[k: string]: number} = {
 	"bulbasaur": 1,
 	"ivysaur": 2,
 	"venusaur": 3,
@@ -1058,9 +1059,10 @@ const InsgDex: {[k: string]: number} = {
 	"ufi": 925,
 };
 
-for (const i of Dex.mod('gen9insurgence').species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	const isInsg = i.id in InsgDex;
-	Pokedex[i.id].isNonstandard = isInsg ? null : "Unobtainable";
-	Pokedex[i.id].num = isInsg ? InsgDex[i.id] : 0;
+for (const key in {...Base, ...Pokedex}) {
+	const id = key as keyof typeof Base;
+	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	Pokedex[id] = {...Pokedex[id], isNonstandard: "Unobtainable", num: 0};
+
+	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
 }

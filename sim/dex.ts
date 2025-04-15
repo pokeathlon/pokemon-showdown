@@ -432,7 +432,7 @@ export class ModdedDex {
 			if (dataObject[dataType]?.constructor?.name !== 'Object') {
 				throw new TypeError(`${filePath}, if it exists, must export an object whose '${dataType}' property is an Object`);
 			}
-			return dataObject[dataType];
+			return Utils.deepClone(dataObject[dataType]);
 		} catch (e: any) {
 			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
 				throw e;

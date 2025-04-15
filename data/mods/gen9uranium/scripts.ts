@@ -1,4 +1,3 @@
-const learnsetAdditions: AnyObject = require('./learnset-additions.json');
 const prevos: {[k: string]: string[]} = {
 	"seikamater": ["Sponee", "Smore", "Tricwe"],
 };
@@ -7,15 +6,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
-		for (const i in this.data.Pokedex) {
-			if (i in this.data.Learnsets && this.modData('Learnsets', i).learnset) {
-				if (i in learnsetAdditions) {
-					for (const move of learnsetAdditions[i]) {
-						this.modData('Learnsets', i).learnset[move] = ["9M"];
-					}
-				}
-			}
-		}
 		for (const mon in prevos) {
 			let learnset = this.data.Learnsets[this.toID(mon)].learnset;
 			if (!learnset) learnset = {};

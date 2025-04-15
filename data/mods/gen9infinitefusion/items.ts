@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
+export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// IF Additions
 	mankeyspaw: {
 		name: "Mankey\u2019s Paw",
@@ -141,4 +140,3 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 	},
 };
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(ModItems);

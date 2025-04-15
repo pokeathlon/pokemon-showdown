@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	disguise: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -556,4 +555,3 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		},
 	},
 };
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);

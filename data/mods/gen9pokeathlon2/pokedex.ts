@@ -1,5 +1,5 @@
-const {Dex} = require('../../../sim/dex');
 const remote = require('../gen9pokeathlon/remote.json');
+import { Utils } from '../../../lib';
 export let ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {};
 
 for (const i in remote.dex) {
@@ -11,4 +11,4 @@ for (const i in remote.dex) {
 	}
 }
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(ModPokedex);

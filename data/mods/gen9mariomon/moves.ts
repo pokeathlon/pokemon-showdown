@@ -1,4 +1,5 @@
-const {Dex} = require('../../../sim/dex');
+import { Moves as Base } from '../../moves';
+
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
 	darkvoid: {
@@ -86,9 +87,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 };
 
-for (const i of Dex.moves.all()) {
-	if (["Past", "Unobtainable"].includes(i.isNonstandard)) {
-		if (!Moves[i.id]) Moves[i.id] = {inherit: true};
-		Moves[i.id].isNonstandard = null;
+for (const key in Base) {
+	const id = key as keyof typeof Base;
+	if (Moves[id]) continue;
+
+	if (Base[id].isNonstandard && ["Past", "Unobtainable"].includes(Base[id].isNonstandard)) {
+		Moves[id] = {inherit: true, isNonstandard: null};
 	}
 }

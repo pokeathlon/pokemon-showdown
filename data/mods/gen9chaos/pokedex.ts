@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	// IF
 	magnemite: {
@@ -245,4 +245,4 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 	// }
 };
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(ModPokedex);

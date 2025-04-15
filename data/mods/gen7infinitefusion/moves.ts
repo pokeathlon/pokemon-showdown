@@ -1,6 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Moves as Base } from '../../moves';
+import { Moves as Parent} from '../gen9infinitefusion/moves';
+
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
-	...Dex.deepClone(require('../gen9infinitefusion/moves').ModMoves),
+	...Parent,
 	lightofruin: {
 		inherit: true,
 		isNonstandard: null,

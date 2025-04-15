@@ -1,4 +1,3 @@
-const {Dex} = require('../../../sim/dex');
 const eeveelutions: {[k: string]: string} = {
 	"Water": "vaporeon",
 	"Fire": "flareon",
@@ -23,7 +22,7 @@ const eeveeabilities: {[k: string]: string} = {
 	"eeveemega": "proteanmaxima",
 };
 
-export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	noguard: {
 		inherit: true,
@@ -893,4 +892,3 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		num: 0,
 	},
 };
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);

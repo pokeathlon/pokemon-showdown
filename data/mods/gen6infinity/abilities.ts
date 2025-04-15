@@ -1,10 +1,11 @@
-const {Dex} = require('../../../sim/dex');
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Dex.deepClone(require('../gen9infinity/abilities').ModAbilities),
-};
+import { Abilities as Base } from '../../abilities';
+import { Abilities as Parent} from '../gen9infinity/abilities';
 
-for (const i of Dex.abilities.all()) {
-	if (i.isNonstandard || i.gen > 6) {
-		Abilities[i.id] = {inherit: true, isNonstandard: null, gen: 6};
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Parent;
+
+for (const key in Base) {
+	const id = key as keyof typeof Base;
+	if (Base[id].isNonstandard || (Base[id].gen && Base[id].gen > 6)) {
+		Abilities[id] = {inherit: true, isNonstandard: null, gen: 6};
 	}
 }

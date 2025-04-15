@@ -1,6 +1,8 @@
+const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
+
 import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
 import {ModdedLearnsetData} from '../../../sim/dex-species';
-const {Dex} = require('../../../sim/dex');
 
 const baseLearnsets = require('../../learnsets').Learnsets;
 const insgLearnsets = require('../gen9insurgence/learnsets').Learnsets;
@@ -227,4 +229,4 @@ for (var mon in remoteLearnsets) {
 	}
 }
 
-export const Learnsets: ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);
+export const Learnsets: ModdedLearnsetDataTable = Utils.deepClone(ModLearnsets);

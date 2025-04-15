@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModTypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
 	cosmic: {
 		inherit: true,
@@ -14,4 +14,4 @@ export const ModTypeChart: import('../../../sim/dex-data').ModdedTypeDataTable =
 	},
 };
 
-export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = Dex.deepClone(ModTypeChart);
+export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = Utils.deepClone(ModTypeChart);

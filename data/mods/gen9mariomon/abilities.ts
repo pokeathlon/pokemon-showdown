@@ -1,4 +1,3 @@
-const {Dex} = require('../../../sim/dex');
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	disguise: {

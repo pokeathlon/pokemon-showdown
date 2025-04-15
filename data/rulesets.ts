@@ -2993,14 +2993,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (fusion.exists) {
 				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion"))) return [`You cannot fuse with triple fusions.`];
 
-				const reverse_set = Dex.deepClone(set);
+				const reverse_set = this.dex.deepClone(set);
 				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
 				const {outOfBattleSpecies, tierSpecies} = this.getValidationSpecies(reverse_set);
 				problems.push(...this.validateForme(reverse_set));
 				const problem = this.checkSpecies(reverse_set, fusion, tierSpecies, setHas);
 				if (problem) problems.push(problem);
 				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
-				set = Dex.deepClone(reverse_set);
+				set = this.dex.deepClone(reverse_set);
 
 				// NatDex check
 				if (this.format.ruleset.includes('Standard NatDex')) {

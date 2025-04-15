@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
 	wildcharge: {
 		inherit: true,
@@ -1676,4 +1675,3 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Steel",
 	},
 };
-export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);

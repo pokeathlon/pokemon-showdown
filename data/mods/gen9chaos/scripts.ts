@@ -1,4 +1,5 @@
 const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
@@ -10,7 +11,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			for (const category of categories) {
 				for (const item in Dex.mod(fangame).data[category]) {
 					if (!(item in this.data[category as keyof typeof this.data])) {
-						this.data[category as keyof typeof this.data][item] = Dex.deepClone(Dex.mod(fangame).data[category][item]);
+						this.data[category as keyof typeof this.data][item] = Utils.deepClone(Dex.mod(fangame).data[category][item]);
 					}
 				}
 			}

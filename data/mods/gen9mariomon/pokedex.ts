@@ -1,4 +1,5 @@
-const {Dex} = require('../../../sim/dex');
+import { Pokedex as Base } from '../../pokedex';
+
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	piranhaplant: {
 		num: 10001,
@@ -2400,7 +2401,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 };
 
-const MarioDex: {[k: string]: number} = {
+const cutDex: {[k: string]: number} = {
 	"piranhaplant": 1,
 	"peeweepiranha": 2,
 	"peteypiranha": 3,
@@ -2558,10 +2559,10 @@ const MarioDex: {[k: string]: number} = {
 	"supersonic": 151,
 };
 
-for (const i of Dex.species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	const isMario = i.id in MarioDex;
-	Pokedex[i.id].isNonstandard = isMario ? null : "Unobtainable";
-	Pokedex[i.id].num = isMario ? MarioDex[i.id] : 0;
-	Pokedex[i.id].gen = isMario ? 3 : undefined;
+for (const key in {...Base, ...Pokedex}) {
+	const id = key as keyof typeof Base;
+	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	Pokedex[id] = {...Pokedex[id], isNonstandard: "Unobtainable", num: 0};
+
+	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id]};
 }

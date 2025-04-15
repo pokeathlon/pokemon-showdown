@@ -1,4 +1,5 @@
-const {Dex} = require('../../../sim/dex');
+import { Learnsets as Base } from '../../learnsets';
+import { Learnsets as Child } from '../gen7infinitefusion/learnsets';
 
 import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
 import {ModdedLearnsetData} from '../../../sim/dex-species';
@@ -28,7 +29,7 @@ function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 	return finalLearnset;
 }
 
-export const ModLearnsets: ModdedLearnsetDataTable = {
+export const Learnsets: ModdedLearnsetDataTable = {
 	bulbmantle: combineLearnsets
 	(
 		baseLearnsets.bulbasaur,
@@ -187,17 +188,19 @@ export const ModLearnsets: ModdedLearnsetDataTable = {
 	),
 };
 
-const gen7lsets = require('../gen7infinitefusion/learnsets').ModLearnsets
-for (const learnset in gen7lsets) {
-	if (learnset in baseLearnsets && !(learnset in ModLearnsets)) {
-		if (!gen7lsets[learnset].learnset || !baseLearnsets[learnset].learnset) continue;
-		for (const move in gen7lsets[learnset].learnset) {
-			if (move in baseLearnsets[learnset].learnset) continue;
-			if (!(learnset in ModLearnsets)) ModLearnsets[learnset as keyof typeof ModLearnsets] = {inherit: true, learnset: {...baseLearnsets[learnset as keyof typeof baseLearnsets].learnset}};
-			// @ts-ignore unable to stop this somehow
-			ModLearnsets[learnset as IDEntry].learnset[move as IDEntry] = gen7lsets[learnset].learnset[move];
-		}
+for (const key in Child) {
+	const id = key as keyof typeof Child;
+	if (Learnsets[id] || !Child[id].learnset) continue;
+
+	if (!Base[id]) { Learnsets[id] = Child[id]; continue; }
+
+	Learnsets[id] = {inherit: true, learnset: {...Base[id].learnset}};
+	if (!Learnsets[id].learnset) continue;
+
+	for (const movekey in Child[id].learnset) {
+		const moveid = movekey as IDEntry;
+
+		if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
+		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid]);
 	}
 }
-
-export const Learnsets: ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);

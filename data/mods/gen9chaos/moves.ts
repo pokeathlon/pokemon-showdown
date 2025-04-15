@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
 export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Chaos
 	revivalblessing: {
@@ -1071,4 +1071,4 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 };
 
-export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Utils.deepClone(ModMoves);

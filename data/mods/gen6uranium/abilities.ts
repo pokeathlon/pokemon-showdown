@@ -1,6 +1,8 @@
-const {Dex} = require('../../../sim/dex');
+import { Abilities as Base } from '../../abilities';
+import { Abilities as Parent} from '../gen9uranium/abilities';
+
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Dex.deepClone(require('../gen9uranium/abilities').ModAbilities),
+	...Parent,
 	atomizate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
