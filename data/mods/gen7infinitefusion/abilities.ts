@@ -1,8 +1,9 @@
+import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
 import { Abilities as Parent} from '../gen9infinitefusion/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Parent,
+	...Utils.deepClone(Parent),
 	disguise: {
 		onSwitchOut(pokemon) {
 			if (this.effectState.busted) {

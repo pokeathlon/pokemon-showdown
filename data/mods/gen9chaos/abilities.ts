@@ -1,354 +1,9 @@
+// @ts-nocheck
 import { Utils } from '../../../lib';
+import { Abilities as Base } from '../../abilities';
+import { ModdedAbilityDataTable } from '../../../sim/dex-abilities';
 
-const eeveelutions: {[k: string]: string} = {
-	"Water": "vaporeon",
-	"Fire": "flareon",
-	"Grass": "leafeon",
-	"Dark": "umbreon",
-	"Fairy": "sylveon",
-	"Psychic": "espeon",
-	"Ice": "glaceon",
-	"Electric": "jolteon",
-	"Ghost": "omeon",
-	"Fighting": "champeon",
-	"Rock": "obsideon",
-	"Ground": "sphynxeon",
-	"Poison": "scorpeon",
-	"Steel": "guardeon",
-	"Dragon": "draconeon",
-	"Bug": "lepideon",
-	"Flying": "nimbeon",
-	"Nuclear": "nucleon",
-	"???": "vareon",
-	"Normal": "eeveemega",
-};
-
-const eeveeabilities: {[k: string]: string} = {
-	"vaporeon": "waterabsorb",
-	"flareon": "flashfire",
-	"leafeon": "chlorophyll",
-	"umbreon": "synchronize",
-	"sylveon": "cutecharm",
-	"espeon": "magicbounce",
-	"glaceon": "snowcloak",
-	"jolteon": "voltabsorb",
-	"omeon": "moxie",
-	"champeon": "scrappy",
-	"obsideon": "rockhead",
-	"sphynxeon": "technician",
-	"scorpeon": "poisontouch",
-	"guardeon": "bulletproof",
-	"draconeon": "toughclaws",
-	"lepideon": "tintedlens",
-	"nimbeon": "galewings",
-	"eeveemega": "proteanmaxima",
-};
-
-export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	// Uranium
-	aerilate: {
-		inherit: true,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Flying';
-				move.typeChangerBoosted = this.effect;
-			}
-		},
-	},
-	galvanize: {
-		inherit: true,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Electric';
-				move.typeChangerBoosted = this.effect;
-			}
-		},
-	},
-	normalize: {
-		inherit: true,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
-			];
-			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id) &&
-				// TODO: Figure out actual interaction
-				!(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Normal';
-				move.typeChangerBoosted = this.effect;
-			}
-		},
-	},
-	pixilate: {
-		inherit: true,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Fairy';
-				move.typeChangerBoosted = this.effect;
-			}
-		},
-	},
-	refrigerate: {
-		inherit: true,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
-			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
-				move.type = 'Ice';
-				move.typeChangerBoosted = this.effect;
-			}
-		},
-	},
-
-	// Insurgence
-	noguard: {
-		inherit: true,
-		onAnyInvulnerability(target, source, move) {
-			if (move && !move.ohko && (!source.hasItem('mankeyspaw')) && (source === this.effectState.target || target === this.effectState.target)) return 0;
-		},
-		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && !move.ohko && (!source.hasItem('mankeyspaw')) && (source === this.effectState.target || target === this.effectState.target)) {
-				return true;
-			}
-			return accuracy;
-		},
-	},
-	baddreams: {
-		inherit: true,
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			for (const target of pokemon.foes()) {
-				if (target.status === 'slp' || target.hasAbility('comatose')) {
-					this.damage(target.baseMaxhp / (target.effectiveWeather() === 'newmoon' ? 4 : 8), target, pokemon);
-				}
-			}
-		},
-	},
-	pressure: {
-		inherit: true,
-		onDeductPP(target, source) {
-			if (target.isAlly(source)) return;
-			return target.effectiveWeather() === 'newmoon' ? 2 : 1;
-		},
-	},
-	illuminate: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {},
-		onModifyMove(move) {},
-		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('newmoon')) {
-				this.debug('Illuminate - decreasing accuracy');
-				return this.chainModify([3277, 4096]);
-			}
-		},
-	},
-	fairyaura: {
-		inherit: true,
-		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster?.hasAbility('Fairy Aura')) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
-			return this.chainModify([source.effectiveWeather() === 'newmoon' ? 4096 : (move.hasAuraBreak ? 3072 : 5448), 4096]);
-		},
-	},
-	darkaura: {
-		inherit: true,
-		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster?.hasAbility('Dark Aura')) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
-			return this.chainModify([source.effectiveWeather() === 'newmoon' ? 6827 : (move.hasAuraBreak ? 3072 : 5448), 4096]);
-		},
-	},
-	trace: {
-		inherit: true,
-		onStart(pokemon) {
-			// n.b. only affects Hackmons
-			// interaction with No Ability is complicated: https://www.smogon.com/forums/threads/pokemon-sun-moon-battle-mechanics-research.3586701/page-76#post-7790209
-			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
-				this.effectState.gaveUp = true;
-			}
-			// interaction with Ability Shield is similar to No Ability
-			if (pokemon.hasItem('Ability Shield')) {
-				if (!pokemon.illusion) this.add('-block', pokemon, 'item: Ability Shield');
-				this.effectState.gaveUp = true;
-			}
-		},
-		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-
-			const possibleTargets = pokemon.adjacentFoes().filter(
-				target => !target.getAbility().flags['notrace'] && target.ability !== 'noability'
-			);
-			if (!possibleTargets.length) return;
-
-			const target = this.sample(possibleTargets);
-			const ability = target.getAbility();
-			if (pokemon.setAbility(ability) && !pokemon.illusion) {
-				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
-			}
-		},
-	},
-	supercell: {
-		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
-		},
-		onWeatherChange(pokemon) {
-			if (pokemon.transformed || !pokemon.isActive) return;
-			if (pokemon.species.name.startsWith('Typhlosion-Delta-Mega')) {
-				if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather()) && pokemon.species.id !== 'typhlosiondeltamegaactive') {
-					pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '[msg]');
-				} else if (pokemon.species.id === 'typhlosiondeltamegaactive') {
-					pokemon.formeChange('typhlosiondeltamega', this.effect, false, '[msg]');
-				}
-			}
-			if (pokemon.fusion?.startsWith('Typhlosion-Delta-Mega')) {
-				if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather()) && pokemon.fusion !== 'Typhlosion-Delta-Mega-Active') {
-					pokemon.fusionChange('typhlosiondeltamegaactive', this.effect);
-				} else if (pokemon.fusion === 'Typhlosion-Delta-Mega-Active') {
-					pokemon.fusionChange('typhlosiondeltamega', this.effect);
-				}
-			}
-		},
-		onSwitchOut(pokemon) {
-			if (pokemon.fusion === 'Typhlosion-Delta-Mega-Active') pokemon.fusionChange('typhlosiondeltamega', this.effect);
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			if (['newmoon', 'raindance', 'primordialsea', 'thunderstorm'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
-		flags: {},
-		name: "Supercell",
-		desc: "If New Moon/Rain is active, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If New Moon/Rain is active, this Pokemon's Sp. Atk is 1.5x.",
-		rating: 2,
-		num: 0,
-	},
-	phototroph: {
-		onResidual(target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
-				this.heal(target.baseMaxhp / 8);
-			} else if (['raindance', 'primordialsea', 'newmoon', 'thunderstorm'].includes(target.effectiveWeather())) {
-				return;
-			} else {
-				this.heal(target.baseMaxhp / 16);
-			}
-		},
-		flags: {},
-		name: "Phototroph",
-		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
-		rating: 1.5,
-		num: 0,
-	},
-	lernean: {
-		onUpdate(pokemon) {
-			if ((!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) || !pokemon.hp || pokemon.transformed) return;
-
-			const formeOrder = pokemon.species.id.startsWith('hydreigonmega') ?
-				['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'] :
-				['hydroupanine', 'hydroupaeight', 'hydroupaseven', 'hydroupasix', 'hydroupa'];
-
-			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
-				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
-			}
-		},
-		onModifyMove(move, pokemon, target) {
-			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
-			if (move.category === "Status" || !move.basePower) return;
-			const formes = pokemon.species.id.startsWith('hydreigonmega') ?
-				['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
-				['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
-			move.multihit = 5 + formes.indexOf(pokemon.species.id);
-			if (move.secondaries) {
-			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
-			   // Technically not a secondary effect, but it is negated
-			   delete move.self;
-			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-		   }
-		},
-		onBasePower(basePower, pokemon, target, move) {
-			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
-			const formes = pokemon.species.id.startsWith('hydreigonmega') ?
-				['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
-				['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
-			const nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
-		},
-		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if ((pokemon.species.id.startsWith('hydreigonmega') || pokemon.species.id.startsWith('hydroupa')) && move.secondaries) {
-				delete move.secondaries;
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Lernean",
-		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
-		rating: 4.5,
-		num: 0,
-	},
-	proteanmaxima: {
-		onSwitchIn(pokemon) {
-			if (pokemon.species.id !== eeveelutions["Normal"] && pokemon.species.id in eeveeabilities) {
-				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
-				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(eeveeabilities[pokemon.species.id]).name);
-			}
-		},
-		onUpdate(pokemon) {
-			const action = this.queue.willMove(pokemon);
-			if (!action) return;
-			const move = this.dex.getActiveMove(action.move.id);
-			if (move.type in eeveelutions && pokemon.species.id !== eeveelutions[move.type]) {
-				if (pokemon.species.id !== eeveelutions["Normal"]) {
-					pokemon.removeVolatile('ability:' + eeveeabilities[eeveelutions[pokemon.species.types[0]]]);
-				}
-				pokemon.formeChange(eeveelutions[move.type], this.dex.abilities.get('Protean Maxima'), true);
-				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
-				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(eeveeabilities[pokemon.species.id]).name);
-
-				// In Insurgence, the action order is recalculated for a Protean Maxima transform.
-				for (const [i, queuedAction] of this.queue.list.entries()) {
-					if (queuedAction.pokemon === pokemon && queuedAction.choice === 'move') {
-						this.queue.list.splice(i, 1);
-						this.queue.insertChoice(queuedAction, true);
-						break;
-					}
-				}
-
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				if (pokemon.hp < 1) pokemon.hp = 1;
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-			}
-		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Protean Maxima",
-		shortDesc: "Transforms into the eeveelution corresponding to the type of the move used.",
-		rating: 4.5,
-		num: 0,
-	},
-
-	// IF
+export const Abilities: ModdedAbilityDataTable = {
 	disguise: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
@@ -416,42 +71,6 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 	},
-	stancechange: {
-		inherit: true,
-		onModifyMove(move, attacker, defender) {
-			if (attacker.transformed) return;
-			if (move.category === 'Status' && move.id !== 'kingsshield') return;
-			const fusion = this.dex.species.get(attacker.fusion);
-			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
-			if (attacker.species.baseSpecies === 'Aegislash' && attacker.species.name !== targetForme) attacker.formeChange(targetForme);
-			if (fusion.baseSpecies === 'Aegislash' && fusion.name !== targetForme) attacker.fusionChange(targetForme);
-		},
-	},
-	hungerswitch: {
-		inherit: true,
-		onResidual(pokemon) {
-			if (pokemon.transformed || pokemon.terastallized) return;
-			if (pokemon.species.baseSpecies === 'Morpeko') {
-				const targetForme = pokemon.species.name === 'Morpeko' ? 'Morpeko-Hangry' : 'Morpeko';
-				pokemon.formeChange(targetForme);
-			} else if (pokemon.fusion?.includes('Morpeko')) {
-				const targetForme = pokemon.fusion === 'Morpeko' ? 'Morpeko-Hangry' : 'Morpeko';
-				pokemon.fusionChange(targetForme);
-			}
-		},
-	},
-	battlebond: {
-		inherit: true,
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') return;
-			if (source.abilityState.battleBondTriggered) return;
-			if ((source.species.id === 'greninjabond' || source.fusion === 'Greninja-Bond') && source.hp && !source.transformed && source.side.foePokemonLeft()) {
-				this.boost({atk: 1, spa: 1, spe: 1}, source, source, this.effect);
-				this.add('-activate', source, 'ability: Battle Bond');
-				source.abilityState.battleBondTriggered = true;
-			}
-		},
-	},
 	flowergift: {
 		inherit: true,
 		onWeatherChange(pokemon) {
@@ -488,150 +107,102 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	forecast: {
 		inherit: true,
 		onWeatherChange(pokemon) {
-			if (pokemon.transformed) return;
+			if (pokemon.transformed || !pokemon.isActive) return;
 			let castforme = null;
 			let broforme = null;
 			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				castforme = 'Castform-Sunny';
-				broforme = 'Fire Bro';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				castforme = 'Castform-Rainy';
-				broforme = 'Boomerang Bro';
-				break;
-			case 'hail':
-			case 'snowscape':
-				castforme = 'Castform-Snowy';
-				broforme = 'Ice Bro';
-				break;
-			case 'sandstorm':
-				castforme = 'Castform-Sandy';
-				break;
-			case 'newmoon':
-				castforme = 'Castform-Cloudy';
-				break;
-			default:
-				castforme = 'Castform';
-				broforme = 'Hammer Bro';
-				break;
+				case 'sunnyday':
+				case 'desolateland':
+					castforme = 'Castform-Sunny';
+					broforme = 'Fire Bro';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					castforme = 'Castform-Rainy';
+					broforme = 'Boomerang Bro';
+					break;
+				case 'hail':
+				case 'snowscape':
+					castforme = 'Castform-Snowy';
+					broforme = 'Ice Bro';
+					break;
+				case 'sandstorm':
+					castforme = 'Castform-Sandy';
+					break;
+				case 'newmoon':
+					castforme = 'Castform-Cloudy';
+					break;
+				default:
+					castforme = 'Castform';
+					broforme = 'Hammer Bro';
+					break;
 			}
-			if (pokemon.isActive) {
-				if (castforme) {
-					if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== castforme) {
-						pokemon.formeChange(castforme, this.effect, false, '[msg]');
-					} 
-					if (pokemon.fusion?.includes('Castform') && pokemon.fusion !== castforme) {
-						pokemon.fusionChange(castforme, this.effect);
-					}
+			if (castforme) {
+				if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== castforme) {
+					pokemon.formeChange(castforme, this.effect, false, '[msg]');
+				} 
+				if (pokemon.fusion?.includes('Castform') && pokemon.fusion !== castforme) {
+					pokemon.fusionChange(castforme, this.effect);
 				}
-				if (broforme) {
-					if (pokemon.baseSpecies.baseSpecies === 'Hammer Bro' && pokemon.species.name !== broforme) {
-						pokemon.formeChange(broforme, this.effect, false, '[msg]');
-					} 
-					if (pokemon.fusion?.endsWith(' Bro') && pokemon.fusion !== broforme) {
-						pokemon.fusionChange(broforme, this.effect);
-					}
+			}
+			if (broforme) {
+				if (pokemon.baseSpecies.baseSpecies === 'Hammer Bro' && pokemon.species.name !== broforme) {
+					pokemon.formeChange(broforme, this.effect, false, '[msg]');
+				} 
+				if (pokemon.fusion?.endsWith(' Bro') && pokemon.fusion !== broforme) {
+					pokemon.fusionChange(broforme, this.effect);
 				}
 			}
 		},
 	},
-	iceface: {
-		inherit: true,
-		onStart(pokemon) {
-			if (this.field.isWeather(['hail', 'snowscape']) && !pokemon.transformed) {
-				if (pokemon.species.id === 'eiscuenoice') {
-					this.add('-activate', pokemon, 'ability: Ice Face');
-					this.effectState.busted = false;
-					pokemon.formeChange('Eiscue', this.effect, true);
-				} else if (pokemon.fusion === 'Eiscue-Noice') {
-					this.effectState.busted = false;
-					pokemon.fusionChange('Eiscue', this.effect);
-				}
-			}
-		},
-		onDamagePriority: 1,
-		onDamage(damage, target, source, effect) {
-			if (
-				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
-				(target.species.id === 'eiscue' || this.dex.species.get(target.fusion).id === 'eiscue') && !target.transformed
-			) {
-				this.add('-activate', target, 'ability: Ice Face');
-				this.effectState.busted = true;
-				return 0;
-			}
-		},
-		onCriticalHit(target, type, move) {
-			if (!target) return;
-			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && this.dex.species.get(target.fusion).id !== 'eiscue') || target.transformed) return;
-			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
-			if (!target.runImmunity(move.type)) return;
-			return false;
-		},
-		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
-			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && this.dex.species.get(target.fusion).id !== 'eiscue') || target.transformed) return;
-
-			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
-			if (hitSub) return;
-
-			if (!target.runImmunity(move.type)) return;
-			return 0;
-		},
+	lernean: {
 		onUpdate(pokemon) {
-			if (this.effectState.busted) {
-				if (pokemon.species.id === 'eiscue') {
-					pokemon.formeChange('Eiscue-Noice', this.effect, true);
-				} else if (pokemon.fusion === 'Eiscue') {
-					pokemon.fusionChange('Eiscue-Noice', this.effect);
-				}
+			if (!pokemon.species.id.startsWith('hydreigonmega') || !pokemon.hp || pokemon.transformed) return;
+			const formeOrder = ['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'];
+			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
+			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
+				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
 			}
 		},
-		onWeatherChange(pokemon, source, sourceEffect) {
-			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
-			if ((sourceEffect as Ability)?.suppressWeather) return;
-			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snowscape']) && !pokemon.transformed) {
-				if (pokemon.species.id === 'eiscuenoice') {
-					this.add('-activate', pokemon, 'ability: Ice Face');
-					this.effectState.busted = false;
-					pokemon.formeChange('Eiscue', this.effect, true);
-				} else if (pokemon.fusion === 'Eiscue-Noice') {
-					this.effectState.busted = false;
-					pokemon.fusionChange('Eiscue', this.effect);
-				}
+		onModifyMove(move, pokemon, target) {
+			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
+			if (move.category === "Status" || !move.basePower) return;
+			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
+			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			if (move.secondaries) {
+			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+			   // Technically not a secondary effect, but it is negated
+			   delete move.self;
+			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+		   }
+		},
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
+			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
+			const nhits = 5 + formes.indexOf(pokemon.species.id);
+			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
+		},
+		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
+			if (pokemon.species.id.startsWith('hydreigonmega') && move.secondaries) {
+				delete move.secondaries;
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		name: "Lernean",
+		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
+		rating: 4.5,
+		num: 0,
 	},
-	powerconstruct: {
+	noguard: {
 		inherit: true,
-		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.species.id === 'zygardecomplete' || pokemon.fusion === 'Zygarde-Complete' || pokemon.hp > pokemon.maxhp / 2) return;
-
-			if (pokemon.baseSpecies.baseSpecies === 'Zygarde') {
-				this.add('-activate', pokemon, 'ability: Power Construct');
-				pokemon.formeChange('Zygarde-Complete', this.effect, true);
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-			} else if (pokemon.fusion?.includes('Zygarde')) {
-				this.add('-activate', pokemon, 'ability: Power Construct');
-				pokemon.fusionChange('Zygarde-Complete', this.effect);
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+		onAnyInvulnerability(target, source, move) {
+			if (move && !move.ohko && (!source.hasItem('mankeyspaw')) && (source === this.effectState.target || target === this.effectState.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && !move.ohko && (!source.hasItem('mankeyspaw')) && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
 			}
+			return accuracy;
 		},
 	},
 	schooling: {
@@ -705,276 +276,23 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 	},
-	shieldsdown: {
-		inherit: true,
-		onStart(pokemon) {
-			if (pokemon.transformed) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
-			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Meteor' && pokemon.baseSpecies.baseSpecies === 'Minior') {
-					pokemon.formeChange('Minior-Meteor');
-				} else if (fusionSpecies.forme !== 'Meteor' && fusionSpecies.baseSpecies === 'Minior') {
-					pokemon.fusionChange('Minior-Meteor');
-				}
-			} else {
-				if (pokemon.species.forme === 'Meteor' && pokemon.baseSpecies.baseSpecies === 'Minior') {
-					pokemon.formeChange(pokemon.set.species);
-				} else if (fusionSpecies.forme === 'Meteor' && fusionSpecies.baseSpecies === 'Minior') {
-					pokemon.fusionChange(pokemon.set.species);
-				}
-			}
-		},
-		onResidualOrder: 29,
-		onResidual(pokemon) {
-			if (pokemon.transformed || !pokemon.hp) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
-			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Meteor' && pokemon.baseSpecies.baseSpecies === 'Minior') {
-					pokemon.formeChange('Minior-Meteor');
-				} else if (fusionSpecies.forme !== 'Meteor' && fusionSpecies.baseSpecies === 'Minior') {
-					pokemon.fusionChange('Minior-Meteor');
-				}
-			} else {
-				if (pokemon.species.forme === 'Meteor' && pokemon.baseSpecies.baseSpecies === 'Minior') {
-					pokemon.formeChange(pokemon.set.species);
-				} else if (fusionSpecies.forme === 'Meteor' && fusionSpecies.baseSpecies === 'Minior') {
-					pokemon.fusionChange(pokemon.set.species);
-				}
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if ((target.species.id !== 'miniormeteor' && !target.fusion?.includes('Minior-Meteor')) || target.transformed) return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Shields Down');
-			}
-			return false;
-		},
-		onTryAddVolatile(status, target) {
-			if ((target.species.id !== 'miniormeteor' && !target.fusion?.includes('Minior-Meteor')) || target.transformed) return;
-			if (status.id !== 'yawn') return;
-			this.add('-immune', target, '[from] ability: Shields Down');
-			return null;
-		},
-	},
-	zenmode: {
-		inherit: true,
-		onResidual(pokemon) {
-			if ((pokemon.baseSpecies.baseSpecies !== 'Darmanitan' && !pokemon.fusion?.includes('Darmanitan')) || pokemon.transformed) {
-				return;
-			}
-			const fusionForme = this.dex.species.get(pokemon.fusion).forme;
-			if (pokemon.hp <= pokemon.maxhp / 2 && (!['Zen', 'Galar-Zen'].includes(pokemon.species.forme) || !['Zen', 'Galar-Zen'].includes(fusionForme))) {
-				pokemon.addVolatile('zenmode');
-			} else if (pokemon.hp > pokemon.maxhp / 2 && (['Zen', 'Galar-Zen'].includes(pokemon.species.forme) || ['Zen', 'Galar-Zen'].includes(fusionForme))) {
-				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
-				pokemon.removeVolatile('zenmode');
-			}
-		},
-		onEnd(pokemon) {
-			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
-			pokemon.transformed = false;
-			delete pokemon.volatiles['zenmode'];
-
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
-			if (pokemon.species.baseSpecies === 'Darmanitan' && pokemon.species.battleOnly) {
-				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
-			} else if (fusionSpecies.baseSpecies === 'Darmanitan' && fusionSpecies.battleOnly) {
-				pokemon.fusionChange(fusionSpecies.battleOnly as string, this.effect);
-			}
-		},
-		condition: {
-			onStart(pokemon) {
-				if (pokemon.baseSpecies.baseSpecies === 'Darmanitan') {
-					if (!pokemon.species.name.includes('Galar')) {
-						if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-					} else {
-						if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-					}
-				} else if (pokemon.fusion?.includes('Darmanitan')) {
-					if (!pokemon.fusion.includes('Galar')) {
-						if (pokemon.fusion !== 'Darmanitan-Zen') pokemon.fusionChange('Darmanitan-Zen');
-					} else {
-						if (pokemon.fusion !== 'Darmanitan-Galar-Zen') pokemon.fusionChange('Darmanitan-Galar-Zen');
-					}
-				}
-			},
-			onEnd(pokemon) {
-				const fusionSpecies = this.dex.species.get(pokemon.fusion);
-				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
-					pokemon.formeChange(pokemon.species.battleOnly as string);
-				} else if (['Zen', 'Galar-Zen'].includes(fusionSpecies.forme)) {
-					pokemon.fusionChange(fusionSpecies.battleOnly as string);
-				}
-			},
-		},
-	},
-	zerotohero: {
-		inherit: true,
-		onSwitchOut(pokemon) {
-			if (pokemon.transformed) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
-			if (pokemon.species.forme !== 'Hero' && pokemon.baseSpecies.baseSpecies === 'Palafin') {
-				pokemon.formeChange('Palafin-Hero', this.effect, true);
-			} else if (fusionSpecies.forme !== 'Hero' && fusionSpecies.baseSpecies === 'Palafin') {
-				pokemon.fusionChange('Palafin-Hero', this.effect);
-			}
-		},
-		onStart(pokemon) {
-			if (!this.effectState.switchingIn) return;
-			this.effectState.switchingIn = false;
-			if (pokemon.baseSpecies.baseSpecies !== 'Palafin' || pokemon.transformed) return;
-			if (!this.effectState.heroMessageDisplayed && pokemon.species.forme === 'Hero') {
-				this.add('-activate', pokemon, 'ability: Zero to Hero');
-				this.effectState.heroMessageDisplayed = true;
-			}
-		},
-	},
-	commander: {
-		inherit: true,
-		onUpdate(pokemon) {
-			if (this.gameType !== 'doubles') return;
-			const ally = pokemon.allies()[0];
-			if (!ally || pokemon.transformed ||
-				(pokemon.baseSpecies.baseSpecies !== 'Tatsugiri' && !pokemon.fusion?.includes('Tatsugiri')) ||
-				(ally.baseSpecies.baseSpecies !== 'Dondozo') && !ally.fusion?.includes('Dondozo')) {
-				// Handle any edge cases
-				if (pokemon.getVolatile('commanding')) pokemon.removeVolatile('commanding');
-				return;
-			}
-
-			if (!pokemon.getVolatile('commanding') && !ally.getVolatile('commanding')) {
-				// If Dondozo already was commanded this fails
-				if (ally.getVolatile('commanded') || pokemon.getVolatile('commanded')) return;
-				// Cancel all actions this turn for pokemon if applicable
-				this.queue.cancelAction(pokemon);
-				// Add volatiles to both pokemon
-				this.add('-activate', pokemon, 'ability: Commander', '[of] ' + ally);
-				pokemon.addVolatile('commanding');
-				ally.addVolatile('commanded', pokemon);
-				// Continued in conditions.ts in the volatiles
-			} else {
-				if (!ally.fainted) return;
-				pokemon.removeVolatile('commanding');
-			}
-		},
-	},
-	gulpmissile: {
-		onDamagingHit(damage, target, source, move) {
-			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
-			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
-				this.damage(source.baseMaxhp / 4, source, target);
-				if (target.species.id === 'cramorantgulping') {
-					this.boost({def: -1}, source, target, null, true);
-				} else {
-					source.trySetStatus('par', target, move);
-				}
-				target.formeChange('cramorant', move);
-			} else if (['cramorantgulping', 'cramorantgorging'].includes(this.dex.species.get(target.fusion).id)) {
-				this.damage(source.baseMaxhp / 4, source, target);
-				if (this.dex.species.get(target.fusion).id === 'cramorantgulping') {
-					this.boost({def: -1}, source, target, null, true);
-				} else {
-					source.trySetStatus('par', target, move);
-				}
-				target.fusionChange('cramorant', move);
-			}
-		},
-		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
-		onSourceTryPrimaryHit(target, source, effect) {
-			if (
-				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') && !source.transformed
-			) {
-				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				if (source.species.name === 'Cramorant') {
-					source.formeChange(forme, effect);
-				} else if (source.fusion === 'Cramorant') {
-					source.fusionChange(forme, effect);
-				}
-			}
-		},
-		flags: {cantsuppress: 1, notransform: 1},
-		name: "Gulp Missile",
-		rating: 2.5,
-		num: 241,
-	},
-	illusion: {
-		inherit: true,
-		onEnd(pokemon) {
-			if (pokemon.illusion) {
-				this.debug('illusion cleared');
-				pokemon.illusion = null;
-				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
-					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '') +
-					(pokemon.set.fusion ? ', fusion: ' + pokemon.set.fusion : '') + (pokemon.set.altsprite ? ', alt: ' + pokemon.set.altsprite : '');
-				this.add('replace', pokemon, details);
-				this.add('-end', pokemon, 'Illusion');
-				if (this.ruleTable.has('illusionlevelmod')) {
-					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
-				}
-			}
-		},
-	},
-	poisonpuppeteer: {
-		inherit: true,
-		onAnyAfterSetStatus(status, target, source, effect) {
-			if (source.baseSpecies.name !== "Pecharunt" && source.fusion !== "Pecharunt") return;
-			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
-			if (status.id === 'psn' || status.id === 'tox') {
-				target.addVolatile('confusion');
-			}
-		},
-	},
-
-	// Mariomon
-	defeatist: {
-		inherit: true,
-		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				if (pokemon.species.id === 'rex') pokemon.formeChange('Rex-Squished', this.effect, true);
-				if (pokemon.fusion === 'Rex') pokemon.fusionChange('Rex-Squished', this.effect);
-			} else {
-				if (pokemon.species.id === 'rexsquished') pokemon.formeChange('Rex', this.effect, true);
-				if (pokemon.fusion === 'Rex-Squished') pokemon.fusionChange('Rex', this.effect);
-			}
-		},
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				return this.chainModify(0.5);
-			}
-		},
-		onModifySpA(atk, pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				return this.chainModify(0.5);
-			}
-		},
-	},
-	angerpoint: {
-		inherit: true,
-		onHit(target, source, move) {
-			if (!target.hp) return;
-			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
-				if (target.species.id === 'wiggler') target.formeChange('Wiggler-Angry');
-				if (target.fusion === 'Wiggler') target.fusionChange('Wiggler-Angry');
-				this.boost({atk: 12}, target, target);
-			}
-		},
-	},
-
-	// Secret Additions
-	// babyonboard: {
-	// 	onStart(pokemon) {
-	// 		let nfes = 0;
-	// 		for (const teammate of pokemon.side.pokemon) {
-	// 			if (teammate.species.nfe) nfes += 1;
-	// 		}
-	// 		this.boost({def: nfes}, pokemon);
-	// 	},
-	// 	flags: {},
-	// 	name: "Baby on Board",
-	// 	shortDesc: "Raises the user's Defense one stage for each unfainted NFE on its team.",
-	// 	rating: 5,
-	// 	num: 0,
-	// },
 };
 
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Utils.deepClone(ModAbilities);
+const Manual = Utils.deepClone(Abilities);
+for (const mod in require('./mods.json')) {
+	const ModAbilities = require('../' + mod + '/abilities').Abilities as ModdedAbilityDataTable;
+
+	for (const key in ModAbilities) {
+		const id = key as keyof typeof ModAbilities;
+
+		if (!Abilities[id]) Abilities[id] = Base[id] ? {inherit: true} : {};
+
+		for (const attr in ModAbilities[id]) {
+			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
+			if (Abilities[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			else {
+				Abilities[id][attr] = ModAbilities[id][attr];
+			}
+		}
+	}
+}

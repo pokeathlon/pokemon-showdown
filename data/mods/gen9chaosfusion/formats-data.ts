@@ -1,5 +1,4 @@
-import { Utils } from '../../../lib';
-export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	frosthra: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -389,4 +388,3 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "RU",
 	},
 };
-export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Utils.deepClone(ModFormatsData);

@@ -69574,7 +69574,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	hoopa: {
 		learnset: {
-			hyperspace: ["6L1", "6L85"],
+			hyperspacehole: ["6L1", "6L85"],
+			hyperspacefury: ["6L1", "6L85"],
 			trick: ["6L1", "6M"],
 			destinybond: ["6L1"],
 			allyswitch: ["6L1"],

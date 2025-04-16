@@ -1,5 +1,4 @@
-import { Utils } from '../../../lib';
-export const ModTypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
+export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
 	cosmic: {
 		inherit: true,
 		isNonstandard: null,
@@ -13,5 +12,3 @@ export const ModTypeChart: import('../../../sim/dex-data').ModdedTypeDataTable =
 		isNonstandard: null,
 	},
 };
-
-export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = Utils.deepClone(ModTypeChart);

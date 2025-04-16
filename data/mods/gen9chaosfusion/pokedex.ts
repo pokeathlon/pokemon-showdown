@@ -1,4 +1,6 @@
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = require('../gen9chaos/pokedex').ModPokedex;
+import { Pokedex as Chaos } from '../gen9chaos/pokedex';
+
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Chaos;
 
 for (const i in Pokedex) {
 	const mon = i as keyof typeof Pokedex;

@@ -1,1 +1,3 @@
-export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = require('../gen9chaos/typechart').ModTypeChart;
+import {TypeChart as Chaos} from '../gen9chaos/typechart';
+
+export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = Chaos;

@@ -1,248 +1,42 @@
+// @ts-nocheck
 import { Utils } from '../../../lib';
-export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	// IF
-	magnemite: {
-		inherit: true,
-		types: ["Steel", "Electric"],
-	},
-	magneton: {
-		inherit: true,
-		types: ["Steel", "Electric"],
-	},
-	magnezone: {
-		inherit: true,
-		types: ["Steel", "Electric"],
-	},
-	trevenant: {
-		inherit: true,
-		types: ["Grass", "Ghost"],
-	},
-	ferroseed: {
-		inherit: true,
-		types: ["Steel", "Grass"],
-	},
-	ferrothorn: {
-		inherit: true,
-		types: ["Steel", "Grass"],
-	},
+import { Pokedex as Base } from '../../pokedex';
+import { ModdedSpeciesDataTable } from '../../../sim/dex-species';
 
-	// Insurgence
-	delibird: {
-		inherit: true,
-		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Winter Joy"},
-		evos: ["Jollibird"],
-	},
-	whismur: {
-		inherit: true,
-		abilities: {0: "Soundproof", 1: "Amplifier", H: "Rattled"},
-	},
-	exploud: {
-		inherit: true,
-		abilities: {0: "Soundproof", 1: "Amplifier", H: "Scrappy"},
-	},
-	lunatone: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Noctem"},
-		evoLevel: 45,
-		evos: ["Penumbralith"],
-	},
-	solrock: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Drought"},
-		evoLevel: 45,
-		evos: ["Penumbralith"],
-	},
-	spiritomb: {
-		inherit: true,
-		types: ["Dark", "Ghost"],
-		abilities: {0: "Pressure", H: "Noctem"},
-	},
+export const Pokedex: ModdedSpeciesDataTable = {
 	darkrai: {
 		inherit: true,
-		abilities: {0: "Bad Dreams", H: "Absolution"},
+		abilities: {0: "Bad Dreams", 1: "White Smoke", H: "Absolution"},
 	},
-	arceus: {
-		inherit: true,
-		abilities: {0: "Multitype", H: "Protean"},
-	},
-	zygarde: {
-		inherit: true,
-		abilities: {0: "Aura Break", 1: "Power Construct"},
-	},
-	vaporeon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	jolteon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	flareon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	leafeon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	glaceon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	espeon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	umbreon: {
-		inherit: true,
-		prevo: undefined,
-	},
-	sylveon: {
-		inherit: true,
-		prevo: undefined,
-	},
-
-	// PoA Evos
-	starmie: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Staruhz"],
-	},
-	spinda: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Pandiz"],
-	},
-	purugly: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Growlsome"],
-	},
-	kecleon: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Kaleidleon", "Kecleodon"],
-	},
-	parasect: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Parashukado"],
-	},
-	sandslash: {
-		inherit: true,
-		evoLevel: 45,
-		evos: ["Scaleslash"],
-	},
-
-	// Other PoA changes
-	magmortar: {
-		inherit: true,
-		abilities: {0: "Flame Body", 1: "Cannoneer", H: "Vital Spirit"},
-	},
-	remoraid: {
-		inherit: true,
-		abilities: {0: "Hustle", 1: "Sniper", H: "Moody", S: "Cannoneer"},
-	},
-	octillery: {
-		inherit: true,
-		abilities: {0: "Suction Cups", 1: "Sniper", H: "Moody", S: "Cannoneer"},
-	},
-	rhyperior: {
-		inherit: true,
-		abilities: {0: "Lightning Rod", 1: "Solid Rock", H: "Reckless", S: "Cannoneer"},
-	},
-	toucannon: {
-		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Skill Link", H: "Sheer Force", S: "Cannoneer"},
-	},
-	raichualola: {
-		inherit: true,
-		abilities: {0: "Surge Surfer", 1: "Psycho Slider"},
-	},
-	veluza: {
-		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Psycho Slider", H: "Sharpness"},
-	},
-	donphan: {
-		inherit: true,
-		abilities: {0: "Sturdy", 1: "Momentum", H: "Sand Veil"},
-	},
-	ninjask: {
-		inherit: true,
-		abilities: {0: "Speed Boost", 1: "Momentum", H: "Infiltrator"},
-	},
-	cyclizar: {
-		inherit: true,
-		abilities: {0: "Shed Skin", 1: "Momentum", H: "Regenerator"},
-	},
-	sharpedo: {
-		inherit: true,
-		abilities: {0: "Rough Skin", 1: "Momentum", H: "Speed Boost"},
-	},
-	copperajah: {
-		inherit: true,
-		abilities: {0: "Sheer Force", 1: "Momentum", H: "Heavy Metal"},
-	},
-	revavroom: {
-		inherit: true,
-		abilities: {0: "Overcoat", 1: "Momentum", H: "Filter"},
-	},
-
-	// Infinity
-	pikachu: {
-		inherit: true,
-		evos: ["Raichu", "Raichu-Alola", "Gorochu"],
-	},
-	dunsparce: {
-		inherit: true,
-		evos: ["Dudunsparce", "Dudunsparce-Three-Segment", "Quezsparce"],
-	},
-	persian: {
-		inherit: true,
-		evos: ["Faeralynx"],
-	},
-	shellder: {
-		inherit: true,
-		evos: ["Cloyster", "Shellder-Egho"],
-	},
-	eevee: {
-		inherit: true,
-		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Omeon", "Champeon", "Lepideon", "Guardeon", "Obsideon", "Scorpeon", "Sphynxeon", "Nimbeon", "Draconeon", "Eeveeon", "Vareon"],
-	},
-	marowak: {
-		inherit: true,
-		evos: ["Terathwack"],
-	},
-	sunflora: {
-		inherit: true,
-		evos: ["Sunflorid"],
-	},
-	jynx: {
-		inherit: true,
-		evos: ["Sorcerice"],
-	},
-	mightyena: {
-		inherit: true,
-		evos: ["Wereyena"],
-	},
-	qwilfish: {
-		inherit: true,
-		evos: ["Kablowfish"],
-	},
-	girafarig: {
-		inherit: true,
-		evos: ["Girafaraf", "Giragira"],
-	},
-	porygon2: {
-		inherit: true,
-		evos: ["Porygon-Z", "Porygon-X"],
-	},
-
-	// Secret changes
-	// revavroom: {
-	// 	inherit: true,
-	// 	abilities: {0: "Overcoat", 1: "Baby on Board", H: "Filter"},
-	// }
 };
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(ModPokedex);
+const Manual = Utils.deepClone(Pokedex);
+for (const mod in require('./mods.json')) {
+	const ModPokedex = require('../' + mod + '/pokedex').Pokedex as ModdedSpeciesDataTable;
+
+	for (const key in ModPokedex) {
+		const id = key as keyof typeof ModPokedex;
+
+		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
+		
+		for (const attr in ModPokedex[id]) {
+			if (['inherit', 'isNonstandard', 'num', 'gen', 'baseStats'].includes(attr)) continue;
+			if (!['evos'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			else {
+				if (attr === 'abilities') {
+					if (
+						!Base[id] ||
+						Object.keys(Base[id].abilities).every(
+							(ability) => Base[id].abilities[ability] === ModPokedex[id].abilities[ability]
+						)
+					) Pokedex[id].abilities = ModPokedex[id].abilities;
+				} else if (attr === 'evos') {
+					if (!Pokedex[id].evos) Pokedex[id] = {...Pokedex[id], evos: ModPokedex[id].evos};
+					else Pokedex[id].evos.push(...ModPokedex[id].evos);
+				} else {
+					Pokedex[id][attr] = ModPokedex[id][attr];
+				}
+			}
+		}
+	}
+}

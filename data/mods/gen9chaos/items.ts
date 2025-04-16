@@ -1,69 +1,18 @@
+// @ts-nocheck
 import { Utils } from '../../../lib';
-export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
-	// Other
-	berserkgene: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	// IF
-	dragonfang: {
-		inherit: true,
-		onModifyAtk(atk, pokemon) {
-			if (pokemon.species.name === 'Clamperl-Delta' || pokemon.fusion === 'Clamperl-Delta') {
-				return this.chainModify(2);
-			}
-		},
-		itemUser: ["Clamperl-Delta"],
-	},
-	dragonscale: {
-		inherit: true,
-		onModifyDef(def, pokemon) {
-			if (pokemon.species.name === 'Clamperl-Delta' || pokemon.fusion === 'Clamperl-Delta') {
-				return this.chainModify(2);
-			}
-		},
-		itemUser: ["Clamperl-Delta"],
-	},
-	eviolite: {
-		inherit: true,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
-				return this.chainModify(1.5);
-			}
-		},
-	},
-	leek: {
-		inherit: true,
-		isNonstandard: null,
-		onModifyCritRatio(critRatio, user) {
-			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies)) ||
-				["farfetchd", "sirfetchd", "farfetchdgalar"].includes(this.toID(user.fusion))) {
-				return critRatio + 2;
-			}
-		},
-	},
-	stick: {
-		inherit: true,
-		onModifyCritRatio(critRatio, user) {
-			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(this.dex.species.get(user.fusion).baseSpecies) === 'farfetchd') {
-				return critRatio + 2;
-			}
-		},
-	},
+import { Items as Base } from '../../items';
+import { ModdedItemDataTable } from '../../../sim/dex-items';
+
+export const Items: ModdedItemDataTable = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (['Pikachu', 'Pikachu-Delta'].includes(pokemon.baseSpecies.baseSpecies) || ['Pikachu', 'Pikachu-Delta'].includes(Dex.species.get(pokemon.fusion).baseSpecies)) {
+			if ((pokemon.species.name.includes('Pikachu') || pokemon.fusion?.includes('Pikachu'))) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (['Pikachu', 'Pikachu-Delta'].includes(pokemon.baseSpecies.baseSpecies) || ['Pikachu', 'Pikachu-Delta'].includes(Dex.species.get(pokemon.fusion).baseSpecies)) {
+			if ((pokemon.species.name.includes('Pikachu') || pokemon.fusion?.includes('Pikachu'))) {
 				return this.chainModify(2);
 			}
 		},
@@ -71,18 +20,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	luckypunch: {
 		inherit: true,
-		isNonstandard: null,
 		onModifyCritRatio(critRatio, user) {
-			if (user.baseSpecies.name.includes('Chansey') || user.fusion?.includes('Chansey')) {
+			if (user.species.name.includes('Chansey') || user.fusion?.includes('Chansey')) {
 				return critRatio + 2;
 			}
 		},
+		itemUser: ["Chansey", "Chansey-Egho"],
 	},
 	metalpowder: {
 		inherit: true,
-		isNonstandard: null,
 		onModifyDef(def, pokemon) {
-			if (pokemon.fusion && (['Ditto', 'Ditto-Delta'].includes(pokemon.species.name) || ['Ditto', 'Ditto-Delta'].includes(pokemon.fusion)) && !pokemon.transformed) {
+			if ((pokemon.species.name.includes('Ditto') || pokemon.fusion?.includes('Ditto')) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
@@ -90,28 +38,30 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	quickpowder: {
 		inherit: true,
-		isNonstandard: null,
 		onModifySpe(spe, pokemon) {
-			if (pokemon.fusion && (['Ditto', 'Ditto-Delta'].includes(pokemon.species.name) || ['Ditto', 'Ditto-Delta'].includes(pokemon.fusion)) && !pokemon.transformed) {
+			if ((pokemon.species.name.includes('Ditto') || pokemon.fusion?.includes('Ditto')) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
 		itemUser: ["Ditto", "Ditto-Delta"],
 	},
-	thickclub: {
-		inherit: true,
-		isNonstandard: null,
-		onModifyAtk(atk, pokemon) {
-			if (
-				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
-				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
-				Dex.species.get(pokemon.fusion).baseSpecies === 'Cubone' ||
-				Dex.species.get(pokemon.fusion).baseSpecies === 'Marowak'
-			) {
-				return this.chainModify(2);
-			}
-		},
-	},
 };
 
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Utils.deepClone(ModItems);
+const Manual = Utils.deepClone(Items);
+for (const mod in require('./mods.json')) {
+	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
+
+	for (const key in ModItems) {
+		const id = key as keyof typeof ModItems;
+
+		if (!Items[id]) Items[id] = Base[id] ? {inherit: true} : {};
+
+		for (const attr in ModItems[id]) {
+			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
+			if (Items[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			else {
+				Items[id][attr] = ModItems[id][attr];
+			}
+		}
+	}
+}

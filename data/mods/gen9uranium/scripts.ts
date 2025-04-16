@@ -113,7 +113,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				// Ogerpon's forme change doesn't override permanent abilities
 				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
 				// However, its ability does reset upon switching out
-				this.baseAbility = Dex.toID(ability);
+				this.baseAbility = this.battle.dex.toID(ability);
 			}
 			if (this.terastallized) {
 				this.knownType = true;

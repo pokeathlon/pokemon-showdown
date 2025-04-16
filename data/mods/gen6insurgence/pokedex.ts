@@ -1,7 +1,8 @@
+import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
 import { Pokedex as Parent} from '../gen9insurgence/pokedex';
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Parent;
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 const cutDex: {[k: string]: number} = {
 	"bulbasaur": 1,

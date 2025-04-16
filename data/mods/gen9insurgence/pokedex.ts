@@ -40,10 +40,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: {0: "Aura Break", 1: "Power Construct"},
 	},
-	rayquazamega: {
-		inherit: true,
-		tier: "Uber",
-	},
 	vaporeon: {
 		inherit: true,
 		prevo: undefined,

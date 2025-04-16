@@ -1,28 +1,6 @@
-const {Dex} = require('../../../sim/dex');
-import { Utils } from '../../../lib';
-
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
-	init() {
-		const fangames = ['gen9insurgence', 'gen9uranium', 'gen9infinitefusion', 'gen9pokeathlon', 'gen9infinity', 'gen9mariomon'];
-		const categories = ['Pokedex', 'Moves', 'Abilities', 'Conditions', 'Items', 'Learnsets'];
-		for (const fangame of fangames) {
-			for (const category of categories) {
-				for (const item in Dex.mod(fangame).data[category]) {
-					if (!(item in this.data[category as keyof typeof this.data])) {
-						this.data[category as keyof typeof this.data][item] = Utils.deepClone(Dex.mod(fangame).data[category][item]);
-					}
-				}
-			}
-		}
-		for (const i in this.data.Pokedex) {
-			if (this.data.Pokedex[i].types.includes("Nuclear") && !require('./formats-data').ModFormatsData[i]) {
-				this.modData('Pokedex', i).natDexTier = "RU";
-			}
-		}
-		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE' || this.data.Moves[move].name === 'Bouncy Bubble') delete this.data.Moves[move].isNonstandard;
-	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
 			const species = pokemon.baseSpecies;
@@ -31,7 +9,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Mega Rayquaza
 			if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past')) &&
 				altForme?.isMega && altForme?.requiredMove &&
-				pokemon.baseMoves.includes(Dex.toID(altForme.requiredMove)) && !item.zMove) {
+				pokemon.baseMoves.includes(this.battle.dex.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
@@ -321,7 +299,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				// Ogerpon's forme change doesn't override permanent abilities
 				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
 				// However, its ability does reset upon switching out
-				this.baseAbility = Dex.toID(ability);
+				this.baseAbility = this.battle.dex.toID(ability);
 			}
 			if (this.terastallized) {
 				this.knownType = true;

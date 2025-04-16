@@ -1,6 +1,4 @@
-import { Utils } from '../../../lib';
-export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
-	// Tiering
+export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	emolgadelta: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -2275,5 +2273,4 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-};
-export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = Utils.deepClone(ModFormatsData);
+}; 

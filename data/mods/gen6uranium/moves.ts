@@ -1,8 +1,9 @@
+import { Utils } from '../../../lib';
 import { Moves as Base } from '../../moves';
 import { Moves as Parent} from '../gen9uranium/moves';
 
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
-	...Parent,
+	...Utils.deepClone(Parent),
 	rest: {
 		inherit: true,
 		onTry(pokemon) {

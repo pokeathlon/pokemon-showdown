@@ -9,7 +9,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Mega Rayquaza
 			if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past')) &&
 				altForme?.isMega && altForme?.requiredMove &&
-				pokemon.baseMoves.includes(Dex.toID(altForme.requiredMove)) && !item.zMove) {
+				pokemon.baseMoves.includes(this.battle.dex.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
@@ -167,7 +167,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				// Ogerpon's forme change doesn't override permanent abilities
 				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
 				// However, its ability does reset upon switching out
-				this.baseAbility = Dex.toID(ability);
+				this.baseAbility = this.battle.dex.toID(ability);
 			}
 			if (this.terastallized) {
 				this.knownType = true;

@@ -1,8 +1,9 @@
+import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
 import { Abilities as Parent} from '../gen9uranium/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Parent,
+	...Utils.deepClone(Parent),
 	atomizate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {

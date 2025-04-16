@@ -1,5 +1,6 @@
-import { Utils } from '../../../lib';
-export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
+import { ModdedLearnsetDataTable } from '../../../sim/dex-species';
+
+export const Learnsets: ModdedLearnsetDataTable = {
 	eevee: {
 		learnset: {
 			roost: ["9M"],
@@ -24,25 +25,26 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 };
 
-for (const mod of ['pokeathlon', 'insurgence', 'uranium', 'infinity']) {
-	const changes = require('../gen9' + mod + '/learnsets').ModLearnsets;
-	for (const pokemon in changes) {
-		if (!changes[pokemon].inherit || !changes[pokemon].learnset) continue;
-		if (!(pokemon in ModLearnsets)) ModLearnsets[pokemon as IDEntry] = {inherit: true, learnset: {}};
-		for (const move in changes[pokemon].learnset) {
-			// @ts-ignore
-			if (!(move in ModLearnsets[pokemon as IDEntry].learnset)) ModLearnsets[pokemon as IDEntry].learnset[move as IDEntry] = changes[pokemon].learnset[move];
-			else {
-				for (const method of changes[pokemon].learnset[move]) {
-					// @ts-ignore
-					if (!ModLearnsets[pokemon as IDEntry].learnset[move as IDEntry].includes(method)) {
-						// @ts-ignore
-						ModLearnsets[pokemon as IDEntry].learnset[move as IDEntry].push(method);
-					}
-				}
-			}
+for (const mod in require('./mods.json')) {
+	const ModLearnsets = require('../' + mod + '/learnsets').Learnsets as ModdedLearnsetDataTable;
+	for (const key in ModLearnsets) {
+		const id = key as keyof typeof ModLearnsets;
+		if (!ModLearnsets[id].learnset) continue;
+
+		if (!Learnsets[id]) Learnsets[id] = {inherit: true, learnset: {}};
+		if (!Learnsets[id].learnset) continue;
+
+		for (const movekey in ModLearnsets[id].learnset) {
+			const moveid = movekey as IDEntry;
+
+			if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
+			Learnsets[id].learnset[moveid].push(
+				...ModLearnsets[id].learnset[moveid].filter(
+					// @ts-ignore learnset is possibly undefined.
+					(method) => !Learnsets[id].learnset[moveid].includes(method)
+				)
+			);
 		}
+
 	}
 }
-
-export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = Utils.deepClone(ModLearnsets);

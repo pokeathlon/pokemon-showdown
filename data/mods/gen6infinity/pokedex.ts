@@ -1,13 +1,8 @@
+import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
 import { Pokedex as Parent} from '../gen9infinity/pokedex';
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	aegislash: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 50, def: 140, spa: 50, spd: 140, spe: 60},
-	},
-	...Parent,
-};
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
 const cutDex: {[k: string]: number} = {
