@@ -3,7 +3,98 @@ import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
 import { ModdedAbilityDataTable } from '../../../sim/dex-abilities';
 
+const eeveelutions: {[k: string]: string} = {
+	"Water": "vaporeon",
+	"Fire": "flareon",
+	"Grass": "leafeon",
+	"Dark": "umbreon",
+	"Fairy": "sylveon",
+	"Psychic": "espeon",
+	"Ice": "glaceon",
+	"Electric": "jolteon",
+	"Ghost": "omeon",
+	"Fighting": "champeon",
+	"Rock": "obsideon",
+	"Ground": "sphynxeon",
+	"Poison": "scorpeon",
+	"Steel": "guardeon",
+	"Dragon": "draconeon",
+	"Bug": "lepideon",
+	"Flying": "nimbeon",
+	"Nuclear": "nucleon",
+	"???": "vareon",
+	"Normal": "eeveemega",
+};
+
+const eeveeabilities: {[k: string]: string} = {
+	"vaporeon": "waterabsorb",
+	"flareon": "flashfire",
+	"leafeon": "chlorophyll",
+	"umbreon": "synchronize",
+	"sylveon": "cutecharm",
+	"espeon": "magicbounce",
+	"glaceon": "snowcloak",
+	"jolteon": "voltabsorb",
+	"omeon": "moxie",
+	"champeon": "scrappy",
+	"obsideon": "rockhead",
+	"sphynxeon": "technician",
+	"scorpeon": "poisontouch",
+	"guardeon": "bulletproof",
+	"draconeon": "toughclaws",
+	"lepideon": "tintedlens",
+	"nimbeon": "galewings",
+	"eeveemega": "proteanmaxima",
+};
+
 export const Abilities: ModdedAbilityDataTable = {
+	// MODDED
+	proteanmaxima: {
+		onSwitchIn(pokemon) {
+			if (pokemon.species.id !== eeveelutions["Normal"] && pokemon.species.id in eeveeabilities) {
+				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
+				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(eeveeabilities[pokemon.species.id]).name);
+			}
+		},
+		onUpdate(pokemon) {
+			const action = this.queue.willMove(pokemon);
+			if (!action) return;
+			const move = this.dex.getActiveMove(action.move.id);
+			if (move.type in eeveelutions && pokemon.species.id !== eeveelutions[move.type]) {
+				if (pokemon.species.id !== eeveelutions["Normal"]) {
+					pokemon.removeVolatile('ability:' + eeveeabilities[eeveelutions[pokemon.species.types[0]]]);
+				}
+				pokemon.formeChange(eeveelutions[move.type], this.dex.abilities.get('Protean Maxima'), true);
+				pokemon.addVolatile('ability:' + eeveeabilities[pokemon.species.id]);
+				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(eeveeabilities[pokemon.species.id]).name);
+
+				// In Insurgence, the action order is recalculated for a Protean Maxima transform.
+				for (const [i, queuedAction] of this.queue.list.entries()) {
+					if (queuedAction.pokemon === pokemon && queuedAction.choice === 'move') {
+						this.queue.list.splice(i, 1);
+						this.queue.insertChoice(queuedAction, true);
+						break;
+					}
+				}
+
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				if (pokemon.hp < 1) pokemon.hp = 1;
+				pokemon.maxhp = newMaxHP;
+				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		name: "Protean Maxima",
+		shortDesc: "Transforms into the eeveelution corresponding to the type of the move used.",
+		rating: 4.5,
+		num: 0,
+	},
+
+	// COLLISIONS
 	disguise: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
@@ -74,19 +165,19 @@ export const Abilities: ModdedAbilityDataTable = {
 	flowergift: {
 		inherit: true,
 		onWeatherChange(pokemon) {
-			if (!pokemon.isActive || pokemon.transformed) return;
-			if (!pokemon.hp) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
+			if (!pokemon.isActive || pokemon.transformed || !pokemon.hp) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
+				if (pokemon.species.name === 'Cherrim') {
 					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
-				} else if (pokemon.fusion !== 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
+				}
+				if (pokemon.fusion === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
-				if (pokemon.species.id === 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
+				if (pokemon.species.name === 'Cherrim-Sunshine') {
 					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
-				} else if (pokemon.fusion === 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
+				}
+				if (pokemon.fusion === 'Cherrim-Sunshine') {
 					pokemon.fusionChange('Cherrim', this.effect);
 				}
 			}
@@ -157,33 +248,53 @@ export const Abilities: ModdedAbilityDataTable = {
 	},
 	lernean: {
 		onUpdate(pokemon) {
-			if (!pokemon.species.id.startsWith('hydreigonmega') || !pokemon.hp || pokemon.transformed) return;
-			const formeOrder = ['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'];
+			if (!pokemon.hp || pokemon.transformed) return;
+			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
 			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
-				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
+				for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
+					if (pokemon.species.name.startsWith(name)) {
+						pokemon.formeChange(name + formeOrder[targetForme], this.effect, true);
+					}
+					if (pokemon.fusion?.startsWith(name)) {
+						pokemon.fusionChange(name + formeOrder[targetForme], this.effect);
+					}
+				}
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
-			if (move.category === "Status" || !move.basePower) return;
-			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
-			move.multihit = 5 + formes.indexOf(pokemon.species.id);
-			if (move.secondaries) {
-			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
-			   // Technically not a secondary effect, but it is negated
-			   delete move.self;
-			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-		   }
+			if (!['Hydreigon-Mega', 'Hydroupa'].some((name) => [pokemon.species.name, pokemon.fusion].includes(name)) || move.category === "Status" || !move.basePower) return;
+
+			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
+				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
+
+				const index = formes.indexOf(pokemon.species.name);
+				if (index >= 0) {
+					move.multihit = 5 + index;
+					if (move.secondaries) {
+						// delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
+						// Technically not a secondary effect, but it is negated
+						delete move.self;
+						if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+					}
+					break;
+				}
+			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
-			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
-			const nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
+			if (!['Hydreigon-Mega', 'Hydroupa'].some((name) => [pokemon.species.name, pokemon.fusion].includes(name))) return;
+			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
+				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
+
+				const index = formes.indexOf(pokemon.species.name);
+				if (index >= 0) {
+					const nhits = 5 + index;
+					return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
+				}
+			}
 		},
 		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if (pokemon.species.id.startsWith('hydreigonmega') && move.secondaries) {
+			if (['Hydreigon-Mega', 'Hydroupa'].some((name) => [pokemon.species.name, pokemon.fusion].includes(name)) && move.secondaries) {
 				delete move.secondaries;
 			}
 		},
