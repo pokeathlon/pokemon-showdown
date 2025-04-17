@@ -19,14 +19,14 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 90,
 		},
 		onModifyCritRatio(critRatio, user) {
-			if (user.baseSpecies.baseSpecies === 'Terathwak' || user.fusion === 'Terathwak') {
+			if (user.baseSpecies.baseSpecies === 'Terathwack' || user.fusion === 'Terathwack') {
 				return critRatio + 2;
 			}
 		},
-		itemUser: ["Terathwak"],
+		itemUser: ["Terathwack"],
 		num: 0,
 		gen: 6,
-		shortDesc: "If held by a Terathwak, its critical hit ratio is raised by 2 stages.",
+		shortDesc: "If held by a Terathwack, its critical hit ratio is raised by 2 stages.",
 	},
 };
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(ModItems);
