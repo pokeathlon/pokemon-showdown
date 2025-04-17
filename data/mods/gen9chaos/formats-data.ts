@@ -1029,6 +1029,14 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
+	gallademega: {
+		inherit: true,
+		natDexTier: "UU"
+	},
+	latiasmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	heracrossubarctic: {
 		inherit: true,
 		natDexTier: "RU",
