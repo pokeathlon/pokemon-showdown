@@ -68,6 +68,18 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	urshifu: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	birdo: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	lubba: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	infermon: {
 		inherit: true,
 		natDexTier: "OU",
@@ -99,10 +111,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	ursalunabloodmoon: {
 		inherit: true,
 		natDexTier: "OU",
-	},
-	urshifu: {
-		inherit: true,
-		natDexTier: "Uber",
 	},
 	lukagon: {
 		inherit: true,
