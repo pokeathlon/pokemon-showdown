@@ -281,6 +281,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UUBL",
 	},
+	gushen: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	haxorusdelta: {
 		inherit: true,
 		natDexTier: "UU",

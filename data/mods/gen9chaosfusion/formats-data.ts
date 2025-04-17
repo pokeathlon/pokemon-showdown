@@ -176,6 +176,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	gushen: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	arctozolt: {
 		inherit: true,
 		natDexTier: "UU",
