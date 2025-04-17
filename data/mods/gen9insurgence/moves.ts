@@ -759,10 +759,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Hot Coals');
 			},
-			onEntryHazard(pokemon) {
+			onSwitchIn(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('hotcoals')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
 			},
 		},
 		secondary: null,

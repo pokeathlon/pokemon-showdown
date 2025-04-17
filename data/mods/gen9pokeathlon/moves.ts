@@ -419,6 +419,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		selfdestruct: "ifHit",
 		slotCondition: 'fibregraft',
 		condition: {
+			onSwitchIn(target) {
+				this.singleEvent('Swap', this.effect, this.effectState, target);
+			},
 			onSwap(target) {
 				if (!target.fainted) {
 					this.boost({atk: 1}, target, null, this.effect);
@@ -775,7 +778,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
-		shortDesc: "Drowsys if target boosts stats. Heals if target is ally.",
+		shortDesc: "Drowsies if target boosted stats. Heals if target is ally.",
 		target: "any",
 		type: "Water",
 		contestType: "Cool",
