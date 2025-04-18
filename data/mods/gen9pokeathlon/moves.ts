@@ -1541,7 +1541,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			duration: 2,
 			onStart(target) {
-				if (target.activeTurns && !this.queue.willMove(target)) {
+				if (target.activeTurns && !this.queue.willMove(target) && this.effectState.duration) {
 					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Taunt');
