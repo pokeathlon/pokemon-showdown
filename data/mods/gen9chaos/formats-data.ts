@@ -1,6 +1,10 @@
 const {Dex} = require('../../../sim/dex');
 export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// Tiering
+	sonic: {
+		inherit: true,
+		natDexTier: "AG",
+	},
 	emolgadelta: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -102,10 +106,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "Uber",
 	},
 	exor: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
-	hammerbro: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
@@ -1044,6 +1044,38 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	gallademega: {
 		inherit: true,
 		natDexTier: "UU"
+	},
+	hammerbro: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	fishbone: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	happymoon: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	muncher: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mrblizzard: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	trex: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	yux: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	yoob: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	latiasmega: {
 		inherit: true,
