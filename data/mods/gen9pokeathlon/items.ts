@@ -263,5 +263,6 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			return this.chainModify(0.5);
 		},
 		num: 0,
+		itemUser: ['Dhelmise'],
 	},
 };
