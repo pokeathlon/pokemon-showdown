@@ -175,7 +175,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	buddylantern: {
 		name: "Buddy Lantern",
-		shortDesc: "Holder deals x0.125 damage to allies.",
+		shortDesc: "Holder deals 0.125x damage to allies.",
 		spritenum: -3,
 		onModifyDamage(damage, source, target, move) {
 			if (target.isAlly(source)) {
@@ -197,7 +197,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	brokenhourglass: {
 		name: "Broken Hourglass",
-		shortDesc: "Future moves land instantly at x1.3 power. Single use.",
+		shortDesc: "Future moves land instantly at 1.3x power. Single use.",
 		spritenum: -3,
 		onModifyMovePriority: 1,
 		onModifyMove(move, pokemon, target) {
@@ -246,7 +246,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	anchor: {
 		name: "Anchor",
 		spritenum: -3,
-		shortDesc: "x0.5 Speed. When Dhelmise, x1.5 Atk. Cannot be forcefully switched.",
+		shortDesc: "Holder's Spe is 0.5x, cannot be forced to switched out. Dhelmise: 1.5x Atk.",
 		fling: {
 			basePower: 130,
 		},

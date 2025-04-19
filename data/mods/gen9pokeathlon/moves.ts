@@ -1742,7 +1742,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ghost",
 		zMove: {basePower: 160},
 		contestType: "Clever",
-		shortDesc: "x1.5 power if user has status condition. Transfers status condition.",
+		shortDesc: "1.5x power if user has status condition. Transfers status condition.",
 	},
 	heavycleave: {
 		num: 0,
@@ -1761,7 +1761,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "allAdjacentFoes",
 		type: "Steel",
-		shortDesc: "20% chance to lower foe(s) Def by 1 stage.",
+		shortDesc: "20% chance to lower foe(s) Defense by 1 stage.",
 	},
 	throwingknives: {
 		num: 0,
