@@ -197,7 +197,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	brokenhourglass: {
 		name: "Broken Hourglass",
-		shortDesc: "Future moves land instantly at x1.3 power.",
+		shortDesc: "Future moves land instantly at x1.3 power. Single use.",
 		spritenum: -3,
 		onModifyMovePriority: 1,
 		onModifyMove(move, pokemon, target) {
@@ -240,6 +240,27 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 					this.add('-clearboost', pokemon, '[silent]');
 				}
 			},
+		},
+		num: 0,
+	},
+	anchor: {
+		name: "Anchor",
+		spritenum: -3,
+		shortDesc: "x0.5 Speed. When Dhelmise, x1.5 Atk. Cannot be forcefully switched.",
+		fling: {
+			basePower: 130,
+		},
+		onFoeModifyMove(move, pokemon, target) {
+			if (move.forceSwitch) move.forceSwitch = false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Dhelmise') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
 		},
 		num: 0,
 	},
