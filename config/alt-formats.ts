@@ -341,7 +341,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew',
+			'item:souldew', 'item:kingsrock', 'item:razorfang',
 			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:acupressure',
 		],
 	},
