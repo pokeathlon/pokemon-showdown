@@ -1,4 +1,4 @@
-/config/*
+
 !/config/*formats.ts
 /data/mods/*/remote.json
 /data/random-battles/gen9chaos/data.json
