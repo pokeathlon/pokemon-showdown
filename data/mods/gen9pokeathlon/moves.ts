@@ -473,11 +473,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return this.chainModify(1.2);
 			}
 		},
-		onHit(source) {
-			this.field.setWeather('sandstorm');
-		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
+		weather: 'sandstorm',
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
@@ -496,11 +494,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return this.chainModify(1.2);
 			}
 		},
-		onHit(source) {
-			this.field.setWeather('snowscape');
-		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
+		weather: 'snowscape',
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
@@ -519,11 +515,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return this.chainModify(1.2);
 			}
 		},
-		onHit(source) {
-			this.field.setWeather('sunnyday');
-		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
+		weather: 'sunnyday',
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",

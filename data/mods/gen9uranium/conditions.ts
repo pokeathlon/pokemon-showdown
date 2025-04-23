@@ -70,7 +70,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.field.isWeather('thunderstorm')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if (this.effectState.duration % 2 === 0) {
+			if (this.effectState.duration && this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('thunderstorm')), -6, 6);
 				if (target.runImmunity('Electric')) this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
 			}
@@ -101,7 +101,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.field.isWeather('fallout')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if (this.effectState.duration % 2 === 0) {
+			if (this.effectState.duration && this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('fallout')), -6, 6);
 				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
 			}
