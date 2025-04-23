@@ -1885,6 +1885,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "RU",
 	},
+	majorburrows: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	baaschafnuclear:{
 		inherit: true,
 		natDexTier: "NFE",
