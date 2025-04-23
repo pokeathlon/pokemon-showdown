@@ -1076,7 +1076,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-sidestart', side, 'move: Permafrost');
 				this.effectState.layers++;
 			},
-			onEntryHazard(pokemon) {
+			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Ice') || pokemon.hasType('Fire')) {
 					this.add('-sideend', pokemon.side, 'move: Permafrost', '[of] ' + pokemon);
