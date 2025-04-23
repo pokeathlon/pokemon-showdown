@@ -147,4 +147,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "LC",
 	},
+	dragapult: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 };
