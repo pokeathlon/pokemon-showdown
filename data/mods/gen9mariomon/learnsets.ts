@@ -6023,7 +6023,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	toady: {
 		learnset: {
 			acrobatics: ["9M"],
-			afteryou: ["9M"],
 			aircutter: ["9L15"],
 			airslash: ["9L35", "9M"],
 			allyswitch: ["9M"],
