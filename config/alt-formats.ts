@@ -849,8 +849,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock', 'item:darkrock', 'item:heatrock', 'item:icyrock', 'item:smoothrock', 'item:focusband',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:acupressure', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon',
 		],
 	},
 	{
@@ -937,6 +937,25 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher', 'move:cinderbreath',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Monotype",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Type Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause'],
+		banlist: [
+			'Alakazam-Mega', 'Annihilape', 'Arceus', 'Arceus-Primal', 'Archilles-Mega', 'Arkhaos', 'Baxcalibur', 'Blastoise-Mega', 'Blaziken', 'Blaziken-Mega', 'Blissey-Egho', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Chien-Pao', 'Chuggalong', 
+			'Crustle-Delta-Cake', 'Cryogonal-Mega', 'Darkrai', 'Deosectwo', 'Deoxys', 'Deoxys-Attack', 'Diaboromon', 'Dialga', 'Dialga-Origin', 'Dracovish', 'Dragapult', 'Dragonite-Delta', 'Dramsama-Dark-Mega', 'Drilgann-Mega', 'Eevee-Mega', 'Eeveeon', 'Electrode-Mega', 
+			'Emolga-Delta', 'Espathra', 'Eternatus', 'Fafninter', 'Feraligatr-Egho', 'Feraligatr-Mega', 'Fidgit', 'Flutter Mane', 'Flymon', 'Frosthra', 'Genesect', 'Gengar-Mega', 'Gigantusk', 'Giratina', 'Giratina-Origin', 'Giratina-Primal', 'Gouging Fire', 'Groudon', 'Groudon-Primal', 
+			'Haxorus-Mega', 'Ho-Oh', 'Hoopa-Delta-Unleashed', 'Hoopa-Unbound', 'Hydreigon-Mega', 'Icyall', 'Inflagetah', 'Inflagetah-Mega', 'Iron Bundle', 'Jerbolta-Nuclear', 'Jirachi-Mega', 'Kangaskhan-Mega', 'Kingambit', 'Koraidon', 'Kyodonquaza', 'Kyogre', 'Kyogre-Primal', 'Kyurem-Black', 
+			'Kyurem-White', 'Lanthan', 'Lucario-Mega', 'Lugia', 'Lukagon', 'Lunala', 'Machinedramon', 'Magearna', 'MagnaAngemon', 'Marshadow', 'Metagross-Delta-Ruin-Crystal', 'Metagross-Delta-Ruin-Mega', 'Metagross-Delta-Spider-Mega', 'Metagross-Mega', 'MetalEtemon', 'MetalGarurumon', 'Mewthree', 
+			'Mewtwo', 'Mewtwo-Armor', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Mewtwo-Shadow', 'Mewtwo-Shadow-Mega-X', 'Miraidon', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Nucleon', 'Oculeus', 'Ogerpon-Hearthflame', 'Okuwamon', 'Omnimon', 'Palafin', 'Paldiatina', 'Palkia', 'Palkia-Origin', 
+			'Pheromosa', 'Raffiti', 'Rayquaza', 'Rayquaza-Mega', 'Reaptide', 'Regigigas-Primal', 'Reshiram', 'Reuniclus-Mega', 'SaberLeomon', 'Salamence-Mega', 'Scizor-Delta-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Solgaleo', 'Swamptiliken', 'UFI', 'Urshifu', 'Vareon', 'Volcarona-Delta', 
+			'Volcarona-Delta-Armored', 'WarGreymon', 'Xerneas', 'Yatagaryu', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zekrom-Armor', 'Zekyushiram', 'Zudomon', 'Zygarde', 'Zygarde-Complete',
+			'ability:illuminate', 'ability:moody', 'ability:powerconstruct', 'ability:quickcharge','ability:sandveil','ability:shadowtag','ability:snowcloak',
+			'item:boosterenergy', 'item:brightpowder', 'item:damprock', 'item:focusband', 'item:heatrock', 'item:icyrock', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:smoothrock', 'item:terrainextender', 'item:trickrock',
+			'move:acupressure', 'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:jumpship', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail', 'move:swagger', 'move:wildfire'
 		],
 	},
 	{

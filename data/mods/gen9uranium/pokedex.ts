@@ -3048,7 +3048,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		heightm: 0.7,
 		weightkg: 21.5,
 		color: "Black",
-		prevo: "Eevee",
+		//prevo: "Eevee",
 		evoType: "levelExtra",
 		eggGroups: ["Uranium"],
 		gen: 6,
