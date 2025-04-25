@@ -966,7 +966,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaos',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Type Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', '!Sleep Clause Mod', 'Sleep Moves Clause', 'Species Reveal Clause', '!Obtainable Abilities', 'Ability Clause = 1', 'Z-Move Clause'],
 		banlist: [
-			'Alakazam-Mega', 'Annihilape', 'Arceus', 'Arceus-Primal', 'Archeops', 'Arkhaos', 'Archilles-Mega', 'Archeops', 'Baxcalibur', 'Blacephalon', 'Blastoise-Mega', 'Blaziken-Mega', 'Blissey-Egho', 
+			'Alakazam-Mega', 'Annihilape', 'Arceus', 'Arceus-Primal', 'Archeops', 'Arkhaos', 'Archilles-Mega', 'Baxcalibur', 'Blacephalon', 'Blastoise-Mega', 'Blaziken-Mega', 'Blissey-Egho', 
 			'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Chien-Pao', 'Cryogonal-Mega', 'Darkrai', 'Deosectwo', 'Deoxys', 'Deoxys-Attack', 'Diaboromon', 'Dialga', 'Dialga-Origin', 'Dragapult', 'Dracovish', 'Dramsama-Dark-Mega', 
 			'Drilgann-Mega', 'Electrode-Mega', 'Emolga-Delta', 'Eternatus', 'Feraligatr-Mega', 'Flutter Mane', 'Genesect', 'Gengar-Mega', 'Giratina', 'Giratina-Origin', 'Giratina-Primal', 'Gouging Fire', 'Groudon', 'Groudon-Primal', 
 			'Haxorus-Mega', 'Ho-Oh', 'Hoopa-Delta-Unleashed', 'Hoopa-Unbound', 'Hydreigon-Mega', 'Infermon', 'Inflagetah', 'Inflagetah-Mega', 'Iron Bundle', 'Iron Valiant', 'Jirachi-Mega', 'Kangaskhan-Mega', 'Kingambit', 'Keldeo', 'Koraidon', 
