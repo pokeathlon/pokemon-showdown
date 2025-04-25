@@ -941,6 +941,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Monotype",
+		desc: `All the Pok&eacute;mon on a team must share a type.`,
 		searchShow: false,
 
 		mod: 'gen9chaos',
@@ -961,6 +962,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos AAA",
+		desc: `Pok&eacute;mon have access to almost any ability.`,
 		searchShow: false,
 
 		mod: 'gen9chaos',
