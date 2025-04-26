@@ -10885,6 +10885,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	nucleon: {
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			attract: ["6M"],
 			calmmind: ["6M"],
 			captivate: ["6E"],

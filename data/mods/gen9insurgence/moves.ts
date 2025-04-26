@@ -710,7 +710,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		zMove: {boost: {spa: 1}},
 	},
 	dracojet: {
 		num: 0,
@@ -837,7 +837,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-sidestart', side, 'move: Livewire');
 				this.effectState.layers++;
 			},
-			onEntryHazard(pokemon) {
+			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Ground') || pokemon.hasType('Electric')) {
 					this.add('-sideend', pokemon.side, 'move: Livewire', '[of] ' + pokemon);
