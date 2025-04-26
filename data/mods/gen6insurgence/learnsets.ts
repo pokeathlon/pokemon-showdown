@@ -28960,7 +28960,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			wildfire: ["6M"],
 			confide: ["6M"],
 			jetstream: ["6M"],
-			dragonsascent: ["6M"],
+			dragonascent: ["6M"],
 			celebrate: ["6M"],
 		},
 	},
