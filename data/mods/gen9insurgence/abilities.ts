@@ -277,7 +277,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	etherealshroud: {
 		onTryHit(target, source, move) {
-			if (target !== source && ['Normal', 'Fighting'].includes(move.type)) {
+			if (target !== source && ['Normal', 'Fighting'].includes(move.type) && move.category != 'Status') {
 				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return null;
 			}
