@@ -229,7 +229,7 @@ export class Side {
 		this.faintedThisTurn = null;
 		this.totalFainted = 0;
 		this.zMoveUsed = false;
-		this.dynamaxUsed = this.battle.gen !== 8;
+		this.dynamaxUsed = (this.battle.gen !== 8) && !this.battle.format.ruleTable?.has('candynamax');
 
 		this.sideConditions = {};
 		this.slotConditions = [];
@@ -276,7 +276,7 @@ export class Side {
 	}
 
 	canDynamaxNow(): boolean {
-		if (this.battle.gen !== 8) return false;
+		if (this.battle.gen !== 8 && !this.battle.format.ruleTable?.has('candynamax')) return false;
 		// In multi battles, players on a team are alternatingly given the option to dynamax each turn
 		// On turn 1, the players on their team's respective left have the first chance (p1 and p2)
 		if (this.battle.gameType === 'multi' && this.battle.turn % 2 !== [1, 1, 0, 0][this.n]) return false;
@@ -710,6 +710,7 @@ export class Side {
 		// Mega evolution
 
 		const mixandmega = this.battle.format.mod === 'mixandmega';
+		const multipleMega = this.battle.format.ruleTable?.has('multiplemega')
 		const mega = (event === 'mega');
 		const megax = (event === 'megax');
 		const megay = (event === 'megay');
@@ -722,7 +723,7 @@ export class Side {
 		if (megay && !pokemon.canMegaEvoY) {
 			return this.emitChoiceError(`Can't move: ${pokemon.name} can't mega evolve Y`);
 		}
-		if ((mega || megax || megay) && this.choice.mega && !mixandmega) {
+		if ((mega || megax || megay) && this.choice.mega && !mixandmega && !multipleMega) {
 			return this.emitChoiceError(`Can't move: You can only mega-evolve once per battle`);
 		}
 		const ultra = (event === 'ultra');
@@ -738,7 +739,7 @@ export class Side {
 			if (pokemon.volatiles['dynamax']) {
 				dynamax = false;
 			} else {
-				if (this.battle.gen !== 8) {
+				if (this.battle.gen !== 8 && !this.battle.format.ruleTable?.has('candynamax')) {
 					return this.emitChoiceError(`Can't move: Dynamaxing doesn't outside of Gen 8.`);
 				} else if (pokemon.side.canDynamaxNow()) {
 					return this.emitChoiceError(`Can't move: ${pokemon.name} can't Dynamax now.`);

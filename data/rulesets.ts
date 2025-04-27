@@ -3352,6 +3352,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		}
 	},
+	multiplemega: {
+		effectType: 'Rule',
+		name: 'Multiple Mega',
+		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
+		// hardcoded in sim/side.ts and sim/battle-actions.ts
+	},
+	candynamax: {
+		effectType: 'Rule',
+		name: 'Can Dynamax',
+		desc: "Allows for Dynamax to be used.",
+		// hardcoded in sim/side.ts
+	},
 };
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
