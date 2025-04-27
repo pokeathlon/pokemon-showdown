@@ -197,18 +197,22 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	haze: {
 		inherit: true,
 		onHitField() {
-			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
-				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+				if (pokemon.item != 'managel') {
+					pokemon.clearBoosts();
+					this.add('-clearboost', pokemon);
+				}
 			}
 		},
 	},
 	freezyfrost: {
 		inherit: true,
 		onHit() {
-			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
-				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+				if (pokemon.item != 'managel') {
+					this.add('-clearboost');
+					pokemon.clearBoosts();
+				}
 			}
 		},
 	},

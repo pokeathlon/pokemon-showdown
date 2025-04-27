@@ -163,7 +163,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	managel: { // Can't figure out how to make it not clearBoosts(), so modifying moves instead 
 		name: "Mana Gel",
-		shortDesc: "The holder cannot have its stat changes cleared or Stolen. Psych Up will fail when used against the holder.",
+		shortDesc: "The holder cannot have its stat changes cleared or stolen. Psych Up will fail when used against the holder.",
 		spritenum: -3,
 		onFoeModifyMove(move, source, target) {
 			if (move.stealsBoosts) move.stealsBoosts = false;
