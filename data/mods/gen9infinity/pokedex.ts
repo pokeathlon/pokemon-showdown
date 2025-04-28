@@ -1752,6 +1752,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 85, atk: 70, def: 72, spa: 95, spd: 72, spe: 141},
 		abilities: {0: "Adaptability", 1: "Download", H: "Levitate"},
+		gender: "N",
 		heightm: 0.9,
 		weightkg: 34.0,
 		prevo: "Porygon2",

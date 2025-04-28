@@ -236,7 +236,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
-	equilabra: {
+	equilibra: {
 		inherit: true,
 		natDexTier: "OU",
 	},
