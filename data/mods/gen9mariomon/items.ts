@@ -1,33 +1,5 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
-
-	// Modded
-	// Gems
-	buggem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	darkgem: {
-		inherit: true,
-		isNonstandard: null,
-		gen: undefined,
-	},
-	dragongem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	electricgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	fairygem: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	fightinggem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	firegem: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -35,35 +7,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	ghostgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	grassgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	groundgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	icegem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	poisongem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	psychicgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	rockgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	steelgem: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -71,6 +15,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	normalgem: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
 	goombaboots: {
 		name: "Goomba Boots",
 		shortDesc: "If held by a Goomba/Goomba Stack, its Speed is doubled.",
