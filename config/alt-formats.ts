@@ -999,6 +999,34 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Chaos STABmons",
+		searchShow: false,
+		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
+		
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'STABmons Move Legality', 'Z-Move Clause'],
+		banlist: [
+			'Arceus', 'Arceus-Primal', 'Archilles-Mega', 'Arkhaos', 'Azumarill', 'Azumarill-Egho', 'Baxcalibur', 'Blaziken-Mega', 'Blissey-Egho', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chansey-Egho', 'Chi-Yu', 'Chien-Pao', 'Crustle-Delta-Cake', 'Cryogonal-Mega', 'Darkrai', 
+			'Darmanitan-Galar', 'Deosectwo', 'Deoxys', 'Deoxys-Attack', 'Diaboromon', 'Dialga', 'Dialga-Origin', 'Dracovish', 'Dragapult', 'Dragonite', 'Dramsama-Dark-Mega', 'Drilgann-Mega', 'Electrode-Mega', 'Emolga-Delta', 'Enamorus', 'Eternatus', 'Exor', 'Fafninter', 
+			'Feraligatr-Egho', 'Feraligatr-Mega', 'Fidgit', 'Frosthra', 'Genesect', 'Gengar-Mega', 'Gigantusk', 'Giratina', 'Giratina-Origin', 'Giratina-Primal', 'Gouging Fire', 'Groudon', 'Groudon-Primal', 'Haxorus-Mega', 'Ho-Oh', 'Hoopa-Delta-Unleashed', 'Icyall', 'Inflagetah', 
+			'Inflagetah-Mega', 'Iron Bundle', 'Jerbolta-Nuclear', 'Jirachi-Mega', 'Kangaskhan-Mega', 'Kartana', 'Koraidon', 'Kyodonquaza', 'Kyogre', 'Kyogre-Primal', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus', 'Lanthan', 'Lilligant-Hisui', 'Lucario-Mega', 'Lugia', 'Lukagon', 
+			'Lunala', 'Machinedramon', 'Magearna', 'MagnaAngemon', 'Manaphy', 'Marshadow', 'Mawile-Delta-Mega', 'Melmetal', 'Metagross-Delta-Ruin-Crystal', 'Metagross-Delta-Ruin-Mega', 'Metagross-Delta-Spider-Mega', 'Metagross-Mega', 'MetalEtemon', 'MetalGarurumon', 'Mewthree', 'Mewtwo', 
+			'Mewtwo-Armor', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Mewtwo-Shadow', 'Mewtwo-Shadow-Mega-X', 'Miraidon', 'Naganadel', 'Necturna', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Nucleon', 'Oblivicorn-Mega', 'Ockthane', 'Oculeus', 'Ogerpon-Hearthflame', 'Ogerpon-Wellspring', 'Omnimon', 
+			'Paldiatina', 'Palkia', 'Palkia-Origin', 'Porygon-Z', 'Raffiti', 'Rayquaza', 'Rayquaza-Mega', 'Reaptide', 'Regigigas-Primal', 'Regimyo', 'Reshiram', 'SaberLeomon', 'Salamence-Mega', 'Scizor-Delta-Mega', 'Seikamater', 'Shaymin-Sky', 'Silvally', 'SkullGreymon', 'Snorlax-Frost-Mega', 
+			'Solgaleo', 'Sonic', 'Tapu Koko', 'Tapu Lele', 'Terapagos', 'UFI', 'Ursaluna-Bloodmoon', 'Urshifu', 'Vareon', 'Volcarona-Delta', 'Volcarona-Delta-Armored', 'WarGreymon', 'Xerneas', 'Xurkitree', 'Yatagaryu', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta-Crowned', 'Zekrom', 
+			'Zekrom-Armor', 'Zekyushiram', 'Zygarde', 'Zygarde-Complete',
+			'move:achillesheel','move:assist','move:batonpass','move:eevoboost','move:electrify','move:fibregraft','move:hammerthrow','move:lastrespects','move:livewire','move:omniblast','move:permafrost','move:ragefist','move:revivalblessing','move:riftjump',
+			'move:shedtail','move:shellsmash','move:vengefulpulse','move:yuckytongue',
+			'ability:arenatrap','ability:fairylaw','ability:illuminate','ability:moody','ability:quickcharge','ability:shadowtag',
+			'item:damprock','item:darkrock','item:focusband','item:heatrock','item:icyrock','item:kingsrock','item:lightclay','item:quickclaw','item:razorfang','item:smoothrock','item:terrainextender','item:trickrock'
+		],
+		restricted: [
+			'move:acupressure','move:astralbarrage','move:bellydrum','move:boltbeak','move:bulwark','move:ceaselessedge','move:chatter','move:clangoroussoul','move:dragonenergy','move:direclaw','move:doubleironbash','move:electroshot','move:extremespeed',
+			'move:filletaway','move:finalgambit','move:fishiousrend','move:flameimpact','move:flowertrick','move:geomancy','move:gigatonhammer','move:groomguard','move:infernalblade','move:jaggedshot','move:metalcruncher','move:nanorepair','move:noretreat','move:populationbomb',
+			'move:retrograde','move:rocketgrab','move:shiftgear','move:shroudedblows','move:subduction','move:supremecannon','move:terraforce','move:thousandarrows','move:transcendentsword','move:triplearrows','move:vcreate','move:victorydance','move:webwrecker','move:wickedblow','move:wickedtorque'
+		],
+	},
+	{
 		name: "[Gen 9] Chaos Custom Game",
 		searchShow: false,
 
