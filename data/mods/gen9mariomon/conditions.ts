@@ -106,6 +106,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		},
 	},
 	desolateland: {
+		inherit: true,
 		onFieldStart(field, source, effect) {
 			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect.name, `[of] ${source}`);
 			for (const target of this.getAllPokemon()) {

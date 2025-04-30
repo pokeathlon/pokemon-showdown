@@ -256,17 +256,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			let factor = 0.5;
 			switch (pokemon.effectiveWeather()) {
 			case 'newmoon':
-				factor = 0.667;
-				break;
 			case 'sunnyday':
 			case 'desolateland':
-				factor = 0.333;
+				factor = 0.667;
 				break;
 			case 'raindance':
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
 			case 'snowscape':
+			case 'fallout':
+			case 'thunderstorm':
 				factor = 0.25;
 				break;
 			}
