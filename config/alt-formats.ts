@@ -993,7 +993,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:innardsout', 'ability:irrelephant', 'ability:lernean', 'ability:magnetpull', 'ability:magicbounce', 'ability:moody', 'ability:multishot', 'ability:musclememory', 'ability:necromancy', 'ability:neutralizinggas', 'ability:omnitype', 
 			'ability:orichalcumpulse', 'ability:parentalbond', 'ability:periodicorbit', 'ability:persistent', 'ability:poisonheal', 'ability:purefocus', 'ability:purepower', 'ability:quickcharge', 'ability:shadowtag', 'ability:simple', 'ability:sleet', 
 			'ability:speedboost', 'ability:speedswap', 'ability:stakeout', 'ability:stormbringer', 'ability:toxicdebris', 'ability:triage', 'ability:unburden', 'ability:unleafed', 'ability:waterbubble', 'ability:wonderguard', 
-			'ability:inertia', 'ability:proteanmaxima','ability:kablooey', 'ability:momentum', 'ability:multitasker', 'ability:cleansweep',
+			'ability:inertia', 'ability:proteanmaxima','ability:kablooey', 'ability:momentum', 'ability:multitasker', 'ability:cleansweep', 'ability:glitch',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:trickrock',
 			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:hammerthrow', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail','move:swagger'
 		],
