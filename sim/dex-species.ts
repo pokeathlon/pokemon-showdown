@@ -9,7 +9,7 @@ interface SpeciesAbility {
 	S?: string;
 }
 
-type SpeciesTag = "Mythical" | "Restricted Legendary" | "Sub-Legendary" | "Ultra Beast" | "Paradox" | "Infinite Fusion" | "Pokeathlon" | "Insurgence" | "Uranium" | "Infinity" | "Mariomon";
+type SpeciesTag = "Mythical" | "Restricted Legendary" | "Sub-Legendary" | "Ultra Beast" | "Paradox" | "Infinite Fusion" | "Pokeathlon" | "Insurgence" | "Uranium" | "Infinity" | "Mariomon" | "Rejuvenation";
 
 export interface SpeciesData extends Partial<Species> {
 	name: string;

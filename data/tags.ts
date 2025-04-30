@@ -78,6 +78,10 @@ export const Tags: { [id: IDEntry]: TagData } = {
 		name: "Mariomon",
 		speciesFilter: species => species.tags.includes("Mariomon"),
 	},
+	rejuvenation: {
+		name: "Rejuvenation",
+		speciesFilter: species => species.tags.includes("Rejuvenation"),
+	},
 
 	// Move tags
 	// ---------
