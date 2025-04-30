@@ -44,6 +44,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	grassyterrain: {
 		inherit: true,
 		condition: {
+			effectType: 'Terrain',
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -65,7 +66,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
-					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
 				} else {
 					this.add('-fieldstart', 'move: Grassy Terrain');
 				}
@@ -88,21 +89,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 
 	// Additions
-	vicegrip: {
-		num: 0,
-		accuracy: 100,
-		basePower: 55,
-		category: "Physical",
-		name: "Vice Grip",
-		desc: "The target is gripped and squeezed from both sides to inflict damage.",
-		shortDesc: "No additional effect.",
-		pp: 30,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-	},
 	nailflick: {
 		num: 0,
 		accuracy: 90,

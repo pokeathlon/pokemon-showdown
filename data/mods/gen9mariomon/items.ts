@@ -1,4 +1,25 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
+	fightinggem: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	flyinggem: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	groundgem: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	watergem: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	normalgem: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
 	goombaboots: {
 		name: "Goomba Boots",
 		shortDesc: "If held by a Goomba/Goomba Stack, its Speed is doubled.",

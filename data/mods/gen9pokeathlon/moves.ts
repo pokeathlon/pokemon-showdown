@@ -419,6 +419,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		selfdestruct: "ifHit",
 		slotCondition: 'fibregraft',
 		condition: {
+			onSwitchIn(target) {
+				this.singleEvent('Swap', this.effect, this.effectState, target);
+			},
 			onSwap(target) {
 				if (!target.fainted) {
 					this.boost({atk: 1}, target, null, this.effect);
@@ -470,11 +473,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return this.chainModify(1.2);
 			}
 		},
-		onHit(source) {
-			this.field.setWeather('sandstorm');
-		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
+		weather: 'sandstorm',
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
@@ -493,11 +494,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return this.chainModify(1.2);
 			}
 		},
-		onHit(source) {
-			this.field.setWeather('snowscape');
-		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
+		weather: 'snowscape',
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
@@ -516,11 +515,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return this.chainModify(1.2);
 			}
 		},
-		onHit(source) {
-			this.field.setWeather('sunnyday');
-		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
+		weather: 'sunnyday',
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
@@ -775,7 +772,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
-		shortDesc: "Drowsys if target boosts stats. Heals if target is ally.",
+		shortDesc: "Drowsies if target boosted stats. Heals if target is ally.",
 		target: "any",
 		type: "Water",
 		contestType: "Cool",
@@ -1538,7 +1535,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			duration: 2,
 			onStart(target) {
-				if (target.activeTurns && !this.queue.willMove(target)) {
+				if (target.activeTurns && !this.queue.willMove(target) && this.effectState.duration) {
 					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Taunt');
@@ -1739,7 +1736,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ghost",
 		zMove: {basePower: 160},
 		contestType: "Clever",
-		shortDesc: "x1.5 power if user has status condition. Transfers status condition.",
+		shortDesc: "1.5x power if user has status condition. Transfers status condition.",
 	},
 	heavycleave: {
 		num: 0,
@@ -1758,7 +1755,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "allAdjacentFoes",
 		type: "Steel",
-		shortDesc: "20% chance to lower foe(s) Def by 1 stage.",
+		shortDesc: "20% chance to lower foe(s) Defense by 1 stage.",
 	},
 	throwingknives: {
 		num: 0,

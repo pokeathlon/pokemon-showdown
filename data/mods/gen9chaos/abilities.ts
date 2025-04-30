@@ -320,7 +320,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		inherit: true,
 		onStart(pokemon) {
 			if (
-				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) &&
 				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.fusion?.includes('Fuzzy')) ||
 				pokemon.level < 20 || pokemon.transformed
 			) return;
@@ -354,7 +354,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onResidual(pokemon) {
 			if (
-				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) &&
 				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.fusion?.includes('Fuzzy')) ||
 				pokemon.level < 20 || pokemon.transformed || !pokemon.hp
 			) return;

@@ -2943,6 +2943,48 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return newSpecies;
 		},
 	},
+	chaosstabmonsmovelegality: {
+		effectType: 'ValidatorRule',
+		name: 'Chaos STABmons Move Legality',
+		desc: "Allows Pok&eacute;mon to use any move that they or a previous evolution/out-of-battle forme share a type with",
+		ruleset: ['OM Unobtainable Moves'],
+		checkCanLearn(move, species, setSources, set) {
+			const nonstandard = move.isNonstandard === 'Past' && !this.ruleTable.has('natdexmod');
+			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`)) {
+				const speciesTypes: string[] = [];
+
+				const pokemon = this.dex.species.get(species.name);
+				if (pokemon.forme || pokemon.otherFormes) {
+					const baseSpecies = this.dex.species.get(pokemon.baseSpecies);
+					const originalForme = this.dex.species.get(pokemon.changesFrom || pokemon.name);
+					speciesTypes.push(...originalForme.types);
+					if (baseSpecies.otherFormes) {
+						for (const formeName of baseSpecies.otherFormes) {
+							if (baseSpecies.prevo) {
+								const prevo = this.dex.species.get(baseSpecies.prevo);
+								if (prevo.evos.includes(formeName)) continue;
+							}
+							const forme = this.dex.species.get(formeName);
+							if (forme.changesFrom === originalForme.name && !forme.battleOnly) {
+								speciesTypes.push(...forme.types);
+							}
+						}
+					}
+				} else {
+					speciesTypes.push(...pokemon.types);
+				}
+
+				let prevo = pokemon.prevo;
+				while (prevo) {
+					const prevoSpecies = this.dex.species.get(prevo);
+					speciesTypes.push(...prevoSpecies.types);
+					prevo = prevoSpecies.prevo;
+				}
+				if (speciesTypes.includes(move.type)) return null;
+			}
+			return this.checkCanLearn(move, species, setSources, set);
+		},
+	},
 	noeventmoves: {
 		effectType: 'ValidatorRule',
 		name: "No Event Moves",
@@ -3351,6 +3393,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				return [`${set.species} cannot hold ${set.item}.`]
 			}
 		}
+	},
+	multiplemega: {
+		effectType: 'Rule',
+		name: 'Multiple Mega',
+		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
+		// hardcoded in sim/side.ts and sim/battle-actions.ts
+	},
+	candynamax: {
+		effectType: 'Rule',
+		name: 'Can Dynamax',
+		desc: "Allows for Dynamax to be used.",
+		// hardcoded in sim/side.ts
 	},
 };
 

@@ -163,7 +163,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	managel: { // Can't figure out how to make it not clearBoosts(), so modifying moves instead 
 		name: "Mana Gel",
-		shortDesc: "The holder cannot have its stat changes cleared or Stolen. Psych Up will fail when used against the holder.",
+		shortDesc: "The holder cannot have its stat changes cleared or stolen. Psych Up will fail when used against the holder.",
 		spritenum: -3,
 		onFoeModifyMove(move, source, target) {
 			if (move.stealsBoosts) move.stealsBoosts = false;
@@ -175,7 +175,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	buddylantern: {
 		name: "Buddy Lantern",
-		shortDesc: "Holder deals x0.125 damage to allies.",
+		shortDesc: "Holder deals 0.125x damage to allies.",
 		spritenum: -3,
 		onModifyDamage(damage, source, target, move) {
 			if (target.isAlly(source)) {
@@ -194,5 +194,75 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		// Effect immplemented in scripts under hitStepAccuracy
 		num: 0,
+	},
+	brokenhourglass: {
+		name: "Broken Hourglass",
+		shortDesc: "Future moves land instantly at 1.3x power. Single use.",
+		spritenum: -3,
+		onModifyMovePriority: 1,
+		onModifyMove(move, pokemon, target) {
+			if (move.flags.futuremove) {
+				move.onTry = undefined;
+			}
+			if (move.id === 'wish') {
+				move.slotCondition = undefined;
+				move.condition = {};
+			}
+		},
+		onTryMovePriority: -1,
+		onTryMove(source, target, move) {
+			if (move.id === 'wish'  && source.hp != source.baseMaxhp && source.useItem()) {
+				this.heal(source.baseMaxhp *1.3/2, source, source)
+			}
+			if (move.id === 'wish' && source.hp === source.baseMaxhp) {
+				this.add('-fail', source, 'move: Wish');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		onBasePower(basePower, source, target, move) {
+			if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
+				return this.chainModify(1.3)
+			}
+		},
+		fling: {
+			basePower: 30,
+			effect(pokemon) {
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+						activate = true;
+						boosts[i] = 0;
+				}
+				if (activate) {
+					pokemon.setBoost(boosts);
+					this.add('-clearboost', pokemon, '[silent]');
+				}
+			},
+		},
+		num: 0,
+	},
+	anchor: {
+		name: "Anchor",
+		spritenum: -3,
+		shortDesc: "Holder's Spe is 0.5x, cannot be forced to switched out. Dhelmise: 1.5x Atk.",
+		fling: {
+			basePower: 130,
+		},
+		onFoeModifyMove(move, pokemon, target) {
+			if (move.forceSwitch) move.forceSwitch = false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Dhelmise' || pokemon.fusion === 'Dhelmise') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
+		},
+		num: 0,
+		itemUser: ['Dhelmise'],
 	},
 };

@@ -730,6 +730,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 		uranium: 'Uranium',
 		infinity: 'Infinity',
 		digimon: 'Digimon',
+		mariomon: 'Mariomon',
 		mysterygift: 'Mystery Gift',
 	});
 	const allFormes = ['alola', 'galar', 'hisui', 'paldea', 'primal', 'therian', 'totem'];

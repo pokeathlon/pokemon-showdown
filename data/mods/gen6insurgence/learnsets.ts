@@ -46447,7 +46447,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildfire: ["6M"],
 			confide: ["6M"],
 			jetstream: ["6M"],
-			dragonsascent: ["6M"],
+			dragonascent: ["6M"],
 			celebrate: ["6M"],
 		},
 	},

@@ -1,4 +1,8 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
+	sonic: {
+		inherit: true,
+		natDexTier: "AG",
+	},
 	emolgadelta: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -96,6 +100,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Uber",
 	},
 	birdo: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	exor: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
@@ -278,6 +286,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	stunfiskmega: {
 		inherit: true,
 		natDexTier: "UUBL",
+	},
+	gushen: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	haxorusdelta: {
 		inherit: true,
@@ -1026,6 +1038,46 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	superfly: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	gallademega: {
+		inherit: true,
+		natDexTier: "UU"
+	},
+	hammerbro: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	fishbone: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	happymoon: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	muncher: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mrblizzard: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	trex: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	yux: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	yoob: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	latiasmega: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	heracrossubarctic: {
 		inherit: true,
@@ -1828,6 +1880,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	bahamist: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	majorburrows: {
 		inherit: true,
 		natDexTier: "RU",
 	},

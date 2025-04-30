@@ -1893,18 +1893,23 @@ export class BattleActions {
 
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
-		// Limit one mega evolution
-		const wasMega = pokemon.canMegaEvo;
-		for (const ally of pokemon.side.pokemon) {
-			if (wasMega) {
-				ally.canMegaEvo = null;
-			} else {
-				ally.canUltraBurst = null;
+		if (this.battle.format.ruleTable?.has('multiplemega')) {
+			pokemon.canMegaEvo = null;
+			return true;
+		} else {
+			// Limit one mega evolution
+			const wasMega = pokemon.canMegaEvo;
+			for (const ally of pokemon.side.pokemon) {
+				if (wasMega) {
+					ally.canMegaEvo = null;
+				} else {
+					ally.canUltraBurst = null;
+				}
 			}
-		}
 
-		this.battle.runEvent('AfterMega', pokemon);
-		return true;
+			this.battle.runEvent('AfterMega', pokemon);
+			return true;
+		}	
 	}
 
 	// Let's Go

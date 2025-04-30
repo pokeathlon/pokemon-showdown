@@ -709,7 +709,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		zMove: {boost: {spa: 1}},
 	},
 	dracojet: {
 		num: 0,
@@ -758,10 +758,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Hot Coals');
 			},
-			onEntryHazard(pokemon) {
+			onSwitchIn(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('hotcoals')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
 			},
 		},
 		secondary: null,
@@ -836,7 +836,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-sidestart', side, 'move: Livewire');
 				this.effectState.layers++;
 			},
-			onEntryHazard(pokemon) {
+			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Ground') || pokemon.hasType('Electric')) {
 					this.add('-sideend', pokemon.side, 'move: Livewire', '[of] ' + pokemon);
@@ -906,7 +906,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
-		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		zMove: {boost: {spa: 1}},
 	},
 
 	morph: {
@@ -1075,7 +1075,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-sidestart', side, 'move: Permafrost');
 				this.effectState.layers++;
 			},
-			onEntryHazard(pokemon) {
+			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Ice') || pokemon.hasType('Fire')) {
 					this.add('-sideend', pokemon.side, 'move: Permafrost', '[of] ' + pokemon);
