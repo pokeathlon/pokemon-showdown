@@ -374,11 +374,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return;
 			}
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (attacker.species.id !== 'claydol') return;
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.id !== 'claydol') return;
 			if (move.category != 'Special') return;
-			return atk = attacker.storedStats.def //TODO - test if this takes boosts into account
+			move.overrideOffensiveStat = 'def';
 		},
 		onTakeItem: false,
 		itemUser: ["Claydol"],
