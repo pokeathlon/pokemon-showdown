@@ -2185,7 +2185,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 		metalclaw: ["9L1"],
 		},
 	},
-	nidoranfe: {
+	nidoranf: {
 		learnset: {
 		beatup: ["9E", "9M"],
 		charm: ["9E", "9M"],
@@ -2436,7 +2436,7 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 		chipaway: ["9L23"],
 		},
 	},
-	nidoranma: {
+	nidoranm: {
 		learnset: {
 		amnesia: ["9E", "9M"],
 		beatup: ["9E", "9M"],
@@ -63970,19 +63970,5 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 	},
 	
 	};
-
-const gen6lsets = require('../gen6insurgence/learnsets').ModLearnsets
-for (const learnset in gen6lsets) {
-	if (learnset in baseLearnsets && !(learnset in ModLearnsets)) {
-		if (!gen6lsets[learnset].learnset || !baseLearnsets[learnset].learnset) continue;
-		for (const move in gen6lsets[learnset].learnset) {
-			if (move in baseLearnsets[learnset].learnset) continue;
-			if (!(learnset in ModLearnsets)) ModLearnsets[learnset as keyof typeof ModLearnsets] = {inherit: true, learnset: {...baseLearnsets[learnset as keyof typeof baseLearnsets].learnset}};
-
-			// @ts-ignore unable to stop this somehow
-			ModLearnsets[learnset as IDEntry].learnset[move as IDEntry] = gen6lsets[learnset].learnset[move];
-		}
-	}
-}
 
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = Dex.deepClone(ModLearnsets);
