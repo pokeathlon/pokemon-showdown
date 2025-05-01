@@ -4,7 +4,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	cellbattery: {
 		inherit: true,
 		onSwitchIn(pokemon) {
-			pokemon.useItem();
+			if (this.field.isTerrain('electricterrain')) pokemon.useItem();
 		},
 		boosts: {
 			atk: 1,

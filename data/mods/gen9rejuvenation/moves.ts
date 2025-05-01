@@ -268,6 +268,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	electrify: {
 		inherit: true,
 		onHit(target) {
+			if (!this.field.isTerrain('electricterrain')) return;
 			if (target.getTypes().join() === 'Electric' || !target.setType('Electric')) {
 				// Soak should animate even when it fails.
 				// Returning false would suppress the animation.
@@ -885,12 +886,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Bug",
 		contestType: "Tough",
 	},
-	bunrarubeatdown: {
+	bunrakubeatdown: {
 		num: 5,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
-		name: "Barbed Web",
+		name: "Bunraku Beatdown",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -1892,11 +1893,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSwitchIn(pokemon) {
 				if (['steadfast'].includes(pokemon.ability)) this.boost({spe: 1});
 				if (['lightningrod'].includes(pokemon.ability)) this.boost({spe: 1});
-			},	
-			onModifySpe(spe, pokemon) {
-				if (pokemon.hasAbility('quickfeet')) {
-					return this.chainModify(1.5);
-				}
 			},	
 			onResidual(target, source, effect) {
 				if (target.hasAbility('voltabsorb')) this.heal(target.baseMaxhp / 16);

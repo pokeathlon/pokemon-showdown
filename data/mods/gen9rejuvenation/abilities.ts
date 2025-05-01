@@ -128,6 +128,14 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		num: 122,
 	},
 	// Terrain interactions
+	quickfeet: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status ||this.field.isTerrain('electricterrain')) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 	galvanize: {
 		inherit: true,
 		onBasePowerPriority: 23,
