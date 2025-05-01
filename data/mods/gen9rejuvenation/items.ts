@@ -114,8 +114,8 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	interceptiumz: { //TODO
-		name: "Interceptium Z",
+	interceptz: { //TODO
+		name: "Intercept Z",
 		spritenum: -6,
 		onTakeItem: false,
 		zMove: true,
@@ -149,6 +149,8 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		desc: "Prevents status conditions in Dragon's Den Field.",
 	},
+
+	// Crests
 	aevianampharoscrest: {
 		name: "Aevian Ampharos Crest",
 		spritenum: -6,
