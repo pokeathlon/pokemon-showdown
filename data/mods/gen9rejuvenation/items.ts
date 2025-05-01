@@ -23,13 +23,13 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Additions
 	magicalseed: { // TODO - Add Magical Seed interactions
 		name: "Magical Seed",
-		spritenum: -1,
+		spritenum: -6,
 		num: 0,
 		desc: "Provides boost in magical terrains.",
 	},
 	elementalseed: {
 		name: "Elemental Seed",
-		spritenum: -1,
+		spritenum: -6,
 		fling: {
 			basePower: 10,
 		},
@@ -108,7 +108,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	amplifiedrock: { //TODO - Effects on relevant weathers, rooms, terrains
 		name: "Amplified Rock",
-		spritenum: -1,
+		spritenum: -6,
 		fling: {
 			basePower: 60,
 		},
@@ -116,14 +116,14 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	interceptiumz: { //TODO
 		name: "Interceptium Z",
-		spritenum: -1,
+		spritenum: -6,
 		onTakeItem: false,
 		zMove: true,
 		num: 0,
 	},
 	unknownmemory: {
 		name: "??? Memory",
-		spritenum: -1,
+		spritenum: -6,
 		onMemory: '???',
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
@@ -137,7 +137,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	amuletcoin: { 
 		name: "Amulet Coin",
-		spritenum: -1,
+		spritenum: -6,
 		num: 0,
 		onSetStatus(status, target, source, effect) {
 			if (this.field.isTerrain('dragonsdenfield')) {
@@ -151,7 +151,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	aevianampharoscrest: {
 		name: "Aevian Ampharos Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onBasePower(basePower, source, target, move) {
 			if (source.species.id !== 'ampharosaevian') return;
 			if (move.id === source.moveSlots[0].id){
@@ -177,7 +177,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	ariadoscrest: {
 		name: "Ariados Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -204,7 +204,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	bastiodoncrest: {
 		name: "Bastiodon Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -225,7 +225,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	beheeyemcrest: {
 		name: "Beheeyem Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -252,7 +252,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	boltundcrest: {
 		name: "Boltund Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -272,7 +272,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	castformcrest: {
 		name: "Castform Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -311,7 +311,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	cherrimcrest: { //implemented in modded Flower Gift ability
 		name: "Cherrim Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -324,7 +324,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	cinccinocrest: {
 		name: "Cinccino Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -346,7 +346,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	claydolcrest: {
 		name: "Claydol Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -385,7 +385,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	cofagriguscrest: {
 		name: "Cofagrigus Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -408,7 +408,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	crabominablecrest: {
 		name: "Crabominable Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -443,7 +443,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	cryogonalcrest: {
 		name: "Cryogonal Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -481,7 +481,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	darmanitancrest: {
 		name: "Darmanitan Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -499,7 +499,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	dedennecrest: {
 		name: "Dedenne Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -518,7 +518,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	delcattycrest: {
 		name: "Delcatty Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(pokemon) { //Adding stats to Delcatty's
 			if (pokemon.species.id !== 'delcatty') return;
 			if (!pokemon.ignoringItem()) {
@@ -573,7 +573,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	druddigoncrest: {
 		name: "Druddigon Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -602,7 +602,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	dusknoircrest: {
 		name: "Dusknoir Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -630,7 +630,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	electrodecrest: {
 		name: "Electrode Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -647,7 +647,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	empoleoncrest: {
 		name: "Empoleon Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -673,7 +673,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	fearowcrest: {
 		name: "Fearow Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -708,7 +708,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	furretcrest: {
 		name: "Furret Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -725,7 +725,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	feraligatrcrest: {
 		name: "Feraligatr Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -749,7 +749,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	glaceoncrest: {
 		name: "Glaceon Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -767,7 +767,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	gothitellecrest: {
 		name: "Gothitelle Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -796,7 +796,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	hypnocrest: {
 		name: "Hypno Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -821,7 +821,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	infernapecrest: {
 		name: "Infernape Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -846,7 +846,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	leafeoncrest: {
 		name: "Leafeon Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -864,7 +864,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	lediancrest: {
 		name: "Ledian Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -883,7 +883,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	luvdisccrest: {
 		name: "Luvdisc Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -901,7 +901,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	luxraycrest: {
 		name: "Luxray Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -951,7 +951,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	magcargocrest: {
 		name: "Magcargo Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -975,7 +975,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	meganiumcrest: {
 		name: "Meganium Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1003,7 +1003,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	noctowlcrest: {
 		name: "Noctowl Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1025,7 +1025,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	oricoriocrest: {
 		name: "Oricorio Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1047,7 +1047,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	phionecrest: {
 		name: "Phione Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1074,7 +1074,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	probopasscrest: {
 		name: "Probopass Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1109,7 +1109,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	rampardoscrest: {
 		name: "Rampardos Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1136,7 +1136,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	relicanthcrest: {
 		name: "Relicanth Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1159,7 +1159,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	reunicluscrest: {
 		name: "Reuniclus Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1200,7 +1200,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	samurottcrest: {
 		name: "Samurott Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1229,7 +1229,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sawsbuckcrest: {
 		name: "Sawsbuck Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1266,7 +1266,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sevipercrest: {
 		name: "Seviper Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1288,7 +1288,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	shiinoticcrest: {
 		name: "Shiinotic Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1313,7 +1313,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	simipourcrest: {
 		name: "Simipour Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1360,7 +1360,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	simisagecrest: {
 		name: "Simisage Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1407,7 +1407,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	simisearcrest: {
 		name: "Simisear Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1454,7 +1454,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	skuntankcrest: {
 		name: "Skuntank Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1494,7 +1494,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	spiritombcrest: {
 		name: "Spiritomb Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1519,7 +1519,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	stantlercrest: {
 		name: "Stantler Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1544,7 +1544,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	swalotcrest: { //Belch interaction coded into Belch move
 		name: "Swalot Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1563,7 +1563,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	thievulcrest: {
 		name: "Thievul Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1592,7 +1592,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	torterracrest: {
 		name: "Torterra Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1622,7 +1622,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	typhlosioncrest: {
 		name: "Typhlosion Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1648,7 +1648,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	vespiquencrest: {
 		name: "Vespiquen Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1692,7 +1692,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	whiscashcrest: {
 		name: "Whiscash Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
 				this.add('-item', target, 'Crest');
@@ -1732,7 +1732,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	zangoosecrest: {
 		name: "Zangoose Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(target) {
 			if (target.species.id !== 'zangoose') return;
 			if (!target.ignoringItem()) {
@@ -1760,7 +1760,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	zoroarkcrest: {
 		name: "Zoroark Crest",
-		spritenum: -1,
+		spritenum: -6,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				this.add('-item', pokemon, 'Crest');
@@ -1790,7 +1790,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Mega Stones
 	alcremite: {
 		name: "Alcremite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Alcremie-Mega",
 		megaEvolves: "Alcremie",
 		itemUser: ["Alcremie"],
@@ -1803,7 +1803,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	appletunite: {
 		name: "Appletunite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Appletun-Mega",
 		megaEvolves: "Appletun",
 		itemUser: ["Appletun"],
@@ -1816,7 +1816,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	blastoisiniteg: {
 		name: "Blastoisinite G",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Blastoise-Mega-G",
 		megaEvolves: "Blastoise",
 		itemUser: ["Blastoise"],
@@ -1829,7 +1829,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	butterfreenite: {
 		name: "Butterfreenite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Butterfree-Mega",
 		megaEvolves: "Butterfree",
 		itemUser: ["Butterfree"],
@@ -1842,7 +1842,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	centiskorchite: {
 		name: "Centiskorchite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Centiskorch-Mega",
 		megaEvolves: "Centiskorch",
 		itemUser: ["Centiskorch"],
@@ -1855,7 +1855,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	charizarditeg: {
 		name: "Charizardite G",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Charizard-Mega-G",
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
@@ -1868,7 +1868,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	cinderacite: {
 		name: "Cinderacite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Cinderace-Mega",
 		megaEvolves: "Cinderace",
 		itemUser: ["Cinderace"],
@@ -1881,7 +1881,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	coalossalite: {
 		name: "Coalossalite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Coalossal-Mega",
 		megaEvolves: "Coalossal",
 		itemUser: ["Coalossal"],
@@ -1894,7 +1894,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	copperajite: {
 		name: "Copperajite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Copperajah-Mega",
 		megaEvolves: "Copperajah",
 		itemUser: ["Copperajah"],
@@ -1907,7 +1907,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	corviknite: {
 		name: "Corviknite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Corviknight-Mega",
 		megaEvolves: "Corviknight",
 		itemUser: ["Corviknight"],
@@ -1920,7 +1920,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	drednawtite: {
 		name: "Drednawtite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Drednaw-Mega",
 		megaEvolves: "Drednaw",
 		itemUser: ["Drednaw"],
@@ -1932,7 +1932,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	duraludonite: {
 		name: "Duraludonite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Duraludon-Mega",
 		megaEvolves: "Duraludon",
 		itemUser: ["Duraludon"],
@@ -1945,7 +1945,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	eeveetite: {
 		name: "Eeveetite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Eevee-Mega-G",
 		megaEvolves: "Eevee",
 		itemUser: ["Eevee"],
@@ -1958,7 +1958,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	flappletite: {
 		name: "Flappletite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Flapple-Mega",
 		megaEvolves: "Flapple",
 		itemUser: ["Flapple"],
@@ -1971,7 +1971,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	garbodornite: {
 		name: "Garbodornite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Garbodor-Mega",
 		megaEvolves: "Garbodor",
 		itemUser: ["Garbodor"],
@@ -1984,7 +1984,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	gengariteg: {
 		name: "Gengarite G",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Gengar-Mega-G",
 		megaEvolves: "Gengar",
 		itemUser: ["Gengar"],
@@ -1997,7 +1997,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	grimmsnarlite: {
 		name: "Grimmsnarlite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Grimmsnarl-Mega",
 		megaEvolves: "Grimmsnarl",
 		itemUser: ["Grimmsnarl"],
@@ -2010,7 +2010,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	hatterenite: {
 		name: "Hatterenite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Hatterene-Mega",
 		megaEvolves: "Hatterene",
 		itemUser: ["Hatterene"],
@@ -2023,7 +2023,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	inteleonite: {
 		name: "Inteleonite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Inteleon-Mega",
 		megaEvolves: "Inteleon",
 		itemUser: ["Inteleon"],
@@ -2036,7 +2036,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	kinglerite: {
 		name: "Kinglerite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Kingler-Mega",
 		megaEvolves: "Kingler",
 		itemUser: ["Kingler"],
@@ -2049,7 +2049,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	laprasite: {
 		name: "Laprasite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Lapras-Mega",
 		megaEvolves: "Lapras",
 		itemUser: ["Lapras"],
@@ -2062,7 +2062,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	machampite: {
 		name: "Machampite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Machamp-Mega",
 		megaEvolves: "Machamp",
 		itemUser: ["Machamp"],
@@ -2075,7 +2075,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	melmetalite: {
 		name: "Melmetalite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Melmetal-Mega",
 		megaEvolves: "Melmetal",
 		itemUser: ["Melmetal"],
@@ -2088,7 +2088,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	meowthite: {
 		name: "Meowthite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Meowth-Mega",
 		megaEvolves: "Meowth",
 		itemUser: ["Meowth"],
@@ -2101,7 +2101,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	orbeetlenite: {
 		name: "Orbeetlenite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Orbeetle-Mega",
 		megaEvolves: "Orbeetle",
 		itemUser: ["Orbeetle"],
@@ -2114,7 +2114,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	pikachutite: {
 		name: "Pikachutite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Pikachu-Mega",
 		megaEvolves: "Pikachu",
 		itemUser: ["Pikachu"],
@@ -2127,7 +2127,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	rillaboomite: {
 		name: "Rillaboomite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Rillaboom-Mega",
 		megaEvolves: "Rillaboom",
 		itemUser: ["Rillaboom"],
@@ -2140,7 +2140,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sandacondite: {
 		name: "Sandacondite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Sandaconda-Mega",
 		megaEvolves: "Sandaconda",
 		itemUser: ["Sandaconda"],
@@ -2153,7 +2153,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	snorlaxite: {
 		name: "Snorlaxite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Snorlax-Mega",
 		megaEvolves: "Snorlax",
 		itemUser: ["Snorlax"],
@@ -2166,7 +2166,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	toxtricitite: {
 		name: "Toxtricitite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Toxtricity-Mega",
 		megaEvolves: "Toxtricity",
 		itemUser: ["Toxtricity"],
@@ -2179,7 +2179,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	venusauriteg: {
 		name: "Venusaurite G",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Venusaur-Mega-G",
 		megaEvolves: "Venusaur",
 		itemUser: ["Venusaur"],
@@ -2192,7 +2192,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	urshifite: {
 		name: "Urshifite",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Urshifu-Mega",
 		megaEvolves: "Urshifu",
 		itemUser: ["Urshifu"],
@@ -2205,7 +2205,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	urshifiterapidstrike: {
 		name: "Urshifite (Rapid Strike)",
-		spritenum: -1,
+		spritenum: -6,
 		megaStone: "Urshifu-Rapid-Strike-Mega",
 		megaEvolves: "Urshifu-Rapid-Strike",
 		itemUser: ["Urshifu-Rapid-Strike"],
