@@ -34,6 +34,22 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		inherit: true,
 		evos: ["Solrock-Dominant-Fusion"],
 	},
+	pupitar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", H: "Rock Head"},
+	},
+	gallademega: {
+		inherit: true,
+		abilities: {0: "Sharpness"},
+	},
+	ferroseed: {
+		inherit: true,
+		abilities: { 0: "Iron Barbs", H: "Anticipation" },
+	},
+	kubfu: {
+		inherit: true,
+		abilities: {0: "Unseen Fist"},
+	},
 	silvally: {
 		inherit: true,
 		abilities: {0: "RKS System", H: "Silvally Crest"},
