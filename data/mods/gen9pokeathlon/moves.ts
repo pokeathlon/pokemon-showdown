@@ -1619,7 +1619,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
         target: "self",
         type: "Water",
 		shortDesc: "Raises highest stat by 2 stages.",
-        zMove: {boost: {atk: 1}},
+		zMove: { effect: 'crit2' },
         contestType: "Tough",
     },
 	lucky7s: {
