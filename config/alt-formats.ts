@@ -898,6 +898,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Chaos Doubles OU",
+		searchShow: false,
 
 		mod: 'gen9chaos',
 		gameType: 'doubles',
