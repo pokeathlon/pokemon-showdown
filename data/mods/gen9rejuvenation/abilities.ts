@@ -845,6 +845,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			pokemon.removeVolatile('noaccumulation')
 		},
 		flags: {},
+		shortDesc: "Grants a stack of Stockpile at the end of the turn.",
+		desc: "Grants a stack of Stockpile at the end of each turn with the associated stat changes. This will not happen if the moves Spit Up or Stockpile were used.",
 		name: "Accumulation",
 		rating: 4.5,
 		num: 0,
@@ -877,6 +879,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		flags: {breakable: 1},
+		shortDesc: "Prevents Atk. and Sp.Atk. drops from other Pokémon. Heals 1/8 on kill. x2 damage on foes under 1/2 max HP.",
 		name: "Execution",
 		rating: 0.5,
 		num: 1,
@@ -898,6 +901,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		flags: {},
+		shortDesc: "Boosts Dragon-type moves by 30% if moving before foe.",
 		name: "Inexorable",
 		rating: 2.5,
 		num: 2,
@@ -922,6 +926,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 
 		},
 		flags: {breakable: 1},
+		shortDesc: "Grants effects of Levitate. x1.5 Sp.Atk in Hail and Snow. x1.5 power to Ice-type moves.",
 		name: "Lunar Idol",
 		rating: 3.5,
 		num: 3,
@@ -935,6 +940,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		shortDesc: "Boosts Atk, Sp.Atk, Def, Sp.Def, and Speed by 1 stage on switch-in. Once per battle.",
 		name: "Prism Power",
 		rating: 3.5,
 		num: 4,
@@ -957,22 +963,22 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.effectState.switchingIn = false;
 		},
 		flags: {breakable: 1},
+		shortDesc: "Grants user the secondary type of the opposing Pokémon.",
+		desc: "Grants user the secondary type of the opposing Pokémon. If the opposing Pokémon does not have a secondary type, it will gain the primary type instead. If the bearer already has the opposing Pokémon's secondary type, it will not gain a type at all.",
 		name: "Reflector",
 		rating: 3.5,
 		num: 5,
 	},
 	resuscitation: {
-		onDamagePriority: -30,
-		onDamage(damage, target, source, effect) {
-			if (!['Paras-Aevian','Parasect-Aevian'].includes(target.species.id)) return;
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'Resuscitation');
-				if (target.species.id === 'Paras-Aevian') target.formeChange('Paras-Aevian-Zombie', this.effect, false, '0', '[msg]');
-				if (target.species.id === 'Parasect-Aevian') target.formeChange('Parasect-Aevian-Zombie', this.effect, false, '0', '[msg]');
-				return target.hp = target.maxhp;
-			}
+		onBeforeFaint(pokemon, effect) {
+			if (!['Paras-Aevian','Parasect-Aevian'].includes(pokemon.species.id)) return;
+			this.add('-ability', pokemon, 'Resuscitation');
+			if (pokemon.species.id === 'Paras-Aevian') pokemon.formeChange('Paras-Aevian-Zombie', this.effect, false, '0', '[msg]');
+			if (pokemon.species.id === 'Parasect-Aevian') pokemon.formeChange('Parasect-Aevian-Zombie', this.effect, false, '0', '[msg]');
+			return pokemon.hp = pokemon.maxhp;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		shortDesc: "Paras-Aevian or Parasect-Aevian only: allows the Pokémon to revive at full health.",
 		name: "Resuscitation",
 		rating: 3.5,
 		num: 6,
@@ -997,6 +1003,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 
 		},
 		flags: {breakable: 1},
+		shortDesc: "Grants effects of Levitate. x1.5 Atk in Sun. x1.5 power to Fire-type moves.",
 		name: "Solar Idol",
 		rating: 3.5,
 		num: 7,
@@ -1010,6 +1017,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		flags: {},
+		shortDesc: "Raises Def. and Sp.Def. by 1 stage when taking poison damage.",
 		name: "Stop \\PN",
 		rating: 3.5,
 		num: 8,
@@ -1020,20 +1028,48 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			switch (result) {
 				case 0:
 					this.field.setWeather('raindance');
+					this.hint("Storm-9 created a downpour!")
 					break;
 				case 1:
 					this.field.setWeather('hail');
+					this.hint("Storm-9 brought hailfall!")
 					break;
 				case 2:
 					this.field.setWeather('sandstorm');
+					this.hint("Storm-9 whipper up a duststorm!")
 					break;
 				case 3:
 					this.field.setWeather('deltastream');
+					this.hint("Storm-9 whipped up terrible winds!")
 					break;
 				default:
 					this.field.setWeather('shadowsky') //need to add shadow sky from pokemon XD
+					this.hint("Storm-9 shrouded the sky in a dark aura...")
 				}
-			this.field.setWeather('sunnyday');
+		},
+		onResidual(target, source, effect) {
+			const result = this.random(5);
+			switch (result) {
+				case 0:
+					this.field.setWeather('raindance');
+					this.hint("Storm-9 created a downpour!")
+					break;
+				case 1:
+					this.field.setWeather('hail');
+					this.hint("Storm-9 brought hailfall!")
+					break;
+				case 2:
+					this.field.setWeather('sandstorm');
+					this.hint("Storm-9 whipper up a duststorm!")
+					break;
+				case 3:
+					this.field.setWeather('deltastream');
+					this.hint("Storm-9 whipped up terrible winds!")
+					break;
+				default:
+					this.field.setWeather('shadowsky') //need to add shadow sky from pokemon XD
+					this.hint("Storm-9 shrouded the sky in a dark aura...")
+				}
 		},
 		onModifyMove(move, source, target) {
 			if (move.id === 'weatherball') {
@@ -1041,6 +1077,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		flags: {},
+		shortDesc: "Summons a random weather on switch-in. Changes weather at the end of the turn.",
 		name: "Storm-9",
 		rating: 4,
 		num: 9,
@@ -1080,6 +1117,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			return this.NOT_FAIL;
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		shortDesc: "Prevents stat drops. Will attempt to use Hex with a 3-turn delay, every turn.",
 		name: "Temporal Shift",
 		rating: 2,
 		num: 10,
@@ -1092,6 +1130,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		flags: {},
+		shortDesc: "This Pokemon's bullet-based attacks have 1.5x power.",
 		name: "True Shot",
 		rating: 3.5,
 		num: 11,
@@ -1142,6 +1181,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "World of Nightmares",
+		shortDesc: "Immune to sleep. Causes foe to take increasing residual damage. Dream Eater and Nightmare never fail.",
 		rating: 1.5,
 		num: 12,
 	},
@@ -1165,6 +1205,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Silvally Crest",
+		shortDesc: "Silvally: x1.2 power to moves matching memory type. Ability depends on memory.",
 		rating: 1.5,
 		num: 13,
 	},
