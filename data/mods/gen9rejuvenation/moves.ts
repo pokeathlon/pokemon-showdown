@@ -712,6 +712,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'deltastream':
 				move.type = 'Flying';
 				break;
+			case 'shadowsky':
+				move.type = '???';
+				break;
 			}
 		},
 		onModifyMove(move, pokemon) {
@@ -732,6 +735,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.basePower *= 2;
 				break;
 			case 'deltastream':
+				move.basePower *= 2;
+				break;
+			case 'shadowsky':
 				move.basePower *= 2;
 				break;
 			}
