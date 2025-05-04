@@ -471,7 +471,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.add('-activate', target, 'ability: Omnitype');
 		},
 		onTryHit(source, target, move) {
-			const allTypes = this.dex.deepClone(this.dex.types.all());
+			const allTypes = this.dex.deepClone(this.dex.types.all()).filter((type: TypeInfo) => !type.isNonstandard);
+			
 			source.setType(allTypes);
 		},
 		onFoeAfterMove(source, target, move) {
