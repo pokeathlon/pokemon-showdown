@@ -1461,7 +1461,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 	
 };
 // Regional Dex Data
-const InfDex: {[k: string]: number} = {
+const RejuvDex: {[k: string]: number} = {
 	"bulbasaur": 1,
 	"ivysaur": 2,
 	"venusaur": 3,
@@ -2593,3 +2593,21 @@ const InfDex: {[k: string]: number} = {
 	"ironmoth": 994,
 	};
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
+
+for (const i of Dex.mod('gen9rejuvenation').species.all()) {
+	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
+	const isRejuv = i.id in RejuvDex;
+	if (isRejuv) {
+		let poke = { ...Pokedex[i.id] };
+		if (poke.tags && !poke.tags.includes('Rejuvenation')) {
+			poke.tags = [...poke.tags, 'Rejuvenation'];
+		}
+		if (!poke.tags) {
+			poke.tags = ['Rejuvenation'];
+		}
+		Pokedex[i.id] = poke;
+	}	
+	Pokedex[i.id].isNonstandard = isRejuv ? null : "Unobtainable";
+	Pokedex[i.id].num = isRejuv ? RejuvDex[i.id] : 0;
+	Pokedex[i.id].gen = isRejuv ? 9 : undefined;
+}
