@@ -854,7 +854,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
-	munnaevian: {
+	munnaaevian: {
 		num: 517,
 		name: "Munna-Aevian",
 		types: ["Dark", "Fairy"],
@@ -2593,12 +2593,14 @@ const RejuvDex: {[k: string]: number} = {
 	"ironmoth": 994,
 	};
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
-
-for (const i of Dex.mod('gen9rejuvenation').species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
+for (const i of Dex.species.all()) {
+	if (!Pokedex[i.id]) Pokedex[i.id] = Dex.species.get(i.id);
 	const isRejuv = i.id in RejuvDex;
+	const poke = {
+		...Pokedex[i.id],
+		tags: [...(Pokedex[i.id].tags ?? [])], // Uses empty array if undefined
+	};
 	if (isRejuv) {
-		let poke = { ...Pokedex[i.id] };
 		if (poke.tags && !poke.tags.includes('Rejuvenation')) {
 			poke.tags = [...poke.tags, 'Rejuvenation'];
 		}
@@ -2607,7 +2609,8 @@ for (const i of Dex.mod('gen9rejuvenation').species.all()) {
 		}
 		Pokedex[i.id] = poke;
 	}	
-	Pokedex[i.id].isNonstandard = isRejuv ? null : "Unobtainable";
-	Pokedex[i.id].num = isRejuv ? RejuvDex[i.id] : 0;
-	Pokedex[i.id].gen = isRejuv ? 9 : undefined;
+	poke.isNonstandard = isRejuv ? null : "Unobtainable";
+	poke.num = isRejuv ? RejuvDex[i.id] : 0;
+	poke.gen = isRejuv ? 9 : undefined;
+	Pokedex[i.id] = poke;
 }
