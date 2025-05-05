@@ -2114,7 +2114,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'volcanocfield',
+		terrain: 'volcanicfield',
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
@@ -2135,7 +2135,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				if (['clearsmog', 'smog'].includes(move.id)) return this.chainModify(2);
 				if (['rockslide', 'smackdown', 'thousandarrows', 'infernalparade'].includes(move.id)) return this.chainModify(1.5);
-				if (['continentalcrush', 'sandtomb', 'gust', 'hurricane', 'razorwind', 'supersonicskystrike', 'twister'].includes(move.id)) return this.chainModify(1.3);
+				if ([
+					'continentalcrush', 'sandtomb', 
+					'defog', 'gust', 'hurricane', 'razorwind', 'supersonicskystrike', 'tailwind', 'twister', 'whirlwind',
+					'hydrovortex', 'muddywater', 'oceanicoperetta','sparklingaria','surf','waterpledge','watersport','waterspout',
+					'sludgewave'
+					].includes(move.id)) return this.chainModify(1.3);
 			},
 			onEffectiveness(typeMod, target, type, move) {
 				if (['clearsmog', 'smog', 'rockslide', 'smackdown', 'thousandarrows'].includes(move.id)) return typeMod + this.dex.getEffectiveness('Fire', type);
@@ -2360,7 +2365,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (move.type === 'Rock') return typeMod + this.dex.getEffectiveness('Ice', type);
 			},
 			onModifyDef(def, target, source, move) {
-				if (this.field.isWeather('hail')) return this.chainModify(1.5);
+				if (this.field.isWeather('hail') && source.hasType('Ice')) return this.chainModify(1.5);
 			},
 			onModifyMove(move, pokemon, target) {
 				if (move && move.id === 'bittermalice') {
@@ -3033,7 +3038,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (pokemon.hasType('Fire')) this.chainModify(0.8)
 			},
 			onModifySpD(spd, pokemon) {
-				if (pokemon.hasType(['Ice','Ghost'])) this.chainModify(1.3)
+				if (pokemon.hasType(['Ice','Ghost'])) this.chainModify(1.2)
 				if (pokemon.hasType('Fire')) this.chainModify(0.8)
 			},
 			onSwitchIn(pokemon) {
