@@ -649,6 +649,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9rejuvenation',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', '+LGPE', 'Species Reveal Clause'],
 	},
+	{
+		name: "[Gen 9] Rejuv Custom Game",
+
+		mod: 'gen9rejuvenation',
+		searchShow: false,
+		debug: true,
+		battle: {trunc: Math.trunc},
+
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
+	},
 
 	{
 		section: "Pokéathlon: Full Dex",

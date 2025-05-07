@@ -169,7 +169,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onTakeItem: false,
@@ -182,7 +182,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifySpePriority: 5,
@@ -209,7 +209,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onDamagingHitOrder: 2,
@@ -230,7 +230,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -257,7 +257,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onBasePowerPriority: 19,
@@ -277,7 +277,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -316,7 +316,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onTakeItem: false,
@@ -329,7 +329,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, pokemon, target) {
@@ -351,7 +351,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target, target.getItem().name);
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
@@ -389,7 +389,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -412,7 +412,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyDefPriority: 5,
@@ -447,7 +447,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifySpDPriority: 5,
@@ -485,7 +485,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onUpdate(pokemon) {
@@ -503,7 +503,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, pokemon, target) {
@@ -520,13 +520,19 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	delcattycrest: {
 		name: "Delcatty Crest",
 		spritenum: -6,
-		onStart(pokemon) { //Adding stats to Delcatty's
-			if (pokemon.species.id !== 'delcatty') return;
-			if (!pokemon.ignoringItem()) {
-				this.add('-item', pokemon, 'Crest');
+		onStart(target) { //Adding stats to Delcatty's
+			if (!target.ignoringItem()) {
+				this.add('-item', target, target.getItem().name);
 			}
+		},
+		onSwitchIn(pokemon) { // Initialize states
+			this.effectState.delcattyCrestAtk = 0;
+			this.effectState.delcattyCrestDef = 0;
+			this.effectState.delcattyCrestSpA = 0;
+			this.effectState.delcattyCrestSpD = 0;
+			this.effectState.delcattyCrestSpe = 0;
 			for (const ally of pokemon.side.pokemon) {
-				if (!ally.fainted) {
+				if (!ally.fainted && ally != pokemon) {
 					this.effectState.delcattyCrestAtk += Math.floor(ally.storedStats.atk*0.1);
 					this.effectState.delcattyCrestDef += Math.floor(ally.storedStats.def*0.1);
 					this.effectState.delcattyCrestSpA += Math.floor(ally.storedStats.spa*0.1);
@@ -577,7 +583,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onBasePowerPriority: 30,
@@ -606,7 +612,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -634,7 +640,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onFoeModifyDef(def, source, target, move) {
@@ -651,7 +657,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -677,7 +683,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onBasePowerPriority: 19,
@@ -712,7 +718,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -729,7 +735,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onBasePowerPriority: 19,
@@ -753,7 +759,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onEffectivenessPriority: 1,
@@ -771,7 +777,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onPrepareHit(source, target, move) { //follows Libero without the switch limitation logic I think
@@ -800,7 +806,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifySpAPriority: 1,
@@ -825,7 +831,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) { //acts like IF stance hange on switch in
@@ -850,7 +856,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onEffectivenessPriority: 1,
@@ -868,7 +874,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -887,7 +893,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onBasePower(basePower, source, target, move) {
@@ -905,7 +911,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -955,7 +961,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) { //TODO - check if they stay on switch out.
@@ -979,7 +985,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onAnyModifyDamage(damage, source, target, move) {
@@ -1007,7 +1013,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onDamagingHit(damage, target, source, effect) {
@@ -1029,7 +1035,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -1051,7 +1057,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyDefPriority: 5,
@@ -1078,7 +1084,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onAfterHit(source, target, move) {
@@ -1113,7 +1119,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onDamagePriority: -40,
@@ -1140,7 +1146,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -1163,7 +1169,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -1204,7 +1210,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -1233,7 +1239,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -1270,7 +1276,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifySpe(spe, pokemon) {
@@ -1292,7 +1298,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onResidualOrder: 8,
@@ -1317,7 +1323,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -1364,7 +1370,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -1411,7 +1417,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, source, target) {
@@ -1458,7 +1464,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onTryHitPriority: 1,
@@ -1498,7 +1504,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onBasePowerPriority: 21,
@@ -1523,7 +1529,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyAtkPriority: 1,
@@ -1548,7 +1554,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onAfterMove(source, target, move) {
@@ -1567,7 +1573,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -1596,7 +1602,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onEffectivenessPriority: 1, //taken from Inverse Mod
@@ -1626,7 +1632,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onModifyMove(move, pokemon, target) {
@@ -1652,7 +1658,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -1696,7 +1702,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onTryHitPriority: 1,
@@ -1737,7 +1743,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onStart(target) {
 			if (target.species.id !== 'zangoose') return;
 			if (!target.ignoringItem()) {
-				this.add('-item', target, 'Crest');
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onResidualOrder: 28,
@@ -1764,7 +1770,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		spritenum: -6,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) {
-				this.add('-item', pokemon, 'Crest');
+				this.add('-item', pokemon,  pokemon.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) {

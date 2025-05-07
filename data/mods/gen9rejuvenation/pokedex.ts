@@ -624,7 +624,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 	urshifurapidstrikemega: {
 		num: 892,
 		name: "Urshifu-Rapid-Strike-Mega",
-		baseSpecies: "Urshifu",
+		baseSpecies: "Urshifu-Rapid-Strike",
 		forme: "Mega",
 		types: ["Fighting", "Water"],
 		baseStats: {hp: 100, atk: 165, def: 110, spa: 73, spd: 70, spe: 132},
@@ -1280,7 +1280,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		name: "Kommo-o-Aevian",
 		types: ["Dragon", "Poison"],
 		baseStats: {hp: 95, atk: 125, def: 125, spa: 95, spd: 95, spe: 65},
-		abilities: {0: "Analytic", 1: "Keen Eye", H: "Overcoat"},
+		abilities: {0: "Analytic", 1: "Inexorable", H: "Overcoat"},
 		heightm: 1.6,
 		weightkg: 78.2,
 		prevo: "Hakamo-o-Aevian",
