@@ -1837,6 +1837,21 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Electric",
 		contestType: "Tough",
 	},
+	hiddenpowerfairy: {
+		num: 237,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Power",
+		name: "Hidden Power Fairy",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
 
 	// Terrains
 	// Elemental terrains

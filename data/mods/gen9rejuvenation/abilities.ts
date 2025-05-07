@@ -920,8 +920,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				return this.chainModify(1.5)
 			}
 		},
-		onSwitchIn(pokemon) { //Levitate attempt
-				pokemon.addVolatile('ability:levitate');
+		onSwitchIn(pokemon) { //Levitate added in scripts
 				this.add('-activate', pokemon, 'ability: Lunar Idol');
 
 		},
@@ -997,8 +996,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				return this.chainModify(1.5)
 			}
 		},
-		onSwitchIn(pokemon) { //Levitate attempt
-				pokemon.addVolatile('ability:levitate');
+		onSwitchIn(pokemon) { // Added in scripts
 				this.add('-activate', pokemon, 'ability: Solar Idol');
 
 		},
