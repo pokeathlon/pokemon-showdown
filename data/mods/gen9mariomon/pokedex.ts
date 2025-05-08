@@ -426,7 +426,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	thwimp: {
@@ -654,7 +654,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	yellowyoshi: {
@@ -985,7 +985,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	pokey: {
@@ -1603,7 +1603,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	lilsparky: {
@@ -1733,7 +1733,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	luma: {
@@ -1863,7 +1863,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	sumobro: {
@@ -2117,7 +2117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	bandit: {
@@ -2265,7 +2265,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	tweester: {
@@ -2309,7 +2309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	exor: {
