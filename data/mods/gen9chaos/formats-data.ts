@@ -155,7 +155,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	walkingwake: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UUBL",
 	},
 	tornadustherian: {
 		inherit: true,
@@ -219,7 +219,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	bisharpmega: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "OU",
 	},
 	volcarona: {
 		inherit: true,
@@ -267,7 +267,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	roseradedelta: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "OU",
 	},
 	regimyo: {
 		inherit: true,
@@ -294,6 +294,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UUBL",
 	},
 	gushen: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	garbodoregho: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -430,6 +434,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	porygonx: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	poisonpokey: {
 		inherit: true,
 		natDexTier: "UU",
 	},
