@@ -453,27 +453,27 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.species.id !== 'cryogonal') return;
-				return this.chainModify(1.25);
+				return this.chainModify(1.2);
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.species.id !== 'cryogonal') return;
-				return atk = atk + pokemon.storedStats.spd;
+				return atk = atk + pokemon.storedStats.spd*0.1;
 		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.species.id !== 'cryogonal') return;
-				return def = def + pokemon.storedStats.spd;
+				return def = def + pokemon.storedStats.spd*0.1;
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.species.id !== 'cryogonal') return;
-				return spa = spa + pokemon.storedStats.spd;
+				return spa = spa + pokemon.storedStats.spd*0.1;
 		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
 			if (pokemon.species.id !== 'cryogonal') return;
-				return spe = spe + pokemon.storedStats.spd;
+				return spe = spe + pokemon.storedStats.spd*0.1;
 		},
 		onTakeItem: false,
 		itemUser: ["Cryogonal"],
@@ -520,12 +520,13 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	delcattycrest: {
 		name: "Delcatty Crest",
 		spritenum: -6,
-		onStart(target) { //Adding stats to Delcatty's
+		onStart(target) {
 			if (!target.ignoringItem()) {
-				this.add('-item', target, target.getItem().name);
+				this.add('-item', target,  target.getItem().name);
 			}
 		},
 		onSwitchIn(pokemon) { // Initialize states
+			if (pokemon.species.id !== 'delcatty') return;
 			this.effectState.delcattyCrestAtk = 0;
 			this.effectState.delcattyCrestDef = 0;
 			this.effectState.delcattyCrestSpA = 0;
@@ -567,6 +568,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			return spe + this.effectState.delcattyCrestSpe;
 		},
 		onSwitchOut(pokemon) { //reset the sums
+			if (pokemon.species.id !== 'delcatty') return;
 			this.effectState.delcattyCrestAtk = 0;
 			this.effectState.delcattyCrestDef = 0;
 			this.effectState.delcattyCrestSpA = 0;
@@ -633,7 +635,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem: false,
 		itemUser: ["Dusknoir"],
 		num: 0,
-		desc: "If held by a Dusknoir, x1.5 attack, x1.5 power to moves undeer 60 BP.",
+		desc: "If held by a Dusknoir, x1.5 attack, x1.5 power to moves under 60 BP.",
 	},
 	electrodecrest: {
 		name: "Electrode Crest",
@@ -644,7 +646,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 		onFoeModifyDef(def, source, target, move) {
-			if (source.species.id !== 'dusknoir') return;
+			if (source.species.id !== 'electrode') return;
 			if (!move.selfdestruct && move.category === 'Physical') return this.chainModify(0.5)
 		},
 		onTakeItem: false,
@@ -661,14 +663,14 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 		onModifyMove(move, source, target) {
-			if (source.species.id !== 'dusknoir') return;
+			if (source.species.id !== 'empoleon') return;
 			if (move.type === 'Ice') {
 				move.forceSTAB = true;
 			}
 		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
-			if (pokemon.species.id !== 'delcatty') return;
+			if (pokemon.species.id !== 'empoleon') return;
 			if (this.field.isWeather(['Hail', 'Snow']) || this.field.isTerrain(['Icy Field', 'Snowy Mountain', 'Frozen Dimensional Field'])) {
 				return this.chainModify(2)
 			}
@@ -799,7 +801,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem: false,
 		itemUser: ["Gothitelle"],
 		num: 0,
-		desc: "If held by a Gothitelle, swaps between Dark and Psychic-type moves depending on move used. Heals 1/16th at end of turn.",
+		desc: "If held by a Gothitelle, swaps between Dark and Psychic-type depending on move used. Heals 1/16th at end of turn.",
 	},
 	hypnocrest: {
 		name: "Hypno Crest",
@@ -834,7 +836,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.add('-item', target,  target.getItem().name);
 			}
 		},
-		onSwitchIn(pokemon) { //acts like IF stance hange on switch in
+		onSwitchIn(pokemon) { //acts like IF stance change on switch in
 			if (pokemon.species.id !== 'infernape') return;
 			const stats = pokemon.storedStats;
 			[stats.atk, stats.def, stats.spa, stats.spd] = [stats.def, stats.atk, stats.spd, stats.spa];
@@ -1079,7 +1081,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		desc: "If held by a Phione, x1.5 Def and Sp.Def. Summons Aqua Ring on switch-in.",
 	},
-	probopasscrest: {
+	probopasscrest: { // Levitate effect implemented in scripts
 		name: "Probopass Crest",
 		spritenum: -6,
 		onStart(target) {
@@ -1097,18 +1099,6 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'phione') return;
 				pokemon.addVolatile('probopasscrest');
 		},
-		condition: {
-			onStart(target) {
-				this.add('-start', target, 'Probopass Crest');
-			},
-			onImmunity(type) {
-				if (type === 'Ground') return false;
-			},
-			onResidualOrder: 18,
-			onEnd(target) {
-				this.add('-end', target, 'Probopass Crest');
-			},
-		},
 		onTakeItem: false,
 		itemUser: ["Probopass"],
 		num: 0,
@@ -1125,12 +1115,11 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
 			if (target.species.id !== 'rampardos') return;
-			if (target.itemState.activated === true) return;
 			if (effect.id === 'recoil') {
 				if (!this.activeMove) throw new Error("Battle.activeMove is null");
 				if (this.activeMove.id !== 'struggle') return null;
 			}
-			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
+			if (!target.itemState.activated && damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add("-activate", target, "item: Rampardos Crest");
 				target.itemState.activated = true;
 				return target.hp - 1;

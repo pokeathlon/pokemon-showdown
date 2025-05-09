@@ -13,6 +13,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (this.hasAbility(['levitate', 'solaridol', 'lunaridol']) && !this.battle.suppressingAbility(this)) return null;
 		if ('magnetrise' in this.volatiles) return false;
 		if ('telekinesis' in this.volatiles) return false;
+		if (item === 'probopasscrest' && this.species.id === 'probopass') return false;
 		return item !== 'airballoon';
 	}
 	},
