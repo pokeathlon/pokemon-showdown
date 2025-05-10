@@ -29959,6 +29959,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			knockoff: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	simisage: {
@@ -30011,6 +30013,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			lowkick: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	pansear: {
@@ -30076,6 +30080,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			irontail: ["6T"],
 			knockoff: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	simisear: {
@@ -30134,6 +30140,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			lowkick: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	panpour: {
@@ -30203,6 +30211,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			knockoff: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	simipour: {
@@ -30263,6 +30273,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			lowkick: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	munna: {

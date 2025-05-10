@@ -1032,6 +1032,8 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			megakick: ["6T"],
 			ironhead: ["6T"],
 			sleeptalk: ["6T"],
+			bellydrum: ["6T"],
+			machpunch: ["6T"],
 		},
 	},
 	chargo: {
