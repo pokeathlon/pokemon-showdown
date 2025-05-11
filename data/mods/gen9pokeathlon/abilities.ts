@@ -697,6 +697,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.boost({def: 1, spd: 1})
 			}
 		},
+		onStart(pokemon) {
+			if (this.field.terrain) {
+				this.add('-activate', pokemon, 'ability: Crystal Mana');
+				this.boost({def: 1, spd: 1})
+			}
+		},
 		flags: {},
 		name: "Crystal Mana",
 		shortDesc: "Raises Def and Sp.Def by 1 stage upon terrain change.",

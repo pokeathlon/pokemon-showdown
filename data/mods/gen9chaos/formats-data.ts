@@ -821,10 +821,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	chuggalong: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	froslassdeltamega: {
 		inherit: true,
 		natDexTier: "UU",
@@ -2340,6 +2336,18 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "OU",
 	},
 	shox: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	chuggon: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	draggalong: {
+		inherit: true,
+		natDexTier: "NFE",
+	},
+	chuggalong: {
 		inherit: true,
 		natDexTier: "UU",
 	},
