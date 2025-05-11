@@ -17,16 +17,4 @@ export const Scripts: ModdedBattleScriptsData = {
 		return item !== 'airballoon';
 	}
 	},
-	init() {
-		this.getHiddenPower = function (ivs) {
-			const hpTypes = [
-				'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
-				'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy'
-			];
-			return {
-				type: hpTypes[Math.floor(Math.random()*hpTypes.length)],
-				power: 60,
-			};
-		};
-	},
 };
