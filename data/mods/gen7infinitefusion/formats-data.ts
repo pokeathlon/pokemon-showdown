@@ -1026,7 +1026,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	politoed: {
 		inherit: true,
-		tier: "OU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	hoppip: {
@@ -2566,7 +2566,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	torkoal: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	lotad: {

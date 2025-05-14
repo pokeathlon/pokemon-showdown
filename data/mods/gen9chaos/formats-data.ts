@@ -293,6 +293,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UUBL",
 	},
+	madpiano: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
 	gushen: {
 		inherit: true,
 		natDexTier: "UU",
@@ -945,14 +949,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	antasma: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	banzaibill: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	blargg: {
 		inherit: true,
 		natDexTier: "UU",
@@ -961,19 +957,11 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	crystalking: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	broozer: {
 		inherit: true,
 		natDexTier: "UU",
 	},
 	bonetail: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	chainchomp: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -989,19 +977,11 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	kingbobomb: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	kingboo: {
 		inherit: true,
 		natDexTier: "UU",
 	},
 	lubba: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	madpiano: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1052,6 +1032,142 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	gallademega: {
 		inherit: true,
 		natDexTier: "UU"
+	},
+	sweepdol: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	angrysun: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	blueyoshi: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	phanto: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	amazydayzee: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	antasma: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	banzaibill: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	chainchomp: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	charginchuck: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	chincho: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	crystalking: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	duplighost: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	fuzzy: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	goombastack: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	heaveho: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hisstocrat: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hooktail: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	kingbobomb: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	klepto: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	lakitu: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mawmaw: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mechachomp: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	paratroopa: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	pidgit: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	plungelo: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	redyoshi: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	snoozorb: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	spindrift: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	starbag: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	tarantox: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	thwomp: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	tyfoo: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	wiggler: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	fonspring: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	hammerbro: {
 		inherit: true,
@@ -1758,10 +1874,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "RU",
 	},
 	swamptiliken: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	sweepdol: {
 		inherit: true,
 		natDexTier: "RU",
 	},
