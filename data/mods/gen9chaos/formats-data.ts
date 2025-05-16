@@ -113,6 +113,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	tiptron: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
@@ -174,6 +178,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "OU",
 	},
 	electruxomega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	kyurem: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -294,6 +302,14 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UUBL",
 	},
 	madpiano: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	heatransupra: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	actan: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
@@ -481,10 +497,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	actan: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	aurorusdelta: {
 		inherit: true,
 		natDexTier: "UU",
@@ -538,10 +550,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	grasquatch: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	heatransupra: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -858,10 +866,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	gardevoirdeltamega: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	kyurem: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -2293,7 +2297,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	cawmodore: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 	},
 	volkritter: {
 		inherit: true,
