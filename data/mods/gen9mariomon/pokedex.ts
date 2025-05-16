@@ -2416,6 +2416,20 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	tiptron: {
+		num: 10152,
+		name: "Tiptron",
+		types: ["Fairy", "Steel"],
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+		abilities: {0: "Download", H: "Adaptability"},
+		heightm: 0.6,
+		weightkg: 1.0,
+		gen: 3,
+		tags: ["Mariomon", "Restricted Legendary"],
+		eggGroups: ["Mariomon"],
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const MarioDex: {[k: string]: number} = {
@@ -2574,6 +2588,7 @@ const MarioDex: {[k: string]: number} = {
 	"antasma": 150,
 	"sonic": 151,
 	"supersonic": 151,
+	"tiptron": 152,
 };
 
 for (const i of Dex.species.all()) {

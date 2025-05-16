@@ -19,6 +19,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	berryjuice: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	goombaboots: {
 		name: "Goomba Boots",
