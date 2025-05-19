@@ -129,6 +129,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	piximon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	spiritomb: {
 		inherit: true,
 		natDexTier: "OU",

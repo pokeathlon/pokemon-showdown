@@ -394,7 +394,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew',
-			'move:batonpass', 'move:permafrost', 'move:livewire',
+			'move:batonpass', 'move:permafrost', 'move:livewire', "move:achillesheel",
 		],
 	},
 	{
@@ -408,12 +408,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Insurgence NatDex OU",
 
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves', 'Species Reveal Clause'],
+		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves', 'Species Reveal Clause',  'Terastal Clause', ],
 		banlist: [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel',
 		],
 	},
 	{
