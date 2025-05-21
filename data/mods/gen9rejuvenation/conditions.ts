@@ -117,5 +117,25 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			this.add('-weather', 'none');
 		},
 	},
+	ptr: {
+		name: 'ptr',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'ptr', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
+			} else {
+				this.add('-status', target, 'ptr');
+			}
+		},
+		onResidualOrder: 10,
+		onResidual(pokemon) {
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (!target || target.fainted || target.hp <= 0) return;
+			let damage = this.damage(pokemon.baseMaxhp / 8);
+			if (damage && target) {
+				this.heal(damage, target, pokemon, "drain")
+			}
+		},
+	},
 };
 export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(ModConditions);

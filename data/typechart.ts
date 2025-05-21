@@ -528,6 +528,7 @@ export const TypeChart: import('../sim/dex-data').TypeDataTable = {
 	},
 	rock: {
 		damageTaken: {
+			ptr: 3,
 			sandstorm: 3,
 			Bug: 0,
 			Crystal: 0,
