@@ -21,27 +21,27 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
 			if (this.effectState.sourceEffect.id === 'thundercage' && this.field.isTerrain('electricterrain')) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'snaptrap' && this.field.isTerrain('grassyterrain')) this.effectState.boundDivisor = 6;
-			if (this.effectState.sourceEffect.id === 'whirlpool' && this.field.isTerrain(['watersurfacefield','underwaterfield'])) this.effectState.boundDivisor = 6;
-			if (this.effectState.sourceEffect.id === 'magmastorm' && this.field.isTerrain('dragonsdenfield')) this.effectState.boundDivisor = 6;
+			if (this.effectState.sourceEffect.id === 'whirlpool' && this.field.isBattlefield(['watersurfacefield','underwaterfield'])) this.effectState.boundDivisor = 6;
+			if (this.effectState.sourceEffect.id === 'magmastorm' && this.field.isBattlefield('dragonsdenfield')) this.effectState.boundDivisor = 6;
 		},
 	},
 	hail: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('icyrock') || this.field.isTerrain(['icyfield','frozendimensionalfield','skyfield'])) {
+			if (source?.hasItem('icyrock') || this.field.isBattlefield(['icyfield','frozendimensionalfield','skyfield'])) {
 				return 8;
 			}
 			return 5;
 		},
 		onWeather(target) {
-			let damageMod = this.field.isTerrain('frozendimensionalfield') ? 2: 1
+			let damageMod = this.field.isBattlefield('frozendimensionalfield') ? 2: 1
 			this.damage(target.baseMaxhp * damageMod / 16);
 		},
 	},
 	snow: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('icyrock') || this.field.isTerrain('skyfield')) {
+			if (source?.hasItem('icyrock') || this.field.isBattlefield('skyfield')) {
 				return 8;
 			}
 			return 5;
@@ -50,7 +50,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	raindance: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('damprock') || this.field.isTerrain('skyfield')) {
+			if (source?.hasItem('damprock') || this.field.isBattlefield('skyfield')) {
 				return 8;
 			}
 			return 5;
@@ -59,7 +59,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sunnyday: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('heatrock') || this.field.isTerrain('skyfield')) {
+			if (source?.hasItem('heatrock') || this.field.isBattlefield('skyfield')) {
 				return 8;
 			}
 			return 5;
@@ -68,7 +68,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sandstorm: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('smoothrock') || this.field.isTerrain('skyfield')) {
+			if (source?.hasItem('smoothrock') || this.field.isBattlefield('skyfield')) {
 				return 8;
 			}
 			return 5;
@@ -77,7 +77,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	brn: {
 		inherit: true,
 		onResidual(pokemon) {
-			let modifier = this.field.isTerrain('icyfield')? 32 : 16;
+			let modifier = this.field.isBattlefield('icyfield')? 32 : 16;
 			this.damage(pokemon.baseMaxhp / modifier);
 		},
 	},

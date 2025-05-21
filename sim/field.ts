@@ -17,6 +17,8 @@ export class Field {
 	weatherState: EffectState;
 	terrain: ID;
 	terrainState: EffectState;
+	battlefield: ID;
+	battlefieldState: EffectState;
 	pseudoWeather: { [id: string]: EffectState };
 
 	constructor(battle: Battle) {
@@ -29,6 +31,8 @@ export class Field {
 		this.weatherState = this.battle.initEffectState({ id: '' });
 		this.terrain = '';
 		this.terrainState = this.battle.initEffectState({ id: '' });
+		this.battlefield = '';
+		this.battlefieldState = this.battle.initEffectState({ id: '' });
 		this.pseudoWeather = {};
 	}
 
@@ -181,6 +185,63 @@ export class Field {
 
 	getTerrain() {
 		return this.battle.dex.conditions.getByID(this.terrain);
+	}
+
+	// Battlefields from Rejuv
+	setBattlefield(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
+		status = this.battle.dex.conditions.get(status);
+		if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+		if (!source && this.battle.event?.target) source = this.battle.event.target;
+		if (source === 'debug') source = this.battle.sides[0].active[0];
+		if (!source) throw new Error(`setting battlefield without a source`);
+
+		if (this.battlefield === status.id) return false;
+		const prevBattlefield = this.battlefield;
+		const prevBattlefieldState = this.battlefieldState;
+		this.battlefield = status.id;
+		this.battlefieldState = this.battle.initEffectState({
+			id: status.id,
+			source,
+			sourceSlot: source.getSlot(),
+			duration: status.duration,
+		});
+		if (status.durationCallback) {
+			this.battlefieldState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
+		}
+		if (!this.battle.singleEvent('FieldStart', status, this.battlefieldState, this, source, sourceEffect)) {
+			this.battlefield = prevBattlefield;
+			this.battlefieldState = prevBattlefieldState;
+			return false;
+		}
+		this.battle.eachEvent('BattlefieldChange', sourceEffect);
+		return true;
+	}
+
+	clearBattlefield() {
+		if (!this.battlefield) return false;
+		const prevBattlefield = this.getBattlefield();
+		this.battle.singleEvent('FieldEnd', prevBattlefield, this.battlefieldState, this);
+		this.battlefield = '';
+		this.battle.clearEffectState(this.battlefieldState);
+		this.battle.eachEvent('BattlefieldChange');
+		return true;
+	}
+
+	effectiveBattlefield(target?: Pokemon | Side | Battle) {
+		if (this.battle.event && !target) target = this.battle.event.target;
+		return this.battle.runEvent('TryBattlefield', target) ? this.battlefield : '';
+	}
+
+	isBattlefield(battlefield: string | string[], target?: Pokemon | Side | Battle) {
+		const ourBattlefield = this.effectiveBattlefield(target);
+		if (!Array.isArray(battlefield)) {
+			return ourBattlefield === toID(battlefield);
+		}
+		return battlefield.map(toID).includes(ourBattlefield);
+	}
+
+	getBattlefield() {
+		return this.battle.dex.conditions.getByID(this.battlefield);
 	}
 
 	addPseudoWeather(

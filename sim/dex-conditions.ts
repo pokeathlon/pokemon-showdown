@@ -424,6 +424,13 @@ export interface EventMethods {
 	onAnyModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onAnyModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 
+	// Battlefields from Rejuv
+	onBattlefieldChange?: (this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect) => void;
+	onFoeBattlefield?: (this: Battle, pokemon: Pokemon) => void;
+	onSourceBattlefield?: (this: Battle, pokemon: Pokemon) => void;
+	onAnyBattlefield?: (this: Battle, pokemon: Pokemon) => void;
+	onAllyBattlefield?: (this: Battle, pokemon: Pokemon) => void;
+
 	// Priorities (incomplete list)
 	onAccuracyPriority?: number;
 	onDamagingHitOrder?: number;
@@ -625,7 +632,7 @@ export interface ModdedConditionDataTable { [id: IDEntry]: ModdedConditionData }
 
 export class Condition extends BasicEffect implements
 	Readonly<BasicEffect & SideConditionData & FieldConditionData & PokemonConditionData> {
-	declare readonly effectType: 'Condition' | 'Weather' | 'Status' | 'Terrain';
+	declare readonly effectType: 'Condition' | 'Weather' | 'Status' | 'Terrain' | 'Battlefield';
 	declare readonly counterMax?: number;
 	declare effectOrder?: number;
 
@@ -641,7 +648,7 @@ export class Condition extends BasicEffect implements
 
 	constructor(data: AnyObject) {
 		super(data);
-		this.effectType = (['Weather', 'Status', 'Terrain'].includes(data.effectType) ? data.effectType : 'Condition');
+		this.effectType = (['Weather', 'Status', 'Terrain', 'Battlefield'].includes(data.effectType) ? data.effectType : 'Condition');
 		assignMissingFields(this, data);
 	}
 }

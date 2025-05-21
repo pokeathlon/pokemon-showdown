@@ -81,6 +81,7 @@ export interface HitEffect {
 	pseudoWeather?: string;
 	terrain?: string;
 	weather?: string;
+	battlefield?: string;
 }
 
 export interface SecondaryEffect extends HitEffect {

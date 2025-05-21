@@ -111,7 +111,7 @@ type ModdedEffectData = EffectData | Partial<EffectData> & { inherit: true };
 
 type EffectType =
 	'Condition' | 'Pokemon' | 'Move' | 'Item' | 'Ability' | 'Format' |
-	'Nature' | 'Ruleset' | 'Weather' | 'Status' | 'Terrain' | 'Rule' | 'ValidatorRule';
+	'Nature' | 'Ruleset' | 'Weather' | 'Status' | 'Terrain' | 'Rule' | 'ValidatorRule' | 'Battlefield';
 
 interface BasicEffect extends EffectData {
 	id: ID;
@@ -487,6 +487,7 @@ declare namespace RandomTeamsTypes {
 		forceResult: boolean;
 		weather?: string;
 		terrain?: string[];
+		battlefield?: string[];
 		typeCount: { [k: string]: number };
 		typeComboCount: { [k: string]: number };
 		baseFormes: { [k: string]: number };
