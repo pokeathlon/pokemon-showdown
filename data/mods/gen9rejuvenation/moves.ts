@@ -13,17 +13,17 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Fairy';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				newType = 'Psychic';
-			} else if (this.field.isTerrain(['volcanicfield','infernalfield'])) {
+			} else if (this.field.isBattlefield(['volcanicfield','infernalfield'])) {
 				newType = 'Fire';
-			} else if (this.field.isTerrain(['corrosivemistfield','murkwatersurfacefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
 				newType = 'Poison';
-			} else if (this.field.isTerrain(['icyfield','frozendimensionalfield'])) {
+			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				newType = 'Ice';
-			} else if (this.field.isTerrain(['watersurfacefield','underwaterfield'])) {
+			} else if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) {
 				newType = 'Water';
-			} else if (this.field.isTerrain('dragonsdenfield')) {
+			} else if (this.field.isBattlefield('dragonsdenfield')) {
 				newType = 'Dragon';
-			}  else if (this.field.isTerrain('skyfield')) {
+			}  else if (this.field.isBattlefield('skyfield')) {
 				newType = 'Flying';
 			} 
 
@@ -43,21 +43,21 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'mistball';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				move = 'psychic';
-			} else if (this.field.isTerrain('volcanicfield')) {
+			} else if (this.field.isBattlefield('volcanicfield')) {
 				move = 'flamethrower';
-			} else if (this.field.isTerrain('corrosivemistfield')) {
+			} else if (this.field.isBattlefield('corrosivemistfield')) {
 				move = 'venoshock';
-			} else if (this.field.isTerrain(['icefield','frozendimensionalfield'])) {
+			} else if (this.field.isBattlefield(['icefield','frozendimensionalfield'])) {
 				move = 'icebeam';
-			} else if (this.field.isTerrain(['watersurfacefield','underwaterfield'])) {
+			} else if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) {
 				move = 'whirlpool';
-			} else if (this.field.isTerrain('murkwatersurfacefield')) {
+			} else if (this.field.isBattlefield('murkwatersurfacefield')) {
 				move = 'sludgewave';
-			}  else if (this.field.isTerrain('dragonsdenfield')) {
+			}  else if (this.field.isBattlefield('dragonsdenfield')) {
 				move = 'dragonpulse';
-			}   else if (this.field.isTerrain('skyfield')) {
+			}   else if (this.field.isBattlefield('skyfield')) {
 				move = 'skyattack';
-			}    else if (this.field.isTerrain('infernalfield')) {
+			}    else if (this.field.isBattlefield('infernalfield')) {
 				move = 'punishment';
 			} 
 			this.actions.useMove(move, pokemon, {target});
@@ -79,27 +79,27 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'slp',
 				});
-			} else if (this.field.isTerrain(['volcanicfield','dragonsdenfield','infernalfield'])) {
+			} else if (this.field.isBattlefield(['volcanicfield','dragonsdenfield','infernalfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'brn',
 				});
-			} else if (this.field.isTerrain(['corrosivemistfield','murkwatersurfacefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
 				});
-			} else if (this.field.isTerrain(['icyfield','frozendimensionalfield'])) {
+			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				move.secondaries.push({
 					chance: 10,
 					status: 'frz',
 				});
-			} else if (this.field.isTerrain('skyfield')) {
+			} else if (this.field.isBattlefield('skyfield')) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'confusion',
 				});
-			} else if (this.field.isTerrain('underwaterfield')) {
+			} else if (this.field.isBattlefield('underwaterfield')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -113,7 +113,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spa: -1,
 					},
 				});
-			} else if (this.field.isTerrain(['psychicterrain', 'watersurfacefield'])) {
+			} else if (this.field.isTerrain('psychicterrain') || this.field.isBattlefield('watersurfacefield')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -127,7 +127,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
-			switch (this.field.terrain) {
+			switch (this.field.terrain || this.field.battlefield) {
 			case 'electricterrain':
 				move.type = 'Electric';
 				break;
@@ -178,12 +178,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isTerrain('electricterrain') && move.type === 'Electric') return this.chainModify(0.5);
 				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
 				if (this.field.isTerrain('mistyterrain') && move.type === 'Fairy') return this.chainModify(0.5);
-				if (this.field.isTerrain(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
-				if (this.field.isTerrain(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
-				if (this.field.isTerrain(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
-				if (this.field.isTerrain(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
-				if (this.field.isTerrain('dragonsdenfield') && move.type === 'Dragon') return this.chainModify(0.5);
-				if (this.field.isTerrain('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
+				if (this.field.isBattlefield('dragonsdenfield') && move.type === 'Dragon') return this.chainModify(0.5);
+				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -227,7 +227,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
 				var forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				if (this.field.isTerrain('electricterrain')) forme = 'cramorantgorging';
-				if (this.field.isTerrain(['watersurfacefield','underwaterfield'])) forme = 'cramorantgulping';
+				if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) forme = 'cramorantgulping';
 				attacker.formeChange(forme, move);
 			}
 			this.add('-prepare', attacker, move.name);
@@ -301,10 +301,16 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (this.field.isTerrain('electricterrain')) this.chainModify(1.3);
 		},
 		onHit() {
-			if (this.field.isTerrain('electricterrain')) this.field.clearTerrain();
+			if (this.field.isTerrain('electricterrain')) {
+				this.field.clearTerrain()
+				this.field.clearBattlefield()
+			};
 		},
 		onAfterSubDamage() {
-			if (this.field.isTerrain('electricterrain')) this.field.clearTerrain();
+			if (this.field.isTerrain('electricterrain')) {
+				this.field.clearTerrain()
+				this.field.clearBattlefield()
+			};
 		},
 	},
 	mudsport: {
@@ -322,7 +328,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onUpdate(pokemon) {
-				if (this.field.isTerrain('electricterrain')) this.field.clearTerrain();
+			if (this.field.isTerrain('electricterrain')) {
+				this.field.clearTerrain()
+				this.field.clearBattlefield()
+			};
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 4,
@@ -518,14 +527,14 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onResidualOrder: 6,
 			onResidual(pokemon) {
 				if (this.field.isTerrain('corrosivemistfield') && !pokemon.hasType(['Steel', 'Poison'])) return this.damage(pokemon.baseMaxhp / 16);
-				this.field.isTerrain(['mistyterrain','watersurfacefield','underwaterfield'])? this.heal(pokemon.baseMaxhp / 8) : this.heal(pokemon.baseMaxhp / 16);
+				(this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['watersurfacefield', 'underwaterfield']))? this.heal(pokemon.baseMaxhp / 8) : this.heal(pokemon.baseMaxhp / 16);
 			},
 		},
 	},
 	barbbarrage: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isTerrain(['corrosivemistfield','murkwatersurfacefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -533,7 +542,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	venoshock: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isTerrain(['corrosivemistfield','murkwatersurfacefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -541,7 +550,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	venomdrench: {
 		inherit: true,
 		onHit(target, source, move) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isTerrain(['corrosivemistfield','murkwatersurfacefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
@@ -577,7 +586,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onAfterMove(source, target, move) {
 			// Save use to field
 			this.field.terrainState.grasspledge = true;
-			if (this.field.terrainState.firepledge) this.field.setTerrain('volcanicfield')
+			if (this.field.terrainState.firepledge) this.field.setBattlefield('volcanicfield')
 		},
 	},
 	firepledge: {
@@ -585,19 +594,19 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onAfterMove(source, target, move) {
 			// Save use to field
 			this.field.terrainState.firepledge = true;
-			if (this.field.terrainState.grasspledge) this.field.setTerrain('volcanicfield')
+			if (this.field.terrainState.grasspledge) this.field.setBattlefield('volcanicfield')
 		},
 	},
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isTerrain(['icyfield','frozendimensionalfield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield']));
 		},
 	},
 	takeheart: {
 		inherit: true,
 		onHit(pokemon) {
-			let boost = this.field.isTerrain(['watersurfacefield','underwaterfield']) ? {spa: 2, spd: 2}: {spa: 1, spd: 1}
+			let boost = this.field.isBattlefield(['watersurfacefield','underwaterfield']) ? {spa: 2, spd: 2}: {spa: 1, spd: 1}
 			const success = !!this.boost({spa: 1, spd: 1});
 			return pokemon.cureStatus() || success;
 		},
@@ -605,7 +614,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	freezeshock: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {
-			if (this.field.isTerrain('frozendimensionalfield')) return;
+			if (this.field.isBattlefield('frozendimensionalfield')) return;
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
@@ -620,7 +629,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	iceburn: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {
-			if (this.field.isTerrain('frozendimensionalfield')) return;
+			if (this.field.isBattlefield('frozendimensionalfield')) return;
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
@@ -635,7 +644,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	partingshot: {
 		inherit: true,
 		onHit(target, source, move) {
-			let boostTable = this.field.isTerrain('frozendimensionalfield')? {atk: -1, spa: -1, spe: -1} : {atk: -1, spa: -1};
+			let boostTable = this.field.isBattlefield('frozendimensionalfield')? {atk: -1, spa: -1, spe: -1} : {atk: -1, spa: -1};
 			const success = this.boost(boostTable, target, source);
 			if (!success && !target.hasAbility('mirrorarmor')) {
 				delete move.selfSwitch;
@@ -645,7 +654,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	powertrip: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			let bpChange = this.field.isTerrain('frozendimensionalfield')? 40 : 20;
+			let bpChange = this.field.isBattlefield('frozendimensionalfield')? 40 : 20;
 			const bp = move.basePower + bpChange * pokemon.positiveBoosts();
 			this.debug('BP: ' + bp);
 			return bp;
@@ -654,7 +663,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	flyingpress: {
 		inherit: true,
 		onEffectiveness(typeMod, target, type, move) {
-			if (this.field.isTerrain('skyfield') && this.dex.getEffectiveness('Flying', type) < 0) return typeMod
+			if (this.field.isBattlefield('skyfield') && this.dex.getEffectiveness('Flying', type) < 0) return typeMod
 			return typeMod + this.dex.getEffectiveness('Flying', type);
 		},
 	},
@@ -663,7 +672,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
-				if (this.field.isTerrain('skyfield')) {
+				if (this.field.isBattlefield('skyfield')) {
 					this.field.setWeather('deltastream');
 					return 8;
 				}
@@ -768,7 +777,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	hex: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose') || this.field.isTerrain('infernalfield')) {
+			if (target.status || target.hasAbility('comatose') || this.field.isBattlefield('infernalfield')) {
 				this.debug('BP doubled from status condition');
 				return move.basePower * 2;
 			}
@@ -780,7 +789,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !this.field.isTerrain('infernalfield')) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !this.field.isBattlefield('infernalfield')) {
 					return false;
 				}
 				this.add('-start', pokemon, 'Nightmare');
@@ -838,7 +847,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {snatch: 1, metronome: 1},
 		sideCondition: 'arenitewall',
 		onTry() {
-			return this.field.isWeather(['sandstorm']) || this.field.isTerrain(['desert', 'ashenbeach', 'rockyfields']);
+			return this.field.isWeather(['sandstorm']) || this.field.isBattlefield(['desertfield', 'ashenbeachfield', 'rockyfield']);
 		},
 		condition: {
 			duration: 5,
@@ -1002,7 +1011,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onStart(pokemon, source) {
 				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
-				this.effectState.boundDivisor = (source.hasItem('bindingband') || this.field.isTerrain(['desertfield'])) ? 6 : 8;
+				this.effectState.boundDivisor = (source.hasItem('bindingband') || this.field.isBattlefield(['desertfield'])) ? 6 : 8;
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
@@ -1014,7 +1023,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
 				if (this.field.isTerrain(['ashenbeach'])) {
-					pokemon.boostBy({accuracy: -1})
+					this.boost({accuracy: -1})
 				}
 			},
 			onEnd(pokemon) {
@@ -1124,12 +1133,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (this.field.isTerrain(['forestfield'])) {
+			if (this.field.isBattlefield(['forestfield'])) {
 				return this.chainModify(1.5);
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (this.field.isTerrain(['forestfield'])) {
+			if (this.field.isBattlefield(['forestfield'])) {
 			return typeMod + this.dex.getEffectiveness('Grass', type);
 			}
 		},
@@ -1520,9 +1529,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onHit(target, source) {
 				const result = this.random(2);
 				if (result === 0) {
-					source.boostBy({def: 1})
+					this.boost({def: 1})
 				} else {
-					source.boostBy({spd: 1})
+					this.boost({spd: 1})
 				}
 			},
 		},
@@ -1852,6 +1861,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {nonsky: 1, metronome: 1},
 		terrain: 'electricterrain',
 		condition: {
+			effectType: "Terrain",
 			duration: 3,
 			durationCallback(source, effect) {
 				if (source?.lastMoveUsed && ['iondeluge', 'stokedsparksurfer', 'plasmafists'].includes(source.lastMoveUsed.id) && !source.hasItem('everstone')) {
@@ -1926,6 +1936,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	grassyterrain: {
 		inherit: true,
 		condition: {
+			effectType: "Terrain",
 			duration: 3,
 			durationCallback(source, effect) {
 				if (source?.lastMoveUsed && ['bloomdoom'].includes(source.lastMoveUsed.id) && !source.hasItem('everstone')) {
@@ -1981,10 +1992,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onHit(target, source, move) {
 				if (move.id === 'surf') this.field.terrainState.flooding += 1;
 				if (move.id === 'muddywater') this.field.terrainState.flooding += 2; 
-				if (this.field.terrainState.flooding >= 3) this.field.setTerrain('swampfield');
+				if (this.field.terrainState.flooding >= 3) this.field.setBattlefield('swampfield');
 				if (['sludgewave', 'aciddownpour'].includes(move.id)) {
 					this.hint('The grassy terrain was corroded!')
-					this.field.setTerrain('corrosivefield');
+					this.field.setBattlefield('corrosivefield');
 				}
 			},
 			onResidualOrder: 5,
@@ -2007,6 +2018,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	mistyterrain: {
 		inherit: true,
 		condition: {
+			effectType: "Terrain",
 			duration: 3,
 			durationCallback(source, effect) {
 				if (source?.lastMoveUsed && ['mist'].includes(source.lastMoveUsed.id) && !source.hasItem('everstone')) {
@@ -2067,7 +2079,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (['defog', 'gust', 'hurricane', 'razorwind', 'supersonicskystrike', 'tailwind', 'twister', 'whirlwind'].includes(move.id)) this.field.clearTerrain
 				if (['clearsmog', 'poisongas', 'smog'].includes(move.id)) this.field.terrainState.corrosion += 1;
 				if (move.id === 'aciddownpour') this.field.terrainState.corrosion += 2; 
-				if (this.field.terrainState.corrosion >= 2) this.field.setTerrain('corrosivemistfield');
+				if (this.field.terrainState.corrosion >= 2) this.field.setBattlefield('corrosivemistfield');
 			},
 			onAnyTryMove(target, source, effect) {
 				if (['explosion', 'mindblown', 'selfdestruct'].includes(effect.id)) {
@@ -2114,8 +2126,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'volcanicfield',
+		battlefield: 'volcanicfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2155,7 +2168,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					'defog', 'gust', 'hurricane', 'razorwind', 'supersonicskystrike', 'tailwind', 'twister', 'whirlwind',
 					'hydrovortex', 'muddywater', 'oceanicoperetta','sparklingaria','surf','waterpledge','watersport','waterspout',
 					'sludgewave'
-					].includes(move.id)) this.field.setTerrain('cavefield')
+					].includes(move.id)) this.field.setBattlefield('cavefield')
 			},
 			onUpdate(pokemon) {
 				if (pokemon.status === 'frz') {
@@ -2171,19 +2184,19 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onResidualOrder: 9,
 			onResidual(pokemon) {
-				if (pokemon.hasAbility(['flamebody', 'flareboost', 'flashfire', 'heatproof', 'magmaarmor', 'waterbubble','waterveil']) || pokemon.volatiles['aquaring']) return;
-				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasType('Fire')) {
-					var typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('flamethrower')), -6, 6);
-					if (pokemon.hasAbility(['fluffy', 'grasspelt', 'icebody', 'leafguard']) || pokemon.volatiles['tarshot']) typeMod *= 2;
-					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-				}
 				if (pokemon.hasAbility('flashfire') && pokemon.isGrounded()) pokemon.addVolatile('flashfire');
-				if (pokemon.hasAbility('steamengine')) pokemon.boostBy({spe: 1});
+				if (pokemon.hasAbility('steamengine')) this.boost({spe: 1});
 				if (pokemon.lastMoveUsed?.id === 'burnup' && pokemon.hasType('???')) {
 					pokemon.setType(pokemon.getTypes(true).map(type => type === '???' ? 'Fire' : type));
 					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] field: Volcanic Field');
 				}
-				if (this.field.isWeather(['sandstorm', 'raindance', 'primordialsea'])) this.field.setTerrain('cavefield');
+				if (this.field.isWeather(['sandstorm', 'raindance', 'primordialsea'])) this.field.setBattlefield('cavefield');
+				if (pokemon.hasAbility(['flamebody', 'flareboost', 'flashfire', 'heatproof', 'magmaarmor', 'waterbubble','waterveil']) || pokemon.volatiles['aquaring']) return;
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && !pokemon.hasType('Fire')) {
+					var typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('flamethrower')), -6, 6);
+					if (pokemon.hasAbility(['fluffy', 'grasspelt', 'icebody', 'leafguard']) || pokemon.volatiles['tarshot']) typeMod *= 2;
+						this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				}
 			},
 			onSetStatus(status, target, source, effect) {
 				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
@@ -2221,8 +2234,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'corrosivemistfield',
+		battlefield: 'corrosivemistfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2232,7 +2246,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onHit(target, source, move) {
 				if (move.id === 'gravity'){
-					 this.field.setTerrain('corrosivefield');
+					 this.field.setBattlefield('corrosivefield');
 					 this.hint('The toxic mist collected on the ground!')
 					}
 				if (move.id === 'seedflare'){
@@ -2240,11 +2254,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						this.hint('The polluted mist was purified!')
 					}
 				if (['defog', 'gust', 'hurricane', 'razorwind', 'supersonicskystrike', 'tailwind', 'twister', 'whirlwind'].includes(move.id)){
-					this.field.clearTerrain
+					this.field.clearTerrain()
+					this.field.clearBattlefield()
 					this.hint('The mist was blown away!')
 				}
 				if (['eruption', 'explosion', 'firepledge', 'flameburst', 'heatwave', 'incinerate','infernooverdrive','lavaplume','mindblown','searingshot','self-destruct'].includes(move.id)){
 					this.field.clearTerrain()
+					this.field.clearBattlefield()
 					let damp = false;
 					for (const poke of this.getAllActive()) {
 						if (this.toID(poke.ability) === ('damp' as ID)) {
@@ -2338,8 +2354,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'icyfield',
+		battlefield: 'icyfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2359,7 +2376,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (['eruption','firepledge','flameburst','heatwave',
 					'incinerate','infernooverdrive','lavaplume','magmadrift',
 					'mindblown','ragingfury','searingshot'].includes(move.id)) this.chainModify(1.3);
-				if (move.id === 'scald' && this.field.terrainState.melting >= 1) this.chainModify(1.3)
+				if (move.id === 'scald' && this.field.battlefieldState.melting >= 1) this.chainModify(1.3)
 			},
 			onEffectiveness(typeMod, target, type, move) {
 				if (move.type === 'Rock') return typeMod + this.dex.getEffectiveness('Ice', type);
@@ -2386,21 +2403,21 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onHit(target, source, move) {
 				if (move.id === 'scald') {
-					this.field.terrainState.melting += 1;
+					this.field.battlefieldState.melting += 1;
 					this.hint('Parts of the ice melted!')
 				}
-				if (move.id === 'steameruption') this.field.terrainState.melting += 2; 
-				if (this.field.terrainState.melting >= 2) {
+				if (move.id === 'steameruption') this.field.battlefieldState.melting += 2; 
+				if (this.field.battlefieldState.melting >= 2) {
 					this.hint('The hot water melted the ice!')
-					this.field.setTerrain('watersurfacefield');
+					this.field.setBattlefield('watersurfacefield');
 				}
 				if (['eruption','firepledge','flameburst','heatwave',
 					'incinerate','infernooverdrive','lavaplume','magmadrift',
 					'mindblown','ragingfury','searingshot'].includes(move.id)){ 
-					this.field.setTerrain('cavefield');
+					this.field.setBattlefield('cavefield');
 					this.hint('The ice melted away!')
 				}
-				if (['bulldoze', 'earthquake', 'fissure', 'magnitude', 'tectonicrage'].includes(move.id)) this.field.setTerrain('cavefield');
+				if (['bulldoze', 'earthquake', 'fissure', 'magnitude', 'tectonicrage'].includes(move.id)) this.field.setBattlefield('cavefield');
 			},
 			onAfterHit(source, target, move) {
 				if ((move.category === 'Physical' && move.flags.contact && move.priority > 0) || ['defensecurl', 'lunge', 'rollout', 'steamroller'].includes(move.id)) {
@@ -2409,7 +2426,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onFieldStart(field, source, effect) {
-				this.field.terrainState.melting = 0;
+				this.field.battlefieldState.melting = 0;
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Icy Field', '[from] ability: ' + effect.name, '[of] ' + source);
 				} else {
@@ -2437,8 +2454,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'watersurfacefield',
+		battlefield: 'watersurfacefield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2474,7 +2492,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					'blizzard', 'glaciate','subzeroslammer'].includes(move.id)) {
 					this.chainModify(1.3)
 				}
-				if (move.id === 'sludgewave' && this.field.terrainState.pollution > 0) {
+				if (move.id === 'sludgewave' && this.field.battlefieldState.pollution > 0) {
 					this.chainModify(1.3)
 				}
 			},
@@ -2503,23 +2521,23 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onHit(target, source, move) {
-				if (move.id === 'sludgewave') this.field.terrainState.pollution += 1;
-				if (move.id === 'aciddownpour') this.field.terrainState.pollution += 2; 
-				if (this.field.terrainState.pollution >= 2) {
+				if (move.id === 'sludgewave') this.field.battlefieldState.pollution += 1;
+				if (move.id === 'aciddownpour') this.field.battlefieldState.pollution += 2; 
+				if (this.field.battlefieldState.pollution >= 2) {
 					this.hint('The water was polluted!')
-					this.field.setTerrain('murkwatersurfacefield');
+					this.field.setBattlefield('murkwatersurfacefield');
 				}
 				if (move.id === 'anchorshot') {
 					this.hint('The battle was pulled underwater!')
-					this.field.setTerrain('underwaterfield')
+					this.field.setBattlefield('underwaterfield')
 				}
 				if (['dive','gravapple','gravity', 'aciddownpour'].includes(move.id)) {
 					this.hint('The battle sank into the depths!')
-					this.field.setTerrain('underwaterfield')
+					this.field.setBattlefield('underwaterfield')
 				}
 				if (['blizzard', 'glaciate', 'subzeroslammer'].includes(move.id)) {
 					this.hint('The water froze over!')
-					this.field.setTerrain('icyfield')
+					this.field.setBattlefield('icyfield')
 				}
 			},
 			onModifySpe(spe, pokemon) {
@@ -2528,7 +2546,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onFieldStart(field, source, effect) {
-				this.field.terrainState.pollution = 0;
+				this.field.battlefieldState.pollution = 0;
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Water Surface Field', '[from] ability: ' + effect.name, '[of] ' + source);
 				} else {
@@ -2577,8 +2595,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'underwaterfield',
+		battlefield: 'underwaterfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2610,7 +2629,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (['bounce','fly','dive','skydrop','aciddownpour'].includes(move.id)) {
 					this.chainModify(1.3)
 				}
-				if (move.id === 'sludgewave' && this.field.terrainState.pollution > 0) {
+				if (move.id === 'sludgewave' && this.field.battlefieldState.pollution > 0) {
 					this.chainModify(1.3)
 				}
 			},
@@ -2634,17 +2653,17 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onHit(target, source, move) {
-				if (move.id === 'sludgewave') this.field.terrainState.pollution += 1;
-				if (move.id === 'aciddownpour') this.field.terrainState.pollution += 2;
-				if (this.field.terrainState.pollution >= 2) {
+				if (move.id === 'sludgewave') this.field.battlefieldState.pollution += 1;
+				if (move.id === 'aciddownpour') this.field.battlefieldState.pollution += 2;
+				if (this.field.battlefieldState.pollution >= 2) {
 					this.hint('The grime sank beneath the battlers! The water was polluted!')
-					this.field.setTerrain('murkwatersurfacefield');
+					this.field.setBattlefield('murkwatersurfacefield');
 				}
 				if (['bounce','dive','fly','skydrop'].includes(move.id)) {
 					this.hint('The battle resurfaced!')
-					this.field.setTerrain('watersurfacefield')
+					this.field.setBattlefield('watersurfacefield')
 				}
-				if (this.field.terrainState.pollution >= 2) {
+				if (this.field.battlefieldState.pollution >= 2) {
 					for (const poke of this.getAllActive()) {
 						if (poke.hasType(['Poison', 'Steel'])) return;
 						poke.faint()
@@ -2652,7 +2671,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onFieldStart(field, source, effect) {
-				this.field.terrainState.pollution = 0;
+				this.field.battlefieldState.pollution = 0;
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Underwater Field', '[from] ability: ' + effect.name, '[of] ' + source);
 				} else {
@@ -2703,8 +2722,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'murkwatersurfacefield',
+		battlefield: 'murkwatersurfacefield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2749,15 +2769,15 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onHit(target, source, move) {
 				if (move.id === 'whirlpool') {
 					this.hint('The maelstrom flushed out the poison!')
-					this.field.setTerrain('watersurfacefield')
+					this.field.setBattlefield('watersurfacefield')
 				}
 				if (move.id === 'purify') {
 					this.hint('the attack cleared the waters!')
-					this.field.setTerrain('watersurfacefield')
+					this.field.setBattlefield('watersurfacefield')
 				}
 				if (['blizzard','glaciate','subzeroslammer'].includes(move.id)) {
 					this.hint('The toxic water froze over!')
-					this.field.setTerrain('icyfield')
+					this.field.setBattlefield('icyfield')
 				}
 			},
 			onModifySpe(spe, pokemon) {
@@ -2808,8 +2828,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'dragonsdenfield',
+		battlefield: 'dragonsdenfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -2868,7 +2889,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onTryMove(source, target, move) {
-				if (move.terrain) {
+				if (move.terrain || move.battlefield) {
 					this.hint(`The draconic power blocked the terrain...`)
 					return null
 				}
@@ -2882,7 +2903,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onHit(target, source, move) {
 				if (move.id === 'mistball') {
 					this.hint('The mist-ical energy altered the surroundings!')
-					this.field.setTerrain('fairytalefield')
+					this.field.setBattlefield('fairytalefield')
 				}
 			},
 			onEffectiveness(typeMod, target, type, move) {
@@ -2968,8 +2989,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'frozendimensionalfield',
+		battlefield: 'frozendimensionalfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -3025,11 +3047,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onHit(target, source, move) {
 				if (['eruption','firepledge','flameburst','heatwave','incinerate','infernooverdrive','lavaplume','mindblown','ragingfury','searingshot'].includes(move.id)) {
-					this.field.setTerrain('dimensionalfield')
+					this.field.setBattlefield('dimensionalfield')
 					this.hint('The dimension thawed away!')
 				}
 				if (move.id === 'purify') {
-					this.field.setTerrain('icyfield');
+					this.field.setBattlefield('icyfield');
 					this.hint('The dimension was purified!')
 				}
 			},
@@ -3102,8 +3124,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'skyfield',
+		battlefield: 'skyfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -3161,7 +3184,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onHit(target, source, move) {
 				if (['gravapple','gravity','ingrain','smackdown','thousandarrows'].includes(move.id)) {
-					this.field.setTerrain('mountainfield')
+					this.field.setBattlefield('mountainfield')
 					this.hint('The battle has been brought down to the mountains!')
 				}
 			},
@@ -3227,8 +3250,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		terrain: 'infernalfield',
+		battlefield: 'infernalfield',
 		condition: {
+			effectType: "Battlefield",
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('amplifiedrock')) {
@@ -3288,11 +3312,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onHit(target, source, move) {
 				if (move.id === 'glaciate') {
-					this.field.setTerrain('dimensionalfield')
+					this.field.setBattlefield('dimensionalfield')
 					this.hint('The hellish landscape was douesed of its fire!')
 				}
 				if (['judgement','originpulse','purify'].includes(move.id)) {
-					this.field.setTerrain('volcanictopfield')
+					this.field.setBattlefield('volcanictopfield')
 					this.hint('The hellish landscape was purified!')
 				}
 			},
@@ -3311,7 +3335,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					pokemon.setType(pokemon.getTypes(true).map(type => type === '???' ? 'Fire' : type));
 					this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] field: Volcanic Field');
 				}
-				if (pokemon.hasAbility('steamengine')) pokemon.boostBy({spe: 1});
+				if (pokemon.hasAbility('steamengine')) this.boost({spe: 1});
 				if (pokemon.volatiles['torment']) this.damage(pokemon.baseMaxhp / 8)
 			},
 			onFieldStart(field, source, effect) {

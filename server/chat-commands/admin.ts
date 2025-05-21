@@ -1734,6 +1734,15 @@ export const commands: Chat.ChatCommands = {
 			[value] = targets.map(toID);
 			void battle.stream.write(`>eval battle.field.setTerrain('${value}', 'debug')`);
 			break;
+		case 'battlefield':
+		case 'bf':
+			if (targets.length !== 1) {
+				this.errorReply("Incorrect command use");
+				return this.parse('/help editbattle');
+			}
+			[value] = targets.map(toID);
+			void battle.stream.write(`>eval battle.field.setBattlefield('${value}', 'debug')`);
+			break;
 		case 'reseed':
 			if (targets.length !== 0) {
 				if (targets.length !== 4) {
@@ -1764,6 +1773,7 @@ export const commands: Chat.ChatCommands = {
 		`/editbattle fieldcondition [fieldcondition]`,
 		`/editbattle weather [weather]`,
 		`/editbattle terrain [terrain]`,
+		`/editbattle battlefield [battlefield]`,
 		`/editbattle reseed [optional seed]`,
 		`Short forms: /ebat h OR s OR pp OR b OR v OR sc OR fc OR w OR t`,
 		`[player] must be a username or number, [pokemon] must be species name or party slot number (not nickname), [move] must be move name.`,

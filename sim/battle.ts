@@ -546,6 +546,8 @@ export class Battle {
 					expectedStateLocation = handler.state.target.weatherState;
 				} else if (effect.effectType === 'Terrain') {
 					expectedStateLocation = handler.state.target.terrainState;
+				} else if (effect.effectType === 'Battlefield') {
+					expectedStateLocation = handler.state.target.battlefieldState;
 				} else {
 					expectedStateLocation = handler.state.target.pseudoWeather[effect.id];
 				}
@@ -1021,7 +1023,7 @@ export class Battle {
 			return handlers;
 		}
 		// events usually run through EachEvent should never have any handlers besides `on${eventName}` so don't check for them
-		const prefixedHandlers = !['BeforeTurn', 'Update', 'Weather', 'WeatherChange', 'TerrainChange'].includes(eventName);
+		const prefixedHandlers = !['BeforeTurn', 'Update', 'Weather', 'WeatherChange', 'TerrainChange', 'BattlefieldChange'].includes(eventName);
 		if (target instanceof Pokemon && (target.isActive || source?.isActive)) {
 			handlers = this.findPokemonEventHandlers(target, `on${eventName}`);
 			if (prefixedHandlers) {
@@ -1209,6 +1211,15 @@ export class Battle {
 			handlers.push(this.resolvePriority({
 				effect: terrain, callback, state: field.terrainState,
 				end: customHolder ? null : field.clearTerrain, effectHolder: customHolder || field,
+			}, callbackName));
+		}
+		const battlefield = field.getBattlefield();
+		// @ts-expect-error dynamic lookup
+		callback = battlefield[callbackName];
+		if (callback !== undefined || (getKey && field.battlefieldState[getKey])) {
+			handlers.push(this.resolvePriority({
+				effect: battlefield, callback, state: field.battlefieldState,
+				end: customHolder ? null : field.clearBattlefield, effectHolder: customHolder || field,
 			}, callbackName));
 		}
 

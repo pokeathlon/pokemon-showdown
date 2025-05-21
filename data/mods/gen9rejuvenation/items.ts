@@ -34,18 +34,18 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain([
-				'electricterrain', 'grassyterrain', 'mistyterrain', 'volcanicfield', 'corrosivemistfield',
-				'icyfield', 'watersurfacefield','underwaterfield'
-			])) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain']) ||
+				this.field.isBattlefield(['mistyterrain', 'volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield'])) {
 				pokemon.useItem();
 			}
 		},
 		onTerrainChange(pokemon) {
-			if (this.field.isTerrain([
-				'electricterrain', 'grassyterrain', 'mistyterrain', 'volcanicfield', 'corrosivemistfield',
-				'icyfield', 'watersurfacefield','underwaterfield'
-			])) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain'])) {
+				pokemon.useItem();
+			}
+		},
+		onBattlefieldChange(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isBattlefield(['mistyterrain', 'volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield'])) {
 				pokemon.useItem();
 			}
 		},
@@ -62,43 +62,43 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spd: 1})
 				this.actions.useMove('wish', pokemon, {target: pokemon})
 			}
-			if (this.field.isTerrain('volcanicfield')) {
+			if (this.field.isBattlefield('volcanicfield')) {
 				this.boost({atk: 1, spa: 1, spe: 1})
 				this.actions.useMove('firespin', pokemon, {target: pokemon})
 			}
-			if (this.field.isTerrain('corrosivemistfield')) {
+			if (this.field.isBattlefield('corrosivemistfield')) {
 				this.boost({atk: 1, spa: 1})
 				pokemon.trySetStatus('tox', pokemon)
 			}
-			if (this.field.isTerrain('icyfield')) {
+			if (this.field.isBattlefield('icyfield')) {
 				this.boost({spe: 2})
 				pokemon.damage(pokemon.baseMaxhp/8);
 			}
-			if (this.field.isTerrain('watersurfacefield')) {
+			if (this.field.isBattlefield('watersurfacefield')) {
 				this.boost({spd: 1})
 				this.actions.useMove('aquaring', pokemon, {target: pokemon})
 			}
-			if (this.field.isTerrain('underwaterfield')) {
+			if (this.field.isBattlefield('underwaterfield')) {
 				this.boost({spe: 1})
 				this.actions.useMove('soak', pokemon, {target: pokemon})
 			}
-			if (this.field.isTerrain('murkwatersurfacefield')) {
+			if (this.field.isBattlefield('murkwatersurfacefield')) {
 				this.boost({spe: 1})
 				this.actions.useMove('aquaring', pokemon, {target: pokemon})
 				pokemon.trySetStatus('psn')
 			}
-			if (this.field.isTerrain('dragonsdenfield')) {
+			if (this.field.isBattlefield('dragonsdenfield')) {
 				this.boost({spa: 1})
 				pokemon.addVolatile('flashfire')
 			}
-			if (this.field.isTerrain('frozendimensionalfield')) {
+			if (this.field.isBattlefield('frozendimensionalfield')) {
 				this.boost({spe: 2})
 				pokemon.addVolatile('torment')
 			}
-			if (this.field.isTerrain('skyfield')) {
+			if (this.field.isBattlefield('skyfield')) {
 				this.boost({def: 1, spd: 1})
 			}
-			if (this.field.isTerrain('infernalfield')) {
+			if (this.field.isBattlefield('infernalfield')) {
 				this.boost({atk: 1, spa: 1})
 				pokemon.addVolatile('trapped', pokemon, item, 'trapper');
 			}
@@ -671,14 +671,14 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
 			if (pokemon.species.id !== 'empoleon') return;
-			if (this.field.isWeather(['Hail', 'Snow']) || this.field.isTerrain(['Icy Field', 'Snowy Mountain', 'Frozen Dimensional Field'])) {
+			if (this.field.isWeather(['Hail', 'Snow']) || this.field.isBattlefield(['Icy Field', 'Snowy Mountain', 'Frozen Dimensional Field'])) {
 				return this.chainModify(2)
 			}
 		},
 		onTakeItem: false,
 		itemUser: ["Empoleon"],
 		num: 0,
-		desc: "If held by an Empoleon, gains Ice STAB. x2 speed in hail/snow and icy terrains.",
+		desc: "If held by an Empoleon, gains Ice STAB. x2 speed in hail/snow and icy fields.",
 	},
 	fearowcrest: {
 		name: "Fearow Crest",
