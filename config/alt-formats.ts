@@ -138,9 +138,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'DUber',
-			'move:afteryou',
+			'move:afteryou', 'move:spore',
 			'item:lightball', 'item:thickclub',
-			'ability:wonderguard', 'ability:hugepower',
+			'ability:wonderguard', 'ability:hugepower', 'ability:shadowtag', 'ability:imposter'
 		],
 	},
 	{
@@ -165,8 +165,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'DUber', 'Mega',
-			'ability:hugepower', 'ability:purepower', 'ability:commander', 'ability:swordofruin', 'ability:beadsofruin', 'ability:contrary', 'ability:wonderguard', 'ability:powerconstruct', 'ability:simple', 'ability:zerotohero',
-			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist',
+			'ability:hugepower', 'ability:purepower', 'ability:commander', 'ability:swordofruin', 'ability:beadsofruin', 'ability:contrary', 'ability:wonderguard', 'ability:powerconstruct', 'ability:simple', 'ability:zerotohero', 'ability:shadowtag', 'ability:imposter',
+			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:spore'
 		],
 	},
 	{
@@ -352,7 +352,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew', 'item:kingsrock', 'item:razorfang',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
 			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:acupressure',
 		],
 	},

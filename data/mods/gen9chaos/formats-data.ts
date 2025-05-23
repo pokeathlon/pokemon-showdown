@@ -117,6 +117,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	peteypiranha: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
@@ -158,6 +162,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "OU",
 	},
 	roaringmoon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	sweepdol: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -203,7 +211,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	gougingfire: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "OU",
 	},
 	zudomon: {
 		inherit: true,
@@ -1001,10 +1009,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UU",
 	},
-	peteypiranha: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	porcupuffer: {
 		inherit: true,
 		natDexTier: "UU",
@@ -1040,10 +1044,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	gallademega: {
 		inherit: true,
 		natDexTier: "UU"
-	},
-	sweepdol: {
-		inherit: true,
-		natDexTier: "UU",
 	},
 	angrysun: {
 		inherit: true,
