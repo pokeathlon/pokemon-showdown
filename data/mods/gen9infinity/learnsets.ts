@@ -1,6 +1,5 @@
 const {Dex} = require('../../../sim/dex');
 const baseLearnsets = require('../../learnsets').Learnsets;
-
 export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	bulbasauregho: {
 		learnset: {
@@ -2274,6 +2273,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	champeon: {
 		learnset: {
@@ -2360,6 +2362,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	lepideon: {
 		learnset: {
@@ -2441,6 +2446,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	guardeon: {
 		learnset: {
@@ -2524,6 +2532,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	obsideon: {
 		learnset: {
@@ -2616,6 +2627,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	scorpeon: {
 		learnset: {
@@ -2702,6 +2716,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	sphynxeon: {
 		learnset: {
@@ -2782,6 +2799,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	nimbeon: {
 		learnset: {
@@ -2859,6 +2879,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	draconeon: {
 		learnset: {
@@ -2937,6 +2960,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	eeveeon: {
 		learnset: {
@@ -3006,6 +3032,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			sing: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	vareon: {
 		learnset: {
@@ -3084,6 +3113,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			sing: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	terathwack: {
 		learnset: {

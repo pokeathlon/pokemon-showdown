@@ -10937,6 +10937,9 @@ export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetData
 			wish: ["6E"],
 			yawn: ["6E"],
 		},
+		eventData: {
+			...baseLearnsets.eevee.eventData,
+		}
 	},
 	ratsy: {
 		learnset: {

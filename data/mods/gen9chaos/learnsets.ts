@@ -1,7 +1,10 @@
 const {Dex} = require('../../../sim/dex');
+const baseLearnsets = require('../../learnsets').Learnsets;
 export const ModLearnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	eevee: {
+		inherit: true,
 		learnset: {
+			...baseLearnsets.eevee.learnset,
 			roost: ["9M"],
 			bravebird: ["9M"],
 			uturn: ["9M"],
