@@ -733,6 +733,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (target.abilityState.type === undefined) {
 				target.abilityState.type = move.type;
+				this.add('-activate', target, 'ability: Adaptive Armor');
+				this.add('-start', target, `adaptive${target.abilityState.type}`, '[from] ability: Adaptive Armor');
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
@@ -741,7 +743,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(0.5);
 			}
 		},
-		onSwitchIn(pokemon) {
+		onSwitchOut(pokemon) {
+			this.add('-end', pokemon, `adaptive${pokemon.abilityState.type}`, '[from] ability: Adaptive Armor');
 			pokemon.abilityState.type = undefined;
 		},
 		flags: {breakable: 1},
