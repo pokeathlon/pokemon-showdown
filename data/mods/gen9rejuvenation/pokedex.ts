@@ -945,7 +945,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		abilities: {0: "Clear Body", H: "Solid Rock"},
 		heightm: 1.3,
 		weightkg: 250.0,
-		prevo: "Palossand-Aevian-Rock",
+		prevo: "Sandygast-Aevian-Rock",
 		tags: ["Rejuvenation"],
 		eggGroups: ["Rejuvenation"],
 		tier: "OU",
@@ -973,7 +973,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		abilities: {0: "Flame Body", H: "Steam Engine"},
 		heightm: 1.3,
 		weightkg: 250.0,
-		prevo: "Palossand-Aevian-Fire",
+		prevo: "Sandygast-Aevian-Fire",
 		tags: ["Rejuvenation"],
 		eggGroups: ["Rejuvenation"],
 		tier: "OU",
@@ -1001,7 +1001,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		abilities: {0: "Ice Body", H: "Bulletproof"},
 		heightm: 1.3,
 		weightkg: 250.0,
-		prevo: "Palossand-Aevian-Ice",
+		prevo: "Sandygast-Aevian-Ice",
 		tags: ["Rejuvenation"],
 		eggGroups: ["Rejuvenation"],
 		tier: "OU",
@@ -1458,8 +1458,8 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	
 };
+
 // Regional Dex Data
 const RejuvDex: {[k: string]: number} = {
 	"bulbasaur": 1,
@@ -2591,8 +2591,10 @@ const RejuvDex: {[k: string]: number} = {
 	"overqwil": 904,
 	"enamorus": 905,
 	"ironmoth": 994,
-	};
+};
+
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(ModPokedex);
+
 for (const i of Dex.species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = Dex.species.get(i.id);
 	const isRejuv = i.id in RejuvDex;
