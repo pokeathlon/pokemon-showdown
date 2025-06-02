@@ -789,4 +789,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2.5,
 		num: 0,
 	},
+	pixelperfect: { // implemented in scripts.ts
+		flags: {},
+		name: "Pixel Perfect",
+		shortDesc: "+1 accuracy when missing a move.",
+		rating: 2.5,
+		num: 0,
+	},
 };

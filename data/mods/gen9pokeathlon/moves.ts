@@ -1817,6 +1817,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "User faints. 1.5x power during Fallout.",
 	},
+	rebootandretry: {
+		num: 0,
+		accuracy: 80,
+		basePower: 70,
+		category: "Special",
+		name: "Reboot and Retry",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling Reboot and Retry BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+		shortDesc: "Power doubles if the user's last move failed.",
+	},
 };
 
 for (const i of Dex.moves.all()) {
