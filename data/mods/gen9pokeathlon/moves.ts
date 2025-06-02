@@ -1823,7 +1823,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 70,
 		category: "Special",
 		name: "Reboot and Retry",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		basePowerCallback(pokemon, target, move) {
@@ -1838,6 +1838,26 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Electric",
 		contestType: "Beautiful",
 		shortDesc: "Power doubles if the user's last move failed.",
+	},
+	phantasmalgust: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Phantasmal Gust",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		contestType: "Beautiful",
+		shortDesc: "10% Chance to lower target(s) Sp. Atk by 1 stage",
 	},
 };
 

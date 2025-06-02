@@ -808,6 +808,19 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Pixie Power",
 		rating: 3.5,
 		num: 0,
-		shortDesc: "x1.5 base power for Fairy-Type moves.",
+		shortDesc: "This Pokemon's Fairy-Type moves have 1.5x power.",
+	},
+	windyspirit: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags.wind) {
+				return this.chainModify(1.2);
+			}
+		},
+		flags: {},
+		name: "Windy Spirit",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
 	},
 };
