@@ -796,4 +796,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2.5,
 		num: 0,
 	},
+	pixiepower: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, source, target, move) {
+			if (move.type === 'Fairy') {
+				this.debug('Pixie Power Boost');
+				return this.chainModify(1.5)
+			}
+		},
+		flags: {},
+		name: "Pixie Power",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "x1.5 base power for Fairy-Type moves.",
+	},
 };
