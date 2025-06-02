@@ -1031,6 +1031,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			megakick: ["6T"],
 			ironhead: ["6T"],
 			sleeptalk: ["6T"],
+			bellydrum: ["6T"],
+			machpunch: ["6T"],
 		},
 	},
 	chargo: {
@@ -2271,6 +2273,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	champeon: {
 		learnset: {
@@ -2357,6 +2360,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	lepideon: {
 		learnset: {
@@ -2438,6 +2442,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	guardeon: {
 		learnset: {
@@ -2521,6 +2526,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	obsideon: {
 		learnset: {
@@ -2613,6 +2619,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	scorpeon: {
 		learnset: {
@@ -2699,6 +2706,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	sphynxeon: {
 		learnset: {
@@ -2779,6 +2787,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	nimbeon: {
 		learnset: {
@@ -2856,6 +2865,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	draconeon: {
 		learnset: {
@@ -2934,6 +2944,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			batonpass: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	eeveeon: {
 		learnset: {
@@ -3003,6 +3014,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			sing: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	vareon: {
 		learnset: {
@@ -3081,6 +3093,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			sing: ["6T"],
 			sleeptalk: ["6T"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	terathwack: {
 		learnset: {
@@ -40451,6 +40464,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			knockoff: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	simisage: {
@@ -40503,6 +40518,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			lowkick: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	pansear: {
@@ -40568,6 +40585,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			irontail: ["6T"],
 			knockoff: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	simisear: {
@@ -40626,6 +40645,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			lowkick: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	panpour: {
@@ -40695,6 +40716,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			knockoff: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	simipour: {
@@ -40755,6 +40778,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			lowkick: ["6T"],
 			sleeptalk: ["6T"],
 			gunkshot: ["6T"],
+			bellydrum: ["6T"],
+			fakeout: ["6T"],
 		},
 	},
 	munna: {

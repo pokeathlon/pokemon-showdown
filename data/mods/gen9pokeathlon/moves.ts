@@ -225,7 +225,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHitField(target, source) {
 			const sideConditions = [
-				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'hotcoals', 'permafrost', 'livewire', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'luckychant', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire', 'gmaxvolcalith', 'hotcoals', 'permafrost', 'livewire', 
 			];
 			let success = false;
 			if (this.gameType === "freeforall") {
@@ -233,7 +233,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				const offset = this.random(3) + 1;
 				// the list of all sides in counterclockwise order
 				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
-				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				const temp: { [k: number]: typeof source.side.sideConditions } = { 0: {}, 1: {}, 2: {}, 3: {} };
 				for (const side of sides) {
 					for (const id in side.sideConditions) {
 						if (!sideConditions.includes(id)) continue;
@@ -249,6 +249,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
 					for (const id in sourceSideConditions) {
 						targetSide.sideConditions[id] = sourceSideConditions[id];
+						targetSide.sideConditions[id].target = targetSide;
 						const effectName = this.dex.conditions.get(id).name;
 						let layers = sourceSideConditions[id].layers || 1;
 						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
@@ -273,9 +274,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				for (const id in sourceTemp) {
 					targetSideConditions[id] = sourceTemp[id];
+					targetSideConditions[id].target = source.side.foe;
 				}
 				for (const id in targetTemp) {
 					sourceSideConditions[id] = targetTemp[id];
+					sourceSideConditions[id].target = source.side;
 				}
 				this.add('-swapsideconditions');
 			}
@@ -1619,7 +1622,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
         target: "self",
         type: "Water",
 		shortDesc: "Raises highest stat by 2 stages.",
-        zMove: {boost: {atk: 1}},
+		zMove: { effect: 'crit2' },
         contestType: "Tough",
     },
 	lucky7s: {
@@ -1813,6 +1816,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Fire",
 		contestType: "Beautiful",
 		shortDesc: "User faints. 1.5x power during Fallout.",
+	},
+	rebootandretry: {
+		num: 0,
+		accuracy: 80,
+		basePower: 70,
+		category: "Special",
+		name: "Reboot and Retry",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling Reboot and Retry BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+		shortDesc: "Power doubles if the user's last move failed.",
 	},
 };
 

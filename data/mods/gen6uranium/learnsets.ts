@@ -10884,6 +10884,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	nucleon: {
 		learnset: {
+			...Base.eevee.learnset,
 			attract: ["6M"],
 			calmmind: ["6M"],
 			captivate: ["6E"],
@@ -10935,6 +10936,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["6E"],
 			yawn: ["6E"],
 		},
+		eventData: Base.eevee.eventData,
 	},
 	ratsy: {
 		learnset: {

@@ -520,7 +520,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHitField(target, source) {
 			const sideConditions = [
-				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'hotcoals', 'permafrost', 'livewire', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'luckychant', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire', 'gmaxvolcalith', 'hotcoals', 'permafrost', 'livewire', 
 			];
 			let success = false;
 			if (this.gameType === "freeforall") {
@@ -528,7 +528,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				const offset = this.random(3) + 1;
 				// the list of all sides in counterclockwise order
 				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
-				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				const temp: { [k: number]: typeof source.side.sideConditions } = { 0: {}, 1: {}, 2: {}, 3: {} };
 				for (const side of sides) {
 					for (const id in side.sideConditions) {
 						if (!sideConditions.includes(id)) continue;
@@ -544,6 +544,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
 					for (const id in sourceSideConditions) {
 						targetSide.sideConditions[id] = sourceSideConditions[id];
+						targetSide.sideConditions[id].target = targetSide;
 						const effectName = this.dex.conditions.get(id).name;
 						let layers = sourceSideConditions[id].layers || 1;
 						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
@@ -568,9 +569,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				for (const id in sourceTemp) {
 					targetSideConditions[id] = sourceTemp[id];
+					targetSideConditions[id].target = source.side.foe;
 				}
 				for (const id in targetTemp) {
 					sourceSideConditions[id] = targetTemp[id];
+					sourceSideConditions[id].target = source.side;
 				}
 				this.add('-swapsideconditions');
 			}
@@ -749,6 +752,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 0,
 		category: "Status",
 		name: "Hot Coals",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Fire type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any Pokemon uses Tidy Up, or if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Hurts foes on switch-in. Factors Fire weakness.",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, metronome: 1, mustpressure: 1, nosketch: 1},

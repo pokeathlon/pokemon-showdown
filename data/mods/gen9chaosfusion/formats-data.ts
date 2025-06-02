@@ -79,6 +79,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	tiptron: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	berserkergene: {
 		inherit: true,
 		natDexTier: "OU",

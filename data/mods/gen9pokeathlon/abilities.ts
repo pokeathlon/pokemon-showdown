@@ -697,6 +697,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.boost({def: 1, spd: 1})
 			}
 		},
+		onStart(pokemon) {
+			if (this.field.terrain) {
+				this.add('-activate', pokemon, 'ability: Crystal Mana');
+				this.boost({def: 1, spd: 1})
+			}
+		},
 		flags: {},
 		name: "Crystal Mana",
 		shortDesc: "Raises Def and Sp.Def by 1 stage upon terrain change.",
@@ -727,6 +733,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (target.abilityState.type === undefined) {
 				target.abilityState.type = move.type;
+				this.add('-activate', target, 'ability: Adaptive Armor');
+				this.add('-start', target, `adaptive${target.abilityState.type}`, '[from] ability: Adaptive Armor');
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
@@ -735,7 +743,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(0.5);
 			}
 		},
-		onSwitchIn(pokemon) {
+		onSwitchOut(pokemon) {
+			this.add('-end', pokemon, `adaptive${pokemon.abilityState.type}`, '[from] ability: Adaptive Armor');
 			pokemon.abilityState.type = undefined;
 		},
 		flags: {breakable: 1},
@@ -779,5 +788,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "The last stat changes in a turn are repeated next turn at 1 stage.",
 		rating: 2.5,
 		num: 0,
+	},
+	pixelperfect: { // implemented in scripts.ts
+		flags: {},
+		name: "Pixel Perfect",
+		shortDesc: "+1 accuracy when missing a move.",
+		rating: 2.5,
+		num: 0,
+	},
+	pixiepower: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, source, target, move) {
+			if (move.type === 'Fairy') {
+				this.debug('Pixie Power Boost');
+				return this.chainModify(1.5)
+			}
+		},
+		flags: {},
+		name: "Pixie Power",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "x1.5 base power for Fairy-Type moves.",
 	},
 };

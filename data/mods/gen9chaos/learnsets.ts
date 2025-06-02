@@ -1,8 +1,11 @@
+import { Learnsets as Base } from '../../learnsets';
 import { ModdedLearnsetDataTable } from '../../../sim/dex-species';
 
 export const Learnsets: ModdedLearnsetDataTable = {
 	eevee: {
+		inherit: true,
 		learnset: {
+			...Base.eevee.learnset,
 			roost: ["9M"],
 			bravebird: ["9M"],
 			uturn: ["9M"],
