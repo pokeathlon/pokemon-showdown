@@ -20,7 +20,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Pokedex', i).natDexTier = "RU";
 			}
 		}
-		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE' || this.data.Moves[move].name === 'Bouncy Bubble') delete this.data.Moves[move].isNonstandard;
+		for (const move in this.data.Moves) if (this.data.Moves[move].isNonstandard && this.data.Moves[move].isNonstandard != 'LGPE' || ['Bouncy Bubble', 'Sizzly Slide'].includes(this.data.Moves[move].name)) delete this.data.Moves[move].isNonstandard;
 	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {

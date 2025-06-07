@@ -1749,7 +1749,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Heavy Cleave",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, mirror: 1, metronome: 1, slicing: 1},
+		flags: {protect: 1, contact: 1, mirror: 1, metronome: 1, slicing: 1},
 		secondary: {
 			chance: 20,
 			boosts: {
@@ -1768,7 +1768,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Throwing Knives",
 		pp: 30,
 		priority: 0,
-		flags: {mirror: 1, metronome: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",

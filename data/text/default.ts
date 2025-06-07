@@ -372,4 +372,12 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	crash: {
 		damage: "  [POKEMON] kept going and crashed!",
 	},
+
+	// Custom stuff for now
+	newmoon: {
+		weatherName: "NewMoon",
+		start: "  The sky faded to pitch-black!",
+		end: "  The sky brightened again.",
+		upkeep: "  (The sky is dark.)",
+	},
 };
