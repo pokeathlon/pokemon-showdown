@@ -1207,6 +1207,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "RU",
 	},
+	tweester: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	wiggler: {
 		inherit: true,
 		natDexTier: "RU",
