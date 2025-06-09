@@ -1859,6 +1859,59 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "10% Chance to lower target(s) Sp. Atk by 1 stage",
 	},
+	rampartsmight: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Physical",
+		name: "Rampart's Might",
+		pp: 10,
+		priority: -5,
+		flags: { protect: 1, mirror: 1, metronome: 1, failmefirst: 1 },
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('rampartsmight');
+		},
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-singleturn', target, 'move: Ramparts Might', '[zeffect]');
+				} else {
+					this.add('-singleturn', target, 'move: Ramparts Might');
+				}
+			},
+			onFoeRedirectTargetPriority: 1,
+			onFoeRedirectTarget(target, source, source2, move) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
+					if (move.smartTarget) move.smartTarget = false;
+					this.debug("Ramparts Might redirected target of move");
+					return this.effectState.target;
+				}
+			},
+		},
+		damageCallback(pokemon) {
+			const lastDamagedBy = pokemon.getLastDamagedBy(true);
+			if (lastDamagedBy !== undefined) {
+				return (lastDamagedBy.damage * 1.5) || 1;
+			}
+			return 0;
+		},
+		onTry(source) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (!lastDamagedBy?.thisTurn) return false;
+		},
+		onModifyTarget(targetRelayVar, source, target, move) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy) {
+				targetRelayVar.target = this.getAtSlot(lastDamagedBy.slot);
+			}
+		},
+		secondary: null,
+		target: "scripted",
+		type: "Rock",
+		contestType: "Cool",
+		shortDesc: "The foes' moves target the user. Returns last damage taken at 1.5x power.",
+	},
 };
 
 for (const i of Dex.moves.all()) {
