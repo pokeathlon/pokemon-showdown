@@ -319,6 +319,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UUBL",
 	},
+	ironvaliant: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
 	piximon: {
 		inherit: true,
 		natDexTier: "UU",
