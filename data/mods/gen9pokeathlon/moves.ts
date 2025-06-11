@@ -1277,7 +1277,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Super effective on Poison. Removes the target's Ground immunity.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, contact: 1},
 		volatileStatus: 'groundingstomp',
 		condition: {
 			noCopy: true,
