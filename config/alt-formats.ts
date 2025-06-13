@@ -283,14 +283,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['move:hiddenpower'],
 	},
 	{
-		name: "[Gen 9] Ins NatDex LC Draft",
+		name: "[Gen 9] Ins NatDex MM Draft",
 		searchShow: false,
 		mod: 'gen9insurgence',
-		ruleset: ['Little Cup', 'Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Overflow Stat Mod', 'Item Clause = 2'],
-		banlist: [
-			'move:revivalblessing', 'move:shedtail', 'move:lastrespects', 'move:achillesheel', 'move:permafrost', 'move:livewire', 'move:nanorepair', 'move:jetstream',
-			'ability:moody', 'ability:illuminate', 'ability:winterjoy',
-		],
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Multiple Mega'],
+		banlist: ['move:hiddenpower'],
 	},
 	{
 		name: "[Gen 9] Chaos Tera Preview Draft",
