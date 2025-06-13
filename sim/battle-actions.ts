@@ -1892,8 +1892,7 @@ export class BattleActions {
 		if (!speciesid) return false;
 
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
-
-		if (this.battle.format.ruleTable?.has('multiplemega')) {
+		if (this.battle.ruleTable?.has('multiplemega')) {
 			pokemon.canMegaEvo = null;
 			return true;
 		} else {

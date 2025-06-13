@@ -3399,6 +3399,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Multiple Mega',
 		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
 		// hardcoded in sim/side.ts and sim/battle-actions.ts
+		onBegin() {
+			this.add('rule', 'Multiple Mega: Allows for any number of Pokémon to mega-evolve during battle.');
+		},
 	},
 	candynamax: {
 		effectType: 'Rule',
