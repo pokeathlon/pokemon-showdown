@@ -265,4 +265,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		itemUser: ['Dhelmise'],
 	},
+	fieldcleats: { // Effect coded into terrains
+		name: "Field Cleats",
+		spritenum: -3,
+		shortDesc: "Holder's moves are unaffected by terrains.",
+		fling: {
+			basePower: 80,
+		},
+		num: 0,
+	},
 };
