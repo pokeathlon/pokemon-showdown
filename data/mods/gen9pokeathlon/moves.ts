@@ -286,6 +286,34 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-activate', source, 'move: Court Change');
 		},
 	},
+	haze: {
+		inherit: true,
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			}
+		},
+	},
+	freezyfrost: {
+		inherit: true,
+		onHit() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			}
+		},
+	},
+	clearsmog: {
+		inherit: true,
+		onHit(target) {
+			if (!target.hasItem('managel')) {
+				target.clearBoosts();
+				this.add('-clearboost', target);
+			}
+		},
+	}, 
+	// Field Cleats stuff
 	mistyterrain: {
 		inherit: true,
 		condition: {
@@ -298,6 +326,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return 5;
 			},
 			onSetStatus(status, target, source, effect) {
+				if (source.item === 'fieldcleats') return;
 				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
 				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
 					this.add('-activate', target, 'move: Misty Terrain');
@@ -305,6 +334,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return false;
 			},
 			onTryAddVolatile(status, target, source, effect) {
+				if (source.item === 'fieldcleats') return;
 				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
 				if (status.id === 'confusion') {
 					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
@@ -442,6 +472,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return 5;
 			},
 			onSetStatus(status, target, source, effect) {
+				if (source.item === 'fieldcleats') return;
 				if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
 					if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
 						this.add('-activate', target, 'move: Electric Terrain');
@@ -449,7 +480,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					return false;
 				}
 			},
-			onTryAddVolatile(status, target) {
+			onTryAddVolatile(status, target, source) {
+				if (source.item === 'fieldcleats') return;
 				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
 				if (status.id === 'yawn') {
 					this.add('-activate', target, 'move: Electric Terrain');
@@ -478,30 +510,138 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
-	haze: {
-		inherit: true,
-		onHitField() {
-			this.add('-clearallboost');
-			for (const pokemon of this.getAllActive()) {
-				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+	grassyglide: {
+		inherit:true,
+		onModifyPriority(priority, source, target, move) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+				return priority + 1;
 			}
 		},
 	},
-	freezyfrost: {
-		inherit: true,
-		onHit() {
-			this.add('-clearallboost');
-			for (const pokemon of this.getAllActive()) {
-				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
-			}
-		},
-	},
-	clearsmog: {
+	camouflage: {
 		inherit: true,
 		onHit(target) {
-			if (!target.hasItem('managel')) {
-				target.clearBoosts();
-				this.add('-clearboost', target);
+			if (target.item === 'fieldcleats') return;
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			}
+
+			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
+			this.add('-start', target, 'typechange', newType);
+		},
+	},
+	expandingforce: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
+	},
+	floralhealing: {
+		inherit: true,
+		onHit(target, source) {
+			let success = false;
+			if (this.field.isTerrain('grassyterrain') && source.item != 'fieldcleats') {
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
+			} else {
+				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+			}
+			if (success && !target.isAlly(source)) {
+				target.staleness = 'external';
+			}
+			if (!success) {
+				this.add('-fail', target, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	naturepower: {
+		inherit: true,
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (pokemon.item != 'fieldcleats') {
+				if (this.field.isTerrain('electricterrain')) {
+					move = 'thunderbolt';
+				} else if (this.field.isTerrain('grassyterrain')) {
+					move = 'energyball';
+				} else if (this.field.isTerrain('mistyterrain')) {
+					move = 'moonblast';
+				} else if (this.field.isTerrain('psychicterrain')) {
+					move = 'psychic';
+				}
+			}
+			this.actions.useMove(move, pokemon, { target });
+			return null;
+		},
+	},
+	mistyexplosion: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
+				this.debug('misty terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	psyblade: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('electricterrain')) {
+				this.debug('psyblade electric terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	secretpower: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			if (pokemon.item === 'fieldcleats') return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
 			}
 		},
 	},
