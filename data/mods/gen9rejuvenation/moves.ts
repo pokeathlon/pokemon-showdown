@@ -25,6 +25,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Dragon';
 			}  else if (this.field.isBattlefield('skyfield')) {
 				newType = 'Flying';
+			}  else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+				newType = 'Dark';
 			} 
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
@@ -53,12 +55,14 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'whirlpool';
 			} else if (this.field.isBattlefield('murkwatersurfacefield')) {
 				move = 'sludgewave';
-			}  else if (this.field.isBattlefield('dragonsdenfield')) {
+			} else if (this.field.isBattlefield('dragonsdenfield')) {
 				move = 'dragonpulse';
-			}   else if (this.field.isBattlefield('skyfield')) {
+			} else if (this.field.isBattlefield('skyfield')) {
 				move = 'skyattack';
-			}    else if (this.field.isBattlefield('infernalfield')) {
+			} else if (this.field.isBattlefield('infernalfield')) {
 				move = 'punishment';
+			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+				move = 'darkpulse';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -120,6 +124,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spe: -1,
 					},
 				});
+			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						accuracy: -1,
+					},
+				});
 			} 
 		},
 	},
@@ -162,6 +173,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'skyfield':
 				move.type = 'Flying';
 				break;
+			case 'darkcrystalcavernfield':
+				move.type = 'Dark';
+				break;
 			}
 		},
 	},
@@ -184,6 +198,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield('dragonsdenfield') && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
+				if (this.field.isBattlefield('darkcrystalcavernfield') && move.type === 'Dark') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -473,6 +488,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			}
 			if (this.field.isTerrain('grassyterrain')) factor = 0.75;
+			if (this.field.isBattlefield('darkcrystalcavern')) factor = 0.25;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -600,7 +616,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield']));
 		},
 	},
 	takeheart: {
@@ -799,6 +815,70 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.damage(pokemon.baseMaxhp / 4);
 			},
 		},
+	},
+	moonlight: {
+		inherit: true,
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snowscape':
+				factor = 0.25;
+				break;
+			}
+			if (this.field.isBattlefield('darkcrystalcavernfield')) factor = 0.75;
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	morningsun: {
+		num: 234,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Morning Sun",
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1, heal: 1, metronome: 1 },
+		onHit(pokemon) {
+			let factor = 0.5;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				factor = 0.667;
+				break;
+			case 'raindance':
+			case 'primordialsea':
+			case 'sandstorm':
+			case 'hail':
+			case 'snowscape':
+				factor = 0.25;
+				break;
+			}
+			if (this.field.isBattlefield('darkcrystalcavernfield')) factor = 0.75;
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Beautiful",
 	},
 	// custom move
 	alphashot: {
@@ -3348,15 +3428,95 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.field.clearWeather()
 				}
 				if (effect?.effectType === 'Ability') {
-					this.add('-fieldstart', 'move: Frozen Dimensional Field', '[from] ability: ' + effect.name, '[of] ' + source);
+					this.add('-fieldstart', 'move: Infernal Field', '[from] ability: ' + effect.name, '[of] ' + source);
 				} else {
-					this.add('-fieldstart', 'move:Frozen Dimensional Field');
+					this.add('-fieldstart', 'move: Infernal Field');
 				}
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
-				this.add('-fieldend', 'move: Dragons Den Field');
+				this.add('-fieldend', 'move: Infernal Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fire",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	darkcrystalcavernfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Dark Crystal Cavern Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'darkcrystalcavernfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.id === 'prismaticlaser') {
+					this.chainModify(2)
+					this.hint('The crystal split the attack!')
+				}
+				if (move.id === 'blackholeeclipse') {
+					this.chainModify(1.5)
+					this.hint('The consuming darkness fed the attack!')
+				}
+				if (['darkpulse', 'nightdaze', 'nightslash'].includes(move.id)) {
+					this.chainModify(1.5)
+					this.hint('The darkness began to gather...!')
+				}
+				if (['menacingmoonrazemaelstrom', 'shadowball', 'shadowbone','shadowclaw','shadowforce','shadowpunch','shadowsneak'].includes(move.id)) {
+					this.chainModify(1.5)
+					this.hint('The darkness strengthened the attack!')
+				}
+				if (move.id === 'lightthatburnsthesky') {
+					this.chainModify(0.5)
+					this.hint(`${source.name} couldn't consume much light...`)
+				}
+			},
+			onTryMove(pokemon, target, move) {
+				if (['solarblade','solarbeam'].includes(move.id))
+				this.add('-fail', pokemon, `move: ${move.name}`);
+				this.attrLastMove('[still]');
+				return null;
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'darkvoid') move.accuracy = 100;
+				if (move.id === 'flash') move.boosts = {accuracy: -2};
+			},
+			onModifyDefPriority: 10,
+			onModifyDef(def, pokemon) {
+				if (pokemon.hasType(['Dark', 'Ghost'])) return this.chainModify(1.5);
+				if (pokemon.hasAbility('Prism Armor')) return this.chainModify(1.33)
+			},
+			onModifySpDPriority: 10,
+			onModifySpD(spd, pokemon) {
+				if (pokemon.hasType(['Dark', 'Ghost'])) return this.chainModify(1.5);
+				if (pokemon.hasAbility('Prism Armor')) return this.chainModify(1.33)
+			},
+			onResidualOrder: 5,
+			onResidual(pokemon) {
+				if (this.field.isWeather(['sunnyday','desolateland'])) {
+					this.hint('The sun lit up the crystal cavern!')
+					this.field.setBattlefield('crystalcavernfield')
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Dark Crystal Cavern Field');
 			},
 		},
 		secondary: null,
