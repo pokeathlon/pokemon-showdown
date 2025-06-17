@@ -9,7 +9,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Electric';
 			} else if (this.field.isTerrain('grassyterrain')) {
 				newType = 'Grass';
-			} else if (this.field.isTerrain('mistyterrain')) {
+			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('fairytalefield')) {
 				newType = 'Fairy';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				newType = 'Psychic';
@@ -71,6 +71,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'powergem';
 			}  else if (this.field.isBattlefield('blessedfield')) {
 				move = 'judgement';
+			}  else if (this.field.isBattlefield('fairytalefield')) {
+				move = 'secretsword';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -86,7 +88,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'par',
 				});
-			} else if (this.field.isTerrain('grassyterrain')) {
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('fairytalefield')) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'slp',
@@ -172,6 +174,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Grass';
 				break;
 			case 'mistyterrain':
+			case 'fairytalefield':
 				move.type = 'Fairy';
 				break;
 			case 'psychicterrain':
@@ -224,7 +227,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (!target.volatiles['shelter']) return;
 				if (this.field.isTerrain('electricterrain') && move.type === 'Electric') return this.chainModify(0.5);
 				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
-				if (this.field.isTerrain('mistyterrain') && move.type === 'Fairy') return this.chainModify(0.5);
+				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield('fairytalefield')) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
@@ -491,6 +494,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			let success = false;
 			if (this.field.isTerrain('grassyterrain')) {
 				success = !!this.heal(this.modify(target.baseMaxhp, 0.75));
+			} else if (this.field.isBattlefield('fairytalefield')) {
+				success = !!this.heal(Math.ceil(target.baseMaxhp));
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
 			}
@@ -611,7 +616,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		condition: {
 			onStart(pokemon, source) {
-				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['rainbowfield','blessedfield']))? source.maxhp * 3 / 4 : source.maxhp / 2;
+				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['rainbowfield','blessedfield','fairytalefield']))? source.maxhp * 3 / 4 : source.maxhp / 2;
 				this.effectState.startingTurn = this.getOverflowedTurnCount();
 				if (this.effectState.startingTurn === 255) {
 					this.hint(`In Gen 8+, Wish will never resolve when used on the ${this.turn}th turn.`);
@@ -3968,6 +3973,167 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
 				this.add('-fieldend', 'move: Blessed Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	fairytalefield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fairy Tale Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'fairytalefield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (source.ability === 'queenlymajesty') {
+					basePower = basePower*1.5 // does this work the way I think? Let's find out!
+				}
+				if (move.type === 'Dragon') {
+					this.hint("The foul beast's attack gained strength!")
+					return this.chainModify(1.5)
+				}
+				if (move.type === 'Steel') {
+					this.hint('For justice!')
+					return this.chainModify(1.5)
+				}
+				if (move.type === 'Fairy') {
+					this.hint('For ever after!')
+					return this.chainModify(1.5)
+				}
+				if (move.id === 'drainingkiss') {
+					this.hint('True love never hurt so badly!')
+					return this.chainModify(2)
+				}
+				if (move.id === 'mistball') {
+					this.hint('The magical energy strengthened the attack!')
+					return this.chainModify(2)
+				}
+				if (['airslash','aquacutter','behemothblade','ceaselessedge','leafblade','nightslash','psychocut','razorshell','smartstrike','solarblade','stoneaxe'].includes(move.id)) {
+					this.hint('The blade cuts true!')
+					return this.chainModify(1.5)
+				}
+				if (['ancientpower','behemothbash','fleurcannon','magiicalleaf','menacingmoonrazemaelstrom','moongeistbeam','mysticalfire','oceanicoperetta','relicsong','sparklingaria'].includes(move.id)) {
+					this.hint('The magical energy strengthened the attack!')
+					return this.chainModify(1.5)
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Steel' && type === 'Dragon') return 1;
+				if (move.type === 'Fire'){
+					return typeMod + this.dex.getEffectiveness('Dragon', type);
+				} 
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'acidarmor') move.boosts = {def: 3};
+				if (['craftyshield','flowershield'].includes(move.id)) move.boosts = {def: 1, spd: 1};
+				if (['cut','sacredsword','secretsword','slash'].includes(move.id)) move.type = 'Steel';
+				if (move.id === 'miracleeye') move.boosts = {spa: 2};
+				if (move.id === 'nobleroar') move.boosts = {atk: -2, spa: -2};
+				if (move.id === 'strangestream') move.secondary = {volatileStatus: 'confusion'}
+				if (move.id === 'swordsdance') move.boosts = {atk: 3}
+				if (move.id === 'healingwish') move.condition = {
+					onSwitchIn(target) {
+						this.singleEvent('Swap', this.effect, this.effectState, target);
+					},
+					onSwap(target) {
+						if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+							target.heal(target.maxhp);
+							target.clearStatus();
+							this.boost({atk: 1, spa: 1})
+							this.add('-heal', target, target.getHealth, '[from] move: Healing Wish');
+							target.side.removeSlotCondition(target, 'healingwish');
+						}
+					},
+				}
+				if (move.id === 'kingsshield') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'Protect');
+					},
+					onTryHitPriority: 3,
+					onTryHit(target, source, move) {
+						if (!move.flags['protect']) {
+							if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+							if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+							return;
+						}
+						if (move.smartTarget) {
+							move.smartTarget = false;
+						} else {
+							this.add('-activate', target, 'move: Protect');
+						}
+						const lockedmove = source.getVolatile('lockedmove');
+						if (lockedmove) {
+							// Outrage counter is reset
+							if (source.volatiles['lockedmove'].duration === 2) {
+								delete source.volatiles['lockedmove'];
+							}
+						}
+						if (this.checkMoveMakesContact(move, source, target)) {
+							this.boost({ atk: -1, spa: -2 }, source, target, this.dex.getActiveMove("King's Shield"));
+						}
+						return this.NOT_FAIL;
+					},
+					onHit(target, source, move) {
+						if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+							this.boost({ atk: -1, spa: -2 }, source, target, this.dex.getActiveMove("King's Shield"));
+						}
+					},
+				}
+			},
+			onHit(target, source, move) {
+				if (['drainingkiss','sweetkiss'].includes(move.id) && target.status && target.status === 'slp') target.cureStatus()
+				if (move.id === 'forestscurse') target.addVolatile('curse');
+			},
+			onSwitchIn(pokemon) {
+				if (['battlearmor','shellarmor'].includes(pokemon.ability)) {
+					this.hint(`${pokemon.name}'s shining armor boosted its Defense!`)
+					this.boost({def: 1})
+				}
+				if (['dauntlessshield'].includes(pokemon.ability)) {
+					this.hint(`The fairy king's shield protects ${pokemon.name}!`)
+					this.boost({def: 1, spd: 1})
+				}
+				if (['powerofalchemy'].includes(pokemon.ability)) {
+					this.hint(`${pokemon.name}'s shining armor boosted its Defense! ${pokemon.name}'s magical power boosted its Special Defense!`)
+					this.boost({def: 1, spd: 1})
+				}
+				if (['intrepidsword'].includes(pokemon.ability)) {
+					this.hint(`The fairy king's sword empowered ${pokemon.name}!`)
+					this.boost({atk: 1, spa: 1})
+				}
+				if (['magicbounce','magicguard','mirrorarmor','pastelveil'].includes(pokemon.ability)) {
+					this.hint(`${pokemon.name}'s magical power boosted its Special Defense!`)
+					this.boost({spd: 1})
+				}
+				if (['magician'].includes(pokemon.ability)) {
+					this.hint(`${pokemon.name}'s magical power boosted its Special Attack!`)
+					this.boost({spa: 1})
+				}
+				if (['stancechange'].includes(pokemon.ability)) {
+					this.boost({def: 1})
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Fairy Tale Field');
 			},
 		},
 		secondary: null,

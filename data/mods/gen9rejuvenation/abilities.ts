@@ -37,6 +37,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Grass'];
 				break;
 			case 'mistyterrain':
+			case 'fairytalefield':
 				types = ['Fairy'];
 				break;
 			case 'psychicterrain':
@@ -364,7 +365,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	marvelscale: {
 		inherit: true,
 		onModifyDef(def, pokemon) {
-			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield','rainbowfield'])) {
+			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield','rainbowfield','fairytalefield'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -425,7 +426,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	soulheart: {
 		inherit: true,
 		onAnyFaint() {
-			(this.field.isTerrain('mistyterrain') || this.field.isBattlefield('raindbowfield'))? this.boost({spa: 1, spd: 1}, this.effectState.target) : this.boost({spa: 1}, this.effectState.target);
+			(this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['raindbowfield','fairytalefield']))? this.boost({spa: 1, spd: 1}, this.effectState.target) : this.boost({spa: 1}, this.effectState.target);
 		},
 	},
 	blaze: {
@@ -906,6 +907,34 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
 				return this.field.isBattlefield('blessedfield')? this.chainModify(1.5) : this.chainModify([5325, 4096]);
+			}
+		},
+	},
+	stancechange: {
+		inherit: true,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Aegislash' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
+			if (attacker.species.name !== targetForme) {
+				if (this.field.isBattlefield('fairytalefield')) {
+					if (targetForme === 'Aegislash') {
+						this.boost({def: 1, atk: -1})
+					}
+					if (targetForme === 'Aegislash-Blade') {
+						this.boost({atk: 1, def: -1})
+					}
+				}
+				attacker.formeChange(targetForme);
+			}
+		},
+	},
+	steelyspirit: {
+		inherit: true,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Steely Spirit boost');
+				return this.field.isBattlefield('fairytalefield')? this.chainModify(2) : this.chainModify(1.5);
 			}
 		},
 	},
