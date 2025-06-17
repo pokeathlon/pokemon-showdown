@@ -21,11 +21,36 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: undefined
 	},
 	// Additions
-	magicalseed: { // TODO - Add Magical Seed interactions
+	magicalseed: {
 		name: "Magical Seed",
 		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain') ||
+				this.field.isBattlefield(['darkcrystalcavernfield','rainbowfield','crystalcavernfield','blessedfield','fairytalefield','starlightarenafield','newworldfield','inversefield','dimensionalfield','hauntedfield','bewitchedwoodsfield'])) {
+				pokemon.useItem();
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onBattlefieldChange(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isBattlefield(['darkcrystalcavernfield','rainbowfield','crystalcavernfield','blessedfield','fairytalefield','starlightarenafield','newworldfield','inversefield','dimensionalfield','hauntedfield','bewitchedwoodsfield'])) {
+				pokemon.useItem();
+			}
+		},
+		onUseItem(item, pokemon) {
+			if (this.field.isBattlefield('darkcrystalcavernfield')) {
+				this.boost({spd: 1})
+				this.actions.useMove('magiccoat', pokemon, {target: pokemon})
+			}
+		},
 		num: 0,
-		desc: "Provides boost in magical terrains.",
+		desc: "Provides boost in magical fields.",
 	},
 	elementalseed: {
 		name: "Elemental Seed",
@@ -34,18 +59,18 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain']) ||
-				this.field.isBattlefield(['mistyterrain', 'volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield'])) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain', 'mistyterrain']) ||
+				this.field.isBattlefield(['volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield','murkwatersurfacefield','dragonsdenfield','frozendimensionalfield','skyfield','infernalfield'])) {
 				pokemon.useItem();
 			}
 		},
 		onTerrainChange(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain'])) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain', 'mistyterrain'])) {
 				pokemon.useItem();
 			}
 		},
 		onBattlefieldChange(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isBattlefield(['mistyterrain', 'volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield'])) {
+			if (!pokemon.ignoringItem() && this.field.isBattlefield(['volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield','murkwatersurfacefield','dragonsdenfield','frozendimensionalfield','skyfield','infernalfield'])) {
 				pokemon.useItem();
 			}
 		},
@@ -104,7 +129,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 		num: 0,
-		desc: "Provides boost in elemental terrains.",
+		desc: "Provides boost in elemental fields.",
 	},
 	amplifiedrock: { //TODO - Effects on relevant weathers, rooms, terrains
 		name: "Amplified Rock",

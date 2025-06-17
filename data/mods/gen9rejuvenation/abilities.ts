@@ -845,6 +845,20 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			target.removeVolatile('infernalperish')
 		},
 	},
+	shadowshield: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			let fieldMod = this.field.isBattlefield('darkcrystalcarvernfield')? 0.75 : 1;
+			if (target.hp >= target.maxhp) {
+				this.debug('Shadow Shield weaken');
+				return this.chainModify(0.5*fieldMod);
+			}
+			if (this.field.isBattlefield('darkcrystalcavernfield')) {
+				this.debug('Field weaken')
+				return this.chainModify(fieldMod)
+			}
+		},
+	},
 	// Additions
 	accumulation: {
 		onAfterMove(source, target, move) {
