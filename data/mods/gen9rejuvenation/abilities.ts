@@ -48,6 +48,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'crystalcavernfield':
 				types = [this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex]]
 				break;
+			case 'blessedfield':
+				types = ['Normal'];
+				break;
 			default:
 				types = pokemon.baseSpecies.types;
 			}
@@ -836,6 +839,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	perishbody: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
+			if (this.field.isBattlefield('blessedfield')) return;
 			if (!this.checkMoveMakesContact(move, source, target)) return;
 			source.addVolatile('trapped', source, move, 'trapper');
 			target.addVolatile('infernalperish')
@@ -873,6 +877,35 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				this.debug('Wonder Skin - modifying accuracy');
 				let val = this.field.isBattlefield('rainbowfield')? 0 : 50;
 				return val
+			}
+		},
+	},
+	cursedbody: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.isBattlefield('blessedfield')) return;
+			if (source.volatiles['disable']) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectState.target);
+				}
+			}
+		},
+	},
+	justified: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark') {
+				this.field.isBattlefield('blessedfield')? this.boost({atk: 2}) : this.boost({ atk: 1 });
+			}
+		},
+	},
+	powerspot: {
+		inherit: true,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target) {
+				this.debug('Power Spot boost');
+				return this.field.isBattlefield('blessedfield')? this.chainModify(1.5) : this.chainModify([5325, 4096]);
 			}
 		},
 	},

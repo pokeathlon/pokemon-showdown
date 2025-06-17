@@ -14,6 +14,24 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			return [type];
 		},
 	},
+	silvally: {
+		inherit: true,
+		onType(types, pokemon) {
+			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
+			let type: string | undefined = 'Normal';
+			if (pokemon.ability === 'rkssystem') {
+				type = pokemon.getItem().onMemory;
+				if (!type) {
+					type = 'Normal';
+				}
+				if (this.field.isBattlefield('blessedfield')) {
+					type = 'Dark';
+					this.hint('A false god holds no power here...')
+				}
+			}
+			return [type];
+		},
+	},
 	partiallytrapped: {
 		inherit: true,
 		onStart(pokemon, source) {

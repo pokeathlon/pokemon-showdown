@@ -69,6 +69,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'aurorabeam';
 			}  else if (this.field.isBattlefield('crystalcavernfield')) {
 				move = 'powergem';
+			}  else if (this.field.isBattlefield('blessedfield')) {
+				move = 'judgement';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -134,7 +136,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						atk: -1,
 					},
 				});
-			} else if (this.field.isTerrain('mistyterrain')) {
+			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('blessedfield')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -204,6 +206,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'crustalcavernfield':
 				move.type = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
 				break;
+			case 'blessedfield':
+				move.type = 'Normal';
+				break;
 			}
 		},
 	},
@@ -227,6 +232,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield('darkcrystalcavernfield') && move.type === 'Dark') return this.chainModify(0.5);
+				if (this.field.isBattlefield('blessedfield') && move.type === 'Normal') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -559,6 +565,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		damageCallback(pokemon, target) {
 			if (this.field.isTerrain('grassyterrain')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
+			if (this.field.isBattlefield('blessedfield')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*2 / 3), 1);
 			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
 		},
 	},
@@ -604,7 +611,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		condition: {
 			onStart(pokemon, source) {
-				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('rainbowfield'))? source.maxhp * 3 / 4 : source.maxhp / 2;
+				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['rainbowfield','blessedfield']))? source.maxhp * 3 / 4 : source.maxhp / 2;
 				this.effectState.startingTurn = this.getOverflowedTurnCount();
 				if (this.effectState.startingTurn === 255) {
 					this.hint(`In Gen 8+, Wish will never resolve when used on the ${this.turn}th turn.`);
@@ -3856,12 +3863,116 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
-				this.add('-fieldend', 'move: Rainbow Field');
+				this.add('-fieldend', 'move: Crystal Cavern Field');
 			},
 		},
 		secondary: null,
 		target: "all",
 		type: "Rock",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	blessedfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Blessed Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'blessedfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (['Normal','Fairy'].includes(move.type) && move.category === 'Special') {
+					this.hint('The holy energy resonated with the attack!')
+					return this.chainModify(1.5)
+				}
+				if (['Dragon','Psychic'].includes(move.type)) {
+					this.hint('The legendary energy resonated with the attack!')
+					return this.chainModify(1.2)
+				}
+				if ((move.type === 'Dark' && move.category === 'Special') || move.type === 'Ghost') {
+					this.hint('The attack was cleansed...')
+					return this.chainModify(0.5)
+				}
+				if (move.id === 'extremespeed') {
+					this.hint('Godspeed!')
+					return this.chainModify(1.5)
+				}
+				if (['judgement','sacredfire'].includes(move.id)) {
+					this.hint('Legendary power accelerated the attack!')
+					return this.chainModify(1.5)
+				}
+				if (['mysticalfire','magicalleaf','ancientpower','sacredsword','return'].includes(move.id)) {
+					this.hint('The holy energy resonated with the attack!')
+					return this.chainModify(1.5)
+				}
+				if (['aeroblast','behemothblade','behemothbash','crushgrip','diamondstorm','dragonascent',
+					'doomdesire','dynamaxcannon','eternabeam','fleurcannon','genesissupernova','hyperspacehole',
+					'landswrath','lusterpurge','menacingmoonrazemaelstrom','mistball','moongeistbeam','multipulse',
+					'originpulse','precipiceblades','prismaticlaser','psychoboost','psystrike','relicsong',
+					'roaroftime','searingsunrazesmash','secretsword','spacialrend','sunsteelstrike'].includes(move.id)) {
+					this.hint('Legendary power accelerated the attack!')
+					return this.chainModify(1.3)
+				}
+				if (['ominouswind','phantomforce','shadowforce','spectralscream'].includes(move.id)) {
+					this.hint('Evil spirits gathered!')
+					return this.chainModify(1.3)
+				}
+				if (move.id === 'lightthatburnsthesky') {
+					this.hint('The holy light was consumed!')
+					return this.chainModify(1.3)
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Normal' && ['Ghost','Dark'].includes(type)) return 1;
+				if (move.id === 'spiritbreak' && type === 'ghost') return 1;
+			},
+			onTryHit(target, source, move) {
+				if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+					this.add('-activate', target, 'field: Blessed Field');
+					return null;
+				}
+			},
+			onHit(target, source, move) {
+				if (['ominouswind','phantomforce','shadowforce','spectralscream'].includes(move.id)) {
+					this.field.setBattlefield('hauntedfield')
+				}
+				if (move.id === 'lightthatburnsthesky') this.field.clearBattlefield()
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
+				if (move.id === 'lifedew') move.heal = [1,2];
+				if (move.id === 'miracleeye') move.boosts = {spa: 2};
+				if (move.id === 'curse') move.condition = {
+					duration: 1,
+					onStart(pokemon, source) {
+						this.add('-start', pokemon, 'Curse', `[of] ${source}`);
+					},
+					onResidualOrder: 12,
+					onResidual(pokemon) {
+						this.damage(pokemon.baseMaxhp / 4);
+					},
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Blessed Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
