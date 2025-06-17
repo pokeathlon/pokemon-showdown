@@ -27,7 +27,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Flying';
 			}  else if (this.field.isBattlefield('darkcrystalcavernfield')) {
 				newType = 'Dark';
-			} 
+			}  else if (this.field.isBattlefield('crystalcavernfield')) {
+				newType = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
+			}
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
 			this.add('-start', target, 'typechange', newType);
@@ -65,6 +67,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'darkpulse';
 			}  else if (this.field.isBattlefield('rainbowfield')) {
 				move = 'aurorabeam';
+			}  else if (this.field.isBattlefield('crystalcavernfield')) {
+				move = 'powergem';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -105,6 +109,19 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: this.sample(['frz', 'brn', 'psn', 'tox', 'par', 'slp', 'ptr']),
 				});
+			} else if (this.field.isBattlefield('crystalcavernfield')) {
+				const result = this.random(4);
+				if (result === 0) {
+					move.secondaries.push({
+					chance: 30,
+					volatileStatus: 'confusion',
+				})
+				} else {
+					move.secondaries.push({
+					chance: 30,
+					status: this.sample(['brn','frz','slp']),
+				});
+				}
 			} else if (this.field.isBattlefield('skyfield')) {
 				move.secondaries.push({
 					chance: 30,
@@ -184,6 +201,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'darkcrystalcavernfield':
 				move.type = 'Dark';
 				break;
+			case 'crustalcavernfield':
+				move.type = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
+				break;
 			}
 		},
 	},
@@ -204,7 +224,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield']) && move.type === 'Dragon') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield('darkcrystalcavernfield') && move.type === 'Dark') return this.chainModify(0.5);
 			},
@@ -633,7 +653,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield','crystalcavernfield']));
 		},
 	},
 	takeheart: {
@@ -3712,6 +3732,136 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Dragon",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	crystalcavernfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Crystal Cavern Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'crystalcavernfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onFieldStart(target, source, sourceEffect) {
+				this.field.battlefieldState.crystalTypes = ['Fire', 'Water', 'Grass', 'Psychic']
+				this.field.battlefieldState.crystalIndex = 0;
+				this.field.battlefieldState.transformation = 0;
+				// index +1 for each use - works fine except for stealth rocks which also cycle type every time they deal damage
+				// maybe have it check whether something takes damage from stealth rocks and then change the stealth rock side condition or smthn fuck me idk
+			},
+			onUpdate(pokemon) {
+				// loop index back
+				if (this.field.battlefieldState.crystalIndex === 4) this.field.battlefieldState.crystalIndex = 0
+				if (this.field.battlefieldState.transformation >1) {
+					this.hint('The crystals were broken up!')
+					this.field.setBattlefield('cavefield')
+				}
+			},
+			onBasePower(basePower, source, target, move) { // TODO - check if boosts can stack, in which case I'd have to create a variable to store the boosts where the returns are and then return the cummulative boost
+				if (move.type === 'Rock') {
+					this.hint('The crystals charged the attack!')
+					return this.chainModify(1.5)
+				}
+				if (move.type === 'Dragon') {
+					this.hint('The crystal energy strengthened the attack!')
+					return this.chainModify(1.5)
+				}
+				if (['judgement','multiattack','prismaticlaser','rockclimb','strength','ancientpower','diamondstorm','lusterpurge','powergem','rocksmash','rocktomb'].includes(move.id)) {
+					this.hint('The crystals strengthened the attack!')
+					return this.chainModify(1.5)
+				}
+				if (['aurorabeam','dazzlinggleam','doomdesire','flashcannon','menacingmoonrazemaelstrom','mirrorbeam','mirrorshot','moongeistbeam','photongeyser','signalbeam','technoblast'].includes(move.id)) {
+					this.hint('The crystals light strengthened the attack!')
+					return this.chainModify(1.3)
+				}
+				if ((['bulldoze','earthquake','fissure','magnitude'].includes(move.id) && this.field.battlefieldState.transformation === 1) || move.id === 'tectonicrage') {
+					return this.chainModify(1.3)
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Rock'){
+					return typeMod + this.dex.getEffectiveness(this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex], type);
+				}
+				if (['judgement','multiattack','prismaticlaser','rockclimb','strength'].includes(move.id)){
+					return typeMod + this.dex.getEffectiveness(this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex], type);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'rockpolish') move.boosts = {atk: 1, spa: 1, spe: 2};
+				if (move.id === 'stealthrock') { // This might have to be modded into SR itself due if this is supposed to trigger with rocks already up
+					move.condition = {
+						// this is a side condition
+						onSideStart(side) {
+							this.add('-sidestart', side, 'move: Stealth Rock');
+							this.effectState.moves = ['flamethrower','liquidation','leafblade','psychic']
+						},
+						onSwitchIn(pokemon) {
+							if (pokemon.hasItem('heavydutyboots')) return;
+							if (this.field.isBattlefield('crystalcavernfield')) {
+								const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove(this.effectState.moves[this.field.battlefieldState.crystalIndex])), -6, 6);
+								this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+								this.field.battlefieldState.crystalIndex +=1;
+							} else {
+								const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+								this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+							}
+						},
+					}
+				}
+			},
+			onHit(target, source, move) {
+				if (['darkpulse','darkvoide','lightthatburnsthesky','nightdaze'].includes(move.id)) {
+					this.hint('The crystals light was warped by the darkness!')
+					this.field.setBattlefield('darkcrystalcavern')
+				}
+				if (['bulldoze','earthquake','fissure','magnitude'].includes(move.id)) {
+					this.hint('The crystals are starting to crack...')
+					this.field.battlefieldState.transformation +=1;
+				}
+				if (move.id === 'tectonicrage') {
+					this.field.battlefieldState.transformation +=2;
+				}
+			},
+			onModifyDefPriority: 10,
+			onModifyDef(def, pokemon) {
+				if (pokemon.hasAbility('Prism Armor')) return this.chainModify(1.33)
+			},
+			onModifySpDPriority: 10,
+			onModifySpD(spd, pokemon) {
+				if (pokemon.hasAbility('Prism Armor')) return this.chainModify(1.33)
+			},
+			onAnyDamage(damage, target, source, effect) {
+				this.debug(`Crystal Type: ${this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex]}`)
+			},
+			onAfterMove(source, target, move) {
+				// After certain move criteria, index should increase
+				if (['Rock'].includes(move.type) ||
+					['judgement','multiattack','prismaticlaser','rockclimb','strength','terrainpulse'].includes(move.id)
+				   ) {
+					this.field.battlefieldState.crystalIndex +=1;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Rainbow Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Rock",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

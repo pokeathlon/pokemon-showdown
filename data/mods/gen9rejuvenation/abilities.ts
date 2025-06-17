@@ -45,6 +45,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'rainbowfield':
 				types = ['Dragon'];
 				break;
+			case 'crystalcavernfield':
+				types = [this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex]]
+				break;
 			default:
 				types = pokemon.baseSpecies.types;
 			}
