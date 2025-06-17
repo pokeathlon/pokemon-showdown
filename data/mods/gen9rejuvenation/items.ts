@@ -52,6 +52,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spa: 1})
 				this.actions.useMove('wish', pokemon, {target: pokemon})
 			}
+			if (this.field.isBattlefield('crystalcavernfield')) {
+				this.boost({spa: 1})
+				this.actions.useMove('magiccoat', pokemon, {target: pokemon})
+			}
 		},
 		num: 0,
 		desc: "Provides boost in magical fields.",
