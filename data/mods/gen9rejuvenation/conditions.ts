@@ -51,18 +51,46 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		inherit: true,
 		durationCallback(source, effect) {
 			if (source?.hasItem('damprock') || this.field.isBattlefield('skyfield')) {
+				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}
+			if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 5
 			return 5;
+		},
+		onFieldStart(field, source, effect) {
+			if (this.field.isWeather('sunnyday')) {
+				this.field.setBattlefield('rainbowfield')
+				this.field.battlefieldState.rainbow = true;
+			}
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'RainDance', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'RainDance');
+			}
 		},
 	},
 	sunnyday: {
 		inherit: true,
 		durationCallback(source, effect) {
 			if (source?.hasItem('heatrock') || this.field.isBattlefield('skyfield')) {
+				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}
+			if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 5
 			return 5;
+		},
+		onFieldStart(battle, source, effect) {
+			if (this.field.isWeather('raindance')) {
+				this.field.setBattlefield('rainbowfield')
+				this.field.battlefieldState.rainbow = true;
+			}
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, `[of] ${source}`);
+			} else {
+				this.add('-weather', 'SunnyDay');
+			}
 		},
 	},
 	sandstorm: {
