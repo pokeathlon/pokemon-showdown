@@ -21,7 +21,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Ice';
 			} else if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) {
 				newType = 'Water';
-			} else if (this.field.isBattlefield('dragonsdenfield')) {
+			} else if (this.field.isBattlefield(['dragonsdenfield','rainbowfield'])) {
 				newType = 'Dragon';
 			}  else if (this.field.isBattlefield('skyfield')) {
 				newType = 'Flying';
@@ -63,6 +63,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'punishment';
 			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
 				move = 'darkpulse';
+			}  else if (this.field.isBattlefield('rainbowfield')) {
+				move = 'aurorabeam';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -95,8 +97,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				});
 			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				move.secondaries.push({
-					chance: 10,
+					chance: 30,
 					status: 'frz',
+				});
+			} else if (this.field.isBattlefield('rainbowfield')) {
+				move.secondaries.push({
+					chance: 30,
+					status: this.sample(['frz', 'brn', 'psn', 'tox', 'par', 'slp', 'ptr']),
 				});
 			} else if (this.field.isBattlefield('skyfield')) {
 				move.secondaries.push({
@@ -168,6 +175,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Water';
 				break;
 			case 'dragonsdenfield':
+			case 'rainbowfield':
 				move.type = 'Dragon';
 				break;
 			case 'skyfield':
@@ -196,7 +204,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
-				if (this.field.isBattlefield('dragonsdenfield') && move.type === 'Dragon') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield('darkcrystalcavernfield') && move.type === 'Dark') return this.chainModify(0.5);
 			},
@@ -576,7 +584,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		condition: {
 			onStart(pokemon, source) {
-				this.effectState.hp = this.field.isTerrain('mistyterrain')? source.maxhp * 3 / 4 : source.maxhp / 2;
+				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('rainbowfield'))? source.maxhp * 3 / 4 : source.maxhp / 2;
 				this.effectState.startingTurn = this.getOverflowedTurnCount();
 				if (this.effectState.startingTurn === 255) {
 					this.hint(`In Gen 8+, Wish will never resolve when used on the ${this.turn}th turn.`);
@@ -600,23 +608,32 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	grasspledge: {
 		inherit: true,
 		onAfterMove(source, target, move) {
-			// Save use to field
-			this.field.terrainState.grasspledge = true;
-			if (this.field.terrainState.firepledge) this.field.setBattlefield('volcanicfield')
+			// Save use to active field
+			this.field.battlefieldState.grasspledge = true;
+			if (this.field.battlefieldState.firepledge) this.field.setBattlefield('volcanicfield')
 		},
 	},
 	firepledge: {
 		inherit: true,
 		onAfterMove(source, target, move) {
 			// Save use to field
-			this.field.terrainState.firepledge = true;
-			if (this.field.terrainState.grasspledge) this.field.setBattlefield('volcanicfield')
+			this.field.battlefieldState.firepledge = true;
+			if (this.field.battlefieldState.grasspledge) this.field.setBattlefield('volcanicfield')
+			if (this.field.battlefieldState.waterpledge) this.field.setBattlefield('rainbowfield')
+		},
+	},
+	waterpledge: {
+		inherit: true,
+		onAfterMove(source, target, move) {
+			// Save use to field
+			this.field.battlefieldState.waterpledge = true;
+			if (this.field.battlefieldState.firepledge) this.field.setBattlefield('rainbowfield')
 		},
 	},
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield']));
 		},
 	},
 	takeheart: {
@@ -743,7 +760,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveWeather() || this.field.battlefield) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.basePower *= 2;
@@ -763,6 +780,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.basePower *= 2;
 				break;
 			case 'shadowsky':
+				move.basePower *= 2;
+				break;
+			case 'rainbowfield':
 				move.basePower *= 2;
 				break;
 			}
@@ -879,6 +899,44 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Beautiful",
+	},
+	solarbeam: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.field.isBattlefield('rainbowfield')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	solarblade: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather()) || this.field.isBattlefield('rainbowfield')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
 	},
 	// custom move
 	alphashot: {
@@ -3487,10 +3545,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 			onTryMove(pokemon, target, move) {
-				if (['solarblade','solarbeam'].includes(move.id))
-				this.add('-fail', pokemon, `move: ${move.name}`);
-				this.attrLastMove('[still]');
-				return null;
+				if (['solarblade','solarbeam'].includes(move.id)) {
+					this.add('-fail', pokemon, `move: ${move.name}`);
+					this.attrLastMove('[still]');
+					return null;
+				}
 			},
 			onModifyMove(move, pokemon, target) {
 				if (move.id === 'darkvoid') move.accuracy = 100;
@@ -3521,7 +3580,138 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		secondary: null,
 		target: "all",
-		type: "Fire",
+		type: "Dark",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	rainbowfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Rainbow Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'rainbowfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onAfterMove(source, target, move) {
+				if (['firepledge','waterpledge'].includes(move.id)) {
+					this.effectState.duration = source.hasItem('amplifiedrock')? 4 : 7;
+				}
+			},
+			onWeatherChange(target, source, sourceEffect) {
+				if (this.field.battlefieldState.rainbow) {
+					this.effectState.duuration = this.field.battlefieldState.rainbowDuration;
+					this.hint('The weather created a rainbow!')
+				}
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Normal' && move.category === 'Special') {
+					this.hint('The rainbow energized the attack!')
+					return this.chainModify(1.5)
+				}
+				if (['aurorabeam','dazzlinggleam','dragonpulse','firepledge','fleurcannon','grasspledge',
+					'heartstamp','hiddenpower','judgement','mirrorbeam','mistball','moonblast','mysticalfire',
+					'oceanicoperetta','prismaticlaser','relicsong','sacredfire','secretpower','silverwind',
+					'solarbeam','solarblade','sparklingaria','triattack','twinkletackle','waterpledge',
+					'weatherball','zenheadbutt'].includes(move.id)) {
+					this.hint('The attack was rainbow-charged!')
+					return this.chainModify(1.5)
+				}
+				if (move.id === 'lightthatburnsthesky') {
+					return this.chainModify(1.3)
+				}
+				if (['darkpulse','neverendingnightmare','nightdaze','shadowball'].includes(move.id)){
+					this.hint('The rainbow softened the attack...')
+					return this.chainModify(0.5)
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Normal' && move.category === 'Special'){
+					let randomType = this.sample(this.dex.types.all())
+					this.hint(`${randomType.name}!`)
+					return typeMod + this.dex.getEffectiveness(randomType.name, type);
+				} 
+			},
+			onModifyMovePriority: -2,
+			onModifyMove(move, pokemon) {
+				if (move.id === 'sonicboom') move.damage = 140;
+				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
+				if (move.id === 'lifedew') move.heal = [1,2];
+				if (move.id === 'meditate') move.boosts = {atk: 3};
+				if (pokemon.hasAbility('Serene Grace')) return; //doesn't stack
+				if (move.secondaries) {
+					this.debug('doubling secondary chance');
+					for (const secondary of move.secondaries) {
+						if (secondary.chance) secondary.chance *= 2;
+					}
+				}
+				if (move.self?.chance) move.self.chance *= 2;
+			},
+			onTryMove(pokemon, target, move) {
+				if (move.id === 'nightmare') {
+					this.add('-fail', pokemon, `move: ${move.name}`);
+					this.attrLastMove('[still]');
+					return null;
+				}
+			},
+			onHit(target, source, move) {
+				if (move.id === 'lightthatburnsthesky') {
+					this.field.clearBattlefield()
+					this.hint('The rainbow was consumed!')
+				}
+			},
+			onModifyDefPriority: 10,
+			onModifyDef(def, pokemon) {
+				if (pokemon.hasAbility('Prism Armor')) return this.chainModify(1.33)
+			},
+			onModifySpDPriority: 10,
+			onModifySpD(spd, pokemon) {
+				if (pokemon.hasAbility('Prism Armor')) return this.chainModify(1.33)
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.ability === 'cloudnine') { //basically moody code
+					let stats: BoostID[] = [];
+					const boost: SparseBoostsTable = {};
+					let statPlus: BoostID;
+					for (statPlus in pokemon.boosts) {
+						if (pokemon.boosts[statPlus] < 6) {
+							stats.push(statPlus);
+						}
+					}
+					let randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
+					if (randomStat) boost[randomStat] = 1;
+					this.boost(boost, pokemon, pokemon);
+				}
+				if (pokemon.status === 'slp') {
+					this.hint(`${pokemon.name} recovered health in its peaceful sleep!`)
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				}
+				if (this.field.isWeather(['hail', 'sandstorm'])) {
+					this.hint('The weather blocked out the rainbow!')
+					this.field.clearBattlefield()
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Rainbow Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Dragon",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

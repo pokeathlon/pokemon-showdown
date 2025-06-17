@@ -29,7 +29,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onTerrainChange(pokemon) {
 			let types;
-			switch (this.field.terrain) {
+			switch (this.field.terrain || this.field.battlefield) {
 			case 'electricterrain':
 				types = ['Electric'];
 				break;
@@ -41,6 +41,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'psychicterrain':
 				types = ['Psychic'];
+				break;
+			case 'rainbowfield':
+				types = ['Dragon'];
 				break;
 			default:
 				types = pokemon.baseSpecies.types;
@@ -355,7 +358,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	marvelscale: {
 		inherit: true,
 		onModifyDef(def, pokemon) {
-			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield'])) {
+			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield','rainbowfield'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -364,7 +367,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onAnyModifyDamage(damage, source, target, move) {
 			if (this.field.isBattlefield('infernalfield')) return;
-			if ((target === this.effectState.target || target.isAlly(this.effectState.target)) && this.field.isTerrain('mistyterrain') && move.type === 'Poison') {
+			if ((target === this.effectState.target || target.isAlly(this.effectState.target)) && (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('rainbowfield')) && move.type === 'Poison') {
 				this.debug('Pastel Veil weaken');
 				return this.chainModify(0.5);
 			}
@@ -416,7 +419,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	soulheart: {
 		inherit: true,
 		onAnyFaint() {
-			this.field.isTerrain('mistyterrain')? this.boost({spa: 1, spd: 1}, this.effectState.target) : this.boost({spa: 1}, this.effectState.target);
+			(this.field.isTerrain('mistyterrain') || this.field.isBattlefield('raindbowfield'))? this.boost({spa: 1, spd: 1}, this.effectState.target) : this.boost({spa: 1}, this.effectState.target);
 		},
 	},
 	blaze: {
@@ -803,6 +806,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
+			if (this.field.isBattlefield('rainbowfield')) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'slp' || target.hasAbility('comatose')) {
 					let damageMod = this.field.isBattlefield('infernalfield')? 2 : 1
@@ -856,6 +860,16 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.field.isBattlefield('darkcrystalcavernfield')) {
 				this.debug('Field weaken')
 				return this.chainModify(fieldMod)
+			}
+		},
+	},
+	wonderskin: {
+		inherit: true,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Status' && typeof accuracy === 'number') {
+				this.debug('Wonder Skin - modifying accuracy');
+				let val = this.field.isBattlefield('rainbowfield')? 0 : 50;
+				return val
 			}
 		},
 	},
