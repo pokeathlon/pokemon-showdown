@@ -277,12 +277,20 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'] :
 				['hydroupa', 'hydroupasix', 'hydroupaseven', 'hydroupaeight', 'hydroupanine'];
 			move.multihit = 5 + formes.indexOf(pokemon.species.id);
+			// store self or secondaries:
+			if (move.self?.boosts) {
+				pokemon.abilityState.selfBoosts = move.self.boosts
+				delete move.self.boosts;
+			}
 			if (move.secondaries) {
-			   // delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
-			   // Technically not a secondary effect, but it is negated
-			   delete move.self;
-			   if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-		   }
+				pokemon.abilityState.secondaries = move.secondaries
+				delete move.secondaries;
+			}
+			if (move.secondary) {
+				pokemon.abilityState.secondary = move.secondary
+				delete move.secondary;
+			}
+			if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
 		},
 		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.species.id.startsWith('hydreigonmega') && !pokemon.species.id.startsWith('hydroupa')) return;
@@ -292,9 +300,20 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			const nhits = 5 + formes.indexOf(pokemon.species.id);
 			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
 		},
-		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if ((pokemon.species.id.startsWith('hydreigonmega') || pokemon.species.id.startsWith('hydroupa')) && move.secondaries) {
-				delete move.secondaries;
+		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove, then clear the abilityState after this
+			if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit-1) === move.hit) {
+				if (pokemon.abilityState.selfBoosts && move.self) { //Only boosts were deleted, not move.self
+					move.self.boosts = pokemon.abilityState.selfBoosts;
+					pokemon.abilityState.selfBoosts = undefined;
+				}
+				if (pokemon.abilityState.secondaries) {
+					move.secondaries = pokemon.abilityState.secondaries;
+					pokemon.abilityState.secondaries = undefined;
+				}
+				if (pokemon.abilityState.secondary) {
+					move.secondary = pokemon.abilityState.secondary;
+					pokemon.abilityState.secondary = undefined;
+				}
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
