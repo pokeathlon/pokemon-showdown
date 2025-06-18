@@ -131,6 +131,26 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	torterneon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	zapmolticuno: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	venustoizard: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	zudomon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	celemewchi: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	dragapult: {
 		inherit: true,
 		natDexTier: "OU",
@@ -215,10 +235,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "UUBL",
 	},
-	zudomon: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
 	fafninter: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -260,10 +276,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UUBL",
 	},
 	fearowegho: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
-	torterneon: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
@@ -360,10 +372,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	megaligasion: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	zapmolticuno: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1739,10 +1747,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "RU",
 	},
-	celemewchi: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	decidueyeolul: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1952,10 +1956,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "RU",
 	},
 	tubareel: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	venustoizard: {
 		inherit: true,
 		natDexTier: "RU",
 	},
