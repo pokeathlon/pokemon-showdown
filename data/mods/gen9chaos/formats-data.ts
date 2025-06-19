@@ -219,6 +219,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "OU",
 	},
+	wrighvern: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	roseradedelta: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -284,10 +288,6 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UUBL",
 	},
 	deoxysspeed: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
-	wrighvern: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
@@ -836,6 +836,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		natDexTier: "UU",
 	},
 	zapdosgalar: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	zapdos: {
 		inherit: true,
 		natDexTier: "UU",
 	},
