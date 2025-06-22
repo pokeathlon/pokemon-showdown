@@ -1107,6 +1107,10 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 		inherit: true,
 		natDexTier: "RU",
 	},
+	crenibex: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	phanto: {
 		inherit: true,
 		natDexTier: "RU",

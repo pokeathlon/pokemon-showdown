@@ -28,6 +28,10 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 		inherit: true,
 		types: ["Steel", "Grass"],
 	},
+	eternatuseternamax: {
+		inherit: true,
+		baseSpecies: undefined,
+	},
 	bulbmantle: {
 		num: 2001,
 		name: "Bulbmantle",
