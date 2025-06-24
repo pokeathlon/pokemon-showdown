@@ -763,10 +763,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	eternatuseternamax: {
-		inherit: true,
-		natDexTier: "Illegal",
-	},
 };
 
 const doublesTiers = {

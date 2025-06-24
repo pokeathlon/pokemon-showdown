@@ -3189,7 +3189,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				set = Dex.deepClone(reverse_set);
 
 				// NatDex check
-				if (this.format.ruleset.includes('Standard NatDex')) {
+				if (this.ruleTable.has('natdexmod')) {
 					if (fusion.natDexTier === 'Illegal') {
 						if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 						return [`${fusion.name} does not exist in the National Dex.`];
