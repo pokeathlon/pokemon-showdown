@@ -350,7 +350,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
-			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:acupressure',
+			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
 	},
 	{
@@ -837,7 +837,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND Uber', 'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock', 'item:heatrock', 'item:darkrock',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:acupressure', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist',
 		],
 	},
 	{
@@ -858,7 +858,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND Uber', 'ND AG', 'ND OU', 'ND UUBL',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock', 'item:darkrock', 'item:smoothrock', 'item:heatrock', 'item:icyrock',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:acupressure', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist', 'move:jumpship',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist', 'move:jumpship',
 		],
 	},
 	{
@@ -874,7 +874,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND AG', 'ND Uber', 'Mega',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:acupressure',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend',
 		],
 	},
 	{
@@ -904,7 +904,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'DUber',
-			'move:acupressure', 'move:assist', 'move:cinderbreath', 'move:coaching', 'move:darkvoid', 'move:jetstream', 'move:livewire', 'move:permafrost', 'move:supremecannon', 'move:swagger',
+			'move:assist', 'move:cinderbreath', 'move:coaching', 'move:darkvoid', 'move:jetstream', 'move:livewire', 'move:permafrost', 'move:supremecannon', 'move:swagger',
 			'ability:commander', 'ability:fairylaw', 'ability:illuminate', 'ability:inertia', 'ability:powerconstruct', 'ability:quickcharge',
 			'item:berserkgene', 'item:eeviumz', 'item:focusband', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:trickrock',
 			'Prankster + After You',
@@ -928,7 +928,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'pokemon:volcaronadeltaarmor', 'WarGreymon', 'Xerneas', 'Yatagaryu', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'pokemon:zekromarmor', 'Zekyushiram', 'Zudomon', 'Zygarde', 'Zygarde-Complete',
 			'ability:illuminate', 'ability:moody', 'ability:powerconstruct', 'ability:quickcharge', 'ability:shadowtag',
 			'item:boosterenergy', 'item:damprock', 'item:focusband', 'item:heatrock', 'item:icyrock', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:smoothrock', 'item:terrainextender', 'item:trickrock',
-			'move:acupressure', 'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:jumpship', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail', 'move:swagger', 'move:wildfire'
+			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:jumpship', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail', 'move:swagger', 'move:wildfire'
 		],
 	},
 	{
