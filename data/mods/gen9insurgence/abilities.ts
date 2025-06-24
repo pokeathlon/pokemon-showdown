@@ -490,9 +490,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.add('-activate', target, 'ability: Omnitype');
 		},
 		onTryHit(source, target, move) {
-			const allTypes = this.dex.deepClone(this.dex.types.all()).filter((type: TypeInfo) => !type.isNonstandard);
-			
-			source.setType(allTypes);
+			source.setType([
+				'Bug', 'Dark', 'Dragon', 'Electric',
+				'Fairy', 'Fighting', 'Fire', 'Flying',
+				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal',
+				'Poison', 'Psychic', 'Rock', 'Steel', 'Water'
+			]);
 		},
 		onFoeAfterMove(source, target, move) {
 			target.setType(target.baseTypes);
