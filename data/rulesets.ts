@@ -3174,19 +3174,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const fusion = this.dex.species.get(set.fusion);
 			const abilityPool = new Set<string>(Object.values(species.abilities));
 
-			if (set.fusion && !fusion.exists) return [`The fusion is an invalid Pokémon.`];
-
-			if (fusion.exists) {
+			if (set.fusion && fusion.exists) {
 				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion"))) return [`You cannot fuse with triple fusions.`];
 
-				const reverse_set = Dex.deepClone(set);
-				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
-				const {outOfBattleSpecies, tierSpecies} = this.getValidationSpecies(reverse_set);
-				problems.push(...this.validateForme(reverse_set));
-				const problem = this.checkSpecies(reverse_set, fusion, tierSpecies, setHas);
+				[set.species, set.fusion] = [set.fusion, set.species];
+				const {outOfBattleSpecies, tierSpecies} = this.getValidationSpecies(set);
+				problems.push(...this.validateForme(set));
+				const problem = this.checkSpecies(set, fusion, tierSpecies, setHas);
 				if (problem) problems.push(problem);
-				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
-				set = Dex.deepClone(reverse_set);
+				[set.species, set.fusion] = [set.fusion, set.species];
 
 				// NatDex check
 				if (this.ruleTable.has('natdexmod')) {
