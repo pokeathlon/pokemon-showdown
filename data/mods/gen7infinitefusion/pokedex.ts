@@ -58,6 +58,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Iron Barbs"},
 		types: ["Steel", "Grass"],
 	},
+	palossand: {
+		inherit: true,
+		types: ["Ground", "Ghost"],
+	},
 	unown: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Mummy"},
