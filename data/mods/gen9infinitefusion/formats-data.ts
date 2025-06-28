@@ -26,10 +26,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		doublesTier: "DOU",
 	},
-	keldeoresolute: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
 	kyurem: {
 		inherit: true,
 		natDexTier: "UU",
