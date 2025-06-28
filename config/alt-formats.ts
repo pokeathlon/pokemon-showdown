@@ -927,7 +927,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Petey Piranha', 'Pheromosa', 'Raffiti', 'Rayquaza', 'Rayquaza-Mega', 'Reaptide', 'Regigigas-Primal', 'Reshiram', 'Reuniclus-Mega', 'SaberLeomon', 'Salamence-Mega', 'Scizor-Delta-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Snosquatch', 'Solgaleo', 'Sonic', 'pokemon:spark', 'Super Fly', 'Swamptiliken', 'Tiptron', 'Torterneon', 'UFI', 'Ursaluna-Bloodmoon', 'Urshifu', 'Vareon', 'Venustoizard', 'Volcarona-Delta',
 			'pokemon:volcaronadeltaarmor', 'WarGreymon', 'Xerneas', 'Yatagaryu', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zapmolticuno', 'Zekrom', 'pokemon:zekromarmor', 'Zekyushiram', 'Zudomon', 'Zygarde', 'Zygarde-Complete',
 			'ability:illuminate', 'ability:moody', 'ability:powerconstruct', 'ability:quickcharge', 'ability:shadowtag',
-			'item:boosterenergy', 'item:damprock', 'item:focusband', 'item:heatrock', 'item:icyrock', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:smoothrock', 'item:terrainextender', 'item:trickrock', 'item:darkrock',
+			'item:boosterenergy', 'item:damprock', 'item:focusband', 'item:heatrock', 'item:icyrock', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:smoothrock', 'item:terrainextender', 'item:trickrock', 'item:darkrock', 'item:hydreigonite',
 			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:jumpship', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail', 'move:swagger', 'move:wildfire'
 		],
 	},
