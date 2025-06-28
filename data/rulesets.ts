@@ -3358,42 +3358,36 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			let typeTable: string[] = [];
 			for (const [i, set] of team.entries()) {
 				let species = this.dex.species.get(set.species);
-				const fusion = this.dex.species.get(set.fusion);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
-				if (fusion && !fusion.types) return [`Invalid fusion ${set.fusion}`];
 
-				let speciesTypes = species.types;
-				let fusionTypes = fusion.types;
+				let types = species.types;
 
-				if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
-				if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
+				if (set.fusion && this.dex.species.get(set.fusion).exists) {
+					let speciesTypes = species.types;
+					let fusionTypes = this.dex.species.get(set.fusion).types;
 
-				const typesSet = new Set([speciesTypes[0]]);
-				const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
-				if (bonusType.exists) typesSet.add(bonusType.name);
-				if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
+					const typesSet = new Set([speciesTypes[0]]);
+					if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
+					if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
 
-				const fusedTypes = [...typesSet];
+					const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
+					if (bonusType.exists) typesSet.add(bonusType.name);
+					if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
+
+					types = [...typesSet];
+				}
 
 				if (i === 0) {
-					typeTable = fusedTypes;
+					typeTable = types;
 				} else {
-					typeTable = typeTable.filter(type => fusedTypes.includes(type));
+					typeTable = typeTable.filter(type => types.includes(type));
 				}
-				const item = this.dex.items.get(set.item);
-				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-					species = this.dex.species.get(item.megaStone);
-					typeTable = typeTable.filter(type => fusedTypes.includes(type));
-				}
-				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-					species = this.dex.species.get("Necrozma-Ultra");
-					typeTable = typeTable.filter(type => fusedTypes.includes(type));
-				}
+
 				if (!typeTable.length) return [`Your team must share a type.`];
 			}
 			for (const set of team) {
 				if (this.gen === 9 && set.teraType &&
-						!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
+					!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
 			}

@@ -1089,7 +1089,7 @@ export const ModFormatsData: import('../../../sim/dex-species').ModdedSpeciesFor
 	},
 	superfly: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "Uber",
 	},
 	gallademega: {
 		inherit: true,
