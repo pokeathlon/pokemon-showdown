@@ -649,6 +649,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		condition: {
 			duration: 3,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Shrouded Blows") {
+					return 2;
+				}
+				return 3;
+			},
 			onStart(target) {
 				if (target.activeTurns && !this.queue.willMove(target)) {
 					this.effectState.duration!++;
@@ -1827,16 +1833,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1},
-		volatileStatus: 'molten',
+		volatileStatus: 'flameaxe',
 		condition: {
 			duration: 2,
 			onStart(pokemon) {
-				if (pokemon.terastallized) return false;
-				this.add('-start', pokemon, 'Molten');
+				this.add('-start', pokemon, 'Flame Axe');
 			},
-			onModifyMove(move, pokemon, target) {
-				if (move.type === "Rock") move.type = "Fire";
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (move.id === 'stealthrock') {
+					this.actions.useMove('hotcoals', pokemon, {target: target});
+					return null;
+				}
 			},
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				const noModifyType = [
+					'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				];
+				if (move.type === 'Rock' && !noModifyType.includes(move.id) &&
+					!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Fire';
+					move.typeChangerBoosted = this.effect;
+				}
+			},	
 		},
 		target: "normal",
 		type: "Fire",
