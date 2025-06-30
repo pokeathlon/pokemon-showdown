@@ -19,7 +19,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	standard: {
 		effectType: 'ValidatorRule',
 		name: 'Standard',
-		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
+		desc: "The standard ruleset for all official Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
 			'Standard AG',
 			'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause',
@@ -261,7 +261,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					const move = this.dex.moves.get(moveId);
 					const moveid = move.id;
 					if (hasMove[moveid]) return [`${species.baseSpecies} has multiple copies of ${move.name}.`];
-					hasMove[moveid] = true;
+					if (moveid) hasMove[moveid] = true;
 				}
 			}
 		},
@@ -960,7 +960,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Evasion Moves Clause',
 		desc: "Bans moves that consistently raise the user's evasion when used",
-		banlist: ['Minimize', 'Double Team'],
+		banlist: ['Acupressure', 'Minimize', 'Double Team'],
 		onBegin() {
 			this.add('rule', 'Evasion Moves Clause: Evasion moves are banned');
 		},
@@ -1216,6 +1216,27 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 						`${set.name || set.species} has Baton Pass and a way to boost its stats, which is banned by Baton Pass Stat Clause.`,
 					];
 				}
+			}
+		},
+	},
+	batonpasstrapclause: {
+		effectType: 'ValidatorRule',
+		name: 'Baton Pass Trap Clause',
+		desc: "Stops teams from having a Pok&eacute;mon with Baton Pass that has any way to trap Pok&eacute;mon.",
+		onBegin() {
+			this.add('rule', 'Baton Pass Trap Clause: No Baton Passer may have a way to trap Pok\u00e9mon');
+		},
+		onValidateTeam(team, format, teamHas) {
+			const trappingMoves = ['block', 'fairylock', 'meanlook', 'octolock', 'spiderweb'];
+			let name = '';
+			const bpAndTrap = team.some(set => {
+				name = set.name || set.species;
+				return set.moves.includes('batonpass') && set.moves.some(move => trappingMoves.includes(move));
+			});
+			if (bpAndTrap) {
+				return [
+					`${name} has Baton Pass and a way to pass trapping, which is banned by Baton Pass Trap Clause.`,
+				];
 			}
 		},
 	},
@@ -2236,14 +2257,17 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				nfe: 30,
 				lc: 30,
 			};
-			const isNatDex: boolean = this.ruleTable.has("standardnatdex");
+			const tiers = ['ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zubl', 'zu', 'nfe', 'lc'];
+			const isNatDex = !!this.ruleTable?.has('natdexmod');
 			let tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
 			if (!(tier in boosts)) return;
 			// Non-Pokemon bans in lower tiers
-			if (target) {
-				if (this.toID(target.set.item) === 'lightclay') tier = 'rubl';
-				if (this.toID(target.set.item) === 'damprock') tier = 'publ';
-				if (this.toID(target.set.item) === 'heatrock') tier = 'publ';
+			if (target && !isNatDex) {
+				if (this.toID(target.set.item) === 'lightclay' && tiers.indexOf(tier) > tiers.indexOf('rubl')) tier = 'rubl';
+				if (this.toID(target.set.item) === 'quickclaw' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
+				if (this.toID(target.set.ability) === 'drought' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
+				if (this.toID(target.set.item) === 'damprock' && tiers.indexOf(tier) > tiers.indexOf('publ')) tier = 'publ';
+				if (this.toID(target.set.item) === 'unburden' && tiers.indexOf(tier) > tiers.indexOf('zubl')) tier = 'zubl';
 			}
 			const pokemon = this.dex.deepClone(species);
 			pokemon.bst = pokemon.baseStats['hp'];
@@ -2550,7 +2574,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 						species = this.dex.species.get(item.megaStone);
 					}
 				}
-				if (this.ruleTable.isRestrictedSpecies(species)) {
+				if (this.ruleTable.isRestrictedSpecies(species) ||
+					(this.ruleTable.isRestricted('ability:powerconstruct') && this.toID(set.ability) === 'powerconstruct')) {
 					gods.add(species.name);
 				}
 			}
@@ -2563,7 +2588,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (source || !target?.side) return;
 			const god = target.side.team.find(set => {
 				let godSpecies = this.dex.species.get(set.species);
-				if (this.toID(set.ability) === 'powerconstruct') {
+				if (this.toID(set.ability) === 'powerconstruct' && this.ruleTable.isRestricted('ability:powerconstruct')) {
 					return true;
 				}
 				if (set.item) {
@@ -2943,6 +2968,125 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return newSpecies;
 		},
 	},
+	datapreview: {
+		effectType: 'Rule',
+		name: 'Data Preview',
+		desc: 'When a new Pokémon switches in for the first time, information about its types, stats and Abilities is displayed to both players.',
+		onSwitchIn(pokemon) {
+			const species = pokemon.illusion?.species || pokemon.species;
+			const gen = this.gen;
+
+			if (pokemon.illusion) {
+				pokemon.m.revealed = false;
+			}
+
+			// Recreation of Chat.getDataPokemonHTML
+			let buf = '<li class="result">';
+			buf += `<span class="col numcol">${species.tier}</span> `;
+			buf += `<span class="col iconcol"><psicon pokemon="${species.id}"/></span> `;
+			buf += `<span class="col pokemonnamecol" style="white-space:nowrap"><a href="https://${Config.routes.dex}/pokemon/${species.id}" target="_blank">${species.name}</a></span> `;
+			buf += '<span class="col typecol">';
+			if (species.types) {
+				for (const type of species.types) {
+					buf += `<img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32">`;
+				}
+			}
+			buf += '</span> ';
+			if (gen >= 3) {
+				buf += '<span style="float:left;min-height:26px">';
+				if (species.abilities['1'] && (gen >= 4 || Dex.abilities.get(species.abilities['1']).gen === 3)) {
+					buf += `<span class="col twoabilitycol">${species.abilities['0']}<br />${species.abilities['1']}</span>`;
+				} else {
+					buf += `<span class="col abilitycol">${species.abilities['0']}</span>`;
+				}
+				if (species.abilities['H'] && species.abilities['S']) {
+					buf += `<span class="col twoabilitycol${species.unreleasedHidden ? ' unreleasedhacol' : ''}"><em>${species.abilities['H']}<br />(${species.abilities['S']})</em></span>`;
+				} else if (species.abilities['H']) {
+					buf += `<span class="col abilitycol${species.unreleasedHidden ? ' unreleasedhacol' : ''}"><em>${species.abilities['H']}</em></span>`;
+				} else if (species.abilities['S']) {
+					// special case for Zygarde
+					buf += `<span class="col abilitycol"><em>(${species.abilities['S']})</em></span>`;
+				} else {
+					buf += '<span class="col abilitycol"></span>';
+				}
+				buf += '</span>';
+			}
+			buf += '<span style="float:left;min-height:26px">';
+			buf += `<span class="col statcol"><em>HP</em><br />${species.baseStats.hp}</span> `;
+			buf += `<span class="col statcol"><em>Atk</em><br />${species.baseStats.atk}</span> `;
+			buf += `<span class="col statcol"><em>Def</em><br />${species.baseStats.def}</span> `;
+			if (gen <= 1) {
+				buf += `<span class="col statcol"><em>Spc</em><br />${species.baseStats.spa}</span> `;
+			} else {
+				buf += `<span class="col statcol"><em>SpA</em><br />${species.baseStats.spa}</span> `;
+				buf += `<span class="col statcol"><em>SpD</em><br />${species.baseStats.spd}</span> `;
+			}
+			buf += `<span class="col statcol"><em>Spe</em><br />${species.baseStats.spe}</span> `;
+			buf += `<span class="col bstcol"><em>BST<br />${species.bst}</em></span> `;
+			buf += '</span>';
+			buf += '</li>';
+			buf = `<div class="message"><ul class="utilichart">${buf}<li style="clear:both"></li></ul></div>`;
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			this.add(`raw|${buf}`);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('illusion') && !target.m.revealed) {
+				const species = target.species;
+				const gen = this.gen;
+
+				// Recreation of Chat.getDataPokemonHTML
+				let buf = '<li class="result">';
+				buf += `<span class="col numcol">${species.tier}</span> `;
+				buf += `<span class="col iconcol"><psicon pokemon="${species.id}"/></span> `;
+				buf += `<span class="col pokemonnamecol" style="white-space:nowrap"><a href="https://${Config.routes.dex}/pokemon/${species.id}" target="_blank">${species.name}</a></span> `;
+				buf += '<span class="col typecol">';
+				if (species.types) {
+					for (const type of species.types) {
+						buf += `<img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32">`;
+					}
+				}
+				buf += '</span> ';
+				if (gen >= 3) {
+					buf += '<span style="float:left;min-height:26px">';
+					if (species.abilities['1'] && (gen >= 4 || Dex.abilities.get(species.abilities['1']).gen === 3)) {
+						buf += `<span class="col twoabilitycol">${species.abilities['0']}<br />${species.abilities['1']}</span>`;
+					} else {
+						buf += `<span class="col abilitycol">${species.abilities['0']}</span>`;
+					}
+					if (species.abilities['H'] && species.abilities['S']) {
+						buf += `<span class="col twoabilitycol${species.unreleasedHidden ? ' unreleasedhacol' : ''}"><em>${species.abilities['H']}<br />(${species.abilities['S']})</em></span>`;
+					} else if (species.abilities['H']) {
+						buf += `<span class="col abilitycol${species.unreleasedHidden ? ' unreleasedhacol' : ''}"><em>${species.abilities['H']}</em></span>`;
+					} else if (species.abilities['S']) {
+						// special case for Zygarde
+						buf += `<span class="col abilitycol"><em>(${species.abilities['S']})</em></span>`;
+					} else {
+						buf += '<span class="col abilitycol"></span>';
+					}
+					buf += '</span>';
+				}
+				buf += '<span style="float:left;min-height:26px">';
+				buf += `<span class="col statcol"><em>HP</em><br />${species.baseStats.hp}</span> `;
+				buf += `<span class="col statcol"><em>Atk</em><br />${species.baseStats.atk}</span> `;
+				buf += `<span class="col statcol"><em>Def</em><br />${species.baseStats.def}</span> `;
+				if (gen <= 1) {
+					buf += `<span class="col statcol"><em>Spc</em><br />${species.baseStats.spa}</span> `;
+				} else {
+					buf += `<span class="col statcol"><em>SpA</em><br />${species.baseStats.spa}</span> `;
+					buf += `<span class="col statcol"><em>SpD</em><br />${species.baseStats.spd}</span> `;
+				}
+				buf += `<span class="col statcol"><em>Spe</em><br />${species.baseStats.spe}</span> `;
+				buf += `<span class="col bstcol"><em>BST<br />${species.bst}</em></span> `;
+				buf += '</span>';
+				buf += '</li>';
+				buf = `<div class="message"><ul class="utilichart">${buf}<li style="clear:both"></li></ul></div>`;
+
+				this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
+				this.add(`raw|${buf}`);
+				target.m.revealed = true;
+			}
+		},
+	},
 	chaosstabmonsmovelegality: {
 		effectType: 'ValidatorRule',
 		name: 'Chaos STABmons Move Legality',
@@ -3030,22 +3174,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const fusion = this.dex.species.get(set.fusion);
 			const abilityPool = new Set<string>(Object.values(species.abilities));
 
-			if (set.fusion && !fusion.exists) return [`The fusion is an invalid Pokémon.`];
-
-			if (fusion.exists) {
+			if (set.fusion && fusion.exists) {
 				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion"))) return [`You cannot fuse with triple fusions.`];
 
-				const reverse_set = this.dex.deepClone(set);
-				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
-				const {outOfBattleSpecies, tierSpecies} = this.getValidationSpecies(reverse_set);
-				problems.push(...this.validateForme(reverse_set));
-				const problem = this.checkSpecies(reverse_set, fusion, tierSpecies, setHas);
+				[set.species, set.fusion] = [set.fusion, set.species];
+				const {outOfBattleSpecies, tierSpecies} = this.getValidationSpecies(set);
+				problems.push(...this.validateForme(set));
+				const problem = this.checkSpecies(set, fusion, tierSpecies, setHas);
 				if (problem) problems.push(problem);
-				[reverse_set.species, reverse_set.fusion] = [reverse_set.fusion, reverse_set.species];
-				set = this.dex.deepClone(reverse_set);
+				[set.species, set.fusion] = [set.fusion, set.species];
 
 				// NatDex check
-				if (this.format.ruleset.includes('Standard NatDex')) {
+				if (this.ruleTable.has('natdexmod')) {
 					if (fusion.natDexTier === 'Illegal') {
 						if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 						return [`${fusion.name} does not exist in the National Dex.`];
@@ -3218,42 +3358,36 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			let typeTable: string[] = [];
 			for (const [i, set] of team.entries()) {
 				let species = this.dex.species.get(set.species);
-				const fusion = this.dex.species.get(set.fusion);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
-				if (fusion && !fusion.types) return [`Invalid fusion ${set.fusion}`];
 
-				let speciesTypes = species.types;
-				let fusionTypes = fusion.types;
+				let types = species.types;
 
-				if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
-				if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
+				if (set.fusion && this.dex.species.get(set.fusion).exists) {
+					let speciesTypes = species.types;
+					let fusionTypes = this.dex.species.get(set.fusion).types;
 
-				const typesSet = new Set([speciesTypes[0]]);
-				const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
-				if (bonusType.exists) typesSet.add(bonusType.name);
-				if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
+					const typesSet = new Set([speciesTypes[0]]);
+					if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
+					if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
 
-				const fusedTypes = [...typesSet];
+					const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
+					if (bonusType.exists) typesSet.add(bonusType.name);
+					if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
+
+					types = [...typesSet];
+				}
 
 				if (i === 0) {
-					typeTable = fusedTypes;
+					typeTable = types;
 				} else {
-					typeTable = typeTable.filter(type => fusedTypes.includes(type));
+					typeTable = typeTable.filter(type => types.includes(type));
 				}
-				const item = this.dex.items.get(set.item);
-				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-					species = this.dex.species.get(item.megaStone);
-					typeTable = typeTable.filter(type => fusedTypes.includes(type));
-				}
-				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-					species = this.dex.species.get("Necrozma-Ultra");
-					typeTable = typeTable.filter(type => fusedTypes.includes(type));
-				}
+
 				if (!typeTable.length) return [`Your team must share a type.`];
 			}
 			for (const set of team) {
 				if (this.gen === 9 && set.teraType &&
-						!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
+					!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
 			}
@@ -3399,6 +3533,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Multiple Mega',
 		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
 		// hardcoded in sim/side.ts and sim/battle-actions.ts
+		onBegin() {
+			this.add('rule', 'Multiple Mega: Allows for any number of Pokémon to mega-evolve during battle.');
+		},
 	},
 	candynamax: {
 		effectType: 'Rule',

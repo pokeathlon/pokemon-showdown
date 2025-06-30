@@ -1046,7 +1046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	drybones: {
@@ -1121,7 +1121,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	firebro: {
@@ -2280,7 +2280,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	miniyux: {
@@ -2339,7 +2339,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	gloomtail: {
@@ -2383,7 +2383,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	sonic: {

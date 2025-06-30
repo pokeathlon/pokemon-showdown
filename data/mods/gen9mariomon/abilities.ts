@@ -3,8 +3,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	disguise: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
-			if (effect?.effectType === 'Move' && target.species.id === 'uproot') {
-				this.add('-activate', target, 'ability: Disguise');
+			if (
+				effect && effect.effectType === 'Move' &&
+				target.species.id === 'uproot' && !target.transformed
+			) {
+				if (["rollout", "iceball"].includes(effect.id)) {
+					source.volatiles[effect.id].contactHitCount--;
+				}
+
+				this.add("-activate", target, "ability: Disguise");
 				this.effectState.busted = true;
 				return 0;
 			}
@@ -36,7 +43,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.species.id === 'uproot' && this.effectState.busted) {
 				const speciesid = 'Uproot-Naked';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 	},

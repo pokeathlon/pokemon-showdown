@@ -202,14 +202,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		itemUser: ["Eevee"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			if (source.species.name === 'Vaporeon' ||
-				source.species.name === 'Jolteon' ||
-				source.species.name === 'Flareon' ||
-				source.species.name === 'Umbreon' ||
-				source.species.name === 'Espeon' ||
-				source.species.name === 'Glaceon' ||
-				source.species.name === 'Leafeon' ||
-				source.species.name === 'Sylveon') return false;
+			if (source.species.id === 'vaporeon'||
+				source.species.id === 'jolteon' ||
+				source.species.id === 'flareon' ||
+				source.species.id === 'umbreon' ||
+				source.species.id === 'espeon'  ||
+				source.species.id === 'glaceon' ||
+				source.species.id === 'leafeon' ||
+				source.species.id === 'sylveon') return false;
 			return true;
 		},
 		num: 0,

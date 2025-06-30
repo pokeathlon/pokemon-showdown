@@ -286,52 +286,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-activate', source, 'move: Court Change');
 		},
 	},
-	mistyterrain: {
-		inherit: true,
-		condition: {
-			effectType: 'Terrain',
-			duration: 5,
-			durationCallback(source, effect) {
-				if (source?.hasItem('terrainextender')) {
-					return 8;
-				}
-				return 5;
-			},
-			onSetStatus(status, target, source, effect) {
-				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
-				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
-					this.add('-activate', target, 'move: Misty Terrain');
-				}
-				return false;
-			},
-			onTryAddVolatile(status, target, source, effect) {
-				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
-				if (status.id === 'confusion') {
-					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
-					return null;
-				}
-			},
-			onBasePowerPriority: 6,
-			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable() && move.name !== 'Mist Barrage') {
-					this.debug('misty terrain weaken');
-					return this.chainModify(0.5);
-				}
-			},
-			onFieldStart(field, source, effect) {
-				if (effect?.effectType === 'Ability') {
-					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
-				} else {
-					this.add('-fieldstart', 'move: Misty Terrain');
-				}
-			},
-			onFieldResidualOrder: 27,
-			onFieldResidualSubOrder: 7,
-			onFieldEnd() {
-				this.add('-fieldend', 'Misty Terrain');
-			},
-		},
-	},
 	haze: {
 		inherit: true,
 		onHitField() {
@@ -358,7 +312,377 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-clearboost', target);
 			}
 		},
+	}, 
+	// Field Cleats stuff
+	mistyterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (source.item === 'fieldcleats') return;
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Misty Terrain');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (source.item === 'fieldcleats') return;
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'confusion') {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.item === 'fieldcleats') return;
+				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable() && move.name !== 'Mist Barrage') {
+					this.debug('misty terrain weaken');
+					return this.chainModify(0.5);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Misty Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'Misty Terrain');
+			},
+		},
 	},
+	grassyterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.item === 'fieldcleats') return;
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+	},
+	psychicterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, effect) {
+				if (source.item === 'fieldcleats') return;
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+					return;
+				}
+				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
+				if (!target.isGrounded()) {
+					const baseMove = this.dex.moves.get(effect.id);
+					if (baseMove.priority > 0) {
+						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
+					}
+					return;
+				}
+				this.add('-activate', target, 'move: Psychic Terrain');
+				return null;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.item === 'fieldcleats') return;
+				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('psychic terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Psychic Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Psychic Terrain');
+			},
+		},
+	},
+	electricterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (source.item === 'fieldcleats') return;
+				if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
+					if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Electric Terrain');
+					}
+					return false;
+				}
+			},
+			onTryAddVolatile(status, target, source) {
+				if (source.item === 'fieldcleats') return;
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'yawn') {
+					this.add('-activate', target, 'move: Electric Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (attacker.item === 'fieldcleats') return;
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('electric terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Electric Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Electric Terrain');
+			},
+		},
+	},
+	grassyglide: {
+		inherit:true,
+		onModifyPriority(priority, source, target, move) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+				return priority + 1;
+			}
+		},
+	},
+	camouflage: {
+		inherit: true,
+		onHit(target) {
+			if (target.item === 'fieldcleats') return;
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			}
+
+			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
+			this.add('-start', target, 'typechange', newType);
+		},
+	},
+	expandingforce: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				move.target = 'allAdjacentFoes';
+			}
+		},
+	},
+	floralhealing: {
+		inherit: true,
+		onHit(target, source) {
+			let success = false;
+			if (this.field.isTerrain('grassyterrain') && source.item != 'fieldcleats') {
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
+			} else {
+				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
+			}
+			if (success && !target.isAlly(source)) {
+				target.staleness = 'external';
+			}
+			if (!success) {
+				this.add('-fail', target, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+	},
+	naturepower: {
+		inherit: true,
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (pokemon.item != 'fieldcleats') {
+				if (this.field.isTerrain('electricterrain')) {
+					move = 'thunderbolt';
+				} else if (this.field.isTerrain('grassyterrain')) {
+					move = 'energyball';
+				} else if (this.field.isTerrain('mistyterrain')) {
+					move = 'moonblast';
+				} else if (this.field.isTerrain('psychicterrain')) {
+					move = 'psychic';
+				}
+			}
+			this.actions.useMove(move, pokemon, { target });
+			return null;
+		},
+	},
+	mistyexplosion: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
+				this.debug('misty terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	psyblade: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (source.item === 'fieldcleats') return;
+			if (this.field.isTerrain('electricterrain')) {
+				this.debug('psyblade electric terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	secretpower: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			if (pokemon.item === 'fieldcleats') return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			}
+		},
+	},
+	taunt: {
+		inherit: true,
+		condition: {
+			duration: 3,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Shrouded Blows") {
+					return 2;
+				}
+				return 3;
+			},
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectState.duration!++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 15,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+	},
+
 	// Additions
 	boxin: {
 		num: 0,
@@ -1277,7 +1601,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Super effective on Poison. Removes the target's Ground immunity.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, nonsky: 1, metronome: 1, contact: 1},
 		volatileStatus: 'groundingstomp',
 		condition: {
 			noCopy: true,
@@ -1509,16 +1833,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1},
-		volatileStatus: 'molten',
+		volatileStatus: 'flameaxe',
 		condition: {
 			duration: 2,
 			onStart(pokemon) {
-				if (pokemon.terastallized) return false;
-				this.add('-start', pokemon, 'Molten');
+				this.add('-start', pokemon, 'Flame Axe');
 			},
-			onModifyMove(move, pokemon, target) {
-				if (move.type === "Rock") move.type = "Fire";
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (move.id === 'stealthrock') {
+					this.actions.useMove('hotcoals', pokemon, {target: target});
+					return null;
+				}
 			},
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				const noModifyType = [
+					'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				];
+				if (move.type === 'Rock' && !noModifyType.includes(move.id) &&
+					!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+					move.type = 'Fire';
+					move.typeChangerBoosted = this.effect;
+				}
+			},	
 		},
 		target: "normal",
 		type: "Fire",
@@ -1534,34 +1872,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, punch: 1},
-		volatileStatus: 'taunt',
-		condition: {
-			duration: 2,
-			onStart(target) {
-				if (target.activeTurns && !this.queue.willMove(target) && this.effectState.duration) {
-					this.effectState.duration++;
-				}
-				this.add('-start', target, 'move: Taunt');
-			},
-			onResidualOrder: 15,
-			onEnd(target) {
-				this.add('-end', target, 'move: Taunt');
-			},
-			onDisableMove(pokemon) {
-				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.id);
-					if (move.category === 'Status' && move.id !== 'mefirst') {
-						pokemon.disableMove(moveSlot.id);
-					}
-				}
-			},
-			onBeforeMovePriority: 5,
-			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
-					this.add('cant', attacker, 'move: Taunt', move);
-					return false;
-				}
-			},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'taunt',
 		},
 		target: "normal",
 		type: "Fighting",
@@ -1688,7 +2001,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			volatileStatus: 'confusion',
 		},
 		target: "allAdjacentFoes",
-		shortDesc: "During Misty Surge: 1.5x damage instead of half. 10% chance to confuse.",
+		shortDesc: "During Misty Terrain: 1.5x damage instead of half. 10% chance to confuse.",
 		type: "Dragon",
 		contestType: "Tough",
 	},
@@ -1733,7 +2046,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Vengeful Pulse",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -1749,7 +2062,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Heavy Cleave",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, mirror: 1, metronome: 1, slicing: 1},
+		flags: {protect: 1, contact: 1, mirror: 1, metronome: 1, slicing: 1},
 		secondary: {
 			chance: 20,
 			boosts: {
@@ -1768,7 +2081,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Throwing Knives",
 		pp: 30,
 		priority: 0,
-		flags: {mirror: 1, metronome: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
@@ -1823,7 +2136,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 70,
 		category: "Special",
 		name: "Reboot and Retry",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		basePowerCallback(pokemon, target, move) {
@@ -1838,6 +2151,79 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Electric",
 		contestType: "Beautiful",
 		shortDesc: "Power doubles if the user's last move failed.",
+	},
+	phantasmalgust: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Phantasmal Gust",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		contestType: "Beautiful",
+		shortDesc: "10% Chance to lower target(s) Sp. Atk by 1 stage",
+	},
+	rampartsmight: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Physical",
+		name: "Rampart's Might",
+		pp: 10,
+		priority: -5,
+		flags: { protect: 1, mirror: 1, metronome: 1, failmefirst: 1 },
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('rampartsmight');
+		},
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-singleturn', target, 'move: Ramparts Might', '[zeffect]');
+				} else {
+					this.add('-singleturn', target, 'move: Ramparts Might');
+				}
+			},
+			onFoeRedirectTargetPriority: 1,
+			onFoeRedirectTarget(target, source, source2, move) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
+					if (move.smartTarget) move.smartTarget = false;
+					this.debug("Ramparts Might redirected target of move");
+					return this.effectState.target;
+				}
+			},
+		},
+		damageCallback(pokemon) {
+			const lastDamagedBy = pokemon.getLastDamagedBy(true);
+			if (lastDamagedBy !== undefined) {
+				return (lastDamagedBy.damage * 1.5) || 1;
+			}
+			return 0;
+		},
+		onTry(source) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (!lastDamagedBy?.thisTurn) return false;
+		},
+		onModifyTarget(targetRelayVar, source, target, move) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy) {
+				targetRelayVar.target = this.getAtSlot(lastDamagedBy.slot);
+			}
+		},
+		secondary: null,
+		target: "scripted",
+		type: "Rock",
+		contestType: "Cool",
+		shortDesc: "The foes' moves target the user. Returns last damage taken at 1.5x power.",
 	},
 };
 
