@@ -365,6 +365,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Mariomon LC",
+		searchShow: false,
+
+		mod: 'gen9mariomon',
+		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
+		banlist: ['pokemon:fighterfly', 'pokemon:gushen', 'pokemon:luma'],
+	},
+	{
 		name: "[Gen 9] Mariomon VGC",
 		mod: 'gen9mariomon',
 		gameType: 'doubles',

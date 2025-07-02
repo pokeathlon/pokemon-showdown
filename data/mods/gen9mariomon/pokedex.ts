@@ -1365,7 +1365,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "LC",
+		tier: "NFE",
+		natDexTier: "LC",
 		doublesTier: "LC",
 	},
 	superfly: {
