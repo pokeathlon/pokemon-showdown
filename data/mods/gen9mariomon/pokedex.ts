@@ -2600,7 +2600,7 @@ const MarioDex: {[k: string]: number} = {
 for (const i of Dex.species.all()) {
 	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
 	const isMario = i.id in MarioDex;
-	Pokedex[i.id].isNonstandard = isMario ? null : "Unobtainable";
+	Pokedex[i.id].isNonstandard = isMario ? null : "Custom";
 	Pokedex[i.id].num = isMario ? MarioDex[i.id] : 0;
 	Pokedex[i.id].gen = isMario ? 3 : undefined;
 }
