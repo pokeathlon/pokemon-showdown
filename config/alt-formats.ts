@@ -275,7 +275,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Ins NatDex Draft",
+		name: "[Gen 9] Ins NDL Draft",
+		searchShow: false,
+
+		mod: 'gen9insurgence',
+		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
+		banlist: [
+			'move:hiddenpower', 'move:lastrespects', 'move:shedtail', 'move:revivalblessing', 'move:nanorepair', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'ability:powerconstruct', 'ability:winterjoy', 
+			'Emolga-Delta+Blaze Boost', 'Blastoise-Mega+Shell Smash', 'Parental Bond+Seismic Toss', 'Parental Bond+Night Shade', 
+		],
+	},
+	{
+		name: "[Gen 9] Ins HBF Draft",
 		searchShow: false,
 
 		mod: 'gen9insurgence',
@@ -283,7 +294,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['move:hiddenpower'],
 	},
 	{
-		name: "[Gen 9] Ins NatDex MM Draft",
+		name: "[Gen 9] Ins HBF MM Draft",
 		searchShow: false,
 		mod: 'gen9insurgence',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Multiple Mega'],
@@ -352,6 +363,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
 			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
+	},
+	{
+		name: "[Gen 9] Mariomon LC",
+		searchShow: false,
+
+		mod: 'gen9mariomon',
+		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
+		banlist: ['pokemon:fighterfly', 'pokemon:gushen', 'pokemon:luma', 'move:electrify'],
 	},
 	{
 		name: "[Gen 9] Mariomon VGC",
