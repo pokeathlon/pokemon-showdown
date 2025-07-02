@@ -4,71 +4,11 @@ const {google} = require('googleapis');
 const fs = require('fs');
 const path = require('path');
 
-const key = require('../config/config').googleSheetsKey;
+const randbatsSheet = '1z5oK9_nqsjBzSqiK8M97-TZGyOosL9irW4ItO4yrUNE';
 
-const toID = (text) => {
-	return (text && typeof text === "string" ? text : "").toLowerCase().replace(/[^a-z0-9]+/g, "");
-}
-
-const createConnection = (key) => {
-	if (!key || !key.client_email || !key.private_key) return [null, null];
-
-	const auth = new google.auth.JWT(key.client_email, null, key.private_key.replace(/\\n/g, '\n'), 'https://www.googleapis.com/auth/spreadsheets');
-	const connection = google.sheets({version: 'v4', auth: auth});
-
-	return [auth, connection];
-}
-
-const allFormats = [
-	{id: "1aS2bM27i28iJWG5MSmxmzTNP0_NkAEPpbUgw6SHFa6k", mod: "gen9pokeathlon", owner: "everyone"},
-];
-
-const randbats = "1z5oK9_nqsjBzSqiK8M97-TZGyOosL9irW4ItO4yrUNE";
-
-const loc = {types: 10, stats: 12, abilities: 18, weight: 21, height: 22, prevo: 23, gender: 24, formeinfo: 25, cosmeticFormes: 26, tiers: 28, learnset: 32};
-
-const [auth, connection] = createConnection(key);
-
-async function pullRandbats(sheetid) {
-	for (const mod of ['gen9chaos', 'gen7infinitefusion']) {
-		let randbats_sets = {sets: []};
-		const data = await connection.spreadsheets.values.get({
-			auth: auth,
-			spreadsheetId: sheetid,
-			range: `${mod}!A2:K`,
-		});
-		for (const line of data.data.values) {
-			const key_index = ['name', 'species', 'fusion', 'alt', 'item', 'ability', 'teraType'];
-			let cur_set = {moves: []};
-			for (const item in line) {
-				if (item >= key_index.length) {
-					cur_set.moves.push(line[item]);
-				} else {
-					cur_set[key_index[item]] = line[item];
-				}
-			}
-			randbats_sets.sets.push(cur_set);
-		}
-		fs.writeFileSync(path.resolve(__dirname, '../data/random-battles/' + mod + '/data.json'), JSON.stringify(randbats_sets, null, '\t'), { flag: "w" });
-	}
-}
-
-function pullFormat(sheetid, section) {
-	return connection.spreadsheets.values.get({
-		auth: auth,
-		spreadsheetId: sheetid,
-		range: `${section}!A1:AG`,
-	});
-}
-
-function getIndexes(labels, targets) {
-	let index = {};
-
-	for (const target of targets) {
-		index[target] = labels.findIndex((label) => toID(label) === target);
-	}
-	return index;
-}
+const formatsSheets = {
+	'gen9pokeathlon': '1aS2bM27i28iJWG5MSmxmzTNP0_NkAEPpbUgw6SHFa6k',
+};
 
 function formatDex(pokedex) {
 	let data = pokedex.data.values;
@@ -139,18 +79,19 @@ function formatBans(bans) {
 }
 
 exports.update = async () => {
-	if (!auth || !connection) return;
+	const key = require('../config/config').googleSheetsKey;
+	if (!key || !key.client_email || !key.private_key) return;
 
-	for (const sheet of allFormats) {
-		const dex = await pullFormat(sheet.id, 'Pokedex');
-		const bans = await pullFormat(sheet.id, 'Formats');
+	const auth = new google.auth.JWT(key.client_email, null, key.private_key.replace(/\\n/g, '\n'), 'https://www.googleapis.com/auth/spreadsheets');
+	const connection = google.sheets({version: 'v4', auth: auth});
 
-		const out = {
-			dex: formatDex(dex),
-			banlists: formatBans(bans),
-		};
-
-		fs.writeFileSync(path.resolve(__dirname, '../data/mods/' + sheet.mod + '/remote.json'), JSON.stringify(out, null, '\t'));
+	let randbats = {};
+	const formats = (await connection.spreadsheets.get({spreadsheetId: randbatsSheet})).data.sheets.map((sheet) => sheet.properties.title);
+	
+	for (const format of formats) {
+		const data = (await connection.spreadsheets.values.get({spreadsheetId: randbatsSheet, range: `${format}!A1:ZZ`})).data.values;
+		randbats[format] = data;
 	}
-	await pullRandbats(randbats);
+
+	fs.writeFileSync(path.resolve(__dirname, '../data/remote/randbats.json'), JSON.stringify(randbats), { flag: "w" });
 }

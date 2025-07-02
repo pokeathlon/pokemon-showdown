@@ -947,7 +947,7 @@ const cutDex: {[k: string]: number} = {
 for (const key in {...Base, ...Pokedex}) {
 	const id = key as keyof typeof Base;
 	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
-	Pokedex[id] = {...Pokedex[id], isNonstandard: "Unobtainable", num: 0};
 
 	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
+	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
 }

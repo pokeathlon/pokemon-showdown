@@ -1,9 +1,6 @@
 /config/*
 !/config/*formats.ts
-/data/mods/*/remote.json
-/data/random-battles/gen9chaos/data.json
-/data/random-battles/gen7infinitefusion/data.json
-/data/random-battles/gen9mariomon/data.json
+data/remote/*.json
 server/static/replays/*.html
 server/static/replays/*.json
 server/static/replays/*.log

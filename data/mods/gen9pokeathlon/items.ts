@@ -1,6 +1,3 @@
-import { fail } from 'assert';
-import { getBattleLog } from '../../../server/chat-plugins/helptickets';
-
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
 	fullincense: {
