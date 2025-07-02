@@ -135,7 +135,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
+		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	goomba: {
@@ -1573,7 +1574,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
+		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	minion: {
@@ -1633,7 +1635,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
+		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
 	handfake: {
@@ -1924,7 +1927,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "RU",
+		tier: "OU",
+		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	toady: {
@@ -2161,7 +2165,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "RU",
+		tier: "OU",
+		natDexTier: "RU",
 		doublesTier: "(DUU)",
 	},
 	jabble: {
