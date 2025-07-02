@@ -674,7 +674,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
-		banlist: ['ND Uber', 'ND AG'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+		],
 	},
 	{
 		name: "[Gen 9] PoA Ubers",
@@ -690,7 +695,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
-		banlist: ['ND Uber', 'ND AG', 'ND OU'],
+		banlist: [
+			'ND Uber', 'ND AG', 'ND OU',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+		],
 	},
 	{
 		name: "[Gen 9] PoA LC",
@@ -709,63 +719,36 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 
 	{
-		section: "Pokéathlon: Gen 2",
+		section: "Pokéathlon: Season 2",
 		column: 3,
 	},
 	{
-		name: "[Gen 9] [Gen 2] PoA Dex OU",
-
-		mod: 'gen9pokeathlon2',
-		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
-		banlist: [
-			'ND Uber', 'ND AG',
-			'ability:arenatrap', 'ability:shadowtag',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
-			'move:batonpass',
-		],
-	},
-	{
-		name: "[Gen 9] [Gen 2] PoA Dex UU",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon2',
-		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG'],
-	},
-	{
-		name: "[Gen 9] [Gen 2] PoA Dex AG",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon2',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Species Reveal Clause'],
-	},
-
-	{
-		section: "Pokéathlon: Gen 1",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] [Gen 1] PoA Dex OU",
+		name: "[Gen 9] PoA Season 2 OU",
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
-			'ability:arenatrap', 'ability:shadowtag',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang',
-			'move:batonpass',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
 		],
 	},
 	{
-		name: "[Gen 9] [Gen 1] PoA Dex UU",
+		name: "[Gen 9] PoA Season 2 UU",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
-		banlist: ['OU', 'UUBL', 'Uber', 'AG'],
+		banlist: [
+			'OU', 'UUBL', 'Uber', 'AG',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+		],
 	},
 	{
-		name: "[Gen 9] [Gen 1] PoA Dex AG",
+		name: "[Gen 9] PoA Season 2 AG",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
@@ -785,15 +768,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
 	},
 	{
-		name: "[Gen 9] [Gen 2] PoA Doubles AG",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon2',
-		gameType: 'doubles',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Species Reveal Clause'],
-	},
-	{
-		name: "[Gen 9] [Gen 1] PoA Doubles AG",
+		name: "[Gen 9] PoA S2 Doubles AG",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
@@ -820,7 +795,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'PoA Same Type Clause', 'Species Reveal Clause'],
-		banlist: [],
+		banlist: [
+			'pokemon:berserkergene', 'pokemon:electrodemega', 'pokemon:florgesmega', 'pokemon:snorlaxfrostmega', 'pokemon:sceptiledeltamega', 'pokemon:blazikendeltamega', 'pokemon:suicunesupra',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+		],
 	},
 	{
 		name: "[Gen 9] PoA Custom Game",

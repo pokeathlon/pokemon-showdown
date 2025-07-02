@@ -40,7 +40,6 @@ export class RandomPOATeams extends RandomTeams {
 		if (pokemon.length < this.maxTeamSize && pokemon.length < 12) {
 			throw new Error(`Could not build a random team for ${this.format} (seed=${seed})`);
 		}
-		console.log(pokemon);
 		return pokemon;
 	}
 }

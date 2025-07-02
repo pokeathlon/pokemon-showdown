@@ -181,6 +181,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasItem('doubledip') && pokemon.useItem()) {
 						this.battle.actions.useMove(move, pokemon);
 					}
+					if (!move.ohko && pokemon.hasAbility('pixelperfect')) {
+						this.battle.boost({ accuracy: 1 }, pokemon);
+					}
 					hitResults[i] = false;
 					continue;
 				}
