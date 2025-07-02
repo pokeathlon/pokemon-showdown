@@ -5064,7 +5064,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trick: ["9M"],
 		},
 	},
-	sprangler: {
+	spangler: {
 		learnset: {
 			absorb: ["9L5"],
 			acrobatics: ["9M"],
