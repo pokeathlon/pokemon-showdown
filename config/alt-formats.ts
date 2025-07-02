@@ -282,7 +282,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
 		banlist: [
 			'move:hiddenpower', 'move:lastrespects', 'move:shedtail', 'move:revivalblessing', 'move:nanorepair', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'ability:powerconstruct', 'ability:winterjoy', 
-			'Emolga-Delta+Blaze Boost', 'Blastoise-Mega+Shell Smash', 'Regurgitation+Rock Blast', 'Parental Bond+Seismic Toss', 'Parental Bond+Night Shade', 
+			'Emolga-Delta+Blaze Boost', 'Blastoise-Mega+Shell Smash', 'Parental Bond+Seismic Toss', 'Parental Bond+Night Shade', 
 		],
 	},
 	{
