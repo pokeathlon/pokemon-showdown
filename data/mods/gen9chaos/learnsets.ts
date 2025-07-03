@@ -9904,6 +9904,5 @@ for (const mod in require('./mods.json')) {
 				)
 			);
 		}
-
 	}
 }

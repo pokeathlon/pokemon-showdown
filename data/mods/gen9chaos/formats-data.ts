@@ -149,6 +149,34 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	mew: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	togekiss: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	regigigas: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	meloettapirouette: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	garchomp: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	garchompmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	aggronmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	dragapult: {
 		inherit: true,
 		natDexTier: "OU",
@@ -402,14 +430,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	regicedelta: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	garchomp: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	garchompmega: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -2014,10 +2034,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	lilliganthisui: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	mew: {
 		inherit: true,
 		natDexTier: "RU",
 	},

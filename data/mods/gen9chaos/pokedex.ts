@@ -1,13 +1,10 @@
 // @ts-nocheck
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
+import { Abilities } from '../../abilities';
 import { ModdedSpeciesDataTable } from '../../../sim/dex-species';
 
 export const Pokedex: ModdedSpeciesDataTable = {
-	darkrai: {
-		inherit: true,
-		abilities: {0: "Bad Dreams", 1: "White Smoke", H: "Absolution"},
-	},
 
 	// POA
 	///////////////////////////////////////////////////////////////////
@@ -2117,6 +2114,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 };
 
 const Manual = Utils.deepClone(Pokedex);
+const BaseAbilities = Object.keys(Abilities).map(ability => Abilities[ability].name);
 for (const mod in require('./mods.json')) {
 	const ModPokedex = require('../' + mod + '/pokedex').Pokedex as ModdedSpeciesDataTable;
 
@@ -2126,16 +2124,25 @@ for (const mod in require('./mods.json')) {
 		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
 		
 		for (const attr in ModPokedex[id]) {
-			if (['inherit', 'isNonstandard', 'gen'].includes(attr)) continue;
-			if (!['evos'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (['inherit', 'isNonstandard'].includes(attr)) continue;
+			if (!['evos', 'abilities'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) {console.log(`\nUnresolved collision at ${id}, ${attr}.`); console.log(Pokedex[id]); console.log(ModPokedex[id])}
 			else {
-				if (attr === 'abilities') {
-					if (
-						!Base[id] ||
-						Object.keys(Base[id].abilities).every(
-							(ability) => Base[id].abilities[ability] === ModPokedex[id].abilities[ability]
+				if (attr === 'abilities' && (!Manual[id] || !Manual[id][attr])) {
+					if (!Base[id]) Pokedex[id].abilities = ModPokedex[id].abilities;
+					else {
+						Pokedex[id].abilities = Base[id].abilities;
+						Object.keys({0: null, 1: null, H: null, S: null}).forEach(
+							(ability) => {
+								if (!ModPokedex[id].abilities[ability]) return;
+								if (!Pokedex[id].abilities[ability]) {
+									Pokedex[id].abilities[ability] = ModPokedex[id].abilities[ability];
+								}
+								if (!BaseAbilities.includes(ModPokedex[id].abilities[ability])) {
+									Pokedex[id].abilities[ability] = ModPokedex[id].abilities[ability];
+								}
+							}
 						)
-					) Pokedex[id].abilities = ModPokedex[id].abilities;
+					}
 				} else if (attr === 'evos') {
 					if (!Pokedex[id].evos) Pokedex[id] = {...Pokedex[id], evos: ModPokedex[id].evos};
 					else Pokedex[id].evos.push(...ModPokedex[id].evos);
