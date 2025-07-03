@@ -1,4 +1,4 @@
-import {FormatsData as Base} from '../../formats-data';
+import {Pokedex as Base} from '../gen9chaos/pokedex';
 
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	aviotion: {

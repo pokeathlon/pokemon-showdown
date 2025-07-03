@@ -2126,7 +2126,7 @@ for (const mod in require('./mods.json')) {
 		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
 		
 		for (const attr in ModPokedex[id]) {
-			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
+			if (['inherit', 'isNonstandard', 'gen'].includes(attr)) continue;
 			if (!['evos'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
 				if (attr === 'abilities') {

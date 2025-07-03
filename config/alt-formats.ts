@@ -723,7 +723,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
-		name: "[Gen 9] PoA Season 2 OU",
+		name: "[Gen 9] PoA OU S2",
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
@@ -735,7 +735,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] PoA Season 2 UU",
+		name: "[Gen 9] PoA UU S2",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
@@ -748,7 +748,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] PoA Season 2 AG",
+		name: "[Gen 9] PoA AG S2",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
@@ -768,7 +768,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
 	},
 	{
-		name: "[Gen 9] PoA S2 Doubles AG",
+		name: "[Gen 9] PoA Doubles AG S2",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
