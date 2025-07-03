@@ -2519,6 +2519,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	greninjaash: {
+		inherit: true,
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		natDexTier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	wimpod: {
 		inherit: true,
 		tier: "LC",

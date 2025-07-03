@@ -14,6 +14,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return null;
 		},
 	},
+	sizzlyslide: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	// Additions
 	hammerthrow: {
