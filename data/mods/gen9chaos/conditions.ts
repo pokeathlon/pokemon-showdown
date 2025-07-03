@@ -6,6 +6,20 @@ import { ModdedConditionDataTable } from '../../../sim/dex-conditions';
 import { treasures } from './abilities';
 
 export const Conditions: ModdedConditionDataTable = {
+	arceus: {
+		inherit: true,
+		onType(types, pokemon) {
+			if (pokemon.fusion || pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
+			let type: string | undefined = 'Normal';
+			if (pokemon.ability === 'multitype') {
+				type = pokemon.getItem().onPlate;
+				if (!type) {
+					type = 'Normal';
+				}
+			}
+			return [type];
+		},
+	},
 
 	// POA
 	///////////////////////////////////////////////////////////////////

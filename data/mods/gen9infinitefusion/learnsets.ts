@@ -30,6 +30,10 @@ function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 }
 
 export const Learnsets: ModdedLearnsetDataTable = {
+	// Modded
+	meloettapirouette: Base.meloetta,
+
+	// Additions
 	bulbmantle: combineLearnsets
 	(
 		baseLearnsets.bulbasaur,
