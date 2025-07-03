@@ -161,6 +161,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	harportia: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	meloettapirouette: {
 		inherit: true,
 		natDexTier: "OU",
@@ -193,10 +197,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
-	serperiordelta: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	vespiquendelta: {
 		inherit: true,
 		natDexTier: "OU",
@@ -218,10 +218,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 	},
 	blissey: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	harportia: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -364,6 +360,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	gyaradosmega: {
 		inherit: true,
 		natDexTier: "UUBL",
+	},
+	serperiordelta: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	gholdengo: {
 		inherit: true,
