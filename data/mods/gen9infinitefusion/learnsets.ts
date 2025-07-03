@@ -201,10 +201,11 @@ for (const key in Child) {
 	Learnsets[id] = {inherit: true, learnset: {...Base[id].learnset}};
 	if (!Learnsets[id].learnset) continue;
 
+	console.log(id);
 	for (const movekey in Child[id].learnset) {
 		const moveid = movekey as IDEntry;
 
-		if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
+		if (!Learnsets[id].learnset[moveid]) {console.log('\t' + moveid); Learnsets[id].learnset[moveid] = [];}
 		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid]);
 	}
 }

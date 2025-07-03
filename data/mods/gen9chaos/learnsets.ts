@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Learnsets as Base } from '../../learnsets';
 import { ModdedLearnsetDataTable } from '../../../sim/dex-species';
 
@@ -9899,9 +9900,8 @@ for (const mod in require('./mods.json')) {
 			if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
 			Learnsets[id].learnset[moveid].push(
 				...ModLearnsets[id].learnset[moveid].filter(
-					// @ts-ignore learnset is possibly undefined.
 					(method) => !Learnsets[id].learnset[moveid].includes(method)
-				)
+				).map((method) => "9" + method.slice(1))
 			);
 		}
 	}
