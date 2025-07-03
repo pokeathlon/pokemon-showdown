@@ -28,7 +28,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	braskeptic: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
@@ -139,7 +139,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	golisopodshogun: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
@@ -175,7 +175,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	hydroupa: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
@@ -273,7 +273,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mjochiin: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
@@ -558,7 +558,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	calobera: {
 		inherit: true,
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
@@ -585,7 +585,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	magnetonterof: {
 		inherit: true,
-		tier: "RU",
+		tier: "OU",
 		natDexTier: "RU",
 		isNonstandard: null,
 	},

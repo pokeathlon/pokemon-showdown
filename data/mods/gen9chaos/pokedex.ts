@@ -2125,7 +2125,7 @@ for (const mod in require('./mods.json')) {
 		
 		for (const attr in ModPokedex[id]) {
 			if (['inherit', 'isNonstandard'].includes(attr)) continue;
-			if (!['evos', 'abilities'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) {console.log(`\nUnresolved collision at ${id}, ${attr}.`); console.log(Pokedex[id]); console.log(ModPokedex[id])}
+			if (!['evos', 'abilities'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
 				if (attr === 'abilities' && (!Manual[id] || !Manual[id][attr])) {
 					if (!Base[id]) Pokedex[id].abilities = ModPokedex[id].abilities;
