@@ -366,7 +366,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Mariomon LC",
-		searchShow: false,
 
 		mod: 'gen9mariomon',
 		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
