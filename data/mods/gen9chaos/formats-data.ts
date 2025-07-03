@@ -151,15 +151,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mew: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	togekiss: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	regigigas: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	meloettapirouette: {
 		inherit: true,
@@ -249,6 +249,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	chatotmega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	roseradedelta: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -294,10 +298,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UUBL",
 	},
 	medichamdeltamega: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
-	chatotmega: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
@@ -360,6 +360,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ironvaliant: {
 		inherit: true,
 		natDexTier: "UUBL",
+	},
+	gyaradosmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	gholdengo: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	piximon: {
 		inherit: true,
@@ -802,10 +810,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	greninjabond: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	gyaradosmega: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -2285,7 +2289,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	arghonaut: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	nohface: {
 		inherit: true,
