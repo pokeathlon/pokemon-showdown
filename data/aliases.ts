@@ -1041,7 +1041,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	fini: "Tapu Fini",
 	floon: "Drifloon",
 	florg: "Florges",
-	foo: "Mienfoo",
+	// foo: "Mienfoo",
 	foon: "Foongus",
 	forry: "Forretress",
 	frill: "Frillish",
