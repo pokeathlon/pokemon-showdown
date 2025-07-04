@@ -2602,6 +2602,6 @@ for (const key in {...Base, ...Pokedex}) {
 	const id = key as keyof typeof Base;
 	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
 
-	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 9};
+	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, gen: 9};
 	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
 }
