@@ -127,6 +127,8 @@ const hostQueue: ID[] = [];
 
 const IDEA_TIMER = 60 * 1000;
 
+const MAX_ROLE_LENGTH = 1000;
+
 function readFile(path: string) {
 	try {
 		const json = FS(path).readIfExistsSync();
@@ -405,7 +407,7 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 			this.roles.push(player.role);
 			this.played.push(player.id);
 		} else {
-			// TODO improve reseting roles
+			// TODO improve resetting roles
 			this.originalRoles = [];
 			this.originalRoleString = '';
 			this.roles = [];
@@ -443,7 +445,7 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 		return Punishments.hasRoomPunishType(room, toID(user), 'MAFIAGAMEBAN');
 	}
 
-	static gameBan(room: Room, user: User, reason: string, duration: number) {
+	static gameBan(room: Room, user: User | ID, reason: string, duration: number) {
 		Punishments.roomPunish(room, user, {
 			type: 'MAFIAGAMEBAN',
 			id: toID(user),
@@ -457,10 +459,10 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 	}
 
 	static isHostBanned(room: Room, user: User) {
-		return Mafia.isGameBanned(room, user) || Punishments.hasRoomPunishType(room, toID(user), 'MAFIAGAMEBAN');
+		return Mafia.isGameBanned(room, user) || Punishments.hasRoomPunishType(room, toID(user), 'MAFIAHOSTBAN');
 	}
 
-	static hostBan(room: Room, user: User, reason: string, duration: number) {
+	static hostBan(room: Room, user: User | ID, reason: string, duration: number) {
 		Punishments.roomPunish(room, user, {
 			type: 'MAFIAHOSTBAN',
 			id: toID(user),
@@ -518,6 +520,9 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 		} else {
 			this.theme = null;
 		}
+
+		if (Math.max(...roles.map(role => role.length)) > MAX_ROLE_LENGTH)
+			return this.sendUser(user, `|error|Some role exceeds the maximum role length of ${MAX_ROLE_LENGTH}.`);
 
 		if (roles.length < this.playerCount) {
 			return this.sendUser(user, `|error|You have not provided enough roles for the players.`);
@@ -593,12 +598,20 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 	}
 
 	resetGame() {
+		if (this.playerCount > this.originalRoles.length) {
+			throw new Chat.ErrorMessage("Please set at least as many roles as there are players to run this command.");
+		}
 		this.clearVotes();
 		this.dayNum = 0;
 		this.phase = 'night';
 		for (const hostid of [...this.cohostids, this.hostid]) {
 			const host = Users.get(hostid);
-			if (host?.connected) host.send(`>${this.room.roomid}\n|notify|It's night in your game of Mafia!`);
+			if (host?.connected) {
+				if (this.playerCount < this.originalRoles.length) {
+					this.sendUser(host, `More roles exist than players. Not all roles in the rolelist were distributed.`);
+				}
+				host.send(`>${this.room.roomid}\n|notify|It's night in your game of Mafia!`);
+			}
 		}
 		for (const player of this.players) {
 			const user = Users.get(player.id);
@@ -610,8 +623,8 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 		}
 
 		if (this.timer) this.setDeadline(0);
-		this.sendDeclare(`The game has been reset.`);
 		this.distributeRoles();
+		this.sendDeclare(`The game has been reset.`);
 		if (this.takeIdles) {
 			this.sendDeclare(`Night ${this.dayNum}. Submit whether you are using an action or idle. If you are using an action, DM your action to the host.`);
 		} else {
@@ -641,8 +654,8 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 			.split(' ')
 			.map(toID);
 
-		let iters = 0;
 		outer: while (roleWords.length) {
+			let iters = 0;
 			const currentWord = roleWords.slice();
 
 			while (currentWord.length) {
@@ -735,10 +748,11 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 	}
 
 	distributeRoles() {
-		const roles = Utils.shuffle(this.roles.slice());
+		const roles = Utils.shuffle(this.originalRoles.slice());
 		if (roles.length) {
 			for (const p of this.players) {
-				const role = roles.shift()!;
+				const role = roles.shift();
+				if (!role) throw new Error(`Ran out of roles.`);
 				p.role = role;
 				const u = Users.get(p.id);
 				p.revealed = '';
@@ -1667,13 +1681,14 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 			if (this.hostid === id) throw new Chat.ErrorMessage(`${targetString} the host.`);
 			if (this.cohostids.includes(id)) throw new Chat.ErrorMessage(`${targetString} a cohost.`);
 		}
-
-		for (const alt of user.getAltUsers(true)) {
-			if (!force && (this.getPlayer(alt.id) || this.played.includes(alt.id))) {
-				throw new Chat.ErrorMessage(`${self ? `You already have` : `${user.id} already has`} an alt in the game.`);
-			}
-			if (this.hostid === alt.id || this.cohostids.includes(alt.id)) {
-				throw new Chat.ErrorMessage(`${self ? `You have` : `${user.id} has`} an alt as a game host.`);
+		if (!force) {
+			for (const alt of user.getAltUsers(true)) {
+				if (this.getPlayer(alt.id) || this.played.includes(alt.id)) {
+					throw new Chat.ErrorMessage(`${self ? `You already have` : `${user.id} already has`} an alt in the game.`);
+				}
+				if (this.hostid === alt.id || this.cohostids.includes(alt.id)) {
+					throw new Chat.ErrorMessage(`${self ? `You have` : `${user.id} has`} an alt as a game host.`);
+				}
 			}
 		}
 	}
@@ -1854,7 +1869,7 @@ class Mafia extends Rooms.RoomGame<MafiaPlayer> {
 		this.sendHTML(this.roomWindow());
 		this.updatePlayers();
 		if (this.room.roomid === 'mafia' && this.started) {
-			// Intead of using this.played, which shows players who have subbed out as well
+			// Instead of using this.played, which shows players who have subbed out as well
 			// We check who played through to the end when recording playlogs
 			const played = this.players.map(p => p.id);
 			const month = new Date().toLocaleString("en-us", { month: "numeric", year: "numeric" });
@@ -2111,12 +2126,12 @@ export const pages: Chat.PageTable = {
 			}
 			buf += `<p><details><summary class="button" style="text-align:left; display:inline-block">How to setup roles</summary>`;
 			buf += `<h3>Setting the roles</h3>`;
-			buf += `<p>To set the roles, use /mafia setroles [comma seperated list of roles] OR /mafia setroles [theme] in ${room.title}.</p>`;
+			buf += `<p>To set the roles, use /mafia setroles [comma separated list of roles] OR /mafia setroles [theme] in ${room.title}.</p>`;
 			buf += `<p>If you set the roles from a theme, the role parser will get all the correct roles for you. (Not all themes are supported).</p>`;
 			buf += `<p>The following key words determine a role's alignment (If none are found, the default alignment is town):</p>`;
 			buf += `<p style="font-weight:bold">${Object.values(MafiaData.alignments).map(a => `<span style="color:${a.color || '#FFF'}">${a.name}</span>`).join(', ')}</p>`;
 			buf += `<p>Please note that anything inside (parentheses) is ignored by the role parser.</p>`;
-			buf += `<p>If you have roles that have conflicting alignments or base roles, you can use /mafia forcesetroles [comma seperated list of roles] to forcibly set the roles.</p>`;
+			buf += `<p>If you have roles that have conflicting alignments or base roles, you can use /mafia forcesetroles [comma separated list of roles] to forcibly set the roles.</p>`;
 			buf += `<p>Please note that you will have to PM all the players their alignment, partners (if any), and other information about their role because the server will not provide it.</p>`;
 			buf += `<hr/></details></p>`;
 			buf += `<p style="font-weight:bold;">Players who will be subbed unless they talk: ${game.hostRequestedSub.join(', ')}</p>`;
@@ -2352,7 +2367,7 @@ export const commands: Chat.ChatCommands = {
 			room = this.requireRoom();
 			const game = this.requireGame(Mafia);
 			if (game.hostid !== user.id && !game.cohostids.includes(user.id)) this.checkCan('mute', null, room);
-			if (game.phase !== 'signups') throw new Chat.ErrorMessage(`Signups are already closed.`);
+			if (game.started) throw new Chat.ErrorMessage(`The game already started.`);
 			const num = parseInt(target);
 			if (isNaN(num) || num > 50 || num < 2) return this.parse('/help mafia playercap');
 			if (num < game.playerCount) {
@@ -2764,7 +2779,10 @@ export const commands: Chat.ChatCommands = {
 				if (!args[0]) {
 					return this.parse('/help mafia revealas');
 				} else {
-					revealedRole = Mafia.parseRole(args.pop()!);
+					const roleName = args.pop()!.trim();
+					if (roleName.length > MAX_ROLE_LENGTH)
+						return this.sendReply(`|error|Role exceeds the maximum role length of ${MAX_ROLE_LENGTH}.`);
+					revealedRole = Mafia.parseRole(roleName);
 					const color = MafiaData.alignments[revealedRole.role.alignment].color;
 					revealAs = `<span style="font-weight:bold;color:${color}">${revealedRole.role.safeName}</span>`;
 				}
@@ -2852,6 +2870,9 @@ export const commands: Chat.ChatCommands = {
 			const targetUser = Users.get(target);
 			if (!targetUser) {
 				throw new Chat.ErrorMessage(`The user "${target}" was not found.`);
+			}
+			if (game.playerCount >= game.playerCap) {
+				throw new Chat.ErrorMessage(`The game is full. Please change the playercap first.`);
 			}
 			game.join(targetUser, user, cmd === 'forceadd');
 		},
@@ -3436,6 +3457,10 @@ export const commands: Chat.ChatCommands = {
 				throw new Chat.ErrorMessage(`${targetUser.name} cannot become a host because they are playing.`);
 			}
 
+			if (Mafia.isHostBanned(room, targetUser)) {
+				throw new Chat.ErrorMessage(`${targetUser.name} is banned from hosting mafia games.`);
+			}
+
 			if (game.subs.includes(targetUser.id)) game.subs.splice(game.subs.indexOf(targetUser.id), 1);
 			if (cmd.includes('cohost')) {
 				game.cohostids.push(targetUser.id);
@@ -3461,7 +3486,7 @@ export const commands: Chat.ChatCommands = {
 				this.modlog('MAFIASUBHOST', targetUser, `replacing ${oldHostid}`, { noalts: true, noip: true });
 			}
 		},
-		subhosthelp: [`/mafia subhost [user] - Substitues the user as the new game host.`],
+		subhosthelp: [`/mafia subhost [user] - Substitutes the user as the new game host.`],
 		cohosthelp: [
 			`/mafia cohost [user] - Adds the user as a cohost. Cohosts can talk during the game, as well as perform host actions.`,
 		],
@@ -3750,14 +3775,17 @@ export const commands: Chat.ChatCommands = {
 			} else if (Punishments.hasRoomPunishType(room, userid, `MAFIAGAMEBAN`)) {
 				throw new Chat.ErrorMessage(`User '${targetUser.name}' is already gamebanned in this room, which also means they can't host.`);
 			} else if (Punishments.hasRoomPunishType(room, userid, `MAFIAHOSTBAN`)) {
-				user.sendTo(room, `User '${targetUser.name}' is already hostbanned in this room, but they will now be gamebanned.`);
-				this.parse(`/mafia unhostban ${targetUser.name}`);
+				user.sendTo(room, `User '${targetUser.name}' is already hostbanned in this room, but they will now be gamebanned too.`);
 			}
 
 			if (cmd === 'hostban') {
 				Mafia.hostBan(room, targetUser, reason, duration);
 			} else {
 				Mafia.gameBan(room, targetUser, reason, duration);
+			}
+
+			if (targetUser.id in room.users) {
+				targetUser.popup(`|modal|${user.name} has ${cmd}ned you in ${room.roomid} for ${Chat.toDurationString(duration * 60 * 60 * 24 * 1000)}. ${reason}`);
 			}
 
 			this.modlog(`MAFIA${cmd.toUpperCase()}`, targetUser, reason);
@@ -3771,6 +3799,61 @@ export const commands: Chat.ChatCommands = {
 		ban: 'gamebanhelp',
 		banhelp: 'gamebanhelp',
 		gamebanhelp() {
+			this.parse('/mafia hostbanhelp');
+		},
+
+		gamebanname: 'namehostban',
+		namegameban: 'namehostban',
+		hostbanname: 'namehostban',
+		namehostban(target, room, user, connection, cmd) {
+			if (!target) return this.parse('/help mafia namehostban');
+			room = this.requireRoom();
+			this.checkCan('warn', null, room);
+
+			const [targetUser, rest] = this.splitOne(target);
+			const [string1, string2] = this.splitOne(rest);
+			let duration, reason;
+			if (parseInt(string1)) {
+				duration = parseInt(string1);
+				reason = string2;
+			} else {
+				duration = parseInt(string2);
+				reason = string1;
+			}
+
+			if (!duration) duration = 2;
+			if (!reason) reason = '';
+			if (reason.length > 300) {
+				throw new Chat.ErrorMessage("The reason is too long. It cannot exceed 300 characters.");
+			}
+
+			const userid = toID(targetUser);
+			const commandType = cmd.includes('hostban') ? 'hostban' : 'gameban';
+			if (Punishments.hasRoomPunishType(room, userid, `MAFIA${commandType.toUpperCase()}`)) {
+				throw new Chat.ErrorMessage(`User '${targetUser}' is already ${commandType}ned in this room.`);
+			} else if (Punishments.hasRoomPunishType(room, userid, `MAFIAGAMEBAN`)) {
+				throw new Chat.ErrorMessage(`User '${targetUser}' is already gamebanned in this room, which also means they can't host.`);
+			} else if (Punishments.hasRoomPunishType(room, userid, `MAFIAHOSTBAN`)) {
+				user.sendTo(room, `User '${targetUser}' is already hostbanned in this room, but they will now be gamebanned too.`);
+			}
+
+			if (cmd.includes('hostban')) {
+				Mafia.hostBan(room, userid, reason, duration);
+			} else {
+				Mafia.gameBan(room, userid, reason, duration);
+			}
+
+			this.modlog(`MAFIA${cmd.toUpperCase()}`, targetUser, reason);
+			this.privateModAction(`${targetUser} was (name)banned from ${cmd.includes('hostban') ? 'hosting' : 'playing'} mafia games by ${user.name}.`);
+		},
+		namehostbanhelp: [
+			`/mafia hostbanname [user], [reason], [duration] - Ban a username from hosting games for [duration] days. Requires % @ # ~`,
+			`/mafia gamebanname [user], [reason], [duration] - Ban a username from playing games for [duration] days. Requires % @ # ~`,
+		],
+
+		nameban: 'namegamebanhelp',
+		namebanhelp: 'namegamebanhelp',
+		namegamebanhelp() {
 			this.parse('/mafia hostbanhelp');
 		},
 
@@ -4113,7 +4196,7 @@ export const commands: Chat.ChatCommands = {
 			`/mafia players - Display the current list of players, will highlight players.`,
 			`/mafia [rl|orl] - Display the role list or the original role list for the current game.`,
 			`/mafia data [alignment|role|modifier|theme|term] - Get information on a mafia alignment, role, modifier, theme, or term.`,
-			`/mafia subhost [user] - Substitues the user as the new game host. Requires % @ # ~`,
+			`/mafia subhost [user] - Substitutes the user as the new game host. Requires % @ # ~`,
 			`/mafia (un)cohost [user] - Adds/removes the user as a cohost. Cohosts can talk during the game, as well as perform host actions. Requires % @ # ~`,
 			`/mafia [enable|disable] - Enables/disables mafia in this room. Requires # ~`,
 		].join('<br/>');
@@ -4143,8 +4226,8 @@ export const commands: Chat.ChatCommands = {
 			`/mafia votelock [on|off] - Allows or disallows players to change their vote. Requires host % @ # ~`,
 			`/mafia voting [on|off] - Allows or disallows voting. Requires host % @ # ~`,
 			`/mafia forcevote [yes/no] - Forces players' votes onto themselves, and prevents unvoting. Requires host % @ # ~`,
-			`/mafia setroles [comma seperated roles] - Set the roles for a game of mafia. You need to provide one role per player. Requires host % @ # ~`,
-			`/mafia forcesetroles [comma seperated roles] - Forcibly set the roles for a game of mafia. No role PM information or alignment will be set. Requires host % @ # ~`,
+			`/mafia setroles [comma separated roles] - Set the roles for a game of mafia. You need to provide one role per player. Requires host % @ # ~`,
+			`/mafia forcesetroles [comma separated roles] - Forcibly set the roles for a game of mafia. No role PM information or alignment will be set. Requires host % @ # ~`,
 			`/mafia start - Start the game of mafia. Signups must be closed. Requires host % @ # ~`,
 			`/mafia [day|night] - Move to the next game day or night. Requires host % @ # ~`,
 			`/mafia extend (minutes) - Return to the previous game day. If (minutes) is provided, set the deadline for (minutes) minutes. Requires host % @ # ~`,
@@ -4162,7 +4245,7 @@ export const commands: Chat.ChatCommands = {
 			`/mafia (un)[priest|actor] [player] - Makes [player] a priest (can't hammer) or actor (can only hammer). Requires host % @ # ~`,
 			`/mafia deadline [minutes|off] - Sets or removes the deadline for the game. Cannot be more than 20 minutes.`,
 			`/mafia sub next, [player] - Forcibly sub [player] out of the game. Requires host % @ # ~`,
-			`/mafia sub remove, [user] - Forcibly remove [user] from the sublist. Requres host % @ # ~`,
+			`/mafia sub remove, [user] - Forcibly remove [user] from the sublist. Requires host % @ # ~`,
 			`/mafia sub unrequest, [player] - Remove's a player's request to sub out of the game. Requires host % @ # ~`,
 			`/mafia sub [player], [user] - Forcibly sub [player] for [user]. Requires host % @ # ~`,
 			`/mafia autosub [yes|no] - Sets if players will automatically sub out if a user is on the sublist. Defaults to yes. Requires host % @ # ~`,

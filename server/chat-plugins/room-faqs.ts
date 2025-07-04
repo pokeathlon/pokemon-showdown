@@ -2,6 +2,7 @@ import { FS, Utils } from '../../lib';
 
 export const ROOMFAQ_FILE = 'config/chat-plugins/faqs.json';
 const MAX_ROOMFAQ_LENGTH = 8192;
+const MAX_HTML_ROOMFAQ_LENGTH = 10000;
 
 export const roomFaqs: { [k: string]: { [k: string]: RoomFAQ } } = (() => {
 	const data = JSON.parse(FS(ROOMFAQ_FILE).readIfExistsSync() || "{}");
@@ -77,8 +78,8 @@ export const commands: Chat.ChatCommands = {
 		if (topic.length > 25) throw new Chat.ErrorMessage("FAQ topics should not exceed 25 characters.");
 
 		const lengthWithoutFormatting = Chat.stripFormatting(text).length;
-		if (lengthWithoutFormatting > MAX_ROOMFAQ_LENGTH) {
-			throw new Chat.ErrorMessage(`FAQ entries must not exceed ${MAX_ROOMFAQ_LENGTH} characters.`);
+		if (lengthWithoutFormatting > (useHTML ? MAX_HTML_ROOMFAQ_LENGTH : MAX_ROOMFAQ_LENGTH)) {
+			throw new Chat.ErrorMessage(`FAQ entries must not exceed ${(useHTML ? MAX_HTML_ROOMFAQ_LENGTH : MAX_ROOMFAQ_LENGTH)} characters.`);
 		} else if (lengthWithoutFormatting < 1) {
 			throw new Chat.ErrorMessage(`FAQ entries must include at least one character.`);
 		}
@@ -165,8 +166,28 @@ export const commands: Chat.ChatCommands = {
 		if (!topic) {
 			return this.parse(`/join view-roomfaqs-${room.roomid}`);
 		}
-		if (!roomFaqs[room.roomid][topic]) throw new Chat.ErrorMessage("Invalid topic.");
 		topic = getAlias(room.roomid, topic) || topic;
+
+		if (!roomFaqs[room.roomid][topic]) {
+		// tries to find a FAQ of same topic if RFAQ topic fails
+			const faqCommand = Chat.commands['faq'] as Chat.ChatHandler;
+			if (typeof faqCommand === 'function') {
+				const normalized = toID(target);
+				const validTopics = [
+					'staff', 'autoconfirmed', 'ac', 'ladder', 'ladderhelp', 'decay',
+					'tiering', 'tiers', 'tier', 'badge', 'badges', 'badgeholders',
+					'rng', 'tournaments', 'tournament', 'tours', 'tour', 'vpn',
+					'proxy', 'ca', 'customavatar', 'customavatars', 'privacy',
+					'lostpassword', 'password', 'lostpass',
+				];
+				if (!validTopics.includes(normalized)) {
+					return this.errorReply(`'${target}' is an invalid topic.`);
+				}
+				if (!this.runBroadcast()) return;
+				return faqCommand.call(this, target, room, user, connection, 'faq', '!');
+			}
+			return this.errorReply("Invalid topic.");
+		}
 
 		if (!this.runBroadcast()) return;
 		const rfaq = roomFaqs[room.roomid][topic];

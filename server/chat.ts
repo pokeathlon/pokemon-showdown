@@ -79,6 +79,7 @@ interface Handlers {
 	onDisconnect: (user: User) => void;
 	onRoomDestroy: (roomid: RoomID) => void;
 	onBattleEnd: (battle: RoomBattle, winner: ID, players: ID[]) => void;
+	onBattleCreate: (battle: RoomBattle, players: ID[]) => void;
 	onLadderSearch: (user: User, connection: Connection, format: ID) => void;
 	onBattleRanked: (
 		battle: Rooms.RoomBattle, winner: ID, ratings: (AnyObject | null | undefined)[], players: ID[]
@@ -493,6 +494,11 @@ export class PageContext extends MessageContext {
 		if (typeof res === 'string') {
 			this.setHTML(res);
 			res = undefined;
+		}
+		if (res === Rooms.RETRY_AFTER_LOGIN) {
+			this.setHTML(
+				`Please log in before accessing this page (don't worry, it will load automatically once you do so).`
+			);
 		}
 		return res;
 	}

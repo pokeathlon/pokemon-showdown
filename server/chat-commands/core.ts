@@ -152,7 +152,7 @@ export const crqHandlers: { [k: string]: Chat.CRQHandler } = {
 		return targetRoom.battle.format;
 	},
 	cmdsearch(target, user, trustable) {
-		// in no world should ths be a thing. our longest command name is 37 chars
+		// in no world should this be a thing. our longest command name is 37 chars
 		if (target.length > 40) return null;
 		const cmdPrefix = target.charAt(0);
 		if (!['/', '!'].includes(cmdPrefix)) return null;
@@ -329,6 +329,7 @@ export const commands: Chat.ChatCommands = {
 	},
 	replyhelp: [`/reply OR /r [message] - Send a message to the last user you got a message from, or sent a message to.`],
 
+	dm: 'msg',
 	pm: 'msg',
 	whisper: 'msg',
 	w: 'msg',

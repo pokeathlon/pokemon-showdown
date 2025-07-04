@@ -104,7 +104,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
-				if (!this.transformed) this.regressionForme = true;
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
@@ -115,6 +114,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!source) {
 					// Tera forme
 					// Ogerpon/Terapagos text goes here
+					this.formeRegression = true;
 				} else if (source.effectType === 'Item') {
 					this.canTerastallize = null; // National Dex behavior
 					if (source.zMove) {
@@ -147,6 +147,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
 						}
 					}
+					this.formeRegression = true;
 				} else if (source.effectType === 'Status') {
 					// Shaymin-Sky -> Shaymin
 					this.battle.add('-formechange', this, species.name, message);
@@ -159,7 +160,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if (isPermanent && (!source || !['disguise', 'iceface', 'proteanmaxima'].includes(source.id))) {
-				if (this.illusion) {
+				if (this.illusion && source) {
+					// Tera forme by Ogerpon or Terapagos breaks the Illusion
 					this.ability = ''; // Don't allow Illusion to wear off
 					this.addVolatile('ability:illusion');
 				}
