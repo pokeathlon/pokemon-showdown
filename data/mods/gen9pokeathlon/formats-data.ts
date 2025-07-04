@@ -585,7 +585,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	magnetonterof: {
 		inherit: true,
-		tier: "OU",
+		tier: "NFE",
 		natDexTier: "RU",
 		isNonstandard: null,
 	},

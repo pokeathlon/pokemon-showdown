@@ -37,10 +37,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				const toadd = this.data.Learnsets[this.toID(prevo)].learnset;
 				for (const move in toadd) {
 					for (const method of toadd[move as keyof typeof toadd]) {
-						if (method.startsWith('6')) {
-							if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
-							if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
-						}
+						if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
+						if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
 					}
 				}
 			}

@@ -1753,7 +1753,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "RU",
+		tier: "LC",
 		doublesTier: "(DUU)",
 	},
 	lubba: {

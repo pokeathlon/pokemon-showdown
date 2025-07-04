@@ -37,6 +37,30 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Psycho Slider", H: "Sharpness"},
 	},
+	donphan: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Momentum", H: "Sand Veil"},
+	},
+	ninjask: {
+		inherit: true,
+		abilities: {0: "Speed Boost", 1: "Momentum", H: "Infiltrator"},
+	},
+	cyclizar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Momentum", H: "Regenerator"},
+	},
+	sharpedo: {
+		inherit: true,
+		abilities: {0: "Rough Skin", 1: "Momentum", H: "Speed Boost"},
+	},
+	copperajah: {
+		inherit: true,
+		abilities: {0: "Sheer Force", 1: "Momentum", H: "Heavy Metal"},
+	},
+	revavroom: {
+		inherit: true,
+		abilities: {0: "Overcoat", 1: "Momentum", H: "Filter"},
+	},
 	purugly: {
 		inherit: true,
 		evos: ["Growlsome"],

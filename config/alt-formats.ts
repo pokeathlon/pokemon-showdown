@@ -369,7 +369,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9mariomon',
 		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
-		banlist: ['pokemon:fighterfly', 'pokemon:gushen', 'pokemon:luma', 'pokemon:koopatroopa', 'move:electrify', 'item:kingsrock'],
+		banlist: ['pokemon:fighterfly', 'pokemon:gushen', 'pokemon:koopatroopa', 'move:electrify', 'item:kingsrock'],
 	},
 	{
 		name: "[Gen 9] Mariomon VGC",
