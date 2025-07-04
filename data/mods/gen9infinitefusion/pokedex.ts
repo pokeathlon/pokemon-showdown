@@ -140,6 +140,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		types: ["Ground", "Ghost"],
 	},
+	sandygast: {
+		inherit: true,
+		types: ["Ground", "Ghost"],
+	},
 	meloettapirouette: {
 		inherit: true,
 		battleOnly: "",
