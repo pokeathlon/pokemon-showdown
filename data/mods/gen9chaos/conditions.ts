@@ -6,6 +6,7 @@ import { ModdedConditionDataTable } from '../../../sim/dex-conditions';
 import { treasures } from './abilities';
 
 export const Conditions: ModdedConditionDataTable = {
+	frz: Base.frz,
 	arceus: {
 		inherit: true,
 		onType(types, pokemon) {

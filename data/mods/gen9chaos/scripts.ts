@@ -202,12 +202,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		ignoringAbility() {
 			if (this.battle.gen >= 5 && !this.isActive) return true;
-	
+
 			// Certain Abilities won't activate while Transformed, even if they ordinarily couldn't be suppressed (e.g. Disguise)
 			if (this.getAbility().flags['notransform'] && this.transformed) return true;
 			if (this.getAbility().flags['cantsuppress']) return false;
 			if (this.volatiles['gastroacid']) return true;
-	
+
 			// Check if any active pokemon have the ability Neutralizing Gas
 			if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID)) return false;
 			for (const pokemon of this.battle.getAllActive()) {
@@ -215,13 +215,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 					return true;
+				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.fusion === 'Super Sonic') && 
+					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending) {
+					return true;
 				}
-				if (
-					pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.fusion === 'Super Sonic')  && 
-					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending
-				) return true;
 			}
-	
+
 			return false;
 		},
 		formeChange(
@@ -239,7 +238,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			const apparentSpecies =
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
-				if (!this.transformed) this.regressionForme = true;
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
@@ -250,6 +248,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!source) {
 					// Tera forme
 					// Ogerpon/Terapagos text goes here
+					this.formeRegression = true;
 				} else if (source.effectType === 'Item') {
 					this.canTerastallize = null; // National Dex behavior
 					if (source.zMove) {
@@ -282,6 +281,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
 						}
 					}
+					this.formeRegression = true;
 				} else if (source.effectType === 'Status') {
 					// Shaymin-Sky -> Shaymin
 					this.battle.add('-formechange', this, species.name, message);
@@ -294,7 +294,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if (isPermanent && (!source || !['disguise', 'iceface', 'proteanmaxima'].includes(source.id))) {
-				if (this.illusion) {
+				if (this.illusion && source) {
+					// Tera forme by Ogerpon or Terapagos breaks the Illusion
 					this.ability = ''; // Don't allow Illusion to wear off
 					this.addVolatile('ability:illusion');
 				}

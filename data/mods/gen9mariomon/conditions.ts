@@ -9,7 +9,6 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
-				target.regressionForme = false;
 			}
 			this.add('-message', 'Freeze is replaced with Frostbite in Super Mariomon (special damage is halved, and 1/16 HP is lost each turn).');
 		},
