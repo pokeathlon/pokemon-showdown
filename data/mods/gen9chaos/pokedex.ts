@@ -2171,7 +2171,7 @@ for (const mod in require('./mods.json')) {
 					if (!Pokedex[id].evos) Pokedex[id] = {...Pokedex[id], evos: ModPokedex[id].evos};
 					else Pokedex[id].evos.push(...ModPokedex[id].evos);
 				} else if (attr === 'baseStats') {
-					if (!ModPokedex[i].inherit) Pokedex[id][attr] = ModPokedex[id][attr];
+					if (!ModPokedex[id].inherit) Pokedex[id][attr] = ModPokedex[id][attr];
 				} else {
 					Pokedex[id][attr] = ModPokedex[id][attr];
 				}
