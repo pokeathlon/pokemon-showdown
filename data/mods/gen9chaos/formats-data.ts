@@ -213,6 +213,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	spiritomb: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	tornadustherian: {
 		inherit: true,
 		natDexTier: "OU",
@@ -251,7 +255,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	roseradedelta: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "OU",
 	},
 	walkingwake: {
 		inherit: true,
@@ -982,10 +986,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	serperiodelta: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	spiritomb: {
 		inherit: true,
 		natDexTier: "UU",
 	},

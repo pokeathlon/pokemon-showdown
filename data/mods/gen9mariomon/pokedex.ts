@@ -44,7 +44,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	blooper: {
@@ -2330,7 +2330,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		gen: 3,
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	hooktail: {
