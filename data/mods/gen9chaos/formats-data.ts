@@ -521,6 +521,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	baariettemega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	moltres: {
 		inherit: true,
 		natDexTier: "UU",
