@@ -31,9 +31,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	// POA
 	///////////////////////////////////////////////////////////////////
 
-	electrode: {inherit: true, learnset: {...Base.meowth.learnset, gigaimpact: ["9M"]}},
-	lunatone: {inherit: true, learnset: {...Base.meowth.learnset, cometstrike: ["9M"]}},
-	solrock: {inherit: true, learnset: {...Base.meowth.learnset, cometstrike: ["9M"]}},
+	electrode: {inherit: true, learnset: {...Base.electrode.learnset, gigaimpact: ["9M"]}},
+	lunatone: {inherit: true, learnset: {...Base.lunatone.learnset, cometstrike: ["9M"]}},
+	solrock: {inherit: true, learnset: {...Base.solrock.learnset, cometstrike: ["9M"]}},
 	meowth: {inherit: true, learnset: {...Base.meowth.learnset, currencyflow: ["9M"]}},
 	meowthalola: {inherit: true, learnset: {...Base.meowthalola.learnset, currencyflow: ["9M"]}},
 	meowthgalar: {inherit: true, learnset: {...Base.meowthgalar.learnset, currencyflow: ["9M"]}},
