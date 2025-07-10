@@ -9085,6 +9085,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			stealthrock: ["9M"],
 			stockpile: ["9M"],
 			substitute: ["9M"],
+			surf: ["9M"],
 			swallow: ["9M"],
 			toxic: ["9M"],
 			withdraw: ["9M"],
@@ -9162,7 +9163,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			tickle: ["9M"],
 			torment: ["9M"],
 			toxic: ["9M"],
-			uturn: ["9M"]
+			uturn: ["9M"],
+			makeitrain: ["9M"],
+			darkpulse: ["9M"],
+			spikes: ["9M"],
         }
 	},
 	poltank: {
@@ -9553,7 +9557,12 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			wrap: ["9M"],
-			zapcannon: ["9M"]
+			zapcannon: ["9M"],
+			chargebeam: ["9M"],
+			overheat: ["9M"],
+			heatwave: ["9M"],
+			psychicnoise: ["9M"],
+			switcheroo: ["9M"],
         }
 	},
 	furumo: {
@@ -9595,7 +9604,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			explosion: ["9M"],
 			selfdestruct: ["9M"],
 			gigaimpact: ["9M"],
-			doubleedge: ["9M"],
 			return: ["9M"],
 			frustration: ["9M"],
 			takedown: ["9M"],
@@ -9694,7 +9702,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			pluck: ["9M"],
 			swift: ["9M"],
 			cut: ["9M"],
-			tailwind: ["9M"]
+			tailwind: ["9M"],
+			spiritsiphon: ["9M"],
+			hiddenpower: ["9M"],
         }
 	},
 	snowlet: {

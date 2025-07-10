@@ -1989,7 +1989,7 @@ export const Moves: ModdedMoveDataTable = {
 	lucky7s: {
 		num: 0,
 		accuracy: 100,
-		basePower: 65,
+		basePower: 70,
 		category: "Special",
 		name: "Lucky 7s",
 		pp: 10,
