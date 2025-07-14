@@ -2546,6 +2546,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	ohmagod: "Plasmanta",
 	plas: "Plasmanta",
 	raja: "Saharaja",
+	ramnarokdormant: "Ramnarok",
 	reve: "Revenankh",
 	roak: "Pyroak",
 	smoko: "Smokomodo",
