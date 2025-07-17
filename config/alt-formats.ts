@@ -677,7 +677,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND Uber', 'ND AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
-			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 		],
 	},
 	{
@@ -730,7 +730,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND Uber', 'ND AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
-			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 		],
 	},
 	{
@@ -743,7 +743,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'OU', 'UUBL', 'Uber', 'AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
-			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 		],
 	},
 	{
