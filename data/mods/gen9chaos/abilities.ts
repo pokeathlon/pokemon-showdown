@@ -1101,7 +1101,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		flags: {breakable: 1},
 		name: "Adaptive Armor",
-		shortDesc: "While user is on the field, resists type of first move user is hit by.",
+		shortDesc: "Takes half damage from moves with the type of first move user is hit by.",
 		rating: 2.5,
 		num: 0,
 	},

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Utils } from '../../../lib';
 import { Moves as Base } from '../../moves';
-import { Moves as POA } from './poa-moves';
+import { Learnsets } from './learnsets';
 import { ModdedMoveDataTable } from '../../../sim/dex-moves';
 
 const removeAllUniversal = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
@@ -2276,6 +2276,8 @@ export const Moves: ModdedMoveDataTable = {
 };
 
 const Manual = Utils.deepClone(Moves);
+const Exists = new Set();
+Object.keys(Learnsets).forEach(pokemon => Object.keys(Learnsets[pokemon].learnset).forEach(item => Exists.add(item)));
 for (const mod in require('./mods.json')) {
 	const ModMoves = require('../' + mod + '/moves').Moves as ModdedMoveDataTable;
 
@@ -2291,5 +2293,11 @@ for (const mod in require('./mods.json')) {
 				Moves[id][attr] = ModMoves[id][attr];
 			}
 		}
+	}
+	for (const key in Moves) {
+		const id = key as keyof typeof Moves;
+		
+		if (Exists.has(id)) Moves[id].isNonstandard = null;
+		else Moves[id].isNonstandard = "Custom";
 	}
 }

@@ -1,16 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
-<<<<<<< HEAD:data/mods/gen9infinitefusion/scripts.ts
-=======
-	// A Pokémon transformed into Ogerpon should accept the Terastallization choice, but not Terastallize
 	actions: {
 		inherit: true,
 		terastallize(pokemon) {
-			if (pokemon.transformed && ['Ogerpon', 'Terapagos'].includes(pokemon.species.baseSpecies)) {
-				this.battle.hint("A Pokémon terastallized into Ogerpon or Terapagos cannot terastallize.");
-				return;
-			}
 			if (pokemon.species.baseSpecies === 'Ogerpon' && !['Fire', 'Grass', 'Rock', 'Water'].includes(pokemon.teraType) &&
 				(!pokemon.illusion || pokemon.illusion.species.baseSpecies === 'Ogerpon')) {
 				this.battle.hint("If Ogerpon Terastallizes into a type other than Fire, Grass, Rock, or Water, the game softlocks.");
@@ -48,7 +41,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},
->>>>>>> smogon/master:data/mods/gen9dlc1/scripts.ts
 	pokemon: {
 		transformInto(pokemon, effect) {
 			const species = pokemon.species;
