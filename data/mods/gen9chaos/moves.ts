@@ -2297,7 +2297,7 @@ for (const mod in require('./mods.json')) {
 	for (const key in Moves) {
 		const id = key as keyof typeof Moves;
 		
-		if (Exists.has(id)) Moves[id].isNonstandard = null;
+		if (Exists.has(id) || id.startsWith('hiddenpower') || id.startsWith('ivycudgel')) Moves[id].isNonstandard = null;
 		else Moves[id].isNonstandard = "Custom";
 	}
 }
