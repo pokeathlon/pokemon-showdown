@@ -7753,7 +7753,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			lockon: ["9L10"],
 			lowsweep: ["9M"],
 			magicalleaf: ["9M"],
-			magicaltorque: ["9L100"],
 			magicroom: ["9M"],
 			megahorn: ["9M"],
 			megakick: ["9M"],
