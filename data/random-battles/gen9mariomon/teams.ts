@@ -5,17 +5,17 @@ import { TeamValidator } from '../../../sim';
 export class RandomMarioTeams extends RandomTeams {
 	randomMarioSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
 	levels: AnyObject = {
-		"AG": 55,
-		"Uber": 60,
-		"(Uber)": 60,
-		"OU": 65,
-		"(OU)": 65,
-		"UUBL": 70,
-		"UU": 70,
-		"RUBL": 75,
-		"RU": 75,
-		"NFE": 80,
-		"LC": 90,
+		"AG": 75,
+		"Uber": 80,
+		"(Uber)": 80,
+		"OU": 85,
+		"(OU)": 85,
+		"UUBL": 90,
+		"UU": 90,
+		"RUBL": 95,
+		"RU": 95,
+		"NFE": 100,
+		"LC": 100,
 	};
 
 	override randomTeam() {
@@ -30,7 +30,7 @@ export class RandomMarioTeams extends RandomTeams {
 			const species = this.dex.species.get(candidate.species);
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
-			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 75;
+			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
 			if (TeamValidator.get('gen9mariomonag').validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 

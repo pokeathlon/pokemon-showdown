@@ -72,7 +72,8 @@ export const Conditions: ModdedConditionDataTable = {
 };
 
 const Manual = Utils.deepClone(Conditions);
-for (const mod in require('./mods.json')) {
+const mods = require('./mods.json');
+for (const mod in mods) {
 	const ModConditions = require('../' + mod + '/conditions').Conditions as ModdedConditionDataTable;
 
 	for (const key in ModConditions) {

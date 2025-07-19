@@ -9895,7 +9895,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 };
 
-for (const mod in require('./mods.json')) {
+const mods = require('./mods.json');
+for (const mod in mods) {
 	const ModLearnsets = require('../' + mod + '/learnsets').Learnsets as ModdedLearnsetDataTable;
 	for (const key in ModLearnsets) {
 		const id = key as keyof typeof ModLearnsets;

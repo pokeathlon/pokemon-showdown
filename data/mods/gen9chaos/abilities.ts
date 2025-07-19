@@ -1175,11 +1175,14 @@ export const Abilities: ModdedAbilityDataTable = {
 };
 
 const Manual = Utils.deepClone(Abilities);
-for (const mod in require('./mods.json')) {
+const mods = require('./mods.json');
+for (const mod in mods) {
 	const ModAbilities = require('../' + mod + '/abilities').Abilities as ModdedAbilityDataTable;
 
 	for (const key in ModAbilities) {
 		const id = key as keyof typeof ModAbilities;
+
+		if (mods[mod]["Abilities"] && mods[mod]["Abilities"].includes(id)) continue;
 
 		if (!Abilities[id]) Abilities[id] = Base[id] ? {inherit: true} : {};
 

@@ -2743,6 +2743,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	ranmarok: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 
 	// Doubles bans
 	arceus: {

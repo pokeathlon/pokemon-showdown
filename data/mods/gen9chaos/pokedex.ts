@@ -2139,13 +2139,16 @@ export const Pokedex: ModdedSpeciesDataTable = {
 
 const Manual = Utils.deepClone(Pokedex);
 const BaseAbilities = Object.keys(Abilities).map(ability => Abilities[ability].name);
-for (const mod in require('./mods.json')) {
+const mods = require('./mods.json');
+for (const mod in mods) {
 	const ModPokedex = require('../' + mod + '/pokedex').Pokedex as ModdedSpeciesDataTable;
 
 	for (const key in ModPokedex) {
 		const id = key as keyof typeof ModPokedex;
 
 		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
+
+		if (mods[mod]["Pokedex"] && mods[mod]["Pokedex"].includes(id)) continue;
 		
 		for (const attr in ModPokedex[id]) {
 			if (['inherit', 'isNonstandard'].includes(attr)) continue;
