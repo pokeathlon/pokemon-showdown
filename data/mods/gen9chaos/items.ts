@@ -324,6 +324,7 @@ export const Items: ModdedItemDataTable = {
 
 const Manual = Utils.deepClone(Items);
 const mods = require('./mods.json');
+const chaosItems = require('./items').Items
 for (const mod in mods) {
 	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
 
@@ -333,6 +334,12 @@ for (const mod in mods) {
 		if (!Items[id]) Items[id] = Base[id] ? {inherit: true} : {};
 
 		if (mods[mod]["Items"] && mods[mod]["Items"].includes(id)) continue;
+
+		let skipItem = false;
+		for (const chaosItem in chaosItems) {
+			if (chaosItem === id) skipItem = true;
+		}
+		if (skipItem) continue;
 
 		for (const attr in ModItems[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;

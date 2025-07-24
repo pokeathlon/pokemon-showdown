@@ -2277,6 +2277,7 @@ export const Moves: ModdedMoveDataTable = {
 
 const Manual = Utils.deepClone(Moves);
 const mods = require('./mods.json');
+const chaosMoves = require('./moves').Moves
 for (const mod in mods) {
 	const ModMoves = require('../' + mod + '/moves').Moves as ModdedMoveDataTable;
 
@@ -2286,6 +2287,12 @@ for (const mod in mods) {
 		if (!Moves[id]) Moves[id] = Base[id] ? {inherit: true} : {};
 
 		if (mods[mod]["Moves"] && mods[mod]["Moves"].includes(id)) continue;
+		
+		let skipMove = false;
+		for (const chaosMove in chaosMoves) {
+			if (chaosMove === id) skipMove = true;
+		}
+		if (skipMove) continue;
 					
 		for (const attr in ModMoves[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
