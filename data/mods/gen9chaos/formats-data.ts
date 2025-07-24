@@ -2743,7 +2743,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	ranmarok: {
+	ramnarok: {
 		inherit: true,
 		natDexTier: "OU",
 	},
