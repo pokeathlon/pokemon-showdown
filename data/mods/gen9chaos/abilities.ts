@@ -1203,7 +1203,7 @@ export const Abilities: ModdedAbilityDataTable = {
 
 const Manual = Utils.deepClone(Abilities);
 const mods = require('./mods.json');
-const chaosAbilities = require('./abilities').Abilities
+const chaosAbilities = { ...require('./abilities').Abilities };
 for (const mod in mods) {
 	const ModAbilities = require('../' + mod + '/abilities').Abilities as ModdedAbilityDataTable;
 

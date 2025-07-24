@@ -324,7 +324,7 @@ export const Items: ModdedItemDataTable = {
 
 const Manual = Utils.deepClone(Items);
 const mods = require('./mods.json');
-const chaosItems = require('./items').Items
+const chaosItems = { ...require('./items').Items };
 for (const mod in mods) {
 	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
 
