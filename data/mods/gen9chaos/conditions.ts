@@ -80,6 +80,8 @@ for (const mod in mods) {
 		const id = key as keyof typeof ModConditions;
 
 		if (!Conditions[id]) Conditions[id] = Base[id] ? {inherit: true} : {};
+
+		if (mods[mod]["Conditions"] && mods[mod]["Conditions"].includes(id)) continue;
 					
 		for (const attr in ModConditions[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;

@@ -6459,7 +6459,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		learnset: {
 			mudsport: ["7L1"],
 			bubble: ["7L1"],
-			vicegrip: ["7L5"],
+			visegrip: ["7L5"],
 			leer: ["7L9"],
 			harden: ["7L11"],
 			bubblebeam: ["7L15"],
@@ -6530,7 +6530,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			wideguard: ["7L1"],
 			mudsport: ["7L1"],
 			bubble: ["7L1"],
-			vicegrip: ["7L5", "7L1"],
+			visegrip: ["7L5", "7L1"],
 			leer: ["7L9", "7L1"],
 			harden: ["7L11"],
 			bubblebeam: ["7L15"],
@@ -8541,7 +8541,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	pinsir: {
 		learnset: {
-			vicegrip: ["7L1"],
+			visegrip: ["7L1"],
 			focusenergy: ["7L1"],
 			bind: ["7T", "7L4"],
 			seismictoss: ["7L8"],
@@ -20748,7 +20748,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			faketears: ["7L5"],
 			bite: ["7L9"],
 			sweetscent: ["7L13"],
-			vicegrip: ["7L17"],
+			visegrip: ["7L17"],
 			feintattack: ["7L21"],
 			batonpass: ["7L25"],
 			crunch: ["7L29"],
@@ -23449,7 +23449,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		learnset: {
 			magneticflux: ["7L1", "7L0"],
 			gearup: ["7L1"],
-			vicegrip: ["7L1"],
+			visegrip: ["7L1"],
 			charge: ["7L6", "7L1"],
 			thundershock: ["7L11", "7L1"],
 			geargrind: ["7L16", "7L1"],
@@ -27588,7 +27588,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	klink: {
 		learnset: {
-			vicegrip: ["7L1"],
+			visegrip: ["7L1"],
 			charge: ["7L6"],
 			thundershock: ["7L11"],
 			geargrind: ["7L16"],
@@ -27638,7 +27638,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	},
 	klang: {
 		learnset: {
-			vicegrip: ["7L1"],
+			visegrip: ["7L1"],
 			charge: ["7L6", "7L1"],
 			thundershock: ["7L11", "7L1"],
 			geargrind: ["7L16", "7L1"],

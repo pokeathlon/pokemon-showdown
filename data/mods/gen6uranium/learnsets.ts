@@ -9749,7 +9749,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunderbolt: ["6M"],
 			thunderfang: ["6T"],
 			toxic: ["6M"],
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			xscissor: ["6M"],
 			zapcannon: ["6E"],
 		},
@@ -9824,7 +9824,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thunderbolt: ["6M"],
 			thunderfang: ["6T"],
 			toxic: ["6M"],
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			xscissor: ["6M"],
 		},
 		eventData: [
