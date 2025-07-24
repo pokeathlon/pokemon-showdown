@@ -326,7 +326,6 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 			(this.battleOnly !== this.baseSpecies ? this.battleOnly : this.baseSpecies);
 		if (Array.isArray(this.changesFrom)) this.changesFrom = this.changesFrom[0];
 		this.pokemonGoData = data.pokemonGoData || undefined;
-
 		if (!this.gen && this.num >= 1) {
 			if (this.num >= 906 || this.forme.includes('Paldea')) {
 				this.gen = 9;
@@ -351,6 +350,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 			} else {
 				this.gen = 1;
 			}
+			if (['Insurgence', 'Uranium'].some(tag => this.eggGroups.includes(tag))) this.gen = 6 //gen override for gen6 fangames to keep their num id but be counted as gen 6 mons
 		}
 		assignMissingFields(this, data);
 	}
