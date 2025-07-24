@@ -2276,8 +2276,6 @@ export const Moves: ModdedMoveDataTable = {
 };
 
 const Manual = Utils.deepClone(Moves);
-const Exists = new Set();
-Object.keys(Learnsets).forEach(pokemon => Object.keys(Learnsets[pokemon].learnset).forEach(item => Exists.add(item)));
 const mods = require('./mods.json');
 for (const mod in mods) {
 	const ModMoves = require('../' + mod + '/moves').Moves as ModdedMoveDataTable;
@@ -2296,11 +2294,5 @@ for (const mod in mods) {
 				Moves[id][attr] = ModMoves[id][attr];
 			}
 		}
-	}
-	for (const key in Moves) {
-		const id = key as keyof typeof Moves;
-		
-		if (Exists.has(id) || id.startsWith('hiddenpower') || id.startsWith('ivycudgel')) Moves[id].isNonstandard = null;
-		else Moves[id].isNonstandard = "Custom";
 	}
 }

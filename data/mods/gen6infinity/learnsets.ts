@@ -15531,7 +15531,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		learnset: {
 			mudsport: ["6L1"],
 			bubble: ["6L1"],
-			vicegrip: ["6L5"],
+			visegrip: ["6L5"],
 			leer: ["6L9"],
 			harden: ["6L11"],
 			bubblebeam: ["6L15"],
@@ -15595,7 +15595,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wideguard: ["6L1"],
 			mudsport: ["6L1"],
 			bubble: ["6L1"],
-			vicegrip: ["6L1", "6L5"],
+			visegrip: ["6L1", "6L5"],
 			leer: ["6L1", "6L9"],
 			harden: ["6L11"],
 			bubblebeam: ["6L15"],
@@ -17349,7 +17349,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	pinsir: {
 		learnset: {
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			focusenergy: ["6L1"],
 			bind: ["6L4"],
 			seismictoss: ["6L8"],
@@ -27950,7 +27950,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			faketears: ["6L6"],
 			bite: ["6L11"],
 			sweetscent: ["6L16"],
-			vicegrip: ["6L21"],
+			visegrip: ["6L21"],
 			feintattack: ["6L26"],
 			batonpass: ["6L31"],
 			crunch: ["6L36"],
@@ -30298,7 +30298,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		learnset: {
 			bubble: ["6L1"],
 			harden: ["6L7"],
-			vicegrip: ["6L10"],
+			visegrip: ["6L10"],
 			leer: ["6L13"],
 			bubblebeam: ["6L20"],
 			protect: ["6L23", "6M"],
@@ -30360,7 +30360,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 		learnset: {
 			bubble: ["6L1"],
 			harden: ["6L1", "6L7"],
-			vicegrip: ["6L1", "6L10"],
+			visegrip: ["6L1", "6L10"],
 			leer: ["6L1", "6L13"],
 			bubblebeam: ["6L20"],
 			protect: ["6L23", "6M"],
@@ -45284,7 +45284,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	klink: {
 		learnset: {
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			charge: ["6L6"],
 			thundershock: ["6L11"],
 			geargrind: ["6L16"],
@@ -45326,7 +45326,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	klang: {
 		learnset: {
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			charge: ["6L1", "6L6"],
 			thundershock: ["6L1", "6L11"],
 			geargrind: ["6L1", "6L16"],
@@ -45368,7 +45368,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	klinklang: {
 		learnset: {
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			charge: ["6L1", "6L6"],
 			thundershock: ["6L1", "6L11"],
 			geargrind: ["6L1", "6L16"],
@@ -47159,7 +47159,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	},
 	durant: {
 		learnset: {
-			vicegrip: ["6L1"],
+			visegrip: ["6L1"],
 			sandattack: ["6L1"],
 			furycutter: ["6L6"],
 			bite: ["6L11"],
@@ -50618,7 +50618,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			splash: ["6L1"],
 			watergun: ["6L1"],
 			watersport: ["6L7"],
-			vicegrip: ["6L9"],
+			visegrip: ["6L9"],
 			bubble: ["6L12"],
 			flail: ["6L16"],
 			bubblebeam: ["6L20"],
@@ -50672,7 +50672,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			splash: ["6L1"],
 			watergun: ["6L1"],
 			watersport: ["6L1", "6L7"],
-			vicegrip: ["6L1", "6L9"],
+			visegrip: ["6L1", "6L9"],
 			bubble: ["6L12"],
 			flail: ["6L16"],
 			bubblebeam: ["6L20"],
@@ -52328,7 +52328,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["6L50"],
 			trickroom: ["6L50"],
 			darkpulse: ["6L55", "6T"],
-			pyschic: ["6L75", "6M"],
+			psychic: ["6L75", "6M"],
 			shadowball: ["6M"],
 			psyshock: ["6M"],
 			calmmind: ["6M"],

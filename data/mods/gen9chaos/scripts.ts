@@ -1,6 +1,15 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
+	init() {
+		for (const pokemon in this.data.Learnsets) {
+			if (!this.data.Learnsets[pokemon].learnset) continue;
+
+			for (const move in this.data.Learnsets[pokemon].learnset) {
+				this.data.Moves[move].isNonstandard = null;
+			}
+		}
+	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
 			const species = pokemon.baseSpecies;
