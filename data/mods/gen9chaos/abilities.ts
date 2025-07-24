@@ -300,38 +300,51 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
+			let formeIndex = formeOrder.indexOf( '-' + pokemon.species.name.split('-').slice(-1));
+			if (formeIndex === -1) formeIndex = 4;
+			if (formeIndex > targetForme) {
 				for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
 					if (pokemon.species.name.startsWith(name)) {
 						pokemon.formeChange(name + formeOrder[targetForme], this.effect, true);
 					}
 					if (pokemon.fusion?.startsWith(name)) {
+						if (name + formeOrder[targetForme] === pokemon.fusion) return; // this was triggering at every onUpdate for some reason
 						pokemon.fusionChange(name + formeOrder[targetForme], this.effect);
 					}
 				}
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!['Hydreigon-Mega', 'Hydroupa'].some((name) => [pokemon.species.name, pokemon.fusion].includes(name)) || move.category === "Status" || !move.basePower) return;
+			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
+
+			// store self or secondaries:
+			if (move.self?.boosts) {
+				pokemon.abilityState.selfBoosts = move.self.boosts
+				delete move.self.boosts;
+			}
+			if (move.secondaries) {
+				pokemon.abilityState.secondaries = move.secondaries
+				delete move.secondaries;
+			}
+			if (move.secondary) {
+				pokemon.abilityState.secondary = move.secondary
+				delete move.secondary;
+			}
+			if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
 
 			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
 				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
 
-				const index = formes.indexOf(pokemon.species.name);
+				let index = formes.indexOf(pokemon.species.name); //Returns -1 if fusion is Lernean user
+				if (index === -1) index = formes.indexOf(pokemon.fusion);
 				if (index >= 0) {
 					move.multihit = 5 + index;
-					if (move.secondaries) {
-						// delete move.secondaries; // Secondaries should still trigger, but only once after all hits take place.
-						// Technically not a secondary effect, but it is negated
-						delete move.self;
-						if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
-					}
 					break;
 				}
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if (!['Hydreigon-Mega', 'Hydroupa'].some((name) => [pokemon.species.name, pokemon.fusion].includes(name))) return;
+			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.fusion?.includes(item))) return;
 			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
 				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
 
@@ -342,9 +355,22 @@ export const Abilities: ModdedAbilityDataTable = {
 				}
 			}
 		},
-		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove
-			if (['Hydreigon-Mega', 'Hydroupa'].some((name) => [pokemon.species.name, pokemon.fusion].includes(name)) && move.secondaries) {
-				delete move.secondaries;
+		onSourceDamagingHit(damage, target, pokemon, move) {
+			if (['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.fusion?.includes(item))) {
+				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit-1) === move.hit) {
+					if (pokemon.abilityState.selfBoosts) {
+						move.self.boosts = pokemon.abilityState.selfBoosts;
+						pokemon.abilityState.selfBoosts = undefined;
+					}
+					if (pokemon.abilityState.secondaries) {
+						move.secondaries = pokemon.abilityState.secondaries;
+						pokemon.abilityState.secondaries = undefined;
+					}
+					if (pokemon.abilityState.secondary) {
+						move.secondary = pokemon.abilityState.secondary;
+						pokemon.abilityState.secondary = undefined;
+					}
+				}
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
