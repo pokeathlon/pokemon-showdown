@@ -9910,9 +9910,7 @@ for (const mod in mods) {
 
 			if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
 			Learnsets[id].learnset[moveid].push(
-				...ModLearnsets[id].learnset[moveid].filter(
-					(method) => !Learnsets[id].learnset[moveid].includes(method)
-				).map((method) => "9" + method.slice(1))
+				...ModLearnsets[id].learnset[moveid].filter((method) => !Learnsets[id].learnset[moveid].includes(method))
 			);
 		}
 	}

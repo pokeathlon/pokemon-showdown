@@ -196,15 +196,14 @@ for (const key in Child) {
 	const id = key as keyof typeof Child;
 	if (Learnsets[id] || !Child[id].learnset) continue;
 
-	if (!Base[id]) { Learnsets[id] = Child[id]; continue; }
-
-	Learnsets[id] = {inherit: true, learnset: {...Base[id].learnset}};
+	Learnsets[id] = Base[id] ? {inherit: true, learnset: {...Base[id].learnset}} : {inherit: true, learnset: {}};
 	if (!Learnsets[id].learnset) continue;
 
 	for (const movekey in Child[id].learnset) {
 		const moveid = movekey as IDEntry;
 
 		if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
-		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid]);
+		// @ts-ignore splicing new gen onto a move
+		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid].map(method => "9" + method.slice(1)));
 	}
 }

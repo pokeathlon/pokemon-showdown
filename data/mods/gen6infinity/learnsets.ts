@@ -39274,6 +39274,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["6T"],
 			dazzlinggleam: ["6T"],
 			sleeptalk: ["6T"],
+			airslash: ["6T"],
 		},
 	},
 	arceus: {
