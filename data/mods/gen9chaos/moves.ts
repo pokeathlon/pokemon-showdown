@@ -2277,27 +2277,19 @@ export const Moves: ModdedMoveDataTable = {
 
 const Manual = Utils.deepClone(Moves);
 const mods = require('./mods.json');
-const chaosMoves = { ...require('./moves').Moves };
 for (const mod in mods) {
 	const ModMoves = require('../' + mod + '/moves').Moves as ModdedMoveDataTable;
 
 	for (const key in ModMoves) {
 		const id = key as keyof typeof ModMoves;
-		if (!Moves[id]) Moves[id] = Base[id] ? {inherit: true} : {};
 
-		if (mods[mod]["Moves"] && mods[mod]["Moves"].includes(id)) continue;
-		
-		let skipMove = false;
-		for (const chaosMove in chaosMoves) {
-			if (chaosMove === id) {
-				skipMove = true;
-			}
-		}
-		if (skipMove) continue;
+		if (Manual[id] || (mods[mod]["Moves"] && mods[mod]["Moves"].includes(id))) continue;
+
+		if (!Moves[id]) Moves[id] = Base[id] ? {inherit: true} : {};
 
 		for (const attr in ModMoves[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Moves[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (Moves[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
 				Moves[id][attr] = ModMoves[id][attr];
 			}

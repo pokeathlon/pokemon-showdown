@@ -3206,6 +3206,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				newSpecies.bst += newSpecies.baseStats[stat];
 			}
 
+			if (this.ruleTable.has('ifaveragemons')) newSpecies.baseStats = {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100};
+
 			newSpecies.maxHP = target.baseAbility === 'wonderguard' ? 1 : undefined;
 			newSpecies.weightkg = (fusionSpecies.weightkg + species.weightkg) / 2;
 			newSpecies.weighthg = newSpecies.weightkg * 10;
@@ -3512,6 +3514,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Can Dynamax',
 		desc: "Allows for Dynamax to be used.",
 		// hardcoded in sim/side.ts
+	},
+	ifaveragemons: {
+		effectType: "Rule",
+		name: "IF Averagemons",
+		desc: `Pok&eacute;mon have all of their base stats set to 100.`,
+		// hardcoded in Infinite Fusion Mod
+		onBegin() {
+			this.add('rule', 'IF Averagemons: Pok\u00e9mon have all of their base stats set to 100.');
+		},
 	},
 };
 

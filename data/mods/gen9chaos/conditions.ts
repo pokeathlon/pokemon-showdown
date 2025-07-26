@@ -73,26 +73,19 @@ export const Conditions: ModdedConditionDataTable = {
 
 const Manual = Utils.deepClone(Conditions);
 const mods = require('./mods.json');
-const chaosConditions = { ...require('./conditions').Conditions };
 for (const mod in mods) {
 	const ModConditions = require('../' + mod + '/conditions').Conditions as ModdedConditionDataTable;
 
 	for (const key in ModConditions) {
 		const id = key as keyof typeof ModConditions;
 
-		if (!Conditions[id]) Conditions[id] = Base[id] ? {inherit: true} : {};
+		if (Manual[id] || (mods[mod]["Conditions"] && mods[mod]["Conditions"].includes(id))) continue;
 
-		if (mods[mod]["Conditions"] && mods[mod]["Conditions"].includes(id)) continue;
-				
-		let skipCondition = false;
-		for (const chaosCondition in chaosConditions) {
-			if (chaosCondition === id) skipCondition = true;
-		}
-		if (skipCondition) continue;
+		if (!Conditions[id]) Conditions[id] = Base[id] ? {inherit: true} : {};
 					
 		for (const attr in ModConditions[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Conditions[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (Conditions[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
 				Conditions[id][attr] = ModConditions[id][attr];
 			}

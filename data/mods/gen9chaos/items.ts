@@ -324,26 +324,19 @@ export const Items: ModdedItemDataTable = {
 
 const Manual = Utils.deepClone(Items);
 const mods = require('./mods.json');
-const chaosItems = { ...require('./items').Items };
 for (const mod in mods) {
 	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
 
 	for (const key in ModItems) {
 		const id = key as keyof typeof ModItems;
 
+		if (Manual[id] || (mods[mod]["Items"] && mods[mod]["Items"].includes(id))) continue;
+
 		if (!Items[id]) Items[id] = Base[id] ? {inherit: true} : {};
-
-		if (mods[mod]["Items"] && mods[mod]["Items"].includes(id)) continue;
-
-		let skipItem = false;
-		for (const chaosItem in chaosItems) {
-			if (chaosItem === id) skipItem = true;
-		}
-		if (skipItem) continue;
 
 		for (const attr in ModItems[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Items[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (Items[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
 				Items[id][attr] = ModItems[id][attr];
 			}

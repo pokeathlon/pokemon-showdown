@@ -1203,27 +1203,19 @@ export const Abilities: ModdedAbilityDataTable = {
 
 const Manual = Utils.deepClone(Abilities);
 const mods = require('./mods.json');
-const chaosAbilities = { ...require('./abilities').Abilities };
 for (const mod in mods) {
 	const ModAbilities = require('../' + mod + '/abilities').Abilities as ModdedAbilityDataTable;
 
 	for (const key in ModAbilities) {
 		const id = key as keyof typeof ModAbilities;
 
-		if (mods[mod]["Abilities"] && mods[mod]["Abilities"].includes(id)) continue;
+		if (Manual[id] || (mods[mod]["Abilities"] && mods[mod]["Abilities"].includes(id))) continue;
 
 		if (!Abilities[id]) Abilities[id] = Base[id] ? {inherit: true} : {};
 
-		// Chaos abilities were being overwritten by the mod ones, this block solves that issue by not inheriting the modded abilities present in this file.
-		let skipAbility = false;
-		for (const chaosAbility in chaosAbilities) {
-			if (chaosAbility === id) skipAbility = true;
-		}
-		if (skipAbility) continue;
-
 		for (const attr in ModAbilities[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Abilities[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (Abilities[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
 				Abilities[id][attr] = ModAbilities[id][attr];
 			}

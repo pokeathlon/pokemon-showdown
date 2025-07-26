@@ -2146,9 +2146,9 @@ for (const mod in mods) {
 	for (const key in ModPokedex) {
 		const id = key as keyof typeof ModPokedex;
 
-		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
+		if (Manual[id] || (mods[mod]["Pokedex"] && mods[mod]["Pokedex"].includes(id))) continue;
 
-		if (mods[mod]["Pokedex"] && mods[mod]["Pokedex"].includes(id)) continue;
+		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
 		
 		for (const attr in ModPokedex[id]) {
 			if (['inherit', 'isNonstandard'].includes(attr)) continue;
