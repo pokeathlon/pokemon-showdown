@@ -2146,15 +2146,15 @@ for (const mod in mods) {
 	for (const key in ModPokedex) {
 		const id = key as keyof typeof ModPokedex;
 
-		if (Manual[id] || (mods[mod]["Pokedex"] && mods[mod]["Pokedex"].includes(id))) continue;
+		if (mods[mod]["Pokedex"] && mods[mod]["Pokedex"].includes(id)) continue;
 
 		if (!Pokedex[id]) Pokedex[id] = Base[id] ? {inherit: true} : {};
 		
 		for (const attr in ModPokedex[id]) {
-			if (['inherit', 'isNonstandard'].includes(attr)) continue;
-			if (!['evos', 'abilities'].includes(attr) && Pokedex[id][attr] && (!Manual[id] || !Manual[id][attr])) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (['inherit', 'isNonstandard'].includes(attr) || (Manual[id] && Manual[id][attr])) continue;
+			if (!['evos', 'abilities'].includes(attr) && Pokedex[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				if (attr === 'abilities' && (!Manual[id] || !Manual[id][attr])) {
+				if (attr === 'abilities') {
 					if (!Base[id]) Pokedex[id].abilities = ModPokedex[id].abilities;
 					else {
 						Pokedex[id].abilities = Base[id].abilities;

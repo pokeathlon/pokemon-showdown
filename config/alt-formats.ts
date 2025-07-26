@@ -213,6 +213,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF Averagemons",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Evasion Clause', 'OHKO Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Ability Clause = 1',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', 'IF Averagemons',
+		],
+		banlist: [
+			'Mega',
+			'pokemon:smeargle',
+			'ability:hugepower', 'ability:moody', 'ability:wonderguard', 'ability:shadowtag', 'ability:arenatrap', 'ability:imposter', 'ability:contrary', 'ability:simple', 'ability:magicguard', 'ability:sheerforce', 'ability:poisonheal', 'ability:snowwarning', 'ability:sandstream',
+			'move:spore', 'move:bellydrum', 'move:shellsmash', 'move:batonpass', 'move:vcreate', 'move:tailglow', 'move:quiverdance',
+			'item:eviolite', 'item:quickpowder', 'item:metalpowder', 'item:lightball', 'item:thickclub',
+		],
+	},
+	{
 		name: "[Gen 9] IF Custom Game",
 
 		mod: 'gen9infinitefusion',
