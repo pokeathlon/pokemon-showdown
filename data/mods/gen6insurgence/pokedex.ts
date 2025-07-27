@@ -237,6 +237,7 @@ const cutDex: {[k: string]: number} = {
 	"unown": 201,
 	"wobbuffet": 202,
 	"girafarig": 203,
+	"girafarigmega": 203,
 	"pineco": 204,
 	"forretress": 205,
 	"dunsparce": 206,

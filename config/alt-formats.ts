@@ -30,7 +30,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
-			`- Drizzle ++ Swift Swim`, `- Drought ++ Chlorophyll`, 'Greninja-Bond', 'Greninja-Ash',
+			'pokemon:greninjabond', 'pokemon:greninjaash',
 		],
 	},
 	{
@@ -218,15 +218,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		mod: 'gen7infinitefusion',
 		ruleset: [
-			'Obtainable', 'Team Preview', 'Evasion Clause', 'OHKO Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Ability Clause = 1',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', 'IF Averagemons',
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Ability Clause = 1', 'Sleep Moves Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 'IF Averagemons',
 		],
 		banlist: [
-			'Mega',
-			'pokemon:smeargle',
-			'ability:hugepower', 'ability:moody', 'ability:wonderguard', 'ability:shadowtag', 'ability:arenatrap', 'ability:imposter', 'ability:contrary', 'ability:simple', 'ability:magicguard', 'ability:sheerforce', 'ability:poisonheal', 'ability:snowwarning', 'ability:sandstream',
-			'move:spore', 'move:bellydrum', 'move:shellsmash', 'move:batonpass', 'move:vcreate', 'move:tailglow', 'move:quiverdance',
-			'item:eviolite', 'item:quickpowder', 'item:metalpowder', 'item:lightball', 'item:thickclub',
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite', 'item:quickpowder', 'item:metalpowder',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush',  'ability:contrary', 'ability:simple', 'ability:magicguard', 'ability:sheerforce', 'ability:poisonheal', 'ability:snowwarning', 'ability:sandstream',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:tailglow', 'move:quiverdance',
+			'pokemon:greninjabond', 'pokemon:greninjaash', 'pokemon:kyogre', ''
 		],
 	},
 	{
