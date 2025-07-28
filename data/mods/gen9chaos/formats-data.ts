@@ -2745,7 +2745,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ramnarok: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 
 	// Doubles bans
