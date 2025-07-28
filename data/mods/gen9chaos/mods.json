@@ -2,7 +2,7 @@
 		"gen9insurgence": {},
 		"gen9uranium": {},
 		"gen9infinity": {
-			"Moves": ["strength", "cut", "wildcharge"]
+			"Moves": ["strength", "cut", "wildcharge", "rocksmash"]
 		},
 		"gen9mariomon": {
 			"Conditions": ["frz"]

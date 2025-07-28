@@ -1,5 +1,9 @@
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
+	rocksmash: {
+		inherit: true,
+		basePower: 65,
+	},
 	wildcharge: {
 		inherit: true,
 		recoil: [1, 3],
