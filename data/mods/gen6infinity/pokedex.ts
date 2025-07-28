@@ -5,7 +5,7 @@ import { Pokedex as Parent} from '../gen9infinity/pokedex';
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
-const cutDex: {[k: string]: number} = {
+export const cutDex: {[k: string]: number} = {
 	"bulbasauregho": 1,
 	"ivysauregho": 2,
 	"venusauregho": 3,
