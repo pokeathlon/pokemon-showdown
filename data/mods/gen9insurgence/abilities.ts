@@ -839,7 +839,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		flags: {},
 		name: "Vampiric",
-		shortDesc: "After an attack, holder gains 1/4 of the damage in HP dealt to other Pokemon.",
+		shortDesc: "After making contact, holder gains 1/4 of the damage in HP dealt to a target.",
 		rating: 3.5,
 		num: 0,
 	},

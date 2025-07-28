@@ -39241,6 +39241,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			sweetscent: ["6L37"],
 			naturalgift: ["6L46"],
 			worryseed: ["6L55"],
+			airslash: ["6L64"],
 			aromatherapy: ["6L64"],
 			energyball: ["6L73", "6M"],
 			sweetkiss: ["6L82"],
@@ -39274,7 +39275,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["6T"],
 			dazzlinggleam: ["6T"],
 			sleeptalk: ["6T"],
-			airslash: ["6T"],
 		},
 	},
 	arceus: {

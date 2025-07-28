@@ -4,6 +4,7 @@ import { TeamValidator } from '../../../sim';
 
 export class RandomIFTeams extends RandomTeams {
 	randomIFSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen7infinitefusion'];
+	validator = new TeamValidator('gen7ifdexag');
 	levels: AnyObject = {
 		"AG": 75,
 		"Uber": 80,
@@ -36,7 +37,7 @@ export class RandomIFTeams extends RandomTeams {
 				candidate.level += this.levels[fusion.tier] ? this.levels[fusion.tier] : 95;
 				candidate.level = Math.floor(candidate.level / 2);
 			}
-			if (TeamValidator.get('gen7ifdexag').validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);

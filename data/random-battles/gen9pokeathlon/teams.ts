@@ -4,6 +4,7 @@ import { TeamValidator } from '../../../sim';
 
 export class RandomPOATeams extends RandomTeams {
 	randomPOASets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
+	validator = new TeamValidator('gen9poaag');
 	levels: AnyObject = {
 		"AG": 75,
 		"Uber": 80,
@@ -31,7 +32,7 @@ export class RandomPOATeams extends RandomTeams {
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
-			if (TeamValidator.get('gen9poaag').validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);

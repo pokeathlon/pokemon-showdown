@@ -5,4 +5,5 @@ export const Scripts: ModdedBattleScriptsData = {
 	init: Parent.init,
 	actions: Parent.actions,
 	pokemon: Parent.pokemon,
+	queue: Parent.queue,
 };

@@ -3,7 +3,8 @@ import { RandomBattleSets } from "../../remote/remote";
 import { TeamValidator } from '../../../sim';
 
 export class RandomUraTeams extends RandomTeams {
-	randomUraSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos']
+	randomUraSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
+	validator = new TeamValidator('gen6uraniumag');
 	levels: AnyObject = {
 		"AG": 75,
 		"Uber": 80,
@@ -31,7 +32,7 @@ export class RandomUraTeams extends RandomTeams {
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
-			if (TeamValidator.get('gen6uraniumag').validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);

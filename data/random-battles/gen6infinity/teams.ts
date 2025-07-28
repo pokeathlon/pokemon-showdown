@@ -7,6 +7,7 @@ import { Pokedex } from '../../pokedex'
 
 export class RandomInfTeams extends RandomTeams {
 	randomInfSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen6infinity'];
+	validator = new TeamValidator('gen6infinityag');
 	levels: AnyObject = {
 		"AG": 75,
 		"Uber": 80,
@@ -32,7 +33,7 @@ export class RandomInfTeams extends RandomTeams {
 		const gen6 = new RandomGen6Teams(this.format, this.prng);
 
 		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomInfSets);
-		//Filter out mons that don't exist in Infinity, additionally not ALL mons have sets, so also filter out those that don't
+		// Filter out mons that don't exist in Infinity, additionally not ALL mons have sets, so also filter out those that don't
 		let vanillaPool = Object.keys(Pokedex).filter(mon => InfDex.includes(mon) && Object.keys(this.randomSets).includes(mon))
 		let counter = 3; // Minimum number of Infinity sets
 
@@ -45,7 +46,7 @@ export class RandomInfTeams extends RandomTeams {
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
-			if (TeamValidator.get('gen6infinityag').validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 
 
 			const result = this.random(2);
