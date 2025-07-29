@@ -33,16 +33,24 @@ export class RandomInfTeams extends RandomTeams {
 		const gen6 = new RandomGen6Teams(this.format, this.prng);
 
 		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomInfSets);
-		// Filter out mons that don't exist in Infinity, additionally not ALL mons have sets, so also filter out those that don't
-		let vanillaPool = Object.keys(Pokedex).filter(mon => InfDex.includes(mon) && Object.keys(this.randomSets).includes(mon))
-		let counter = 3; // Minimum number of Infinity sets
+
+		// used to filter out vanilla mons and for selecting species
+		let namePool = [... new Set(pool.map(set => set.species))];
+
+		// Filter out mons that don't exist in Infinity, don't have sets, and vanilla mons that do have handmade sets
+		let vanillaPool = Object.keys(Pokedex).filter(mon => InfDex.includes(mon) && Object.keys(this.randomSets).includes(mon) && !namePool.includes(mon));
+		let counter = 2; // Minimum number of Infinity sets
 
 		while (pokemon.length < this.maxTeamSize) {
-			const candidate = {...this.sampleNoReplace(pool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
-			const species = this.dex.species.get(candidate.species);
 
-			const vanillaSpecies = this.sample(vanillaPool);
-			const vanillaCandidate = gen6.randomSet(vanillaSpecies);
+			let vanillaSpecies = this.sample(vanillaPool);
+			let vanillaCandidate = gen6.randomSet(vanillaSpecies);
+
+			// Select species and then one of its sets for better set distribution, only pick from Infinity pokemon, not vanilla ones even if they have handmade sets
+			let chosenSpecies = this.sampleNoReplace(namePool.filter(id => !this.dex.mod('gen9').species.get(id).exists));
+
+			let candidate = {...this.sampleNoReplace(pool.filter(set => set.species === chosenSpecies)), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
+			let species = this.dex.species.get(candidate.species);
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
@@ -50,24 +58,32 @@ export class RandomInfTeams extends RandomTeams {
 
 
 			const result = this.random(2);
-			if (result === 0 || (this.maxTeamSize - pokemon.length === counter )) { //add Infinity mon
+			if (result === 0 || (this.maxTeamSize - pokemon.length === counter )) { //add Infinity mo
 				counter -= 1;
+
 				pokemon.push(candidate);
+				namePool = namePool.filter(id => id !== candidate.species);
 
-				pool = pool.filter(set => set.species !== candidate.species);
+			} else { // vanilla pokemon
+				// Some balance adjustments
+				if (vanillaCandidate.level >= 80) vanillaCandidate.level -= 1;
+				if (vanillaCandidate.level > 94) vanillaCandidate.level = 94;
+				if (vanillaCandidate.moves.includes('stickyweb')) vanillaCandidate.level -= 2;
 
-				if (this.dex.mod('gen9').species.get(candidate.species).exists) {
-					pool = pool.filter(set => !this.dex.mod('gen9').species.get(set.species).exists);
+				// If pokemon exists in handmade sets, use handmade sets instead
+				if (namePool.includes(vanillaSpecies)) {
+					vanillaCandidate = {...this.sampleNoReplace(pool.filter(set => set.species === vanillaSpecies)), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
+					vanillaSpecies = vanillaCandidate.species;
+
+					if (vanillaCandidate.level && typeof(vanillaCandidate.level) === 'string') vanillaCandidate.level = parseInt(vanillaCandidate.level);
+					else vanillaCandidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
+					if (this.validator.validateSet({...vanillaCandidate, level: 100} as PokemonSet, {})) continue;
+
 				}
-				if (vanillaPool.includes(candidate.species)) {
-					vanillaPool = vanillaPool.filter(set => set !== candidate.species)
-				}
 
-			} else {
 				pokemon.push(vanillaCandidate);
-
 				vanillaPool = vanillaPool.filter(mon => mon !== vanillaSpecies);
-				pool = pool.filter(set => set.species !== vanillaSpecies);
+				namePool = namePool.filter(id => id !== vanillaSpecies)
 
 			}
 		}
