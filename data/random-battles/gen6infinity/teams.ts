@@ -39,7 +39,8 @@ export class RandomInfTeams extends RandomTeams {
 
 		// Filter out mons that don't exist in Infinity, don't have sets, and vanilla mons that do have handmade sets
 		let vanillaPool = Object.keys(Pokedex).filter(mon => InfDex.includes(mon) && Object.keys(this.randomSets).includes(mon) && !namePool.includes(mon));
-		let counter = 2; // Minimum number of Infinity sets
+		let counterInf = 2; // Minimum number of Infinity sets
+		let counterVanilla = 2; // Minimum number of Vanilla sets
 
 		while (pokemon.length < this.maxTeamSize) {
 
@@ -57,14 +58,17 @@ export class RandomInfTeams extends RandomTeams {
 			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 
 
-			const result = this.random(2);
-			if (result === 0 || (this.maxTeamSize - pokemon.length === counter )) { //add Infinity mo
-				counter -= 1;
+			let result = this.random(2);
+			if (this.maxTeamSize - pokemon.length === counterVanilla ) result = 1; //skips Infinity mon altogether
+			if (result === 0 || (this.maxTeamSize - pokemon.length === counterInf )) { //add Infinity mon
+				counterInf -= 1;
 
 				pokemon.push(candidate);
 				namePool = namePool.filter(id => id !== candidate.species);
 
 			} else { // vanilla pokemon
+				counterVanilla -= 1;
+
 				// Some balance adjustments
 				if (vanillaCandidate.level >= 80) vanillaCandidate.level -= 1;
 				if (vanillaCandidate.level > 94) vanillaCandidate.level = 94;
