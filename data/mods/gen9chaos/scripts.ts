@@ -6,7 +6,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!this.data.Learnsets[pokemon].learnset) continue;
 
 			for (const move in this.data.Learnsets[pokemon].learnset) {
-				this.data.Moves[move].isNonstandard = null;
+				if (this.data.Moves[move]) {
+					this.data.Moves[move].isNonstandard = null;
+				} else {
+					console.log('Misspelled move: ' + move);
+				}
+				
 			}
 		}
 	},
