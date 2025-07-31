@@ -2273,6 +2273,29 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "The foes' moves target the user. Returns last damage taken at 1.5x power.",
 	},
+	solarflare: {
+		num: 0,
+		accuracy: 90,
+		basePower: 40,
+		category: "Special",
+		name: "Solar Flare",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		multihit: 2,
+		target: "normal",
+		type: "Psychic",
+		onHit(pokemon, target, move) {
+			move.secondaries = [];
+			if (move.hit === 1) move.secondaries.push({chance: 30, boosts: {atk: -1}});
+			if (move.hit === 2) move.secondaries.push({chance: 30, boosts: {spa: -1}});
+		},
+		secondary: null,
+		zMove: { basePower: 140 },
+		maxMove: { basePower: 120 },
+		contestType: "Cool",
+		shortDesc: "Hits twice, 1st 30% -1 Atk, 2nd 30% -1 SpA.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

@@ -2135,6 +2135,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	twinova: {
+		num: 3105,
+		name: "Twinova",
+		types: ["Psychic", "Fairy"],
+		baseStats: {hp: 70, atk: 52, def: 101, spa: 77, spd: 101, spe: 109},
+		abilities: {0: "Synchronize", 1: "Shield Dust", H: "Telepathy"},
+		gender: "N",
+		heightm: 0.8,
+		weightkg: 32.8,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
