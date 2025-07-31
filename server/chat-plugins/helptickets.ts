@@ -2223,12 +2223,13 @@ export const pages: Chat.PageTable = {
 export const commands: Chat.ChatCommands = {
 	report(target, room, user) {
 		if (!this.runBroadcast()) return;
-		const meta = this.pmTarget ? `-user-${this.pmTarget.id}` : this.room ? `-room-${this.room.roomid}` : '';
-		if (this.broadcasting) {
-			return this.sendReplyBox(`<button name="joinRoom" value="view-help-request--report${meta}" class="button"><strong>${this.tr`Report someone`}</strong></button>`);
-		}
+		
+		void Net(`https://discord.com/api/webhooks/1400410810056052817/Q-X30_SqiSyX-0PHtg1g4ha36ZEH3EHPMb-afUUhhzkrLIdY9ejSqWDNqtHc59Rvioeu`).post({
+			body: {"content": `<@&1202314822482669619> ${target} was reported by ${user.name}.`, "wait": 1},
+			timeout: 10 * 1000, // 10s
+		});
 
-		return this.parse(`/join view-help-request--report${meta}`);
+		return this.popupReply(`The user ${target} was reported to our moderation team!`);
 	},
 
 	appeal(target, room, user) {
