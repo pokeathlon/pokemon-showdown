@@ -32411,6 +32411,33 @@ Learnsets.torterneon = combineLearnsets
 	Learnsets.infernape,
 	Learnsets.empoleon,
 );
+Learnsets.chennekie = combineLearnsets
+(
+	Learnsets.chespin,
+	Learnsets.fennekin,
+	Learnsets.froakie,
+);
+Learnsets.brailladier = combineLearnsets
+(
+	Learnsets.chespin,
+	Learnsets.fennekin,
+	Learnsets.froakie,
+	Learnsets.quilladin,
+	Learnsets.braixen,
+	Learnsets.frogadier,
+);
+Learnsets.cheninphox = combineLearnsets
+(
+	Learnsets.chespin,
+	Learnsets.fennekin,
+	Learnsets.froakie,
+	Learnsets.quilladin,
+	Learnsets.braixen,
+	Learnsets.frogadier,
+	Learnsets.chesnaught,
+	Learnsets.delphox,
+	Learnsets.greninja,
+);
 Learnsets.zapmolticuno = combineLearnsets
 (
 	Learnsets.zapdos,
