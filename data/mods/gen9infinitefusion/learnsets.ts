@@ -142,6 +142,33 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		baseLearnsets.infernape,
 		baseLearnsets.empoleon,
 	),
+	chennekie: combineLearnsets
+	(
+		baseLearnsets.chespin,
+		baseLearnsets.fennekin,
+		baseLearnsets.froakie,
+	),
+	brailladier: combineLearnsets
+	(
+		baseLearnsets.chespin,
+		baseLearnsets.fennekin,
+		baseLearnsets.froakie,
+		baseLearnsets.quilladin,
+		baseLearnsets.braixen,
+		baseLearnsets.frogadier,
+	),
+	cheninphox: combineLearnsets
+	(
+		baseLearnsets.chespin,
+		baseLearnsets.fennekin,
+		baseLearnsets.froakie,
+		baseLearnsets.quilladin,
+		baseLearnsets.braixen,
+		baseLearnsets.frogadier,
+		baseLearnsets.chesnaught,
+		baseLearnsets.delphox,
+		baseLearnsets.greninja,
+	),
 	zapmolticuno: combineLearnsets
 	(
 		baseLearnsets.zapdos,
