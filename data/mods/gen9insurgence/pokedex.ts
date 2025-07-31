@@ -3818,7 +3818,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 76, atk: 147, def: 90, spa: 60, spd: 70, spe: 97},
 		abilities: {0: "Strong Jaw", 1: "Water Veil", H: "Heavy Metal"},
 		heightm: 1.8,
-		weightkg: 211.0,
+		weightkg: 105.5,
 		prevo: "Fraxure-Delta",
 		tags: ["Insurgence"],
 		eggGroups: ["Insurgence"],
