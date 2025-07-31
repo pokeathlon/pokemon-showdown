@@ -169,6 +169,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	sweepdol: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
@@ -214,10 +218,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 	},
 	roaringmoon: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	sweepdol: {
 		inherit: true,
 		natDexTier: "OU",
 	},
