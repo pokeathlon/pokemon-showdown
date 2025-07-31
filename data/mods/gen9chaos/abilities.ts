@@ -1199,6 +1199,34 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
 	},
+	strangeanatomy: {
+		onDamagingHit(damage, target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'strangeanatomy') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('strangeanatomy', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: Strange Anatomy', this.dex.abilities.get(oldAbility).name, `[of] ${source}`);
+				}
+			}
+		},
+		onBasePower(basePower, source, target, move) {
+			if (!source.abilityState.strangeCounter || move.category != 'Physical' || !move.basePower) return;
+			return Math.max(basePower - source.abilityState.strangeCounter * 5, 1);
+			
+		},
+		onResidual(target, source, effect) {
+			if (!target.abilityState.strangeCounter) target.abilityState.strangeCounter = 0;
+			target.abilityState.strangeCounter +=1;
+		},
+		flags: {},
+		name: "Strange Anatomy",
+		rating: 4,
+		num: 0,
+		shortDesc: "Replaces foe's ability on when making contact. Reduces BP of Physical moves by 5 each turn.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

@@ -2150,6 +2150,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	anneliark: {
+		num: 3106,
+		name: "Anneliark",
+		types: ["Psychic", "Ground"],
+		baseStats: {hp: 84, atk: 83, def: 124, spa: 130, spd: 85, spe: 44},
+		abilities: {0: "Mold Breaker", H: "Strange Anatomy"},
+		heightm: 10.3,
+		weightkg: 999.9,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
