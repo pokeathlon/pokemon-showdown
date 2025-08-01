@@ -2164,6 +2164,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	reneguana: {
+		num: 3107,
+		name: "Reneguana",
+		types: ["Dragon", "Electric"],
+		baseStats: {hp: 70, atk: 100, def: 110, spa: 110, spd: 50, spe: 75},
+		abilities: {0: "Battle Armor", 1: "Berserk", H: "Tailgun Railgun"},
+		heightm: 1.8,
+		weightkg: 55.0,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

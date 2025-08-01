@@ -1227,6 +1227,23 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "Replaces foe's ability on when making contact. Reduces BP of Physical moves by 5 each turn.",
 	},
+	tailgunrailgun: {
+		onStart(target) {
+			let tailgun = false;
+			for (const move of target.moveSlots) {
+				let moveType = this.dex.moves.get(move.id).type;
+				if (moveType === 'Electric' && move.pp === move.maxpp) tailgun = true;
+				if (moveType === 'Electric' && move.pp != move.maxpp) {tailgun = false; break;}
+				console.log(tailgun)
+			}
+			if (tailgun) this.actions.useMove('charge', target, { target: target });
+		},
+		flags: {},
+		name: "Tailgun Railgun",
+		rating: 4,
+		num: 0,
+		shortDesc: "If Electric-Type moves at full PP, uses Charge.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

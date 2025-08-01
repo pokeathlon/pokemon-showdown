@@ -2296,6 +2296,26 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "Hits twice, 1st 30% -1 Atk, 2nd 30% -1 SpA.",
 	},
+	severedsidearm: {
+		num: 0,
+		accuracy: 100,
+		basePower: 55,
+		category: "Special",
+		name: "Severed Sidearm",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		target: "normal",
+		type: "Electric",
+		onModifyPriority(priority, source, target, move) {
+			if (source.hp <= source.maxhp/2) {
+				return priority + 1;
+			}
+		},
+		secondary: null,
+		contestType: "Cool",
+		shortDesc: "User's HP is 50% or less: +1 priority.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
