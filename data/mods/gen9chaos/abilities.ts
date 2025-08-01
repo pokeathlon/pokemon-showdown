@@ -1234,7 +1234,6 @@ export const Abilities: ModdedAbilityDataTable = {
 				let moveType = this.dex.moves.get(move.id).type;
 				if (moveType === 'Electric' && move.pp === move.maxpp) tailgun = true;
 				if (moveType === 'Electric' && move.pp != move.maxpp) {tailgun = false; break;}
-				console.log(tailgun)
 			}
 			if (tailgun) this.actions.useMove('charge', target, { target: target });
 		},
