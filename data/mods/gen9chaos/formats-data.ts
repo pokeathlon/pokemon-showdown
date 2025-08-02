@@ -173,6 +173,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	cheninphox: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	spiritombmega: {
 		inherit: true,
 		natDexTier: "(OU)",
@@ -262,6 +266,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 	},
 	roseradedelta: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	luxelong: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -490,10 +498,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	gilotherma: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	luxelong: {
 		inherit: true,
 		natDexTier: "UU",
 	},
