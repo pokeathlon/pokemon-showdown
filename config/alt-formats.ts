@@ -733,7 +733,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
 		banlist: [
-			'ND Uber', 'ND AG',
+			'Uber', 'AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',

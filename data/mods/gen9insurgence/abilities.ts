@@ -468,7 +468,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},
 		name: "Lernean",
 		shortDesc: "Grows heads when it loses HP. Moves become multihit.",
 		rating: 4.5,
