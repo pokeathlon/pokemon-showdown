@@ -185,10 +185,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
-	roggenrola: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	garchomp: {
 		inherit: true,
 		natDexTier: "OU",
@@ -2290,6 +2286,26 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	majorburrows: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	parabiddy: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	anneliark: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	twinova: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	reneguana: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	malamancer: {
 		inherit: true,
 		natDexTier: "RU",
 	},

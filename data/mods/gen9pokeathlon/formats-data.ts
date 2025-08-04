@@ -720,6 +720,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
+	pupprodigy: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
+	malamancer: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
 };
 
 for (const pokemon in Base) {
