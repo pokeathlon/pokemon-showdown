@@ -2236,6 +2236,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	nebulant: {
+		num: 3112,
+		name: "Nebulant",
+		types: ["Bug", "Psychic"],
+		baseStats: {hp: 91, atk: 66, def: 70, spa: 108, spd: 71, spe: 114},
+		abilities: {0: "Vacuum Bubble"},
+		heightm: 1.4,
+		weightkg: 28,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

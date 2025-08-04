@@ -95,6 +95,8 @@ export const treasures: {[k: string]: string} = {
 	mysticwater: 'adaptability',
 };
 
+const vacuumItems = ['assaultvest', 'eviolite', 'deepseascale', 'metalpowder']
+
 export const Abilities: ModdedAbilityDataTable = {
 	// MODDED
 	proteanmaxima: {
@@ -141,6 +143,15 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "Transforms into the eeveelution corresponding to the type of the move used.",
 		rating: 4.5,
 		num: 0,
+	},
+	
+	pressure: {
+		inherit: true,
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			if (target.hasAbility('vacuumbubble')) return;
+			return 1;
+		},
 	},
 
 	// COLLISIONS
@@ -1257,6 +1268,29 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 4,
 		num: 0,
 		shortDesc: "Boosts moves that require charge turn by 50%.",
+	},
+	vacuumbubble: { //Pressure interaction coded into pressure
+		onModifyMove(move, pokemon, target) {
+			move.ignoreEvasion = true;
+			move.ignoreDefensive = true;
+		},
+		onPrepareHit(source, target, move) {
+			if (vacuumItems.includes(this.toID(target.item))) {
+				target.speciesState.item = target.getItem();
+				target.setItem('')
+			}
+		},
+		onHit(source, target, move) {
+			if (target.speciesState.item) {
+				target.setItem(target.speciesState.item)
+				target.speciesState.item = null;
+			}
+		},
+		flags: {},
+		name: "Vacuum Bubble",
+		rating: 4,
+		num: 0,
+		shortDesc: "Ignores foe's defense boosts, including items. Immune to Pressure.",
 	},
 };
 
