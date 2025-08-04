@@ -1215,6 +1215,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				}
 			}
 		},
+		onBasePowerPriority: 23,
 		onBasePower(basePower, source, target, move) {
 			if (!source.abilityState.strangeCounter || move.category != 'Physical' || !move.basePower) return;
 			return Math.max(basePower - source.abilityState.strangeCounter * 5, 1);
@@ -1245,6 +1246,17 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 4,
 		num: 0,
 		shortDesc: "If Electric-Type moves at full PP, uses Charge.",
+	},
+	hiddenambush: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, source, target, move) {
+			if (move.flags.charge) return this.chainModify(1.5);
+		},
+		flags: {},
+		name: "Hidden Ambush",
+		rating: 4,
+		num: 0,
+		shortDesc: "Boosts moves that require charge turn by 50%.",
 	},
 };
 

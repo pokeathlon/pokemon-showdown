@@ -2208,6 +2208,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	celestray: {
+		num: 3110,
+		name: "Celestray",
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 96, atk: 119, def: 90, spa: 60, spd: 65, spe: 95},
+		abilities: {0: "Infiltrator", 1: "Frisk", H: "Hidden Ambush"},
+		heightm: 1.7,
+		weightkg: 34,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
