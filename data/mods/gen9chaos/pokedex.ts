@@ -2189,9 +2189,9 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tags: ["Pokeathlon"],
 		evos: ['Malamancer'],
 		eggGroups: ["Pokeathlon", "POA"],
-		tier: "NFE",
-		natDexTier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
 	},
 	malamancer: {
 		num: 3109,

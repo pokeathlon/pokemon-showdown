@@ -722,8 +722,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pupprodigy: {
 		inherit: true,
-		tier: "NFE",
-		natDexTier: "NFE",
+		tier: "LC",
+		natDexTier: "LC",
 		isNonstandard: null,
 	},
 	malamancer: {
