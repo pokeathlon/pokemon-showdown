@@ -2222,6 +2222,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	saturoceras: {
+		num: 3111,
+		name: "Saturoceras",
+		types: ["Fire", "Rock"],
+		baseStats: {hp: 65, atk: 60, def: 75, spa: 115, spd: 95, spe: 85},
+		abilities: {0: "Shell Armor", H: "Speed Boost"},
+		heightm: 6.6,
+		weightkg: 376,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
