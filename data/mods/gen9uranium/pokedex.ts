@@ -772,7 +772,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	felungefuroshiki: {
 		num: 5027,
-		name: "Felunge-Karubin",
+		name: "Felunge-Furoshiki",
 		baseSpecies: "Felunge",
 		forme: "Furoshiki",
 		types: ["Normal"],
@@ -817,7 +817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		heightm: 2.0,
 		weightkg: 130.5,
 		color: "Brown",
-		prevo: "Felunge",
+		prevo: "Felunge-Furoshiki",
 		evoType: "levelMove",
 		evoMove: "Rest",
 		eggGroups: ["Uranium", "Mystery Gift"],
