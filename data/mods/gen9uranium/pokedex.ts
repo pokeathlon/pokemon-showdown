@@ -741,7 +741,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	felengfuroshiki: {
 		num: 5026,
-		name: "Feleng-Karubin",
+		name: "Feleng-Furoshiki",
 		baseSpecies: "Feleng",
 		forme: "Furoshiki",
 		types: ["Normal"],

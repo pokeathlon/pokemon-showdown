@@ -8682,12 +8682,14 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 	paraudioambroise: {
 		learnset: {
 			attract: ["6M"],
+			aromatherapy: ["6S0"],
 			boomburst: ["6L60"],
 			brickbreak: ["6M"],
 			bulkup: ["6M"],
 			calmmind: ["6M"],
 			confusion: ["6L13"],
 			darkpulse: ["6M"],
+			destinybond: ["6S0"],
 			dig: ["6M"],
 			drainpunch: ["6M"],
 			dreameater: ["6M"],
@@ -8712,7 +8714,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			lowkick: ["6T"],
 			nastyplot: ["6L41", "6T"],
 			ominouswind: ["6T"],
-			poisonjab: ["6M"],
+			poisonjab: ["6M", "6S0"],
 			protect: ["6M"],
 			psybeam: ["6L20"],
 			psychic: ["6L44", "6M"],
