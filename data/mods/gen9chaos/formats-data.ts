@@ -169,10 +169,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	sweepdol: {
-		inherit: true,
-		natDexTier: "Uber",
-	},
 	cheninphox: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -266,6 +262,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 	},
 	luxelong: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	sweepdol: {
 		inherit: true,
 		natDexTier: "OU",
 	},

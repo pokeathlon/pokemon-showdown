@@ -54,7 +54,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen7infinitefusion',
 		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause',
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Clause Mod',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [

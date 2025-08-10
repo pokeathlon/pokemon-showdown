@@ -13,7 +13,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	berserkergene: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 		isNonstandard: "Unobtainable",
 	},
 	bewitwing: {
