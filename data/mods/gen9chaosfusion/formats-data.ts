@@ -39,6 +39,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	feligerfuroshiki: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	blissey: {
 		inherit: true,
 		natDexTier: "Uber",

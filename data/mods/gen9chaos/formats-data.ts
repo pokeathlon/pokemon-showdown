@@ -833,6 +833,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: 'RU',
 	},
+	feligerfuroshiki: {
+		inherit: true,
+		natDexTier: 'RU',
+	},
 	flygonarmor: {
 		inherit: true,
 		natDexTier: 'RU',
@@ -898,6 +902,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: 'RU',
 	},
 	haagross: {
+		inherit: true,
+		natDexTier: 'RU',
+	},
+	haagrossmel: {
 		inherit: true,
 		natDexTier: 'RU',
 	},
@@ -2033,6 +2041,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	gargryphtenebris: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	garlikid: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2102,6 +2114,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	paraboom: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	paraboomambroise: {
 		inherit: true,
 		natDexTier: "RU",
 	},
