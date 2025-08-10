@@ -842,7 +842,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 		},
 		name: "Clean Sweep",
-		shortDesc: "This Pokemon clears all hazards on switch-in.",
+		shortDesc: "If this Pokemon is at full HP, it clears all hazards on switch-in.",
 		rating: 4,
 		num: 0,
 	},
@@ -1258,7 +1258,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Tailgun Railgun",
 		rating: 4,
 		num: 0,
-		shortDesc: "If Electric-Type moves at full PP, uses Charge.",
+		shortDesc: "If all Electric-type moves have full PP, uses Charge.",
 	},
 	hiddenambush: {
 		onBasePowerPriority: 23,
