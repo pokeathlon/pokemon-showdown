@@ -516,11 +516,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			pound: ["9M"],
 			reflecttype: ["9M"],
 			confusion: ["9M"],
-			dragondance: ["9M"],
 			ancientpower: ["9M"],
 			explosion: ["9M"],
 			megapunch: ["9M"],
-			bulkup: ["9M"],
 			dracojet: ["9M"],
 			recover: ["9M"],
 			stormthrow: ["9M"],
@@ -529,7 +527,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			meanlook: ["9M"],
 			transform: ["9M"],
 			outrage: ["9M"],
-			psychobarrage: ["9M"]
+			psychobarrage: ["9M"],
+			earthquake: ["9M"],
+			ironhead: ["9M"],
+			poisonjab: ["9M"]
         }
 	},
 	bewitwing: {
@@ -1965,7 +1966,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			woodhammer: ["9M"],
 			wrap: ["9M"],
 			zapcannon: ["9M"],
-			celebrate: ["9M"],
 			thunderclap: ["9M"],
 			swordsdance: ["9M"],
 			teatime: ["9M"],
@@ -2825,7 +2825,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			thunderbolt: ["9M"],
 			thunder: ["9M"],
 			detect: ["9M"],
-			trickroom: ["9M"]
+			trickroom: ["9M"],
+			ficklebeam: ["9M"],
+			spiritsiphon: ["9M"],
+			extrasensory: ["9M"]
         }
 	},
 	icyall: {
@@ -4708,7 +4711,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			wish: ["9M"],
 			yawn: ["9M"],
 			followme: ["9M"],
-			wonderroom: ["9M"]
+			wonderroom: ["9M"],
+			flipturn: ["9M"]
         }
 	},
 	pandiz: {
@@ -5990,7 +5994,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			terablast: ["9M"],
 			rest: ["9M"],
 			sleeptalk: ["9M"],
-			hiddenpower: ["9M"]
+			hiddenpower: ["9M"],
+			taunt: ["9M"]
         }
 	},
 	sceptiledeltamega: {
@@ -7050,7 +7055,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			babydolleyes: ["9M"],
 			charm: ["9M"],
 			disarmingvoice: ["9M"],
-			moonlight: ["9M"],
 			sweetkiss: ["9M"],
 			calmmind: ["9M"],
 			healpulse: ["9M"],
@@ -7491,8 +7495,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 	tyranisacer: {
 		learnset: {
 			scarabssting: ["9M"],
-			acidarmor: ["9M"],
-			acidspray: ["9M"],
 			ancientpower: ["9M"],
 			assurance: ["9M"],
 			bite: ["9M"],
@@ -7507,10 +7509,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			curse: ["9M"],
 			darkpulse: ["9M"],
 			dig: ["9M"],
-			dragondance: ["9M"],
 			dragontail: ["9M"],
 			drillrun: ["9M"],
-			dualchop: ["9M"],
 			earthpower: ["9M"],
 			earthquake: ["9M"],
 			feintattack: ["9M"],
@@ -7518,14 +7518,11 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			foulplay: ["9M"],
 			furycutter: ["9M"],
 			gigaimpact: ["9M"],
-			grudge: ["9M"],
 			gravity: ["9M"],
-			headsmash: ["9M"],
 			heavyslam: ["9M"],
 			hex: ["9M"],
 			honeclaws: ["9M"],
 			hyperbeam: ["9M"],
-			icefang: ["9M"],
 			infestation: ["9M"],
 			irondefense: ["9M"],
 			ironhead: ["9M"],
@@ -7539,14 +7536,11 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			mudshot: ["9M"],
 			mudslap: ["9M"],
 			nightslash: ["9M"],
-			painsplit: ["9M"],
 			payback: ["9M"],
 			pinmissile: ["9M"],
 			poisontail: ["9M"],
 			pounce: ["9M"],
 			psychic: ["9M"],
-			psychicfangs: ["9M"],
-			psybeam: ["9M"],
 			quash: ["9M"],
 			reflect: ["9M"],
 			reversal: ["9M"],
@@ -7556,21 +7550,17 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sandattack: ["9M"],
 			sandtomb: ["9M"],
 			sandstorm: ["9M"],
-			scaleshot: ["9M"],
 			scaryface: ["9M"],
 			scratch: ["9M"],
 			shadowclaw: ["9M"],
-			shadowsneak: ["9M"],
 			signalbeam: ["9M"],
 			skittersmack: ["9M"],
 			slash: ["9M"],
-			sludgebomb: ["9M"],
 			snarl: ["9M"],
 			snatch: ["9M"],
 			spikes: ["9M"],
 			spite: ["9M"],
 			stoneedge: ["9M"],
-			storedpower: ["9M"],
 			stompingtantrum: ["9M"],
 			swagger: ["9M"],
 			swordsdance: ["9M"],
@@ -7585,7 +7575,16 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			facade: ["9M"],
 			return: ["9M"],
 			frustration: ["9M"],
-			terablast: ["9M"]
+			terablast: ["9M"],
+			firstimpression: ["9M"],
+			megahorn: ["9M"],
+			pursuit: ["9M"],
+			torment: ["9M"],
+			highhorsepower: ["9M"],
+			bodypress: ["9M"],
+			smartstrike: ["9M"],
+			powertrip: ["9M"],
+			burningjealousy: ["9M"]
         }
 	},
 	tyranitardelta: {
@@ -7949,7 +7948,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			scaleshot: ["9M"],
 			haze: ["9M"],
 			voltswitch: ["9M"],
-			muddywater: ["9M"]
+			muddywater: ["9M"],
+			bulkup: ["9M"],
+			drainpunch: ["9M"]
         }
 	},
 	tofagrif: {
@@ -8016,7 +8017,13 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			trickortreat: ["9M"],
 			whirlwind: ["9M"],
 			worryseed: ["9M"],
-			delightandflight: ["9M"]
+			delightandflight: ["9M"],
+			encore: ["9M"],
+			seedbomb: ["9M"],
+			strengthsap: ["9M"],
+			acidarmor: ["9M"],
+			decorate: ["9M"],
+			switcheroo: ["9M"]
         }
 	},
 	caramitti: {
@@ -8125,7 +8132,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sleeptalk: ["9M"],
 			substitute: ["9M"],
 			swagger: ["9M"],
-			terablast: ["9M"]
+			terablast: ["9M"],
+			stuffcheeks: ["9M"]
         }
 	},
 	calobera: {
@@ -9827,7 +9835,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			amnesia: ["9M"],
 			powersplit: ["9M"],
 			guardsplit: ["9M"],
-			healpulse: ["9M"]
+			healpulse: ["9M"],
+			protect: ["9M"],
+			substitute: ["9M"]
         }
 	},
 	crenibex: {
@@ -9890,7 +9900,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			headsmash: ["9M"],
 			headlongrush: ["9M"],
 			megahorn: ["9M"],
-			yawn: ["9M"]
+			yawn: ["9M"],
+			boulderbash: ["9M"]
         }
 	},
 	twinova: {
@@ -10018,6 +10029,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			block: ["9L19"],
 			seismictoss: ["9L25"],
 			moonlight: ["9L33"],
+			protect: ["9M"],
 		}
 	},
 	reneguana: {

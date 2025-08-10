@@ -822,22 +822,24 @@ export const Abilities: ModdedAbilityDataTable = {
 	},
 	cleansweep: {
 		onStart(pokemon) {
-			let success = false;
-			for (const active of this.getAllActive()) {
-				if (active.removeVolatile('substitute')) success = true;
-			}
-			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
-			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
-			for (const side of sides) {
-				for (const sideCondition of removeAll) {
-					if (side.removeSideCondition(sideCondition)) {
-						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
-						success = true;
+			if (pokemon.hp === pokemon.maxhp) {
+				let success = false;
+				for (const active of this.getAllActive()) {
+					if (active.removeVolatile('substitute')) success = true;
+				}
+				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
+				const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
+				for (const side of sides) {
+					for (const sideCondition of removeAll) {
+						if (side.removeSideCondition(sideCondition)) {
+							this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
+							success = true;
+						}
 					}
 				}
+				if (success) this.add('-activate', pokemon, 'ability: Clean Sweep');
+				return success;
 			}
-			if (success) this.add('-activate', pokemon, 'ability: Clean Sweep');
-			return success;
 		},
 		name: "Clean Sweep",
 		shortDesc: "This Pokemon clears all hazards on switch-in.",

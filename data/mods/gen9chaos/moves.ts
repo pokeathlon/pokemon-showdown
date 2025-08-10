@@ -1155,7 +1155,7 @@ export const Moves: ModdedMoveDataTable = {
 	mindwipe: {
 		num: 0,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		name: "Mindwipe",
 		desc: "Resets all of the target's stat stages to 0.",
@@ -2076,18 +2076,20 @@ export const Moves: ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 70,
 		basePowerCallback(pokemon, target, move) {
-			if (pokemon.status || pokemon.hasAbility('comatose')) {
+			if (pokemon.status && pokemon.status !== 'slp') {
 				this.debug('BP boost from status condition');
 				return move.basePower * 1.5;
 			}
 			return move.basePower;
 		},
 		onTryHit(target, source, move) {
-			if (source.status) move.status = source.status;
+			if (source.status && source.status !== 'slp') move.status = source.status;
 		},
 		self: {
 			onHit(pokemon) {
-				pokemon.cureStatus();
+				if (pokemon.status !== 'slp') {
+					pokemon.cureStatus();
+				}
 			},
 		},
 		category: "Special",
