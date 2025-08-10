@@ -1993,7 +1993,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3095,
 		name: "Tofagrif",
 		types: ["Grass", "Flying"],
-		baseStats: {hp: 72, atk: 77, def: 56, spa: 53, spd: 75, spe: 122},
+		baseStats: {hp: 72, atk: 107, def: 56, spa: 53, spd: 75, spe: 122},
 		abilities: {0: "Gooey", 1: "Intimidate", H: "Dry Skin"},
 		heightm: 0.9,
 		weightkg: 30,
