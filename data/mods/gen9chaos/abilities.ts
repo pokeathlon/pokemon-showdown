@@ -1304,7 +1304,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
-		onHit(target, source, move) {
+		onDamagingHit(target, source, move) {
 			if (target.species.id === 'zorblob') {
 				target.formeChange('Zorblob-Split')
 			}
