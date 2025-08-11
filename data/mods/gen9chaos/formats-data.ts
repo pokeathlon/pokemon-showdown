@@ -586,6 +586,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	s51aostara: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	s51amega: {
 		inherit: true,
 		natDexTier: "UU",
@@ -1826,6 +1830,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	tanscureorthrus: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	vilucard: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2062,6 +2070,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	gellinincandesci: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	hydroupa: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2095,6 +2107,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	luchabra: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	luchabratchai: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -2174,6 +2190,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	astronitelaveau: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	sunfloramegaf: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2191,6 +2211,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	syrentide: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	syrentideatargatis: {
 		inherit: true,
 		natDexTier: "RU",
 	},
