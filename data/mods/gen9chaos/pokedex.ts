@@ -299,7 +299,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3012,
 		name: "Caramitti-Crazed",
 		types: ["Fairy", "Flying"],
-		baseStats: {hp: 89, atk: 103, def: 25, spa: 116, spd: 72, spe: 140},
+		baseStats: {hp: 89, atk: 113, def: 25, spa: 126, spd: 72, spe: 140},
 		abilities: {0: "Sweet Tooth"},
 		heightm: 0.4,
 		weightkg: 0.9,
