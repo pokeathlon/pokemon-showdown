@@ -1297,16 +1297,18 @@ export const Abilities: ModdedAbilityDataTable = {
 	hivemind: {
 		onSwitchOut(pokemon) {
 			if (pokemon.species.id === 'zorblobsplit') pokemon.formeChange('Zorblob');
+			this.effectState.split = false;
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.species.id === 'zorblob') {
+			if (target.species.id === 'zorblob' && damage > target.baseMaxhp / 4) {
 				this.debug('Hive Mind weaken');
+				this.effectState.split = true;
 				return this.chainModify(0.5);
 			}
 		},
-		onDamagingHit(target, source, move) {
-			if (target.species.id === 'zorblob') {
-				target.formeChange('Zorblob-Split')
+		onUpdate(pokemon) {
+			if (this.effectState.split && pokemon.species.id === 'zorblob') {
+				pokemon.formeChange('Zorblob-Split', this.effect, true);
 			}
 		},
 		flags: {
@@ -1316,7 +1318,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Hive Mind",
 		rating: 4,
 		num: 0,
-		shortDesc: "If Zorblob: Takes 0.5x damage once per switch-in, transforms into Zorblob-Split.",
+		shortDesc: "If Zorblob: 1/2 damage taken and transforms to Split after taking 1/4 max HP damage.",
 	},
 	coatofarms: {
 		onModifySecondaries(secondaries) {
