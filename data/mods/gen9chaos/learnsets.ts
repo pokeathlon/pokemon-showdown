@@ -10370,7 +10370,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			return: ["9M"],
 			frustration: ["9M"],
 			toxic: ["9M"],
-			hiddenpower: ["9M"],
 			terablast: ["9M"],
 		}
 	},
