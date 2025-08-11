@@ -2588,6 +2588,23 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	hydroupaseven: "Hydroupa",
 	hydroupaeight: "Hydroupa",
 	hydroupanine: "Hydroupa",
+
+	tanukiefbug: "Tanukief",
+	tanukiefdragon: "Tanukief",
+	tanukiefelectric: "Tanukief",
+	tanukieffairy: "Tanukief",
+	tanukieffire: "Tanukief",
+	tanukiefflying: "Tanukief",
+	tanukiefghost: "Tanukief",
+	tanukiefgrass: "Tanukief",
+	tanukiefground: "Tanukief",
+	tanukiefice: "Tanukief",
+	tanukiefnormal: "Tanukief",
+	tanukiefpoison: "Tanukief",
+	tanukiefpsychic: "Tanukief",
+	tanukiefrock: "Tanukief",
+	tanukiefsteel: "Tanukief",
+	tanukiefwater: "Tanukief",
 };
 
 /** This is what lets you type "tb"/"tbolt"/"bolt" to find "thunderbolt" in the

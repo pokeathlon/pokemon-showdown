@@ -2283,6 +2283,25 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	tanukief: {
+		num: 3114,
+		name: "Tanukief",
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 95, atk: 84, def: 121, spa: 76, spd: 94, spe: 60},
+		abilities: {0: "Coat of Arms"},
+		heightm: 1.2,
+		weightkg: 95.0,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		cosmeticFormes: [
+			"Tanukief-Bug", "Tanukief-Dragon", "Tanukief-Electric", "Tanukief-Fairy", "Tanukief-Fire", 
+			"Tanukief-Flying", "Tanukief-Ghost", "Tanukief-Grass", "Tanukief-Ground", "Tanukief-Ice", 
+			"Tanukief-Normal", "Tanukief-Poison", "Tanukief-Psychic", "Tanukief-Rock", "Tanukief-Steel", "Tanukief-Water"
+		],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

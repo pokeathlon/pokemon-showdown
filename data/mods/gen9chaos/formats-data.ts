@@ -2370,6 +2370,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	tanukief: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	zorblob: {
 		inherit: true,
 		natDexTier: "RU",

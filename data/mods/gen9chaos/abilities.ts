@@ -1318,6 +1318,26 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "If Zorblob: Takes 0.5x damage once per switch-in, transforms into Zorblob-Split.",
 	},
+	coatofarms: {
+		onModifySecondaries(secondaries) {
+			this.debug('Coat of Arms prevent secondary');
+			return secondaries.filter(effect => !!effect.self);
+		},
+		onStart(target) {
+			if (!target.species.name.includes('Tanukief')) return;
+			const coatype = target.species.name.includes('Tanukief-') ? target.species.name.replace('Tanukief-', '') : 'Normal';
+			if (!target.addType(coatype)) return;
+			this.add('-start', target, 'typeadd', coatype, '[from] ability: Coat of Arms');
+		},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},
+		name: "Coat of Arms",
+		rating: 4,
+		num: 0,
+		shortDesc: "Gains additional type based on form. Immune to secondary effects.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
