@@ -10559,6 +10559,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			refresh: ["9M"],
 			rest: ["9M"],
 			revenge: ["9M"],
+			recover: ["9M"],
 			reversal: ["9M"],
 			roar: ["9M"],
 			rocksmash: ["9M"],
