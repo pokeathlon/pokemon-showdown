@@ -16,6 +16,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
+	yatagaryugossamir: {
+		inherit: true,
+		natDexTier: "Uber",
+		doublesTier: "DUber",
+	},
 	icyall: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -1154,6 +1159,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: 'RU',
 	},
 	rotomhisuiarmored: {
+		inherit: true,
+		natDexTier: 'RU',
+	},
+	sableyegrinch: {
 		inherit: true,
 		natDexTier: 'RU',
 	},
