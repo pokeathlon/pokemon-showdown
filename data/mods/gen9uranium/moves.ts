@@ -186,15 +186,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 75,
 		category: "Special",
 		name: "Gemstone Glimmer",
-		desc: "Has a 25% chance to lower the target's Evasion by 1 stage.",
-		shortDesc: "25% chance to lower the target's Evasion by 1.",
+		desc: "Has a 25% chance to lower the target's Accuracy by 1 stage.",
+		shortDesc: "25% chance to lower the target's Accuracy by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 25,
 			boosts: {
-				evasion: -1,
+				accuracy: -1,
 			},
 		},
 		target: "normal",
