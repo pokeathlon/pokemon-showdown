@@ -1269,7 +1269,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Hidden Ambush",
 		rating: 4,
 		num: 0,
-		shortDesc: "Boosts moves that require charge turn by 50%.",
+		shortDesc: "Boosts moves that require a charge turn by 50%.",
 	},
 	vacuumbubble: { //Pressure interaction coded into pressure
 		onModifyMove(move, pokemon, target) {
@@ -1292,7 +1292,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Vacuum Bubble",
 		rating: 4,
 		num: 0,
-		shortDesc: "Ignores foe's defense boosts, including items. Immune to Pressure.",
+		shortDesc: "Ignores foe's defense boosts, including items, when attacking. Immune to Pressure.",
 	},
 	hivemind: {
 		onSwitchOut(pokemon) {
