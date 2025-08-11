@@ -17,7 +17,8 @@ for (const key in Child) {
 
 		if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
 		// @ts-ignore splicing new gen onto a move
-		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid].map(method => "9" + method.slice(1)));
+		// if M, T or L copy as respective, else as 9M
+		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid].map(method => ['M', 'T', 'L'].includes(method[1]) ? "9" + method.slice(1) : "9M"));
 	}
 }
 
