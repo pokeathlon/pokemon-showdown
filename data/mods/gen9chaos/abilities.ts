@@ -1067,7 +1067,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		flags: {},
 		name: "Sweet Tooth",
-		shortDesc: "After consuming berry, x1.3 to Attack and Sp. Attack.",
+		shortDesc: "After consuming a berry, changes Caramitti's form to Crazed.",
 		rating: 2.5,
 		num: 0,
 	},
