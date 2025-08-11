@@ -1309,7 +1309,10 @@ export const Abilities: ModdedAbilityDataTable = {
 				target.formeChange('Zorblob-Split')
 			}
 		},
-		flags: {},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},
 		name: "Hive Mind",
 		rating: 4,
 		num: 0,
