@@ -1294,6 +1294,27 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "Ignores foe's defense boosts, including items. Immune to Pressure.",
 	},
+	hivemind: {
+		onSwitchOut(pokemon) {
+			if (pokemon.species.id === 'zorblobsplit') pokemon.formeChange('Zorblob');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.species.id === 'zorblob') {
+				this.debug('Hive Mind weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onHit(target, source, move) {
+			if (target.species.id === 'zorblob') {
+				target.formeChange('Zorblob-Split')
+			}
+		},
+		flags: {},
+		name: "Hive Mind",
+		rating: 4,
+		num: 0,
+		shortDesc: "If Zorblob: Takes 0.5x damage once per switch-in, transforms into Zorblob-Split.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
