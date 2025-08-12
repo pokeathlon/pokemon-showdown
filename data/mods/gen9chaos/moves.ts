@@ -2103,7 +2103,7 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Ghost",
 		zMove: {basePower: 160},
 		contestType: "Clever",
-		shortDesc: "1.5x power if user has status condition. Transfers status condition.",
+		shortDesc: "1.5x power if user is burn/poison/paralyzed. Transfers status.",
 	},
 	heavycleave: {
 		num: 0,
