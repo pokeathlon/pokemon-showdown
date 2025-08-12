@@ -11,6 +11,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	yatagaryugossamir: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	seikamater: {
 		inherit: true,
 		natDexTier: "Uber",

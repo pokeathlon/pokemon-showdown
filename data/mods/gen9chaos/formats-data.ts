@@ -414,6 +414,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	alpicochristmas: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	beliaddonkrampus: {
 		inherit: true,
 		natDexTier: "UU",
