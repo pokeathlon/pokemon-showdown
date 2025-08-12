@@ -1315,6 +1315,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "UU",
 		doublesTier: "DOU",
+		prevo: "Betech"
 	},
 	paldemaria: {
 		num: 3067,
@@ -2301,6 +2302,37 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+	},
+	alphbit: {
+		num: 3115,
+		name: "Alphbit",
+		types: ["Electric", "Normal"],
+		baseStats: {hp: 44, atk: 40, def: 33, spa: 62, spd: 44, spe: 67},
+		abilities: {0: "Volt Absorb", 1: "Download", H: "Download"},
+		heightm: 0.2,
+		weightkg: 5.6,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+		evos: ["Betech"],
+	},
+	betech: {
+		num: 3116,
+		name: "Betech",
+		types: ["Electric", "Normal"],
+		baseStats: {hp: 54, atk: 44, def: 43, spa: 76, spd: 64, spe: 87},
+		abilities: {0: "Volt Absorb", 1: "Download", H: "Pixel Perfect"},
+		heightm: 0.6,
+		weightkg: 14.2,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "NFE",
+		natDexTier: "NFE",
+		doublesTier: "NFE",
+		evos: ["Omecha"],
+		prevo: "Alphbit"
 	},
 };
 
