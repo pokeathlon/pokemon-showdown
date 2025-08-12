@@ -2534,6 +2534,118 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "LC",
 	},
+	arboknuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	arboknuclearmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gyaradosnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gyaradosnuclearmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gliscornuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	kinetmunknuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	eshoutennuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	tanscurenuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	pajaynuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	baariettenuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	baariettenuclearmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	trawpintnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	corsoreefnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	tubareelnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gellinnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	barandnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	paraboomnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	dramsamanuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	dramsamanuclearmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	dramsamanucleardarkmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	chupachonuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	luchabranuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	haagrossnuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	xenoqueen: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hazma: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hazmabecquerel: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	geigeroach: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	actannuclear: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 
 	// CAP
 	syclar: {
