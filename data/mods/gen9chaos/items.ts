@@ -176,8 +176,10 @@ export const Items: ModdedItemDataTable = {
 		shortDesc: "Holder heals 33% on switch out. Single use.",
 		spritenum: -3,
 		onSwitchOut(source) {
-			source.heal(source.maxhp / 3);
-			source.useItem();
+			if (source.hp < source.maxhp) {
+				source.heal(source.maxhp / 3);
+				source.useItem();
+			}
 		},
 		num: 0,
 	},
