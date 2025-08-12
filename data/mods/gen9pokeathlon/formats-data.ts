@@ -365,7 +365,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	raikousupra: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 		isNonstandard: "Unobtainable",
 	},
 	regimyo: {
