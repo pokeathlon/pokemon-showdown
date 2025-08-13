@@ -3524,6 +3524,32 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'IF Averagemons: Pok\u00e9mon have all of their base stats set to 100.');
 		},
 	},
+	ifnewlandsclause: {
+		effectType: 'ValidatorRule',
+		name: 'IF New Lands Clause',
+		desc: "Enforces a Hoenn Pok&eacute;mon for every fusion.",
+		onValidateSet(set) {
+			let problems = [];
+			const species = this.dex.species.get(set.species);
+			const dexSpecies = this.dex.mod('gen9').species.get(species.name)
+			let hoenn = false;
+			if (set.fusion) {
+				const fusion = this.dex.species.get(set.fusion);
+				const dexFusion = this.dex.mod('gen9').species.get(fusion.name)
+				if ((dexSpecies.num >= 252 && dexSpecies.num <= 386) || (dexFusion.num >= 252 && dexFusion.num <= 386)) hoenn = true;
+				if (!hoenn) problems.push(`Your fusion ${dexSpecies.name} + ${dexFusion.name} does not contain a Pokémon from Hoenn.`)
+
+				// For some reason pokemon that don't exist (such as Blissey-Egho or Castform-Sandy validate. This error message prevents that)
+				if (!dexFusion.exists && !fusion.exists) problems.push(`${dexFusion.name} does not exist in this world...`);
+			} 
+			if (!["swamptiliken", "gromarshken", "torkipcko"].includes(species.id) && !set.fusion) problems.push(`${species.name} must be fused. Only Hoenn triple fusions are allowed.`);
+			if (!dexSpecies.exists && !species.exists) problems.push(`${dexSpecies.name} does not exist in this world...`);
+			if (problems.length) return problems;
+		},
+		onBegin() {
+			this.add('rule', 'IF New Lands Clause: Every fusion must include a Pokémon from the Hoenn region.');
+		},
+	},
 };
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {

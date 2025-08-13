@@ -558,6 +558,6 @@ for (const key in {...Base, ...Pokedex}) {
 	let exists = false; // For New Lands format
 	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
 	if (cutDex[id]) {Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 7}; exists = true;}
-	if (Base[id] && Base[id].num && (386 >= Base[id].num && Base[id].num >= 252)) {Pokedex[id] = {...Pokedex[id], isNonstandard: null, gen: 7}; exists = true;} // New Lands format
+	if (Base[id] && Base[id].num && (386 >= Base[id].num && Base[id].num >= 252) && !Base[id].baseSpecies) {Pokedex[id] = {...Pokedex[id], isNonstandard: null, gen: 7}; exists = true;} // New Lands format
 	if (!exists) Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
 }
