@@ -3542,7 +3542,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				// For some reason pokemon that don't exist (such as Blissey-Egho or Castform-Sandy validate. This error message prevents that)
 				if (!dexFusion.exists && !fusion.exists) problems.push(`${dexFusion.name} does not exist in this world...`);
 			} 
-			if (!["swamptiliken", "gromarshken", "torkipcko"].includes(species.id) && !set.fusion) problems.push(`${species.name} must be fused. Only Hoenn triple fusions are allowed.`);
+			if (!["swamptiliken", "gromarshken", "torkipcko", "regitrio"].includes(species.id) && !set.fusion) problems.push(`${species.name} must be fused. Only Hoenn triple fusions are allowed.`);
 			if (!dexSpecies.exists && !species.exists) problems.push(`${dexSpecies.name} does not exist in this world...`);
 			if (problems.length) return problems;
 		},
