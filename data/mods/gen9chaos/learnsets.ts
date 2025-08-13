@@ -8915,7 +8915,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			willowisp: ["9M"],
 			wonderroom: ["9M"],
 			wrap: ["9M"],
-			celebrate: ["9M"],
 			swordsdance: ["9M"],
 			teatime: ["9M"]
         }
