@@ -2236,6 +2236,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
+		prevo: "Orthocket",
 	},
 	nebulant: {
 		num: 3112,
@@ -2333,6 +2334,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "NFE",
 		evos: ["Omecha"],
 		prevo: "Alphbit"
+	},
+	orthocket: {
+		num: 3117,
+		name: "Orthocket",
+		types: ["Fire", "Rock"],
+		baseStats: {hp: 35, atk: 35, def: 65, spa: 90, spd: 75, spe: 55},
+		abilities: {0: "Shell Armor", H: "Speed Boost"},
+		heightm: 0.45,
+		weightkg: 11.4,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+		evos: ["Saturoceras"]
 	},
 };
 
