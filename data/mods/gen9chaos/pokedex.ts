@@ -2083,7 +2083,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		name: "Tyranitar-Delta",
 		types: ["Dragon", "Psychic"],
 		baseStats: {hp: 100, atk: 134, def: 110, spa: 95, spd: 100, spe: 61},
-		abilities: {0: "Analytic", 1: "Psychic Surge"},
+		abilities: {0: "Analytic", H: "Psychic Surge"},
 		heightm: 2,
 		weightkg: 202,
 		tags: ["Pokeathlon"],
