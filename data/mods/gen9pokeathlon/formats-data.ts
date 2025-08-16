@@ -774,7 +774,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "NFE",
 		isNonstandard: null,
 	},
-	orthocket: {
+	othocket: {
 		inherit: true,
 		tier: "LC",
 		natDexTier: "LC",

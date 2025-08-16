@@ -10675,7 +10675,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			wrap: ["9M"],
 		}
 	},
-	orthocket: {
+	othocket: {
 		learnset: {
 			flamecharge: ["9M"],
 			flamethrower: ["9M"],

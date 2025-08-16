@@ -2236,7 +2236,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
-		prevo: "Orthocket",
+		prevo: "Othocket",
 	},
 	nebulant: {
 		num: 3112,
@@ -2335,9 +2335,9 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		evos: ["Omecha"],
 		prevo: "Alphbit"
 	},
-	orthocket: {
+	othocket: {
 		num: 3117,
-		name: "Orthocket",
+		name: "Othocket",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 35, atk: 35, def: 65, spa: 90, spd: 75, spe: 55},
 		abilities: {0: "Shell Armor", H: "Speed Boost"},
