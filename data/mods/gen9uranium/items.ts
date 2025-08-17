@@ -270,4 +270,112 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onEat() { },
 		num: 0,
 	},
+	
+	prettyribbon: {
+		name: "Pretty Ribbon",
+		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
+		spritenum: -2,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 0,
+	},
+	
+	// Current items that do not exist
+	dracoplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	dreadplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	earthplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	fistplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	flameplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	icicleplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	insectplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	ironplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	meadowplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	mindplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	pixieplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	skyplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	splashplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	spookyplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	stoneplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	toxicplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	zapplate: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	// Some berries are unavailable
+	yacheberry: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+	// Normal Gem is not available
+	normalgem: {
+		inherit: true,
+		isNonstandard: "Future",
+	},
+
+	// Past items that are now legal
+	flyinggem: {
+		inherit: true,
+		isNonstandard: null,
+		shortDesc: "Holder's first successful Flying-type attack will have 1.5x power. Single use.",
+	},
+	psychicgem: {
+		inherit: true,
+		isNonstandard: null,
+		shortDesc: "Holder's first successful Psychic-type attack will have 1.5x power. Single use.",
+	},
 };
