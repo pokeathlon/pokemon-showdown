@@ -340,4 +340,17 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 0,
 	},
+	
+	aftermath: {
+		// Aftermath deals damage even if the target doesn't faint
+		// This is a bug present in the game
+		inherit: true,
+		desc: "Pokemon making contact with this Pokemon lose 1/4 of their maximum HP, rounded down.",
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/4 of their max HP.",
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+	},
 };

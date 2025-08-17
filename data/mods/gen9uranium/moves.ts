@@ -520,6 +520,55 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Flying",
 		contestType: "Tough",
 	},
+	stickyterrain: {
+		// I didn't test if it affects ungrounded Pokemon, for now i assumed it does as that's how it's worded in the Wiki.
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Terrain",
+		desc: "For 5 turns, the terrain becomes Sticky Terrain. During the effect, Pokemon cannot be hit by moves with priority greater than 0. Camouflage transforms the user into a Normal type. Fails if the current terrain is Sticky Terrain.",
+		shortDesc: "5 turns. Prevents moves with increased priority.",
+		pp: 10,
+		priority: 0,
+		flags: { nonsky: 1, metronome: 1 },
+		terrain: 'stickyterrain',
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, effect) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+					return;
+				}
+				if (target.isSemiInvulnerable()) return;
+				this.add('-activate', target, 'move: Sticky Terrain');
+				return null;
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Sticky Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Sticky Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Sticky Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Poison",
+		contestType: "Clever",
+	},
 	subduction: {
 		num: 0,
 		accuracy: 90,
@@ -575,5 +624,29 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Electric",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
+	},
+	
+	rest: {
+		// Rest can heal if called by Sleep Talk
+		// This is a bug present in the game
+		// Unsure if sleep counter is reset or not, for now it is not
+		inherit: true,
+		onTry(source) {
+			if (source.hasAbility('comatose')) return false;
+
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
+				return null;
+			}
+			// insomnia and vital spirit checks are separate so that the message is accurate in multi-ability mods
+			if (source.hasAbility('insomnia')) {
+				this.add('-fail', source, '[from] ability: Insomnia', `[of] ${source}`);
+				return null;
+			}
+			if (source.hasAbility('vitalspirit')) {
+				this.add('-fail', source, '[from] ability: Vital Spirit', `[of] ${source}`);
+				return null;
+			}
+		},
 	},
 };
