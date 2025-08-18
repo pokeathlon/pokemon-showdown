@@ -52,6 +52,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'blessedfield':
 				types = ['Normal'];
 				break;
+			case 'starlightarenafield':
+				types = ['Dark'];
+				break;
 			default:
 				types = pokemon.baseSpecies.types;
 			}
@@ -365,7 +368,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	marvelscale: {
 		inherit: true,
 		onModifyDef(def, pokemon) {
-			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield','rainbowfield','fairytalefield'])) {
+			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield','rainbowfield','fairytalefield', 'starlightarenafield'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -860,7 +863,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	shadowshield: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
-			let fieldMod = this.field.isBattlefield('darkcrystalcarvernfield')? 0.75 : 1;
+			let fieldMod = (this.field.isBattlefield('darkcrystalcarvernfield') || this.field.isBattlefield('starlightarenafield'))? 0.75 : 1;
 			if (target.hp >= target.maxhp) {
 				this.debug('Shadow Shield weaken');
 				return this.chainModify(0.5*fieldMod);
@@ -868,6 +871,10 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.field.isBattlefield('darkcrystalcavernfield')) {
 				this.debug('Field weaken')
 				return this.chainModify(fieldMod)
+			}
+			if (this.field.isBattlefield('starlightarenafield')) {
+				this.debug('Field weaken');
+				return this.chainModify(0.75);
 			}
 		},
 	},
@@ -935,6 +942,31 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (move.type === 'Steel') {
 				this.debug('Steely Spirit boost');
 				return this.field.isBattlefield('fairytalefield')? this.chainModify(2) : this.chainModify(1.5);
+			}
+		},
+	},
+	mirrorarmor: {
+		inherit: true,
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1 && this.field.isBattlefield('starlightarenafield')) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Mirror Armor', move, `[of] ${target}`);
+				return false;
+			}
+		},
+	},
+	victorystar: {
+		inherit: true,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (this.field.isBattlefield('starlightarenafield')) {
+				this.debug('Victory Star boost');
+				return this.chainModify(1.5);
 			}
 		},
 	},

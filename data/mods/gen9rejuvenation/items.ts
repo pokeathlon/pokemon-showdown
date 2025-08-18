@@ -158,7 +158,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 	},
 	unknownmemory: {
-		name: "??? Memory",
+		name: "Unknown Memory",
 		spritenum: -6,
 		onMemory: '???',
 		onTakeItem(item, pokemon, source) {
@@ -167,8 +167,8 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 			return true;
 		},
-		forcedForme: "Silvally-???",
-		itemUser: ["Silvally-???"],
+		forcedForme: "Silvally-Unknown",
+		itemUser: ["Silvally-Unknown"],
 		num: 0,
 	},
 	amuletcoin: { 

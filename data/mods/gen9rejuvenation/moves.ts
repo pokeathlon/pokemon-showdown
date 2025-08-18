@@ -73,6 +73,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'judgement';
 			}  else if (this.field.isBattlefield('fairytalefield')) {
 				move = 'secretsword';
+			}  else if (this.field.isBattlefield('starlightarenafield')) {
+				move = 'moonblast';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -159,6 +161,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						accuracy: -1,
 					},
 				});
+			} else if (this.field.isBattlefield('starlightarenafield')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spd: -1,
+					},
+				});
 			} 
 		},
 	},
@@ -204,6 +213,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Flying';
 				break;
 			case 'darkcrystalcavernfield':
+			case 'starlightarenafield':
 				move.type = 'Dark';
 				break;
 			case 'crustalcavernfield':
@@ -236,6 +246,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield('darkcrystalcavernfield') && move.type === 'Dark') return this.chainModify(0.5);
 				if (this.field.isBattlefield('blessedfield') && move.type === 'Normal') return this.chainModify(0.5);
+				if (this.field.isBattlefield('starlightarenafield') && move.type === 'Dark') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -616,7 +627,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		condition: {
 			onStart(pokemon, source) {
-				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['rainbowfield','blessedfield','fairytalefield']))? source.maxhp * 3 / 4 : source.maxhp / 2;
+				this.effectState.hp = (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['rainbowfield','blessedfield','fairytalefield', 'starlightarenafield']))? source.maxhp * 3 / 4 : source.maxhp / 2;
 				this.effectState.startingTurn = this.getOverflowedTurnCount();
 				if (this.effectState.startingTurn === 255) {
 					this.hint(`In Gen 8+, Wish will never resolve when used on the ${this.turn}th turn.`);
@@ -665,7 +676,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield','crystalcavernfield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield','crystalcavernfield', 'starlightarenafield']));
 		},
 	},
 	takeheart: {
@@ -885,7 +896,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				factor = 0.25;
 				break;
 			}
-			if (this.field.isBattlefield('darkcrystalcavernfield')) factor = 0.75;
+			if (this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -970,6 +981,121 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return null;
 		},
 	},
+	magicroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
+					modifiedDuration += 2;
+				}
+				if (this.field.isBattlefield('starlightarenafield')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Magic Room', `[of] ${source}`, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Magic Room', `[of] ${source}`);
+				}
+				for (const mon of this.getAllActive()) {
+					this.singleEvent('End', mon.getItem(), mon.itemState, mon);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('magicroom');
+			},
+			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 6,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: { boost: { spd: 1 } },
+		contestType: "Clever",
+	},
+	trickroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
+					modifiedDuration += 2;
+				}
+				if (this.field.isBattlefield('starlightarenafield')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('trickroom');
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 1,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Trick Room');
+			},
+		},
+	},
+	wonderroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
+					modifiedDuration += 2;
+				}
+				if (this.field.isBattlefield('starlightarenafield')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onModifyMove(move, source, target) {
+				// This code is for moves that use defensive stats as the attacking stat; see below for most of the implementation
+				if (!move.overrideOffensiveStat) return;
+				const statAndBoosts = move.overrideOffensiveStat;
+				if (!['def', 'spd'].includes(statAndBoosts)) return;
+				move.overrideOffensiveStat = statAndBoosts === 'def' ? 'spd' : 'def';
+				this.hint(`${move.name} uses ${statAndBoosts === 'def' ? '' : 'Sp. '}Def boosts when Wonder Room is active.`);
+			},
+			onFieldStart(field, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Wonder Room', `[of] ${source}`, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Wonder Room', `[of] ${source}`);
+				}
+			},
+			onFieldRestart(target, source) {
+				this.field.removePseudoWeather('wonderroom');
+			},
+			// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 5,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Wonder Room');
+			},
+		},
+	},
 	// custom move
 	alphashot: {
 		num: 1,
@@ -1011,7 +1137,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Aquabatics",
+		name: "Aernite Wall",
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
@@ -4134,6 +4260,139 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
 				this.add('-fieldend', 'move: Fairy Tale Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	starlightarenafield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Starlight Arena Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'starlightarenafield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Dark') {
+					this.hint("The night sky boosted the attack!")
+					return this.chainModify(1.5)
+				}
+				if (move.type === 'Psychic') {
+					this.hint('The astral energy boosted the attack!')
+					return this.chainModify(1.5)
+				}
+				if (move.type === 'Fairy') {
+					this.hint('Starlight supercharged the attack!')
+					return this.chainModify(1.3)
+				}
+				if (['doomdesire'].includes(move.id)) {
+					this.chainModify(4)
+				}
+				if (['blackholeeclypse', 'cometpunch', 'dracometeor', 'hyperspacefury', 'hyperspacehole', 'lightthatburnsthesky', 'menacingmoonrazemaelstrom', 'meteorassault', 'meteormash', 'moongeistbeam', 'spacialrend', 'searingsunrazesmash', 'sunsteelstrike', 'swift'].includes(move.id)) {
+					this.hint(`The astral energy boosted the attack!`)
+					this.chainModify(2)
+				}
+				if (['aurorabeam', 'dazzlinggleam', 'flashcannon', 'lusterpurge', 'mirrorbeam', 'mirrorshot', 'moonblast', 'nightdaze', 'nightslash', 'photongeyser', 'prismaticlaser', 'signalbeam', 'technoblast', 'solarbeam'].includes(move.id)) {
+					this.hint(`Starlight surged through the attack!`)
+					this.chainModify(1.5)
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Dark') {
+					return typeMod + this.dex.getEffectiveness('Fairy', type);
+				}
+				if (['doomdesire'].includes(move.id)){
+					this.hint(`A star came crashing down!`)
+					return typeMod + this.dex.getEffectiveness('Fire', type);
+				} 
+				if (['solarbeam', 'solarblade'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Fairy', type);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
+				if (move.id === 'flash') move.boosts = {accuracy: 2};
+				if (move.id === 'geomancy') {
+					move.flags.charge = undefined;
+					move.condition = {}
+					move.onTryMove = undefined 
+				}
+				if (move.id === 'meteorbeam') {
+					move.flags.charge = undefined;
+					move.condition = {}
+					move.onTryMove = undefined 
+				}
+				if (move.id === 'healingwish') move.condition = {
+					onSwitchIn(target) {
+						this.singleEvent('Swap', this.effect, this.effectState, target);
+					},
+					onSwap(target) {
+						if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+							target.heal(target.maxhp);
+							target.clearStatus();
+							this.boost({atk: 1, spa: 1})
+							this.add('-heal', target, target.getHealth, '[from] move: Healing Wish');
+							target.side.removeSlotCondition(target, 'healingwish');
+						}
+					},
+				}
+				if (move.id === 'lunardance') move.condition = {
+					onSwitchIn(target) {
+						this.singleEvent('Swap', this.effect, this.effectState, target);
+					},
+					onSwap(target) {
+						if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+							target.heal(target.maxhp);
+							target.clearStatus();
+							this.boost({atk: 1, spa: 1})
+							this.add('-heal', target, target.getHealth, '[from] move: Lunar Dance');
+							target.side.removeSlotCondition(target, 'lunardance');
+						}
+					},
+				}
+				if (move.id === 'meteorassault') {
+					move.flags.charge = undefined;
+					move.condition = {}
+					move.onTryMove = undefined 
+				}
+			},
+			onHit(target, source, move) {
+				if (move.id === 'lunarblessing') {
+					const success = !!this.heal(this.modify(target.maxhp, 0.33));
+					return target.cureStatus() || success;
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (['illuminate'].includes(pokemon.ability)) {
+					this.hint(`${pokemon.name}'s Illuminate flared up with starlight!`)
+					this.boost({ spa: 2 }, pokemon);
+					for (const allyActive of pokemon.allies()) {
+						if (allyActive.hasAbility(['mirrorarmor'])) {
+							this.hint(`${pokemon.name}'s dazzling shine put a spotlight on its partner!`)
+							allyActive.addVolatile('spotlight');
+						}
+					}
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Starlight Arena Field');
 			},
 		},
 		secondary: null,

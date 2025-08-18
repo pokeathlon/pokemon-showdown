@@ -53,27 +53,95 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 	silvally: {
 		inherit: true,
 		abilities: {0: "RKS System", H: "Silvally Crest"},
-		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fairy", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water", "Silvally-???"],
+		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fairy", "Silvally-Fighting", "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice", "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water", "Silvally-Unknown"],
 		formeOrder: [
 			"Silvally", "Silvally-Fighting", "Silvally-Flying", "Silvally-Poison", "Silvally-Ground", "Silvally-Rock", "Silvally-Bug", "Silvally-Ghost", "Silvally-Steel",
 			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy",
-			"Silvally-???"
+			"Silvally-Unknown"
 		],
+	},
+	silvallybug: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallydark: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallydragon: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyelectric: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyfairy: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyfighting: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyfire: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyflying: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyghost: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallygrass: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyground: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyice: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallypoison: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallypsychic: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallyrock: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallysteel: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
+	},
+	silvallywater: {
+		inherit: true,
+		abilities: {0: "RKS System", H: "Silvally Crest"},
 	},
 	silvallyunknown: {
 		num: 773,
-		name: "Silvally-???",
+		name: "Silvally-Unknown",
 		baseSpecies: "Silvally",
-		forme: "???",
+		forme: "Unknown",
 		types: ["???"],
 		gender: "N",
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95},
-		abilities: {0: "RKS System"},
+		abilities: {0: "RKS System", H: "Silvally Crest"},
 		heightm: 2.3,
 		weightkg: 100.5,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
-		requiredItem: "??? Memory",
+		requiredItem: "Unknown Memory",
 		changesFrom: "Silvally",
 	},
 	// Megas
@@ -729,7 +797,7 @@ export const ModPokedex: import('../../../sim/dex-species').ModdedSpeciesDataTab
 	},
 	flaaffyaevian: {
 		num: 180,
-		name: "Mareep-Aevian",
+		name: "Flaaffy-Aevian",
 		types: ["Ice", "Electric"],
 		baseStats: {hp: 70, atk: 55, def: 60, spa: 80, spd: 50, spe: 45},
 		abilities: {0: "Filter", 1: "Cotton Down"},
