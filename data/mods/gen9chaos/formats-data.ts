@@ -3058,6 +3058,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		doublesTier: "DUber",
 	},
+	inflagetahfenestra: {
+		inherit: true,
+		doublesTier: "DUber",
+	},
 	koraidon: {
 		inherit: true,
 		doublesTier: "DUber",
