@@ -1137,7 +1137,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Aernite Wall",
+		name: "Arenite Wall",
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
