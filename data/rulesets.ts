@@ -3550,6 +3550,25 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'IF New Lands Clause: Every fusion must include a Pokémon from the Hoenn region.');
 		},
 	},
+	forcefusion: {
+		effectType: 'ValidatorRule',
+		name: 'Force Fusion',
+		desc: `Forces all pokemon to share a fusion component. Usage: Force Fusion = [Pokemon], e.g. "Force Fusion = Furret"`,
+		hasValue: true,
+		onValidateRule(value) {
+			const species = this.dex.species.get(value);
+			if (!species.exists) throw new Error(`Does not exist: "${value}"`);
+			return species.id;
+		},
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (!set.fusion) return [`All sets must be fused! ${set.species} is not fused.`]
+			const forceSpecies = this.dex.species.get(this.ruleTable.valueRules.get('forcefusion')!);
+			if (species.id !== forceSpecies.id && this.dex.species.get(set.fusion).id !== forceSpecies.id) {
+				return [`${set.species} must be fused with ${forceSpecies.name}.`];
+			}
+		},
+	},
 };
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
