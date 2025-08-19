@@ -52,6 +52,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	inflagetahfenestra: {
+		inherit: true,
+		tier: "Uber",
+	},
 	infermon: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -3055,10 +3059,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUber",
 	},
 	inflagetahmega: {
-		inherit: true,
-		doublesTier: "DUber",
-	},
-	inflagetahfenestra: {
 		inherit: true,
 		doublesTier: "DUber",
 	},
