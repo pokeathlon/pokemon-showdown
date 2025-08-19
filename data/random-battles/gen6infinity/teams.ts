@@ -73,6 +73,7 @@ export class RandomInfTeams extends RandomTeams {
 				if (vanillaCandidate.level >= 80) vanillaCandidate.level -= 1;
 				if (vanillaCandidate.level > 94) vanillaCandidate.level = 94;
 				if (vanillaCandidate.moves.includes('stickyweb')) vanillaCandidate.level -= 2;
+				if (vanillaCandidate.species === "sunflora") vanillaCandidate.level -=2;
 
 				// If pokemon exists in handmade sets, use handmade sets instead
 				if (namePool.includes(vanillaSpecies)) {
@@ -86,7 +87,7 @@ export class RandomInfTeams extends RandomTeams {
 				}
 
 				pokemon.push(vanillaCandidate);
-				vanillaPool = vanillaPool.filter(mon => mon !== vanillaSpecies);
+				vanillaPool = vanillaPool.filter(mon => this.dex.mod('gen9').species.get(mon).baseSpecies !== this.dex.mod('gen9').species.get(vanillaSpecies).baseSpecies);
 				namePool = namePool.filter(id => id !== vanillaSpecies)
 
 			}
