@@ -1308,7 +1308,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (this.effectState.split && pokemon.species.id === 'zorblob') {
-				pokemon.formeChange('Zorblob-Split', this.effect, true);
+				pokemon.formeChange('Zorblob-Split', this.effect, false);
 			}
 		},
 		flags: {
