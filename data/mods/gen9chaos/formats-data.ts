@@ -65,6 +65,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Uber",
 		doublesTier: "DUber",
 	},
+	raffitiratthew: {
+		inherit: true,
+		natDexTier: "Uber",
+		doublesTier: "DUber",
+	},
 	seikamater: {
 		inherit: true,
 		natDexTier: "Uber",
