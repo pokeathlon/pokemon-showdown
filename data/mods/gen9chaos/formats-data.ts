@@ -2395,6 +2395,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	whacksteroid: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	baaschafnuclear: {
 		inherit: true,
 		natDexTier: "NFE",
