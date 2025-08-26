@@ -277,10 +277,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Uranium"],
 		tier: "RUBL",
 	},
-	sableyemega: {
-		inherit: true,
-		tier: "OU",
-	},
 	whimsicottmega: {
 		num: 547,
 		name: "Whimsicott-Mega",
