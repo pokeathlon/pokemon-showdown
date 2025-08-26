@@ -2359,6 +2359,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "LC",
 		evos: ["Saturoceras"]
 	},
+	whacksteroid: {
+		num: 3118,
+		name: "Whacksteroid",
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 75, atk: 110, def: 105, spa: 65, spd: 85, spe: 75},
+		abilities: {0: "Static", 1: "Rocky Payload", H: "Iron Fist"},
+		heightm: 1.12,
+		weightkg: 257,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

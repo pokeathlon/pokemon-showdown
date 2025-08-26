@@ -780,7 +780,7 @@ export const Moves: ModdedMoveDataTable = {
 		category: "Status",
 		name: "Fibre Graft",
 		desc: "The user faints, and the Pokemon brought out receives the Fighting type, a +1 atk boost, and the effect of Focus Energy. The replacement is sent out at the end of the turn, and the healing happens before hazards take effect.",
-		shortDesc: "User faints. Switch-in has boost + Fighting type.",
+		shortDesc: "User faints. Switch-in gains +1 Atk + Fighting type.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
