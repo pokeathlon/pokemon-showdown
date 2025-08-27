@@ -2629,7 +2629,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chupachonuclear: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "LC",
 	},
 	luchabranuclear: {
 		inherit: true,
