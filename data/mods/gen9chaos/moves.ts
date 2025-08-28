@@ -1243,7 +1243,7 @@ export const Moves: ModdedMoveDataTable = {
 		shortDesc: "If a foe is switching out, cancels it. Cannot be used twice in a row.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1 },
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
 				if (side.hasAlly(pokemon)) continue;
@@ -1256,26 +1256,34 @@ export const Moves: ModdedMoveDataTable = {
 			}
 		},
 		onTryHit(target, pokemon) {
-			target.side.removeSideCondition('pursuit');
+			target.side.removeSideCondition('rocketgrab');
 		},
 		condition: {
 			duration: 1,
 			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
 				for (const source of this.effectState.sources) {
 					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
-					if (!alreadyAdded && !pokemon.hasType('Ghost')) {
+					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Rocket Grab');
 						pokemon.addVolatile('preventswitch');
 						alreadyAdded = true;
 					}
 					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
 					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
+					if (source.canMegaEvo || source.canUltraBurst || source.canTerastallize) {
 						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
+							if (action.pokemon === source) {
+								if (action.choice === 'megaEvo') {
+									this.actions.runMegaEvo(source);
+								} else if (action.choice === 'terastallize') {
+									// Also a "forme" change that happens before moves, though only possible in NatDex
+									this.actions.terastallize(source);
+								} else {
+									continue;
+								}
 								this.queue.list.splice(actionIndex, 1);
 								break;
 							}

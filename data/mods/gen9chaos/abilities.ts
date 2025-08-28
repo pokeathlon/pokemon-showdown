@@ -1216,6 +1216,9 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
 	},
 	strangeanatomy: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Strange Anatomy');
+		},
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
 			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'strangeanatomy') {
@@ -1242,7 +1245,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Strange Anatomy",
 		rating: 4,
 		num: 0,
-		shortDesc: "Replaces foe's ability on when making contact. Reduces BP of Physical moves by 5 each turn.",
+		shortDesc: "Replaces ability on contact. Reduces BP of Physical moves by 5 each turn.",
+		changeAbility: "  [TARGET]'s anatomy became twisted!",
 	},
 	tailgunrailgun: {
 		onStart(target) {
