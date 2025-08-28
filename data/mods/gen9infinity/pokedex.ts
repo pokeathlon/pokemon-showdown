@@ -1258,6 +1258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 8034,
 		name: "Sorcerice",
 		types: ["Ice", "Psychic"],
+		gender: "F",
 		baseStats: {hp: 75, atk: 60, def: 40, spa: 130, spd: 105, spe: 125},
 		abilities: {0: "Infiltrator", H: "Dry Skin"},
 		heightm: 2.1,
