@@ -338,18 +338,38 @@ export const Moves: ModdedMoveDataTable = {
 	haze: {
 		inherit: true,
 		onHitField() {
-			this.add('-clearallboost');
-			for (const pokemon of this.getAllActive()) {
-				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			const allNoManagel = this.getAllActive().every(pokemon => !pokemon.hasItem('managel'));
+			if (allNoManagel) {
+				this.add('-clearallboost');
+				for (const pokemon of this.getAllActive()) {
+					pokemon.clearBoosts();
+				}
+			} else {
+				for (const pokemon of this.getAllActive()) {
+					if (!pokemon.hasItem('managel')) {
+						pokemon.clearBoosts();
+						this.add('-clearboost', pokemon);
+					}
+				}
 			}
 		},
 	},
 	freezyfrost: {
 		inherit: true,
 		onHit() {
-			this.add('-clearallboost');
-			for (const pokemon of this.getAllActive()) {
-				if (!pokemon.hasItem('managel')) pokemon.clearBoosts();
+			const allNoManagel = this.getAllActive().every(pokemon => !pokemon.hasItem('managel'));
+			if (allNoManagel) {
+				this.add('-clearallboost');
+				for (const pokemon of this.getAllActive()) {
+					pokemon.clearBoosts();
+				}
+			} else {
+				for (const pokemon of this.getAllActive()) {
+					if (!pokemon.hasItem('managel')) {
+						pokemon.clearBoosts();
+						this.add('-clearboost', pokemon);
+					}
+				}
 			}
 		},
 	},

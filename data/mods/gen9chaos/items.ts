@@ -250,6 +250,7 @@ export const Items: ModdedItemDataTable = {
 		onModifyMovePriority: 1,
 		onModifyMove(move, pokemon, target) {
 			if (move.flags.futuremove) {
+				move.ignoreImmunity = false;
 				move.onTry = undefined;
 			}
 			if (move.id === 'wish') {
@@ -283,7 +284,7 @@ export const Items: ModdedItemDataTable = {
 						activate = true;
 						boosts[i] = 0;
 				}
-				if (activate) {
+				if (activate && !pokemon.item('managel')) {
 					pokemon.setBoost(boosts);
 					this.add('-clearboost', pokemon, '[silent]');
 				}
