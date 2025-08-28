@@ -469,4 +469,9 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			return true;
 		},
 	},
+	
+	griseousorb: {
+		inherit: true,
+		forcedForme: null,
+	},
 };
