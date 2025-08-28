@@ -54,7 +54,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	inflagetahfenestra: {
 		inherit: true,
-		tier: "Uber",
+		natDexTier: "Uber",
 	},
 	infermon: {
 		inherit: true,
