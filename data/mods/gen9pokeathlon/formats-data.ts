@@ -788,9 +788,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	thatchling: {
 		inherit: true,
-		tier: "LC",
 		natDexTier: "LC",
-		isNonstandard: null,
+		isNonstandard: "Unobtainable",
 	},
 };
 
