@@ -2115,7 +2115,8 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "NFE",
 		natDexTier: "NFE",
 		doublesTier: "NFE",
-		evos: ["Nestitan"]
+		evos: ["Nestitan"],
+		prevo: "Voliable"
 	},
 	wrighvern: {
 		num: 3103,
@@ -2372,6 +2373,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
+	},
+	thatchling: {
+		num: 3119,
+		name: "Thatchling",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 52, atk: 30, def: 90, spa: 45, spd: 40, spe: 50},
+		abilities: {0: "Overcoat", 1: "Big Pecks", H: "Heatproof"},
+		heightm: 0.4,
+		weightkg: 8,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		evos: ["Voliable"]
 	},
 };
 
