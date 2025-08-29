@@ -48,7 +48,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spd: 1})
 				this.actions.useMove('magiccoat', pokemon, {target: pokemon})
 			}
-			if (this.field.isBattlefield('rainbowfield')) {
+			if (this.field.isBattlefield('rainbowfield') || this.field.isBattlefield('starlightarenafield')) {
 				this.boost({spa: 1})
 				this.actions.useMove('wish', pokemon, {target: pokemon})
 			}
@@ -58,6 +58,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 			if (this.field.isBattlefield('fairytalefield')) {
 				this.actions.useMove('kingsshield', pokemon, {target: pokemon})
+			}
+			if (this.field.isBattlefield('newworldfield')) {
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1})
+				this.activePokemon?.addVolatile('mustrecharge')
 			}
 		},
 		num: 0,

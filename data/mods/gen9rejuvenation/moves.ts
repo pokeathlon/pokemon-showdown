@@ -29,6 +29,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Dark';
 			}  else if (this.field.isBattlefield('crystalcavernfield')) {
 				newType = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
+			}  else if (this.field.isBattlefield('newworldfield')) {
+				newType = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
 			}
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
@@ -75,6 +77,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'secretsword';
 			}  else if (this.field.isBattlefield('starlightarenafield')) {
 				move = 'moonblast';
+			}  else if (this.field.isBattlefield('newworldfield')) {
+				move = 'spacialrend';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -168,6 +172,17 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spd: -1,
 					},
 				});
+			}  else if (this.field.isBattlefield('newworldfield')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						atk: -1,
+						def: -1,
+						spa: -1,
+						spd: -1,
+						spe: -1,
+					},
+				});
 			} 
 		},
 	},
@@ -222,6 +237,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'blessedfield':
 				move.type = 'Normal';
 				break;
+			case 'newworldfield':
+				move.type = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
+				break;
 			}
 		},
 	},
@@ -244,9 +262,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
-				if (this.field.isBattlefield('darkcrystalcavernfield') && move.type === 'Dark') return this.chainModify(0.5);
+				if ((this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) && move.type === 'Dark') return this.chainModify(0.5);
 				if (this.field.isBattlefield('blessedfield') && move.type === 'Normal') return this.chainModify(0.5);
-				if (this.field.isBattlefield('starlightarenafield') && move.type === 'Dark') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -580,7 +597,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	naturesmadness: {
 		inherit: true,
 		damageCallback(pokemon, target) {
-			if (this.field.isTerrain('grassyterrain')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
+			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('newworldterrain')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
 			if (this.field.isBattlefield('blessedfield')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*2 / 3), 1);
 			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
 		},
@@ -896,7 +913,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				factor = 0.25;
 				break;
 			}
-			if (this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield')) factor = 0.75;
+			if (this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -991,7 +1008,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield('starlightarenafield')) {
+				if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1032,7 +1049,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield('starlightarenafield')) {
+				if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1065,7 +1082,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield('starlightarenafield')) {
+				if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -4305,6 +4322,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				if (['blackholeeclypse', 'cometpunch', 'dracometeor', 'hyperspacefury', 'hyperspacehole', 'lightthatburnsthesky', 'menacingmoonrazemaelstrom', 'meteorassault', 'meteormash', 'moongeistbeam', 'spacialrend', 'searingsunrazesmash', 'sunsteelstrike', 'swift'].includes(move.id)) {
 					this.hint(`The astral energy boosted the attack!`)
+					// this.hint(`The astral vortex accelerated the attack!`)
 					this.chainModify(2)
 				}
 				if (['aurorabeam', 'dazzlinggleam', 'flashcannon', 'lusterpurge', 'mirrorbeam', 'mirrorshot', 'moonblast', 'nightdaze', 'nightslash', 'photongeyser', 'prismaticlaser', 'signalbeam', 'technoblast', 'solarbeam'].includes(move.id)) {
@@ -4326,7 +4344,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onModifyMove(move, pokemon, target) {
 				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
-				if (move.id === 'flash') move.boosts = {accuracy: 2};
+				if (move.id === 'flash') move.boosts = {accuracy: -2};
 				if (move.id === 'geomancy') {
 					move.flags.charge = undefined;
 					move.condition = {}
@@ -4398,6 +4416,151 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Fairy",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	newworldfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "New World Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'newworldfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Dark') {
+					this.hint("Infinity boosted the attack!")
+					return this.chainModify(1.5)
+				}
+				if (['doomdesire'].includes(move.id)) {
+					this.chainModify(4)
+				}
+				if (['ancientpower', 'blackholeeclypse', 'cometpunch', 'dracometeor', 'futuresight', 'hyperspacefury', 'hyperspacehole', 'lightthatburnsthesky', 'meteormash', 'moonblast', 'spacialrend', 'swift', 'vacuumwave'].includes(move.id)) {
+					this.hint('The astral energy boosted the attack!')
+					// this.hint('[Pokémon] was swallowed up by the void!')
+					// this.hint('The light shone through the infinite darkness!')
+					this.chainModify(2)
+				}
+				if (['aeroblast', 'aurorabeam', 'blueflare', 'boltstrike', 'continentalcrush', 'coreenforcer', 'crushgrip', 'dazzlinggleam', 'diamondstorm', 'dragonascent', 'earthpower', 'eruption', 'flashcannon', 'fleurcannon', 'freezeshock', 'fusionbolt', 'fusionflare', 'genesissupernova', 'iceburn', 'judgment', 'landswrath', 'lusterpurge', 'magmastorm', 'menacingmoonrazemaelstrom', 'mindblown', 'mirrorbeam', 'mirrorshot', 'mistball', 'moongeistbeam', 'multiattack', 'oblivionwing', 'originpulse', 'photongeyser', 'plasmafists', 'powergem', 'precipiceblades', 'prismaticlaser', 'psychoboost', 'psystrike', 'relicsong', 'roaroftime', 'sacredfire', 'sacredsword', 'searingshot', 'searingsunrazesmash', 'secretsword', 'seedflare', 'shadowforce', 'signalbeam', 'soulstealing7starstrike', 'spectralthief', 'steameruption', 'sunsteelstrike', 'technoblast', 'thousandarrows', 'thousandwaves', 'vcreate'].includes(move.id)) {
+					this.hint('The ethereal energy strengthened the attack!')
+					// this.hint('The light shone through the infinite darkness!')
+					// this.hint('The germinal matter amassed in the attack!')
+					this.chainModify(1.5)
+				}
+				if (['bulldoze', 'magnitude', 'earthquake'].includes(move.id)) {
+					this.chainModify(0.25)
+				}
+			},
+			onModifySpe(spe, pokemon) {
+				if (pokemon.isGrounded()) return this.chainModify(0.75)
+			},
+			onModifyDef(def, pokemon) {
+				if (!pokemon.isGrounded()) return this.chainModify(0.8)
+			},
+			onModifySpD(def, pokemon) {
+				if (!pokemon.isGrounded()) return this.chainModify(0.8)
+			},
+			onAnySetWeather(target, source, weather) {
+				if (weather.id === 'gravity') {
+					this.field.setBattlefield('starlightarenafield');
+					this.hint(`The world's matter reformed!`)
+				}
+				if(weather.effectType === 'Weather') this.hint("The weather disappeared into space!")
+				// this.hint("The weather drifted off into space...")
+				return false;
+			},
+			onTerrainChange(target, source, sourceEffect) {
+				if(sourceEffect.effectType === 'Terrain') this.hint("The terrain had no solid ground to attach...")
+				return false;
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['doomdesire'].includes(move.id)){
+					this.hint(`A star came crashing down!`)
+					return typeMod + this.dex.getEffectiveness('Fire', type);
+				} 
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
+				if (move.id === 'darkvoid') move.accuracy = 100;
+				if (move.id === 'flash') move.boosts = {accuracy: -2};
+				if (move.id === 'lunardance') move.condition = {
+					onSwitchIn(target) {
+						this.singleEvent('Swap', this.effect, this.effectState, target);
+					},
+					onSwap(target) {
+						if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+							target.heal(target.maxhp);
+							target.clearStatus();
+							this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1})
+							this.add('-heal', target, target.getHealth, '[from] move: Lunar Dance');
+							target.side.removeSlotCondition(target, 'lunardance');
+						}
+					},
+				}
+				if (move.id === 'meteorbeam') {
+					move.flags.charge = undefined;
+					move.condition = {}
+					move.onTryMove = undefined 
+				}
+			},
+			onHit(target, source, move) {
+				if (move.id === 'heartswap') {
+					const targetBoosts: SparseBoostsTable = {};
+					const sourceBoosts: SparseBoostsTable = {};
+					const targetHP = target.getUndynamaxedHP();
+					const averagehp = Math.floor((targetHP + source.hp) / 2) || 1;
+					const targetChange = targetHP - averagehp;
+
+					let i: BoostID;
+					for (i in target.boosts) {
+						targetBoosts[i] = target.boosts[i];
+						sourceBoosts[i] = source.boosts[i];
+					}
+
+					target.setBoost(sourceBoosts);
+					source.setBoost(targetBoosts);
+
+					this.add('-swapboost', source, target, '[from] move: Heart Swap');
+					target.sethp(target.hp - targetChange);
+					this.add('-sethp', target, target.getHealth, '[from] move: Pain Split', '[silent]');
+					source.sethp(averagehp);
+					this.add('-sethp', source, source.getHealth, '[from] move: Pain Split');
+				};
+				if (move.id === 'lunarblessing') {
+					const success = !!this.heal(this.modify(target.maxhp, 0.33));
+					return target.cureStatus() || success;
+				}
+				if (move.id === 'geomancy') {
+					this.field.setBattlefield('starlightarenafield');
+					this.hint(`The world was regenerated!`)
+				}
+			},
+			onTryMove(pokemon, target, move) {
+				if (['fissure'].includes(move.id)) {
+					this.add('-fail', pokemon, move, '[from] New World');
+					return null;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: New World Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Dark",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
