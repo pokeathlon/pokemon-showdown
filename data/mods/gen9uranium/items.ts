@@ -270,6 +270,17 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onEat() { },
 		num: 0,
 	},
+
+	stick: {
+		inherit: true,
+		onModifyCritRatio(critRatio, user) {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'barand' || this.toID(user.baseSpecies.baseSpecies) === 'barandnuclear') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Barand", "Barand-Nuclear"],
+		shortDesc: "If held by a Farfetch’d or Barand, its critical hit ratio is raised by 2 stages.",
+	},
 	
 	prettyribbon: {
 		name: "Pretty Ribbon",
