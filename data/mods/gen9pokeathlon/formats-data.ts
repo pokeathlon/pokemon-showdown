@@ -99,7 +99,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	enchantobra: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 		isNonstandard: "Unobtainable",
 	},
 	enteisupra: {
