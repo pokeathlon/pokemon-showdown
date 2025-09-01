@@ -2116,7 +2116,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "NFE",
 		doublesTier: "NFE",
 		evos: ["Nestitan"],
-		prevo: "Voliable"
+		prevo: "Thatchling"
 	},
 	wrighvern: {
 		num: 3103,
