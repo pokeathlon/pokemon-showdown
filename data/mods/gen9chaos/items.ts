@@ -45,6 +45,16 @@ export const Items: ModdedItemDataTable = {
 		},
 		itemUser: ["Ditto", "Ditto-Delta"],
 	},
+	stick: {
+		inherit: true,
+		onModifyCritRatio(critRatio, user) {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(user.baseSpecies.baseSpecies) === 'barand' || this.toID(user.baseSpecies.baseSpecies) === 'barandnuclear') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Farfetch\u2019d", "Barand", "Barand-Nuclear"],
+		shortDesc: "If held by a Farfetch’d or Barand, its critical hit ratio is raised by 2 stages.",
+	},
 
 	// POA
 	///////////////////////////////////////////////////////////////////
