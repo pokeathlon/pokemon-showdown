@@ -2160,6 +2160,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		prevo: "Matterpillar",
 	},
 	anneliark: {
 		num: 3106,
@@ -2387,6 +2388,22 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "LC",
 		natDexTier: "LC",
 		evos: ["Voliable"]
+	},
+	matterpillar: {
+		num: 3120,
+		name: "Matterpillar",
+		types: ["Psychic"],
+		baseStats: {hp: 55, atk: 22, def: 61, spa: 47, spd: 71, spe: 29},
+		abilities: {0: "Synchronize", 1: "Shield Dust", H: "Friend Guard"},
+		heightm: 0.4,
+		weightkg: 9.8,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		evos: ["Twinova"],
+		evoType: "useItem",
+		evoItem: "Sun Stone",
 	},
 };
 

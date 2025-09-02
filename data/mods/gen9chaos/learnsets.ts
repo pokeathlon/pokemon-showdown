@@ -7151,7 +7151,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			smartstrike: ["9M"],
 			sacredsword: ["9M"],
 			heavycleave: ["9M"],
-			throwingknives: ["9M"]
+			throwingknives: ["9M"],
+			airslash: ["9M"]
         }
 	},
 	tinkaslice: {
@@ -10866,6 +10867,40 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			whirlwind: ["9M"],
 			withdraw: ["9M"],
 			woodhammer: ["9M"],
+		}
+	},
+	matterpillar: {
+		learnset: {
+			bestow: ["9M"],
+			bugbite: ["9M"],
+			bugbuzz: ["9M"],
+			calmmind: ["9M"],
+			confusion: ["9M"],
+			cosmicpower: ["9M"],
+			dazzlinggleam: ["9M"],
+			endure: ["9M"],
+			facade: ["9M"],
+			flash: ["9M"],
+			flashcannon: ["9M"],
+			frustration: ["9M"],
+			gigadrain: ["9M"],
+			helpinghand: ["9M"],
+			lightscreen: ["9M"],
+			morningsun: ["9M"],
+			protect: ["9M"],
+			psybeam: ["9M"],
+			psychic: ["9M"],
+			psychoshift: ["9M"],
+			psyshock: ["9M"],
+			psywave: ["9M"],
+			rest: ["9M"],
+			return: ["9M"],
+			signalbeam: ["9M"],
+			sleeptalk: ["9M"],
+			solarbeam: ["9M"],
+			stunspore: ["9M"],
+			twinbeam: ["9M"],
+			zenheadbutt: ["9M"],
 		}
 	}
 };

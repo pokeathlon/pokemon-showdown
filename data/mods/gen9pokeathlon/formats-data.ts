@@ -791,6 +791,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "LC",
 		isNonstandard: "Unobtainable",
 	},
+	matterpillar: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
 };
 
 for (const pokemon in Base) {
