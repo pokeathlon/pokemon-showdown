@@ -13,7 +13,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	berserkergene: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	bewitwing: {
@@ -39,7 +39,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	carcharus: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	catzelwyrm: {
@@ -49,7 +49,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	cetitanhisui: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 		isNonstandard: "Unobtainable",
 	},
 	chronobour: {
@@ -129,7 +129,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gelazura: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	gilotherma: {
@@ -140,7 +140,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	golisopodshogun: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	grandmirage: {
@@ -211,7 +211,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kleavordelta: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	larvitardelta: {
@@ -247,12 +247,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	manacra: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	manacraplated: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	meditao: {
@@ -289,7 +289,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mosster: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	nestitan: {
@@ -335,7 +335,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	porygon2rhinian: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	porygonzrhinian: {
@@ -365,7 +365,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	raikousupra: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	regimyo: {
@@ -574,7 +574,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	conductree: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	magnemiteterof: {
@@ -627,7 +627,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	snugglosis: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	fonspring: {
@@ -693,7 +693,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	bohememoss: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	crenibex: {
@@ -711,7 +711,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	anneliark: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	reneguana: {
@@ -741,19 +741,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	saturoceras: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	nebulant: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	zorblob: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	tanukief: {
@@ -783,7 +783,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	whacksteroid: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	thatchling: {
