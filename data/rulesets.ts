@@ -3190,7 +3190,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 
 			const newSpecies = this.dex.deepClone(this.dex.species.get(species.name));
 
-			const fusionName = target.fusion;
+			const fusionName = target.m.fusion;
 			if (!fusionName || fusionName === newSpecies.name) return;
 			const fusionSpecies = this.dex.species.get(fusionName);
 			if (!fusionSpecies.exists) return;

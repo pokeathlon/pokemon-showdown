@@ -70,7 +70,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					var abil = source.getAbility();
 					source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
 					if (abil && abil.id !== 'prismarmor') source.setAbility(abil, null, true);
-				} if (source.fusion && source.fusion === 'Necrozma') {
+				} if (source.m.fusion && source.m.fusion === 'Necrozma') {
 					var abil = source.getAbility();
 					source.fusionChange('Necrozma-Ultra', this.effect);
 					if (abil && abil.id !== 'prismarmor') source.setAbility(abil, null, true);

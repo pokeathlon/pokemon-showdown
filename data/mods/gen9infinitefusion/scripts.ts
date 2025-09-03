@@ -73,7 +73,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.apparentType = pokemon.apparentType;
 
 			let statName: StatIDExceptHP;
-			const statTable = (pokemon.ability === 'Stance Change' && pokemon.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
+			const statTable = (pokemon.ability === 'Stance Change' && pokemon.m.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
 			for (statName in this.storedStats) {
 				this.storedStats[statName] = statTable[statName];
 				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.

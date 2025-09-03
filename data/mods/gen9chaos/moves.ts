@@ -203,7 +203,7 @@ export const Moves: ModdedMoveDataTable = {
 	darkvoid: {
 		inherit: true,
 		onTry(source, target, move) {
-			if ([source.species.name, source.fusion].some((name) => ['Darkrai', 'Antasma'].includes(name)) || move.hasBounced) {
+			if ([source.species.name, source.m.fusion].some((name) => ['Darkrai', 'Antasma'].includes(name)) || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', source, 'move: Dark Void');
@@ -214,7 +214,7 @@ export const Moves: ModdedMoveDataTable = {
 	relicsong: {
 		inherit: true,
 		onHit(target, pokemon, move) {
-			if ([pokemon.species.name, pokemon.fusion].some((name) => name?.includes('Meloetta')) && !pokemon.transformed) {
+			if ([pokemon.species.name, pokemon.m.fusion].some((name) => name?.includes('Meloetta')) && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
 		},
@@ -229,13 +229,13 @@ export const Moves: ModdedMoveDataTable = {
 						forme = pokemon.species.id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
 					}
 					pokemon.formeChange('Meloetta' + forme, this.effect, false, '[msg]');
-				} if (pokemon.fusion?.includes('Meloetta')) {
+				} if (pokemon.m.fusion?.includes('Meloetta')) {
 					let forme = '';
-					if (this.dex.species.get(pokemon.fusion).baseSpecies === 'Meloetta') {
-						forme = this.dex.species.get(pokemon.fusion).id === 'meloettapirouette' ? '' : '-Pirouette';
+					if (this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Meloetta') {
+						forme = this.dex.species.get(pokemon.m.fusion).id === 'meloettapirouette' ? '' : '-Pirouette';
 					}
-					if (this.dex.species.get(pokemon.fusion).baseSpecies === 'Meloetta-Delta') {
-						forme = this.dex.species.get(pokemon.fusion).id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
+					if (this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Meloetta-Delta') {
+						forme = this.dex.species.get(pokemon.m.fusion).id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
 					}
 					pokemon.fusionChange('Meloetta' + forme, this.effect);
 				}
@@ -1311,7 +1311,7 @@ export const Moves: ModdedMoveDataTable = {
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		heal: [1, 2],
 		onHit(target, pokemon, move) {
-			if ((pokemon.baseSpecies.baseSpecies === 'Manacra' || pokemon.fusion?.includes('Manacra')) && !pokemon.transformed) {
+			if ((pokemon.baseSpecies.baseSpecies === 'Manacra' || pokemon.m.fusion?.includes('Manacra')) && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
 			if (pokemon.status) pokemon.cureStatus();
@@ -1321,8 +1321,8 @@ export const Moves: ModdedMoveDataTable = {
 				if (pokemon.species.baseSpecies === 'Manacra') {
 					const manacraForme = pokemon.species.id === 'manacraplated' ? '' : '-Plated';
 					pokemon.formeChange('Manacra' + manacraForme, this.effect, true, '[msg]');
-				} else if (pokemon.fusion?.includes('Manacra')) {
-					const manacraForme = pokemon.fusion === 'Manacra-Plated' ? '' : '-Plated';
+				} else if (pokemon.m.fusion?.includes('Manacra')) {
+					const manacraForme = pokemon.m.fusion === 'Manacra-Plated' ? '' : '-Plated';
 					pokemon.fusionChange('Manacra' + manacraForme, this.effect);
 				}
 			}
