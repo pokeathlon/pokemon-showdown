@@ -131,7 +131,6 @@ export class Pokemon {
 	maybeLocked: boolean | null;
 
 	illusion: Pokemon | null;
-	fusion: string | undefined;
 	transformed: boolean;
 
 	maxhp: number;
@@ -327,7 +326,7 @@ export class Pokemon {
 
 		this.name = set.name.substr(0, 20);
 		this.fullname = `${this.side.id}: ${this.name}`;
-		this.fusion = this.battle.format.ruleset.includes('Infinite Fusion Mod') ? this.set.fusion : undefined;
+		this.m.fusion = this.battle.format.ruleset.includes('Infinite Fusion Mod') ? this.set.fusion : undefined;
 
 		set.level = this.battle.clampIntRange(set.adjustLevel || set.level || 100, 1, 9999);
 		this.level = set.level;
@@ -370,7 +369,7 @@ export class Pokemon {
 		if (displayedSpeciesName === 'Greninja-Bond') displayedSpeciesName = 'Greninja';
 		this.details = displayedSpeciesName + (this.level === 100 ? '' : ', L' + this.level) +
 			(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-			(this.fusion ? ', fusion: ' + this.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+			(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 
 		this.status = '';
 		this.statusState = this.battle.initEffectState({});
@@ -1395,7 +1394,7 @@ export class Pokemon {
 		speciesId: string | Species, source: Effect = this.battle.effect
 	) {
 		const rawSpecies = this.battle.dex.species.get(speciesId);
-		this.fusion = rawSpecies.name;
+		this.m.fusion = rawSpecies.name;
 		this.set.fusion = rawSpecies.name;
 
 		this.details = this.species.name + (this.level === 100 ? '' : ', L' + this.level) +
@@ -1439,7 +1438,7 @@ export class Pokemon {
 			this.baseSpecies = rawSpecies;
 			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-					(this.fusion ? ', fusion: ' + this.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 			let details = (this.illusion || this).details;
 			if (this.terastallized) details += `, tera:${this.terastallized}`;
 			this.battle.add('detailschange', this, details);

@@ -1,7 +1,54 @@
+const prevos: {[k: string]: string[]} = {
+	// Digimon
+	"unimon": ["Elecmon", "Biyomon", "Patamon"],
+	"mojyamon": ["Elecmon", "Gomamon"],
+	"piximon": ["Unimon", "Mojyamon"],
+	"airdramon": ["Biyomon", "Patamon"],
+	"kuwagamon": ["Kunemon", "Tentomon"],
+	"frigimon": ["Gabumon", "Gomamon"],
+	"ogremon": ["Agumon", "Gabumon"],
+	"leomon": ["Elecmon", "Gazimon"],
+	"drimogemon": ["Gabumon", "Elecmon"],
+	"monochromon": ["Agumon", "Gabumon"],
+	"shellmon": ["Betamon", "Palmon"],
+	"numemon": ["Agumon", "Betamon", "Palmon", "Gabumon"],
+
+	"nidorook": ["Nidorino", "Nidorina"],
+	"penumbralith": ["Solrock", "Lunatone"],
+	"seikamater": ["Sponee", "Smore", "Tricwe"],
+};
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	init() {
+		for (const mon in prevos) {
+			let learnset = this.data.Learnsets[this.toID(mon)].learnset;
+			if (!learnset) learnset = {};
+			const learnfrom = prevos[mon];
+			let foundnew = true;
+			while (foundnew) {
+				foundnew = false;
+				for (const prevo of learnfrom) {
+					const species = this.species.get(prevo);
+					if (species.prevo && !learnfrom.includes(species.prevo)) {
+						learnfrom.push(species.prevo);
+						foundnew = true;
+					}
+				}
+			}
+			for (const prevo of learnfrom) {
+				const toadd = this.data.Learnsets[this.toID(prevo)].learnset;
+				for (const move in toadd) {
+					for (const method of toadd[move as keyof typeof toadd]) {
+						if (method.startsWith('9')) {
+							if (!learnset[move as keyof typeof learnset]) learnset[move as keyof typeof learnset] = [];
+							if (!learnset[move as keyof typeof learnset].includes(method)) learnset[move as keyof typeof learnset].push(method);
+						}
+					}
+				}
+			}
+		}
 		for (const pokemon in this.data.Learnsets) {
 			if (!this.data.Learnsets[pokemon].learnset) continue;
 
@@ -229,7 +276,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 					return true;
-				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.fusion === 'Super Sonic') && 
+				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') && 
 					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending) {
 					return true;
 				}
@@ -255,7 +302,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-						(this.fusion ? ', fusion: ' + this.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+						(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				if (!this.illusion) this.battle.add('detailschange', this, details);
@@ -285,7 +332,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
-										(this.illusion.fusion ? ', fusion: ' + this.illusion.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
+										(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
 								this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
@@ -424,7 +471,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.apparentType = pokemon.apparentType;
 
 			let statName: StatIDExceptHP;
-			const statTable = (pokemon.ability === 'Stance Change' && pokemon.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
+			const statTable = (pokemon.ability === 'Stance Change' && pokemon.m.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
 			for (statName in this.storedStats) {
 				this.storedStats[statName] = statTable[statName];
 				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.

@@ -160,8 +160,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		onDamage(damage, target, source, effect) {
 			if (
 				effect?.effectType === 'Move' &&
-				(['mimikyu', 'mimikyutotem'].includes(target.species.id) || ['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)) ||
-				['uproot'].includes(target.species.id) || ['uproot'].includes(this.dex.toID(target.fusion)))
+				(['mimikyu', 'mimikyutotem'].includes(target.species.id) || ['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.m.fusion)) ||
+				['uproot'].includes(target.species.id) || ['uproot'].includes(this.dex.toID(target.m.fusion)))
 			) {
 				this.add('-activate', target, 'ability: Disguise');
 				this.effectState.busted = true;
@@ -171,8 +171,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		onCriticalHit(target, source, move) {
 			if (!target) return;
 			if (
-				!['mimikyu', 'mimikyutotem'].includes(target.species.id) && !['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)) &&
-				!['uproot'].includes(target.species.id) && !['uproot'].includes(this.dex.toID(target.fusion))
+				!['mimikyu', 'mimikyutotem'].includes(target.species.id) && !['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.m.fusion)) &&
+				!['uproot'].includes(target.species.id) && !['uproot'].includes(this.dex.toID(target.m.fusion))
 			) {
 				return;
 			}
@@ -185,8 +185,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target || move.category === 'Status') return;
 			if (
-				!['mimikyu', 'mimikyutotem'].includes(target.species.id) && !['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.fusion)) &&
-				!['uproot'].includes(target.species.id) && !['uproot'].includes(this.dex.toID(target.fusion))
+				!['mimikyu', 'mimikyutotem'].includes(target.species.id) && !['mimikyu', 'mimikyutotem'].includes(this.dex.toID(target.m.fusion)) &&
+				!['uproot'].includes(target.species.id) && !['uproot'].includes(this.dex.toID(target.m.fusion))
 			) {
 				return;
 			}
@@ -204,15 +204,15 @@ export const Abilities: ModdedAbilityDataTable = {
 					const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 					pokemon.formeChange(speciesid, this.effect, true);
 					valid = true;
-				} if (['mimikyu', 'mimikyutotem'].includes(this.dex.toID(pokemon.fusion))) {
-					const fusionid = this.dex.toID(pokemon.fusion) === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
+				} if (['mimikyu', 'mimikyutotem'].includes(this.dex.toID(pokemon.m.fusion))) {
+					const fusionid = this.dex.toID(pokemon.m.fusion) === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 					pokemon.fusionChange(fusionid, this.effect);
 					valid = true;
 				} if (['uproot'].includes(pokemon.species.id)) {
 					const speciesid = 'Uproot-Naked';
 					pokemon.formeChange(speciesid, this.effect, true);
 					valid = true;
-				} if (['uproot'].includes(this.dex.toID(pokemon.fusion))) {
+				} if (['uproot'].includes(this.dex.toID(pokemon.m.fusion))) {
 					const fusionid = 'Uproot-Naked';
 					pokemon.fusionChange(fusionid, this.effect);
 					valid = true;
@@ -230,14 +230,14 @@ export const Abilities: ModdedAbilityDataTable = {
 				if (pokemon.species.name === 'Cherrim') {
 					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
 				}
-				if (pokemon.fusion === 'Cherrim') {
+				if (pokemon.m.fusion === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
 				if (pokemon.species.name === 'Cherrim-Sunshine') {
 					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
 				}
-				if (pokemon.fusion === 'Cherrim-Sunshine') {
+				if (pokemon.m.fusion === 'Cherrim-Sunshine') {
 					pokemon.fusionChange('Cherrim', this.effect);
 				}
 			}
@@ -292,7 +292,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== castforme) {
 					pokemon.formeChange(castforme, this.effect, false, '[msg]');
 				} 
-				if (pokemon.fusion?.includes('Castform') && pokemon.fusion !== castforme) {
+				if (pokemon.m.fusion?.includes('Castform') && pokemon.m.fusion !== castforme) {
 					pokemon.fusionChange(castforme, this.effect);
 				}
 			}
@@ -300,7 +300,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				if (pokemon.baseSpecies.baseSpecies === 'Hammer Bro' && pokemon.species.name !== broforme) {
 					pokemon.formeChange(broforme, this.effect, false, '[msg]');
 				} 
-				if (pokemon.fusion?.endsWith(' Bro') && pokemon.fusion !== broforme) {
+				if (pokemon.m.fusion?.endsWith(' Bro') && pokemon.m.fusion !== broforme) {
 					pokemon.fusionChange(broforme, this.effect);
 				}
 			}
@@ -318,15 +318,15 @@ export const Abilities: ModdedAbilityDataTable = {
 					if (pokemon.species.name.startsWith(name)) {
 						pokemon.formeChange(name + formeOrder[targetForme], this.effect, true);
 					}
-					if (pokemon.fusion?.startsWith(name)) {
-						if (name + formeOrder[targetForme] === pokemon.fusion) return; // this was triggering at every onUpdate for some reason
+					if (pokemon.m.fusion?.startsWith(name)) {
+						if (name + formeOrder[targetForme] === pokemon.m.fusion) return; // this was triggering at every onUpdate for some reason
 						pokemon.fusionChange(name + formeOrder[targetForme], this.effect);
 					}
 				}
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
+			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
 
 			// store self or secondaries:
 			if (move.self?.boosts) {
@@ -347,7 +347,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
 
 				let index = formes.indexOf(pokemon.species.name); //Returns -1 if fusion is Lernean user
-				if (index === -1) index = formes.indexOf(pokemon.fusion);
+				if (index === -1) index = formes.indexOf(pokemon.m.fusion);
 				if (index >= 0) {
 					move.multihit = 5 + index;
 					break;
@@ -355,7 +355,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.fusion?.includes(item))) return;
+			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) return;
 			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
 				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
 
@@ -367,7 +367,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 		},
 		onSourceDamagingHit(damage, target, pokemon, move) {
-			if (['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.fusion?.includes(item))) {
+			if (['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) {
 				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit-1) === move.hit) {
 					if (pokemon.abilityState.selfBoosts) {
 						move.self.boosts = pokemon.abilityState.selfBoosts;
@@ -409,68 +409,68 @@ export const Abilities: ModdedAbilityDataTable = {
 		inherit: true,
 		onStart(pokemon) {
 			if (
-				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) &&
-				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.fusion?.includes('Fuzzy')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.m.fusion?.includes('Wishiwashi')) &&
+				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.m.fusion?.includes('Fuzzy')) ||
 				pokemon.level < 20 || pokemon.transformed
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
 				}
-				if (pokemon.fusion === 'Wishiwashi') {
+				if (pokemon.m.fusion === 'Wishiwashi') {
 					pokemon.fusionChange('Wishiwashi-School');
 				}
 				if (pokemon.species.id === 'fuzzy') {
 					pokemon.formeChange('Fuzzy-Swarm');
 				}
-				if (pokemon.fusion === 'Fuzzy') {
+				if (pokemon.m.fusion === 'Fuzzy') {
 					pokemon.fusionChange('Fuzzy-Swarm');
 				}
 			} else {
 				if (pokemon.species.id === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
 				}
-				if (pokemon.fusion === 'Wishiwashi-School') {
+				if (pokemon.m.fusion === 'Wishiwashi-School') {
 					pokemon.fusionChange('Wishiwashi');
 				}
 				if (pokemon.species.id === 'fuzzyswarm') {
 					pokemon.formeChange('Fuzzy');
 				}
-				if (pokemon.fusion === 'Fuzzy-Swarm') {
+				if (pokemon.m.fusion === 'Fuzzy-Swarm') {
 					pokemon.fusionChange('Fuzzy');
 				}
 			}
 		},
 		onResidual(pokemon) {
 			if (
-				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) &&
-				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.fusion?.includes('Fuzzy')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.m.fusion?.includes('Wishiwashi')) &&
+				(pokemon.baseSpecies.baseSpecies !== 'Fuzzy' && !pokemon.m.fusion?.includes('Fuzzy')) ||
 				pokemon.level < 20 || pokemon.transformed || !pokemon.hp
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
 				}
-				if (pokemon.fusion === 'Wishiwashi') {
+				if (pokemon.m.fusion === 'Wishiwashi') {
 					pokemon.fusionChange('Wishiwashi-School');
 				}
 				if (pokemon.species.id === 'fuzzy') {
 					pokemon.formeChange('Fuzzy-Swarm');
 				}
-				if (pokemon.fusion === 'Fuzzy') {
+				if (pokemon.m.fusion === 'Fuzzy') {
 					pokemon.fusionChange('Fuzzy-Swarm');
 				}
 			} else {
 				if (pokemon.species.id === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
 				}
-				if (pokemon.fusion === 'Wishiwashi-School') {
+				if (pokemon.m.fusion === 'Wishiwashi-School') {
 					pokemon.fusionChange('Wishiwashi');
 				}
 				if (pokemon.species.id === 'fuzzyswarm') {
 					pokemon.formeChange('Fuzzy');
 				}
-				if (pokemon.fusion === 'Fuzzy-Swarm') {
+				if (pokemon.m.fusion === 'Fuzzy-Swarm') {
 					pokemon.fusionChange('Fuzzy');
 				}
 			}
@@ -1059,11 +1059,11 @@ export const Abilities: ModdedAbilityDataTable = {
 		onAfterUseItem(item, pokemon) {
 			if (pokemon !== this.effectState.target || !item.isBerry) return;
 			if (pokemon.species.id === 'caramitti') pokemon.formeChange('Caramitti-Crazed', this.effect, true);
-			if (this.dex.toID(pokemon.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
+			if (this.dex.toID(pokemon.m.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
 		},
 		onEatItem(item, pokemon) {
 			if (pokemon.species.id === 'caramitti') pokemon.formeChange('Caramitti-Crazed', this.effect, true);
-			if (this.dex.toID(pokemon.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
+			if (this.dex.toID(pokemon.m.fusion) === 'caramitti') pokemon.fusionChange('Caramitti-Crazed', this.effect);
 		},
 		flags: {},
 		name: "Sweet Tooth",
@@ -1216,6 +1216,9 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
 	},
 	strangeanatomy: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Strange Anatomy');
+		},
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
 			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'strangeanatomy') {
@@ -1242,7 +1245,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Strange Anatomy",
 		rating: 4,
 		num: 0,
-		shortDesc: "Replaces foe's ability on when making contact. Reduces BP of Physical moves by 5 each turn.",
+		shortDesc: "Replaces ability on contact. Reduces BP of Physical moves by 5 each turn.",
+		changeAbility: "  [TARGET]'s anatomy became twisted!",
 	},
 	tailgunrailgun: {
 		onStart(target) {

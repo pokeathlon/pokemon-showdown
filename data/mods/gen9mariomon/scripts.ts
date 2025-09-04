@@ -26,7 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 					return true;
-				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.fusion === 'Super Sonic') && 
+				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') && 
 					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending) {
 					return true;
 				}

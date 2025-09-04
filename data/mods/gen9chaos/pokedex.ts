@@ -89,6 +89,10 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		inherit: true,
 		evos: ["Parashukado"],
 	},
+	solrock: {
+		inherit: true,
+		evos: ["Penumbralith"],
+	},
 	lunatone: {
 		inherit: true,
 		evos: ["Penumbralith"],
@@ -1905,6 +1909,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		abilities: {0: "Mold Breaker", 1: "Sharpness", H: "Guts"},
 		heightm: 1.2,
 		weightkg: 8.4,
+		prevo: "Tinkaslice",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
 		tier: "OU",
@@ -1919,6 +1924,8 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		abilities: {0: "Mold Breaker", 1: "Sharpness", H: "Guts"},
 		heightm: 0.5,
 		weightkg: 1.5,
+		prevo: "Tinkastab",
+		evos: ["Tinkashank"],
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
 		tier: "NFE",
@@ -1933,6 +1940,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		abilities: {0: "Mold Breaker", 1: "Sharpness", H: "Guts"},
 		heightm: 0.3,
 		weightkg: 0.3,
+		evos: ["Tinkaslice"],
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
 		tier: "LC",
@@ -1947,13 +1955,14 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		abilities: {0: "Fairy Law"},
 		heightm: 0.4,
 		weightkg: 64,
+		evos: ["Tinkatuff-Rhinian"],
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
 		tier: "LC",
 		natDexTier: "LC",
 		doublesTier: "LC",
 		baseSpecies: "Tinkatink",
-		forme: "Rhinian"
+		forme: "Rhinian",
 	},
 	tinkatonrhinian: {
 		num: 959,
@@ -1963,6 +1972,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		abilities: {0: "Fairy Law"},
 		heightm: 0.7,
 		weightkg: 112.8,
+		prevo: "Tinkatuff-Rhinian",
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
 		tier: "RU",
@@ -1970,7 +1980,6 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 		baseSpecies: "Tinkaton",
 		forme: "Rhinian",
-		prevo: "Tinkatuff-Rhinian"
 	},
 	tinkatuffrhinian: {
 		num: 958,
@@ -1980,6 +1989,8 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		abilities: {0: "Fairy Law"},
 		heightm: 0.5,
 		weightkg: 82,
+		prevo: "Tinkatink-Rhinian",
+		evos: ["Tinkaton-Rhinian"],
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
 		tier: "NFE",
@@ -1987,8 +1998,6 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "NFE",
 		baseSpecies: "Tinkatuff",
 		forme: "Rhinian",
-		prevo: "Tinkatink-RHinian",
-		evos: ["Tinkaton-Rhinian"]
 	},
 	tofagrif: {
 		num: 3095,
@@ -2123,7 +2132,8 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "NFE",
 		natDexTier: "NFE",
 		doublesTier: "NFE",
-		evos: ["Nestitan"]
+		evos: ["Nestitan"],
+		prevo: "Thatchling"
 	},
 	wrighvern: {
 		num: 3103,
@@ -2167,6 +2177,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		prevo: "Matterpillar",
 	},
 	anneliark: {
 		num: 3106,
@@ -2380,6 +2391,36 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
+	},
+	thatchling: {
+		num: 3119,
+		name: "Thatchling",
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 52, atk: 30, def: 90, spa: 45, spd: 40, spe: 50},
+		abilities: {0: "Overcoat", 1: "Big Pecks", H: "Heatproof"},
+		heightm: 0.4,
+		weightkg: 8,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		evos: ["Voliable"]
+	},
+	matterpillar: {
+		num: 3120,
+		name: "Matterpillar",
+		types: ["Psychic"],
+		baseStats: {hp: 55, atk: 22, def: 61, spa: 47, spd: 71, spe: 29},
+		abilities: {0: "Synchronize", 1: "Shield Dust", H: "Friend Guard"},
+		heightm: 0.4,
+		weightkg: 9.8,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		evos: ["Twinova"],
+		evoType: "useItem",
+		evoItem: "Sun Stone",
 	},
 };
 

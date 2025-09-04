@@ -10,7 +10,7 @@ export const Conditions: ModdedConditionDataTable = {
 	arceus: {
 		inherit: true,
 		onType(types, pokemon) {
-			if (pokemon.fusion || pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
+			if (pokemon.m.fusion || pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'multitype') {
 				type = pokemon.getItem().onPlate;

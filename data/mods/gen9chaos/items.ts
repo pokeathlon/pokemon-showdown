@@ -7,12 +7,12 @@ export const Items: ModdedItemDataTable = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if ((pokemon.species.name.includes('Pikachu') || pokemon.fusion?.includes('Pikachu'))) {
+			if ((pokemon.species.name.includes('Pikachu') || pokemon.m.fusion?.includes('Pikachu'))) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if ((pokemon.species.name.includes('Pikachu') || pokemon.fusion?.includes('Pikachu'))) {
+			if ((pokemon.species.name.includes('Pikachu') || pokemon.m.fusion?.includes('Pikachu'))) {
 				return this.chainModify(2);
 			}
 		},
@@ -21,7 +21,7 @@ export const Items: ModdedItemDataTable = {
 	luckypunch: {
 		inherit: true,
 		onModifyCritRatio(critRatio, user) {
-			if (user.species.name.includes('Chansey') || user.fusion?.includes('Chansey')) {
+			if (user.species.name.includes('Chansey') || user.m.fusion?.includes('Chansey')) {
 				return critRatio + 2;
 			}
 		},
@@ -30,7 +30,7 @@ export const Items: ModdedItemDataTable = {
 	metalpowder: {
 		inherit: true,
 		onModifyDef(def, pokemon) {
-			if ((pokemon.species.name.includes('Ditto') || pokemon.fusion?.includes('Ditto')) && !pokemon.transformed) {
+			if ((pokemon.species.name.includes('Ditto') || pokemon.m.fusion?.includes('Ditto')) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
@@ -39,11 +39,21 @@ export const Items: ModdedItemDataTable = {
 	quickpowder: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if ((pokemon.species.name.includes('Ditto') || pokemon.fusion?.includes('Ditto')) && !pokemon.transformed) {
+			if ((pokemon.species.name.includes('Ditto') || pokemon.m.fusion?.includes('Ditto')) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
 		itemUser: ["Ditto", "Ditto-Delta"],
+	},
+	stick: {
+		inherit: true,
+		onModifyCritRatio(critRatio, user) {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(user.baseSpecies.baseSpecies) === 'barand' || this.toID(user.baseSpecies.baseSpecies) === 'barandnuclear') {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Farfetch\u2019d", "Barand", "Barand-Nuclear"],
+		shortDesc: "If held by a Farfetch’d or Barand, its critical hit ratio is raised by 2 stages.",
 	},
 
 	// POA
@@ -263,6 +273,7 @@ export const Items: ModdedItemDataTable = {
 		onModifyMovePriority: 1,
 		onModifyMove(move, pokemon, target) {
 			if (move.flags.futuremove) {
+				move.ignoreImmunity = false;
 				move.onTry = undefined;
 			}
 			if (move.id === 'wish') {
@@ -296,7 +307,7 @@ export const Items: ModdedItemDataTable = {
 						activate = true;
 						boosts[i] = 0;
 				}
-				if (activate) {
+				if (activate && !pokemon.item('managel')) {
 					pokemon.setBoost(boosts);
 					this.add('-clearboost', pokemon, '[silent]');
 				}
@@ -316,7 +327,7 @@ export const Items: ModdedItemDataTable = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Dhelmise' || pokemon.fusion === 'Dhelmise') {
+			if (pokemon.baseSpecies.baseSpecies === 'Dhelmise' || pokemon.m.fusion === 'Dhelmise') {
 				return this.chainModify(1.5);
 			}
 		},

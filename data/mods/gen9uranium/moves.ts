@@ -629,7 +629,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	rest: {
 		// Rest can heal if called by Sleep Talk
 		// This is a bug present in the game
-		// Unsure if sleep counter is reset or not, for now it is not
+		// Unsure if sleep counter is reset or not, for now it is
 		inherit: true,
 		onTry(source) {
 			if (source.hasAbility('comatose')) return false;
