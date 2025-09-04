@@ -328,19 +328,12 @@ export const Abilities: ModdedAbilityDataTable = {
 		onModifyMove(move, pokemon, target) {
 			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
 
-			// store self or secondaries:
-			if (move.self?.boosts) {
-				pokemon.abilityState.selfBoosts = move.self.boosts
-				delete move.self.boosts;
-			}
-			if (move.secondaries) {
-				pokemon.abilityState.secondaries = move.secondaries
-				delete move.secondaries;
-			}
-			if (move.secondary) {
-				pokemon.abilityState.secondary = move.secondary
-				delete move.secondary;
-			}
+			pokemon.abilityState.move = {...move};
+
+			delete move.secondaries;
+			delete move.secondary;
+			delete move.self?.boosts;
+			
 			if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
 
 			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
@@ -368,19 +361,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onSourceDamagingHit(damage, target, pokemon, move) {
 			if (['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) {
-				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit-1) === move.hit) {
-					if (pokemon.abilityState.selfBoosts) {
-						move.self.boosts = pokemon.abilityState.selfBoosts;
-						pokemon.abilityState.selfBoosts = undefined;
-					}
-					if (pokemon.abilityState.secondaries) {
-						move.secondaries = pokemon.abilityState.secondaries;
-						pokemon.abilityState.secondaries = undefined;
-					}
-					if (pokemon.abilityState.secondary) {
-						move.secondary = pokemon.abilityState.secondary;
-						pokemon.abilityState.secondary = undefined;
-					}
+				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit - 1) === move.hit) {
+					move = {...pokemon.abilityState.move};
 				}
 			}
 		},

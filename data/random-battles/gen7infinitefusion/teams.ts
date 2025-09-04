@@ -29,7 +29,7 @@ export class RandomIFTeams extends RandomTeams {
 		while (pokemon.length < this.maxTeamSize) {
 			const candidate = {...this.sampleNoReplace(pool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
 			const species = this.dex.species.get(candidate.species);
-			const fusion = this.dex.species.get(candidate.m.fusion);
+			const fusion = this.dex.species.get(candidate.fusion);
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else {
@@ -41,7 +41,7 @@ export class RandomIFTeams extends RandomTeams {
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);
-			pool = pool.filter(set => set.fusion !== candidate.m.fusion);
+			pool = pool.filter(set => set.fusion !== candidate.fusion);
 		}
 
 		if (pokemon.length < this.maxTeamSize && pokemon.length < 12) {
