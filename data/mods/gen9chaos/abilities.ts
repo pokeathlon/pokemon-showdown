@@ -319,7 +319,6 @@ export const Abilities: ModdedAbilityDataTable = {
 						pokemon.formeChange(name + formeOrder[targetForme], this.effect, true);
 					}
 					if (pokemon.m.fusion?.startsWith(name)) {
-						if (name + formeOrder[targetForme] === pokemon.m.fusion) return; // this was triggering at every onUpdate for some reason
 						pokemon.fusionChange(name + formeOrder[targetForme], this.effect);
 					}
 				}
@@ -328,7 +327,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		onModifyMove(move, pokemon, target) {
 			if (!['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
 
-			pokemon.abilityState.move = {...move};
+			this.effectState.move = {...move};
 
 			delete move.secondaries;
 			delete move.secondary;
@@ -339,7 +338,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
 				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
 
-				let index = formes.indexOf(pokemon.species.name); //Returns -1 if fusion is Lernean user
+				let index = formes.indexOf(pokemon.species.name);
 				if (index === -1) index = formes.indexOf(pokemon.m.fusion);
 				if (index >= 0) {
 					move.multihit = 5 + index;
@@ -362,7 +361,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		onSourceDamagingHit(damage, target, pokemon, move) {
 			if (['Hydreigon-Mega', 'Hydroupa'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) {
 				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit - 1) === move.hit) {
-					move = {...pokemon.abilityState.move};
+					move = {...this.effectState.move};
 				}
 			}
 		},

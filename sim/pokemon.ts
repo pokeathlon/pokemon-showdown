@@ -1400,6 +1400,8 @@ export class Pokemon {
 		speciesId: string | Species, source: Effect = this.battle.effect
 	) {
 		const rawSpecies = this.battle.dex.species.get(speciesId);
+		if (this.m.fusion === rawSpecies.name) return true;
+
 		this.m.fusion = rawSpecies.name;
 		this.set.fusion = rawSpecies.name;
 

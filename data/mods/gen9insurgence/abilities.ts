@@ -419,52 +419,60 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	lernean: {
 		onUpdate(pokemon) {
-			if (!pokemon.species.id.startsWith('hydreigonmega') || !pokemon.hp || pokemon.transformed) return;
-			const formeOrder = ['hydreigonmeganine', 'hydreigonmegaeight', 'hydreigonmegaseven', 'hydreigonmegasix', 'hydreigonmega'];
+			if (!pokemon.hp || pokemon.transformed) return;
+			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			if (formeOrder.indexOf(pokemon.species.id) > targetForme) {
-				pokemon.formeChange(formeOrder[targetForme], this.effect, true);
+			let formeIndex = formeOrder.indexOf( '-' + pokemon.species.name.split('-').slice(-1));
+			if (formeIndex === -1) formeIndex = 4;
+			if (formeIndex > targetForme) {
+				for (const name of ['Hydreigon-Mega']) {
+					if (pokemon.species.name.startsWith(name)) {
+						pokemon.formeChange(name + formeOrder[targetForme], this.effect, true);
+					}
+					if (pokemon.m.fusion?.startsWith(name)) {
+						pokemon.fusionChange(name + formeOrder[targetForme], this.effect);
+					}
+				}
 			}
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
-			if (move.category === "Status" || !move.basePower) return;
-			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
-			move.multihit = 5 + formes.indexOf(pokemon.species.id);
-			// store self or secondaries:
-			if (move.self?.boosts) {
-				pokemon.abilityState.selfBoosts = move.self.boosts
-				delete move.self.boosts;
-			}
-			if (move.secondaries) {
-				pokemon.abilityState.secondaries = move.secondaries
-				delete move.secondaries;
-			}
-			if (move.secondary) {
-				pokemon.abilityState.secondary = move.secondary
-				delete move.secondary;
-			}
+			if (!['Hydreigon-Mega'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
+
+			this.effectState.move = {...move};
+
+			delete move.secondaries;
+			delete move.secondary;
+			delete move.self?.boosts;
+			
 			if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+
+			for (const name of ['Hydreigon-Mega']) {
+				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
+
+				let index = formes.indexOf(pokemon.species.name);
+				if (index === -1) index = formes.indexOf(pokemon.m.fusion);
+				if (index >= 0) {
+					move.multihit = 5 + index;
+					break;
+				}
+			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if (!pokemon.species.id.startsWith('hydreigonmega')) return;
-			const formes = ['hydreigonmega', 'hydreigonmegasix', 'hydreigonmegaseven', 'hydreigonmegaeight', 'hydreigonmeganine'];
-			const nhits = 5 + formes.indexOf(pokemon.species.id);
-			return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
+			if (!['Hydreigon-Mega'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) return;
+			for (const name of ['Hydreigon-Mega']) {
+				const formes = [name + '', name + '-Six', name + '-Seven', name + '-Eight', name + '-Nine'];
+
+				const index = formes.indexOf(pokemon.species.name);
+				if (index >= 0) {
+					const nhits = 5 + index;
+					return this.chainModify((1.15 + (0.075 * (nhits - 5))) / nhits);
+				}
+			}
 		},
-		onSourceDamagingHit(damage, target, pokemon, move) { // onSourceDamagingHit activates after a hit, not before. Need to get secondaries from onModifyMove, then clear the abilityState after this
-			if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit-1) === move.hit) {
-				if (pokemon.abilityState.selfBoosts && move.self) { //Only boosts were deleted, not move.self
-					move.self.boosts = pokemon.abilityState.selfBoosts;
-					pokemon.abilityState.selfBoosts = undefined;
-				}
-				if (pokemon.abilityState.secondaries) {
-					move.secondaries = pokemon.abilityState.secondaries;
-					pokemon.abilityState.secondaries = undefined;
-				}
-				if (pokemon.abilityState.secondary) {
-					move.secondary = pokemon.abilityState.secondary;
-					pokemon.abilityState.secondary = undefined;
+		onSourceDamagingHit(damage, target, pokemon, move) {
+			if (['Hydreigon-Mega'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) {
+				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit - 1) === move.hit) {
+					move = {...this.effectState.move};
 				}
 			}
 		},
