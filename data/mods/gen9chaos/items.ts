@@ -145,7 +145,7 @@ export const Items: ModdedItemDataTable = {
 		num: 0,
 	},
 	deltatyranitarite: {
-		name: "Delta Tyranitar",
+		name: "Delta Tyranitarite",
 		desc: "If held by a Tyranitar-Delta, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
 		megaStone: "Tyranitar-Delta-Mega",
