@@ -676,6 +676,12 @@ export abstract class BasicRoom {
 		}
 	}
 	expire() {
+		const game = this.getGame(BestOfGame);
+		// do not expire parent room until children expire
+		if (game?.games.length) {
+			this.pokeExpireTimer();
+			return;
+		}
 		this.send('|expire|');
 		this.destroy();
 	}
@@ -2049,6 +2055,23 @@ export class GameRoom extends BasicRoom {
 
 		let rating = 0;
 		if (battle.ended && this.rated) rating = this.rated;
+		let { id, password } = this.getReplayData();
+		if (password) password = (battle.password ||= password);
+		const silent = options === 'forpunishment' || options === 'silent' || options === 'auto';
+		if (silent) connection = undefined;
+		const isPrivate = this.settings.isPrivate || this.hideReplay;
+		const hidden = options === 'auto' ? 10 :
+			options === 'forpunishment' || (this as any).unlistReplay ? 2 :
+			isPrivate ? 1 :
+			0;
+		if (isPrivate && hidden === 10) {
+			password = (battle.password ||= Replays.generatePassword());
+		}
+		if (battle.replaySaved !== true && hidden === 10) {
+			battle.replaySaved = 'auto';
+		} else {
+			battle.replaySaved = true;
+		}
 
 		if (battle.replaySaved) {
 			connection?.popup(`The replay for this battle was already saved. You can find it at https://replay.pokeathlon.com/`);
