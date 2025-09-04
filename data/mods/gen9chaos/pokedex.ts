@@ -2093,6 +2093,23 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 		prevo: "Pupitar-Delta"
 	},
+	tyranitardeltamega: {
+		num: 3101,
+		name: "Tyranitar-Delta-Mega",
+		types: ["Dragon", "Psychic"],
+		baseStats: {hp: 100, atk: 164, def: 150, spa: 95, spd: 120, spe: 71},
+		abilities: {0: "Psychic Surge"},
+		heightm: 2.5,
+		weightkg: 255,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "Uber",
+		natDexTier: "Uber",
+		doublesTier: "DUber",
+		baseSpecies: "Tyranitar-Delta",
+		forme: "Mega",
+		requiredItem: "Delta Tyranitarite"
+	},
 	voliable: {
 		num: 3102,
 		name: "Voliable",

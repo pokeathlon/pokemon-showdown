@@ -786,6 +786,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
+	tyranitardeltamega: {
+		inherit: true,
+		tier: "Uber",
+		natDexTier: "Uber",
+		isNonstandard: null,
+	},
 };
 
 for (const pokemon in Base) {

@@ -134,6 +134,19 @@ export const Items: ModdedItemDataTable = {
 		},
 		num: 0,
 	},
+	deltatyranitarite: {
+		name: "Delta Tyranitar",
+		desc: "If held by a Tyranitar-Delta, this item allows it to Mega Evolve in battle.",
+		spritenum: -1,
+		megaStone: "Tyranitar-Delta-Mega",
+		megaEvolves: "Tyranitar-Delta",
+		itemUser: ["Tyranitar-Delta"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 0,
+	},
 	boomerang: {
 		name: "Boomerang",
 		desc: "Fling hits twice. Cannot be lost.",

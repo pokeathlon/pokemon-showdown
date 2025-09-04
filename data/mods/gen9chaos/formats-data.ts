@@ -2399,6 +2399,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	tyranitardeltamega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	baaschafnuclear: {
 		inherit: true,
 		natDexTier: "NFE",
