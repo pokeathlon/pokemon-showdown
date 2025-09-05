@@ -1159,7 +1159,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: 'RU',
 	},
-	quezparce: {
+	quezsparce: {
 		inherit: true,
 		natDexTier: 'RU',
 	},
