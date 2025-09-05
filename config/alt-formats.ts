@@ -895,7 +895,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'ND OU', 'ND UUBL',
 			'item:smoothrock', 'item:icyrock',
-			'move:jumpship',
 		],
 	},
 	{

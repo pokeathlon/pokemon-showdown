@@ -283,9 +283,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
-	walkingwake: {
+	tyranitardeltamega: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "OU",
 	},
 	oblivicornmega: {
 		inherit: true,
@@ -339,10 +339,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UUBL",
 	},
-	deoxysspeed: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
 	regimyo: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -355,10 +351,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UUBL",
 	},
-	manacra: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
 	baxcalibur: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -367,19 +359,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UUBL",
 	},
-	madpiano: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
-	heatransupra: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
 	actan: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
-	typhlosiondeltamega: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
@@ -390,6 +370,34 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	gyaradosmega: {
 		inherit: true,
 		natDexTier: "UUBL",
+	},
+	zebstrikamega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	walkingwake: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	deoxysspeed: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	manacra: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	madpiano: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	heatransupra: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	typhlosiondeltamega: {
+		inherit: true,
+		natDexTier: "UU",
 	},
 	gholdengo: {
 		inherit: true,
@@ -431,10 +439,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	tractoncrumbles: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	scizormega: {
 		inherit: true,
 		natDexTier: "UU",
@@ -452,10 +456,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	heatran: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	tracton: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -623,10 +623,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	zebstrikamega: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	landorustherian: {
 		inherit: true,
 		natDexTier: "UU",
@@ -655,10 +651,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	enamorus: {
-		inherit: true,
-		natDexTier: 'UU',
-	},
 	scizor: {
 		inherit: true,
 		natDexTier: 'UU',
@@ -670,6 +662,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	zoroarkmega: {
 		inherit: true,
 		natDexTier: 'UU',
+	},
+	enamorus: {
+		inherit: true,
+		natDexTier: 'RU',
 	},
 	airdramon: {
 		inherit: true,
@@ -1359,6 +1355,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: 'NFE',
 	},
+	tracton: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	tractoncrumbles: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	meditao: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1759,6 +1763,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	nimflorachewi: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	penumbralith: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1873,7 +1881,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	eidolburgh: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 	},
 	shedinja: {
 		inherit: true,
@@ -2032,6 +2040,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	coatlith: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	coatlithilex: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -2247,6 +2259,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	tubareelsenbazuru: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	whimsicottmega: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2399,9 +2415,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	tyranitardeltamega: {
+	bisharpdeltamega: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "RU",
 	},
 	baaschafnuclear: {
 		inherit: true,
