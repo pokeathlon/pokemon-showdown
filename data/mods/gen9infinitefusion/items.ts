@@ -40,7 +40,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.fusion === 'Clamperl') {
+			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.m.fusion === 'Clamperl') {
 				return this.chainModify(2);
 			}
 		},
@@ -49,7 +49,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.fusion === 'Clamperl') {
+			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.m.fusion === 'Clamperl') {
 				return this.chainModify(2);
 			}
 		},
@@ -57,12 +57,12 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	eviolite: {
 		inherit: true,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
+			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.m.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
+			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.m.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -72,7 +72,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		isNonstandard: null,
 		onModifyCritRatio(critRatio, user) {
 			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies)) ||
-				["farfetchd", "sirfetchd", "farfetchdgalar"].includes(this.toID(user.fusion))) {
+				["farfetchd", "sirfetchd", "farfetchdgalar"].includes(this.toID(user.m.fusion))) {
 				return critRatio + 2;
 			}
 		},
@@ -80,7 +80,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	stick: {
 		inherit: true,
 		onModifyCritRatio(critRatio, user) {
-			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(this.dex.species.get(user.fusion).baseSpecies) === 'farfetchd') {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(this.dex.species.get(user.m.fusion).baseSpecies) === 'farfetchd') {
 				return critRatio + 2;
 			}
 		},
@@ -88,12 +88,12 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.fusion).baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.fusion).baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
@@ -102,7 +102,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 		onModifyCritRatio(critRatio, user) {
-			if (user.baseSpecies.name === 'Chansey' || user.fusion === 'Chansey') {
+			if (user.baseSpecies.name === 'Chansey' || user.m.fusion === 'Chansey') {
 				return critRatio + 2;
 			}
 		},
@@ -111,7 +111,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 		onModifyDef(def, pokemon) {
-			if ((pokemon.species.name === 'Ditto' || pokemon.fusion === 'Ditto') && !pokemon.transformed) {
+			if ((pokemon.species.name === 'Ditto' || pokemon.m.fusion === 'Ditto') && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
@@ -120,7 +120,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		isNonstandard: null,
 		onModifySpe(spe, pokemon) {
-			if ((pokemon.species.name === 'Ditto' || pokemon.fusion === 'Ditto') && !pokemon.transformed) {
+			if ((pokemon.species.name === 'Ditto' || pokemon.m.fusion === 'Ditto') && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
@@ -132,8 +132,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (
 				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
 				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
-				Dex.species.get(pokemon.fusion).baseSpecies === 'Cubone' ||
-				Dex.species.get(pokemon.fusion).baseSpecies === 'Marowak'
+				Dex.species.get(pokemon.m.fusion).baseSpecies === 'Cubone' ||
+				Dex.species.get(pokemon.m.fusion).baseSpecies === 'Marowak'
 			) {
 				return this.chainModify(2);
 			}

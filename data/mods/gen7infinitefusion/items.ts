@@ -287,7 +287,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -298,7 +298,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -309,7 +309,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -320,7 +320,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -331,7 +331,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -342,7 +342,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -353,7 +353,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -364,7 +364,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -375,7 +375,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -386,7 +386,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -397,7 +397,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -408,7 +408,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -419,7 +419,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -430,7 +430,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -441,7 +441,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -452,7 +452,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;
@@ -463,7 +463,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 315) || pokemon.baseSpecies.num === 315) {
 				return false;
-			} if ((source && this.dex.species.get(source.fusion).num === 315) || this.dex.species.get(pokemon.fusion).num === 315) {
+			} if ((source && this.dex.species.get(source.m.fusion).num === 315) || this.dex.species.get(pokemon.m.fusion).num === 315) {
 				return false;
 			}
 			return true;

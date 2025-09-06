@@ -276,7 +276,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 					return true;
-				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.fusion === 'Super Sonic') && 
+				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') && 
 					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending) {
 					return true;
 				}
@@ -302,7 +302,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-						(this.fusion ? ', fusion: ' + this.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+						(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				if (!this.illusion) this.battle.add('detailschange', this, details);
@@ -332,7 +332,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
-										(this.illusion.fusion ? ', fusion: ' + this.illusion.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
+										(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
 								this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
@@ -362,7 +362,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				const ability = species.abilities[abilitySlot] || species.abilities['0'];
 				// Ogerpon's forme change doesn't override permanent abilities
-				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
+				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, null, true);
 				// However, its ability does reset upon switching out
 				this.baseAbility = this.battle.dex.toID(ability);
 			}
@@ -471,7 +471,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.apparentType = pokemon.apparentType;
 
 			let statName: StatIDExceptHP;
-			const statTable = (pokemon.ability === 'Stance Change' && pokemon.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
+			const statTable = (pokemon.ability === 'Stance Change' && pokemon.m.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
 			for (statName in this.storedStats) {
 				this.storedStats[statName] = statTable[statName];
 				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.
@@ -521,7 +521,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.knownType = true;
 				this.apparentType = this.terastallized;
 			}
-			if (this.battle.gen > 2) this.setAbility(pokemon.ability, this, true, true);
+			if (this.battle.gen > 2) this.setAbility(pokemon.ability, this, null, true, true);
 
 			// Change formes based on held items (for Transform)
 			// Only ever relevant in Generation 4 since Generation 3 didn't have item-based forme changes

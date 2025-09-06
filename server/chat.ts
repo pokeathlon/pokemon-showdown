@@ -604,7 +604,9 @@ export class CommandContext extends MessageContext {
 			return this.popupReply(`You tried to send "${message}" to the room "${this.room.roomid}" but it failed because you were not in that room.`);
 		}
 
-		if (this.user.statusType === 'idle' && !['unaway', 'unafk', 'back'].includes(this.cmd)) {
+		if (this.user.statusType === 'idle' &&
+			this.message !== '/cmd rooms' &&
+			!['unaway', 'unafk', 'back'].includes(this.cmd)) {
 			this.user.setStatusType('online');
 		}
 
@@ -1840,7 +1842,7 @@ export const Chat = new class {
 	 */
 	database = SQL(module, {
 		file: global.Config?.nofswriting ? ':memory:' : PLUGIN_DATABASE_PATH,
-		processes: global.Config?.chatdbprocesses,
+		processes: global.Config?.subprocessescache?.chatdb ?? 1,
 	});
 	databaseReadyPromise: Promise<void> | null = null;
 
@@ -1971,12 +1973,12 @@ export const Chat = new class {
 
 	loadPluginFile(file: string) {
 		if (!file.endsWith('.js')) return;
-		this.loadPlugin(require(file), this.getPluginName(file));
+		this.loadPlugin(require(FS(file).path), this.getPluginName(file));
 	}
 
 	loadPluginDirectory(dir: string, depth = 0) {
 		for (const file of FS(dir).readdirSync()) {
-			const path = pathModule.resolve(dir, file);
+			const path = pathModule.join(dir, file);
 			if (FS(path).isDirectorySync()) {
 				depth++;
 				if (depth > MAX_PLUGIN_LOADING_DEPTH) continue;
@@ -1991,11 +1993,11 @@ export const Chat = new class {
 			}
 		}
 	}
-	annotateCommands(commandTable: AnyObject, namespace = ''): AnnotatedChatCommands {
+	annotateCommands(commandTable: AnyObject, namespace = '', pluginName?: string): AnnotatedChatCommands {
 		for (const cmd in commandTable) {
 			const entry = commandTable[cmd];
 			if (typeof entry === 'object') {
-				this.annotateCommands(entry, `${namespace}${cmd} `);
+				this.annotateCommands(entry, `${namespace}${cmd} `, pluginName);
 			}
 			if (typeof entry === 'string') {
 				const base = commandTable[entry];
@@ -2012,6 +2014,7 @@ export const Chat = new class {
 			entry.broadcastable = cmd.endsWith('help') || /\bthis\.(?:(check|can|run|should)Broadcast)\(/.test(handlerCode);
 			entry.isPrivate = /\bthis\.(?:privately(Check)?Can|commandDoesNotExist)\(/.test(handlerCode);
 			entry.requiredPermission = /this\.(?:checkCan|privately(?:Check)?Can)\(['`"]([a-zA-Z0-9]+)['"`](\)|, )/.exec(handlerCode)?.[1];
+			entry.plugin = pluginName;
 			if (!entry.aliases) entry.aliases = [];
 
 			// assign properties from the base command if the current command uses CommandContext.run.
@@ -2038,7 +2041,7 @@ export const Chat = new class {
 		// in the plugin.roomSettings = [plugin.roomSettings] action. So, we have to make them not getters
 		plugin = { ...plugin };
 		if (plugin.commands) {
-			Object.assign(Chat.commands, this.annotateCommands(plugin.commands));
+			Object.assign(Chat.commands, this.annotateCommands(plugin.commands, '', name));
 		}
 		if (plugin.pages) {
 			Object.assign(Chat.pages, plugin.pages);
@@ -2726,7 +2729,7 @@ export interface Monitor {
 
 // explicitly check this so it doesn't happen in other child processes
 if (!process.send) {
-	Chat.database.spawn(Config.chatdbprocesses || 1);
+	Chat.database.spawn(global.Config?.subprocessescache?.chatdb ?? 1);
 	Chat.databaseReadyPromise = Chat.prepareDatabase();
 	// we need to make sure it is explicitly JUST the child of the original parent db process
 	// no other child processes

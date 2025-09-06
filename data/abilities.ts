@@ -60,7 +60,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Flying';
 				move.typeChangerBoosted = this.effect;
@@ -1547,7 +1547,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Electric';
 				move.typeChangerBoosted = this.effect;
@@ -2406,9 +2406,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			move.hasBounced = true; // only bounce once in free-for-all battles
 			return null;
 		},
-		condition: {
-			duration: 1,
-		},
 		flags: { breakable: 1 },
 		name: "Magic Bounce",
 		rating: 4,
@@ -2930,9 +2927,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const noModifyType = [
 				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id) &&
+			if (!(move.isZ && move.category !== 'Status') &&
 				// TODO: Figure out actual interaction
-				!(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				(!noModifyType.includes(move.id) || this.activeMove?.isMax) && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Normal';
 				move.typeChangerBoosted = this.effect;
 			}
@@ -3226,7 +3223,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Fairy';
 				move.typeChangerBoosted = this.effect;
@@ -3328,9 +3325,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!this.effectState.target.hp) return;
 			const ability = target.getAbility();
 			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
-			if (this.effectState.target.setAbility(ability)) {
-				this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', `[of] ${target}`);
-			}
+			this.effectState.target.setAbility(ability, target);
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
 		name: "Power of Alchemy",
@@ -3717,9 +3712,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (!this.effectState.target.hp) return;
 			const ability = target.getAbility();
 			if (ability.flags['noreceiver'] || ability.id === 'noability') return;
-			if (this.effectState.target.setAbility(ability)) {
-				this.add('-ability', this.effectState.target, ability, '[from] ability: Receiver', `[of] ${target}`);
-			}
+			this.effectState.target.setAbility(ability, target);
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
 		name: "Receiver",
@@ -3745,7 +3738,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Ice';
 				move.typeChangerBoosted = this.effect;
@@ -5069,9 +5062,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 			const target = this.sample(possibleTargets);
 			const ability = target.getAbility();
-			if (pokemon.setAbility(ability)) {
-				this.add('-ability', pokemon, ability, '[from] ability: Trace', `[of] ${target}`);
-			}
+			pokemon.setAbility(ability, target);
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
 		name: "Trace",
@@ -5609,27 +5600,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onTryHit(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
 
-			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+			if (target === source || move.hasBounced || !move.flags['reflectable'] || target.isSemiInvulnerable()) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
 			this.actions.useMove(newMove, target, { target: source });
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
 			if (this.effectState.target.activeTurns) return;
 
-			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable'] || target.isSemiInvulnerable()) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
 			this.actions.useMove(newMove, this.effectState.target, { target: source });
+			move.hasBounced = true; // only bounce once in free-for-all battles
 			return null;
-		},
-		condition: {
-			duration: 1,
 		},
 		flags: { breakable: 1 },
 		name: "Rebound",

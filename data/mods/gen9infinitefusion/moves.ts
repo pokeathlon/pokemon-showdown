@@ -2,7 +2,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	watershuriken: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			if ([pokemon.species.name, pokemon.fusion].includes('Greninja-Ash') && pokemon.hasAbility('battlebond') &&
+			if ([pokemon.species.name, pokemon.m.fusion].includes('Greninja-Ash') && pokemon.hasAbility('battlebond') &&
 				!pokemon.transformed) {
 				return move.basePower + 5;
 			}
@@ -12,7 +12,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	aurawheel: {
 		inherit: true,
 		onTry(source) {
-			if (source.species.baseSpecies === 'Morpeko' || source.fusion?.includes('Morpeko')) {
+			if (source.species.baseSpecies === 'Morpeko' || source.m.fusion?.includes('Morpeko')) {
 				return;
 			}
 			this.attrLastMove('[still]');
@@ -21,7 +21,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return null;
 		},
 		onModifyType(move, pokemon) {
-			if ([pokemon.species.name, pokemon.fusion].includes('Morpeko-Hangry')) {
+			if ([pokemon.species.name, pokemon.m.fusion].includes('Morpeko-Hangry')) {
 				move.type = 'Dark';
 			} else {
 				move.type = 'Electric';
@@ -31,7 +31,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	darkvoid: {
 		inherit: true,
 		onTry(source, target, move) {
-			if ([source.species.name, source.fusion].includes('Darkrai') || move.hasBounced) {
+			if ([source.species.name, source.m.fusion].includes('Darkrai') || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', source, 'move: Dark Void');
@@ -46,7 +46,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	ivycudgel: {
 		inherit: true,
 		onModifyType(move, pokemon) {
-			const forme = pokemon.species.baseSpecies === 'Ogerpon' ? pokemon.species.name : pokemon.fusion;
+			const forme = pokemon.species.baseSpecies === 'Ogerpon' ? pokemon.species.name : pokemon.m.fusion;
 			switch (forme) {
 			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera':
 				move.type = 'Water';
@@ -63,7 +63,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	ragingbull: {
 		inherit: true,
 		onModifyType(move, pokemon) {
-			const forme = pokemon.species.name.includes('Tauros-Paldea') ? pokemon.species.name : pokemon.fusion;
+			const forme = pokemon.species.name.includes('Tauros-Paldea') ? pokemon.species.name : pokemon.m.fusion;
 			switch (forme) {
 			case 'Tauros-Paldea-Combat':
 				move.type = 'Fighting';
@@ -80,7 +80,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	relicsong: {
 		inherit: true,
 		onHit(target, pokemon, move) {
-			if ((pokemon.baseSpecies.baseSpecies === 'Meloetta' || pokemon.fusion?.includes('Meloetta')) && !pokemon.transformed) {
+			if ((pokemon.baseSpecies.baseSpecies === 'Meloetta' || pokemon.m.fusion?.includes('Meloetta')) && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
 		},
@@ -89,8 +89,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (pokemon.species.baseSpecies === 'Meloetta') {
 					const meloettaForme = pokemon.species.id === 'meloettapirouette' ? '' : '-Pirouette';
 					pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '[msg]');
-				} else if (pokemon.fusion?.includes('Meloetta')) {
-					const meloettaForme = pokemon.fusion === 'Meloetta-Pirouette' ? '' : '-Pirouette';
+				} else if (pokemon.m.fusion?.includes('Meloetta')) {
+					const meloettaForme = pokemon.m.fusion === 'Meloetta-Pirouette' ? '' : '-Pirouette';
 					pokemon.fusionChange('Meloetta' + meloettaForme, this.effect);
 				}
 			}
@@ -101,7 +101,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!pokemon.volatiles['commanded']) return;
 			let tatsugiri = pokemon.volatiles['commanded'].source;
-			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri') tatsugiri = this.dex.species.get(tatsugiri.fusion); // Should never happen
+			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri') tatsugiri = this.dex.species.get(tatsugiri.m.fusion); // Should never happen
 			switch (tatsugiri.baseSpecies.forme) {
 			case 'Droopy':
 				this.boost({def: 1}, pokemon, pokemon);
@@ -121,7 +121,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 3,
 			onStart(target) {
 				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
-						['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.dex.species.get(target.fusion).baseSpecies) ||
+						['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.dex.species.get(target.m.fusion).baseSpecies) ||
 							target.baseSpecies.name === 'Gengar-Mega') {
 					this.add('-immune', target);
 					return null;
@@ -158,7 +158,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				if (attacker.species.name === 'Cramorant') {
 					attacker.formeChange(forme, move);
-				} else if (attacker.fusion === 'Cramorant') {
+				} else if (attacker.m.fusion === 'Cramorant') {
 					attacker.fusionChange(forme, move);
 				}
 			}

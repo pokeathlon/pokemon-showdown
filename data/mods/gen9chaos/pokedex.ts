@@ -2102,6 +2102,23 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 		prevo: "Pupitar-Delta"
 	},
+	tyranitardeltamega: {
+		num: 3101,
+		name: "Tyranitar-Delta-Mega",
+		types: ["Dragon", "Psychic"],
+		baseStats: {hp: 100, atk: 164, def: 150, spa: 95, spd: 120, spe: 71},
+		abilities: {0: "Psychic Surge"},
+		heightm: 2.5,
+		weightkg: 255,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "Uber",
+		natDexTier: "Uber",
+		doublesTier: "DUber",
+		baseSpecies: "Tyranitar-Delta",
+		forme: "Mega",
+		requiredItem: "Delta Tyranitarite"
+	},
 	voliable: {
 		num: 3102,
 		name: "Voliable",
@@ -2116,7 +2133,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "NFE",
 		doublesTier: "NFE",
 		evos: ["Nestitan"],
-		prevo: "Voliable"
+		prevo: "Thatchling"
 	},
 	wrighvern: {
 		num: 3103,
@@ -2160,6 +2177,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		prevo: "Matterpillar",
 	},
 	anneliark: {
 		num: 3106,
@@ -2387,6 +2405,22 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "LC",
 		natDexTier: "LC",
 		evos: ["Voliable"]
+	},
+	matterpillar: {
+		num: 3120,
+		name: "Matterpillar",
+		types: ["Psychic"],
+		baseStats: {hp: 55, atk: 22, def: 61, spa: 47, spd: 71, spe: 29},
+		abilities: {0: "Synchronize", 1: "Shield Dust", H: "Friend Guard"},
+		heightm: 0.4,
+		weightkg: 9.8,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "LC",
+		natDexTier: "LC",
+		evos: ["Twinova"],
+		evoType: "useItem",
+		evoItem: "Sun Stone",
 	},
 };
 
