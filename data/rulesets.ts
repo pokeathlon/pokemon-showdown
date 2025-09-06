@@ -3373,7 +3373,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Same Type Clause: Pokémon in a team must share a type, or be cats');
 		},
 		onValidateTeam(team) {
-			const cats = ['berserkergene', 'bewitwing', 'catzelwyrm', 'dracat', 'enteisupra', 'felapstan', 'growlsome', 'incineroarolul', 'raikousupra'];
+			const cats = ['berserkergene', 'bewitwing', 'catzelwyrm', 'dracat', 'enteisupra', 'felapstan', 'growlsome', 'incineroarolul', 'raikousupra', 'zorblob'];
 			let monocat = false;
 			let typeTable: string[] = [];
 			for (const [i, set] of team.entries()) {
