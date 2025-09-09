@@ -1195,7 +1195,7 @@ export const Moves: ModdedMoveDataTable = {
 	twingust: {
 		num: 0,
 		accuracy: 100,
-		basePower: 35,
+		basePower: 30,
 		category: "Special",
 		name: "Twin Gust",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. In Double Battles, this move attempts to hit the targeted Pokemon and its ally once each. If hitting one of these Pokemon would be prevented by immunity, protection, semi-invulnerability, an Ability, or accuracy, it attempts to hit the other Pokemon twice instead. If this move is redirected, it hits that target twice.",
@@ -2306,7 +2306,7 @@ export const Moves: ModdedMoveDataTable = {
 	},
 	solarflare: {
 		num: 0,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		name: "Solar Flare",
@@ -2316,16 +2316,15 @@ export const Moves: ModdedMoveDataTable = {
 		multihit: 2,
 		target: "normal",
 		type: "Psychic",
-		onHit(pokemon, target, move) {
-			move.secondaries = [];
-			if (move.hit === 1) move.secondaries.push({chance: 30, boosts: {atk: -1}});
-			if (move.hit === 2) move.secondaries.push({chance: 30, boosts: {spa: -1}});
+		secondary: {
+			chance: 20,
+			status: 'brn',
 		},
 		secondary: null,
 		zMove: { basePower: 140 },
 		maxMove: { basePower: 120 },
 		contestType: "Cool",
-		shortDesc: "Hits twice, 1st 30% -1 Atk, 2nd 30% -1 SpA.",
+		shortDesc: "Hits twice, 20% chance to burn per hit.",
 	},
 	severedsidearm: {
 		num: 0,

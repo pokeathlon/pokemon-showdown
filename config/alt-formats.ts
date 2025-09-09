@@ -718,7 +718,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
-			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium',
