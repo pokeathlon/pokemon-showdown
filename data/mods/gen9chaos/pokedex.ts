@@ -2337,7 +2337,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		name: "Alphbit",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 44, atk: 40, def: 33, spa: 62, spd: 44, spe: 67},
-		abilities: {0: "Volt Absorb", 1: "Download", H: "Download"},
+		abilities: {0: "Volt Absorb", 1: "Download", H: "Pixel Perfect"},
 		heightm: 0.2,
 		weightkg: 5.6,
 		tags: ["Pokeathlon"],
