@@ -601,7 +601,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	electrode: {
 		inherit: true,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "(DUU)",
 	},
 	exeggcute: {
