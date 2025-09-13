@@ -2320,7 +2320,6 @@ export const Moves: ModdedMoveDataTable = {
 			chance: 20,
 			status: 'brn',
 		},
-		secondary: null,
 		zMove: { basePower: 140 },
 		maxMove: { basePower: 120 },
 		contestType: "Cool",
