@@ -481,7 +481,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	loxicant: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	azumarillegho: {
 		inherit: true,
