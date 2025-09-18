@@ -69,6 +69,27 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF Dex RU",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 
+		],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
+			'pokemon:greninjabond', 'pokemon:greninjaash',
+			'OU', 'UUBL', 'UU', 'RUBL',
+			'item:necrozium',
+			'ability:contrary',
+			'move:quiverdance',
+		],
+	},
+	{
 		name: "[Gen 7] IF Dex AG",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
