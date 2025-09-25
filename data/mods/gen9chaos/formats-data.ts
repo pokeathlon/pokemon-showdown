@@ -287,6 +287,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	harptera: {
+		inherit: true,
+		natDexTier: 'OU',
+	},
 	oblivicornmega: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -375,6 +379,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UUBL",
 	},
+	madpiano: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
 	walkingwake: {
 		inherit: true,
 		natDexTier: "UU",
@@ -384,10 +392,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	manacra: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	madpiano: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -477,7 +481,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	loxicant: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	azumarillegho: {
 		inherit: true,
@@ -924,10 +928,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: 'RU',
 	},
 	haagrossmel: {
-		inherit: true,
-		natDexTier: 'RU',
-	},
-	harptera: {
 		inherit: true,
 		natDexTier: 'RU',
 	},

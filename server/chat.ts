@@ -1180,7 +1180,7 @@ export class CommandContext extends MessageContext {
 					const groupName = Config.groups[room.settings.modchat] && Config.groups[room.settings.modchat].name ||
 						room.settings.modchat;
 					this.sendReply(
-						this.tr`|html|<div class="message-error">Because moderated chat is set, you must be of rank ${groupName} or higher to speak in this room. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and typing your just your showdown name in the verify channel. You don't have to stay in the Discord server afterwards!</div>`
+						this.tr`|html|<div class="message-error">Because moderated chat is set, you must be of rank ${groupName} or higher to speak in this room. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and using the /verify command with your showdown username. You don't have to stay in the Discord server afterwards!</div>`
 					);
 					throw new Chat.Interruption();
 				}
@@ -1216,7 +1216,7 @@ export class CommandContext extends MessageContext {
 					!Users.Auth.hasPermission(targetUser, 'promote', Config.pmmodchat as GroupSymbol)) {
 					const groupName = Config.groups[Config.pmmodchat] && Config.groups[Config.pmmodchat].name || Config.pmmodchat;
 					this.sendReply(
-						this.tr`|html|<div class="message-error">On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and typing your just your showdown name in the verify channel. You don't have to stay in the Discord server afterwards!</div>`
+						this.tr`|html|<div class="message-error">On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and using the /verify command with your showdown username. You don't have to stay in the Discord server afterwards!</div>`
 					);
 					throw new Chat.Interruption();
 				}

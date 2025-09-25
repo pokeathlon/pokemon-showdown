@@ -258,7 +258,7 @@ export const Items: ModdedItemDataTable = {
 	},
 	doubledip: {
 		name: "Double Dip",
-		shortDesc: "If move misses, consumes item and uses move again.",
+		shortDesc: "If move misses, use move again with perfect accuracy. Single use.",
 		spritenum: -3,
 		fling: {
 			basePower: 80,

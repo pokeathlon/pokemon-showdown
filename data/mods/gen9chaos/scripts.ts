@@ -240,6 +240,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
 					if (!move.ohko && pokemon.hasItem('doubledip') && pokemon.useItem()) {
+						move.accuracy = true;
 						this.battle.actions.useMove(move, pokemon);
 					}
 					if (!move.ohko && pokemon.hasAbility('pixelperfect')) {

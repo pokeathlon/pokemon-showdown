@@ -533,7 +533,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	wrighvern: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 		isNonstandard: "Unobtainable",
 	},
 	crayzigater: {

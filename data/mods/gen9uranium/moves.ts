@@ -527,8 +527,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 0,
 		category: "Status",
 		name: "Sticky Terrain",
-		desc: "For 5 turns, the terrain becomes Sticky Terrain. During the effect, Pokemon cannot be hit by moves with priority greater than 0. Camouflage transforms the user into a Normal type. Fails if the current terrain is Sticky Terrain.",
-		shortDesc: "5 turns. Prevents moves with increased priority.",
+		desc: "For 5 turns, the terrain becomes Sticky Terrain. During the effect, grounded Pokemon cannot be hit by moves with priority greater than 0, unless the target is an ally. Camouflage transforms the user into a Normal type. Fails if the current terrain is Sticky Terrain.",
+		shortDesc: "5 turns. Grounded: immune to priority.",
 		pp: 10,
 		priority: 0,
 		flags: { nonsky: 1, metronome: 1 },
@@ -547,7 +547,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
 					return;
 				}
-				if (target.isSemiInvulnerable()) return;
+				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
+				if (!target.isGrounded()) {
+					const baseMove = this.dex.moves.get(effect.id);
+					if (baseMove.priority > 0) {
+						this.hint("Sticky Terrain doesn't affect Pokémon immune to Ground.");
+					}
+					return;
+				}
 				this.add('-activate', target, 'move: Sticky Terrain');
 				return null;
 			},

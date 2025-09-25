@@ -828,7 +828,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 	},
 	starfall: {
-		onBeforeSwitchIn(pokemon) {
+		onStart(pokemon) {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'livewire', 'permafrost', 'hotcoals', 'stickyweb', 'gmaxsteelsurge'];
 			this.prng.shuffle(sideConditions);
 			for (const condition of sideConditions) {
