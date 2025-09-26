@@ -803,6 +803,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Uber",
 		isNonstandard: null,
 	},
+	wyrmplode: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
 };
 
 for (const pokemon in Base) {

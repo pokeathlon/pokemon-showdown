@@ -2422,6 +2422,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 	},
+	wyrmplode: {
+		num: 3121,
+		name: "Wyrmplode",
+		types: ["Fire", "Dragon"],
+		baseStats: {hp: 55, atk: 22, def: 61, spa: 47, spd: 71, spe: 29},
+		abilities: {0: "Aftermath", 1: "Flame Body", H: "Victory Star"},
+		heightm: 2,
+		weightkg: 791,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DUU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
