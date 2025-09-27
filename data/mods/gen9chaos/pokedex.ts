@@ -2436,6 +2436,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
+	ironchamber: {
+		num: 3122,
+		name: "Iron Chamber",
+		types: ["Steel", "Water"],
+		baseStats: {hp: 84, atk: 104, def: 134, spa: 60, spd: 134, spe: 54},
+		abilities: {0: "Quark Drive"},
+		heightm: 1.20,
+		weightkg: 172,
+		gender: "N",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

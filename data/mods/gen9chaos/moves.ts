@@ -2345,6 +2345,33 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "User's HP is 50% or less: +1 priority.",
 	},
+	pressureburst: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Pressure Burst",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1 },
+		onAfterHit(target, source, move) {
+			source.addVolatile('aquaring', source)
+			for (const allyActive of source.adjacentAllies()) {
+				allyActive.addVolatile('aquaring', source)
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			source.addVolatile('aquaring', source)
+			for (const allyActive of source.adjacentAllies()) {
+				allyActive.addVolatile('aquaring', source)
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+		shortDesc: "Sets Aqua Ring for every Pokemon on user's side.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
