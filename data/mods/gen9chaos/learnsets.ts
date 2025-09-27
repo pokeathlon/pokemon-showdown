@@ -11022,7 +11022,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			captivate: ["9M"],
 			confide: ["9M"],
 			charm: ["9M"],
-			endure: ["9M"],
 			flash: ["9M"],
 			focusenergy: ["9M"],
 			screech: ["9M"],
