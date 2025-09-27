@@ -2426,7 +2426,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3121,
 		name: "Wyrmplode",
 		types: ["Fire", "Dragon"],
-		baseStats: {hp: 55, atk: 22, def: 61, spa: 47, spd: 71, spe: 29},
+		baseStats: {hp: 85, atk: 60, def: 95, spa: 105, spd: 100, spe: 75},
 		abilities: {0: "Aftermath", 1: "Flame Body", H: "Victory Star"},
 		heightm: 2,
 		weightkg: 791,
