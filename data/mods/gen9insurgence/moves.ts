@@ -756,7 +756,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hurts foes on switch-in. Factors Fire weakness.",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, metronome: 1, mustpressure: 1, nosketch: 1},
+		flags: {reflectable: 1, mustpressure: 1, nosketch: 1},
 		sideCondition: 'hotcoals',
 		condition: {
 			// this is a side condition
