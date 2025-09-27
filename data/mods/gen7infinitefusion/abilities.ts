@@ -12,6 +12,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				const speciesid = pokemon.species.id === 'mimikyubustedtotem' ? 'Mimikyu-Totem' : 'Mimikyu';
 				pokemon.formeChange(speciesid, this.effect, true);
 			}
+			if (this.effectState.fusionBusted) {
+				this.effectState.busted = false;
+				this.effectState.fusionBusted = undefined;
+			}
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -66,7 +70,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (this.dex.gen > 7) {
 					this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, pokemon.species);
 				}
-				this.effectState.fusionBusted = false;
 			}
 		},
 		flags: {
