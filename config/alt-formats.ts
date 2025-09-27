@@ -795,7 +795,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA OU S2",
 
 		mod: 'gen9pokeathlon',
-		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Terastal Clause', 'Species Reveal Clause', '+move:hiddenpower'],
 		banlist: [
 			'Uber', 'AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
