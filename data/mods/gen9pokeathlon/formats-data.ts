@@ -833,6 +833,24 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
+	barreko: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	cactusplash: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	dryguaro: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
 };
 
 for (const pokemon in Base) {
