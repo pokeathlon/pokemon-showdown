@@ -2294,4 +2294,10 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 
 		activate: "  [POKEMON] became sugar crazed!",
 	},
+	asabove: {
+		name: "As Above",
+		
+		start: "  [POKEMON] is surrounded by distortion energy from below!",
+		end: "  [POKEMON]'s bubble of distortion collapses!",
+	}
 };

@@ -1337,6 +1337,34 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "This Pokemon applies Laser Focus on itself if it attacks and KOes another Pokemon.",
 	},
+	asabove: {
+		onAnyModifyBoost(boosts, pokemon) {
+			if (!this.effectState.target.abilityState.distortion) return;
+			if (pokemon === this.activePokemon || pokemon === this.activeTarget) {
+				let i: BoostID;
+				for (i in boosts) {
+					boosts[i] = -boosts[i]
+				}
+			}
+		},
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true) && target.abilityState.distortion) {
+				target.abilityState.distortion = false;
+				this.add('-end', target, 'As Above');
+			}
+		},
+		onSwitchInPriority: 1,
+		onSwitchIn(pokemon) {
+			pokemon.abilityState.distortion = true;
+			this.add('-ability', pokemon, 'As Above');
+		},
+		flags: { breakable: 1 },
+		name: "As Above",
+		rating: 4,
+		num: 0,
+		shortDesc: "While on field, stat changes have the opposite effect. Breaks upon contact with user.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

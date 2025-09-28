@@ -2541,6 +2541,22 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	varkacosm: {
+		num: 3129,
+		name: "Varkacosm",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 115, atk: 80, def: 85, spa: 80, spd: 115, spe: 100},
+		abilities: {0: "As Above", H: "Levitate"},
+		heightm: 0.3,
+		weightkg: 0.1,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA", "Unknown"],
+		gender: "N",
+		color: "Purple",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
