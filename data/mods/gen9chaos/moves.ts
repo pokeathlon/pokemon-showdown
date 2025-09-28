@@ -2481,6 +2481,26 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Tough",
 		shortDesc: "Fails behind substitute. Perish song if user is not hit before moving.",
 	},
+	clayhaymaker: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Clay Haymaker",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, punch: 1, protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+		shortDesc: "10% chance to lower the target's Speed by 1.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
