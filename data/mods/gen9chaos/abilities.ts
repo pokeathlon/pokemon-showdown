@@ -1325,6 +1325,18 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "Gains additional type based on form. Immune to secondary effects.",
 	},
+	retribution: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.addVolatile('laserfocus');
+			}
+		},
+		flags: {},
+		name: "Retribution",
+		rating: 4,
+		num: 0,
+		shortDesc: "This Pokemon applies Laser Focus on itself if it attacks and KOes another Pokemon.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

@@ -2466,6 +2466,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	cloudinyte: {
+		num: 3124,
+		name: "Cloudinyte",
+		types: ["Dark", "Flying"],
+		baseStats: {hp: 80, atk: 100, def: 80, spa: 50, spd: 80, spe: 110},
+		abilities: {0: "Retribution", H: "Sniper"},
+		heightm: 1.5,
+		weightkg: 28,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

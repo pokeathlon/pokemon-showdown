@@ -2418,6 +2418,22 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cute",
 		shortDesc: "Bounces turn 1. Hits turn 2. 100% Chance to Burn.",
 	},
+	skypierce: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Sky Pierce",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+		shortDesc: "High critical hit ratio.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
