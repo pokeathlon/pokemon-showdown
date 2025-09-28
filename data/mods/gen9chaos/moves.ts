@@ -2374,8 +2374,8 @@ export const Moves: ModdedMoveDataTable = {
 	},
 	pyropounce: {
 		num: 0,
-		accuracy: 85,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
 		name: "Pyro Pounce",
 		pp: 5,
