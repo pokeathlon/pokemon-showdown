@@ -2545,7 +2545,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3129,
 		name: "Varkacosm",
 		types: ["Dark", "Fairy"],
-		baseStats: {hp: 115, atk: 80, def: 85, spa: 80, spd: 115, spe: 100},
+		baseStats: {hp: 115, atk: 85, def: 80, spa: 85, spd: 115, spe: 100},
 		abilities: {0: "As Above", H: "Levitate"},
 		heightm: 0.3,
 		weightkg: 0.1,
