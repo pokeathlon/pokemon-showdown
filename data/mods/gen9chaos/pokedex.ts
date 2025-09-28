@@ -2557,6 +2557,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	escarphone: {
+		num: 3130,
+		name: "Escarphone",
+		types: ["Ghost", "Poison"],
+		baseStats: {hp: 76, atk: 66, def: 140, spa: 90, spd: 82, spe: 44},
+		abilities: {0: "Soul Choir", 1: "Soundproof", H: "Own Tempo"},
+		heightm: 0.7,
+		weightkg: 48.3,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

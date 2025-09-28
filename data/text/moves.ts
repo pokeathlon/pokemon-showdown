@@ -7623,6 +7623,12 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		name: "Superheated Crash",
 
 		start: "  [POKEMON] started heating up!",
-	}
+	},
+	deadsilence: {
+		name: "Dead Silence",
+
+		start: "  [POKEMON] is keeping the tempo!",
+		cant: "[POKEMON]'s tempo was broken!",
+	},
 
 };

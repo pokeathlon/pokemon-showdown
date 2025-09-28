@@ -2434,6 +2434,53 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "High critical hit ratio.",
 	},
+	deadsilence: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Dead Silence",
+		pp: 20,
+		priority: -3,
+		flags: {
+			sound: 1, protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1,
+		},
+		onTry(source) {
+			if (source.volatiles['substitute']) {
+				this.add('-fail', source, 'move: Dead Silence');
+				if (source.volatiles['deadsilence']) source.removeVolatile('deadsilence');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('deadsilence');
+		},
+		onAfterHit(pokemon, target, move) {
+			if (!pokemon.volatiles['deadsilence']?.lostFocus) {
+				this.actions.useMove('perishsong', target);
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Dead Silence');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					this.effectState.lostFocus = true;
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+		shortDesc: "Fails behind substitute. Perish song if user is not hit before moving.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

@@ -1365,6 +1365,19 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "While on field, stat changes have the opposite effect. Breaks upon contact with user.",
 	},
+	soulchoir: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
+				move.type = 'Ghost';
+			}
+		},
+		flags: {},
+		name: "Soul Choir",
+		rating: 1.5,
+		num: 0,
+		shortDesc: "This Pokemon's sound-based moves become Ghost type.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
