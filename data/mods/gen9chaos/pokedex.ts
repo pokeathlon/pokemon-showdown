@@ -2237,8 +2237,23 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
-	celestray: {
+	stratosting: {
 		num: 3110,
+		name: "Stratosting",
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 70, atk: 81, def: 62, spa: 47, spd: 60, spe: 70},
+		abilities: {0: "Infiltrator", 1: "Frisk", H: "Hidden Ambush"},
+		heightm: 0.8,
+		weightkg: 14,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		evos: ["Celestray"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+	},
+	celestray: {
+		num: 3111,
 		name: "Celestray",
 		types: ["Ghost", "Flying"],
 		baseStats: {hp: 96, atk: 119, def: 90, spa: 60, spd: 65, spe: 95},
@@ -2247,12 +2262,13 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		weightkg: 34,
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
+		prevo: "Stratosting",
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
 	},
 	saturoceras: {
-		num: 3111,
+		num: 3112,
 		name: "Saturoceras",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 65, atk: 60, def: 75, spa: 115, spd: 95, spe: 85},
@@ -2267,7 +2283,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		prevo: "Othocket",
 	},
 	nebulant: {
-		num: 3112,
+		num: 3113,
 		name: "Nebulant",
 		types: ["Bug", "Psychic"],
 		baseStats: {hp: 91, atk: 66, def: 70, spa: 108, spd: 71, spe: 114},
@@ -2281,7 +2297,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DUU",
 	},
 	zorblob: {
-		num: 3113,
+		num: 3114,
 		name: "Zorblob",
 		baseForme: "Regular",
 		types: ["Psychic"],
@@ -2296,7 +2312,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	zorblobsplit: {
-		num: 3113,
+		num: 3114,
 		name: "Zorblob-Split",
 		forme: "Split",
 		baseSpecies: "Zorblob",
@@ -2314,7 +2330,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	tanukief: {
-		num: 3114,
+		num: 3115,
 		name: "Tanukief",
 		types: ["Dark", "Fighting"],
 		baseStats: {hp: 95, atk: 84, def: 121, spa: 76, spd: 94, spe: 60},
@@ -2333,7 +2349,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	alphbit: {
-		num: 3115,
+		num: 3116,
 		name: "Alphbit",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 44, atk: 40, def: 33, spa: 62, spd: 44, spe: 67},
@@ -2348,7 +2364,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		evos: ["Betech"],
 	},
 	betech: {
-		num: 3116,
+		num: 3117,
 		name: "Betech",
 		types: ["Electric", "Normal"],
 		baseStats: {hp: 54, atk: 44, def: 43, spa: 76, spd: 64, spe: 87},
@@ -2364,7 +2380,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		prevo: "Alphbit"
 	},
 	othocket: {
-		num: 3117,
+		num: 31178,
 		name: "Othocket",
 		types: ["Fire", "Rock"],
 		baseStats: {hp: 35, atk: 35, def: 65, spa: 90, spd: 75, spe: 55},
@@ -2379,7 +2395,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		evos: ["Saturoceras"]
 	},
 	whacksteroid: {
-		num: 3118,
+		num: 3119,
 		name: "Whacksteroid",
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 75, atk: 110, def: 105, spa: 65, spd: 85, spe: 75},
@@ -2393,7 +2409,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DUU",
 	},
 	thatchling: {
-		num: 3119,
+		num: 3120,
 		name: "Thatchling",
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 52, atk: 30, def: 90, spa: 45, spd: 40, spe: 50},
@@ -2407,7 +2423,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		evos: ["Voliable"]
 	},
 	matterpillar: {
-		num: 3120,
+		num: 3121,
 		name: "Matterpillar",
 		types: ["Psychic"],
 		baseStats: {hp: 55, atk: 22, def: 61, spa: 47, spd: 71, spe: 29},
@@ -2423,7 +2439,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		evoItem: "Sun Stone",
 	},
 	wyrmplode: {
-		num: 3121,
+		num: 3122,
 		name: "Wyrmplode",
 		types: ["Fire", "Dragon"],
 		baseStats: {hp: 85, atk: 60, def: 95, spa: 105, spd: 100, spe: 75},
@@ -2437,7 +2453,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DUU",
 	},
 	ironchamber: {
-		num: 3122,
+		num: 3123,
 		name: "Iron Chamber",
 		types: ["Steel", "Water"],
 		baseStats: {hp: 84, atk: 104, def: 134, spa: 60, spd: 134, spe: 54},
@@ -2452,7 +2468,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	hoppyre: {
-		num: 3123,
+		num: 3124,
 		name: "Hoppyre",
 		types: ["Fire", "Ghost"],
 		baseStats: {hp: 91, atk: 105, def: 77, spa: 50, spd: 80, spe: 112},
@@ -2467,7 +2483,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	cloudinyte: {
-		num: 3124,
+		num: 3125,
 		name: "Cloudinyte",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 80, atk: 100, def: 80, spa: 50, spd: 80, spe: 110},
