@@ -2440,7 +2440,7 @@ export const Moves: ModdedMoveDataTable = {
 		basePower: 75,
 		category: "Special",
 		name: "Dead Silence",
-		pp: 20,
+		pp: 5,
 		priority: -3,
 		flags: {
 			sound: 1, protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1,
