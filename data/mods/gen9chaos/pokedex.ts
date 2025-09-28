@@ -2451,6 +2451,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	hoppyre: {
+		num: 3123,
+		name: "Hoppyre",
+		types: ["Fire", "Ghost"],
+		baseStats: {hp: 91, atk: 105, def: 77, spa: 50, spd: 80, spe: 112},
+		abilities: {0: "Wimp Out", 1: "Flame Body", H: "Regenerator"},
+		heightm: 1.5,
+		weightkg: 21.2,
+		gender: "F",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

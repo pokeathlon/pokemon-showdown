@@ -2372,6 +2372,52 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "Sets Aqua Ring for every Pokemon on user's side.",
 	},
+	pyropounce: {
+		num: 0,
+		accuracy: 85,
+		basePower: 100,
+		category: "Physical",
+		name: "Pyro Pounce",
+		pp: 5,
+		priority: 0,
+		flags: {
+			contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1,
+			metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1,
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceBasePower(basePower, target, source, move) {
+				if (move.id === 'gust' || move.id === 'twister') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "any",
+		type: "Fire",
+		contestType: "Cute",
+		shortDesc: "Bounces turn 1. Hits turn 2. 100% Chance to Burn.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
