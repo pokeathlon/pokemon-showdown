@@ -2501,6 +2501,26 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "10% chance to lower the target's Speed by 1.",
 	},
+	retroblast: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Retro Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		secondary: {
+			chance: 33,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Rock",
+		contestType: "Cool",
+		shortDesc: "33% Chance to lower targets Sp. Def by 1 stage",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

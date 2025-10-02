@@ -2601,6 +2601,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	silretro: {
+		num: 3133,
+		name: "Silretro",
+		types: ["Rock", "Electric"],
+		baseStats: {hp: 55, atk: 115, def: 60, spa: 100, spd: 50, spe: 115},
+		abilities: {0: "Sturdy", 1: "Color Change", H: "No Guard"},
+		heightm: 1.9,
+		weightkg: 198.9,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
