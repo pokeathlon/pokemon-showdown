@@ -2162,6 +2162,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		prevo: "Gluttini",
 	},
 	twinova: {
 		num: 3105,
@@ -2614,6 +2615,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+	},
+	gluttini: {
+		num: 3134,
+		name: "Gluttini",
+		types: ["Dark", "Dragon"],
+		baseStats: {hp: 87, atk: 37, def: 47, spa: 87, spd: 47, spe: 77},
+		abilities: {0: "Pickpocket", 1: "Run Away", H: "Gluttony"},
+		heightm: 0.4,
+		weightkg: 11.2,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		evos: ["Wyvarice"],
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
 	},
 };
 
