@@ -2606,7 +2606,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		name: "Silretro",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 55, atk: 115, def: 60, spa: 100, spd: 50, spe: 115},
-		abilities: {0: "Sturdy", 1: "Color Change", H: "No Guard"},
+		abilities: {0: "Sturdy", 1: "No Guard", H: "Color Change"},
 		heightm: 1.9,
 		weightkg: 198.9,
 		tags: ["Pokeathlon"],
