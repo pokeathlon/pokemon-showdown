@@ -9236,7 +9236,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			torment: ["9M"],
 			toxic: ["9M"],
 			uturn: ["9M"],
-			makeitrain: ["9M"],
 			darkpulse: ["9M"],
 			spikes: ["9M"],
         }
