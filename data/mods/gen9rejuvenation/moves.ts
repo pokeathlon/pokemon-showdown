@@ -23,15 +23,17 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Water';
 			} else if (this.field.isBattlefield(['dragonsdenfield','rainbowfield'])) {
 				newType = 'Dragon';
-			}  else if (this.field.isBattlefield('skyfield')) {
+			} else if (this.field.isBattlefield('skyfield')) {
 				newType = 'Flying';
-			}  else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
 				newType = 'Dark';
-			}  else if (this.field.isBattlefield('crystalcavernfield')) {
+			} else if (this.field.isBattlefield('crystalcavernfield')) {
 				newType = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
-			}  else if (this.field.isBattlefield('newworldfield')) {
-				newType = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
-			}
+			} else if (this.field.isBattlefield('newworldfield')) {
+				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
+			} else if (this.field.isBattlefield('inversefield')) {
+				newType = 'Normal';
+			}  
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
 			this.add('-start', target, 'typechange', newType);
@@ -79,6 +81,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'moonblast';
 			}  else if (this.field.isBattlefield('newworldfield')) {
 				move = 'spacialrend';
+			}  else if (this.field.isBattlefield('inversefield')) {
+				move = 'trickroom';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -132,7 +136,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					status: this.sample(['brn','frz','slp']),
 				});
 				}
-			} else if (this.field.isBattlefield('skyfield')) {
+			} else if (this.field.isBattlefield(['skyfield', 'inversefield'])) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'confusion',
@@ -151,6 +155,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spa: -1,
 					},
 				});
+			} else if (this.field.isBattlefield('starlightarenafield')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spd: -1,
+					},
+				});
 			} else if (this.field.isTerrain('psychicterrain') || this.field.isBattlefield('watersurfacefield')) {
 				move.secondaries.push({
 					chance: 30,
@@ -165,14 +176,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						accuracy: -1,
 					},
 				});
-			} else if (this.field.isBattlefield('starlightarenafield')) {
-				move.secondaries.push({
-					chance: 30,
-					boosts: {
-						spd: -1,
-					},
-				});
-			}  else if (this.field.isBattlefield('newworldfield')) {
+			} else if (this.field.isBattlefield('newworldfield')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -183,7 +187,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spe: -1,
 					},
 				});
-			} 
+			}
 		},
 	},
 	terrainpulse: {
@@ -235,10 +239,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
 				break;
 			case 'blessedfield':
+			case 'inversefield':
 				move.type = 'Normal';
 				break;
 			case 'newworldfield':
-				move.type = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
+				move.type = this.dex.types.get(this.sample(this.dex.types.all())).name;
 				break;
 			}
 		},
@@ -262,8 +267,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
-				if ((this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) && move.type === 'Dark') return this.chainModify(0.5);
-				if (this.field.isBattlefield('blessedfield') && move.type === 'Normal') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield']) && move.type === 'Dark') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -597,7 +602,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	naturesmadness: {
 		inherit: true,
 		damageCallback(pokemon, target) {
-			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('newworldterrain')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
+			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('newworldfield')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
 			if (this.field.isBattlefield('blessedfield')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*2 / 3), 1);
 			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
 		},
@@ -913,7 +918,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				factor = 0.25;
 				break;
 			}
-			if (this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) factor = 0.75;
+			if (this.field.isBattlefield(['darkcrystalcavernfield', 'starlightarenafield', 'newworldfield'])) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -1008,7 +1013,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1049,7 +1054,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1082,7 +1087,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1111,6 +1116,63 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldEnd() {
 				this.add('-fieldend', 'move: Wonder Room');
 			},
+		},
+	},
+	doomdesire: {
+		inherit: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'doomdesire',
+				source,
+				moveData: {
+					id: 'doomdesire',
+					name: "Doom Desire",
+					accuracy: 100,
+					basePower: this.field.isBattlefield('newworldfield')? 560 : 140,
+					category: "Special",
+					priority: 0,
+					flags: { metronome: 1, futuremove: 1 },
+					effectType: 'Move',
+					type: 'Steel',
+				},
+			});
+			this.add('-start', source, 'Doom Desire');
+			return this.NOT_FAIL;
+		},
+	},
+	heartswap: {
+		inherit: true,
+		onHit(target, source) {
+			const targetBoosts: SparseBoostsTable = {};
+			const sourceBoosts: SparseBoostsTable = {};
+
+			let i: BoostID;
+			for (i in target.boosts) {
+				targetBoosts[i] = target.boosts[i];
+				sourceBoosts[i] = source.boosts[i];
+			}
+
+			target.setBoost(sourceBoosts);
+			source.setBoost(targetBoosts);
+
+			this.add('-swapboost', source, target, '[from] move: Heart Swap');
+
+			const targetHP = target.getUndynamaxedHP();
+			const averagehp = Math.floor((targetHP + source.hp) / 2) || 1;
+			const targetChange = targetHP - averagehp;
+			target.sethp(target.hp - targetChange);
+			this.add('-sethp', target, target.getHealth, '[from] move: Pain Split', '[silent]');
+			source.sethp(averagehp);
+			this.add('-sethp', source, source.getHealth, '[from] move: Pain Split');
+		},
+	},
+	lunarblessing: {
+		inherit: true,
+		onHit(pokemon) {
+			let healMod = this.field.isBattlefield(['starlightarenafield', 'newworldfield'])? 0.33 : 0.25;
+			const success = !!this.heal(this.modify(pokemon.maxhp, healMod));
+			return pokemon.cureStatus() || success;
 		},
 	},
 	// custom move
@@ -4322,7 +4384,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				if (['blackholeeclypse', 'cometpunch', 'dracometeor', 'hyperspacefury', 'hyperspacehole', 'lightthatburnsthesky', 'menacingmoonrazemaelstrom', 'meteorassault', 'meteormash', 'moongeistbeam', 'spacialrend', 'searingsunrazesmash', 'sunsteelstrike', 'swift'].includes(move.id)) {
 					this.hint(`The astral energy boosted the attack!`)
-					// this.hint(`The astral vortex accelerated the attack!`)
 					this.chainModify(2)
 				}
 				if (['aurorabeam', 'dazzlinggleam', 'flashcannon', 'lusterpurge', 'mirrorbeam', 'mirrorshot', 'moonblast', 'nightdaze', 'nightslash', 'photongeyser', 'prismaticlaser', 'signalbeam', 'technoblast', 'solarbeam'].includes(move.id)) {
@@ -4344,7 +4405,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onModifyMove(move, pokemon, target) {
 				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
-				if (move.id === 'flash') move.boosts = {accuracy: -2};
+				if (move.id === 'flash') move.boosts = {accuracy: 2};
 				if (move.id === 'geomancy') {
 					move.flags.charge = undefined;
 					move.condition = {}
@@ -4389,12 +4450,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					move.onTryMove = undefined 
 				}
 			},
-			onHit(target, source, move) {
-				if (move.id === 'lunarblessing') {
-					const success = !!this.heal(this.modify(target.maxhp, 0.33));
-					return target.cureStatus() || success;
-				}
-			},
 			onSwitchIn(pokemon) {
 				if (['illuminate'].includes(pokemon.ability)) {
 					this.hint(`${pokemon.name}'s Illuminate flared up with starlight!`)
@@ -4419,7 +4474,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
-	newworldfield: {
+	newworldfield: { // Missing RKS and Multitype implementation
 		num: 0,
 		accuracy: true,
 		basePower: 0,
@@ -4438,118 +4493,73 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				return 5;
 			},
+			onStart(target, source, sourceEffect) {
+				if (this.field.weather) {
+					this.field.clearWeather()
+					this.hint(`The weather disappeared into space!`)
+				}
+			},
 			onBasePower(basePower, source, target, move) {
 				if (move.type === 'Dark') {
 					this.hint("Infinity boosted the attack!")
-					return this.chainModify(1.5)
+					this.chainModify(1.5);
 				}
-				if (['doomdesire'].includes(move.id)) {
-					this.chainModify(4)
-				}
-				if (['ancientpower', 'blackholeeclypse', 'cometpunch', 'dracometeor', 'futuresight', 'hyperspacefury', 'hyperspacehole', 'lightthatburnsthesky', 'meteormash', 'moonblast', 'spacialrend', 'swift', 'vacuumwave'].includes(move.id)) {
-					this.hint('The astral energy boosted the attack!')
-					// this.hint('[Pokémon] was swallowed up by the void!')
-					// this.hint('The light shone through the infinite darkness!')
-					this.chainModify(2)
+				if (move.id === 'doomdesire') this.chainModify(4);
+				if (['ancientpower', 'blackholeeclipse', 'cometpunch', 'dracometeor', 'futuresight', 'hyperspacefury', 'hyperspacehole', 'lightthatburnsthesky', 'meteormash', 'moonblast', 'spacialrend', 'swift', 'vacuumwave'].includes(move.id)) {
+					this.hint('The astral energy boosted the attack!');
+					this.chainModify(2);
 				}
 				if (['aeroblast', 'aurorabeam', 'blueflare', 'boltstrike', 'continentalcrush', 'coreenforcer', 'crushgrip', 'dazzlinggleam', 'diamondstorm', 'dragonascent', 'earthpower', 'eruption', 'flashcannon', 'fleurcannon', 'freezeshock', 'fusionbolt', 'fusionflare', 'genesissupernova', 'iceburn', 'judgment', 'landswrath', 'lusterpurge', 'magmastorm', 'menacingmoonrazemaelstrom', 'mindblown', 'mirrorbeam', 'mirrorshot', 'mistball', 'moongeistbeam', 'multiattack', 'oblivionwing', 'originpulse', 'photongeyser', 'plasmafists', 'powergem', 'precipiceblades', 'prismaticlaser', 'psychoboost', 'psystrike', 'relicsong', 'roaroftime', 'sacredfire', 'sacredsword', 'searingshot', 'searingsunrazesmash', 'secretsword', 'seedflare', 'shadowforce', 'signalbeam', 'soulstealing7starstrike', 'spectralthief', 'steameruption', 'sunsteelstrike', 'technoblast', 'thousandarrows', 'thousandwaves', 'vcreate'].includes(move.id)) {
-					this.hint('The ethereal energy strengthened the attack!')
-					// this.hint('The light shone through the infinite darkness!')
-					// this.hint('The germinal matter amassed in the attack!')
+					this.hint('The ethereal energy strenghtened the attack!');
 					this.chainModify(1.5)
 				}
-				if (['bulldoze', 'magnitude', 'earthquake'].includes(move.id)) {
-					this.chainModify(0.25)
-				}
+				if (['bulldoze','magnitude','earthquake'].includes(move.id)) this.chainModify(0.25);
+			},
+			onModifyDef(def, target, source, move) {
+				if (!target.isGrounded()) return this.chainModify(0.9);
+			},
+			onModifySpD(spd, target, source, move) {
+				if (!target.isGrounded()) return this.chainModify(0.9);
 			},
 			onModifySpe(spe, pokemon) {
-				if (pokemon.isGrounded()) return this.chainModify(0.75)
-			},
-			onModifyDef(def, pokemon) {
-				if (!pokemon.isGrounded()) return this.chainModify(0.8)
-			},
-			onModifySpD(def, pokemon) {
-				if (!pokemon.isGrounded()) return this.chainModify(0.8)
-			},
-			onAnySetWeather(target, source, weather) {
-				if (weather.id === 'gravity') {
-					this.field.setBattlefield('starlightarenafield');
-					this.hint(`The world's matter reformed!`)
+				if (pokemon.isGrounded()) {
+					this.chainModify(0.75)
 				}
-				if(weather.effectType === 'Weather') this.hint("The weather disappeared into space!")
-				// this.hint("The weather drifted off into space...")
-				return false;
 			},
-			onTerrainChange(target, source, sourceEffect) {
-				if(sourceEffect.effectType === 'Terrain') this.hint("The terrain had no solid ground to attach...")
-				return false;
-			},
-			onEffectiveness(typeMod, target, type, move) {
-				if (['doomdesire'].includes(move.id)){
-					this.hint(`A star came crashing down!`)
-					return typeMod + this.dex.getEffectiveness('Fire', type);
-				} 
-			},
-			onModifyMove(move, pokemon, target) {
+			onModifyMove(move, pokemon, target) {				
 				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
 				if (move.id === 'darkvoid') move.accuracy = 100;
 				if (move.id === 'flash') move.boosts = {accuracy: -2};
-				if (move.id === 'lunardance') move.condition = {
-					onSwitchIn(target) {
-						this.singleEvent('Swap', this.effect, this.effectState, target);
-					},
-					onSwap(target) {
-						if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-							target.heal(target.maxhp);
-							target.clearStatus();
-							this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1})
-							this.add('-heal', target, target.getHealth, '[from] move: Lunar Dance');
-							target.side.removeSlotCondition(target, 'lunardance');
-						}
-					},
-				}
+				if (move.id === 'lunardance') move.boosts = {atk: 1, def: 1, spa: 1, spd: 1, spe: 1};
 				if (move.id === 'meteorbeam') {
 					move.flags.charge = undefined;
 					move.condition = {}
 					move.onTryMove = undefined 
 				}
 			},
-			onHit(target, source, move) {
-				if (move.id === 'heartswap') {
-					const targetBoosts: SparseBoostsTable = {};
-					const sourceBoosts: SparseBoostsTable = {};
-					const targetHP = target.getUndynamaxedHP();
-					const averagehp = Math.floor((targetHP + source.hp) / 2) || 1;
-					const targetChange = targetHP - averagehp;
-
-					let i: BoostID;
-					for (i in target.boosts) {
-						targetBoosts[i] = target.boosts[i];
-						sourceBoosts[i] = source.boosts[i];
-					}
-
-					target.setBoost(sourceBoosts);
-					source.setBoost(targetBoosts);
-
-					this.add('-swapboost', source, target, '[from] move: Heart Swap');
-					target.sethp(target.hp - targetChange);
-					this.add('-sethp', target, target.getHealth, '[from] move: Pain Split', '[silent]');
-					source.sethp(averagehp);
-					this.add('-sethp', source, source.getHealth, '[from] move: Pain Split');
-				};
-				if (move.id === 'lunarblessing') {
-					const success = !!this.heal(this.modify(target.maxhp, 0.33));
-					return target.cureStatus() || success;
-				}
-				if (move.id === 'geomancy') {
-					this.field.setBattlefield('starlightarenafield');
-					this.hint(`The world was regenerated!`)
-				}
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.id === 'doomdesire'){
+					return typeMod + this.dex.getEffectiveness('Fire', type);
+				} 
 			},
 			onTryMove(pokemon, target, move) {
-				if (['fissure'].includes(move.id)) {
-					this.add('-fail', pokemon, move, '[from] New World');
+				if (move.id === 'fissure' || move.weather) {
+					if (move.weather) this.hint('The weather drifted off into space...')
+					this.add('-fail', pokemon, `move: ${move.name}`);
+					this.attrLastMove('[still]');
 					return null;
+				}
+			},
+			onHit(target, source, move) {
+				if (move.id === 'geomancy'){
+					 this.field.setBattlefield('starlightarenafield');
+					 this.hint('The world was regenerated!');
+				}
+			},
+			onUpdate(pokemon) {
+				if (this.field.getPseudoWeather('gravity')) {
+					this.hint('The world\'s matter reformed');
+					this.field.setBattlefield('starlightarenafield');
 				}
 			},
 			onFieldResidualOrder: 27,
@@ -4560,7 +4570,46 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		secondary: null,
 		target: "all",
-		type: "Dark",
+		type: "Fairy",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	inversefield: { 
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Inverse Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'inversefield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onEffectivenessPriority: 1, // As taken from the inverse mod ruleset
+			onEffectiveness(typeMod, target, type, move) {
+				// The effectiveness of Freeze Dry on Water isn't reverted
+				if (move && move.id === 'freezedry' && type === 'Water') return;
+				if (move && !this.dex.getImmunity(move, type)) return 1;
+				// Ignore normal effectiveness, prevents bug with Tera Shell
+				if (typeMod) return -typeMod;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Inverse Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

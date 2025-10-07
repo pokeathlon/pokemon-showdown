@@ -56,7 +56,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Dark'];
 				break;
 			case 'newworldfield':
-				types = [this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'])];
+				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
 				break;
 			default:
 				types = pokemon.baseSpecies.types;
@@ -875,7 +875,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				this.debug('Field weaken')
 				return this.chainModify(fieldMod)
 			}
-			if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
+			if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
 				this.debug('Field weaken');
 				return this.chainModify(0.75);
 			}
@@ -967,32 +967,10 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	victorystar: {
 		inherit: true,
 		onAllyBasePower(basePower, attacker, defender, move) {
-			if (this.field.isBattlefield('starlightarenafield') || this.field.isBattlefield('newworldfield')) {
+			if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
 				this.debug('Victory Star boost');
 				return this.chainModify(1.5);
 			}
-		},
-	},
-	multitype: {
-		inherit: true,
-		onStart(target) {
-			let type = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
-			this.add('-start', target, 'typechange', type, '[from] ability: Protean');
-		},
-		onResidual(target, source, effect) {
-			let type = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
-			this.add('-start', target, 'typechange', type, '[from] ability: Protean');
-		},
-	},
-	rkssystem: {
-		inherit: true,
-		onStart(target) {
-			let type = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
-			this.add('-start', target, 'typechange', type, '[from] ability: Protean');
-		},
-		onResidual(target, source, effect) {
-			let type = this.sample(['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water']);
-			this.add('-start', target, 'typechange', type, '[from] ability: Protean');
 		},
 	},
 	// Additions
@@ -1337,10 +1315,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			},
 			onResidualOrder: 9,
 			onResidual(pokemon) {
+				let mod = 1;
+				if (this.field.isBattlefield('newworldfield')) mod = 2;
 				if (this.effectState.stage < 31) {
 					this.effectState.stage++;
 				}
-				this.damage(this.clampIntRange((pokemon.baseMaxhp * (this.field.isBattlefield('newworldfield') ? 1 : 2 / 32), 1) * this.effectState.stage, 1));
+				this.damage(this.clampIntRange(pokemon.baseMaxhp * mod / 32, 1) * this.effectState.stage);
 			},
 		},
 		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
