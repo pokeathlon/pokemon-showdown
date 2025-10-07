@@ -1812,6 +1812,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Snugglosis-Popstar"]
 	},
 	soulply: {
 		num: 3087,
