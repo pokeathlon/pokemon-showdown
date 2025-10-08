@@ -350,6 +350,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Ins NDL Random Ability Draft",
+		searchShow: false,
+
+		mod: 'gen9insurgence',
+		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', '!Obtainable Abilities'],
+		banlist: [
+			'ability:arenatrap', 'ability:contrary', 'ability:gorillatactics', 'ability:speedboost', 'ability:hugepower', 'ability:moody', 'ability:purepower', 
+			'ability:shadowtag', 'ability:wonderguard', 'ability:comatose', 'ability:illuminate', 'ability:athenian', 
+			'ability:ancientpresence', 'ability:omnitype', 'ability:goodasgold', 'ability:blazeboost', 'ability:parentalbond', 'ability:speedswap', 'ability:imposter',
+			'move:lastrespects', 'move:revivalblessing', 'move:shedtail', 'move:achillesheel', 'move:livewire', 'move:permafrost', 'move:nanorepair', 'move:hiddenpower',
+			'item:razorfang', 'item:kingsrock', 
+			'Blastoise-Mega+Shell Smash', 
+		],
+	},
+	{
 		name: "[Gen 9] Ins HBF Draft",
 		searchShow: false,
 
