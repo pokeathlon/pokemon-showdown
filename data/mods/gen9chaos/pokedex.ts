@@ -673,7 +673,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
-		cosmeticFormes: ["Felapstan-Legacy"],
+		cosmeticFormes: ["Felapstan-Legacy", "Felapstan-Lasagna"],
 		prevo: "Electrikitty"
 	},
 	florgesmega: {
