@@ -7582,7 +7582,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			bodypress: ["9M"],
 			smartstrike: ["9M"],
 			powertrip: ["9M"],
-			burningjealousy: ["9M"]
+			burningjealousy: ["9M"],
+			dragondance: ["9M"],
         }
 	},
 	tyranitardelta: {
@@ -8213,7 +8214,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			doubleteam: ["9M"],
 			hiddenpower: ["9M"],
 			round: ["9M"],
-			swagger: ["9M"]
+			swagger: ["9M"],
+			lick: ["9M"],
         }
 	},
 	buntaki: {
@@ -9661,7 +9663,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sheercold: ["9M"],
 			blizzard: ["9M"],
 			icebeam: ["9M"],
-			freezedry: ["9M"],
 			frostbreath: ["9M"],
 			icywind: ["9M"],
 			powdersnow: ["9M"],
@@ -9704,7 +9705,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			swagger: ["9M"],
 			safeguard: ["9M"],
 			encore: ["9M"],
-			drillrun: ["9M"],
 			spikes: ["9M"],
 			fling: ["9M"],
 			hex: ["9M"],

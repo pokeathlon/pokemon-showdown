@@ -2248,7 +2248,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3110,
 		name: "Stratosting",
 		types: ["Ghost", "Flying"],
-		baseStats: {hp: 70, atk: 81, def: 62, spa: 47, spd: 60, spe: 70},
+		baseStats: {hp: 70, atk: 76, def: 62, spa: 47, spd: 60, spe: 65},
 		abilities: {0: "Infiltrator", 1: "Frisk", H: "Hidden Ambush"},
 		heightm: 0.8,
 		weightkg: 14,

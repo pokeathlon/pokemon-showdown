@@ -674,7 +674,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	furumo: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
