@@ -2637,6 +2637,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "LC",
 		doublesTier: "LC",
 	},
+	utensitile: {
+		num: 3135,
+		name: "Utensitile",
+		types: ["Steel"],
+		baseStats: {hp: 79, atk: 84, def: 90, spa: 51, spd: 131, spe: 55},
+		abilities: {0: "Heatproof", H: "Battle Armor"},
+		heightm: 1.3,
+		weightkg: 63,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

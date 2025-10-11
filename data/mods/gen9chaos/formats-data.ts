@@ -2431,6 +2431,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	utensitile: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	gluttini: {
 		inherit: true,
 		natDexTier: "LC",

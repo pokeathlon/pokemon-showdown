@@ -2025,15 +2025,15 @@ export const Moves: ModdedMoveDataTable = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		onBasePower(basePower, source, target, move) {
-			var sevens = 0;
-				sevens += (source.baseStoredStats.hp.toString().match(/7/g) || []).length;
-				sevens += (source.baseStoredStats.atk.toString().match(/7/g) || []).length;
-				sevens += (source.baseStoredStats.def.toString().match(/7/g) || []).length;
-				sevens += (source.baseStoredStats.spa.toString().match(/7/g) || []).length;
-				sevens += (source.baseStoredStats.spd.toString().match(/7/g) || []).length;
-				sevens += (source.baseStoredStats.spe.toString().match(/7/g) || []).length;
-			return basePower += sevens*5;
-		},
+            var sevens = 0;
+                sevens += (source.baseStoredStats.hp.toString().match(/7/g) || []).length;
+                sevens += (source.getStat('atk', true, true).toString().match(/7/g) || []).length;
+                sevens += (source.getStat('def', true, true).toString().match(/7/g) || []).length;
+                sevens += (source.getStat('spa', true, true).toString().match(/7/g) || []).length;
+                sevens += (source.getStat('spd', true, true).toString().match(/7/g) || []).length;
+                sevens += (source.getStat('spe', true, true).toString().match(/7/g) || []).length;
+            return basePower += sevens*5;
+        },
 		target: "normal",
 		shortDesc: "+5 BP for each 7 in the user's stats.",
 		type: "Dark",
@@ -2520,6 +2520,28 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Rock",
 		contestType: "Cool",
 		shortDesc: "33% Chance to lower targets Sp. Def by 1 stage",
+	},
+	simmertoss: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Simmer Toss",
+		pp: 10,
+		priority: -6,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1 },
+		secondary: {
+              chance: 100,
+              onHit(target, source, move) {
+              if (!source.simmer) {
+              source.simmer = true;
+              target.forceSwitchFlag = true;
+            } else source.simmer = false;
+          },
+        },              
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
 	},
 };
 
