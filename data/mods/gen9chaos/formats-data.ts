@@ -289,7 +289,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	harptera: {
 		inherit: true,
-		natDexTier: 'OU',
+		natDexTier: 'Uber',
 	},
 	oblivicornmega: {
 		inherit: true,
