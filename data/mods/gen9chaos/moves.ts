@@ -2542,6 +2542,7 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		shortDesc: "Switches target out. Cannot do so consecutively.",
 	},
 };
 
