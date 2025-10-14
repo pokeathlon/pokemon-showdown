@@ -1340,11 +1340,9 @@ export const Abilities: ModdedAbilityDataTable = {
 	asabove: {
 		onAnyModifyBoost(boosts, pokemon) {
 			if (!this.effectState.target.abilityState.distortion) return;
-			if (pokemon === this.activePokemon || pokemon === this.activeTarget) {
-				let i: BoostID;
-				for (i in boosts) {
-					boosts[i] = -boosts[i]
-				}
+			let i: BoostID;
+			for (i in boosts) {
+				boosts[i] = -boosts[i]
 			}
 		},
 		onDamagingHitOrder: 1,
