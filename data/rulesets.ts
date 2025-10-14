@@ -3631,6 +3631,28 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	restrictability: {
+		effectType: 'ValidatorRule',
+		name: 'Restrict Ability',
+		desc: `Restricts ability to 1 per team. Usage: Restrict Ability = [abilityID], e.g. "Restrict Ability = wonderguard"`,
+		hasValue: true,
+		onValidateRule(value) {
+			const ability = this.dex.abilities.get(value);
+			if (!ability.exists) throw new Error(`Misspelled ability "${ability}"`);
+			return ability.name;
+		},
+		onValidateTeam(team) {
+			const ability = this.dex.abilities.get(this.ruleTable.valueRules.get('restrictability')!);
+			const restrictedAbility = [];
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (set.ability === ability.name) restrictedAbility.push(species.name);
+			}
+			if (restrictedAbility.length > 1) {
+				return [`You can only use one restricted ability (you have: ${restrictedAbility.join(', ')})`];
+			}
+		},
+	},
 	rebalancelevels: {
 		effectType: 'Rule',
 		name: 'Rebalance Levels',
