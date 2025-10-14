@@ -1899,7 +1899,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.0,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	mawray: {
@@ -1925,7 +1925,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 11.5,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	skeeter: {
