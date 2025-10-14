@@ -2530,15 +2530,13 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1 },
-		secondary: {
-              chance: 100,
-              onHit(target, source, move) {
+    	onHit(target, source, move) {
               if (!source.simmer) {
               source.simmer = true;
               target.forceSwitchFlag = true;
             } else source.simmer = false;
-          },
-        },              
+		},
+		secondary: {},
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
