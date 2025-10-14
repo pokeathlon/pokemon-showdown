@@ -72,6 +72,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				pokemon.setAbility('normalize')
 				this.add('-ability', pokemon, 'Normalize', '[from] item: Magical Seed');
 			}
+			if (this.field.isBattlefield('dimensionalfield')) {
+				this.boost({def: 1});
+				this.actions.useMove('trickroom', pokemon, {target: pokemon});
+			}
 		},
 		num: 0,
 		desc: "Provides boost in magical fields.",

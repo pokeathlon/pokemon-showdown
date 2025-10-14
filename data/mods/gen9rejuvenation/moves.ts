@@ -25,7 +25,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Dragon';
 			} else if (this.field.isBattlefield('skyfield')) {
 				newType = 'Flying';
-			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				newType = 'Dark';
 			} else if (this.field.isBattlefield('crystalcavernfield')) {
 				newType = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
@@ -67,7 +67,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'skyattack';
 			} else if (this.field.isBattlefield('infernalfield')) {
 				move = 'punishment';
-			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				move = 'darkpulse';
 			}  else if (this.field.isBattlefield('rainbowfield')) {
 				move = 'aurorabeam';
@@ -140,6 +140,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'confusion',
+				});
+			} else if (this.field.isBattlefield('dimensionalfield')) {
+				move.secondaries.push({
+					chance: 30,
+					volatileStatus: 'flinch',
 				});
 			} else if (this.field.isBattlefield('underwaterfield')) {
 				move.secondaries.push({
@@ -233,6 +238,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'darkcrystalcavernfield':
 			case 'starlightarenafield':
+			case 'dimensionalfield':
 				move.type = 'Dark';
 				break;
 			case 'crustalcavernfield':
@@ -268,7 +274,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield']) && move.type === 'Dark') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield', 'dimensionalfield']) && move.type === 'Dark') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
@@ -1017,6 +1023,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
+				if (this.field.isBattlefield('dimensionalfield')) return this.random(5, 8);
 				return modifiedDuration;
 			},
 			onFieldStart(target, source) {
@@ -1058,6 +1065,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
+				if (this.field.isBattlefield('dimensionalfield')) return this.random(5, 8);
 				return modifiedDuration;
 			},
 			onFieldStart(target, source) {
@@ -1091,6 +1099,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
+				if (this.field.isBattlefield('dimensionalfield')) return this.random(5, 8);
 				return modifiedDuration;
 			},
 			onModifyMove(move, source, target) {
@@ -1132,6 +1141,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
+				if (this.field.isBattlefield('dimensionalfield')) return this.random(5, 8);
 				return modifiedDuration;
 			},
 			onFieldStart(target, source) {
@@ -4556,7 +4566,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
-	newworldfield: { // Missing RKS and Multitype implementation
+	newworldfield: { // TODO - Missing RKS and Multitype implementation
 		num: 0,
 		accuracy: true,
 		basePower: 0,
@@ -4774,6 +4784,268 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-fieldend', 'move: Psychic Terrain');
 			},
 		},
+	},
+	dimensionalfield: { // TODO - missing Shadow Tag interaction
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Dimensional Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'dimensionalfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Dark') {
+					this.hint("The darkness is here...")
+					this.chainModify(1.5);
+				}
+				if (move.type === 'Shadow') {
+					this.hint("The shadow is strengthened...")
+					this.chainModify(1.5);
+				}
+				if (move.type === 'Ghost') {
+					this.hint("The evil aura powered up the attack...")
+					this.chainModify(1.2);
+				}
+				if (move.type === 'Fairy') {
+					this.hint("The evil aura depleted the attack!")
+					this.chainModify(0.5);
+				}
+				if (['dynamaxcannon', 'eternabeam', 'hyperspacefury', 'hyperspacehole', 'roaroftime', 'shadowforce', 'spacialrend'].includes(move.id)) {
+					this.hint('The attack has been corrupted');
+					this.chainModify(1.5);
+				}
+				if (['fierywrath', 'freezingglare', 'lashout','outrage', 'ragingfury', 'stompingtantrum', 'thrash'].includes(move.id)) {
+					this.hint('The rage continues.');
+					this.chainModify(1.5);
+				}
+				if (['darkpulse', 'nightdaze'].includes(move.id)) {
+					this.hint('The attack has been corrupted');
+					this.chainModify(1.2);
+				}
+			},
+			onModifyDefPriority: 10,
+			onModifyDef(def, target, source, move) {
+				if (source.hasType('Ghost')) return this.chainModify(1.5);
+			},
+			onModifySpDPriority: 10,
+			onModifySpD(spd, target, source, move) {
+				if (source.hasType('Ghost')) return this.chainModify(1.5);
+			},
+			onModifyMove(move, pokemon, target) {
+				if (['darkpulse', 'nightdaze', 'darkvoid'].includes(move.id)) move.accuracy = true;
+				if (move.id === 'dragonrage') move.damage = 140;
+				if (move.id === 'embargo') move.onHit = function (t, s, m) {t.addVolatile('trapped', s, m, 'trapper')};
+				if (move.id === 'quash') move.priority += 1;
+				if (move.id === 'rage') {
+					move.condition = undefined;
+					move.basePower = 60;
+					move.self = {boosts: { atk: 1} };
+				}
+				if (move.id === 'healblock') move.condition = {
+					duration: 5,
+					durationCallback(target, source, effect) {
+						if (effect?.name === "Psychic Noise") {
+							return 2;
+						}
+						if (source?.hasAbility('persistent')) {
+							this.add('-activate', source, 'ability: Persistent', '[move] Heal Block');
+							return 7;
+						}
+						return 5;
+					},
+					onStart(pokemon, source) {
+						this.add('-start', pokemon, 'move: Heal Block');
+						source.moveThisTurnResult = true;
+					},
+					onDisableMove(pokemon) {
+						for (const moveSlot of pokemon.moveSlots) {
+							if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+								pokemon.disableMove(moveSlot.id);
+							}
+						}
+					},
+					onBeforeMovePriority: 6,
+					onBeforeMove(pokemon, target, move) {
+						if (move.flags['heal'] && !move.isZ && !move.isMax) {
+							this.add('cant', pokemon, 'move: Heal Block', move);
+							return false;
+						}
+					},
+					onModifyMove(move, pokemon, target) {
+						if (move.flags['heal'] && !move.isZ && !move.isMax) {
+							this.add('cant', pokemon, 'move: Heal Block', move);
+							return false;
+						}
+					},
+					onResidualOrder: 20,
+					onResidual(target, source, effect) {
+						this.damage(target.baseMaxhp / 16, target, pokemon);
+					},
+					onEnd(pokemon) {
+						this.add('-end', pokemon, 'move: Heal Block');
+					},
+					onTryHeal(damage, target, source, effect) {
+						if (effect && (effect.id === 'zpower' || (effect as Move).isZ)) return damage;
+						if (source && target !== source && target.hp !== target.maxhp && effect.name === "Pollen Puff") {
+							this.attrLastMove('[still]');
+							// FIXME: Wrong error message, correct one not supported yet
+							this.add('cant', source, 'move: Heal Block', effect);
+							return null;
+						}
+						return false;
+					},
+					onRestart(target, source, effect) {
+						if (effect?.name === 'Psychic Noise') return;
+
+						this.add('-fail', target, 'move: Heal Block'); // Succeeds to supress downstream messages
+						if (!source.moveThisTurnResult) {
+							source.moveThisTurnResult = false;
+						}
+					},
+				};
+				if (move.id === 'obstruct') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'Protect');
+					},
+					onTryHitPriority: 3,
+					onTryHit(target, source, move) {
+						if (!move.flags['protect']) {
+							if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+							if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+							return;
+						}
+						if (move.smartTarget) {
+							move.smartTarget = false;
+						} else {
+							this.add('-activate', target, 'move: Protect');
+						}
+						const lockedmove = source.getVolatile('lockedmove');
+						if (lockedmove) {
+							// Outrage counter is reset
+							if (source.volatiles['lockedmove'].duration === 2) {
+								delete source.volatiles['lockedmove'];
+							}
+						}
+						if (this.checkMoveMakesContact(move, source, target)) {
+							this.boost({ def: -2 }, source, target, this.dex.getActiveMove("Obstruct"));
+						}
+						return this.NOT_FAIL;
+					},
+					onHit(target, source, move) {
+						if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+							this.boost({ def: -2 }, source, target, this.dex.getActiveMove("Obstruct"));
+						}
+					},
+				}
+			},
+			onAnySetWeather(target, source, weather) {
+				if (weather.id != 'shadowsky') return false;
+			},
+			onTryHit(target, pokemon, move) {
+				if (['bounce','dig','fly'].includes(move.id)) {
+					this.add('-fail', pokemon,);
+					this.attrLastMove('[still]');
+					this.hint(`The corrupted field damaged ${pokemon.name}!`)
+					this.faint(pokemon, pokemon)
+					return null;
+				}
+			},
+			onTryMove(source, target, move) {
+				if (['luckychant', 'teatime'].includes(move.id)) {
+					this.add('-fail', source,);
+					this.attrLastMove('[still]');
+					this.hint(`The corrupted field damaged ${source.name}!`)
+					this.faint(source, source)
+					return null;
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (['angerpoint', 'justified'].includes(pokemon.ability)) this.boost({atk: 1});
+				if (pokemon.ability === 'berserk') this.boost({spa: 1});
+				if (pokemon.ability === 'rattled') this.boost({spe: 1});
+				if (pokemon.ability === 'download') {
+					let type = this.dex.types.get(this.sample(this.dex.types.all())).name;
+					this.add('-start', pokemon, 'typechange', type, '[from] ability: Download');
+				}
+				if (pokemon.hasAbility('pressure')) {
+					let activated = false;
+					for (const target of pokemon.adjacentFoes()) {
+						if (!activated) {
+							this.add('-ability', pokemon, 'Pressure', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({def: -1, spd: -1}, target, pokemon, null, true);
+						}
+					}
+				}
+				if (pokemon.hasAbility('unnerve')) {
+					let activated = false;
+					for (const target of pokemon.adjacentFoes()) {
+						if (!activated) {
+							this.add('-ability', pokemon, 'Pressure', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({spe: -1}, target, pokemon, null, true);
+						}
+					}
+				}
+			},
+			onResidualOrder: 28,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (!pokemon.hp) return;
+				for (const target of pokemon.foes()) {
+					if (target.status === 'slp' || target.hasAbility('comatose')) {
+						this.damage(target.baseMaxhp / 16, target, pokemon);
+						this.hint(`${target.name}'s dream is corrupted by the dimension!`)
+					}
+				}
+				if (pokemon.ability === 'download') {
+					let type = this.dex.types.get(this.sample(this.dex.types.all())).name;
+					this.add('-start', pokemon, 'typechange', type, '[from] ability: Download');
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['blizzard','coldtruth','sheercold'].includes(move.id)) this.field.battlefieldState.transformation +=1;
+				if (['freezeshock','glaciate','iceburn'].includes(move.id)) this.field.battlefieldState.transformation +=2;
+				if (move.id === 'precipiceblades') {this.hint('The field went up in flames!'); this.field.setBattlefield('infernalfield'); }
+				if (['purify', 'seedflare'].includes(move.id)) {this.hint('The dimension was purified!'); this.field.clearBattlefield(); }
+			},
+			onUpdate(pokemon) {
+				if (this.field.battlefieldState.transformation >= 2) {this.hint('The dimension froze up!'); this.field.setBattlefield('frozendimensionalfield');}
+			},
+			onFieldStart(target, source, sourceEffect) {
+				this.field.battlefieldState.transformation = 0;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Dimensional Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Dark",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
 	},
 };
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);

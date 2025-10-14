@@ -53,6 +53,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Normal'];
 				break;
 			case 'starlightarenafield':
+			case 'dimensionalfield':
 				types = ['Dark'];
 				break;
 			case 'newworldfield':
@@ -848,8 +849,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.isBattlefield('blessedfield')) return;
 			if (!this.checkMoveMakesContact(move, source, target)) return;
-			source.addVolatile('trapped', source, move, 'trapper');
-			target.addVolatile('infernalperish')
+			if (this.field.isBattlefield(['infernalfield', 'dimensionalfield'])) source.addVolatile('trapped', source, move, 'trapper');
+			if (this.field.isBattlefield("infernalfield")) target.addVolatile('infernalperish');
 
 			let announced = false;
 			for (const pokemon of [target, source]) {
@@ -860,24 +861,20 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				}
 				pokemon.addVolatile('perishsong');
 			}
-			target.removeVolatile('infernalperish')
+			if (target.getVolatile('infernalperish')) target.removeVolatile('infernalperish');
 		},
 	},
 	shadowshield: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
 			let fieldMod = (this.field.isBattlefield('darkcrystalcarvernfield') || this.field.isBattlefield('starlightarenafield'))? 0.75 : 1;
-			if (target.hp >= target.maxhp) {
+			if (target.hp >= target.maxhp || this.field.isBattlefield('dimensionalfield')) {
 				this.debug('Shadow Shield weaken');
 				return this.chainModify(0.5*fieldMod);
 			}
-			if (this.field.isBattlefield('darkcrystalcavernfield')) {
+			if (this.field.isBattlefield(['darkcrystalcavernfield', 'starlightarenafield', 'newworldfield'])) {
 				this.debug('Field weaken')
 				return this.chainModify(fieldMod)
-			}
-			if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
-				this.debug('Field weaken');
-				return this.chainModify(0.75);
 			}
 		},
 	},
@@ -1000,6 +997,24 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 	},
+	beastboost: {
+		inherit: true,
+		onSourceAfterFaint(length, target, source, effect) {
+			let mod = this.field.isBattlefield('dimensionalfield')? 2 : 1;
+			if (effect && effect.effectType === 'Move') {
+				const bestStat = source.getBestStat(true, true);
+				this.boost({ [bestStat]: length*mod }, source);
+			}
+		},
+	},
+	pressure: {
+		inherit: true,
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return this.field.isBattlefield('dimensionalfield') ? 2 : 1;
+		},
+	},
+
 	// Additions
 	accumulation: {
 		onAfterMove(source, target, move) {

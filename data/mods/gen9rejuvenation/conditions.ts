@@ -157,7 +157,8 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.field.isWeather('shadowsky')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.damage(target.baseMaxhp / 16);
+			let mod = this.field.isBattlefield(['dimensionalfield'])? 2 : 1;
+			this.damage(target.baseMaxhp*mod / 16);
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
