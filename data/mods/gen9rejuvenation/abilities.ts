@@ -916,7 +916,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
-				return this.field.isBattlefield('blessedfield')? this.chainModify(1.5) : this.chainModify([5325, 4096]);
+				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -970,6 +970,33 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
 				this.debug('Victory Star boost');
 				return this.chainModify(1.5);
+			}
+		},
+	},
+	purepower: {
+		inherit: true,
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			if (this.field.isTerrain('psychicterrain')) return;
+			return this.chainModify(2);
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa) {
+			if (!this.field.isTerrain('psychicterrain')) return;
+			return this.chainModify(2);
+		},
+	},
+	zenmode: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
+				return;
+			}
+			if ((pokemon.hp <= pokemon.maxhp / 2 || this.field.isTerrain('psychicterrain')) && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
 			}
 		},
 	},

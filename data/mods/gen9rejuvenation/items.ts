@@ -44,6 +44,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 		onUseItem(item, pokemon) {
+			if (this.field.isTerrain('psychicterrain')) {
+				this.boost({spa: 2});
+				pokemon.addVolatile('confusion')
+			}
 			if (this.field.isBattlefield('darkcrystalcavernfield')) {
 				this.boost({spd: 1});
 				this.actions.useMove('magiccoat', pokemon, {target: pokemon});

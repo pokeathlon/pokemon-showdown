@@ -136,7 +136,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					status: this.sample(['brn','frz','slp']),
 				});
 				}
-			} else if (this.field.isBattlefield(['skyfield', 'inversefield'])) {
+			} else if (this.field.isBattlefield(['skyfield', 'inversefield']) || this.field.isTerrain('psychicterrain')) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'confusion',
@@ -162,7 +162,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spd: -1,
 					},
 				});
-			} else if (this.field.isTerrain('psychicterrain') || this.field.isBattlefield('watersurfacefield')) {
+			} else if (this.field.isBattlefield('watersurfacefield')) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -260,6 +260,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (!target.volatiles['shelter']) return;
 				if (this.field.isTerrain('electricterrain') && move.type === 'Electric') return this.chainModify(0.5);
 				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
+				if (this.field.isTerrain('psychicterrain') && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield('fairytalefield')) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
@@ -1013,7 +1014,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1054,7 +1055,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1087,7 +1088,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield'])) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
 				return modifiedDuration;
@@ -1115,6 +1116,87 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualSubOrder: 5,
 			onFieldEnd() {
 				this.add('-fieldend', 'move: Wonder Room');
+			},
+		},
+	},
+	gravity: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
+					modifiedDuration += 2;
+				}
+				if (this.field.isTerrain('psychicterrain')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Gravity', '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Gravity');
+				}
+				for (const pokemon of this.getAllActive()) {
+					let applies = false;
+					if (pokemon.removeVolatile('bounce') || pokemon.removeVolatile('fly')) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['skydrop']) {
+						applies = true;
+						this.queue.cancelMove(pokemon);
+
+						if (pokemon.volatiles['skydrop'].source) {
+							this.add('-end', pokemon.volatiles['twoturnmove'].source, 'Sky Drop', '[interrupt]');
+						}
+						pokemon.removeVolatile('skydrop');
+						pokemon.removeVolatile('twoturnmove');
+					}
+					if (pokemon.volatiles['magnetrise']) {
+						applies = true;
+						delete pokemon.volatiles['magnetrise'];
+					}
+					if (pokemon.volatiles['telekinesis']) {
+						applies = true;
+						delete pokemon.volatiles['telekinesis'];
+					}
+					if (applies) this.add('-activate', pokemon, 'move: Gravity');
+				}
+			},
+			onModifyAccuracy(accuracy) {
+				if (typeof accuracy !== 'number') return;
+				return this.chainModify([6840, 4096]);
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['gravity']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Gravity');
 			},
 		},
 	},
@@ -4612,6 +4694,86 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
+	},
+	psychicterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem(['terrainextender', 'amplifiedrock'])) {
+					return 8;
+				}
+				return 5;
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, effect) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+					return;
+				}
+				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
+				if (!target.isGrounded()) {
+					const baseMove = this.dex.moves.get(effect.id);
+					if (baseMove.priority > 0) {
+						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
+					}
+					return;
+				}
+				this.add('-activate', target, 'move: Psychic Terrain');
+				return null;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('psychic terrain boost');
+					this.hint("The Psychic Terrain strenghened the attack!")
+					this.chainModify(1.5);
+				}
+				if (['aurasphere', 'focusblast', 'hex', 'hiddenpower', 'magicalleaf', 'mindblown', 'moonblast', 'mysticalfire', 'secretpower'].includes(move.id)) {
+					this.hint('The psychic energy boosted the attack!');
+					this.chainModify(1.5);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Psychic Terrain');
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (['anticipation', 'forewarn'].includes(pokemon.ability)) this.boost({spa: 2});
+			},
+			onModifyAccuracyPriority: 10,
+			onModifyAccuracy(accuracy, target, source, move) {
+				if (move.category === 'Status' && typeof accuracy === 'number' && target.hasAbility('magician')) {
+					this.debug('Setting accuracy to 50');
+					return 50;
+				}
+			},
+			onModifySpePriority: 10,
+			onModifySpe(spe, pokemon) {
+				if (['telepathy'].includes(pokemon.ability)) return this.chainModify(2);
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'calmmind') move.boosts = {spa: 2, spd: 2};
+				if (move.id === 'cosmicpower') move.boosts = {def: 2, spd: 2};
+				if (move.id === 'esperwing') move.boosts = {spe: 2};
+				if (move.id === 'hypnosis') move.accuracy = 100;
+				if (move.id === 'kinesis') move.self = { boosts: { atk: 2, spa: 2 } };
+				if (move.id === 'meditate') move.boosts = {atk: 2, spa: 2};
+				if (['mindreader', 'miracleeye', 'psychup'].includes(move.id)) move.boosts = {spa: 2};
+				if (move.id === 'nastyplot') move.boosts = {spa: 3};
+				if (move.id == 'psyshieldbash') move.boosts = {spd: 1};
+				if (move.id === 'shatteredpsyche') move.secondary = {volatileStatus: 'confusion'}
+				if (move.id === 'telekinesis') move.boosts = {def: -2, spd: -2};
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Psychic Terrain');
+			},
+		},
 	},
 };
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);
