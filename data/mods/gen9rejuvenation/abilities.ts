@@ -56,6 +56,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'dimensionalfield':
 				types = ['Dark'];
 				break;
+			case 'hauntedfield':
+				types = ['Ghost'];
+				break;
 			case 'newworldfield':
 				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
 				break;
@@ -849,7 +852,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.isBattlefield('blessedfield')) return;
 			if (!this.checkMoveMakesContact(move, source, target)) return;
-			if (this.field.isBattlefield(['infernalfield', 'dimensionalfield'])) source.addVolatile('trapped', source, move, 'trapper');
+			if (this.field.isBattlefield(['infernalfield', 'dimensionalfield', 'hauntedfield'])) source.addVolatile('trapped', source, move, 'trapper');
 			if (this.field.isBattlefield("infernalfield")) target.addVolatile('infernalperish');
 
 			let announced = false;
@@ -898,6 +901,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 					source.addVolatile('disable', this.effectState.target);
 				}
 			}
+			if (!target.hp && this.field.isBattlefield('hauntedfield')) {
+				source.addVolatile('disable', this.effectState.target);
+			}
 		},
 	},
 	justified: {
@@ -913,7 +919,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
-				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
+				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield', 'hauntedfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -1012,6 +1018,17 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onDeductPP(target, source) {
 			if (target.isAlly(source)) return;
 			return this.field.isBattlefield('dimensionalfield') ? 2 : 1;
+		},
+	},
+	shadowtag: {
+		inherit: true,
+		onStart(pokemon) {
+			if (!this.field.isBattlefield('hauntedfield')) return;
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', `[of] ${pokemon}`);
+				}
+			}
 		},
 	},
 
@@ -1160,6 +1177,21 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.add('-ability', pokemon, 'Resuscitation');
 			if (pokemon.species.id === 'Paras-Aevian') pokemon.formeChange('Paras-Aevian-Zombie', this.effect, false, '0', '[msg]');
 			if (pokemon.species.id === 'Parasect-Aevian') pokemon.formeChange('Parasect-Aevian-Zombie', this.effect, false, '0', '[msg]');
+			if (this.field.isBattlefield('hauntedfield')) {
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						activate = true;
+						boosts[i] = 0;
+					}
+				}
+				if (activate) {
+					pokemon.setBoost(boosts);
+					this.add('-clearnegativeboost', pokemon, '[silent]');
+				}
+			}
 			return pokemon.hp = pokemon.maxhp;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},

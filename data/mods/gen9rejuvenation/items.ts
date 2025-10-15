@@ -76,6 +76,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({def: 1});
 				this.actions.useMove('trickroom', pokemon, {target: pokemon});
 			}
+			if (this.field.isBattlefield('hauntedfield')) {
+				this.boost({def: 1, spd: 1});
+				pokemon.trySetStatus('brn', pokemon);
+			}
 		},
 		num: 0,
 		desc: "Provides boost in magical fields.",

@@ -25,6 +25,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Dragon';
 			} else if (this.field.isBattlefield('skyfield')) {
 				newType = 'Flying';
+			} else if (this.field.isBattlefield('hauntedfield')) {
+				newType = 'Ghost';
 			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				newType = 'Dark';
 			} else if (this.field.isBattlefield('crystalcavernfield')) {
@@ -83,6 +85,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'spacialrend';
 			}  else if (this.field.isBattlefield('inversefield')) {
 				move = 'trickroom';
+			}  else if (this.field.isBattlefield('hauntedfield')) {
+				move = 'phantomforce';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -192,7 +196,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spe: -1,
 					},
 				});
-			}
+			} else if (this.field.isBattlefield('hauntedfield')) {
+				move.secondaries.push({
+					chance: 30,
+					volatileStatus: 'curse',
+				});
+			} 
 		},
 	},
 	terrainpulse: {
@@ -236,6 +245,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'skyfield':
 				move.type = 'Flying';
 				break;
+			case 'hauntedfield':
+				move.type = 'Ghost';
+				break;
 			case 'darkcrystalcavernfield':
 			case 'starlightarenafield':
 			case 'dimensionalfield':
@@ -276,6 +288,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield', 'dimensionalfield']) && move.type === 'Dark') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -1265,6 +1278,27 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			let healMod = this.field.isBattlefield(['starlightarenafield', 'newworldfield'])? 0.33 : 0.25;
 			const success = !!this.heal(this.modify(pokemon.maxhp, healMod));
 			return pokemon.cureStatus() || success;
+		},
+	},
+	curse: {
+		inherit: true,
+		onHit(target, source) {
+			let mod = this.field.isBattlefield('hauntedfield')? 2 : 1;
+			this.directDamage(source.maxhp / 2*mod, source, source);
+		},
+	},
+	destinybond: {
+		inherit: true,
+		onPrepareHit(pokemon) {
+			if (this.field.isBattlefield('hauntedfield')) return true;
+			return !pokemon.removeVolatile('destinybond');
+		},
+	},
+	infernalparade: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose') || this.field.isBattlefield('hauntedfield')) return move.basePower * 2;
+			return move.basePower;
 		},
 	},
 	// custom move
@@ -5018,7 +5052,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						this.hint(`${target.name}'s dream is corrupted by the dimension!`)
 					}
 				}
-				if (pokemon.ability === 'download') {
+				if (pokemon.hasAbility('download')) {
 					let type = this.dex.types.get(this.sample(this.dex.types.all())).name;
 					this.add('-start', pokemon, 'typechange', type, '[from] ability: Download');
 				}
@@ -5044,6 +5078,138 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Dark",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	hauntedfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Haunted Field Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'hauntedfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Ghost') {
+					this.hint("The evil aura powered up the attack!")
+					this.chainModify(1.5);
+				}
+				if (['firespin', 'flameburst', 'flamecharge', 'inferno'].includes(move.id)) {
+					this.hint('Will-o-wisps joined the attack...');
+					this.chainModify(1.5);
+				}
+				if (['astonish', 'boneclub', 'bonerush', 'bonemerang'].includes(move.id)) {
+					this.hint('Boo!');
+					this.chainModify(1.5);
+				}
+				if (move.id === 'shadowbone') {
+					this.hint('Spooky scary skeletons!');
+					this.chainModify(1.2);
+				}
+				if (['judgement', 'originpulse', 'purify', 'sacredfire'].includes(move.id)) {
+					this.hint('The evil spirits have been exorcised!');
+					this.chainModify(1.3);
+				}
+				if (move.id === 'dazzlinggleam') {
+					this.hint('The evil spirits have been forced back!');
+					this.chainModify(1.3);
+				}
+			},
+			onModifyMovePriority: -5,
+			onModifyMove(move, source) {
+				if (move.type === 'Ghost') {
+					if (!move.ignoreImmunity) move.ignoreImmunity = {};
+					if (move.ignoreImmunity !== true) {
+						move.ignoreImmunity['Normal'] = true;
+					}
+				}
+				if (move.id === 'bittermalice') move.boosts = {spa: -1};
+				if (move.id === 'scaryface') move.boosts = {spe: -4};
+				if (['hypnosis', 'willowisp'].includes(move.id)) move.accuracy = 90;
+				if (move.id === 'lick') move.secondary = { chance: 30, status: 'par'};
+				if (move.id === 'magicpowder') move.status = toID('slp');
+				if (move.id === 'nightshade') move.damage = source.level*1.5;
+				if (move.id === 'ominouswind') move.secondary = {chance: 20, self: {boosts: {atk: 1,def: 1,spa: 1,spd: 1,spe: 1}}};
+				if (move.id === 'nightmare') move.condition = {
+					noCopy: true,
+					onStart(pokemon) {
+						if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) {
+							return false;
+						}
+						this.add('-start', pokemon, 'Nightmare');
+					},
+					onResidualOrder: 11,
+					onResidual(pokemon) {
+						this.damage(pokemon.baseMaxhp / 3);
+					},
+				};
+				if (move.id === 'spite') move.onHit = function (t) {
+					let move: Move | ActiveMove | null = t.lastMove;
+					if (!move || move.isZ) return false;
+					if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+
+					const ppDeducted = t.deductPP(move.id, 6);
+					if (!ppDeducted) return false;
+					this.add("-activate", t, 'move: Spite', move.name, ppDeducted);
+				}
+			},
+			onChargeMove(pokemon, target, move) {
+				if (['phantomforce', 'shadowforce'].includes(move.id)) {
+					this.attrLastMove('[still]');
+					this.addMove('-anim', pokemon, move.name, target);
+					return false;
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['firespin', 'flameburst', 'flamecharge', 'inferno'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Ghost', type);
+				}
+				if (move.id === 'spiritbreak' && type === 'Water') return 1;
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility('rattled')) this.boost({spe: 1});
+			},
+			onAfterMove(source, target, move) {
+				if (['judgement', 'originpulse', 'purify', 'sacredfire'].includes(move.id)) this.field.setBattlefield('blessedfields');
+				if (['dazzlinggleam', 'flash'].includes(move.id)) this.field.clearBattlefield();
+			},
+			onResidualOrder: 28,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (!pokemon.hp) return;
+				for (const target of pokemon.foes()) {
+					if (target.hasType('Ghost')) continue;
+					if (target.status === 'slp' || target.hasAbility('comatose')) {
+						this.damage(target.baseMaxhp / 16, target, pokemon);
+						this.hint(`${target.name}'s dream is corrupted by the evil spirits!`)
+					}
+				}
+				if (pokemon.hasAbility('download')) {
+					let type = this.dex.types.get(this.sample(this.dex.types.all())).name;
+					this.add('-start', pokemon, 'typechange', type, '[from] ability: Download');
+				}
+				if (pokemon.hasAbility('wanderingspirit')) this.boost({spe: -1});
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Haunted Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ghost",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
