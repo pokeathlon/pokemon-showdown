@@ -2563,6 +2563,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Varkacosm-Shadow"]
 	},
 	escarphone: {
 		num: 3130,
