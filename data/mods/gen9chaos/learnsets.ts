@@ -9486,7 +9486,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			shadowball: ["9M"],
 			heatwave: ["9M"],
 			overheat: ["9M"],
-			calmmind: ["9M"],
+			moonblast: ["9M"],
 			flareblitz: ["9M"],
 			storedpower: ["9M"],
 			allyswitch: ["9M"],

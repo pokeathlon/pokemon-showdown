@@ -915,7 +915,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3044,
 		name: "Incandele",
 		types: ["Fire", "Fairy"],
-		baseStats: {hp: 100, atk: 76, def: 115, spa: 85, spd: 66, spe: 80},
+		baseStats: {hp: 100, atk: 76, def: 115, spa: 91, spd: 66, spe: 74},
 		abilities: {0: "Magic Bounce", 1: "Gooey", H: "Power Spot"},
 		heightm: 1,
 		weightkg: 10.1,
