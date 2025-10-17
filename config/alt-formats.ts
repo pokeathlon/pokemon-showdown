@@ -355,7 +355,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9insurgence',
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 6', 'Max Move Count = 4', 'Max Level = 120',
-			'Default Level = 100', 'Sketch Post-Gen 7 Moves', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',
+			'Default Level = 120', 'Sketch Post-Gen 7 Moves', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',
 			'Endless Battle Clause', 'HP Percentage Mod', 'Obtainable Moves', 'Obtainable Misc', 'Nickname Clause', 'Overflow Stat Mod', 'Species Reveal Clause'],
 		banlist: [
 			'ability:arenatrap', 'ability:contrary', 'ability:gorillatactics', 'ability:speedboost', 'ability:hugepower', 'ability:moody', 'ability:purepower', 
