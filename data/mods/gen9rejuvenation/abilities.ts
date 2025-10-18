@@ -38,6 +38,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'mistyterrain':
 			case 'fairytalefield':
+			case 'bewitchedwoodsfield':
 				types = ['Fairy'];
 				break;
 			case 'psychicterrain':
@@ -131,17 +132,30 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				}
 			}
 		},
+		onBattlefieldChange(pokemon, source, sourceEffect) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (this.field.isBattlefield('bewitchedwoodsfield')) {
+				if (pokemon.species.id !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
+				}
+			}
+		},
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || pokemon.hasItem('cherrimcrest')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield('bewitchedwoodsfield') || pokemon.hasItem('cherrimcrest')) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || pokemon.hasItem('cherrimcrest')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield('bewitchedwoodsfield') || pokemon.hasItem('cherrimcrest')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -330,7 +344,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 					this.add('-ability', target, 'Cotton Down');
 					activated = true;
 				}
-				if (this.field.isTerrain('grassyterrain')) {
+				if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('bewitchedwoodsfield')) {
 					this.boost({spe: -2}, pokemon, target, null, true);
 				} else {
 					this.boost({spe: -1}, pokemon, target, null, true);
@@ -919,7 +933,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
-				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield', 'hauntedfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
+				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield', 'hauntedfield', 'bewitchedwoodsfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -1028,6 +1042,58 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (target.item) {
 					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', `[of] ${pokemon}`);
 				}
+			}
+		},
+	},
+	effectspore: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				let chance = this.field.isBattlefield('bewitchedwoodsfield')? 50 : 100;
+				const r = this.random(chance);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+	},
+	flowerveil: {
+		inherit: true,
+		onAllyTryBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Grass') || !this.field.isBattlefield('bewitchedwoodsfield')) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Flower Veil', `[of] ${effectHolder}`);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if ((target.hasType('Grass') || this.field.isBattlefield('bewitchedwoodsfield')) && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Flower Veil');
+				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Flower Veil', `[of] ${effectHolder}`);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if ((target.hasType('Grass') || this.field.isBattlefield('bewitchedwoodsfield')) && status.id === 'yawn') {
+				this.debug('Flower Veil blocking yawn');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Flower Veil', `[of] ${effectHolder}`);
+				return null;
 			}
 		},
 	},

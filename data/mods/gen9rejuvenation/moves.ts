@@ -9,7 +9,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Electric';
 			} else if (this.field.isTerrain('grassyterrain')) {
 				newType = 'Grass';
-			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('fairytalefield')) {
+			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) {
 				newType = 'Fairy';
 			} else if (this.field.isTerrain('psychicterrain')) {
 				newType = 'Psychic';
@@ -87,6 +87,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'trickroom';
 			}  else if (this.field.isBattlefield('hauntedfield')) {
 				move = 'phantomforce';
+			}  else if (this.field.isBattlefield('bewitchedwoodsfield')) {
+				move = 'dazzlinggleam';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -126,6 +128,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.secondaries.push({
 					chance: 30,
 					status: this.sample(['frz', 'brn', 'psn', 'tox', 'par', 'slp', 'ptr']),
+				});
+			} else if (this.field.isBattlefield('bewitchedwoodsfield')) {
+				move.secondaries.push({
+					chance: 30,
+					status: this.sample(['psn','par', 'slp']),
 				});
 			} else if (this.field.isBattlefield('crystalcavernfield')) {
 				const result = this.random(4);
@@ -217,6 +224,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'mistyterrain':
 			case 'fairytalefield':
+			case 'bewitchedwoodsfield':
 				move.type = 'Fairy';
 				break;
 			case 'psychicterrain':
@@ -279,7 +287,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isTerrain('electricterrain') && move.type === 'Electric') return this.chainModify(0.5);
 				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
 				if (this.field.isTerrain('psychicterrain') && move.type === 'Psychic') return this.chainModify(0.5);
-				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield('fairytalefield')) && move.type === 'Fairy') return this.chainModify(0.5);
+				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
@@ -938,7 +946,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				factor = 0.25;
 				break;
 			}
-			if (this.field.isBattlefield(['darkcrystalcavernfield', 'starlightarenafield', 'newworldfield'])) factor = 0.75;
+			if (this.field.isBattlefield(['darkcrystalcavernfield', 'starlightarenafield', 'newworldfield', 'bewitchedwoodsfield'])) factor = 0.75;
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
@@ -5086,7 +5094,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Haunted Field Field",
+		name: "Haunted Field",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
@@ -5210,6 +5218,102 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Ghost",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	bewitchedwoodsfield: { // TODO - Prankster affects Dark-types
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Bewitched Woods Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'hauntedfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Fairy') {
+					this.hint("The fairy aura amplified the attack's power!")
+					this.chainModify(1.5);
+				}
+				if (move.type === 'Grass') {
+					this.hint("Flourish!")
+					this.chainModify(1.5);
+				}
+				if (move.type === 'Dark') {
+					this.hint("The dark aura amplified the attack's power!")
+					this.chainModify(1.3);
+				}
+				if (['hex', 'mysticalfire', 'spiritbreak'].includes(move.id)) {
+					this.hint("Magic aura amplified the attack!")
+					this.chainModify(1.5);
+				}
+				if (['aurorabeam', 'bubblebeam', 'chargebeam', 'flashcannon', 'hyperbeam', 'icebeam', 'magicalleaf', 'mirrorbeam', 'psybeam', 'signalbeam'].includes(move.id)) {
+					this.hint("Magic aura amplified the attack!")
+					this.chainModify(1.4)
+				}
+				if (['darkpulse', 'moonblast', 'nightdaze'].includes(move.id)) {
+					this.hint("The forest is cursed with nightfall!")
+					this.chainModify(1.2);
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Fairy' && type === 'Steel') return 1;
+				if (move.type === 'Fairy' && type === 'Dark') return 0;
+				if (move.type === 'Dark' && type === 'Fairy') return 0;
+				if (move.type === 'Poison' && type === 'Grass') return 0;
+				if (target?.hasAbility('pastelveil') && type == 'Fairy' && typeMod > 0) return 0;
+			},
+			onModifyMove(move, pokemon, target) {
+				if (['grasswhistle','poisonpowder','sleeppowder','stunspore'].includes(move.id)) move.accuracy = 85;
+				if (move.id === 'magicpowder') move.status = toID('slp');
+				if (move.id === 'strengthsap') move.onHit = function (t, s, m) {
+					if (t.boosts.atk === -6) return false;
+					const atk = t.getStat('atk', false, true);
+					const success = this.boost({ atk: -2 }, t, s, null, false, true);
+					return !!(this.heal(atk, s, t) || success);
+				};
+			},
+			onHit(target, source, move) {
+				if (move.id === 'forestscurse') target.addVolatile('curse');
+			},
+			onAfterMove(source, target, move) {
+				if (move.id === 'purify') this.field.setBattlefield('forestfield');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (!pokemon.hp) return;
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable() && pokemon.hasType('Grass')) {
+					this.hint('The woods healed the grass Pokemon on the field.')
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Bewitched Woods Field skipped`);
+				}
+				if (pokemon.status === 'slp' || pokemon.hasAbility('comatose')) {
+					this.hint(`${pokemon.name}'s dream is corrupted by the evil in the woods!`)
+					this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				}
+				if (pokemon.hasAbility('naturalcure')) pokemon.cureStatus();
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Bewitched Woods Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fairy",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
