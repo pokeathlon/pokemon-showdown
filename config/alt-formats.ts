@@ -1080,6 +1080,41 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Chaos Balanced Hackmons",
+		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
+		mod: 'gen9chaos',
+		ruleset: [
+			'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Moves Clause',
+			'Endless Battle Clause', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Terastal Clause', 'CFZ Clause',
+			'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause'
+		],
+		banlist: [
+			'pokemon:arkhaos', 'pokemon:blisseyegho', 'pokemon:calyrexshadow', 'pokemon:chanseyegho', 'pokemon:electrodemega', 'pokemon:groudonprimal', 'pokemon:nucleon', 'pokemon:rayquazamega', 'pokemon:regigigasprimal', 'pokemon:terapagosstellar', 'pokemon:urayne', 'pokemon:uraynebeta', 'pokemon:xenogen', 'pokemon:xenoqueen',
+			'ability:ancientpresence', 'ability:arenatrap', 'ability:athenian', 'ability:atomizate', 'ability:blazeboost', 'ability:contrary', 'ability:deepfreeze', 'ability:eventhorizon', 'ability:fairylaw', 'ability:foundry', 'ability:gorillatactics', 'ability:hadronengine', 'ability:hugepower', 'ability:illusion', 'ability:innardsout', 'ability:lernean',
+			'ability:magnetpull', 'ability:moody', 'ability:multishot', 'ability:musclememory', 'ability:neutralizinggas', 'ability:omnitype', 'ability:parentalbond', 'ability:purefocus', 'ability:purepower', 'ability:quickcharge', 'ability:shadowtag', 'ability:sleet', 'ability:stakeout', 'ability:stormbringer', 'ability:waterbubble', 'ability:wonderguard',
+			'move:achillesheel', 'move:bellydrum', 'move:bigbang', 'move:boltbeak', 'move:chatter', 'move:doubleironbash', 'move:electrify', 'move:lastrespects', 'move:livewire', 'move:octolock', 'move:omniblast', 'move:permafrost', 'move:ragefist', 'move:revivalblessing', 'move:riftjump', 'move:shedtail', 'move:shellsmash', 'move:supremecannon', 'move:thunderstorm', 'move:transcendentsword', 'move:yuckytongue',
+			'item:gengarite', 'item:deltamawilite'		
+		],
+		restricted: ['Arceus'],
+		onValidateTeam(team, format) {
+			// baseSpecies:count
+			const restrictedPokemonCount = new this.dex.Multiset<string>();
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (!this.ruleTable.isRestrictedSpecies(species)) continue;
+				restrictedPokemonCount.add(species.baseSpecies);
+			}
+			for (const [baseSpecies, count] of restrictedPokemonCount) {
+				if (count > 1) {
+					return [
+						`You are limited to one ${baseSpecies} forme.`,
+						`(You have ${count} ${baseSpecies} forme${count === 1 ? '' : 's'}.)`,
+					];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Chaos Free-for-all",
 		searchShow: false,
 
