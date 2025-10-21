@@ -1787,7 +1787,8 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
-		prevo: "Snowlet",
+		prevo: "Snowlet", 
+		cosmeticFormes: ["Snowiibay-Witch"]
 	},
 	snowlet: {
 		num: 3085,
