@@ -1084,15 +1084,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
 		mod: 'gen9chaos',
 		ruleset: [
-			'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Moves Clause',
-			'Endless Battle Clause', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Terastal Clause', 'CFZ Clause',
-			'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause'
+			'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
+			'OHKO Clause', 'Evasion Clause', 'Forme Clause', 'Sleep Moves Clause',
+			'Species Reveal Clause', 'Terastal Clause', 'CFZ Clause',
+			'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause',
 		],
 		banlist: [
-			'pokemon:arkhaos', 'pokemon:blisseyegho', 'pokemon:calyrexshadow', 'pokemon:chanseyegho', 'pokemon:electrodemega', 'pokemon:groudonprimal', 'pokemon:nucleon', 'pokemon:rayquazamega', 'pokemon:regigigasprimal', 'pokemon:terapagosstellar', 'pokemon:urayne', 'pokemon:uraynebeta', 'pokemon:xenogen', 'pokemon:xenoqueen', 'pokemon:arceusprimal', 'pokemon:pajaynuclear', 'pokemon:palijnuclear', 'pokemon:sonic', 'pokemon:supersonic',
-			'ability:ancientpresence', 'ability:arenatrap', 'ability:athenian', 'ability:atomizate', 'ability:blazeboost', 'ability:contrary', 'ability:deepfreeze', 'ability:eventhorizon', 'ability:fairylaw', 'ability:foundry', 'ability:gorillatactics', 'ability:hadronengine', 'ability:hugepower', 'ability:illusion', 'ability:innardsout', 'ability:lernean', 'ability:orichalcumpulse',
-			'ability:magnetpull', 'ability:moody', 'ability:multishot', 'ability:musclememory', 'ability:neutralizinggas', 'ability:omnitype', 'ability:parentalbond', 'ability:purefocus', 'ability:purepower', 'ability:quickcharge', 'ability:shadowtag', 'ability:sleet', 'ability:stakeout', 'ability:stormbringer', 'ability:waterbubble', 'ability:wonderguard', 'ability:glitch', 'ability:chaosemeralds',
-			'move:achillesheel', 'move:bellydrum', 'move:bigbang', 'move:boltbeak', 'move:chatter', 'move:doubleironbash', 'move:electrify', 'move:lastrespects', 'move:livewire', 'move:octolock', 'move:omniblast', 'move:permafrost', 'move:ragefist', 'move:revivalblessing', 'move:riftjump', 'move:shedtail', 'move:shellsmash', 'move:supremecannon', 'move:thunderstorm', 'move:transcendentsword', 'move:yuckytongue', 'move:zippyzap',
+			'pokemon:eternatuseternamax', 'pokemon:arkhaos', 'pokemon:blisseyegho', 'pokemon:calyrexshadow', 'pokemon:chanseyegho', 'pokemon:electrodemega', 'pokemon:groudonprimal', 'pokemon:nucleon', 'pokemon:rayquazamega', 'pokemon:regigigasprimal', 'pokemon:terapagosstellar', 'pokemon:urayne', 'pokemon:uraynebeta', 'pokemon:xenogen', 'pokemon:xenoqueen', 'pokemon:arceusprimal', 'pokemon:pajaynuclear', 'pokemon:palijnuclear', 'pokemon:sonic', 'pokemon:supersonic', 'pokemon:drybones', 'pokemon:shedinja',
+			'ability:ancientpresence', 'ability:arenatrap', 'ability:athenian', 'ability:atomizate', 'ability:blazeboost', 'ability:contrary', 'ability:deepfreeze', 'ability:eventhorizon', 'ability:fairylaw', 'ability:foundry', 'ability:gorillatactics', 'ability:hadronengine', 'ability:hugepower', 'ability:illusion', 'ability:innardsout', 'ability:lernean', 'ability:orichalcumpulse', 'ability:chernobyl', 'ability:gulpmissile', 'ability:necromancy',
+			'ability:magnetpull', 'ability:moody', 'ability:multishot', 'ability:musclememory', 'ability:neutralizinggas', 'ability:omnitype', 'ability:parentalbond', 'ability:purefocus', 'ability:purepower', 'ability:quickcharge', 'ability:shadowtag', 'ability:sleet', 'ability:stakeout', 'ability:stormbringer', 'ability:waterbubble', 'ability:wonderguard', 'ability:glitch', 'ability:chaosemeralds', 'ability:sharpcoral', 'ability:regurgitation',
+			'move:achillesheel', 'move:bellydrum', 'move:bigbang', 'move:boltbeak', 'move:chatter', 'move:doubleironbash', 'move:electrify', 'move:lastrespects', 'move:livewire', 'move:octolock', 'move:omniblast', 'move:permafrost', 'move:ragefist', 'move:revivalblessing', 'move:riftjump', 'move:shedtail', 'move:shellsmash', 'move:supremecannon', 'move:thunderstorm', 'move:transcendentsword', 'move:yuckytongue', 'move:zippyzap', 'move:sleeptalk',
 			'item:gengarite', 'item:deltamawilite', 'item:hafliberry', 'item:managel'		
 		],
 		restricted: ['Arceus'],
