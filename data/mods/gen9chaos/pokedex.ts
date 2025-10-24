@@ -2579,6 +2579,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Escarphone-Censored"]
 	},
 	potermit: {
 		num: 3131,

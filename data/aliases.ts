@@ -2587,6 +2587,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	felapstanlasagna: "Felapstan",
 	varkacosmshadow: "Varkacosm", 
 	snowiibaywitch: "Snowiibay",
+	escarphonecensored: "Escarphone",
 
 	hydroupasix: "Hydroupa",
 	hydroupaseven: "Hydroupa",
