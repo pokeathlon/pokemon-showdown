@@ -396,7 +396,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'Mega Forme Clause', '+CAP', '+item:crucibellite', '+item:vilevial', 'Terastal Clause', '+item:berserkgene', 'Species Reveal Clause'],
 	},
 	{
-		name: "[Gen 9] Chos LC Draft",
+		name: "[Gen 9] Chaos LC Draft",
 		mod: 'gen9chaos',
 		searchShow: false,
 		teraPreviewDefault: true,
