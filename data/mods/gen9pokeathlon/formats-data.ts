@@ -818,7 +818,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ironchamber: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	hoppyre: {
