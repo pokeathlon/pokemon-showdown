@@ -89,7 +89,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	eidolburgh: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	electrodemega: {
@@ -114,7 +114,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	feidan: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	felapstan: {
@@ -294,7 +294,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	nestitan: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	niandertroll: {
@@ -370,7 +370,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	regimyo: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	rotomhisui: {
@@ -538,7 +538,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	crayzigater: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	tofagrif: {
@@ -812,7 +812,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	wyrmplode: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	ironchamber: {
@@ -830,7 +830,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	cloudinyte: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	barreko: {
@@ -842,25 +842,25 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	cactusplash: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	dryguaro: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	varkacosm: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	escarphone: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	potermit: {
@@ -872,13 +872,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ceraguard: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	silretro: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	gluttini: {
@@ -890,7 +890,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	utensitile: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	arcaspark: {
