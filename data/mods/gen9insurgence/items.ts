@@ -214,11 +214,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	meganiumite: {
-		name: "Meganiumite",
+	meganiumitei: {
+		name: "Meganiumite I",
 		desc: "If held by a Meganium, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
-		megaStone: "Meganium-Mega",
+		megaStone: "Meganium-Mega-I",
 		megaEvolves: "Meganium",
 		itemUser: ["Meganium"],
 		onTakeItem(item, source) {
@@ -240,11 +240,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	feraligatite: {
-		name: "Feraligatite",
+	feraligatitei: {
+		name: "Feraligatite I",
 		desc: "If held by a Feraligatr, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
-		megaStone: "Feraligatr-Mega",
+		megaStone: "Feraligatr-Mega-I",
 		megaEvolves: "Feraligatr",
 		itemUser: ["Feraligatr"],
 		onTakeItem(item, source) {
@@ -448,11 +448,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	froslassite: {
-		name: "Froslassite",
+	froslassitei: {
+		name: "Froslassite I",
 		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
-		megaStone: "Froslass-Mega",
+		megaStone: "Froslass-Mega-I",
 		megaEvolves: "Froslass",
 		itemUser: ["Froslass"],
 		onTakeItem(item, source) {
