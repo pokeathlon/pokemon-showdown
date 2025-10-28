@@ -42,6 +42,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Fairy'];
 				break;
 			case 'psychicterrain':
+			case 'chessboardfield':
 				types = ['Psychic'];
 				break;
 			case 'rainbowfield':
@@ -944,7 +945,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (move.category === 'Status' && move.id !== 'kingsshield') return;
 			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
 			if (attacker.species.name !== targetForme) {
-				if (this.field.isBattlefield('fairytalefield')) {
+				if (this.field.isBattlefield(['fairytalefield', 'chessboardfield'])) {
 					if (targetForme === 'Aegislash') {
 						this.boost({def: 1, atk: -1})
 					}
@@ -1094,6 +1095,31 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				const effectHolder = this.effectState.target;
 				this.add('-block', target, 'ability: Flower Veil', `[of] ${effectHolder}`);
 				return null;
+			}
+		},
+	},
+	competitive: {
+		inherit: true,
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source) || this.field.isBattlefield('chessboardfield')) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({ spa: 2 }, target, target, null, false, true);
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isBattlefield('chessboardfield')) {
+				const modifier = Math.min(Math.floor(2.5*attacker.hp/attacker.maxhp + 2.5), 2)
+				return this.chainModify(modifier);
 			}
 		},
 	},

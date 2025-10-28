@@ -84,6 +84,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spd: 1});
 				pokemon.addVolatile('ingrain');
 			}
+			if (this.field.isBattlefield('chessboardfield')) {
+				this.boost({spa: 1});
+				pokemon.addVolatile('magiccoat');
+			}
 		},
 		num: 0,
 		desc: "Provides boost in magical fields.",

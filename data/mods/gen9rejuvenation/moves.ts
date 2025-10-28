@@ -11,7 +11,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Grass';
 			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) {
 				newType = 'Fairy';
-			} else if (this.field.isTerrain('psychicterrain')) {
+			} else if (this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) {
 				newType = 'Psychic';
 			} else if (this.field.isBattlefield(['volcanicfield','infernalfield'])) {
 				newType = 'Fire';
@@ -89,6 +89,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'phantomforce';
 			}  else if (this.field.isBattlefield('bewitchedwoodsfield')) {
 				move = 'dazzlinggleam';
+			}  else if (this.field.isBattlefield('chessboardfield')) {
+				move = 'ancientpower';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -164,6 +166,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						atk: -1,
 					},
 				});
+			} else if (this.field.isBattlefield('chessboardfield')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						def: -1,
+					},
+				});
 			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield('blessedfield')) {
 				move.secondaries.push({
 					chance: 30,
@@ -228,6 +237,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Fairy';
 				break;
 			case 'psychicterrain':
+			case 'chessboardfield':
 				move.type = 'Psychic';
 				break;
 			case 'volcanicfield':
@@ -286,7 +296,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (!target.volatiles['shelter']) return;
 				if (this.field.isTerrain('electricterrain') && move.type === 'Electric') return this.chainModify(0.5);
 				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
-				if (this.field.isTerrain('psychicterrain') && move.type === 'Psychic') return this.chainModify(0.5);
+				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
@@ -1083,7 +1093,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					modifiedDuration += 2;
 				}
-				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield']) || this.field.isTerrain('psychicterrain')) {
+				if (this.field.isBattlefield(['starlightarenafield', 'newworldfield', 'chessboardfield']) || this.field.isTerrain('psychicterrain')) {
 					modifiedDuration += 3;
 				}
 				if (this.field.isBattlefield('dimensionalfield')) return this.random(5, 8);
@@ -1307,6 +1317,44 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePowerCallback(pokemon, target, move) {
 			if (target.status || target.hasAbility('comatose') || this.field.isBattlefield('hauntedfield')) return move.basePower * 2;
 			return move.basePower;
+		},
+	},
+	kingsshield: {
+		inherit: true,
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || (move.category === 'Status' && !this.field.isBattlefield('chessboardfield'))) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.boost({ atk: -1, spa: this.field.isBattlefield('chessboardfield')? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.boost({ atk: -1, spa: this.field.isBattlefield('chessboardfield')? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+			},
 		},
 	},
 	// custom move
@@ -5230,7 +5278,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1, metronome: 1},
-		battlefield: 'hauntedfield',
+		battlefield: 'bewitchedwoodsfield',
 		condition: {
 			effectType: "Battlefield",
 			duration: 5,
@@ -5314,6 +5362,215 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Fairy",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	chessboardfield: { // TODO - Chess pieces
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Chess Board Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'chessboardfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (['ancientpower', 'continentalcrush', 'psychic', 'rockthrow', 'secretpower', 'shatteredpsyche', 'strength'].includes(move.id)) {
+					this.hint("The chess piece slammed forward!")
+					this.chainModify(1.5);
+				}
+				if (move.id === 'barrage') {
+					this.hint("The chess piece slammed forward!")
+					this.chainModify(1.5);
+				}
+				if (['adaptability', 'anticipation', 'synchronize', 'telepathy'].includes(target.ability) && !target.volatiles['confusion']) {
+					this.chainModify(0.5);
+				}
+				if (['defeatist', 'klutz', 'oblivious', 'simple', 'unaware'].includes(target.ability) || target.volatiles['confusion']) {
+					this.chainModify(2);
+				}
+				if (['gorillatactics', 'reckless'].includes(target.ability) || target.volatiles['confusion']) {
+					this.chainModify(1.2);
+				}
+				if (source.illusion) {
+					this.chainModify(1.2);
+				}
+				if (source.hasAbility('queenlymajesty') && !source.volatiles['queen']) {
+					this.hint("The Queen is dominating the board!")
+					this.chainModify(1.5);
+				}
+				if (['fakeout', 'feint', 'feintattack', 'firstimpression', 'shadowsneak', 'smartstrike', 'suckerpunch'].includes(move.id)) {
+					this.hint("En passant!")
+					this.chainModify(1.5);
+				}
+				if (source.speciesState.piece && source.speciesState.piece === 'knight' && target.speciesState.piece && source.speciesState.piece === 'queen') {
+					this.chainModify(3);
+				}
+				if (source.speciesState.piece && source.speciesState.piece === 'knight' && move.target == 'allAdjacentFoes') {
+					this.chainModify(1.25);
+				}
+				if (target.speciesState.piece && source.speciesState.piece === 'queen') {
+					this.chainModify(1.5);
+				}
+			},
+			onModifyCritRatio(critRatio, source, target, move) {
+				if (['gorillatactics', 'reckless'].includes(target.ability)) {
+					return critRatio + 1;
+				}
+				if (source.hasAbility('merciless')) {
+					const foeHP = Math.floor(target.hp/target.maxhp);
+					return critRatio + foeHP < 40? 3 : foeHP < 60? 2 : foeHP < 80? 1 : 0
+				}
+				if (target.lastMove && ['outrage', 'thrash', 'stompingtantrum'].includes(target.lastMove?.id)) {
+					return critRatio + 1;
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['ancientpower', 'barrage', 'continentalcrush', 'psychic', 'rockthrow', 'secretpower', 'shatteredpsyche', 'strength'].includes(move.id)){
+					return typeMod + this.dex.getEffectiveness('Rock', type);
+				} 
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'calmmind') move.boosts = {spa: 2, spd: 2};
+				if (move.id === 'falsesurrender') move.volatileStatus = 'taunt';
+				if (move.id === 'nastyplot') move.boosts = {spa: 3};
+				if (move.id === 'noretreat') move.boosts = {atk: 2, spa: 2, spe: 2, def: -1, spd: -1};
+				if (move.id === 'obstruct') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'Protect');
+					},
+					onTryHitPriority: 3,
+					onTryHit(target, source, move) {
+						if (!move.flags['protect']) {
+							if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+							if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+							return;
+						}
+						if (move.smartTarget) {
+							move.smartTarget = false;
+						} else {
+							this.add('-activate', target, 'move: Protect');
+						}
+						const lockedmove = source.getVolatile('lockedmove');
+						if (lockedmove) {
+							// Outrage counter is reset
+							if (source.volatiles['lockedmove'].duration === 2) {
+								delete source.volatiles['lockedmove'];
+							}
+						}
+						if (this.checkMoveMakesContact(move, source, target)) {
+							this.boost({ def: -2 }, source, target, this.dex.getActiveMove("Obstruct"));
+						}
+						return this.NOT_FAIL;
+					},
+					onHit(target, source, move) {
+						if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+							this.boost({ def: -2 }, source, target, this.dex.getActiveMove("Obstruct"));
+						}
+					},
+				}
+			},
+			onDamagePriority: -40,
+			onDamage(damage, target, source, effect) {
+				if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move' && target.speciesState.piece && target.speciesState.piece === 'pawn') {
+					if (target.useItem()) {
+						return target.hp - 1;
+					}
+				}
+			},
+			onSwitchIn(pokemon) {
+				switch (pokemon.speciesState.piece) {
+				case "pawn":
+					this.hint(`${pokemon.name} became a Pawn and stormed up the board!`)
+					break;
+				case "rook":
+					this.hint(`${pokemon.name} became a Rook and took the open file!`)
+					break;
+				case "bishop":
+					this.hint(`${pokemon.name} became a Bishop and took the diagonal!`)
+					break;
+				case "knight":
+					this.hint(`${pokemon.name} became a Knight and readied its position!`)
+					break;
+				case "queen":
+					this.hint(`${pokemon.name} became a Queen and was placed on the center of the board!`)
+					break;
+				case "king":
+					this.hint(`${pokemon.name} became a King and exposed itself!`)
+					break;
+				}
+				if (pokemon.hasAbility(['stall', 'stancechange'])) this.boost({def: 1});
+				if (pokemon.speciesState.piece && pokemon.speciesState.piece === 'rook') this.boost({def: 1, spd: 1});
+				if (pokemon.speciesState.piece && pokemon.speciesState.piece === 'bishop') this.boost({atk: 1, spa: 1});
+				if (pokemon.speciesState.piece && pokemon.speciesState.piece === 'queen') this.boost({def: 1, spd: 1});
+			},
+			onTryMove(source, target, move) {
+				if (source.hasAbility('klutz') && ['ancientpower', 'barrage', 'continentalcrush', 'psychic', 'rockthrow', 'secretpower', 'shatteredpsyche', 'strength'].includes(move.id)) {
+					this.add('-fail', source,);
+					this.attrLastMove('[still]');
+					this.hint(`It was too much of a klutz to move the chess piece!`)
+					this.faint(source, source)
+					return null;
+				}
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				if (pokemon.speciesState.piece && pokemon.speciesState.piece === 'king') {
+					return priority + 1;
+				}
+			},
+			onStart(target, source, sourceEffect) {
+				let enemyKing = false;
+				for (const enemy of target.side.pokemon) {
+					const bestStat = enemy.getBestStat(true, true);
+					if (bestStat === 'def' || 'spd' ) enemy.speciesState.piece = "rook";
+					if (bestStat === 'atk' || 'spa') enemy.speciesState.piece = "bishop";
+					if (bestStat === 'spe') enemy.speciesState.piece = "knight";
+					if ((target.side.pokemon.sort((a,b) => a.maxhp - b.maxhp)[0] || enemy.hasItem('kingsrock')) && !enemyKing) {
+						enemy.speciesState.piece = "king"
+						enemyKing = true;
+					};
+					if (enemy === target.side.pokemon[0]) enemy.speciesState.piece = "pawn";
+					if (enemy === target.side.pokemon.slice(-1)[0]) enemy.speciesState.piece = "queen";
+				}
+				let allyKing = false;
+				for (const ally of source.side.pokemon) {
+					const bestStat = ally.getBestStat(true, true);
+					if (bestStat === 'def' || 'spd' ) ally.speciesState.piece = "rook";
+					if (bestStat === 'atk' || 'spa') ally.speciesState.piece = "bishop";
+					if (bestStat === 'spe') ally.speciesState.piece = "knight";
+					if ((target.side.pokemon.sort((a,b) => a.maxhp - b.maxhp)[0] || ally.hasItem('kingsrock')) && !enemyKing) {
+						ally.speciesState.piece = "king"
+						allyKing = true;
+					};
+					if (ally === target.side.pokemon[0]) ally.speciesState.piece = "pawn";
+					if (ally === target.side.pokemon.slice(-1)[0]) ally.speciesState.piece = "queen";
+				}
+			},
+			onEnd(target) {
+				for (const enemy of target.side.pokemon) {
+					enemy.speciesState.piece = undefined;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Chess Board Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
