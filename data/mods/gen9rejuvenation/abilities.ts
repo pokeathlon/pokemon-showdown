@@ -36,6 +36,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'grassyterrain':
 				types = ['Grass'];
 				break;
+			case 'bigtoparenafield':
+				types = ['Fighting'];
+				break;
 			case 'mistyterrain':
 			case 'fairytalefield':
 			case 'bewitchedwoodsfield':
@@ -1120,6 +1123,15 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.field.isBattlefield('chessboardfield')) {
 				const modifier = Math.min(Math.floor(2.5*attacker.hp/attacker.maxhp + 2.5), 2)
 				return this.chainModify(modifier);
+			}
+		},
+	},
+	punkrock: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Punk Rock boost');
+				return this.chainModify(this.field.isBattlefield('bigtoparena')? 1.5 : [5325, 4096]);
 			}
 		},
 	},

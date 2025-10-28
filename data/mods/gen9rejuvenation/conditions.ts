@@ -69,7 +69,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	raindance: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('damprock') || this.field.isBattlefield('skyfield')) {
+			if (source?.hasItem('damprock') || this.field.isBattlefield(['skyfield', 'bigtoparenafield'])) {
 				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}

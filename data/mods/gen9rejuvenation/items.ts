@@ -84,9 +84,35 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spd: 1});
 				pokemon.addVolatile('ingrain');
 			}
+		},
+		num: 0,
+		desc: "Provides boost in magical fields.",
+	},
+	syntheticseed: {
+		name: "Synthetic Seed",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && 
+				this.field.isBattlefield(['chessboardfield', 'bigtoparenafield', 'factoryfield', 'shortcircuitfield', 'glitchfield', 'mirrorarenafield', 'flowergardenfield', 'corruptedcavefield', 'colosseumfield', 'concertvenuefield', 'backalleyfield', 'cityfield'])) {
+				pokemon.useItem();
+			}
+		},
+		onBattlefieldChange(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isBattlefield(['chessboardfield', 'bigtoparenafield', 'factoryfield', 'shortcircuitfield', 'glitchfield', 'mirrorarenafield', 'flowergardenfield', 'corruptedcavefield', 'colosseumfield', 'concertvenuefield', 'backalleyfield', 'cityfield'])) {
+				pokemon.useItem();
+			}
+		},
+		onUseItem(item, pokemon) {
 			if (this.field.isBattlefield('chessboardfield')) {
 				this.boost({spa: 1});
 				pokemon.addVolatile('magiccoat');
+			}
+			if (this.field.isBattlefield('bigtoparenafield')) {
+				this.boost({atk: 1});
+				pokemon.addVolatile('helpinghand');
 			}
 		},
 		num: 0,

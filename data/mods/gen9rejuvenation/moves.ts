@@ -35,7 +35,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
 			} else if (this.field.isBattlefield('inversefield')) {
 				newType = 'Normal';
-			}  
+			}	else if (this.field.isBattlefield('bigtoparenafield')) {
+				newType = 'Fighting';
+			} 
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
 			this.add('-start', target, 'typechange', newType);
@@ -91,6 +93,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'dazzlinggleam';
 			}  else if (this.field.isBattlefield('chessboardfield')) {
 				move = 'ancientpower';
+			}  else if (this.field.isBattlefield('bigtoparenafield')) {
+				move = 'acrobatics';
 			} 
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -180,7 +184,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spa: -1,
 					},
 				});
-			} else if (this.field.isBattlefield('starlightarenafield')) {
+			} else if (this.field.isBattlefield(['starlightarenafield', 'bigtoparenafield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -271,6 +275,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'dimensionalfield':
 				move.type = 'Dark';
 				break;
+			case 'bigtoparenafield':
+				move.type = 'Fighting';
+				break;
 			case 'crustalcavernfield':
 				move.type = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
 				break;
@@ -307,6 +314,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield', 'dimensionalfield']) && move.type === 'Dark') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -1353,6 +1361,80 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
 					this.boost({ atk: -1, spa: this.field.isBattlefield('chessboardfield')? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
+				}
+			},
+		},
+	},
+	acrobatics: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item || this.field.isBattlefield('bigtoparenafield')) {
+				this.debug("BP doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+	},
+	clangoroussoul: {
+		inherit: true,
+		onTry(source) {
+			if (source.hp <= (source.maxhp * (this.field.isBattlefield('bigtoparenafield')? 50 : 33) / 100) || source.maxhp === 1) return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (!this.boost(move.boosts!)) return null;
+			delete move.boosts;
+		},
+		onHit(pokemon) {
+			this.directDamage(pokemon.maxhp * (this.field.isBattlefield('bigtoparenafield')? 50 : 33) / 100);
+		},
+	},
+	encore: {
+		inherit: true,
+		condition: {
+			duration: 3,
+			noCopy: true, // doesn't get copied by Z-Baton Pass
+			durationCallback(source, effect) {
+				if (this.field.isBattlefield('bigtoparenafield')) return 6;
+				return 3;
+			},
+			onStart(target) {
+				let move: Move | ActiveMove | null = target.lastMove;
+				if (!move || target.volatiles['dynamax']) return false;
+
+				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+				const moveSlot = target.getMoveData(move.id);
+				if (move.isZ || move.flags['failencore'] || !moveSlot || moveSlot.pp <= 0) {
+					// it failed
+					return false;
+				}
+				this.effectState.move = move.id;
+				this.add('-start', target, 'Encore');
+				if (!this.queue.willMove(target)) {
+					this.effectState.duration!++;
+				}
+			},
+			onOverrideAction(pokemon, target, move) {
+				if (move.id !== this.effectState.move) return this.effectState.move;
+			},
+			onResidualOrder: 16,
+			onResidual(target) {
+				const moveSlot = target.getMoveData(this.effectState.move);
+				if (!moveSlot || moveSlot.pp <= 0) {
+					// early termination if you run out of PP
+					target.removeVolatile('encore');
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Encore');
+			},
+			onDisableMove(pokemon) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+					return;
+				}
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id !== this.effectState.move) {
+						pokemon.disableMove(moveSlot.id);
+					}
 				}
 			},
 		},
@@ -5365,7 +5447,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
-	chessboardfield: { // TODO - Chess pieces
+	chessboardfield: {
 		num: 0,
 		accuracy: true,
 		basePower: 0,
@@ -5571,6 +5653,98 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Psychic",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	bigtoparenafield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Big Top Arena Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'bigtoparenafield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (['blazekick', 'bodyslam', 'bounce', 'brutalswing', 'bulldoze', 'continentalcrush', 
+					'crabhammer', 'doubleironbash', 'dragonhammer', 'dragonrush', 'dualchop', 'earthquake', 
+					'gigaimpact', 'gravapple', 'headlongrush', 'heatcrash', 'heavyslam', 'highhorsepower', 'icehammer', 
+					'iciclecrash', 'irontail', 'magnitude', 'meteormash', 'pound', 'skydrop', 'slam', 'smackdown', 'stomp', 
+					'stompingtantrum', 'strength', 'woodhammer'].includes(move.id) || (move.type === 'Fighting' && move.category === 'Physical')) {
+					this.hint("The chess piece slammed forward!")
+					let strikeBoost = 1;
+					let roll = this.random(15)
+					if (['guts', 'hugepower', 'purepower', 'sheerforce'].includes(source.ability)){
+						if (roll >= 9) roll = 15;
+						if (roll < 9) roll = 14;
+					}
+					roll += source.boosts['atk'];
+					if (roll >= 15) strikeBoost = 3;
+					else if ( 13 <= roll && roll < 15) strikeBoost = 2;
+					else if (9 <= roll && roll < 13) strikeBoost = 1.5;
+					else if (3 <= roll && roll < 9) strikeBoost = 1;
+					else if (roll < 3) strikeBoost = 0.5;
+					this.chainModify(strikeBoost);
+				}
+				if (move.id === 'payday') {
+					this.hint('And a little extra for you, darling!')
+					this.chainModify(2)
+				}
+				if (['acrobatics', 'fly'].includes(move.id)) {
+					this.hint('An extravagant aerial finish!')
+					this.chainModify(1.5)
+				}
+				if (['firelash', 'powerwhip', 'vinewhip'].includes(move.id)) {
+					this.hint('Back, foul beast!')
+					this.chainModify(1.5)
+				}
+				if (['fierydance', 'petaldance', 'revelationdance'].includes(move.id)) {
+					this.hint('What grace!')
+					this.chainModify(1.5)
+				}
+				if (move.id === 'firstimpression') {
+					this.hint('And what an entrance it is!')
+					this.chainModify(1.5)
+				}
+				if (move.id === 'drumbeating' || move.flags.sound) {
+					this.hint('Loud and clear!')
+					this.chainModify(1.5)
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'aquabatics') move.boosts = {spa: 2, spe: 2};
+				if (move.id === 'bellydrum') move.boosts = {def: 1, spd: 1};
+				if (move.id === 'clangoroussoul') move.boosts = {atk: 2, def: 2, spa: 2, spd: 2, spe: 2}
+				if (move.id === 'dragondance') move.boosts = {atk: 2, spe: 2};
+				if (move.id === 'featherdance') move.boosts = {atk: -2};
+				if (move.id === 'swordsdance') move.boosts = {atk: 3};
+				if (move.id === 'quiverdance') move.boosts = {spa: 2, spd: 2, spe: 2};
+				if (move.id === 'victorydance') move.boosts = {atk: 2, def: 2, spe: 2};
+				if (move.id === 'sing') move.accuracy = 100;
+				if (move.id === 'spotlight') {
+					move.boosts = {atk: 1, spa: 1};
+					move.self = { boosts: { atk: 1, spa: 1 } };
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Big Top Arena Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
