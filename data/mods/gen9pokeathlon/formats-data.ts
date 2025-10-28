@@ -201,7 +201,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	jovianshk: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	kaleidleon: {
