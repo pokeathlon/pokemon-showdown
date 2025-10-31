@@ -5,7 +5,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHit(target) {
 			let newType = 'Normal';
-			if (this.field.isTerrain('electricterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) {
 				newType = 'Electric';
 			} else if (this.field.isTerrain('grassyterrain')) {
 				newType = 'Grass';
@@ -99,6 +99,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'acrobatics';
 			}   else if (this.field.isBattlefield('factoryfield')) {
 				move = 'geargrind';
+			}   else if (this.field.isBattlefield('shortcircuitfield')) {
+				move = 'discharge';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -109,7 +111,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onModifyMove(move, pokemon) {
 			if (this.field.isTerrain('')) return;
 			move.secondaries = [];
-			if (this.field.isTerrain('electricterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'par',
@@ -234,6 +236,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (!pokemon.isGrounded()) return;
 			switch (this.field.terrain || this.field.battlefield) {
 			case 'electricterrain':
+			case 'shortcircuitfield':
 				move.type = 'Electric';
 				break;
 			case 'grassyterrain':
@@ -308,7 +311,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onSourceModifyDamage(damage, source, target, move) {
 				if (!target.volatiles['shelter']) return;
-				if (this.field.isTerrain('electricterrain') && move.type === 'Electric') return this.chainModify(0.5);
+				if ((this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) && move.type === 'Electric') return this.chainModify(0.5);
 				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
 				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
@@ -389,7 +392,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('factoryfield')) return 8;
+				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) return 8;
 				return 5;
 			},
 			onStart(target) {
@@ -5833,6 +5836,100 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSwitchIn(pokemon) {
 				if (pokemon.hasAbility('heavymetal')) this.hint(`${pokemon.name}'s heavy body is sturdy and unmoving!`) ;this.boost({def: 1, spe: -1});
 				if (pokemon.hasAbility('lightmetal')) this.hint(`${pokemon.name}'s light body makes it nimble!`) ;this.boost({spe: 1});
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Big Top Arena Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Steel",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	shortcircuitfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Short-Circuit Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'shortcircuitfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				let electricModifier = [0.8, 1.5, 0.5, 1.2, 2];
+				let electricModifierMessage = ['Bzzt.', 'Bzzapp!', 'Bzt...', 'Bzap!', 'BZZZAPP!'];
+				if (move.type === 'Electric') {
+					this.hint(electricModifierMessage[this.field.battle.effectState.electricModifierIndex])
+					this.chainModify(this.field.isTerrain('electricterrain')? 2 : electricModifier[this.field.battle.effectState.electricModifierIndex]);
+				}
+				if (move.id === 'steelbeam') {
+					this.chainModify([10, 6]);
+				}
+				if (['geargrind','gyroball','hydrovortex','magnetbomb','muddywater','surf','flashcannon'].includes(move.id)) {
+					this.hint('The attack picked up electricity!');
+					this.chainModify(1.5)
+				}
+				if (move.id === 'superumdmove') {
+					this.hint('CHARGING UP');
+					this.chainModify(1.5);
+				}
+				if (move.id === 'dazzlinggleam') {
+					this.hint('Blinding!');
+					this.chainModify(1.5);
+				}
+				if (['darkpulse', 'nightdaze', 'nightslash', 'phantomforce', 'shadowball', 'shadowbone', 'shadowclaw', 'shadowforce', 'shadowpunch', 'shadowsneak'].includes(move.id)) {
+					this.hint('The darkness strengthened the attack!');
+					this.chainModify(1.3)
+				}
+				if (move.id === 'lightthatburnsthesky') {
+					this.hint(`${source.name} couldn't consume much light...`);
+					this.chainModify(0.5);
+				}
+				if (['aurawheel', 'chargebeam', 'discharge', 'gigavolthavoc', 'iondeluge', 'overdrive', 'paraboliccharge', 'superumdmove', 'wildcharge'].includes(move.id)) {
+					this.chainModify(1.3);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'steelbeam') move.selfdestruct = 'ifHit';
+				if (move.id === 'flashcannon') move.boosts = {accuracy: -1};
+				if (move.id === 'metalsound') move.boosts = {spd: -3};
+				if (move.id === 'zapcannon') move.accuracy = 80;
+			},
+			onAfterMove(source, target, move) {
+				if (move.type === 'Electric') this.field.battle.effectState.electricModifierIndex += 1;
+				if (['aurawheel', 'chargebeam', 'discharge', 'gigavolthavoc', 'iondeluge', 'overdrive', 'paraboliccharge', 'superumdmove', 'wildcharge'].includes(move.id)) {
+					this.field.setBattlefield('factoryfield')
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['geargrind','gyroball','hydrovortex','magnetbomb','muddywater','surf','flashcannon', 'steelbeam'].includes(move.id) || (move.type === 'Steel' && this.activePokemon?.hasAbility('steelworker'))){
+					return typeMod + this.dex.getEffectiveness('Electric', type);
+				} 
+			},
+			onUpdate(pokemon) {
+				// loop index back, can't use battlefieldState bc index needs remains throughout battle regardless
+				if (this.field.battle.effectState.electricModifierIndex === 5) this.field.battle.effectState.electricModifierIndex = 0
+			},
+			onStart(target, source, sourceEffect) {
+				if (!this.field.battle.effectState.electricModifierIndex) this.field.battle.effectState.electricModifierIndex = 0;
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.hasAbility('voltabsorb')) this.hint(`${pokemon.name} absorbed stray electricity!`); this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,

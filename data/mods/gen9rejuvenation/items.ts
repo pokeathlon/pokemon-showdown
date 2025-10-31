@@ -118,6 +118,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spa: 1});
 				pokemon.addVolatile('laserfocus');
 			}
+			if (this.field.isBattlefield('factoryfield')) {
+				this.boost({spd: 1});
+				pokemon.addVolatile('magnetrise');
+			}
 		},
 		num: 0,
 		desc: "Provides boost in magical fields.",

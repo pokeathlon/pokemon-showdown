@@ -31,6 +31,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			let types;
 			switch (this.field.terrain || this.field.battlefield) {
 			case 'electricterrain':
+			case 'shortcircuitfield':
 				types = ['Electric'];
 				break;
 			case 'grassyterrain':
@@ -197,14 +198,14 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('factoryfield')) return this.chainModify(1.5);
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) return this.chainModify(1.5);
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 	},
 	plus: {
 		inherit: true,
 		onModifySpA(spa, pokemon) {
-			if (this.field.isTerrain('electricterrain')) return this.chainModify(1.5);
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) return this.chainModify(1.5);
 			for (const allyActive of pokemon.allies()) {
 				if (allyActive.hasAbility(['minus', 'plus'])) {
 					return this.chainModify(1.5);
@@ -215,7 +216,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	minus: {
 		inherit: true,
 		onModifySpA(spa, pokemon) {
-			if (this.field.isTerrain('electricterrain')) return this.chainModify(1.5);
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) return this.chainModify(1.5);
 			for (const allyActive of pokemon.allies()) {
 				if (allyActive.hasAbility(['minus', 'plus'])) {
 					return this.chainModify(1.5);
@@ -259,7 +260,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				var forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('factoryfield')) forme = 'cramorantgorging';
+				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) forme = 'cramorantgorging';
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) forme = 'cramorantgulping';
 				source.formeChange(forme, effect);
 			}
@@ -298,7 +299,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.field.isTerrain('electricfield')? this.randomChance(6, 10) : this.randomChance(3, 10)) {
+				if ((this.field.isTerrain('electricfield') || this.field.isBattlefield('shortcircuitfield'))? this.randomChance(6, 10) : this.randomChance(3, 10)) {
 					source.trySetStatus('par', target);
 				}
 			}
@@ -609,7 +610,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	surgesurfer: {
 		inherit: true,
 		onModifySpe(spe) {
-			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['watersurfacefield','underwaterfield','murkwatersurfacefield'])) {
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['watersurfacefield','underwaterfield','murkwatersurfacefield','shortcircuitfield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -1147,8 +1148,10 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			for (const target of pokemon.foes()) {
 				totaldef += target.getStat('def', false, true);
 				totalspd += target.getStat('spd', false, true);
-			}
-			if (totaldef && totaldef >= totalspd) {
+			} 
+			if (this.field.isBattlefield('shortcircuitfield')) {
+				this.boost({ atk: 1, spa: 1 });
+			} else if (totaldef && totaldef >= totalspd) {
 				this.boost({ spa: boostAmount });
 			} else if (totalspd) {
 				this.boost({ atk: boostAmount });
