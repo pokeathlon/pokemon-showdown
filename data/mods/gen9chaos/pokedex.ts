@@ -1332,6 +1332,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 70, atk: 54, def: 75, spa: 105, spd: 110, spe: 106},
 		abilities: {0: "Regenerator", H: "Hospitality"},
+		gender: "F",
 		heightm: 1.8,
 		weightkg: 60,
 		tags: ["Pokeathlon"],
