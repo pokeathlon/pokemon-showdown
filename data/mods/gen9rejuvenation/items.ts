@@ -114,6 +114,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({atk: 1});
 				pokemon.addVolatile('helpinghand');
 			}
+			if (this.field.isBattlefield('factoryfield')) {
+				this.boost({spa: 1});
+				pokemon.addVolatile('laserfocus');
+			}
 		},
 		num: 0,
 		desc: "Provides boost in magical fields.",

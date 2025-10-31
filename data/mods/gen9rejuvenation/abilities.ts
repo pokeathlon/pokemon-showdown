@@ -64,6 +64,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'hauntedfield':
 				types = ['Ghost'];
 				break;
+			case 'factoryfield':
+				types = ['Steel'];
+				break;
 			case 'newworldfield':
 				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
 				break;
@@ -194,7 +197,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (this.field.isTerrain('electricterrain')) return this.chainModify(1.5);
+			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('factoryfield')) return this.chainModify(1.5);
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 	},
@@ -256,7 +259,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				var forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				if (this.field.isTerrain('electricterrain')) forme = 'cramorantgorging';
+				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('factoryfield')) forme = 'cramorantgorging';
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) forme = 'cramorantgulping';
 				source.formeChange(forme, effect);
 			}
@@ -1132,6 +1135,64 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (move.flags['sound']) {
 				this.debug('Punk Rock boost');
 				return this.chainModify(this.field.isBattlefield('bigtoparena')? 1.5 : [5325, 4096]);
+			}
+		},
+	},
+	download: {
+		inherit: true,
+		onStart(pokemon) {
+			let totaldef = 0;
+			let totalspd = 0;
+			let boostAmount = this.field.isBattlefield('factoryfield')? 2: 1
+			for (const target of pokemon.foes()) {
+				totaldef += target.getStat('def', false, true);
+				totalspd += target.getStat('spd', false, true);
+			}
+			if (totaldef && totaldef >= totalspd) {
+				this.boost({ spa: boostAmount });
+			} else if (totalspd) {
+				this.boost({ atk: boostAmount });
+			}
+		},
+	},
+	motordrive: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				let boostAmount = this.field.isBattlefield('factoryfield')? 2 : 1;
+				if (!this.boost({ spe: boostAmount })) {
+					this.add('-immune', target, '[from] ability: Motor Drive');
+				}
+				return null;
+			}
+		},
+	},
+	steelworker: {
+		inherit: true,
+		onModifyAtk(atk, attacker, defender, move) {
+				let boostAmount = this.field.isBattlefield('factoryfield')? 2 : 1.5 ;
+			if (move.type === 'Steel') {
+				this.debug('Steelworker boost');
+				return this.chainModify(boostAmount);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+				let boostAmount = this.field.isBattlefield('factoryfield')? 2 : 1.5 ;
+			if (move.type === 'Steel') {
+				this.debug('Steelworker boost');
+				return this.chainModify(boostAmount);
+			}
+		},
+	},
+	technician: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			const maximumBP = this.field.isBattlefield('factoryfield')? 80 : 60;
+			this.debug(`Base Power: ${basePowerAfterMultiplier}`);
+			if (basePowerAfterMultiplier <= maximumBP) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
 			}
 		},
 	},

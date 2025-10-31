@@ -27,6 +27,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Flying';
 			} else if (this.field.isBattlefield('hauntedfield')) {
 				newType = 'Ghost';
+			} else if (this.field.isBattlefield('factoryfield')) {
+				newType = 'Steel';
 			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				newType = 'Dark';
 			} else if (this.field.isBattlefield('crystalcavernfield')) {
@@ -95,7 +97,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'ancientpower';
 			}  else if (this.field.isBattlefield('bigtoparenafield')) {
 				move = 'acrobatics';
-			} 
+			}   else if (this.field.isBattlefield('factoryfield')) {
+				move = 'geargrind';
+			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
 		},
@@ -163,7 +167,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					volatileStatus: 'flinch',
 				});
-			} else if (this.field.isBattlefield('underwaterfield')) {
+			} else if (this.field.isBattlefield(['underwaterfield', 'factoryfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -278,6 +282,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'bigtoparenafield':
 				move.type = 'Fighting';
 				break;
+			case 'factoryfield':
+				move.type = 'Steel';
+				break;
 			case 'crustalcavernfield':
 				move.type = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
 				break;
@@ -291,7 +298,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 	},
-	shelter: {
+	shelter: { // TODO - turn this into switch for clarity? Doesn't really matter I just hate looking at it
 		inherit: true,
 		pseudoWeather: 'shelter',
 		condition: {
@@ -315,6 +322,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['factoryfield']) && move.type === 'Steel') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -381,7 +389,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (this.field.isTerrain('electricterrain')) return 8;
+				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('factoryfield')) return 8;
 				return 5;
 			},
 			onStart(target) {
@@ -5735,6 +5743,96 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					move.boosts = {atk: 1, spa: 1};
 					move.self = { boosts: { atk: 1, spa: 1 } };
 				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Big Top Arena Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	factoryfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Factory Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'factoryfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Electric') {
+					this.hint('The attack took energy from the field!')
+					this.chainModify(1.2)
+				}
+				if (['doubleironbash','flashcannon','geargrind','gyroball','magnetbomb'].includes(move.id)) {
+					this.hint('ATTACK SEQUENCE INITIATE!')
+					this.chainModify(2)
+				}
+				if (['steamroller','superumdsequence','technoblast'].includes(move.id)) {
+					this.hint('ATTACK SEQUENCE UPDATE!')
+					this.chainModify(1.5)
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'autotomize') move.boosts = {spe: 3};
+				if (move.id === 'irondefense') move.boosts = {def: 3};
+				if (move.id === 'metaldefense') move.boosts = {spd: -3};
+				if (move.id === 'shiftgear') move.boosts = {atk: 2, spe: 2};
+				if (move.id === 'gearup') move.onHitSide = function (side, source, move) {
+					const targets = side.allies().filter(target => (
+					target.hasAbility(['plus', 'minus']) &&
+					(!target.volatiles['maxguard'] || this.runEvent('TryHit', target, source, move))
+					));
+					if (!targets.length) return false;
+					let didSomething = false;
+					for (const target of targets) {
+						didSomething = this.boost({ atk: 2, spa: 2 }, target, source, move, false, true) || didSomething;
+					}
+					return didSomething;
+				}
+				if (move.id === 'steelbeam') move.onAfterMove = function (pokemon, target, move) {
+					if (move.mindBlownRecoil && !move.multihit) {
+						const hpBeforeRecoil = pokemon.hp;
+						this.damage(Math.round(pokemon.maxhp / 4), pokemon, pokemon, this.dex.conditions.get('Steel Beam'), true);
+						if (pokemon.hp <= pokemon.maxhp / 4 && hpBeforeRecoil > pokemon.maxhp / 4) {
+							this.runEvent('EmergencyExit', pokemon, pokemon);
+						}
+					}
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['bulldoze', 'fissure', 'earthquake', 'explosion', 'magnitude', 'selfdestruct', 'superumdmove', 'tectonicrage'].includes(move.id)) {
+					this.hint('The field was broken!');
+					this.field.setBattlefield('shortcircuitfield');
+				}
+				if (move.id === 'lightthatburnsthesky') {
+					this.hint('All the light was consumed!');
+					this.field.setBattlefield('shortcircuitfield');
+				}
+				if (['aurawheel', 'discharge', 'gigavolthavoc', 'overdrive'].includes(move.id)) {
+					this.hint('The field shorted out!');
+					this.field.setBattlefield('shortcircuitfield');
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility('heavymetal')) this.hint(`${pokemon.name}'s heavy body is sturdy and unmoving!`) ;this.boost({def: 1, spe: -1});
+				if (pokemon.hasAbility('lightmetal')) this.hint(`${pokemon.name}'s light body makes it nimble!`) ;this.boost({spe: 1});
 			},
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
