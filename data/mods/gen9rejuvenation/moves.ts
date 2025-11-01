@@ -27,7 +27,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Flying';
 			} else if (this.field.isBattlefield('hauntedfield')) {
 				newType = 'Ghost';
-			} else if (this.field.isBattlefield(['factoryfield', 'mirrorarenafield'])) {
+			} else if (this.field.isBattlefield(['factoryfield', 'mirrorarenafield', 'colosseumfield'])) {
 				newType = 'Steel';
 			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				newType = 'Dark';
@@ -113,6 +113,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'petalblizzard';
 			}   else if (this.field.isBattlefield('corruptedcavefield')) {
 				move = 'gunkshot';
+			}   else if (this.field.isBattlefield('colosseumfield')) {
+				move = 'beatup';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -181,7 +183,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					volatileStatus: 'flinch',
 				});
-			} else if (this.field.isBattlefield(['underwaterfield', 'factoryfield'])) {
+			} else if (this.field.isBattlefield(['underwaterfield', 'factoryfield', 'colosseumfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -334,6 +336,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Fighting';
 				break;
 			case 'factoryfield':
+			case 'colosseumfield':
 				move.type = 'Steel';
 				break;
 			case 'crustalcavernfield':
@@ -376,7 +379,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['factoryfield']) && move.type === 'Steel') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['factoryfield', 'colosseumfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
@@ -1457,13 +1460,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					}
 				}
 				if (this.checkMoveMakesContact(move, source, target)) {
-					this.boost({ atk: -1, spa: this.field.isBattlefield('chessboardfield')? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
+					this.boost({ atk: this.field.isBattlefield('colosseumfield')? -2 : -1, spa: this.field.isBattlefield(['chessboardfield','colosseumfield'])? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
 				}
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					this.boost({ atk: -1, spa: this.field.isBattlefield('chessboardfield')? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
+					this.boost({ atk: this.field.isBattlefield('colosseumfield')? -2 : -1, spa: this.field.isBattlefield(['chessboardfield','colosseumfield'])? -2 : 0, spd: this.field.isBattlefield('chessboardfield')? -2 : 0 }, source, target, this.dex.getActiveMove("King's Shield"));
 				}
 			},
 		},
@@ -6669,6 +6672,167 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Poison",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	colosseumfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Colosseum Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'colosseumfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (source.hasAbility('skilllink') && move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+					this.chainModify(1.2);
+				};
+				if (['beatup','fellstinger','payday','pursuit','reversal'].includes(move.id)) {
+					if (move.id === 'beatup') this.hint('The fighters rallied together!');
+					if (move.id === 'fellstinger') this.hint('The coup de grace!');
+					if (move.id === 'payday') this.hint('The audience hurled coins down!');
+					if (move.id === 'pursuit') this.hint('There is no escape!');
+					if (move.id === 'reversal') this.hint('For Honor!');
+					this.chainModify(2);
+				};
+				if (['bonerush', 'boneclub', 'bonemerang', 'brutalswing', 'bulletpunch', 'clangingscales', 'electroweb', 'firstimpression', 'leafblade', 'meteorassault', 'meteormash', 'nightslash', 'payback', 'punishment', 'psychocut', 'sacredsword', 'secretsword', 'smackdown', 'smartstrike', 'steamroller', 'submission', 'vinewhip'].includes(move.id)) {
+					this.hint('For Glory!');
+					this.chainModify(1.5);
+				};
+				if (['anchorshot', 'crabhammer', 'dragonhammer', 'drillpeck', 'drillrun', 'firelash', 'icehammer', 'iciclespear', 'powerwhip', 'shadowbone', 'spiritshackle', 'stormthrow', 'suckerpunch', 'throatchop', 'woodhammer'].includes(move.id)) {
+					this.hint('For Honor!');
+					this.chainModify(1.2);
+				}
+			},
+			onTryHit(pokemon, target, move) {
+				if (move.ohko && target.hasAbility('stalwart')) {
+					this.add('-immune', pokemon, '[from] ability: Stalwart');
+					return null;
+				}
+			},
+			onDamagePriority: -30,
+			onDamage(damage, target, source, effect) {
+				if (target.hasAbility('stalwart') && target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+					this.add('-ability', target, 'Stalwart');
+					this.hint(`${target.name} hung on with Stalward in the Colosseum!`)
+					return target.hp - 1;
+				};
+				if (effect.effectType !== 'Move' && target.hasAbility('wonderguard')) {
+					if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+					return false;
+				}
+			},
+			onTryMove(source, target, move) {
+				if (move.forceSwitch && move.basePower === 0){
+					this.add('-fail', source, `move: ${move.name}`);
+					this.attrLastMove('[still]');
+					return null;
+				};
+				if (['batonpass', 'encore', 'whirlwind'].includes(move.id)) {
+					if (move.id === 'batonpass') this.hint('There can be no retreat!');
+					if (move.id === 'encore') this.hint('The audience demands fighting not repetition!');
+					if (move.id === 'whirlwind') this.hint(`${target.name} stands their ground in the arena!!`)
+					this.add('-fail', source, `move: ${move.name}`);
+					this.attrLastMove('[still]');
+					return null;
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.forceSwitch) move.forceSwitch = false;
+				if (target?.hasAbility(['rattled', 'wimpout'])) move.willCrit = true;
+				if (move.id === 'firstimpression') move.flags.protect = undefined;
+				if (move.id === 'flatter') move.boosts = {spa: 2};
+				if (move.id === 'howl') move.boosts = {atk: 2};
+				if (move.id === 'noretreat') move.boosts = {atk: 2, def: 2, spa: 2, spd: 2, spe: 2};
+				if (move.id === 'roar') move.self = {boosts: {atk: 2}};
+				if (move.id === 'swagger') move.boosts = {atk: 3};
+				if (move.id === 'swordsdance') move.boosts = {atk: 3};
+				if (move.id === 'spikyshielf') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'move: Protect');
+					},
+					onTryHitPriority: 3,
+					onTryHit(target, source, move) {
+						if (!move.flags['protect']) {
+							if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+							if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+							return;
+						}
+						if (move.smartTarget) {
+							move.smartTarget = false;
+						} else {
+							this.add('-activate', target, 'move: Protect');
+						}
+						const lockedmove = source.getVolatile('lockedmove');
+						if (lockedmove) {
+							// Outrage counter is reset
+							if (source.volatiles['lockedmove'].duration === 2) {
+								delete source.volatiles['lockedmove'];
+							}
+						}
+						if (this.checkMoveMakesContact(move, source, target)) {
+							this.damage(source.baseMaxhp / 4, source, target);
+						}
+						return this.NOT_FAIL;
+					},
+					onHit(target, source, move) {
+						if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+							this.damage(source.baseMaxhp / 4, source, target);
+						}
+					},
+				}
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap(true);
+			},
+			onMaybeTrapPokemon(pokemon) {
+				pokemon.maybeTrapped = true;
+			},
+			onSourceAfterFaint(length, target, source, effect) {
+				if (effect && effect.effectType === 'Move') {
+					const bestStat = target.getBestStat(true, true);
+					this.boost({ [bestStat]: length }, source);
+				};
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility(['battlearmor','shellarmo'])) {
+					this.hint(`${pokemon.name}'s shining armor boosted its Defense!`)
+					this.boost({def: 1});
+				};
+				if (pokemon.hasAbility('dauntlesshield')) {
+					this.hint(`${pokemon.name}'s shining armor boosted its Defense! ${pokemon.name}'s magical power boosted its Special Defense!`)
+					this.boost({def: 1, spd: 1});
+				};
+				if (pokemon.hasAbility(['intrepidsword', 'justified', 'noguard'])) {
+					this.hint(`${pokemon.name}'s ferocious heart boosted its Attack! ${pokemon.name}'s ferocious heart boosted its Special Attack!`)
+					this.boost({atk: 1, spa: 1});
+				};
+				if (pokemon.hasAbility(['magicguard', 'mirrorarmor'])) {
+					this.hint(`${pokemon.name}'s magical power boosted its Special Defense!`)
+					this.boost({spd: 1});
+				};
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Colosseum Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fighting",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

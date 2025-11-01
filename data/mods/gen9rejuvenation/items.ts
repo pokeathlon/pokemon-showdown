@@ -195,6 +195,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({def: 2});
 				pokemon.trySetStatus('tox')
 			}
+			if (this.field.isBattlefield('colosseumfield')) {
+				this.boost({atk: 2});
+				pokemon.addVolatile('taunt');
+			}
 		},
 		num: 0,
 		desc: "Provides boost in synthetic fields.",

@@ -102,6 +102,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'factoryfield':
 			case 'mirrorarenafield':
+			case 'colosseumfield':
 				types = ['Steel'];
 				break;
 			case 'glitchfield':
@@ -1148,6 +1149,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 			if (statsLowered) {
 				this.boost({ spa: 2 }, target, target, null, false, true);
+				if (this.field.isBattlefield('colosseumfield')) {
+					this.boost({ spd: 2 }, target, target, null, false, true);
+				}
 			}
 		},
 		onBasePowerPriority: 19,
@@ -1293,6 +1297,54 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (this.field.isBattlefield('corruptedcavefield')? this.randomChance(6, 10) : this.randomChance(3, 10)) {
 					target.trySetStatus('psn', source);
 				}
+			}
+		},
+	},
+	defiant: {
+		inherit: true,
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.boost({ atk: 2 }, target, target, null, false, true);
+				if (this.field.isBattlefield('colosseumfield')) {
+					this.boost({ def: 2 }, target, target, null, false, true);
+				}
+			}
+		},
+	},
+	emergencyexit: {
+		inherit: true,
+		onEmergencyExit(target) {
+			if (this.field.isBattlefield('colosseumfield')) {
+				this.boost({spe: 2});
+				return;
+			}
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.switchFlag = true;
+			this.add('-activate', target, 'ability: Emergency Exit');
+		},
+	},
+	quickdraw: {
+		inherit: true,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category !== "Status" && this.randomChance(3, 10)) {
+				this.add('-activate', pokemon, 'ability: Quick Draw');
+				if (this.field.isBattlefield('colosseumfield')) move.willCrit = true;
+				return 0.1;
 			}
 		},
 	},
