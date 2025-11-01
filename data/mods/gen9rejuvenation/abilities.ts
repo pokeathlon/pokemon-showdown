@@ -35,6 +35,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Electric'];
 				break;
 			case 'grassyterrain':
+			case 'flowergardenfield':
 				types = ['Grass'];
 				break;
 			case 'bigtoparenafield':
@@ -147,7 +148,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onBattlefieldChange(pokemon, source, sourceEffect) {
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
 			if (!pokemon.hp) return;
-			if (this.field.isBattlefield('bewitchedwoodsfield')) {
+			if (this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield'])) {
 				if (pokemon.species.id !== 'cherrimsunshine') {
 					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
 				}
@@ -160,14 +161,14 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield('bewitchedwoodsfield') || pokemon.hasItem('cherrimcrest')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || pokemon.hasItem('cherrimcrest')) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield('bewitchedwoodsfield') || pokemon.hasItem('cherrimcrest')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || pokemon.hasItem('cherrimcrest')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -332,7 +333,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	leafguard: {
 		inherit: true,
 		onSetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain')) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Leaf Guard');
 				}
@@ -367,7 +368,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	harvest: {
 		inherit: true,
 		onResidual(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.field.isTerrain('grassyterrain') || this.randomChance(1, 2)) {
+			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) || this.randomChance(1, 2)) {
 				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
@@ -379,15 +380,23 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	overgrow: {
 		inherit: true,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain'))) {
+			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
 				this.debug('Overgrow boost');
-				return this.chainModify(1.5);
+				let modifier = 1.5;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) modifier = 1.6;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 4) modifier = 1.8;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) modifier = 2;
+				return this.chainModify(modifier);
 			}
 		},
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain'))) {
+			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
 				this.debug('Overgrow boost');
-				return this.chainModify(1.5);
+				let modifier = 1.5;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) modifier = 1.6;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 4) modifier = 1.8;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) modifier = 2;
+				return this.chainModify(modifier);
 			}
 		},
 	},
@@ -1108,6 +1117,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				return null;
 			}
 		},
+		onAnyModifyDamage(damage, source, target, move) {
+			if ((target === this.effectState.target || (target.isAlly(this.effectState.target) && target.hasType('Grass'))) && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) {
+				this.hint('The Flower Veil softened the attack!');
+				return this.chainModify(0.5);
+			}
+		},
 	},
 	competitive: {
 		inherit: true,
@@ -1227,6 +1242,27 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.actions.useMove(newMove, this.effectState.target, { target: source });
 			move.hasBounced = true; // only bounce once in free-for-all battles
 			return null;
+		},
+	},
+	swarm: {
+		inherit: true,
+		onModifyAtk(atk, attacker, defender, move) {
+			if ((move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) || this.field.isBattlefield('flowergardenfield')) {
+				this.debug('Swarm boost');
+				let modifier = 1.5;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) modifier = 1.8;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) modifier = 2;
+				return this.chainModify(modifier);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if ((move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) || this.field.isBattlefield('flowergardenfield')) {
+				this.debug('Swarm boost');
+				let modifier = 1.5;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) modifier = 1.8;
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) modifier = 2;
+				return this.chainModify(modifier);
+			}
 		},
 	},
 

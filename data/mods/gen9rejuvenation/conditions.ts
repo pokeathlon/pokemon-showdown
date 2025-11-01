@@ -46,6 +46,9 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.effectState.sourceEffect.id === 'whirlpool' && this.field.isBattlefield(['watersurfacefield','underwaterfield'])) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'magmastorm' && this.field.isBattlefield('dragonsdenfield')) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'firespin' && this.field.isBattlefield('hauntedfield')) this.effectState.boundDivisor = 6;
+			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) this.effectState.boundDivisor = 6;
+			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 4) this.effectState.boundDivisor = 4;
+			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) this.effectState.boundDivisor = 3;
 		},
 	},
 	hail: {

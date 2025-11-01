@@ -7,7 +7,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			let newType = 'Normal';
 			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) {
 				newType = 'Electric';
-			} else if (this.field.isTerrain('grassyterrain')) {
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('flowergardenfield')) {
 				newType = 'Grass';
 			} else if (this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) {
 				newType = 'Fairy';
@@ -107,6 +107,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'metronome';
 			}   else if (this.field.isBattlefield('mirrorarenafield')) {
 				move = 'mirrorshot';
+			}   else if (this.field.isBattlefield('flowergardenfield')) {
+				move = 'growth';
+			}   else if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) {
+				move = 'petalblizzard';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -217,13 +221,40 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						accuracy: -1,
 					},
 				});
-			} else if (this.field.isBattlefield('mirrorarenafield')) {
+			} else if (this.field.isBattlefield(['mirrorarenafield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
 						evasion: -1,
 					},
 				});
+			} else if (this.field.isBattlefield(['flowergardenfield'])) {
+				if (this.field.battlefieldState.growth === 5) {
+					move.secondaries.push({
+						chance: 30,
+						boosts: {
+							def: -2,
+							spd: -2,
+							evasion: -2,
+						},
+					});
+				} else if (this.field.battlefieldState.growth >= 3) {
+					move.secondaries.push({
+						chance: 30,
+						boosts: {
+							def: -1,
+							spd: -1,
+							evasion: -1,
+						},
+					});
+				} else {
+					move.secondaries.push({
+						chance: 30,
+						boosts: {
+							evasion: -1,
+						},
+					});
+				};
 			} else if (this.field.isBattlefield('newworldfield')) {
 				move.secondaries.push({
 					chance: 30,
@@ -253,6 +284,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Electric';
 				break;
 			case 'grassyterrain':
+			case 'flowergardenfield':
 				move.type = 'Grass';
 				break;
 			case 'mistyterrain':
@@ -328,7 +360,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSourceModifyDamage(damage, source, target, move) {
 				if (!target.volatiles['shelter']) return;
 				if ((this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) && move.type === 'Electric') return this.chainModify(0.5);
-				if (this.field.isTerrain('grassyterrain') && move.type === 'Grass') return this.chainModify(0.5);
+				if ((this.field.isTerrain('grassyterrain') || this.field.isBattlefield('flowergardenfield')) && move.type === 'Grass') return this.chainModify(0.5);
 				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
@@ -564,7 +596,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onResidualOrder: 7,
 			onResidual(pokemon) {
-				let denominator = this.field.isTerrain('grassyterrain')? 8 : 16 
+				let denominator = (this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2))? 8 : 16 
+				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) denominator = 4;
 				this.heal(pokemon.baseMaxhp / denominator);
 			},
 			onTrapPokemon(pokemon) {
@@ -602,6 +635,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (this.field.isTerrain('grassyterrain')) {
 				success = !!this.heal(this.modify(target.baseMaxhp, 0.75));
 			} else if (this.field.isBattlefield('fairytalefield')) {
+				success = !!this.heal(Math.ceil(target.baseMaxhp));
+			} else if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) {
 				success = !!this.heal(Math.ceil(target.baseMaxhp));
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
@@ -670,7 +705,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	growth: {
 		inherit: true,
 		onModifyMove(move, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isTerrain('grassyterrain')) move.boosts = {atk: 2, spa: 2};
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('flowergardenfield')) {
+				const boostAmount = (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)? 3 : 2
+				move.boosts = {atk: boostAmount, spa: boostAmount};
+			}
 		},
 	},
 	naturesmadness: {
@@ -6318,12 +6356,203 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
-				this.add('-fieldend', 'move: Glitch Field');
+				this.add('-fieldend', 'move: Mirror Arena Field');
 			},
 		},
 		secondary: null,
 		target: "all",
 		type: "Steel",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	flowergardenfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Flower Garden Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'flowergardenfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (this.field.battlefieldState.growth === 2) {
+					if (move.type === 'Grass') {
+						this.hint("The garden's poweor boosted the attack!");
+						this.chainModify(1.1);
+					}
+				};
+				if (this.field.battlefieldState.growth === 3) {
+					if (move.type === 'Grass') {
+						this.hint("The budding flowers boosted the attack!");
+						this.chainModify(1.3);
+					}
+					if (move.type === 'Fire') {
+						this.hint("The nearby flowers caught flame!");
+						this.chainModify(1.5);
+					}
+					if (move.type === 'Bug') {
+						this.hint("The attack infested the garden!");
+						this.chainModify(1.5);
+					}
+					if (['fleurcannon', 'petalblizzard', 'petaldance'].includes(move.id)) {
+						this.hint('The fresh scent of flowers boosted the attack!');
+						this.chainModify(1.2);
+					}
+				};
+				if (this.field.battlefieldState.growth === 4) {
+					if (move.type === 'Grass') {
+						this.hint("The blooming flowers boosted the attack!");
+						this.chainModify(1.5);
+					}
+					if (move.type === 'Fire') {
+						this.hint("The nearby flowers caught flame!");
+						this.chainModify(1.5);
+					}
+					if (move.type === 'Bug') {
+						this.hint("The attack infested the flowers!");
+						this.chainModify(2);
+					}
+					if (['fleurcannon', 'petalblizzard', 'petaldance'].includes(move.id)) {
+						this.hint('The vibrant aroma scent of flowers boosted the attack!');
+						this.chainModify(1.5);
+					}
+				};
+				if (this.field.battlefieldState.growth === 5) {
+					if (move.type === 'Grass') {
+						this.hint("The thriving flowers boosted the attack!");
+						this.chainModify(2);
+					}
+					if (move.type === 'Fire') {
+						this.hint("The nearby flowers caught flame!");
+						this.chainModify(1.5);
+					}
+					if (move.type === 'Bug') {
+						this.hint("The attack infested the flowers!");
+						this.chainModify(2);
+					}
+					if (['fleurcannon', 'petalblizzard', 'petaldance'].includes(move.id)) {
+						this.hint('The vibrant aroma scent of flowers boosted the attack!');
+						this.chainModify(1.5);
+					}
+				};
+			},
+			onModifyDamage(damage, source, target, move) {
+				if (target.hasType('Grass') && this.field.battlefieldState.growth === 3) {
+					return this.chainModify(0.75);
+				}
+				if (target.hasType('Grass') && this.field.battlefieldState.growth === 4) {
+					return this.chainModify(0.66);
+				}
+				if (target.hasType('Grass') && this.field.battlefieldState.growth === 5) {
+					return this.chainModify(0.5);
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['bloomdoom','flowershield','grassyterrain','growth','ingrain','raindance','rototiller','sunnyday','watersport'].includes(move.id)) {
+					this.hint('The garden grew a little!')
+					this.field.battlefieldState.growth += source.hasAbility('ripen')? 2 : 1;
+				};
+				if (['cut', 'xscissor'].includes(move.id)) {
+					this.hint('The garden was cut down a bit!')
+					this.field.battlefieldState.growth -= 1;
+				}
+				if (this.field.battlefieldState.growth >= 3 && ['eruption','firepledge','flameburst','heatwave','infernooverdrive','lavaplume','mindblown','searingshot'].includes(move.id)) {
+					this.hint('The garden caught fire!')
+					this.field.battlefieldState.growth -= 2;
+				}
+				if (move.id === 'aciddownpour') {
+					this.hint('The acid melted the bloom!')
+					this.field.battlefieldState.growth =1;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'rototiller') move.onHitField = function (target, source) {
+					const targets: Pokemon[] = [];
+					let anyAirborne = false;
+					for (const pokemon of this.getAllActive()) {
+						if (!pokemon.runImmunity('Ground')) {
+							this.add('-immune', pokemon);
+							anyAirborne = true;
+							continue;
+						}
+						targets.push(pokemon);
+					}
+					if (!targets.length && !anyAirborne) return false; // Fails when there are no grounded Grass types or airborne Pokemon
+					for (const pokemon of targets) {
+						this.boost({ atk: 2, spa: 2 }, pokemon, source);
+					}
+				};
+				if (move.id === 'flowershield' && this.field.battlefieldState.growth >= 2) move.onHitField = function (t, source, move) {
+					const targets: Pokemon[] = [];
+					const boostAmount = (this.field.battlefieldState.growth >= 3)? 2 : 1
+					for (const pokemon of this.getAllActive()) {
+						if (
+							(pokemon.hasType('Grass') || pokemon === source) &&
+							(!pokemon.volatiles['maxguard'] ||
+								this.runEvent('TryHit', pokemon, source, move))
+						) {
+							// This move affects every Grass-type Pokemon in play.
+							targets.push(pokemon);
+						}
+					}
+					let success = false;
+					for (const target of targets) {
+						success = this.boost({ def: boostAmount, spd: boostAmount }, target, source, move) || success;
+					}
+					return success;
+				};
+				if (this.field.battlefieldState.growth >= 3) {
+					if (['poisonpowder', 'sleeppowder', 'stunspore'].includes(move.id)) move.accuracy = 85;
+					if (move.id === 'sweetscent') move.boosts = {def: -1, spd: -1, evasion: -1};
+				};
+				if (this.field.battlefieldState.growth === 4) {
+					if (move.id === 'sweetscent') move.boosts = {def: -2, spd: -2, evasion: -2};
+				};
+				if (this.field.battlefieldState.growth === 5) {
+					if (['petalblizzard','petaldance','poisonpowder','powder','sleeppowder','spore','stunspore'].includes(move.id)) move.target = 'allAdjacentFoes';
+					if (move.id === 'sweetscent') move.boosts = {def: -3, spd: -3, evasion: -3};
+				};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.id === 'cut' && type === 'Grass' && this.field.battlefieldState.growth >=2) return 1;
+				if (type === 'Grass' && typeMod > 0 && this.field.battlefieldState.growth >= 4) return 0;
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility(['drought', 'drizzle', 'flowergift', 'flowerveil'])) {
+					this.hint(`${pokemon.name}'s ${pokemon.ability} grew the garden!`)
+					this.field.battlefieldState.growth += 1;
+				};
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.field.battlefieldState.growth >= 4 && pokemon.hasAbility('chlorophyll') && !['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+					return this.chainModify(2);
+				}
+			},
+			onUseItem(item, pokemon) {
+				if (item.id === 'syntheticseed') this.field.battlefieldState.growth += 1;
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.battlefieldState.growth = 1;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Flower Garden Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Grass",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

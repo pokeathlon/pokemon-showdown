@@ -176,6 +176,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('glitchfield')) {
 				this.boost({evasion: 2});
 			}
+			if (this.field.isBattlefield('flowergardenfield')) {
+				this.boost({spd: 1});
+				pokemon.addVolatile('ingrain');
+			}
 		},
 		num: 0,
 		desc: "Provides boost in synthetic fields.",
