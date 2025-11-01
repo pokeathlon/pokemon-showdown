@@ -28,6 +28,10 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 					type = 'Dark';
 					this.hint('A false god holds no power here...')
 				}
+				if (this.field.isBattlefield('glitchfield')) {
+					type = '???';
+					this.hint(`${pokemon.name} was corrupted by the rogue data!`)
+				}
 			}
 			return [type];
 		},

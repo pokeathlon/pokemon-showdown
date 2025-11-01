@@ -68,6 +68,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'factoryfield':
 				types = ['Steel'];
 				break;
+			case 'glitchfield':
+				types = ['???'];
+				break;
 			case 'newworldfield':
 				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
 				break;
@@ -1149,7 +1152,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				totaldef += target.getStat('def', false, true);
 				totalspd += target.getStat('spd', false, true);
 			} 
-			if (this.field.isBattlefield('shortcircuitfield')) {
+			if (this.field.isBattlefield(['shortcircuitfield', 'glitchfield'])) {
 				this.boost({ atk: 1, spa: 1 });
 			} else if (totaldef && totaldef >= totalspd) {
 				this.boost({ spa: boostAmount });

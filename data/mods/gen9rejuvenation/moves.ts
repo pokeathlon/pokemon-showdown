@@ -37,8 +37,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
 			} else if (this.field.isBattlefield('inversefield')) {
 				newType = 'Normal';
-			}	else if (this.field.isBattlefield('bigtoparenafield')) {
+			} else if (this.field.isBattlefield('bigtoparenafield')) {
 				newType = 'Fighting';
+			} else if (this.field.isBattlefield('glitchfield')) {
+				newType = '???';
 			} 
 
 			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
@@ -101,6 +103,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'geargrind';
 			}   else if (this.field.isBattlefield('shortcircuitfield')) {
 				move = 'discharge';
+			}   else if (this.field.isBattlefield('glitchfield')) {
+				move = 'metronome';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -197,7 +201,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spd: -1,
 					},
 				});
-			} else if (this.field.isBattlefield('watersurfacefield')) {
+			} else if (this.field.isBattlefield(['watersurfacefield', 'glitchfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -295,6 +299,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'inversefield':
 				move.type = 'Normal';
 				break;
+			case 'glitchfield':
+				move.type = '???';
+				break;
 			case 'newworldfield':
 				move.type = this.dex.types.get(this.sample(this.dex.types.all())).name;
 				break;
@@ -326,6 +333,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['factoryfield']) && move.type === 'Steel') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -1450,6 +1458,49 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	conversion: {
+		inherit: true,
+		onHit(target) {
+			const type = this.dex.moves.get(target.moveSlots[0].id).type;
+			if (target.hasType(type) || !target.setType(type)) return false;
+			if (this.field.battlefieldState.glitch && !target.hasItem('everstone')) {
+				this.hint(`TH~ R0GUE DAa/ta cor$upt?@####`);
+				this.field.setBattlefield('glitchfield')
+			}
+			if (!target.hasItem('everstone')) {this.hint('Some rogue data remains...'); this.field.battlefieldState.glitch = true;}
+			this.add('-start', target, 'typechange', type);
+		},
+	},
+	conversion2: {
+		inherit: true,
+		onHit(target, source) {
+			if (!target.lastMoveUsed) {
+				return false;
+			}
+			const possibleTypes = [];
+			const attackType = target.lastMoveUsed.type;
+			for (const typeName of this.dex.types.names()) {
+				if (source.hasType(typeName)) continue;
+				const typeCheck = this.dex.types.get(typeName).damageTaken[attackType];
+				if (typeCheck === 2 || typeCheck === 3) {
+					possibleTypes.push(typeName);
+				}
+			}
+			if (!possibleTypes.length) {
+				return false;
+			}
+			const randomType = this.sample(possibleTypes);
+
+			if (!source.setType(randomType)) return false;
+			if (this.field.battlefieldState.glitch && !source.hasItem('everstone')) {
+				this.hint(`TH~ R0GUE DAa/ta cor$upt?@####`);
+				this.field.setBattlefield('glitchfield')
+			}
+			if (!source.hasItem('everstone')) {this.hint('Some rogue data remains...'); this.field.battlefieldState.glitch = true;}
+			this.add('-start', source, 'typechange', randomType);
+		},
+	},
+
 	// custom move
 	alphashot: {
 		num: 1,
@@ -5840,7 +5891,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
-				this.add('-fieldend', 'move: Big Top Arena Field');
+				this.add('-fieldend', 'move: Factory Field');
 			},
 		},
 		secondary: null,
@@ -5934,12 +5985,120 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldResidualOrder: 27,
 			onFieldResidualSubOrder: 7,
 			onFieldEnd() {
-				this.add('-fieldend', 'move: Big Top Arena Field');
+				this.add('-fieldend', 'move: Short-Circuit Field');
 			},
 		},
 		secondary: null,
 		target: "all",
-		type: "Fighting",
+		type: "Electric",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	glitchfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Glitch Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'glitchfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Psychic') {
+					this.hint('.0P pl$ nerf!-//')
+					this.chainModify(1.2);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.type === 'Fairy') move.type = 'Normal';
+				if (['Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark'].includes(move.type) && move.category === 'Physical') {
+					move.category = 'Special'
+				}
+				if (['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel'].includes(move.type) && move.category === 'Special') {
+					move.category = 'Physical'
+				}
+				if (move.id === 'blizzard') move.accuracy = 90;
+				if (move.id === 'metronome') move.onHit = function (pokemon) {
+					const moves = this.dex.moves.all().filter(move => (
+						(!move.isNonstandard || move.isNonstandard === 'Unobtainable') &&
+						move.flags['metronome'] && move.basePower >= 70
+					));
+					let randomMove = '';
+					if (moves.length) {
+						moves.sort((a, b) => a.num - b.num);
+						randomMove = this.sample(moves).id;
+					}
+					if (!randomMove) return false;
+					this.actions.useMove(randomMove, pokemon);
+				};
+				if (move.id === 'rage') move.condition = {
+					onStart(pokemon) {
+						this.add('-singlemove', pokemon, 'Rage');
+					},
+					onHit(target, source, move) {
+						if (target !== source && move.category !== 'Status') {
+							this.boost({ atk: 1 });
+						}
+					},
+				};
+			},
+			onTryMove(source, target, move) {
+				if (['roar', 'whirlwind'].includes(move.id)){
+					this.add('-fail', source, `move: ${move.name}`);
+					this.hint('ERROR! MOVE NOT FOUND!')
+					this.attrLastMove('[still]');
+					return null;
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Dragon') return 0;
+				if (move.type === 'Bug' && type === 'Poison') return 1;
+				if (move.type === 'Poison' && type === 'Bug') return 1;
+				if (move.type === 'Ice' && type === 'Fire') return 0;
+				if (move.type === 'Ghost' && type === 'Psychic') return 3;
+				if (['Ghost', 'Dark'].includes(move.type) && type === 'Steel') return 2;
+			},
+			onSourceAfterFaint(length, target, source, effect) {
+				if (effect && effect.effectType === 'Move') {
+					if (source.volatiles['mustrecharge']) source.removeVolatile('mustrecharge');
+				}
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.activeMove && ['explosion', 'selfdestruct'].includes(this.activeMove.id)) {
+					return this.chainModify(0.5)
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, source, target, move) {
+				if (source.storedStats['spd'] > spa) return spa = source.storedStats['spd'];
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, target, source, move) {
+				if (source.storedStats['spa'] > spd) return spd = source.storedStats['spa'];
+			},
+			onModifyCritRatio(critRatio, source, target, move) {
+				if (source.baseStoredStats['spe'] > target.baseStoredStats['spe']) return critRatio + 1;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Glitch Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Electric",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

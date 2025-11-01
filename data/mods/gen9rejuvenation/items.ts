@@ -20,6 +20,51 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		gen: undefined
 	},
+	dousedrive: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] item: Douse Drive');
+				}
+				return null;
+			}
+		},
+	},
+	chilldrive: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] item: Chill Drive');
+				}
+				return null;
+			}
+		},
+	},
+	shockdrive: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({ spe: 1 })) {
+					this.add('-immune', target, '[from] item: Shock Drive');
+				}
+				return null;
+			}
+		},
+	},
+	burndrive: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfire')) {
+					this.add('-immune', target, '[from] item: Burn Drive');
+				}
+				return null;
+			}
+		},
+	},
 	// Additions
 	magicalseed: {
 		name: "Magical Seed",
@@ -68,6 +113,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				pokemon.addVolatile('mustrecharge');
 			}
 			if (this.field.isBattlefield('inversefield')) {
+				pokemon.setType('Normal')
 				this.add('-start', pokemon, 'typechange', 'Normal');
 				pokemon.setAbility('normalize')
 				this.add('-ability', pokemon, 'Normalize', '[from] item: Magical Seed');
@@ -121,6 +167,11 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('factoryfield')) {
 				this.boost({spd: 1});
 				pokemon.addVolatile('magnetrise');
+			}
+			if (this.field.isBattlefield('glitchfield')) {
+				this.boost({def: 1});
+				pokemon.setType('???')
+				this.add('-start', pokemon, 'typechange', '???');
 			}
 		},
 		num: 0,
