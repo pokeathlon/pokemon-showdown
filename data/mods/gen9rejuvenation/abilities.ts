@@ -66,6 +66,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Ghost'];
 				break;
 			case 'factoryfield':
+			case 'mirrorarenafield':
 				types = ['Steel'];
 				break;
 			case 'glitchfield':
@@ -1200,6 +1201,32 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				this.debug('Technician boost');
 				return this.chainModify(1.5);
 			}
+		},
+	},
+	magicbounce: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable'] || target.isSemiInvulnerable()) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			if (this.field.isBattlefield('mirrorarenafield')) this.boost({evasion: 1}, target)
+			this.actions.useMove(newMove, target, { target: source });
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable'] || target.isSemiInvulnerable()) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			if (this.field.isBattlefield('mirrorarenafield')) this.boost({evasion: 1})
+			this.actions.useMove(newMove, this.effectState.target, { target: source });
+			move.hasBounced = true; // only bounce once in free-for-all battles
+			return null;
 		},
 	},
 

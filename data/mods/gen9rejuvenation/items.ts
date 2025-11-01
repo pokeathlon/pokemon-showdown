@@ -173,9 +173,12 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				pokemon.setType('???')
 				this.add('-start', pokemon, 'typechange', '???');
 			}
+			if (this.field.isBattlefield('glitchfield')) {
+				this.boost({evasion: 2});
+			}
 		},
 		num: 0,
-		desc: "Provides boost in magical fields.",
+		desc: "Provides boost in synthetic fields.",
 	},
 	elementalseed: {
 		name: "Elemental Seed",

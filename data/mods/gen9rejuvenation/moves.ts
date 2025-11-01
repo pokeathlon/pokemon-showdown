@@ -27,7 +27,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Flying';
 			} else if (this.field.isBattlefield('hauntedfield')) {
 				newType = 'Ghost';
-			} else if (this.field.isBattlefield('factoryfield')) {
+			} else if (this.field.isBattlefield(['factoryfield', 'mirrorarenafield'])) {
 				newType = 'Steel';
 			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				newType = 'Dark';
@@ -105,6 +105,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'discharge';
 			}   else if (this.field.isBattlefield('glitchfield')) {
 				move = 'metronome';
+			}   else if (this.field.isBattlefield('mirrorarenafield')) {
+				move = 'mirrorshot';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -213,6 +215,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					boosts: {
 						accuracy: -1,
+					},
+				});
+			} else if (this.field.isBattlefield('mirrorarenafield')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						evasion: -1,
 					},
 				});
 			} else if (this.field.isBattlefield('newworldfield')) {
@@ -763,7 +772,41 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield','crystalcavernfield', 'starlightarenafield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield','darkcrystalcavernfield','rainbowfield','crystalcavernfield', 'starlightarenafield', 'mirrorarenafield']));
+		},
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasItem('lightclay')) {
+					modifiedDuration += 3;
+				}
+				if (this.field.isBattlefield('mirrorarenafield')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target)) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+						(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Aurora Veil weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Aurora Veil');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Aurora Veil');
+			},
 		},
 	},
 	takeheart: {
@@ -1498,6 +1541,72 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			if (!source.hasItem('everstone')) {this.hint('Some rogue data remains...'); this.field.battlefieldState.glitch = true;}
 			this.add('-start', source, 'typechange', randomType);
+		},
+	},
+	reflect: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasItem('lightclay')) {
+					modifiedDuration += 3;
+				}
+				if (this.field.isBattlefield('mirrorarenafield')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Reflect weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Reflect');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Reflect');
+			},
+		},
+	},
+	lightscreen: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				let modifiedDuration = 5;
+				if (source?.hasItem('lightclay')) {
+					modifiedDuration += 3;
+				}
+				if (this.field.isBattlefield('mirrorarenafield')) {
+					modifiedDuration += 3;
+				}
+				return modifiedDuration;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug('Light Screen weaken');
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Light Screen');
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Light Screen');
+			},
 		},
 	},
 
@@ -6099,6 +6208,122 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Electric",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	mirrorarenafield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mirror Arena Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'mirrorarenafield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.id === 'mirrorshot') {
+					this.hint('The mirrors strengthened the attack!');
+					this.chainModify(2);
+				};
+				if (['aurorabeam', 'signalbeam', 'flashcannon', 'lusterpurge', 'doomdesire', 'dazzlinggleam', 'technoblast', 'prismaticlaser', 'photongeyser'].includes(move.id)) {
+					this.hint('The reflected light was blinding!');
+					this.chainModify(1.5);
+				}
+			},
+			onModifyCritRatio(critRatio, source, target, move) {
+				let statBoosts = 0;
+				if (source.boosts.accuracy > 0) statBoosts += source.boosts.accuracy;
+				if (source.boosts.evasion > 0) statBoosts += source.boosts.evasion;
+				if (target.boosts.accuracy < 0) statBoosts -= target.boosts.accuracy;
+				if (target.boosts.evasion < 0) statBoosts -= target.boosts.evasion;
+				return critRatio + statBoosts
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'mirrorshot') {move.accuracy = true; move.boosts = {accuracy: -1}; move.secondary = undefined;}
+				if (move.id === 'flash') move.boosts = {accuracy: -2};
+				if (move.id === 'doubleteam') move.boosts = {evasion: 2};
+				if (['aurorabeam', 'signalbeam', 'flashcannon', 'lusterpurge', 'doomdesire', 'dazzlinggleam', 'technoblast', 'prismaticlaser', 'photongeyser'].includes(move.id)) {
+					move.accuracy = true;
+				}
+				if (move.id === 'mirrorcoat') move.condition = {
+					duration: 1,
+					noCopy: true,
+					onStart(target, source, move) {
+						this.effectState.slot = null;
+						this.effectState.damage = 0;
+					},
+					onRedirectTargetPriority: -1,
+					onRedirectTarget(target, source, source2, move) {
+						if (move.id !== 'mirrorcoat') return;
+						if (source !== this.effectState.target || !this.effectState.slot) return;
+						return this.getAtSlot(this.effectState.slot);
+					},
+					onDamagingHit(damage, target, source, move) {
+						if (!source.isAlly(target) && this.getCategory(move) === 'Special') {
+							this.effectState.slot = source.getSlot();
+							this.boost({evasion: 1, def: 1, spd: 1}, source);
+							this.effectState.damage = 2 * damage;
+						}
+					},
+				};
+				if (move.id === 'mirrormove') move.onTryHit = function (target, pokemon) {
+					const move = target.lastMove;
+					if (!move?.flags['mirror'] || move.isZ || move.isMax) {
+						return false;
+					}
+					this.actions.useMove(move.id, pokemon, { target });
+					this.boost({accuracy: 1, atk: 1, spa: 1})
+					return null;
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['earthquake', 'bulldoze', 'boomburst', 'hypervoice', 'magnitude', 'tectonicrage'].includes(move.id)) {
+					this.hint('The mirror arena shattered!')
+					for (const poke of this.getAllActive()) {
+						this.damage(poke.maxhp / 2, poke, source)
+					}
+					this.field.clearBattlefield();
+				}
+				if (['reflect', 'lightscreen', 'auroraveil'].includes(move.id)) {
+					this.boost({evasion: 1});
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility('illuminate')) {
+					let activated = false;
+					for (const target of pokemon.adjacentFoes()) {
+						if (!activated) {
+							this.add('-ability', pokemon, 'Illuminate', 'boost');
+							activated = true;
+						}
+						if (target.volatiles['substitute']) {
+							this.add('-immune', target);
+						} else {
+							this.boost({ accuracy: -1 }, target, pokemon, null, true);
+						}
+					}
+				};
+				if (pokemon.hasAbility(['sandveil', 'snowcloak', 'illusion', 'tangledfeet', 'magicbounce', 'colorchange']) || pokemon.hasItem(['laxincense', 'brightpowder'])) this.boost({evasion: 1});
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Glitch Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Steel",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
