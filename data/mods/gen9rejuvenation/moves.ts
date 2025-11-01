@@ -15,7 +15,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Psychic';
 			} else if (this.field.isBattlefield(['volcanicfield','infernalfield'])) {
 				newType = 'Fire';
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corruptedcavefield'])) {
 				newType = 'Poison';
 			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				newType = 'Ice';
@@ -111,6 +111,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'growth';
 			}   else if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) {
 				move = 'petalblizzard';
+			}   else if (this.field.isBattlefield('corruptedcavefield')) {
+				move = 'gunkshot';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -136,7 +138,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'brn',
 				});
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
@@ -302,6 +304,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'corrosivemistfield':
 			case 'murkwatersurfacefield':
+			case 'corruptedcavefield':
 				move.type = 'Poison';
 				break;
 			case 'icyfield':
@@ -364,7 +367,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']) && move.type === 'Poison') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
@@ -598,7 +601,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onResidual(pokemon) {
 				let denominator = (this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2))? 8 : 16 
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) denominator = 4;
-				this.heal(pokemon.baseMaxhp / denominator);
+				this.field.isBattlefield('corruptedcavefield')? this.damage(pokemon.baseMaxhp / denominator) : this.heal(pokemon.baseMaxhp / denominator);
 			},
 			onTrapPokemon(pokemon) {
 				pokemon.tryTrap();
@@ -3595,7 +3598,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onModifyMove(move, pokemon, target) {
 				if (['mudbarrage','mudbomb','mudshot','mudslap','thuosandwaves'].includes(move.id)) move.type === 'Water';
 				if (move.id === 'acidarmor') move.boosts = {def: 3};
-				if (['lifedew','tarshot'].includes(move.id)) move.status === 'psn';
+				if (['lifedew','tarshot'].includes(move.id)) move.status = toID('psn');
 				if (move.id === 'shoreup' && pokemon.hasAbility('watercompaction')) this.boost({def: 1});
 			},
 			onEffectiveness(typeMod, target, type, move) {
@@ -5581,27 +5584,27 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onBasePower(basePower, source, target, move) {
 				if (move.type === 'Fairy') {
-					this.hint("The fairy aura amplified the attack's power!")
+					this.hint("The fairy aura amplified the attack's power!");
 					this.chainModify(1.5);
-				}
+				};
 				if (move.type === 'Grass') {
-					this.hint("Flourish!")
+					this.hint("Flourish!");
 					this.chainModify(1.5);
-				}
+				};
 				if (move.type === 'Dark') {
-					this.hint("The dark aura amplified the attack's power!")
+					this.hint("The dark aura amplified the attack's power!");
 					this.chainModify(1.3);
-				}
+				};
 				if (['hex', 'mysticalfire', 'spiritbreak'].includes(move.id)) {
-					this.hint("Magic aura amplified the attack!")
+					this.hint("Magic aura amplified the attack!");
 					this.chainModify(1.5);
-				}
+				};
 				if (['aurorabeam', 'bubblebeam', 'chargebeam', 'flashcannon', 'hyperbeam', 'icebeam', 'magicalleaf', 'mirrorbeam', 'psybeam', 'signalbeam'].includes(move.id)) {
-					this.hint("Magic aura amplified the attack!")
-					this.chainModify(1.4)
-				}
+					this.hint("Magic aura amplified the attack!");
+					this.chainModify(1.4);
+				};
 				if (['darkpulse', 'moonblast', 'nightdaze'].includes(move.id)) {
-					this.hint("The forest is cursed with nightfall!")
+					this.hint("The forest is cursed with nightfall!");
 					this.chainModify(1.2);
 				}
 			},
@@ -6553,6 +6556,119 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Grass",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	corruptedcavefield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Corrupted Cave Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'corruptedcavefield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Poison') {
+					this.hint('The chemicals strengthened the attack.');
+					this.chainModify(1.5);
+				} 
+				if (['Grass', 'Rock'].includes(move.type)) {
+					this.hint('The corruption morphed the attack!');
+					this.chainModify(1.2);
+				} 
+				if (move.type === 'Fairy') {
+					this.hint('The corruption weakened the attack.');
+					this.chainModify(0.5);
+				} 
+				if (move.type === 'Flying' && !move.flags.contact) {
+					this.hint('The cave choked out the air!');
+					this.chainModify(0.5);
+				} 
+				if (source.hasAbility('corrosion')) {
+					this.chainModify(1.5);
+				}
+				if (['applceacid', 'seedflare'].includes(move.id)) {
+					this.hint("The move absorbed the filth!");
+					this.chainModify(1.5);
+				}
+				if (['seedflare', 'solarbeam', 'solarblade', 'blastburn', 'eruption', 'heatwave', 'infernooverdrive','lavaplume'].includes(move.id)) {
+					this.chainModify(1.3);
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['diamondstorm', 'rockslide', 'rocktomb', 'smackdown', 'stoneedge'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Poison', type);
+				};
+				if (['gunkshot', 'sludgewave'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Rock', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'tarshot') move.status = toID('psn');
+				if (move.id === 'toxicthread') move.status = toID('tox');
+				if (move.id === 'stealthrock') move.condition = {
+					onSideStart(side) {
+						this.add('-sidestart', side, 'move: Stealth Rock');
+					},
+					onSwitchIn(pokemon) {
+						if (pokemon.hasItem('heavydutyboots')) return;
+						const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('poisonjab')), -6, 6);
+						this.hint(`${pokemon.name} was hurt by the corrupted stealth rocks!`)
+						this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
+					},
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['purify', 'seedflare', 'solarbeam', 'solarblade'].includes(move.id)) {
+					this.hint('The cave was purified!');
+					this.field.setBattlefield('cavefield');
+				};
+				if (['blastburn', 'eruption', 'heatwave', 'infernooverdrive','lavaplume'].includes(move.id)) {
+					this.hint("The cave's corruption combusted!");
+					for (const pokemon of this.getAllActive()) {
+						pokemon.damage(pokemon.baseMaxhp / 2);
+					}
+					this.field.setBattlefield('volcanicfield');
+				}
+			},
+			onResidualPriority: 5,
+			onResidual(target, source, effect) {
+				if (!target.isGrounded() && !target.hasType(['Poison', 'Steel']) && !target.hasAbility(['immunity', 'pastelveil', 'wonderskin'])) {
+					target.trySetStatus('psn');
+				};
+				if (target.hasAbility('dryskin')) {
+					if (target.hasType('Poison')) this.heal(target.maxhp/8, target);
+					if (!target.hasType(['Poison', 'Steel'])) this.damage(target.maxhp/8, target);
+				};
+				if (target.hasAbility(['flowerveil','grasspelt','leafguard'])) {
+					this.hint(`${target.name}'s foliage caused harm!`);
+					this.damage(target.maxhp / 8, target);
+				};
+				if (target.hasAbility('poisonheal')) {
+					this.hint(`${target.name} was healed in the corruption!`)
+					this.heal(target.maxhp / 8, target);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Corrupted Cave Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Poison",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

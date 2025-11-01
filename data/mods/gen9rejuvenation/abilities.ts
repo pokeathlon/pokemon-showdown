@@ -31,22 +31,56 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			let types;
 			switch (this.field.terrain || this.field.battlefield) {
 			case 'electricterrain':
-			case 'shortcircuitfield':
 				types = ['Electric'];
 				break;
 			case 'grassyterrain':
-			case 'flowergardenfield':
 				types = ['Grass'];
 				break;
-			case 'bigtoparenafield':
-				types = ['Fighting'];
-				break;
 			case 'mistyterrain':
-			case 'fairytalefield':
-			case 'bewitchedwoodsfield':
 				types = ['Fairy'];
 				break;
 			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
+			}
+		},
+		onBattlefieldChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'volcanicfield':
+			case 'infernalfield':
+				types = ['Fire'];
+				break;
+			case 'corrosivemistfield':
+			case 'murkwatersurfacefield':
+			case 'corruptedcavefield':
+				types = ['Poison'];
+				break;
+			case 'icyfield':
+			case 'frozendimensionalfield':
+				types = ['Ice'];
+				break;
+			case 'watersurfacefield':
+			case 'underwaterfield':
+				types = ['Water'];
+				break;
+			case 'dragonsdenfield':
+				types = ['Dragon'];
+				break;
+			case 'skyfield':
+				types = ['Flying'];
+				break;
 			case 'chessboardfield':
 				types = ['Psychic'];
 				break;
@@ -73,46 +107,21 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'glitchfield':
 				types = ['???'];
 				break;
+			case 'fairytalefield':
+			case 'bewitchedwoodsfield':
+				types = ['Fairy'];
+				break;
+			case 'flowergardenfield':
+				types = ['Grass'];
+				break;
+			case 'bigtoparenafield':
+				types = ['Fighting'];
+				break;
+			case 'shortcircuitfield':
+				types = ['Electric'];
+				break;
 			case 'newworldfield':
 				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
-				break;
-			default:
-				types = pokemon.baseSpecies.types;
-			}
-			const oldTypes = pokemon.getTypes();
-			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
-			if (this.field.terrain || pokemon.transformed) {
-				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
-				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
-			} else {
-				this.add('-activate', pokemon, 'ability: Mimicry');
-				this.add('-end', pokemon, 'typechange', '[silent]');
-			}
-		},
-		onBattlefieldChange(pokemon) {
-			let types;
-			switch (this.field.terrain) {
-			case 'volcanicfield':
-			case 'infernalfield':
-				types = ['Fire'];
-				break;
-			case 'corrosivemistfield':
-			case 'murkwatersurfacefield':
-				types = ['Poison'];
-				break;
-			case 'icyfield':
-			case 'frozendimensionalfield':
-				types = ['Ice'];
-				break;
-			case 'watersurfacefield':
-			case 'underwaterfield':
-				types = ['Water'];
-				break;
-			case 'dragonsdenfield':
-				types = ['Dragon'];
-				break;
-			case 'skyfield':
-				types = ['Flying'];
 				break;
 			default:
 				types = pokemon.baseSpecies.types;
@@ -531,7 +540,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			if ((attacker.status === 'psn' || attacker.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) && move.category === 'Physical') {
-				return this.chainModify(1.5);
+				return this.chainModify(this.field.isBattlefield('corruptedcavefield')? 2 : 1.5);
 			}
 		},
 	},
@@ -687,7 +696,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
 			const canOoze = ['drain', 'leechseed', 'strengthsap'];
 			if (canOoze.includes(effect.id)) {
-				let damageMod = this.field.isBattlefield('murkwatersurfacefield')? 2 : 1;
+				let damageMod = this.field.isBattlefield(['murkwatersurfacefield', 'corruptedcavefield'])? 2 : 1;
 				this.damage(damage*damageMod);
 				return 0;
 			}
@@ -1262,6 +1271,28 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) modifier = 1.8;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) modifier = 2;
 				return this.chainModify(modifier);
+			}
+		},
+	},
+	poisonpoint: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.field.isBattlefield('corruptedcavefield')? this.randomChance(6, 10) : this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+	},
+	poisontouch: {
+		inherit: true,
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Poison Touch's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				if (this.field.isBattlefield('corruptedcavefield')? this.randomChance(6, 10) : this.randomChance(3, 10)) {
+					target.trySetStatus('psn', source);
+				}
 			}
 		},
 	},

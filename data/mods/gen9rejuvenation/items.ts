@@ -65,6 +65,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 	},
+	blacksludge: {
+		inherit: true,
+		onResidual(pokemon) {
+			let modifier = this.field.isBattlefield('corruptedcavefield')? 2 : 1;
+			if (pokemon.hasType('Poison')) {
+				this.heal(pokemon.baseMaxhp * modifier / 16);
+			} else {
+				this.damage(pokemon.baseMaxhp * modifier / 8);
+			}
+		},
+	},
 	// Additions
 	magicalseed: {
 		name: "Magical Seed",
@@ -179,6 +190,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('flowergardenfield')) {
 				this.boost({spd: 1});
 				pokemon.addVolatile('ingrain');
+			}
+			if (this.field.isBattlefield('corruptedcavefield')) {
+				this.boost({def: 2});
+				pokemon.trySetStatus('tox')
 			}
 		},
 		num: 0,
