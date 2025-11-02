@@ -91,6 +91,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = [this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex]]
 				break;
 			case 'blessedfield':
+			case 'concertvenuefield':
 				types = ['Normal'];
 				break;
 			case 'starlightarenafield':
@@ -1223,7 +1224,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			const maximumBP = this.field.isBattlefield('factoryfield')? 80 : 60;
+			const maximumBP = this.field.isBattlefield(['factoryfield', 'concertvenuefield'])? 80 : 60;
 			this.debug(`Base Power: ${basePowerAfterMultiplier}`);
 			if (basePowerAfterMultiplier <= maximumBP) {
 				this.debug('Technician boost');

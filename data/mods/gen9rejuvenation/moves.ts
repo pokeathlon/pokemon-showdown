@@ -1,3 +1,5 @@
+import { Battle } from '../../../sim';
+
 const {Dex} = require('../../../sim/dex');
 export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
@@ -35,8 +37,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
 			} else if (this.field.isBattlefield('newworldfield')) {
 				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
-			} else if (this.field.isBattlefield('inversefield')) {
-				newType = 'Normal';
 			} else if (this.field.isBattlefield('bigtoparenafield')) {
 				newType = 'Fighting';
 			} else if (this.field.isBattlefield('glitchfield')) {
@@ -115,6 +115,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'gunkshot';
 			}   else if (this.field.isBattlefield('colosseumfield')) {
 				move = 'beatup';
+			}   else if (this.field.isBattlefield('concertvenuefield')) {
+				move = 'hypervoice';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -178,7 +180,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					volatileStatus: 'confusion',
 				});
-			} else if (this.field.isBattlefield('dimensionalfield')) {
+			} else if (this.field.isBattlefield(['dimensionalfield','concertvenuefield'])) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'flinch',
@@ -344,6 +346,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'blessedfield':
 			case 'inversefield':
+			case 'concertvenuefield':
 				move.type = 'Normal';
 				break;
 			case 'glitchfield':
@@ -376,7 +379,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield', 'dimensionalfield']) && move.type === 'Dark') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['blessedfield', 'inversefield']) && move.type === 'Normal') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['blessedfield', 'inversefield', 'concertvenuefield']) && move.type === 'Normal') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield']) && move.type === 'Steel') return this.chainModify(0.5);
@@ -1484,14 +1487,14 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	clangoroussoul: {
 		inherit: true,
 		onTry(source) {
-			if (source.hp <= (source.maxhp * (this.field.isBattlefield('bigtoparenafield')? 50 : 33) / 100) || source.maxhp === 1) return false;
+			if (source.hp <= (source.maxhp * (this.field.isBattlefield(['bigtoparenafield', 'concertvenuefield'])? 50 : 33) / 100) || source.maxhp === 1) return false;
 		},
 		onTryHit(pokemon, target, move) {
 			if (!this.boost(move.boosts!)) return null;
 			delete move.boosts;
 		},
 		onHit(pokemon) {
-			this.directDamage(pokemon.maxhp * (this.field.isBattlefield('bigtoparenafield')? 50 : 33) / 100);
+			this.directDamage(pokemon.maxhp * (this.field.isBattlefield(['bigtoparenafield','concertvenuefield'])? 50 : 33) / 100);
 		},
 	},
 	encore: {
@@ -1500,7 +1503,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 3,
 			noCopy: true, // doesn't get copied by Z-Baton Pass
 			durationCallback(source, effect) {
-				if (this.field.isBattlefield('bigtoparenafield')) return 6;
+				if (this.field.isBattlefield(['bigtoparenafield', 'concertvenuefield'])) return 6;
 				return 3;
 			},
 			onStart(target) {
@@ -6833,6 +6836,251 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Fighting",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	concertvenuefield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Concert Venue Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1, metronome: 1},
+		battlefield: 'concertvenuefield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.flags.sound) {
+					this.hint('Loud and clear!');
+					this.chainModify(1.5);
+				};
+				if (['acid','acidspray','circlethrow','dragontail','drumbeating','fakeout','firstimpression','rollout'].includes(move.id)) {
+					this.hint("MOSHPIT!!!");
+					this.chainModify(1.5);
+				};
+				if (['rage', 'thrash','frustration','outrage','stompingtantrum'].includes(move.id) && this.field.battlefieldState.hype <=1) {
+					this.hint('The outraged audience is rioting!');
+					this.chainModify(1.5);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'acidarmor') move.boosts = {def: 3};
+				if (move.id === 'clangoroussoul') move.boosts = {atk: 2, def: 2, spa: 2, spd: 2, spe: 2}
+				if (move.id === 'growl') move.boosts = {atk: -2};
+				if (move.id === 'metalsound') move.boosts = {spd: -3};
+				if (move.id === 'howl') move.boosts = {atk: 2};
+				if (move.id === 'roar') move.self = {boosts: {atk: 2}};
+				if (move.id === 'screech') move.boosts = {def: -3};
+				if (move.id === 'sing') move.accuracy = 100;
+				if (move.id === 'workup') move.boosts = {atk: 2, spa: 2};
+				// moves with variable BP:
+				if (this.field.battlefieldState.hype === 0) {
+					if (['magnitude','feverpitch'].includes(move.id)) {
+						move.basePower = 60;
+						move.onModifyMove = undefined;
+					}
+					if (['spitup'].includes(move.id)) {
+						move.basePower = 100;
+						move.basePowerCallback = undefined;
+					}
+					if (['heatcrash','heavyslam','electroball','furycutter', 'trumpcard'].includes(move.id)) {
+						move.basePower = 40;
+						move.basePowerCallback = undefined;
+					}
+					if (['grassknot','lowkick', 'reversal', 'flail'].includes(move.id)) {
+						move.basePower = 20;
+						move.basePowerCallback = undefined;
+					}
+					if (['crushgrip','dragonenergy','eruption','waterspout','bloomdoom','hardpress','pikapapow','veeveevolley','wringout', 'return','frustration','gyroball'].includes(move.id)) {
+						move.basePower = 1;
+						move.basePowerCallback = undefined;
+					}
+				};
+				if (this.field.battlefieldState.hype === 3) {
+					if (['magnitude','feverpitch','gyroball'].includes(move.id)) {
+						move.basePower = 150;
+						move.onModifyMove = undefined;
+					}
+					if (['spitup'].includes(move.id)) {
+						move.basePower = 300;
+						move.basePowerCallback = undefined;
+					}
+					if (['trumpcard','reversal','flail'].includes(move.id)) {
+						move.basePower = 200;
+						move.basePowerCallback = undefined;
+					}
+					if (['furycutter'].includes(move.id)) {
+						move.basePower = 160;
+						move.basePowerCallback = undefined;
+					}
+					if (['electroball','eruption','waterspout','bloomdoom'].includes(move.id)) {
+						move.basePower = 150;
+						move.basePowerCallback = undefined;
+					}
+					if (['heatcrash','heavyslam','grassknot','lowkick','crushgrip','dragonenergy','hardpress','wringout'].includes(move.id)) {
+						move.basePower = 120;
+						move.basePowerCallback = undefined;
+					}
+					if (['pikapapow','veeveevolley','return','frustration'].includes(move.id)) {
+						move.basePower = 102;
+						move.basePowerCallback = undefined;
+					}
+				};
+				if (move.id === 'fling') {
+					move.onPrepareHit = function (target, source, move) {
+						if (source.ignoringItem(true)) return false;
+						const item = source.getItem();
+						if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+						if (!item.fling) return false;
+						move.basePower = this.field.battlefieldState.hype === 0? 10 : (this.field.battlefieldState.hype === 3? 130 : item.fling.basePower);
+						this.debug(`BP: ${move.basePower}`);
+						if (item.isBerry) {
+							move.onHit = function (foe) {
+								if (this.singleEvent('Eat', item, null, foe, null, null)) {
+									this.runEvent('EatItem', foe, null, null, item);
+									if (item.id === 'leppaberry') foe.staleness = 'external';
+								}
+								if (item.onEat) foe.ateBerry = true;
+							};
+						} else if (item.fling.effect) {
+							move.onHit = item.fling.effect;
+						} else {
+							if (!move.secondaries) move.secondaries = [];
+							if (item.fling.status) {
+								move.secondaries.push({ status: item.fling.status });
+							} else if (item.fling.volatileStatus) {
+								move.secondaries.push({ volatileStatus: item.fling.volatileStatus });
+							}
+						}
+						source.addVolatile('fling');
+					}
+				};
+				if (move.id === 'naturalgift') {
+					move.onPrepareHit = function (target, pokemon, move) {
+						if (pokemon.ignoringItem()) return false;
+						const item = pokemon.getItem();
+						if (!item.naturalGift) return false;
+							move.basePower = this.field.battlefieldState.hype === 0? 80 : (this.field.battlefieldState.hype === 3? 100 : item.naturalGift.basePower);
+						this.debug(`BP: ${move.basePower}`);
+						pokemon.setItem('');
+						pokemon.lastItem = item.id;
+						pokemon.usedItemThisTurn = true;
+						this.runEvent('AfterUseItem', pokemon, null, null, item);
+					}
+				};
+				if (move.id === 'partingshot') {
+					move.onHit = function (target, source, move) {
+						const success = this.boost({ atk: -2, spa: -2 }, target, source);
+						if (!success && !target.hasAbility('mirrorarmor')) {
+							delete move.selfSwitch;
+						}
+					}
+				}
+			},
+			onCriticalHit(pokemon, source, move) {
+				this.hint('The critical hit is getting the crowd hyped!')
+				this.field.battlefieldState.hype += 1;
+			},
+			onAfterMove(source, target, move) {
+				if (['allAdjacentFoes','allAdjacent'].includes(move.target) && this.gameType === 'doubles') {
+					this.hint('The wide area attack is getting the crowd hyped!');
+					this.field.battlefieldState.hype += 1;
+				};
+				if (!['confide','eeriespell','grasswhistle','healbell','perishsong','snore'].includes(move.id) && move.flags.sound) {
+					this.hint('The song is getting the audience hyped!');
+					this.field.battlefieldState.hype += 1;
+				};
+				if (['aquabatics', 'dragondance', 'drumbeating', 'featherdance', 'fierydance', 'firstimpression', 'petaldance', 'quiverdance', 'revelationdance', 'rollout', 'swagger', 'swordsdance', 'workup'].includes(move.id)) {
+					this.hint('The stunning dance makes the audience go wild!');
+					this.field.battlefieldState.hype += 1;
+				};
+				if (['focusenergy','followme','laserfocus','luckychant','spotlight'].includes(move.id)) {
+					this.hint("The audience's full attention is on the stage!");
+					this.field.battlefieldState.hype += 2;
+				};
+				if (['explosion', 'selfdestruct'].includes(move.id)) {
+					this.hint("The audience cheers for the explosive finish!!");
+					this.field.battlefieldState.hype = 3;
+				};
+				if (['babydolleyes', 'embargo', 'playnice', 'quash', 'knockoff', 'quash', 'slackoff', 'throatchop', 'tickle', 'yawn'].includes(move.id)) {
+					this.hint("The crowd is booing, they want action!");
+					this.field.battlefieldState.hype -= 1;
+				};
+				if (['sheercold', 'coldtruth'].includes(move.id)) {
+					this.hint("The freezing cold drives the audience away...");
+					this.field.battlefieldState.hype = 0;
+				};
+			},
+			onTryBoost(boost, target, source, effect) {
+				if (boost.evasion || (boost.accuracy && boost.accuracy < 0)) {
+					this.hint('The crowd is booing!')
+					this.field.battlefieldState.hype -= 1;
+				}
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'slp' || this.field.battlefieldState.hype < 2) return;
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] field: Concert Venue Field');
+				}
+				return false;
+			},
+			onTryAddVolatile(status, target) {
+				if (status.id === 'yawn' && this.field.battlefieldState.hype >= 2) {
+					this.add('-immune', target, '[from] field: Concert Venue Field');
+					return null;
+				}
+			},
+			onUpdate(pokemon) {
+				if (this.field.battlefieldState.hype > 3) this.field.battlefieldState.hype = 3;
+				if (this.field.battlefieldState.hype < 0) this.field.battlefieldState.hype = 0;
+				if (this.field.battlefieldState.hype === 3 && !pokemon.volatiles['metronome']) pokemon.addVolatile('metronome');
+				if (pokemon.status === 'slp' && this.field.battlefieldState.hype >= 2) {
+					this.add('-activate', pokemon, 'ability: Insomnia');
+					pokemon.cureStatus();
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility(['galvanize','heavymetal','plus','punkrock','solidrock'])) {
+					this.hint(`${pokemon.name}'s ${pokemon.ability} is getting the crowd hyped!`);
+					this.field.battlefieldState.hype += 1;
+				};
+				if (pokemon.hasAbility(['klutz', 'minus'])) {
+					this.hint('The crowd is booing!');
+					this.field.battlefieldState.hype -= 1;
+				};
+				if (this.field.battlefieldState.hype > 0 && pokemon.hasAbility(['emergencyexit', 'runaway'])) {
+					this.hint(`${pokemon.name} wants to get away from the noise!`);
+					this.boost({spe: 1});
+				};
+				if (pokemon.hasAbility(['heavymetal','punkrock','rockhead','solidrock','soundproof'])) {
+					this.hint(`${pokemon.name} is accustomed to the music due to ${pokemon.ability}!`);
+					this.boost({def: 1});
+				};
+				if (this.field.battlefieldState.hype >= 2 && pokemon.hasAbility('rattled')) {
+					this.hint(`${pokemon.name} wants to get away from the noise!`)
+				};
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.battlefieldState.hype = 0;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Concert Venue Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
