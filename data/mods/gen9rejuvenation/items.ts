@@ -210,6 +210,33 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		desc: "Provides boost in synthetic fields.",
 	},
+	telluricseed: {
+		name: "Telluric Seed",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && 
+				this.field.isBattlefield(['swampfield','corrosivefield','desertfield','rockyfield','forestfield','volcanictopfield','wastelandfield','beachfield','cavefield','mountainfield','snowymountainfield','deepearthfield'])) {
+				pokemon.useItem();
+			}
+		},
+		onBattlefieldChange(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isBattlefield(['swampfield','corrosivefield','desertfield','rockyfield','forestfield','volcanictopfield','wastelandfield','beachfield','cavefield','mountainfield','snowymountainfield','deepearthfield'])) {
+				pokemon.useItem();
+			}
+		},
+		onUseItem(item, pokemon) {
+			if (this.field.isBattlefield('swampfield')) {
+				this.boost({def: 1});
+				pokemon.setAbility('clearbody');
+				this.add('-ability', pokemon, 'Clear Body', '[from] item: Telluric Seed');
+			}
+		},
+		num: 0,
+		desc: "Provides boost in telluric fields.",
+	},
 	elementalseed: {
 		name: "Elemental Seed",
 		spritenum: -6,

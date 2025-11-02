@@ -73,6 +73,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'watersurfacefield':
 			case 'underwaterfield':
+			case 'swampfield':
 				types = ['Water'];
 				break;
 			case 'dragonsdenfield':
@@ -279,7 +280,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				var forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) forme = 'cramorantgorging';
-				if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) forme = 'cramorantgulping';
+				if (this.field.isBattlefield(['watersurfacefield','underwaterfield','swampfield'])) forme = 'cramorantgulping';
 				source.formeChange(forme, effect);
 			}
 		},
@@ -689,7 +690,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				this.add('-ability', target, 'Gooey');
-				let boostVal = this.field.isBattlefield('murkwatersurface')? -2 : -1;
+				let boostVal = this.field.isBattlefield(['murkwatersurfacefield','swampfield'])? -2 : -1;
 				this.boost({spe: boostVal}, source, target, null, true);
 			}
 		},

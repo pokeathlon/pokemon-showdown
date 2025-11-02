@@ -21,7 +21,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Poison';
 			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				newType = 'Ice';
-			} else if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) {
+			} else if (this.field.isBattlefield(['watersurfacefield','underwaterfield','swampfield'])) {
 				newType = 'Water';
 			} else if (this.field.isBattlefield(['dragonsdenfield','rainbowfield'])) {
 				newType = 'Dragon';
@@ -121,6 +121,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'beatup';
 			}   else if (this.field.isBattlefield('cityfield')) {
 				move = 'smog';
+			}   else if (this.field.isBattlefield('swampfield')) {
+				move = 'muddywater';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -217,7 +219,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spd: -1,
 					},
 				});
-			} else if (this.field.isBattlefield(['watersurfacefield', 'glitchfield'])) {
+			} else if (this.field.isBattlefield(['watersurfacefield', 'glitchfield', 'swampfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -321,6 +323,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'watersurfacefield':
 			case 'underwaterfield':
+			case 'swampfield':
 				move.type = 'Water';
 				break;
 			case 'dragonsdenfield':
@@ -381,7 +384,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['watersurfacefield','underwaterfield']) && move.type === 'Water') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['watersurfacefield','underwaterfield', 'swampfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield', 'dimensionalfield']) && move.type === 'Dark') return this.chainModify(0.5);
@@ -432,8 +435,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
 				var forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				if (this.field.isTerrain('electricterrain')) forme = 'cramorantgorging';
-				if (this.field.isBattlefield(['watersurfacefield','underwaterfield'])) forme = 'cramorantgulping';
+				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) forme = 'cramorantgorging';
+				if (this.field.isBattlefield(['watersurfacefield','underwaterfield','swampfield'])) forme = 'cramorantgulping';
 				attacker.formeChange(forme, move);
 			}
 			this.add('-prepare', attacker, move.name);
@@ -743,7 +746,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onResidualOrder: 6,
 			onResidual(pokemon) {
 				if (this.field.isTerrain('corrosivemistfield') && !pokemon.hasType(['Steel', 'Poison'])) return this.damage(pokemon.baseMaxhp / 16);
-				(this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['watersurfacefield', 'underwaterfield']))? this.heal(pokemon.baseMaxhp / 8) : this.heal(pokemon.baseMaxhp / 16);
+				(this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['watersurfacefield', 'underwaterfield','swampfield']))? this.heal(pokemon.baseMaxhp / 8) : this.heal(pokemon.baseMaxhp / 16);
 			},
 		},
 	},
@@ -803,6 +806,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			// Save use to active field
 			this.field.battlefieldState.grasspledge = true;
 			if (this.field.battlefieldState.firepledge) this.field.setBattlefield('volcanicfield')
+			if (this.field.battlefieldState.waterpledge) this.field.setBattlefield('swampfield')
 		},
 	},
 	firepledge: {
@@ -820,6 +824,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			// Save use to field
 			this.field.battlefieldState.waterpledge = true;
 			if (this.field.battlefieldState.firepledge) this.field.setBattlefield('rainbowfield')
+			if (this.field.battlefieldState.grasspledge) this.field.setBattlefield('swampfield')
 		},
 	},
 	auroraveil: {
@@ -7367,6 +7372,132 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Normal",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	swampfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Swamp Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'swampfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (['Bug', 'Water', 'Grass'].includes(move.type)) {
+					if (move.type === 'Bug') this.hint('Bugs are swarming everywhere!');
+					if (move.type === 'Water') this.hint('The dampness strengthened the attack!');
+					if (move.type === 'Grass') this.hint('Thick mangroves line the area!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Fire') {
+					this.hint('The dampness weakened the flame...');
+					this.chainModify(0.8);
+				};
+				if (['smackdown','thousandarrows','brine','gunkshot','hydrovortex','mudbarrage','mudbomb','mudshot','mudslap','muddywater','savagespinout','sludgewave'].includes(move.id)) {
+					this.hint('The murk strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (['bulldoze','earthquake','magnitude'].includes(move.id)) {
+					this.hint('The attack dissipated in the soggy ground...');
+					this.chainModify(0.25);
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['smackdown','thousandarrows'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Water', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (['poisonpowder','sleeppowder','stunspore'].includes(move.id)) move.accuracy = 100;
+				if (move.id === 'mudshot') move.secondary = {chance: 100, boosts: {spe: -2}};
+				if (move.id === 'strugglebug') move.secondary = {chance: 100, boosts: {spa: -2}};
+			},
+			onTryMove(source, target, move) {
+				if (['explosion','mindblown','selfdestruct'].includes(move.id)){
+					this.add('-fail', source, `move: ${move.name}`);
+					this.attrLastMove('[still]');
+					this.hint('The dampness prevents the explosion!')
+					return null;
+				};
+			},
+			onHit(target, source, move) {
+				if (!(['attackorder','strengthsap','stringshot'].includes(move.id) || move.drain)) return;
+				const stats: BoostID[] = [];
+				let stat: BoostID;
+				for (stat in target.boosts) {
+					if (target.boosts[stat] < 6) {
+						stats.push(stat);
+					}
+				}
+				if (stats.length) {
+					const randomStat = this.sample(stats);
+					const boost: SparseBoostsTable = {};
+					boost[randomStat] = -1;
+					this.boost(boost);
+				} else {
+					return false;
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility('rattled')) this.boost({spe: 1});
+			},
+			onAfterMove(source, target, move) {
+				if (move.id === 'roar') this.hint("What are ya doin' in my swamp?!");
+			},
+			onResidualOrder: 7,
+			onResidual(target, source, effect) {
+				if (target.hasAbility('dryskin')) {
+					this.hint(`${target.name}'s Dry Skin was healed by the mist!`);
+					this.heal(target.baseMaxhp/16, target);
+				};
+				if (target.hasAbility('watercompaction')) {
+					this.boost({def: 2});
+				};
+				if (target.isGrounded() && !(target.hasItem('heavydutyboots') || target.hasAbility(['clearbody','propellertail','quickfeet','steamengine','swiftswim','whitesmoke']))) {
+					this.hint(`${target.name}'s Speed sank...!`)
+					this.boost({spe: target.trapped? -2 : -1})
+				};
+				if (target.volatiles['leechseed'] || (target.trapped && ['infestation', 'snaptrap', 'spiderweb'].includes(this.effectState.sourceEffect.id))) {
+					const stats: BoostID[] = [];
+					let stat: BoostID;
+					for (stat in target.boosts) {
+						if (target.boosts[stat] < 6) {
+							stats.push(stat);
+						}
+					}
+					if (stats.length) {
+						const randomStat = this.sample(stats);
+						const boost: SparseBoostsTable = {};
+						boost[randomStat] = -1;
+						this.boost(boost);
+					}
+				}
+				if (target.status === 'slp') {
+					this.hint(`${target.name}'s strength is sapped by the swamp!`);
+					this.damage(target.baseMaxhp / (target.trapped? 8 : 16), target);
+				};
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Swamp Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Water",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
