@@ -93,6 +93,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'blessedfield':
 			case 'concertvenuefield':
 			case 'backalleyfield':
+			case 'cityfield':
 				types = ['Normal'];
 				break;
 			case 'starlightarenafield':
@@ -714,7 +715,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				for (const secondary of move.secondaries) {
 					if (secondary.volatileStatus === 'flinch') return;
 				}
-				let chanceMod = this.field.isTerrain(['murkwatersurfacefield', 'backalleyfield'])? 2 : 1 
+				let chanceMod = this.field.isTerrain(['murkwatersurfacefield', 'backalleyfield', 'cityfield'])? 2 : 1 
 				move.secondaries.push({
 					chance: 10*chanceMod,
 					volatileStatus: 'flinch',
@@ -1150,7 +1151,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				}
 			}
 			if (statsLowered) {
-				this.boost({ spa: 2 }, target, target, null, false, true);
+				this.boost({ spa: this.field.isBattlefield('cityfield')? 3 : 2 }, target, target, null, false, true);
 				if (this.field.isBattlefield('colosseumfield')) {
 					this.boost({ spd: 2 }, target, target, null, false, true);
 				}
@@ -1178,7 +1179,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onStart(pokemon) {
 			let totaldef = 0;
 			let totalspd = 0;
-			let boostAmount = this.field.isBattlefield(['factoryfield', 'backalleyfield'])? 2: 1
+			let boostAmount = this.field.isBattlefield(['factoryfield', 'backalleyfield','cityfield'])? 2: 1
 			for (const target of pokemon.foes()) {
 				totaldef += target.getStat('def', false, true);
 				totalspd += target.getStat('spd', false, true);
@@ -1354,6 +1355,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onStart(pokemon) {
 			for (const target of pokemon.foes()) {
+				if (this.field.isBattlefield('cityfield')) {this.hint('Just a routine inspection.'); this.boost({spd: -1}, target)}
 				if (target.item) {
 					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', `[of] ${pokemon}`);
 					if (this.field.isBattlefield('backalleyfield') && !pokemon.item) {
@@ -1373,11 +1375,11 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	hustle: {
 		inherit: true,
 		onModifyAtk(atk) {
-			return this.modify(atk, this.field.isBattlefield('backalleyfield')? 1.75 : 1.5);
+			return this.modify(atk, this.field.isBattlefield(['backalleyfield','cityfield'])? 1.75 : 1.5);
 		},
 		onSourceModifyAccuracy(accuracy, target, source, move) {
 			if (move.category === 'Physical' && typeof accuracy === 'number') {
-				return this.chainModify(this.field.isBattlefield('backalleyfield')? [2, 3] : [3277, 4096]);
+				return this.chainModify(this.field.isBattlefield(['backalleyfield','cityfield'])? [2, 3] : [3277, 4096]);
 			}
 		},
 	},

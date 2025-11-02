@@ -119,6 +119,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'hypervoice';
 			}   else if (this.field.isBattlefield('backalleyfield')) {
 				move = 'beatup';
+			}   else if (this.field.isBattlefield('cityfield')) {
+				move = 'smog';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -144,7 +146,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'brn',
 				});
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield', 'backalleyfield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield', 'backalleyfield','cityfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
@@ -350,6 +352,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'blessedfield':
 			case 'inversefield':
 			case 'concertvenuefield':
+			case 'cityfield':
 				move.type = 'Normal';
 				break;
 			case 'glitchfield':
@@ -382,7 +385,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['darkcrystalcavernfield','starlightarenafield','newworldfield', 'dimensionalfield']) && move.type === 'Dark') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['blessedfield', 'inversefield', 'concertvenuefield']) && move.type === 'Normal') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['blessedfield', 'inversefield', 'concertvenuefield', 'cityfield']) && move.type === 'Normal') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
@@ -7236,6 +7239,134 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Dark",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	cityfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "City Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'cityfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Normal' && move.category === 'Physical') {
+					this.hint('The hustle and bustle of the city!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Bug') {
+					this.hint('In the cracks and the walls!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Poison') {
+					this.hint('All kinds of pollution strengthened the attack!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Steel') {
+					this.hint('The right tool for the job!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Fairy') {
+					this.hint('This is no place for fairytales...');
+					this.chainModify(0.7);
+				};
+				if (['firstimpression', 'beatup', 'payday', 'shadowsneak', 'smog', 'spectralthief', 'steamroller', 'technoblast'].includes(move.id)) {
+					if (move.id === 'firstimpression') this.hint('An overwhelming first impression!');
+					if (move.id === 'beatup') this.hint('A crowd is gathering!');
+					if (move.id === 'payday') this.hint('Working 9 to 5 forthis!');
+					if (move.id === 'smog') this.hint('The city smog is suffocating');
+					if (move.id === 'spectralthief') this.hint('Careful on the street!');
+					if (move.id === 'technoblast') this.hint('The power of science is amazing!');
+					this.chainModify(1.5);
+				};
+				if (['covet','pursuit','thief'].includes(move.id)) {
+					this.chainModify(1.3)
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.id === 'firstimpression') {
+					return typeMod + this.dex.getEffectiveness('Normal', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'autotomize') move.boosts = {spe: 3};
+				if (move.id === 'corrosivegas') move.boosts = {atk: 1, def: 1, spa: 1, spd: 1, spe: 1};
+				if (['poisongas','smog'].includes(move.id)) {move.accuracy = true; move.status = toID('tox');};
+				if (move.id === 'shiftgear') move.boosts = {atk: 2, spe: 2};
+				if (move.id === 'smokescreen') move.boosts = {accuracy: -2};
+				if (move.id === 'workup') move.boosts = {atk: 2, spa: 2};
+				if (['celebrate','conversion','happyhour'].includes(move.id)) move.zMove = { boost: { atk: 2, def: 2, spa: 2, spd: 2, spe: 2 } };
+				if (move.id === 'recycle') {
+					move.onHit = function (pokemon) {
+						if (pokemon.item || !pokemon.lastItem) return false;
+						const item = pokemon.lastItem;
+						pokemon.lastItem = '';
+						this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Recycle');
+						pokemon.setItem(item);
+						const stats: BoostID[] = [];
+						let stat: BoostID;
+						for (stat in pokemon.boosts) {
+							if (pokemon.boosts[stat] < 6) {
+								stats.push(stat);
+							}
+						}
+						if (stats.length) {
+							const randomStat = this.sample(stats);
+							const boost: SparseBoostsTable = {};
+							boost[randomStat] = 1;
+							this.boost(boost);
+							this.hint('Reduce, reuse, recycle!')
+						} else {
+							return false;
+						}
+					}
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['covet','pursuit','thief'].includes(move.id)) {
+					this.hint('The criminal ran into a backalley!')
+					this.field.setBattlefield('cityfield');
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility('bigpecks')) {
+					this.hint(`${pokemon.name}'s Big Pecks raise tis Defense!`);
+					this.boost({def: 1});
+				};
+				if (pokemon.hasAbility('earlybird')) {
+					this.hint(`The early bird catches the worm!`);
+					this.boost({atk: 1});
+				};
+				if (pokemon.hasAbility('pickup')) {
+					this.hint(`${pokemon.name} is picking up Speed!`);
+					this.boost({spe: 1});
+				};
+				if (pokemon.hasAbility('rattled')) {
+					this.hint(`The busy city is rattling ${pokemon.name}!`);
+					this.boost({spe: 1});
+				};
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: City Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
