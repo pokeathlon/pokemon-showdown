@@ -29,7 +29,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Flying';
 			} else if (this.field.isBattlefield('hauntedfield')) {
 				newType = 'Ghost';
-			} else if (this.field.isBattlefield(['factoryfield', 'mirrorarenafield', 'colosseumfield'])) {
+			} else if (this.field.isBattlefield(['factoryfield', 'mirrorarenafield', 'colosseumfield', 'backalleyfield'])) {
 				newType = 'Steel';
 			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				newType = 'Dark';
@@ -117,6 +117,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'beatup';
 			}   else if (this.field.isBattlefield('concertvenuefield')) {
 				move = 'hypervoice';
+			}   else if (this.field.isBattlefield('backalleyfield')) {
+				move = 'beatup';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -142,7 +144,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'brn',
 				});
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield', 'backalleyfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
@@ -339,6 +341,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'factoryfield':
 			case 'colosseumfield':
+			case 'backalleyfield':
 				move.type = 'Steel';
 				break;
 			case 'crustalcavernfield':
@@ -382,7 +385,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['blessedfield', 'inversefield', 'concertvenuefield']) && move.type === 'Normal') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['hauntedfield']) && move.type === 'Ghost') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['factoryfield', 'colosseumfield']) && move.type === 'Steel') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
@@ -897,7 +900,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	partingshot: {
 		inherit: true,
 		onHit(target, source, move) {
-			let boostTable = this.field.isBattlefield('frozendimensionalfield')? {atk: -1, spa: -1, spe: -1} : {atk: -1, spa: -1};
+			let boostTable = {};
+			boostTable = {atk: -1, spa: -1};
+			if (this.field.isBattlefield('frozendimensionalfield')) boostTable = {atk: -1, spa: -1, spe: -1};
+			if (this.field.isBattlefield('backalleyfield')) boostTable = {atk: -2, spa: -2};
 			const success = this.boost(boostTable, target, source);
 			if (!success && !target.hasAbility('mirrorarmor')) {
 				delete move.selfSwitch;
@@ -2982,7 +2988,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Volcanic Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'volcanicfield',
 		condition: {
 			effectType: "Battlefield",
@@ -3090,7 +3096,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Corrosive Mist Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'corrosivemistfield',
 		condition: {
 			effectType: "Battlefield",
@@ -3210,7 +3216,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Icy Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'icyfield',
 		condition: {
 			effectType: "Battlefield",
@@ -3310,7 +3316,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Water Surface Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'watersurfacefield',
 		condition: {
 			effectType: "Battlefield",
@@ -3451,7 +3457,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Underwater Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'underwaterfield',
 		condition: {
 			effectType: "Battlefield",
@@ -3578,7 +3584,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Murkwater Surface Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'murkwatersurfacefield',
 		condition: {
 			effectType: "Battlefield",
@@ -3684,7 +3690,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Dragons Den Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'dragonsdenfield',
 		condition: {
 			effectType: "Battlefield",
@@ -3845,7 +3851,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Frozen Dimensional Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'frozendimensionalfield',
 		condition: {
 			effectType: "Battlefield",
@@ -3980,7 +3986,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Sky Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'skyfield',
 		condition: {
 			effectType: "Battlefield",
@@ -4106,7 +4112,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Infernal Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'infernalfield',
 		condition: {
 			effectType: "Battlefield",
@@ -4230,7 +4236,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Dark Crystal Cavern Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'darkcrystalcavernfield',
 		condition: {
 			effectType: "Battlefield",
@@ -4311,7 +4317,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Rainbow Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'rainbowfield',
 		condition: {
 			effectType: "Battlefield",
@@ -4442,7 +4448,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Crystal Cavern Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'crystalcavernfield',
 		condition: {
 			effectType: "Battlefield",
@@ -4572,7 +4578,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Blessed Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'blessedfield',
 		condition: {
 			effectType: "Battlefield",
@@ -4676,7 +4682,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Fairy Tale Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'fairytalefield',
 		condition: {
 			effectType: "Battlefield",
@@ -4837,7 +4843,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Starlight Arena Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'starlightarenafield',
 		condition: {
 			effectType: "Battlefield",
@@ -4964,7 +4970,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "New World Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'newworldfield',
 		condition: {
 			effectType: "Battlefield",
@@ -5064,7 +5070,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Inverse Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'inversefield',
 		condition: {
 			effectType: "Battlefield",
@@ -5183,7 +5189,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Dimensional Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'dimensionalfield',
 		condition: {
 			effectType: "Battlefield",
@@ -5445,7 +5451,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Haunted Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'hauntedfield',
 		condition: {
 			effectType: "Battlefield",
@@ -5577,7 +5583,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Bewitched Woods Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'bewitchedwoodsfield',
 		condition: {
 			effectType: "Battlefield",
@@ -5673,7 +5679,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Chess Board Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'chessboardfield',
 		condition: {
 			effectType: "Battlefield",
@@ -5882,7 +5888,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Big Top Arena Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'bigtoparenafield',
 		condition: {
 			effectType: "Battlefield",
@@ -5974,7 +5980,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Factory Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'factoryfield',
 		condition: {
 			effectType: "Battlefield",
@@ -6064,7 +6070,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Short-Circuit Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'shortcircuitfield',
 		condition: {
 			effectType: "Battlefield",
@@ -6158,7 +6164,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Glitch Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'glitchfield',
 		condition: {
 			effectType: "Battlefield",
@@ -6266,7 +6272,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Mirror Arena Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'mirrorarenafield',
 		condition: {
 			effectType: "Battlefield",
@@ -6382,7 +6388,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Flower Garden Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'flowergardenfield',
 		condition: {
 			effectType: "Battlefield",
@@ -6573,7 +6579,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Corrupted Cave Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'corruptedcavefield',
 		condition: {
 			effectType: "Battlefield",
@@ -6686,7 +6692,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Colosseum Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'colosseumfield',
 		condition: {
 			effectType: "Battlefield",
@@ -6847,7 +6853,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Concert Venue Field",
 		pp: 10,
 		priority: 0,
-		flags: {nonsky: 1, metronome: 1},
+		flags: {nonsky: 1},
 		battlefield: 'concertvenuefield',
 		condition: {
 			effectType: "Battlefield",
@@ -7081,6 +7087,155 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Normal",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	backalleyfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Back Alley Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'backalleyfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Dark' && move.category === 'Physical') {
+					this.hint('Street rules!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Bug') {
+					this.hint('In the cracks and the walls!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Poison') {
+					this.hint('All kinds of pollution strengthening the attack!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Fairy') {
+					this.hint('This is no place for fairytales...');
+					this.chainModify(0.5);
+				};
+				if (['firstimpression', 'beatup', 'payday', 'shadowsneak', 'smog', 'spectralthief', 'steamroller', 'technoblast'].includes(move.id)) {
+					if (move.id === 'firstimpression') this.hint('An overwhelming first impression!');
+					if (move.id === 'beatup') this.hint('A crowd is gathering!');
+					if (move.id === 'payday') this.hint('Gotta make ends meet somehow...');
+					if (move.id === 'smog') this.hint('The city smog is suffocating');
+					if (move.id === 'spectralthief') this.hint('Careful on the street!');
+					if (move.id === 'technoblast') this.hint('The power of science is amazing!');
+					this.chainModify(1.5);
+				};
+				if (['aerialace', 'aircutter', 'airslash', 'aquacutter', 'behemothblade', 'ceaselessedge', 'crosspoison', 'cut', 'furycutter', 'hexingslash', 'leafblade', 'nightslash', 'psychocut', 'razorleaf', 'razorshell', 'sacredsword', 'slashandburn', 'solarblade', 'slash', 'stoneaxe', 'xscissor'].includes(move.id)) {
+					this.hint('A knife glints in the dark!');
+					this.chainModify(1.5);
+				};
+				if (['branchpoke', 'drillpeck', 'drillrun', 'falsesurrender', 'fellstinger', 'furyattack', 'gildedarrow', 'gildedhelix', 'glaciallance', 'hornattack', 'hornleech', 'megahorn', 'needlearm', 'peck', 'pinmissile', 'pluck', 'poisonjab', 'poisonsting', 'quicksilverspear', 'twineedle', 'smartstrike'].includes(move.id)) {
+					this.hint('Better watch your back...');
+					this.chainModify(1.5);
+				};
+				if (['boomburst','echoedvoice','hypervoice','uproar'].includes(move.id)) {
+					this.chainModify(1.3);
+				}
+				const item = target.getItem();
+				if (['covet', 'thief'].includes(move.id) && !source.item && target.item && this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) {
+					this.chainModify(2);
+				};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.id === 'firstimpression') {
+					return typeMod + this.dex.getEffectiveness('Dark', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id  === 'corrosivegas') move.boosts = {atk: -1, def: -1, spa: -1, spd: -1, spe: -1};
+				if (move.id === 'faketears') move.boosts = {spd: -3};
+				if (move.id === 'nastyplot') move.boosts = {spa: 3};
+				if (['poisongas','smog'].includes(move.id)) {move.accuracy = true; move.status = toID('tox');}
+				if (move.id === 'smokescreen') move.boosts = {accuracy: -2};
+				if (move.id === 'snarl') move.secondary = {chance: 100, boosts: {spa: -2}};
+				if (move.id === 'switcheroo') {
+					move.boosts = {atk: -1};
+					move.selfBoost = {boosts: {atk: 1}};
+				};
+				if (move.id === 'trick') {
+					move.boosts = {spa: -1};
+					move.selfBoost = {boosts: {spa: 1}};
+				};
+				if (move.id === 'zconversion') move.boosts = {atk: 2, def: 2, spa: 2, spd: 2, spe: 2};
+			},
+			onHit(target, source, move) {
+				if (move.id != 'snatch') return;
+				const stats: BoostID[] = [];
+				let stat: BoostID;
+				for (stat in target.boosts) {
+					if (target.boosts[stat] < 6) {
+						stats.push(stat);
+					}
+				}
+				if (stats.length) {
+					const randomStat = this.sample(stats);
+					const boost: SparseBoostsTable = {};
+					boost[randomStat] = 2;
+					this.boost(boost);
+				} else {
+					return false;
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['boomburst','echoedvoice','hypervoice','uproar'].includes(move.id)) {
+					this.hint('Cops! Everyone scatter!');
+					this.field.setBattlefield('cityfield');
+				}
+			},
+			onAfterMoveSecondarySelf(pokemon, target, move) {
+				if (['pursuit', 'vileassault'].includes(move.id)) {
+					if (!target || target.fainted || target.hp <= 0) this.boost({ spe: 1 }, pokemon, pokemon, move);
+				};
+			},
+			onTryHealPriority: 1,
+			onTryHeal(damage, target, source, effect) {
+				const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+				if (heals.includes(effect.id)) {
+					return this.chainModify([2, 3]);
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility(['anticipation', 'forewarn'])) {
+					this.hint(`${pokemon.name} is getting ready to defend itself because of its ${pokemon.ability}!`);
+					this.boost({def: 1, spd: 1});
+				};
+				if (pokemon.hasAbility('magician')) {
+					this.hint(`The Street Magician's tricks raise ${pokemon.name}'s Special Attack!`);
+					this.boost({spa: 1});
+				};
+				if (pokemon.hasAbility(['merciless','pickpocket'])) {
+					this.hint(`Merciless cutpurses like ${pokemon.name} get ready to strike!`);
+					this.boost({atk: 1});
+				};
+				if (pokemon.hasAbility('rattled')) {
+					this.hint(`The gloomy backalley makes ${pokemon.name} ready to bolt!`);
+					this.boost({spe: 1});
+				};
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Back Alley Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Dark",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

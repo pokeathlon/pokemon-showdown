@@ -203,6 +203,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spa: 1});
 				pokemon.addVolatile('helpinghand');
 			}
+			if (this.field.isBattlefield('backalleyfield')) {
+				this.boost({atk: 1, accuracy: 1});
+			}
 		},
 		num: 0,
 		desc: "Provides boost in synthetic fields.",
