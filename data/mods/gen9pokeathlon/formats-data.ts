@@ -89,7 +89,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	eidolburgh: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 		isNonstandard: "Unobtainable",
 	},
 	electrodemega: {
@@ -848,7 +848,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	dryguaro: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "UU",
+		natDexTier: "OU",
 		isNonstandard: null,
 	},
 	varkacosm: {
