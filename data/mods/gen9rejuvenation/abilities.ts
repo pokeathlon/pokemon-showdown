@@ -65,6 +65,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'corrosivemistfield':
 			case 'murkwatersurfacefield':
 			case 'corruptedcavefield':
+			case 'corrosivefield':
 				types = ['Poison'];
 				break;
 			case 'icyfield':
@@ -538,13 +539,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	merciless: {
 		inherit: true,
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && (['psn', 'tox'].includes(target.status) || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield']))) return 5;
+			if (target && (['psn', 'tox'].includes(target.status) || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield']))) return 5;
 		},
 	},
 	toxicboost: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'psn' || attacker.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) && move.category === 'Physical') {
+			if ((attacker.status === 'psn' || attacker.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) && move.category === 'Physical') {
 				return this.chainModify(this.field.isBattlefield('corruptedcavefield')? 2 : 1.5);
 			}
 		},

@@ -232,6 +232,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({def: 1});
 				pokemon.setAbility('clearbody');
 				this.add('-ability', pokemon, 'Clear Body', '[from] item: Telluric Seed');
+			};
+			if (this.field.isBattlefield('corrosivefield')) {
+				this.actions.useMove('kingsshield', pokemon, {target: pokemon});
 			}
 		},
 		num: 0,

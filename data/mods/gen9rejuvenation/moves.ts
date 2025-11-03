@@ -17,7 +17,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Psychic';
 			} else if (this.field.isBattlefield(['volcanicfield','infernalfield'])) {
 				newType = 'Fire';
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corruptedcavefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corruptedcavefield','corrosivefield'])) {
 				newType = 'Poison';
 			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				newType = 'Ice';
@@ -123,6 +123,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'smog';
 			}   else if (this.field.isBattlefield('swampfield')) {
 				move = 'muddywater';
+			}   else if (this.field.isBattlefield('corrosivefield')) {
+				move = 'acid';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -148,7 +150,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'brn',
 				});
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield', 'backalleyfield','cityfield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrutpedcavefield', 'backalleyfield', 'cityfield', 'corrosivefield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
@@ -315,6 +317,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'corrosivemistfield':
 			case 'murkwatersurfacefield':
 			case 'corruptedcavefield':
+			case 'corrosivefield':
 				move.type = 'Poison';
 				break;
 			case 'icyfield':
@@ -382,7 +385,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield']) && move.type === 'Poison') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield','corrosivefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield', 'swampfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
@@ -616,7 +619,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onResidual(pokemon) {
 				let denominator = (this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2))? 8 : 16 
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) denominator = 4;
-				this.field.isBattlefield('corruptedcavefield')? this.damage(pokemon.baseMaxhp / denominator) : this.heal(pokemon.baseMaxhp / denominator);
+				this.field.isBattlefield(['corruptedcavefield','corrosivefield'])? this.damage(pokemon.baseMaxhp / denominator) : this.heal(pokemon.baseMaxhp / denominator);
 			},
 			onTrapPokemon(pokemon) {
 				pokemon.tryTrap();
@@ -753,7 +756,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	barbbarrage: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -761,7 +764,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	venoshock: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -769,7 +772,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	venomdrench: {
 		inherit: true,
 		onHit(target, source, move) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
@@ -7498,6 +7501,114 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Water",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	corrosivefield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Corrosive Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'corrosivefield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (source.hasAbility('corrosion')) {
+					this.chainModify(1.5);
+				};
+				if (['acid','acidspray','grassknot','snaptrap'].includes(move.id)) {
+					this.hint('The corrosion strengthened the attack!');
+					this.chainModify(2);
+				};
+				if (['appleacid', 'mudbomb', 'mudslap', 'mudshot', 'muddywater', 'smackdown', 'thousandarrows', 'whirlpool'].includes(move.id)) {
+					this.hint('The corrosion strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (['seedflare'].includes(move.id)) {
+					this.chainModify(1.3);
+				};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Grass') {
+					return typeMod + this.dex.getEffectiveness('Poison', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'acidarmor') move.boosts = {def: 3};
+				if (move.id === 'floralhealing') move.status = toID('psn');
+				if (['poisonpowder','sleeppowder','stunspore', 'toxic'].includes(move.id)) move.accuracy = 100;
+				if (move.id === 'toxicspikes') {
+					move.condition = {
+						onSideStart(side) {
+						this.add('-sidestart', side, 'move: Toxic Spikes');
+						this.effectState.layers = 1;
+					},
+					onSideRestart(side) {
+						if (this.effectState.layers >= 2) return false;
+						this.add('-sidestart', side, 'move: Toxic Spikes');
+						this.effectState.layers++;
+					},
+					onSwitchIn(pokemon) { // removed Poison-types being able to absorb them
+						if (!pokemon.isGrounded()) return;
+						if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
+							// do nothing
+						} else if (this.effectState.layers >= 2) {
+							pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
+						} else {
+							pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
+						}
+					},
+					}
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['seedflare','purify'].includes(move.id)) {
+					this.hint('The polluted field was purified!');
+					this.field.setBattlefield('grassyterrain');
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.hasType(['Poison','Steel']) && pokemon.isGrounded() && !pokemon.hasAbility(['immunity','magicguard','pastelveil','poisonheal','toxicboost','wonderguard'])) {
+					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('sludgebomb')), -6, 6);
+					this.hint(`${pokemon.name} was seared by the corrosion!`)
+					this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
+				}
+			},
+			onResidualOrder: 7,
+			onResidual(target, source, effect) {
+				if (target.hasAbility('poisonheal') && target.isGrounded()) {
+					this.hint(`${target.name} was healed by poison!`)
+					this.heal(target.baseMaxhp / 8, target);
+				}
+				if (target.status === 'slp' && target.isGrounded() && !target.hasType(['Poison','Steel']) && !target.hasAbility(['magicguard','poisonheal','toxicboost','wonderguard'])) {
+					this.hint(`${target.name} is seared by the corrosion!`)
+					this.damage(target.baseMaxhp / 16, target)
+				};
+				if (target.hasAbility('grasspelt') && !target.hasType(['Poison','Steel'])) {
+					this.hint(`${target.name}'s Pelt was corroded!`)
+					this.damage(target.baseMaxhp / 8, target);
+				};
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Corrosive Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Poison",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
