@@ -1966,7 +1966,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	volcarona: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 	},
 	deino: {

@@ -29,7 +29,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
 		],
 	},
