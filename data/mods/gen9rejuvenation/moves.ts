@@ -43,6 +43,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Ground';
 			} else if (this.field.isBattlefield('rockyfield')) {
 				newType = 'Rock';
+			} else if (this.field.isBattlefield('forestfield')) {
+				newType = 'Bug';
 			} else if (this.field.isBattlefield('glitchfield')) {
 				newType = '???';
 			} 
@@ -133,6 +135,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'sandtomb';
 			} else if (this.field.isBattlefield('rockyfield')) {
 				move = 'rocksmash';
+			} else if (this.field.isBattlefield('forestfield')) {
+				move = 'woodhammer';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -148,7 +152,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'par',
 				});
-			} else if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('fairytalefield')) {
+			} else if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield(['fairytalefield','forestfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'slp',
@@ -375,6 +379,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'rockyfield':
 				move.type = 'Rock';
 				break;
+			case 'forestfield':
+				move.type = 'Bug';
+				break;
 			case 'glitchfield':
 				move.type = '???';
 				break;
@@ -412,6 +419,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['desertfield']) && move.type === 'Ground') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['rockyfield']) && move.type === 'Rock') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['forestfield']) && move.type === 'Bug') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -633,7 +641,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onResidualOrder: 7,
 			onResidual(pokemon) {
-				let denominator = (this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2))? 8 : 16 
+				let denominator = (this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) || this.field.isBattlefield('forestfield'))? 8 : 16 
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) denominator = 4;
 				this.field.isBattlefield(['corruptedcavefield','corrosivefield'])? this.damage(pokemon.baseMaxhp / denominator) : this.heal(pokemon.baseMaxhp / denominator);
 			},
@@ -742,7 +750,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	growth: {
 		inherit: true,
 		onModifyMove(move, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('flowergardenfield')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield(['flowergardenfield', 'forestfield'])) {
 				const boostAmount = (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)? 3 : 2
 				move.boosts = {atk: boostAmount, spa: boostAmount};
 			}
@@ -751,7 +759,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	naturesmadness: {
 		inherit: true,
 		damageCallback(pokemon, target) {
-			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('newworldfield')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
+			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield(['newworldfield', 'forestfield'])) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*3 / 4), 1);
 			if (this.field.isBattlefield('blessedfield')) return this.clampIntRange(Math.floor(target.getUndynamaxedHP()*2 / 3), 1);
 			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
 		},
@@ -7809,6 +7817,118 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Rock",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	forestfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Forest Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'forestfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Grass') {
+					this.hint('The forestry strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Bug' && move.category === 'Special') {
+					this.hint('The attack sprads through the forest!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'cut') {
+					this.hint('A tree slammed down!');
+					this.chainModify(2);
+				};
+				if (['aircutter','airslash','breakingswipe','furycutter','galestrike','psychocut','slash'].includes(move.id)) {
+					this.hint('A tree slammed down!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'attackorder') {
+					this.hint("They're coming out of the woodwork!");
+					this.chainModify(1.5);
+				};
+				if (move.id === 'electroweb') {
+					this.hint('Gossamer and arbor strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'gravapple') {
+					this.hint('the apple did not fall far from the tree.');
+					this.chainModify(1.5);
+				};
+				if (['surf','muddywater'].includes(move.id)) {
+					this.hint('The forest softened the attack...');
+					this.chainModify(0.5);
+				};
+				if ((move.id === 'surf' && this.field.battlefieldState.flooding >= 2) || (move.id  === 'muddywater' && this.field.battlefieldState.flooding >= 1)) {
+					this.hint('The ground became waterlogged...')
+					this.chainModify(1.3);
+				};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['cut','aircutter','airslash','breakingswipe','furycutter','galestrike','psychocut','slash'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Grass', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'defendorder') move.boosts = {def: 2, spd: 2};
+				if (move.id === 'forestscurse') move.volatileStatus = 'curse';
+				if (move.id === 'healorder') move.heal = [2,3];
+				if (move.id === 'strengthsap') move.onHit = function (target, source) {
+					if (target.boosts.atk === -6) return false;
+					const atk = target.getStat('atk', false, true);
+					const success = this.boost({ atk: -1 }, target, source, null, false, true);
+					return !!(this.heal(Math.floor(atk*1.3), source, target) || success);
+				}
+			},
+			onTryBoost(boost, target, source, effect) {
+				if (effect && effect.id === 'stickyweb') {
+					boost['spe'] = -2;
+				}
+			},
+			onSourceModifyAccuracyPriority: -1,
+			onSourceModifyAccuracy(accuracy, target, source, move) {
+				if (source.hasAbility('longreach')) {
+					return this.chainModify(0.9);
+				}
+			},
+			onResidualOrder: 5,
+			onResidual(target, source, effect) {
+				if (target.hasAbility('sapsipper')) {
+					this.hint(`${target.name} drank tree sap to recover!`);
+					this.heal(target.baseMaxhp / 16, target);
+				}
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.battlefieldState.flooding = 0;
+			},
+			onUpdate(pokemon) {
+				if (this.field.battlefieldState.flooding >= 3) {
+					this.hint('The forest became marshy!')
+					this.field.setBattlefield('swampfield');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Forest Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Grass",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

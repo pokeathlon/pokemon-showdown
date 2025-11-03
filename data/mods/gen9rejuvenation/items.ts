@@ -234,7 +234,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.add('-ability', pokemon, 'Clear Body', '[from] item: Telluric Seed');
 			};
 			if (this.field.isBattlefield('corrosivefield')) {
-				this.actions.useMove('kingsshield', pokemon, {target: pokemon});
+				this.actions.useMove('banefulbunker', pokemon, {target: pokemon});
 			};
 			if (this.field.isBattlefield('desertfield')) {
 				this.boost({def: 1, spd: 1, spe: 1});
@@ -245,7 +245,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('Sand Tomb'))
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
-			}
+			};
+			if (this.field.isBattlefield('forestfield')) {
+				this.actions.useMove('spikyshield', pokemon, {target: pokemon});
+			};
 		},
 		num: 0,
 		desc: "Provides boost in telluric fields.",

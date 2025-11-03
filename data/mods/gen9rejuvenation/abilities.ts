@@ -120,6 +120,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'flowergardenfield':
 				types = ['Grass'];
 				break;
+			case 'forestfield':
+				types = ['Bug'];
+				break;
 			case 'bigtoparenafield':
 				types = ['Fighting'];
 				break;
@@ -354,7 +357,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	leafguard: {
 		inherit: true,
 		onSetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Leaf Guard');
 				}
@@ -362,7 +365,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain')) {
+			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
 				this.add('-immune', target, '[from] ability: Leaf Guard');
 				return null;
 			}
@@ -401,7 +404,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	overgrow: {
 		inherit: true,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
+			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
 				this.debug('Overgrow boost');
 				let modifier = 1.5;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) modifier = 1.6;
@@ -411,7 +414,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
+			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('foresstfield') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
 				this.debug('Overgrow boost');
 				let modifier = 1.5;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) modifier = 1.6;
@@ -1091,7 +1094,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
-				let chance = this.field.isBattlefield('bewitchedwoodsfield')? 50 : 100;
+				let chance = this.field.isBattlefield(['bewitchedwoodsfield', 'forestfield'])? 50 : 100;
 				const r = this.random(chance);
 				if (r < 11) {
 					source.setStatus('slp', target);
@@ -1271,7 +1274,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	swarm: {
 		inherit: true,
 		onModifyAtk(atk, attacker, defender, move) {
-			if ((move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) || this.field.isBattlefield('flowergardenfield')) {
+			if ((move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) || this.field.isBattlefield(['flowergardenfield','forestfield'])) {
 				this.debug('Swarm boost');
 				let modifier = 1.5;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) modifier = 1.8;
@@ -1280,7 +1283,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onModifySpA(atk, attacker, defender, move) {
-			if ((move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) || this.field.isBattlefield('flowergardenfield')) {
+			if ((move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) || this.field.isBattlefield(['flowergardenfield','forestfield'])) {
 				this.debug('Swarm boost');
 				let modifier = 1.5;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3) modifier = 1.8;
@@ -1418,6 +1421,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				this.debug('Sand Veil - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
+		},
+	},
+	grasspelt: {
+		inherit: true,
+		onModifyDef(pokemon) {
+			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield')) return this.chainModify(1.5);
 		},
 	},
 

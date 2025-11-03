@@ -378,6 +378,10 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
+		},
+		calcRecoilDamage(damageDealt: number, move: Move, pokemon: Pokemon): number {
+			if (move.id === 'chloroblast') return Math.round(pokemon.maxhp / (this.battle.field.isBattlefield('forestfield')? 4 : 2));
+			return this.battle.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);
 		}
 	}
 };
