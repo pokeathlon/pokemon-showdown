@@ -39,6 +39,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
 			} else if (this.field.isBattlefield('bigtoparenafield')) {
 				newType = 'Fighting';
+			} else if (this.field.isBattlefield('desertfield')) {
+				newType = 'Ground';
 			} else if (this.field.isBattlefield('glitchfield')) {
 				newType = '???';
 			} 
@@ -77,54 +79,56 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'punishment';
 			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'dimensionalfield'])) {
 				move = 'darkpulse';
-			}  else if (this.field.isBattlefield('rainbowfield')) {
+			} else if (this.field.isBattlefield('rainbowfield')) {
 				move = 'aurorabeam';
-			}  else if (this.field.isBattlefield('crystalcavernfield')) {
+			} else if (this.field.isBattlefield('crystalcavernfield')) {
 				move = 'powergem';
-			}  else if (this.field.isBattlefield('blessedfield')) {
+			} else if (this.field.isBattlefield('blessedfield')) {
 				move = 'judgement';
-			}  else if (this.field.isBattlefield('fairytalefield')) {
+			} else if (this.field.isBattlefield('fairytalefield')) {
 				move = 'secretsword';
-			}  else if (this.field.isBattlefield('starlightarenafield')) {
+			} else if (this.field.isBattlefield('starlightarenafield')) {
 				move = 'moonblast';
-			}  else if (this.field.isBattlefield('newworldfield')) {
+			} else if (this.field.isBattlefield('newworldfield')) {
 				move = 'spacialrend';
-			}  else if (this.field.isBattlefield('inversefield')) {
+			} else if (this.field.isBattlefield('inversefield')) {
 				move = 'trickroom';
-			}  else if (this.field.isBattlefield('hauntedfield')) {
+			} else if (this.field.isBattlefield('hauntedfield')) {
 				move = 'phantomforce';
-			}  else if (this.field.isBattlefield('bewitchedwoodsfield')) {
+			} else if (this.field.isBattlefield('bewitchedwoodsfield')) {
 				move = 'dazzlinggleam';
-			}  else if (this.field.isBattlefield('chessboardfield')) {
+			} else if (this.field.isBattlefield('chessboardfield')) {
 				move = 'ancientpower';
-			}  else if (this.field.isBattlefield('bigtoparenafield')) {
+			} else if (this.field.isBattlefield('bigtoparenafield')) {
 				move = 'acrobatics';
-			}   else if (this.field.isBattlefield('factoryfield')) {
+			} else if (this.field.isBattlefield('factoryfield')) {
 				move = 'geargrind';
-			}   else if (this.field.isBattlefield('shortcircuitfield')) {
+			} else if (this.field.isBattlefield('shortcircuitfield')) {
 				move = 'discharge';
-			}   else if (this.field.isBattlefield('glitchfield')) {
+			} else if (this.field.isBattlefield('glitchfield')) {
 				move = 'metronome';
-			}   else if (this.field.isBattlefield('mirrorarenafield')) {
+			} else if (this.field.isBattlefield('mirrorarenafield')) {
 				move = 'mirrorshot';
-			}   else if (this.field.isBattlefield('flowergardenfield')) {
+			} else if (this.field.isBattlefield('flowergardenfield')) {
 				move = 'growth';
-			}   else if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) {
+			} else if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) {
 				move = 'petalblizzard';
-			}   else if (this.field.isBattlefield('corruptedcavefield')) {
+			} else if (this.field.isBattlefield('corruptedcavefield')) {
 				move = 'gunkshot';
-			}   else if (this.field.isBattlefield('colosseumfield')) {
+			} else if (this.field.isBattlefield('colosseumfield')) {
 				move = 'beatup';
-			}   else if (this.field.isBattlefield('concertvenuefield')) {
+			} else if (this.field.isBattlefield('concertvenuefield')) {
 				move = 'hypervoice';
-			}   else if (this.field.isBattlefield('backalleyfield')) {
+			} else if (this.field.isBattlefield('backalleyfield')) {
 				move = 'beatup';
-			}   else if (this.field.isBattlefield('cityfield')) {
+			} else if (this.field.isBattlefield('cityfield')) {
 				move = 'smog';
-			}   else if (this.field.isBattlefield('swampfield')) {
+			} else if (this.field.isBattlefield('swampfield')) {
 				move = 'muddywater';
-			}   else if (this.field.isBattlefield('corrosivefield')) {
+			} else if (this.field.isBattlefield('corrosivefield')) {
 				move = 'acid';
+			} else if (this.field.isBattlefield('desertfield')) {
+				move = 'sandtomb';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -228,7 +232,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spe: -1,
 					},
 				});
-			} else if (this.field.isBattlefield('darkcrystalcavernfield')) {
+			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'desertfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -352,7 +356,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'backalleyfield':
 				move.type = 'Steel';
 				break;
-			case 'crustalcavernfield':
+			case 'crystalcavernfield':
 				move.type = this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex];
 				break;
 			case 'blessedfield':
@@ -360,6 +364,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'concertvenuefield':
 			case 'cityfield':
 				move.type = 'Normal';
+				break;
+			case 'desertfield':
+				move.type = 'Ground';
 				break;
 			case 'glitchfield':
 				move.type = '???';
@@ -396,6 +403,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['desertfield']) && move.type === 'Ground') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -1726,7 +1734,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (source?.hasItem('lightclay')) {
+				if (source?.hasItem('lightclay') || this.field.isBattlefield('desertfield')) {
 					return 8;
 				}
 				return 5;
@@ -5373,7 +5381,6 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (['luckychant', 'teatime'].includes(move.id)) {
 					this.add('-fail', source,);
 					this.attrLastMove('[still]');
-					this.hint(`The corrupted field damaged ${source.name}!`)
 					this.faint(source, source)
 					return null;
 				}
@@ -7609,6 +7616,112 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Poison",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	desertfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Desert Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'desertfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Water' && !['scald','steameruption'].includes(move.id) && source.isGrounded()) {
+					this.hint('The desert softened the attack...');
+					this.chainModify(0.5);
+				};
+				if (move.type === 'Electric' && target.isGrounded()) {
+					this.hint('The desert softened the attack...');
+					this.chainModify(0.5);
+				};
+				if (['burnup', 'dig', 'needlearm', 'heatwave', 'pinmissile', 'sandtomb', 'sandsearstorm', 'scald', 'scorchingsands', 'searingsunrazesmash', 'solarbeam', 'solarblade', 'steameruption', 'thousandwaves', 'bonemerang','boneclub','bonerush','shadowbone'].includes(move.id)) {
+					if (['bonemerang','boneclub','bonerush','shadowbone'].includes(move.id)) {
+						this.hint('The lifeless desert strengthened the attack!')
+					} else {
+						this.hint('The desert strengthened the attack!');
+					}
+					this.chainModify(1.5);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'sandattack') move.boosts = {accuracy: -2};
+				if (move.id === 'shoreup') { // Heals 66%
+					move.onHit = function (pokemon) {
+						const success = !!this.heal(this.modify(pokemon.maxhp, 0.667));
+						if (!success) {
+							this.add('-fail', pokemon, 'heal');
+							return this.NOT_FAIL;
+						}
+						return success;
+					}
+				}
+			},
+			onTryMove(source, target, move) {
+				if (['aquaring','lifedew','soak'].includes(move.id)) {
+					this.add('-fail', source,);
+					this.attrLastMove('[still]');
+					this.hint(`The desert is too dry...`)
+					this.faint(source, source)
+					return null;
+				}
+			},
+			onChargeMove(pokemon, target, move) {
+				if (move.id === 'dig') {
+					this.attrLastMove('[still]');
+					this.addMove('-anim', pokemon, move.name, target);
+					return false; // skip charge turn
+				}
+			},
+			onDamage(damage, target, source, effect) {
+				if (target !== source && effect?.effectType === 'Move' && effect.type === 'Water' && target.hasType(['Grass','Water'])) {
+					this.hint(`${effect.name} instead restored ${target.name}'s HP!`)
+					this.heal(damage, target);
+					this.add('-immune', target, '[from] field: Desert Field');
+					return null;
+				}
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (target.hasAbility('sandspit')) {
+					for (const pokemon of this.getAllActive()) {
+						pokemon.boostBy({accuracy: -1});
+					}
+				}
+			},
+			onWeather(target, source, effect) {
+				if ((effect.id === 'sunnyday' || effect.id === 'desolateland') && target.hasType(['Grass','Water']) && !target.hasAbility(['solarpower','chlorophyll'])) {
+					this.hint(`${target.name} was hurt by the sunlight!`)
+					this.damage(target.baseMaxhp / 8, target, target);
+				};
+				if ((effect.id === 'sunnyday' || effect.id === 'desolateland') && target.hasAbility('dryskin')) {
+					this.damage(target.baseMaxhp / 8, target, target);
+				};
+			},
+			onResidualOrder: 7,
+			onResidual(target, source, effect) {
+				if (target.hasAbility('wanderingspirit')) this.boost({spe: -1});
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Desert Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

@@ -49,6 +49,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 4) this.effectState.boundDivisor = 4;
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) this.effectState.boundDivisor = 3;
+			if (this.effectState.sourceEffect.id === 'sandtomb' && this.field.isBattlefield('desertfield')) this.effectState.boundDivisor = 6;
 		},
 	},
 	hail: {
@@ -99,7 +100,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sunnyday: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('heatrock') || this.field.isBattlefield('skyfield')) {
+			if (source?.hasItem('heatrock') || this.field.isBattlefield(['skyfield','desertfield'])) {
 				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}
@@ -122,10 +123,14 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sandstorm: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('smoothrock') || this.field.isBattlefield('skyfield')) {
+			if (source?.hasItem('smoothrock') || this.field.isBattlefield(['skyfield','desertfield'])) {
 				return 8;
 			}
 			return 5;
+		},
+		onWeather(target) {
+			let modifier = this.field.isBattlefield('desertfield')? 8 : 16;
+			this.damage(target.baseMaxhp / modifier);
 		},
 	},
 	brn: {

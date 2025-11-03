@@ -126,6 +126,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'shortcircuitfield':
 				types = ['Electric'];
 				break;
+			case 'desertfield':
+				types = ['Ground'];
+				break;
 			case 'newworldfield':
 				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
 				break;
@@ -1382,6 +1385,35 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onSourceModifyAccuracy(accuracy, target, source, move) {
 			if (move.category === 'Physical' && typeof accuracy === 'number') {
 				return this.chainModify(this.field.isBattlefield(['backalleyfield','cityfield'])? [2, 3] : [3277, 4096]);
+			}
+		},
+	},
+	sandforce: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm') || this.field.isBattlefield('desertfield')) {
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([5325, 4096]);
+				}
+			}
+		},
+	},
+	sandrush: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('sandstorm') || this.field.isBattlefield('desertfield')) {
+				return this.chainModify(2);
+			}
+		},
+	},
+	sandveil: {
+		inherit: true,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('sandstorm') || this.field.isBattlefield('desertfield')) {
+				this.debug('Sand Veil - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
 			}
 		},
 	},

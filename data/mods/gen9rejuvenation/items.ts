@@ -235,6 +235,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			};
 			if (this.field.isBattlefield('corrosivefield')) {
 				this.actions.useMove('kingsshield', pokemon, {target: pokemon});
+			};
+			if (this.field.isBattlefield('desertfield')) {
+				this.boost({def: 1, spd: 1, spe: 1});
+				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('Sand Tomb'))
 			}
 		},
 		num: 0,
