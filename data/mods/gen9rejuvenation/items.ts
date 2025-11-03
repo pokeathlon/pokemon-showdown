@@ -249,6 +249,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('forestfield')) {
 				this.actions.useMove('spikyshield', pokemon, {target: pokemon});
 			};
+			if (this.field.isBattlefield('volcanotopfield')) {
+				this.boost({def: 1});
+				this.actions.useMove('shelltrap', pokemon, {target: pokemon});
+			};
 		},
 		num: 0,
 		desc: "Provides boost in telluric fields.",

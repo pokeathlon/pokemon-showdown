@@ -15,7 +15,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Fairy';
 			} else if (this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) {
 				newType = 'Psychic';
-			} else if (this.field.isBattlefield(['volcanicfield','infernalfield'])) {
+			} else if (this.field.isBattlefield(['volcanicfield','infernalfield','volcanotopfield'])) {
 				newType = 'Fire';
 			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corruptedcavefield','corrosivefield'])) {
 				newType = 'Poison';
@@ -137,6 +137,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'rocksmash';
 			} else if (this.field.isBattlefield('forestfield')) {
 				move = 'woodhammer';
+			} else if (this.field.isBattlefield('volcanotopfield')) {
+				move = 'eruption';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -157,7 +159,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'slp',
 				});
-			} else if (this.field.isBattlefield(['volcanicfield','dragonsdenfield','infernalfield'])) {
+			} else if (this.field.isBattlefield(['volcanicfield','dragonsdenfield','infernalfield',' volcanotopfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'brn',
@@ -324,6 +326,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'volcanicfield':
 			case 'infernalfield':
+			case 'volcanotopfield':
 				move.type = 'Fire';
 				break;
 			case 'corrosivemistfield':
@@ -405,7 +408,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if ((this.field.isTerrain('grassyterrain') || this.field.isBattlefield('flowergardenfield')) && move.type === 'Grass') return this.chainModify(0.5);
 				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['volcanicfield','infernalfield']) && move.type === 'Fire') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['volcanicfield','infernalfield', 'volcanotopfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield','corrosivefield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield', 'swampfield']) && move.type === 'Water') return this.chainModify(0.5);
@@ -970,6 +973,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.field.setWeather('deltastream');
 					return 8;
 				}
+				if (this.field.isBattlefield('volcanotopfield')) {
+					this.field.setWeather('deltastream');
+					return 6;
+				}
 				if (source?.hasAbility('persistent')) {
 					this.add('-activate', source, 'ability: Persistent', '[move] Tailwind');
 					return 6;
@@ -989,6 +996,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 5,
 			onSideEnd(side) {
+				if (this.field.isBattlefield(['skyfield','volcanotopfield']) && this.field.isWeather('deltastream')) this.field.clearWeather();
 				this.add('-sideend', side, 'move: Tailwind');
 			},
 		},
@@ -7929,6 +7937,184 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Grass",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	volcanictopfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Volcanic Top Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'volcanictopfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Fire') {
+					this.hint('The attack was super-heated');
+					this.chainModify(1.2);
+				};
+				if (move.type === 'Flying') {
+					this.hint('The mountain strengthened the attack!!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Ice') {
+					this.hint('The extreme heat softened the attack...');
+					this.chainModify(0.5);
+				};
+				if (move.type === 'Water' && !['scald','steameruption'].includes(move.id)) {
+					this.hint('The extreme heat softened the attack...');
+					this.chainModify(0.9);
+				};
+				if (['clearsmog','gust','icywind','ominouswind','precipiceblades','razorwind','silverwind','smog','twister'].includes(move.id)) {
+					this.hint('The field super-heated the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'thunder') {
+					this.hint('The field powers up the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'infernalparade') {
+					this.hint('The field powers up the flaming attacks!');
+					this.chainModify(1.5);
+				};
+				if (['scald','steameruption'].includes(move.id)) {
+					this.hint('The field super-heated the attack!');
+					this.chainModify(1.5);
+				};
+				if (['eruption', 'heatwave', 'lavaplume', 'magmadrift', 'magmastorm'].includes(move.id)) {
+					this.hint('The field powers up the flaming attacks!');
+					this.chainModify(1.3);
+				};
+				if (['hydropump', 'hydrovortex', 'muddywater', 'oceanicoperetta', 'sparklingaria', 'surf', 'waterpledge', 'waterspout', 'watersport'].includes(move.id)) {
+					this.hint('Steam shot up from the field!');
+					this.chainModify(0.625);
+				};
+				if (['bounce', 'fly', 'blizzard', 'glaciate', 'subzeroslammer'].includes(move.id)) {
+					this.chainModify(1.3)
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'thunder') move.accuracy = true;
+				if (move.id === 'poisongas') move.status = toID('tox');
+				if (move.id === 'smokescreen') move.boosts = {accuracy: -2};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Rock') {
+					return typeMod + this.dex.getEffectiveness('Fire', type);
+				};
+				if (['clearsmog','gust','icywind','ominouswind','precipiceblades','razorwind','silverwind','smog','twister','dig','dive','eggbomb','explosion','magnetbomb','seismictoss','selfdestruct'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Fire', type);
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['bulldoze','earthquake','earthpower','eruption','feverpitch','lavaplume','magmadrift','magnitude','precipiceblades'].includes(move.id)) {
+					this.hint('The volcano is going to erupt!');
+					this.field.battlefieldState.erupt = true;
+				};
+				if (['hydropump', 'hydrovortex', 'muddywater', 'oceanicoperetta', 'sparklingaria', 'surf', 'waterpledge', 'waterspout', 'watersport'].includes(move.id)) {
+					for (const poke of this.getAllActive()) {
+						this.boost({accuracy: -1}, poke);
+					}
+				};
+				if (source.volatiles['lockedmove']) {
+					source.removeVolatile('lockedmove');
+				};
+				if (['bounce', 'fly'].includes(move.id)) {
+					this.hint('The battle was taken to the skies!');
+					this.field.setBattlefield('skyfield');
+				};
+				if (['blizzard', 'glaciate', 'subzeroslammer'].includes(move.id)){
+					this.hint('The field cooled off!');
+					this.field.setBattlefield('mountainfield');
+				};
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (effect.effectType === 'Move' && effect.id === 'ragingfury' && status.id === 'confusion') {
+					return null
+				}
+			},
+			onModifyPriority(priority, pokemon, target, move) {
+				if (move?.type === 'Flying' && pokemon.hasAbility('galewings') && this.field.isWeather('deltastream')) return priority + 1;
+			},
+			onDamage(damage, target, source, effect) {
+				if (effect && effect.id === 'stealthrock') {
+					const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('flamethrower')), -6, 6);
+					return Math.floor(target.maxhp * (2 ** typeMod) / 8);
+				}
+			},
+			onUpdate(pokemon) {
+				if (this.field.battlefieldState.erupt) {
+					for (const poke of this.getAllActive()) {
+						if (poke.hasAbility(['battlearmor','blaze','flareboost','flamebody','flashfire','magicguard','magmaarmor','prismarmor','shellarmor','solidrock','sturdy','waterbubble','wonderguard'])) continue;
+						if (poke.side.sideConditions['arenitewall'] || poke.side.sideConditions['wideguard'] || poke.volatiles['aquaring']) continue;
+						const typeMod = this.clampIntRange(poke.runEffectiveness(this.dex.getActiveMove('flamethrower')), -6, 6);
+						let modifier = poke.volatiles['tarshot']? 2 : 1
+						this.hint(`${poke.name} is hurt by the eruption!`)
+						this.damage(poke.maxhp * (2 ** typeMod) * modifier / 8);
+
+						if (poke.hasAbility('flareboost')) this.boost({spa: 1}, poke);
+						if (poke.hasAbility('flashfire')) poke.addVolatile('flashfire');
+						if (poke.hasAbility('magmaarmor')) this.boost({def: 1, spd: 1}, poke);
+
+						if (poke.status === 'slp' && !poke.hasAbility('soundproof')) {
+							this.hint(`${poke.name} woke up due to the eruption!`);
+							poke.cureStatus();
+						}
+						if (poke.hp && poke.removeVolatile('leechseed')) {
+							this.hint(`${poke.name}'s Leech Seed burned away in the eruption!`)
+							this.add('-end', poke, 'Leech Seed');
+						}
+						const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'livewire', 'permafrost', 'hotcoals'];
+						for (const condition of sideConditions) {
+							if (poke.hp && poke.side.removeSideCondition(condition)) {
+								this.add('-sideend', poke.side, this.dex.conditions.get(condition).name);
+							}
+						}
+						if (poke.hp && poke.volatiles['partiallytrapped']) {
+							poke.removeVolatile('partiallytrapped');
+						}
+					}
+					this.field.battlefieldState.erupt = false;
+				}
+			},
+			onWeather(target, source, effect) {
+				if (effect.id === 'desolateland') this.field.battlefieldState.erupt = true;
+			},
+			onResidualOrder: 5,
+			onResidual(target, source, effect) {
+				if (target.hasAbility('steamengine')) this.boost({spe: 1});
+				if (target.lastMoveUsed?.id === 'burnup' && target.hasType('???')) {
+					target.setType(target.getTypes(true).map(type => type === '???' ? 'Fire' : type));
+					this.add('-start', target, 'typechange', target.getTypes().join('/'), '[from] field: Volcanic Field');
+				}
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.battlefieldState.erupt = false;
+				if (this.field.isWeather(['hail', 'snow', 'sleet'])) {
+					this.hint('The hail melted away.');
+					this.field.clearWeather();
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Volcanic Top Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fire",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

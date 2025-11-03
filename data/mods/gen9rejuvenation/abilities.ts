@@ -60,6 +60,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			switch (this.field.terrain) {
 			case 'volcanicfield':
 			case 'infernalfield':
+			case 'volcanictopfield':
 				types = ['Fire'];
 				break;
 			case 'corrosivemistfield':
@@ -502,17 +503,20 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (this.field.isBattlefield('frozendimensionalfield')) return;
-			if (move.type === 'Fire' && (attacker.hp <= attacker.maxhp / 3 || this.field.isBattlefield(['volcanicfield','infernalfield']))) {
+			if (move.type === 'Fire' && (attacker.hp <= attacker.maxhp / 3 || this.field.isBattlefield(['volcanicfield','infernalfield']) || attacker.abilityState.blaze)) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpA(atk, attacker, defender, move) {
 			if (this.field.isBattlefield('frozendimensionalfield')) return;
-			if (move.type === 'Fire' && (attacker.hp <= attacker.maxhp / 3 || this.field.isBattlefield(['volcanicfield','infernalfield']))) {
+			if (move.type === 'Fire' && (attacker.hp <= attacker.maxhp / 3 || this.field.isBattlefield(['volcanicfield','infernalfield']) || attacker.abilityState.blaze)) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
+		},
+		onUpdate(pokemon) {
+			if (this.field.isBattlefield('volcanotopfield') && this.field.battlefieldState.erupt  && !pokemon.abilityState.blaze) pokemon.abilityState.blaze = true;
 		},
 	},
 	iceface: {
@@ -531,7 +535,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onSwitchIn(pokemon) {
-			if (this.field.isBattlefield(['volcanicfield','infernalfield'])) {
+			if (this.field.isBattlefield(['volcanicfield','infernalfield', 'volcanictopfield'])) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = true;
 			}
@@ -828,11 +832,18 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (pokemon.status === 'frz' && !this.field.isBattlefield('frozendimendionalfield')) {
 				this.add('-activate', pokemon, 'ability: Magma Armor');
 				pokemon.cureStatus();
-			}
+			};
+			if (this.field.isBattlefield('volcanotopfield') && this.field.battlefieldState.erupt  && !pokemon.abilityState.active) pokemon.abilityState.active = true;
 		},
 		onImmunity(type, pokemon) {
 			if (this.field.isBattlefield('frozendimensionalfield')) return;
 			if (type === 'frz') return false;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && target.abilityState.active && move.type === 'Fire') {
+				this.add('-immune', target, '[from] ability: Magma Armor');
+				return null;
+			}
 		},
 	},
 	solarpower: {
