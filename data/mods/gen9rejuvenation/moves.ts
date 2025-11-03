@@ -41,6 +41,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Fighting';
 			} else if (this.field.isBattlefield('desertfield')) {
 				newType = 'Ground';
+			} else if (this.field.isBattlefield('rockyfield')) {
+				newType = 'Rock';
 			} else if (this.field.isBattlefield('glitchfield')) {
 				newType = '???';
 			} 
@@ -129,6 +131,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'acid';
 			} else if (this.field.isBattlefield('desertfield')) {
 				move = 'sandtomb';
+			} else if (this.field.isBattlefield('rockyfield')) {
+				move = 'rocksmash';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -192,7 +196,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					volatileStatus: 'confusion',
 				});
-			} else if (this.field.isBattlefield(['dimensionalfield','concertvenuefield'])) {
+			} else if (this.field.isBattlefield(['dimensionalfield','concertvenuefield','rockyfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'flinch',
@@ -368,6 +372,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'desertfield':
 				move.type = 'Ground';
 				break;
+			case 'rockyfield':
+				move.type = 'Rock';
+				break;
 			case 'glitchfield':
 				move.type = '???';
 				break;
@@ -404,6 +411,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['desertfield']) && move.type === 'Ground') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['rockyfield']) && move.type === 'Rock') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
 				pokemon.removeVolatile('shelter')
@@ -7722,6 +7730,85 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Ground",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	rockyfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Rocky Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'rockyfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Rock') {
+					this.hint('The field strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'rocksmah') {
+					this.hint("SMASH'D!");
+					this.chainModify(2);
+				};
+				if (['accelerock','bulldoze','earthquake','magnitude','rockclimb','strength'].includes(move.id)) {
+					this.hint('The rocks strengthened the attack!');
+					this.chainModify(1.5);
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'rockpolish') move.boosts = {spe: 3};
+				if (move.id === 'stealthrock') move.condition = {
+					onSideStart(side) {
+						this.add('-sidestart', side, 'move: Stealth Rock');
+					},
+					onSwitchIn(pokemon) {
+						if (pokemon.hasItem('heavydutyboots')) return;
+						const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+						this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
+					},
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (pokemon.boosts['def'] > 0 && status.id === 'flinch') return null;
+			},
+			onTryHit(pokemon, target, move) {
+				if (move.flags['bullet'] && (pokemon.boosts['def'] > 0 || pokemon.volatiles['substitute'])) {
+					this.add('-immune', pokemon, '[from] field: Rocky Field');
+					return null;
+				}
+			},
+			onFlinch(pokemon) {
+				if (!pokemon.hasAbility(['steadfast', 'sturdy'])) {
+					this.hint(`${pokemon.name} was knocked into a rock!`)
+					this.damage(pokemon.baseMaxhp / 4, pokemon);
+				}
+			},
+			onSourceModifyAccuracyPriority: -1,
+			onSourceModifyAccuracy(accuracy, target, source, move) {
+				if (source.hasAbility('longreach')) {
+					return this.chainModify(0.9);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Rocky Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Rock",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

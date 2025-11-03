@@ -235,6 +235,11 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
+					if (!move.ohko && move.flags.contact && !pokemon.hasAbility('rockhead') && this.battle.field.isBattlefield('rockyfield')) {
+						this.battle.hint(`${pokemon.name} hit a rock instead!`)
+						let modifier = pokemon.hasAbility('gorillatactics')? 2 : 1;
+						pokemon.damage(pokemon.baseMaxhp * modifier / 8, pokemon);
+					}
 					if (this.battle.field.isBattlefield('concertvenuefield')) {
 						this.battle.field.battlefieldState.hype -= 1;
 					}

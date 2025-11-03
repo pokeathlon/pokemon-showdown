@@ -239,6 +239,12 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('desertfield')) {
 				this.boost({def: 1, spd: 1, spe: 1});
 				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('Sand Tomb'))
+			};
+			if (this.field.isBattlefield('rockyfield')) {
+				this.boost({def: 1, spd: 1});
+				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('Sand Tomb'))
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
 			}
 		},
 		num: 0,

@@ -129,6 +129,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			case 'desertfield':
 				types = ['Ground'];
 				break;
+			case 'rockyfield':
+				types = ['Rock'];
+				break;
 			case 'newworldfield':
 				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
 				break;
