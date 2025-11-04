@@ -17,7 +17,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Psychic';
 			} else if (this.field.isBattlefield(['volcanicfield','infernalfield','volcanotopfield'])) {
 				newType = 'Fire';
-			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corruptedcavefield','corrosivefield'])) {
+			} else if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corruptedcavefield', 'corrosivefield', 'wastelandfield'])) {
 				newType = 'Poison';
 			} else if (this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
 				newType = 'Ice';
@@ -117,7 +117,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'growth';
 			} else if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) {
 				move = 'petalblizzard';
-			} else if (this.field.isBattlefield('corruptedcavefield')) {
+			} else if (this.field.isBattlefield(['corruptedcavefield', 'wastelandfield'])) {
 				move = 'gunkshot';
 			} else if (this.field.isBattlefield('colosseumfield')) {
 				move = 'beatup';
@@ -183,6 +183,11 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.secondaries.push({
 					chance: 30,
 					status: this.sample(['psn','par', 'slp']),
+				});
+			} else if (this.field.isBattlefield('wastelandfield')) {
+				move.secondaries.push({
+					chance: 30,
+					status: this.sample(['psn','par', 'frz', 'brn']),
 				});
 			} else if (this.field.isBattlefield('crystalcavernfield')) {
 				const result = this.random(4);
@@ -333,6 +338,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			case 'murkwatersurfacefield':
 			case 'corruptedcavefield':
 			case 'corrosivefield':
+			case 'wastelandfield':
 				move.type = 'Poison';
 				break;
 			case 'icyfield':
@@ -409,7 +415,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if ((this.field.isTerrain('psychicterrain') || this.field.isBattlefield('chessboardfield')) && move.type === 'Psychic') return this.chainModify(0.5);
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield','infernalfield', 'volcanotopfield']) && move.type === 'Fire') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield','corrosivefield']) && move.type === 'Poison') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield','corruptedcavefield','corrosivefield', 'wastelandfield']) && move.type === 'Poison') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['icyfield','frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield', 'swampfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
@@ -739,7 +745,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				var damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				let modifier = this.field.isBattlefield('wastelandfield')? 2 : 1;
+				var damage = this.damage(pokemon.baseMaxhp * modifier / 8, pokemon, target);
 				if (damage) {
 					if (this.field.isTerrain('grassyterrain')) damage *= 1.3;
 					this.heal(damage, target, pokemon);
@@ -783,7 +790,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	barbbarrage: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield', 'wastelandfield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -791,7 +798,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	venoshock: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield', 'wastelandfield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -799,7 +806,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	venomdrench: {
 		inherit: true,
 		onHit(target, source, move) {
-			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) {
+			if (target.status === 'psn' || target.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield', 'wastelandfield'])) {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
@@ -8115,6 +8122,222 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Fire",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	wastelandfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Wasteland Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'wastelandfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.id === 'spitup') {
+					this.hint('BLEAAARGGGGH!');
+					this.chainModify(2);
+				};
+				if (['mudbomb','mudshot','mudslap'].includes(move.id)) {
+					this.hint('The waste was added to the attack!');
+					this.chainModify(1.5);
+				};
+				if (['powerwhip', 'vinewhip'].includes(move.id)) {
+					this.hint('Do it for the vine!');
+					this.chainModify(1.5);
+				};
+				if (['gunkshot', 'octazooka', 'sludge', 'sludgebomb', 'sludgewave'].includes(move.id)) {
+					this.hint('The waste joined the attack!');
+					this.chainModify(1.2);
+				};
+				if (['bulldoze', 'earthquake', 'magnitude'].includes(move.id)) {
+					this.hint('Wibble-wibble wobble-wobb...');
+					this.chainModify(0.25);
+				};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (['mudbomb','mudshot','mudslap'].includes(move.id)) {
+					return typeMod + this.dex.getEffectiveness('Poison', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'spikes') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'move: Spikes');
+					},
+					onEnd(target) {
+						if (target.isGrounded()) {
+							this.hint('...Stalagmites burst up from the ground!')
+							this.damage(target.baseMaxhp / 3, target);
+						}
+						this.add('-end', pokemon, 'move: Spikes', '[silent]');
+					},
+				};
+				if (move.id === 'toxicspikes') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'move: Toxic Spikes');
+					},
+					onEnd(target) {
+						if (target.isGrounded() && !target.hasType(['Poison', 'Steel'])) {
+							this.hint('...Poison needles shot up from the ground!')
+							target.trySetStatus('psn')
+							this.damage(target.baseMaxhp / 8, target);
+						}
+						this.add('-end', pokemon, 'move: Toxic Spikes', '[silent]');
+					},
+				};
+				if (move.id === 'stealthrock') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'move: Stealth Rock');
+					},
+					onEnd(target) {
+						this.hint('...Rocks spewed out from the ground below!')
+						const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+						this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
+						this.add('-end', pokemon, 'move: Stealth Rock', '[silent]');
+					},
+				};
+				if (move.id === 'stickyweb') move.condition = {
+					duration: 1,
+					onStart(target) {
+						this.add('-singleturn', target, 'move: Sticky Web');
+					},
+					onEnd(target) {
+						this.hint('...Sticky string shot out of the ground!')
+						this.boost({spe: -4}, target);
+						this.add('-end', pokemon, 'move: Sticky Web', '[silent]');
+					},
+				};
+				if (move.id === 'aciddownpour') move.secondary = {
+					chance: 100,
+					onHit(target, source) {
+						const result = this.random(4);
+						if (result === 0) {
+							target.trySetStatus('psn', source);
+						} else if (result === 1) {
+							target.trySetStatus('par', source);
+						} else if (result === 2) {
+							target.trySetStatus('slp', source);
+						} else {
+							target.trySetStatus('brn', source);
+						}
+					},
+				};
+				if (move.id === 'octazooka') move.secondary = {
+					chance: 50,
+					onHit(target, source) {
+						const result = this.random(5);
+						if (result === 0) {
+							target.trySetStatus('psn', source);
+						} else if (result === 1) {
+							target.trySetStatus('par', source);
+						} else if (result === 2) {
+							target.trySetStatus('slp', source);
+						} else if (result === 3) {
+							target.trySetStatus('brn', source);
+						} else {
+							target.boostBy({accuracy: -1});
+						}
+					},
+				};
+				if (['gunkshot','sludge','sludgebomb'].includes(move.id)) move.secondary = {
+					chance: 30,
+					onHit(target, source) {
+						const result = this.random(4);
+						if (result === 0) {
+							target.trySetStatus('psn', source);
+						} else if (result === 1) {
+							target.trySetStatus('par', source);
+						} else if (result === 2) {
+							target.trySetStatus('slp', source);
+						} else {
+							target.trySetStatus('brn', source);
+						}
+					},
+				};
+				if (move.id === 'sludgewave') move.secondary = {
+					chance: 10,
+					onHit(target, source) {
+						const result = this.random(4);
+						if (result === 0) {
+							target.trySetStatus('psn', source);
+						} else if (result === 1) {
+							target.trySetStatus('par', source);
+						} else if (result === 2) {
+							target.trySetStatus('slp', source);
+						} else {
+							target.trySetStatus('brn', source);
+						}
+					},
+				};
+				if (pokemon.hasAbility('corrosion')) move.secondary = {
+					chance: 10,
+					onHit(target, source) {
+						const result = this.random(4);
+						if (result === 0) {
+							target.trySetStatus('psn', source);
+						} else if (result === 1) {
+							target.trySetStatus('par', source);
+						} else if (result === 2) {
+							target.trySetStatus('slp', source);
+						} else {
+							target.trySetStatus('brn', source);
+						}
+					},
+				};
+				if (move.id === 'direclaw') move.secondary = {
+					chance: 100,
+					onHit(target, source) {
+						const result = this.random(3);
+						if (result === 0) {
+							target.trySetStatus('psn', source);
+						} else if (result === 1) {
+							target.trySetStatus('par', source);
+						} else {
+							target.trySetStatus('slp', source);
+						}
+					},
+				};
+				if (move.id === 'swallow') move.onHit = function (pokemon) {
+					const layers = pokemon.volatiles['stockpile']?.layers || 1;
+					const healAmount = [0.25, 0.5, 1];
+					if (layers === 3 && pokemon.status) pokemon.cureStatus();
+					const success = !!this.heal(this.modify(pokemon.maxhp, healAmount[layers - 1])*2);
+					if (!success) this.add('-fail', pokemon, 'heal');
+					pokemon.removeVolatile('stockpile');
+					return success || this.NOT_FAIL;
+				}
+			},
+			onResidualOrder: 6,
+			onResidual(target, source, effect) {
+				if (target.isGrounded() && target.hasAbility('poisonheal')) {
+					this.hint(`${target.name} was healed by poison!`);
+					this.heal(target.baseMaxhp / 8);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Wasteland Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Poison",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

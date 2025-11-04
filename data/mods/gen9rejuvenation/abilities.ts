@@ -552,13 +552,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	merciless: {
 		inherit: true,
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && (['psn', 'tox'].includes(target.status) || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield']))) return 5;
+			if (target && (['psn', 'tox'].includes(target.status) || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield', 'wastelandfield']))) return 5;
 		},
 	},
 	toxicboost: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'psn' || attacker.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield'])) && move.category === 'Physical') {
+			if ((attacker.status === 'psn' || attacker.status === 'tox' || this.field.isBattlefield(['corrosivemistfield','murkwatersurfacefield', 'corrosivefield', 'wastelandfield'])) && move.category === 'Physical') {
 				return this.chainModify(this.field.isBattlefield('corruptedcavefield')? 2 : 1.5);
 			}
 		},
@@ -705,6 +705,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				this.add('-ability', target, 'Gooey');
 				let boostVal = this.field.isBattlefield(['murkwatersurfacefield','swampfield'])? -2 : -1;
+				if (this.field.isBattlefield('wastelandfield')) source.trySetStatus('psn', target)
 				this.boost({spe: boostVal}, source, target, null, true);
 			}
 		},
@@ -715,7 +716,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
 			const canOoze = ['drain', 'leechseed', 'strengthsap'];
 			if (canOoze.includes(effect.id)) {
-				let damageMod = this.field.isBattlefield(['murkwatersurfacefield', 'corruptedcavefield'])? 2 : 1;
+				let damageMod = this.field.isBattlefield(['murkwatersurfacefield', 'corruptedcavefield', 'wastelandfield'])? 2 : 1;
 				this.damage(damage*damageMod);
 				return 0;
 			}
@@ -730,7 +731,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				for (const secondary of move.secondaries) {
 					if (secondary.volatileStatus === 'flinch') return;
 				}
-				let chanceMod = this.field.isTerrain(['murkwatersurfacefield', 'backalleyfield', 'cityfield'])? 2 : 1 
+				let chanceMod = this.field.isTerrain(['murkwatersurfacefield', 'backalleyfield', 'cityfield', 'wastelandfield'])? 2 : 1 
 				move.secondaries.push({
 					chance: 10*chanceMod,
 					volatileStatus: 'flinch',
@@ -1105,7 +1106,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
-				let chance = this.field.isBattlefield(['bewitchedwoodsfield', 'forestfield'])? 50 : 100;
+				let chance = this.field.isBattlefield(['bewitchedwoodsfield', 'forestfield', 'wastelandfield'])? 50 : 100;
 				const r = this.random(chance);
 				if (r < 11) {
 					source.setStatus('slp', target);
@@ -1307,7 +1308,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				if (this.field.isBattlefield('corruptedcavefield')? this.randomChance(6, 10) : this.randomChance(3, 10)) {
+				if (this.field.isBattlefield(['corruptedcavefield', 'wastelandfield'])? this.randomChance(6, 10) : this.randomChance(3, 10)) {
 					source.trySetStatus('psn', target);
 				}
 			}

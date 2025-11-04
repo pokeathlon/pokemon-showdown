@@ -253,6 +253,12 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({def: 1});
 				this.actions.useMove('shelltrap', pokemon, {target: pokemon});
 			};
+			if (this.field.isBattlefield('wastelandfield')) {
+				this.boost({atk: 1, spa: 1});
+				for (const side of this.sides) {
+					side.addSideCondition('stealthrock');
+				};
+			};
 		},
 		num: 0,
 		desc: "Provides boost in telluric fields.",
