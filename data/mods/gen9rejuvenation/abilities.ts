@@ -135,6 +135,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Ground'];
 				break;
 			case 'rockyfield':
+			case 'cavefield':
 				types = ['Rock'];
 				break;
 			case 'newworldfield':
@@ -1194,7 +1195,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['sound']) {
 				this.debug('Punk Rock boost');
-				return this.chainModify(this.field.isBattlefield('bigtoparena')? 1.5 : [5325, 4096]);
+				return this.chainModify(this.field.isBattlefield(['bigtoparenafield', 'cavefield'])? 1.5 : [5325, 4096]);
 			}
 		},
 	},

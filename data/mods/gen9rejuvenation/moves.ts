@@ -41,7 +41,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Fighting';
 			} else if (this.field.isBattlefield(['desertfield', 'beachfield'])) {
 				newType = 'Ground';
-			} else if (this.field.isBattlefield('rockyfield')) {
+			} else if (this.field.isBattlefield(['rockyfield','cavefield'])) {
 				newType = 'Rock';
 			} else if (this.field.isBattlefield('forestfield')) {
 				newType = 'Bug';
@@ -141,6 +141,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'eruption';
 			} else if (this.field.isBattlefield('beachfield')) {
 				move = 'meditate';
+			} else if (this.field.isBattlefield('cavefield')) {
+				move = 'rocktomb';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -209,7 +211,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					volatileStatus: 'confusion',
 				});
-			} else if (this.field.isBattlefield(['dimensionalfield','concertvenuefield','rockyfield'])) {
+			} else if (this.field.isBattlefield(['dimensionalfield','concertvenuefield','rockyfield','cavefield'])) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'flinch',
@@ -389,6 +391,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Ground';
 				break;
 			case 'rockyfield':
+			case 'cavefield':
 				move.type = 'Rock';
 				break;
 			case 'forestfield':
@@ -430,7 +433,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['desertfield', 'beachfield']) && move.type === 'Ground') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['rockyfield']) && move.type === 'Rock') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['rockyfield', 'cavefield']) && move.type === 'Rock') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['forestfield']) && move.type === 'Bug') return this.chainModify(0.5);
 			},
 			onSwitchOut(pokemon) {
@@ -8474,6 +8477,162 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Ground",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	cavefield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cave Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'cavefield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Rock') {
+					this.hint('The cavern strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.flags.sound) {
+					this.hint('ECHO-Echo-echo!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Flying' && !move.flags.contact) {
+					this.hint('The cave choked out the air!');
+					this.chainModify(0.5);
+				};
+				if (move.id === 'rocktomb') {
+					this.hint('...Piled on!');
+					this.chainModify(1.5);
+				};
+				if (['diamondstorm', 'powergem', 'aciddownpour', 'sludgewave', 'blizzard', 'subzeroslammer', 'devastatingdrake', 'dracometeor'].includes(move.id) 
+					|| (move.id === 'dragonpulse' && this.field.battlefieldState.dragonden === 1) 
+					|| (['eruption', 'feverpitch', 'fusionflare', 'heatwave', 'lavaplume', 'magmadrift', 'overheat'].includes(move.id) && this.field.battlefieldState.volcanic === 1)) 
+					{
+					this.chainModify(1.3);
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Ground') {
+					if (!target) return; // avoid crashing when called from a chat plugin
+					// ignore effectiveness if the target is Flying type and immune to Ground
+					if (!target.runImmunity('Ground')) return 0;
+				};
+			},
+			onChargeMove(pokemon, target, move) {
+				if (['bounce', 'fly'].includes(move.id)) {
+					this.attrLastMove('[still]');
+					this.addMove('-anim', pokemon, move.name, target);
+					return false; // skip charge turn
+				}
+			},
+			onTryMove(source, target, move) {
+				if (move.id === 'skydrop') {
+					this.add('-fail', source,);
+					this.attrLastMove('[still]');
+					this.hint(`The cave's low ceiling makes flying high impossible!`)
+					this.faint(source, source)
+					return null;
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (['bulldoze', 'continentalcrush', 'earthquake', 'fissure', 'magnitude', 'tectonicrage'].includes(move.id)) {
+					this.hint('Bits of rock fell from the crumbling ceiling!');
+					this.field.battlefieldState.collapse += 1;
+				};
+				if (['aciddownpour', 'sludgewave'].includes(move.id)) {
+					this.hint('The cave was corrupted!');
+					this.field.setBattlefield('corruptedcavefield');
+				};
+				if (['diamondstorm', 'powergem'].includes(move.id)) {
+					this.hint('The cave was littered with crystals!');
+					this.field.setBattlefield('crystalcavernfield');
+				};
+				if (move.id === 'gravity') {
+					this.hint('Intense gravity is pulling from deep below...'); 
+					if (this.field.battlefieldState.gravity >= 1) {
+						this.hint('The battle was pulled deeper into the Earth!');
+						this.field.setBattlefield('deepearthfield');
+					} else {
+						this.field.battlefieldState.gravity += 1;
+					}
+				};
+				if (move.id === 'dragonpulse') {
+					this.hint('Draconic energy seeps in...')
+					if (this.field.battlefieldState.dragonden >= 1) {
+						this.hint('The draconic energy mutated the field!');
+						this.field.setBattlefield('dragonsdenfield');
+					} else {
+						this.field.battlefieldState.dragonden += 1;
+					}
+				};
+				if (['devastatingdrake', 'dracometeor'].includes(move.id)) {
+					this.hint('The draconic energy mutated the field!');
+					this.field.setBattlefield('dragonsdenfield');
+				};
+				if (['blizzard', 'subzeroslammer'].includes(move.id)) {
+					this.hint('The cavern froze over!');
+					this.field.setBattlefield('icyfield');
+				};
+				if (['eruption','feverpitch','fusionflare','heatwave','lavaplume','magmadrift','overheat'].includes(move.id)) {
+					this.hint('The cave is heating up...'); 
+					if (this.field.battlefieldState.volcanic >= 1) {
+						this.hint('The flame ignited the cave!');
+						this.field.setBattlefield('volcanicfield');
+					} else {
+						this.field.battlefieldState.volcanic += 1;
+					}
+				};
+			},
+			onDamage(damage, target, source, effect) {
+				if (effect && effect.id === 'stealthrock') {
+					return damage*2;
+				}
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.battlefieldState.gravity = 0;
+				this.field.battlefieldState.dragonden = 0;
+				this.field.battlefieldState.volcanic = 0;
+				this.field.battlefieldState.collapse = 0;
+			},
+			onUpdate(pokemon) {
+				if (this.field.battlefieldState.collapse === 2) {
+					this.hint('The quake collapsed the ceiling!')
+					for (const poke of this.getAllActive()) {
+						if (poke.hasAbility(['stalward', 'rockhead', 'bulletproof']) || poke.isProtected() || poke.side.sideConditions['wideguard']) continue;
+						if (poke.hasAbility(['prismarmor', 'solidrock'])) {
+							this.damage(poke.baseMaxhp / 3, poke);
+							continue;
+						};
+						if (poke.hasAbility(['battlearmor', 'shellarmor'])) {
+							this.damage(poke.baseMaxhp / 2, poke);
+							continue;
+						};
+						poke.damage(poke.baseMaxhp) // not using faint() to trigger Endure and Sturdy
+					}
+					this.field.battlefieldState.collapse = 0;
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Cave Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Rock",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
