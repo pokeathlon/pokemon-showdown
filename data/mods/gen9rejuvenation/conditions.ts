@@ -68,7 +68,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	hail: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('icyrock') || this.field.isBattlefield(['icyfield','frozendimensionalfield','skyfield'])) {
+			if (source?.hasItem('icyrock') || this.field.isBattlefield(['icyfield','frozendimensionalfield','skyfield', 'snowymountainfield'])) {
 				return 8;
 			}
 			return 5;
@@ -81,7 +81,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	snow: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('icyrock') || this.field.isBattlefield('skyfield')) {
+			if (source?.hasItem('icyrock') || this.field.isBattlefield(['skyfield', 'snowymountainfield'])) {
 				return 8;
 			}
 			return 5;
@@ -113,7 +113,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sunnyday: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('heatrock') || this.field.isBattlefield(['skyfield','desertfield', 'mountainfield'])) {
+			if (source?.hasItem('heatrock') || this.field.isBattlefield(['skyfield','desertfield', 'mountainfield', 'snowymountainfield'])) {
 				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}

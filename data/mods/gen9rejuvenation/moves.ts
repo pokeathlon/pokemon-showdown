@@ -19,7 +19,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = 'Fire';
 			} else if (this.field.isBattlefield(['corrosivemistfield', 'murkwatersurfacefield', 'corruptedcavefield', 'corrosivefield', 'wastelandfield'])) {
 				newType = 'Poison';
-			} else if (this.field.isBattlefield(['icyfield', 'frozendimensionalfield'])) {
+			} else if (this.field.isBattlefield(['icyfield', 'frozendimensionalfield', 'snowymountainfield'])) {
 				newType = 'Ice';
 			} else if (this.field.isBattlefield(['watersurfacefield', 'underwaterfield', 'swampfield'])) {
 				newType = 'Water';
@@ -145,6 +145,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'rocktomb';
 			} else if (this.field.isBattlefield('mountainfield')) {
 				move = 'rockslide';
+			} else if (this.field.isBattlefield('snowymountainfield')) {
+				move = 'avalanche';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -175,7 +177,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					status: 'psn',
 				});
-			} else if (this.field.isBattlefield(['icyfield', 'frozendimensionalfield'])) {
+			} else if (this.field.isBattlefield(['icyfield', 'frozendimensionalfield', 'snowymountainfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					status: 'frz',
@@ -349,6 +351,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'icyfield':
 			case 'frozendimensionalfield':
+			case 'snowymountainfield':
 				move.type = 'Ice';
 				break;
 			case 'watersurfacefield':
@@ -425,7 +428,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if ((this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['fairytalefield', 'bewitchedwoodsfield'])) && move.type === 'Fairy') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['volcanicfield', 'infernalfield', 'volcanotopfield']) && move.type === 'Fire') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['corrosivemistfield', 'murkwatersurfacefield', 'corruptedcavefield', 'corrosivefield', 'wastelandfield']) && move.type === 'Poison') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['icyfield', 'frozendimensionalfield']) && move.type === 'Ice') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['icyfield', 'frozendimensionalfield', 'snowymountainfield']) && move.type === 'Ice') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['watersurfacefield', 'underwaterfield', 'swampfield']) && move.type === 'Water') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['dragonsdenfield', 'rainbowfield', 'crystalcavernfield']) && move.type === 'Dragon') return this.chainModify(0.5);
 				if (this.field.isBattlefield('skyfield') && move.type === 'Flying') return this.chainModify(0.5);
@@ -876,7 +879,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield', 'frozendimensionalfield', 'darkcrystalcavernfield', 'rainbowfield', 'crystalcavernfield', 'starlightarenafield', 'mirrorarenafield']));
+			return (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield', 'frozendimensionalfield', 'darkcrystalcavernfield', 'rainbowfield', 'crystalcavernfield', 'starlightarenafield', 'mirrorarenafield', 'snowymountainfield']));
 		},
 		condition: {
 			duration: 5,
@@ -989,7 +992,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.field.setWeather('deltastream');
 					return 8;
 				}
-				if (this.field.isBattlefield(['volcanotopfield', 'mountainfield'])) {
+				if (this.field.isBattlefield(['volcanotopfield', 'mountainfield', 'snowymountainfield'])) {
 					this.field.setWeather('deltastream');
 					return 6;
 				}
@@ -1012,7 +1015,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onSideResidualOrder: 26,
 			onSideResidualSubOrder: 5,
 			onSideEnd(side) {
-				if (this.field.isBattlefield(['skyfield', 'volcanotopfield', 'mountainfield']) && this.field.isWeather('deltastream')) this.field.clearWeather();
+				if (this.field.isBattlefield(['skyfield', 'volcanotopfield', 'mountainfield', 'snowymountainfield']) && this.field.isWeather('deltastream')) this.field.clearWeather();
 				this.add('-sideend', side, 'move: Tailwind');
 			},
 		},
@@ -8735,6 +8738,137 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Rock",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	snowymountainfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snowy Mountain Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'snowymountainfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (['Rock', 'Ice'].includes(move.id)) {
+					this.hint('The snowy mountain strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Flying') {
+					this.hint('The open air strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Flying' && move.category === 'Special' && this.field.isWeather('deltastream')) {
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Fire') {
+					this.hint('The cold softened the attack!');
+					this.chainModify(0.5);
+				};
+				if (source.hasAbility('longreach')) {
+					this.chainModify(1.5);
+				};
+				if (move.id === 'icywind') {
+					this.hint('The frigid wind strengthened the attack!');
+					this.chainModify(2);
+				};
+				if (['avalanche', 'bittermalice', 'glaciate', 'powdersnow'].includes(move.id)) {
+					this.hint('The snow strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (['circlethrow', 'stormthrow', 'vitalthrow'].includes(move.id)) {
+					this.hint(`${target.name} was thrown down partway the mountain!`);
+					this.chainModify(1.5);
+				};
+				if (['fairywind', 'mountaingale', 'ominouswind', 'razorwind', 'silverwind', 'twister'].includes(move.id)) {
+					this.hint('The wind strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'hypervoice') {
+					this.hint('Yodelayheehoo~');
+					this.chainModify(1.5);
+				};
+				if (['fairywind', 'gust', 'icywind', 'ominouswind', 'razorwind', 'silverwind', 'twister'].includes(move.id) && this.field.isWeather('deltastream')) {
+					this.hint('The wind strengthened the attack!');
+					this.chainModify(1.5);
+				};
+				if (['scald', 'steameruption'].includes(move.id)) {
+					this.hint('The cold softened the attack...');
+					this.chainModify(0.5);
+				};
+				if (['firepledge', 'flameburst', 'heatwave', 'incinerate', 'infernooverdrive', 'lavaplume', 'mindblown', 'ragingfury', 'searingshot', 'bounce', 'fly', 'eruption', 'magmadrift'].includes(move.id)) {
+					this.chainModify(1.3);
+				};
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type === 'Rock') {
+					return typeMod + this.dex.getEffectiveness('Ice', type);
+				};
+				if (target?.hasAbility('icescales') && typeMod > 0) {
+					return 0;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'bittermalice') {
+					move.secondary = undefined;
+					move.secondaries = [
+									{
+							chance: 10,
+							status: 'frz',
+						}, {
+							chance: 100,
+							boosts: {atk: -1},
+						},
+					]
+				};
+				if (move.id === 'thunder') move.accuracy = true;
+			},
+			onAfterMove(source, target, move) {
+				if (['firepledge', 'flameburst', 'heatwave', 'incinerate', 'infernooverdrive', 'lavaplume', 'mindblown', 'ragingfury', 'searingshot'].includes(move.id)) {
+					this.hint('The snow melted away!');
+					this.field.setBattlefield('mountainfield');
+				};
+				if (['bounce', 'fly'].includes(move.id)) {
+					this.hint('The battle was taken to the skies!');
+					this.field.setBattlefield('skyfield');
+				};
+				if (['eruption', 'magmadrift'].includes(move.id)) {
+					this.hint('The mountain erupted!');
+					this.field.setBattlefield('volcanictopfield');
+				}
+			},
+			onWeather(target, source, effect) {
+				if (['sunnday', 'desolateland'].includes(this.field.weather)) {
+					this.field.battlefieldState.sun += 1;
+					if (this.field.battlefieldState.sun >= 3) {
+						this.hint('The snow melted away!');
+						this.field.setBattlefield('mountainfield')
+					}
+				};
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.battlefieldState.sun = 0;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Snowy Mountain Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ice",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

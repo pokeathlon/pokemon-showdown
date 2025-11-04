@@ -71,6 +71,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'icyfield':
 			case 'frozendimensionalfield':
+			case 'snowymountainfield':
 				types = ['Ice'];
 				break;
 			case 'watersurfacefield':
@@ -569,7 +570,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	icebody: {
 		inherit: true,
 		onResidual(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow' || this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
+			if (effect.id === 'hail' || effect.id === 'snow' || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
@@ -581,7 +582,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	slushrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
+			if (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -590,7 +591,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield'])) {
+			if (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -608,7 +609,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.typeChangerBoosted === this.effect) return this.field.isBattlefield(['icyfield','frozendimensionalfield'])? this.chainModify(1.5) : this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])? this.chainModify(1.5) : this.chainModify([4915, 4096]);
 		},
 	},
 	hydration: {
@@ -878,13 +879,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	aerilate: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.typeChangerBoosted === this.effect) return this.field.isBattlefield(['skyfield', 'mountainfield'])? this.chainModify(1.5) : this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.field.isBattlefield(['skyfield', 'mountainfield', 'snowymountainfield'])? this.chainModify(1.5) : this.chainModify([4915, 4096]);
 		},
 	},
 	galewings: {
 		inherit: true,
 		onModifyPriority(priority, pokemon, target, move) {
-			if ((move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) || this.field.isBattlefield('skyfield') || (this.field.isBattlefield('mountainfield') && this.field.isWeather('deltastream'))) return priority + 1;
+			if ((move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) || this.field.isBattlefield('skyfield') || (this.field.isBattlefield(['mountainfield', 'snowymountainfield']) && this.field.isWeather('deltastream'))) return priority + 1;
 		},
 	},
 	longreach: {

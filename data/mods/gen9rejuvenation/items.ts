@@ -279,6 +279,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('mountainfield')) {
 				this.boost({atk: 2, accuracy: -1});
 			};
+			if (this.field.isBattlefield('snowymountainfield')) {
+				this.boost({spa: 2, accuracy: -1});
+			};
 		},
 		num: 0,
 		desc: "Provides boost in telluric fields.",
