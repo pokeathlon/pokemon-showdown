@@ -133,6 +133,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'desertfield':
 			case 'beachfield':
+			case 'deepearthfield':
 				types = ['Ground'];
 				break;
 			case 'rockyfield':
@@ -307,6 +308,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			onResidualOrder: 28,
 			onResidualSubOrder: 2,
 			onStart(target) {
+				if (this.field.isBattlefield('deepearthfield')) return;
 				this.add('-start', target, 'ability: Slow Start');
 			},
 			onResidual(pokemon) {
@@ -319,9 +321,11 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
+				if (this.field.isBattlefield('deepearthfield')) return;
 				return this.chainModify(0.5);
 			},
 			onModifySpe(spe, pokemon) {
+				if (this.field.isBattlefield('deepearthfield')) return;
 				return this.chainModify(0.5);
 			},
 			onEnd(target) {
@@ -994,7 +998,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
-				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield', 'hauntedfield', 'bewitchedwoodsfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
+				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield', 'hauntedfield', 'bewitchedwoodsfield', 'deepearthfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -1443,6 +1447,20 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield')) return this.chainModify(1.5);
+		},
+	},
+	powerconstruct: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.species.id === 'zygardecomplete' || pokemon.hp > pokemon.maxhp / 2) return;
+			this.add('-activate', pokemon, 'ability: Power Construct');
+			pokemon.formeChange('Zygarde-Complete', this.effect, true);
+			if (this.field.isBattlefield('deepearthfield'))  {
+				this.hint(`The core's energy empowered ${pokemon.name}!`)
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1})
+			};
+			pokemon.formeRegression = true;
 		},
 	},
 

@@ -85,6 +85,20 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 	},
+	ironball: {
+		inherit: true,
+		onEffectiveness(typeMod, target, type, move) {
+			if (this.field.isBattlefield('deepearthfield')) return;
+			if (!target) return;
+			if (target.volatiles['ingrain'] || target.volatiles['smackdown'] || this.field.getPseudoWeather('gravity')) return;
+			if (move.type === 'Ground' && target.hasType('Flying')) return 0;
+		},
+		// airborneness negation implemented in sim/pokemon.js:Pokemon#isGrounded
+		onModifySpe(spe) {
+			if (this.field.isBattlefield('deepearthfield')) return;
+			return this.chainModify(0.5);
+		},
+	},
 
 	// Additions
 	magicalseed: {
@@ -281,6 +295,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			};
 			if (this.field.isBattlefield('snowymountainfield')) {
 				this.boost({spa: 2, accuracy: -1});
+			};
+			if (this.field.isBattlefield('deepearthfield')) {
+				this.boost({def: 1});
+				pokemon.weighthg *= 2;
 			};
 		},
 		num: 0,

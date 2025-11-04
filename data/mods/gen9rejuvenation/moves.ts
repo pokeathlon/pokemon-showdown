@@ -39,7 +39,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
 			} else if (this.field.isBattlefield('bigtoparenafield')) {
 				newType = 'Fighting';
-			} else if (this.field.isBattlefield(['desertfield', 'beachfield'])) {
+			} else if (this.field.isBattlefield(['desertfield', 'beachfield', 'deepearthfield'])) {
 				newType = 'Ground';
 			} else if (this.field.isBattlefield(['rockyfield', 'cavefield', 'mountainfield'])) {
 				newType = 'Rock';
@@ -147,6 +147,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'rockslide';
 			} else if (this.field.isBattlefield('snowymountainfield')) {
 				move = 'avalanche';
+			} else if (this.field.isBattlefield('deepearthfield')) {
+				move = 'gravity';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -215,7 +217,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					chance: 30,
 					volatileStatus: 'confusion',
 				});
-			} else if (this.field.isBattlefield(['dimensionalfield', 'concertvenuefield', 'rockyfield', 'cavefield', 'mountainfield'])) {
+			} else if (this.field.isBattlefield(['dimensionalfield', 'concertvenuefield', 'rockyfield', 'cavefield', 'mountainfield', 'deepearthfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					volatileStatus: 'flinch',
@@ -393,6 +395,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			case 'desertfield':
 			case 'beachfield':
+			case 'deepearthfield':
 				move.type = 'Ground';
 				break;
 			case 'rockyfield':
@@ -438,7 +441,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['desertfield', 'beachfield']) && move.type === 'Ground') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['desertfield', 'beachfield', 'deepearthfield']) && move.type === 'Ground') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['rockyfield', 'cavefield', 'mountainfield']) && move.type === 'Rock') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['forestfield']) && move.type === 'Bug') return this.chainModify(0.5);
 			},
@@ -546,7 +549,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 			let didSomething = false;
 			for (const target of targets) {
-				let boostValue = this.field.isTerrain('electricterrain')? 2 : 1
+				let boostValue = (this.field.isTerrain('electricterrain') || this.field.isBattlefield('deepearthfield'))? 2 : 1
 				didSomething = this.boost({def: boostValue, spd: boostValue}, target, source, move, false, true) || didSomething;
 			}
 			return didSomething;
@@ -8869,6 +8872,250 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Ice",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	deepearthfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Deep Earth Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'deepearthfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (move.type === 'Ground' && !target.hasType('Ground')) {
+					this.hint('The earth empowered the attack!');
+					this.chainModify(1.5);
+				};
+				if (move.type === 'Ground' && target.hasType('Ground')) {
+					this.hint('The dense earth is difficult to mold...');
+					this.chainModify(0.5);
+				};
+				if (move.type === 'Rock') {
+					this.hint('The earth empowered the attack!');
+					this.chainModify(1.3);
+				};
+				if (move.type === 'Psychic') {
+					this.hint("The core's magical forces are immense!");
+					this.chainModify(1.3);
+				};
+				if (move.priority < 0) {
+					this.hint('Slow and heavy!');
+					this.chainModify(1.3);
+				};
+				if (move.priority > 0) {
+					this.hint('The intense pull slowed the attack...');
+					this.chainModify(0.7);
+				};
+				if (move.id === 'coreenforcer') {
+					this.hint('The power of the core obliterates all!');
+					this.chainModify(2);
+				};
+				if (move.id === 'crushgrip') {
+					this.hint('CRUSHED!');
+					this.chainModify(2);
+				};
+				if (['landswrath', 'precipiceblades', 'tectonicrage'].includes(move.id)) {
+					this.hint('The power of the earth is utterly overwhelming!');
+					this.chainModify(2);
+				};
+				if (move.id === 'magnetbomb') {
+					this.hint('The magnetic field is strengthened!');
+					this.chainModify(2);
+				};
+				if (move.id === 'smackdown') {
+					this.hint('Slammed into the ground!');
+					this.chainModify(2);
+				};
+				if (move.id === 'ancientpower') {
+					this.hint('The power of ages gone by...!');
+					this.chainModify(1.5);
+				};
+				if (['bodypress', 'bodyslam', 'dragonrush', 'fling', 'gravapple', 'heatcrash', 'heavyslam', 'iciclecrash', 'steamroller', 'stomp'].includes(move.id)) {
+					this.hint('The attack came crashing down!');
+					this.chainModify(1.5);
+				};
+				if (['circlethrow', 'stormthrow', 'vitalthrow'].includes(move.id)) {
+					this.hint('Slammed into the ground!');
+					this.chainModify(1.5);
+				};
+				if (['crabhammer', 'hammerarm', 'icehammer'].includes(move.id)) {
+					this.hint(`${source.name} threw their whole weight into it!`);
+					this.chainModify(1.5);
+				};
+				if (['lowkick', 'grassknot'].includes(move.id)) {
+					this.hint('Enjoy the trip!');
+					this.chainModify(1.5);
+				};
+				if (move.id === 'spacialrend') {
+					this.hint('The intense gravity is ruptured!');
+					this.chainModify(1.5);
+				};
+				if (['thousandarrows', 'thousandwaves'].includes(move.id)) {
+					this.hint('The power of the earth is utterly overwhelming!');
+					this.chainModify(1.5);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.id === 'coreenforcer') move.priority = -1;
+				if (move.id === 'autotomize') move.boosts = {spe: 3};
+				if (move.id === 'eerieimpulse') move.boosts = {spa: -3};
+				if (move.id === 'crushgrip') {
+					move.basePower = 120;
+					move.basePowerCallback = undefined;
+				};
+				if (move.id === 'gyroball') {
+					move.basePower = 150;
+					move.basePowerCallback = undefined;
+				};
+				if (move.id === 'gravity') {
+					move.condition = undefined;
+					move.target = 'allAdjacentFoes';
+					move.damageCallback = function (pokemon, target) {
+						return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
+					}
+				};
+				if (['heatcrash', 'heavyslam'].includes(move.id)) {
+					move.damageCallback = function (pokemon, target){
+						const targetWeight = target.getWeight();
+						const pokemonWeight = pokemon.getWeight()*2;
+						let bp;
+						if (pokemonWeight >= targetWeight * 5) {
+							bp = 120;
+						} else if (pokemonWeight >= targetWeight * 4) {
+							bp = 100;
+						} else if (pokemonWeight >= targetWeight * 3) {
+							bp = 80;
+						} else if (pokemonWeight >= targetWeight * 2) {
+							bp = 60;
+						} else {
+							bp = 40;
+						}
+						this.debug(`BP: ${bp}`);
+						return bp;
+					}
+				};
+				if (['lowkick', 'grassknot', 'topsyturvy'].includes(move.id)) {
+					if (move.id === 'topsyturvy') move.type === 'ground';
+					move.damageCallback = function (pokemon, target) {
+						const targetWeight = target.getWeight()*2;
+						let bp;
+						if (targetWeight >= 2000) {
+							bp = 120;
+						} else if (targetWeight >= 1000) {
+							bp = 100;
+						} else if (targetWeight >= 500) {
+							bp = 80;
+						} else if (targetWeight >= 250) {
+							bp = 60;
+						} else if (targetWeight >= 100) {
+							bp = 40;
+						} else {
+							bp = 20;
+						}
+						this.debug(`BP: ${bp}`);
+						return bp;
+					}
+				};
+				if (move.id === 'magnetrise') {
+					move.volatileStatus = undefined;
+					move.condition = undefined;
+					move.onTry = undefined;
+					move.boosts = {spe: 2};
+				};
+				if (move.id === 'psywave') {
+					move.damageCallback = function (pokemom) {
+						return (this.random(100, 151) * pokemon.level) / 100;
+					}
+				};
+				if (move.id === 'rototiller') {
+					move.onHitField = function (target, source) {
+						const targets: Pokemon[] = [];
+						let anyAirborne = false;
+						for (const pokemon of this.getAllActive()) {
+							if (!pokemon.runImmunity('Ground')) {
+								this.add('-immune', pokemon);
+								anyAirborne = true;
+								continue;
+							}
+							if (pokemon.hasType('Grass')) {
+								// This move affects every grounded Grass-type Pokemon in play.
+								targets.push(pokemon);
+							}
+						}
+						if (!targets.length && !anyAirborne) return false; // Fails when there are no grounded Grass types or airborne Pokemon
+						for (const pokemon of targets) {
+							this.boost({ atk: 2, spa: 2 }, pokemon, source);
+						}
+					}
+				};
+				if (move.id === 'seismictoss') {
+					move.damage = undefined;
+					move.damageCallback = function (pokemom) {
+						return pokemon.level*1.5;
+					}
+				};
+			},
+			onModifySpe(spe, pokemon) {
+				if (pokemon.hasItem('floatstone')) return this.chainModify(2);
+			},
+			onChargeMove(pokemon, target, move) {
+				if (move.id === 'geomancy') {
+					this.attrLastMove('[still]');
+					this.addMove('-anim', pokemon, move.name, target);
+					return false; // skip charge turn
+				}
+			},
+			onSwitchIn(pokemon) {
+				if (pokemon.hasAbility('heavymetal')) {
+					this.hint(`${pokemon.name}'s weight makes it harder to be moved!`)
+					this.boost({def: 1, spe: -1})
+				};
+				if (pokemon.hasAbility('lightmetal')) {
+					this.hint(`${pokemon.name}'s Light Metal allows it to move faster!`)
+					this.boost({spe: 1})
+				};
+				if (pokemon.hasAbility('slowstart')) {
+					this.hint('The ancient giant is slow but powerful!');
+					this.boost({atk: 1, def: 1, spd: 1, spe: -6, evasion: -6});
+				};
+				if (pokemon.hasItem('ironball')) this.boost({spe: -2});
+				if (pokemon.hasItem('magnet')) {
+					this.hint(`${pokemon.name}'s Magnet is affected by the magnetic field!`)
+					this.boost({spa: 1, spe: -1});
+				}
+			},
+			onPseudoWeatherChange(target, source, pseudoWeather) {
+				if (!this.field.pseudoWeather['gravity']) this.field.addPseudoWeather('gravity'); //gravity should always be active
+				this.field.pseudoWeather['gravity'].duration = 0; //should make it infinite
+			},
+			onStart(target, source, sourceEffect) {
+				this.field.addPseudoWeather('gravity')
+			},
+			onEnd(target) {
+				if (this.field.pseudoWeather['gravity']) this.field.removePseudoWeather('gravity');
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Deep Earth Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

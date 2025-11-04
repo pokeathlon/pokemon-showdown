@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen9',
 	pokemon: {
 	isGrounded(negateImmunity = false) {
-		if ('gravity' in this.battle.field.pseudoWeather) return true;
+		if ('gravity' in this.battle.field.pseudoWeather && !(this.hasAbility(['contrary', 'magnetpull', 'oblivious', 'unaware']) && this.battle.field.isBattlefield('deepearthfield'))) return true;
 		if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
 		if ('smackdown' in this.volatiles) return true;
 		if ('groundingstomp' in this.volatiles) return true;
@@ -14,6 +14,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if ('magnetrise' in this.volatiles) return false;
 		if ('telekinesis' in this.volatiles) return false;
 		if (item === 'probopasscrest' && this.species.id === 'probopass') return false;
+		if (this.hasAbility(['contrary', 'magnetpull', 'oblivious', 'unaware']) && this.battle.field.isBattlefield('deepearthfield')) return false;
 		return item !== 'airballoon';
 	}
 	},
