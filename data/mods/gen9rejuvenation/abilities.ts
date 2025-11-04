@@ -136,6 +136,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				break;
 			case 'rockyfield':
 			case 'cavefield':
+			case 'mountainfield':
 				types = ['Rock'];
 				break;
 			case 'newworldfield':
@@ -877,13 +878,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	aerilate: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.typeChangerBoosted === this.effect) return this.field.isBattlefield('skyfield')? this.chainModify(1.5) : this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.field.isBattlefield(['skyfield', 'mountainfield'])? this.chainModify(1.5) : this.chainModify([4915, 4096]);
 		},
 	},
 	galewings: {
 		inherit: true,
 		onModifyPriority(priority, pokemon, target, move) {
-			if ((move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) || this.field.isBattlefield('skyfield')) return priority + 1;
+			if ((move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) || this.field.isBattlefield('skyfield') || (this.field.isBattlefield('mountainfield') && this.field.isWeather('deltastream'))) return priority + 1;
 		},
 	},
 	longreach: {

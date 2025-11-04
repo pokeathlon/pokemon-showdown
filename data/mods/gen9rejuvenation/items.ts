@@ -276,6 +276,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
 			};
+			if (this.field.isBattlefield('mountainfield')) {
+				this.boost({atk: 2, accuracy: -1});
+			};
 		},
 		num: 0,
 		desc: "Provides boost in telluric fields.",

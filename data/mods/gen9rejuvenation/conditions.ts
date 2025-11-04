@@ -113,7 +113,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sunnyday: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('heatrock') || this.field.isBattlefield(['skyfield','desertfield'])) {
+			if (source?.hasItem('heatrock') || this.field.isBattlefield(['skyfield','desertfield', 'mountainfield'])) {
 				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}
