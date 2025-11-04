@@ -76,6 +76,16 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 	},
+	shellbell: {
+		inherit: true,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			let modifier = this.field.isBattlefield('beachfield')? 2 : 1;
+			if (move.totalDamage && !pokemon.forceSwitchFlag) {
+				this.heal(move.totalDamage * modifier / 8, pokemon);
+			}
+		},
+	},
+
 	// Additions
 	magicalseed: {
 		name: "Magical Seed",
@@ -258,6 +268,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				for (const side of this.sides) {
 					side.addSideCondition('stealthrock');
 				};
+			};
+			if (this.field.isBattlefield('beachfield')) {
+				pokemon.addVolatile('focusenergy');
 			};
 		},
 		num: 0,

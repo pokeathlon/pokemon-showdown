@@ -131,6 +131,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				types = ['Electric'];
 				break;
 			case 'desertfield':
+			case 'beachfield':
 				types = ['Ground'];
 				break;
 			case 'rockyfield':
@@ -1066,7 +1067,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
-			if ((pokemon.hp <= pokemon.maxhp / 2 || this.field.isTerrain('psychicterrain')) && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+			if ((pokemon.hp <= pokemon.maxhp / 2 || this.field.isTerrain('psychicterrain') || this.field.isBattlefield('beachfield')) && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
 				pokemon.addVolatile('zenmode');
 			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
 				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
@@ -1409,7 +1410,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	sandforce: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm') || this.field.isBattlefield('desertfield')) {
+			if (this.field.isWeather('sandstorm') || this.field.isBattlefield(['desertfield', 'beachfield'])) {
 				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 					this.debug('Sand Force boost');
 					return this.chainModify([5325, 4096]);
@@ -1420,7 +1421,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	sandrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('sandstorm') || this.field.isBattlefield('desertfield')) {
+			if (this.field.isWeather('sandstorm') || this.field.isBattlefield(['desertfield', 'beachfield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -1429,7 +1430,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('sandstorm') || this.field.isBattlefield('desertfield')) {
+			if (this.field.isWeather('sandstorm') || this.field.isBattlefield(['desertfield', 'beachfield'])) {
 				this.debug('Sand Veil - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}

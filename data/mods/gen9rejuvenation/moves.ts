@@ -39,7 +39,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				newType = this.dex.types.get(this.sample(this.dex.types.all())).name;
 			} else if (this.field.isBattlefield('bigtoparenafield')) {
 				newType = 'Fighting';
-			} else if (this.field.isBattlefield('desertfield')) {
+			} else if (this.field.isBattlefield(['desertfield', 'beachfield'])) {
 				newType = 'Ground';
 			} else if (this.field.isBattlefield('rockyfield')) {
 				newType = 'Rock';
@@ -139,6 +139,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move = 'woodhammer';
 			} else if (this.field.isBattlefield('volcanotopfield')) {
 				move = 'eruption';
+			} else if (this.field.isBattlefield('beachfield')) {
+				move = 'meditate';
 			}
 			this.actions.useMove(move, pokemon, {target});
 			return null;
@@ -247,7 +249,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 						spe: -1,
 					},
 				});
-			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'desertfield'])) {
+			} else if (this.field.isBattlefield(['darkcrystalcavernfield', 'desertfield', 'beachfield'])) {
 				move.secondaries.push({
 					chance: 30,
 					boosts: {
@@ -383,6 +385,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Normal';
 				break;
 			case 'desertfield':
+			case 'beachfield':
 				move.type = 'Ground';
 				break;
 			case 'rockyfield':
@@ -426,7 +429,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (this.field.isBattlefield(['bigtoparenafield']) && move.type === 'Fighting') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['factoryfield', 'colosseumfield', 'backalleyfield']) && move.type === 'Steel') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['glitchfield']) && move.type === '???') return this.chainModify(0.5);
-				if (this.field.isBattlefield(['desertfield']) && move.type === 'Ground') return this.chainModify(0.5);
+				if (this.field.isBattlefield(['desertfield', 'beachfield']) && move.type === 'Ground') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['rockyfield']) && move.type === 'Rock') return this.chainModify(0.5);
 				if (this.field.isBattlefield(['forestfield']) && move.type === 'Bug') return this.chainModify(0.5);
 			},
@@ -1760,12 +1763,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {snatch: 1, metronome: 1},
 		sideCondition: 'arenitewall',
 		onTry() {
-			return this.field.isWeather(['sandstorm']) || this.field.isBattlefield(['desertfield', 'ashenbeachfield', 'rockyfield']);
+			return this.field.isWeather(['sandstorm']) || this.field.isBattlefield(['desertfield', 'ashenbeachfield', 'rockyfield', 'beachfield']);
 		},
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (source?.hasItem('lightclay') || this.field.isBattlefield('desertfield')) {
+				if (source?.hasItem('lightclay') || this.field.isBattlefield(['desertfield', 'beachfield'])) {
 					return 8;
 				}
 				return 5;
@@ -8338,6 +8341,139 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Poison",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	beachfield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Beach Field",
+		pp: 10,
+		priority: 0,
+		flags: {nonsky: 1},
+		battlefield: 'beachfield',
+		condition: {
+			effectType: "Battlefield",
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('amplifiedrock')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePower(basePower, source, target, move) {
+				if (['mudbomb', 'mudshot', 'mudslap', 'sandtomb'].includes(move.id)) {
+					this.hint('Sand mixed into the attack!');
+					this.chainModify(2);
+				};
+				if (move.id === 'Strength') {
+					move.type === 'Fighting';
+					this.hint('...And with pure focus!');
+					this.chainModify(1.5);
+				};
+				if (['brine', 'clangoroussoulblaze', 'crabhammer', 'hiddenpower', 'landswrath', 'muddywater', 'razorshell', 'sandsearstorm', 'scorchingsands', 'shellsidearm', 'shelltrap', 'smellingsalts', 'surf', 'thousandwaves', 'wavecrash'].includes(move.id)) {
+					this.hint('The salty sea strengthened the attack!');
+					this.chainModify(1.5); 
+				};
+				if (['aurasphere', 'focusblast', 'focuspunch', 'storedpower', 'zenehadbutt'].includes(move.id)) {
+					this.hint('...And with full focus...!');
+					this.chainModify(1.3);
+				};
+				if (move.id === 'psychic') {
+					this.hint('...And with focus...!');
+					this.chainModify(1.2);
+				}
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.id === 'strength') {
+					return typeMod + this.dex.getEffectiveness('Psychic', type);
+				};
+			},
+			onModifyMove(move, pokemon, target) {
+				if (pokemon.hasAbility(['innerfocus','owntempo','purepower','sandveil','steadfast']) && !target?.hasAbility(['asone','unnerve'])) {
+					move.ignoreEvasion = true;
+				};
+				if (move.id === 'calmmind') move.boosts = {spa: 2, spd: 2};
+				if (move.id === 'focusblast') move.accuracy = 90;
+				if (['kinesis', 'sandattack'].includes(move.id)) move.boosts = {accuracy: -2};
+				if (move.id === 'meditate') move.boosts = {atk: 3};
+				if (move.id === 'focusenergy') move.condition = {
+					onStart(target, source, effect) {
+						if (target.volatiles['dragoncheer']) return false;
+						if (effect?.id === 'zpower') {
+							this.add('-start', target, 'move: Focus Energy', '[zeffect]');
+						} else if (effect && (['costar', 'imposter', 'psychup', 'transform'].includes(effect.id))) {
+							this.add('-start', target, 'move: Focus Energy', '[silent]');
+						} else {
+							this.add('-start', target, 'move: Focus Energy');
+						}
+					},
+					onModifyCritRatio(critRatio) {
+						return critRatio + 3;
+					},
+				};
+				if (move.id === 'psychup') move.onHit = function (target, source) {
+					source.cureStatus()
+					let i: BoostID;
+					for (i in target.boosts) {
+						source.boosts[i] = target.boosts[i];
+					}
+
+					const volatilesToCopy = ['dragoncheer', 'focusenergy', 'gmaxchistrike', 'laserfocus'];
+					// we need to remove all crit stage volatiles first; otherwise copying e.g. dragoncheer onto a mon with focusenergy
+					// will crash the server (since addVolatile fails due to overlap, leaving the source mon with no hasDragonType to set)
+					for (const volatile of volatilesToCopy) source.removeVolatile(volatile);
+					for (const volatile of volatilesToCopy) {
+						if (target.volatiles[volatile]) {
+							source.addVolatile(volatile);
+							if (volatile === 'gmaxchistrike') source.volatiles[volatile].layers = target.volatiles[volatile].layers;
+							if (volatile === 'dragoncheer') source.volatiles[volatile].hasDragonType = target.volatiles[volatile].hasDragonType;
+						}
+					}
+					this.add('-copyboost', source, target, '[from] move: Psych Up');
+				};
+				if (move.id === 'shoreup') { // Heals full
+					move.onHit = function (pokemon) {
+						const success = !!this.heal(pokemon.maxhp);
+						if (!success) {
+							this.add('-fail', pokemon, 'heal');
+							return this.NOT_FAIL;
+						}
+						return success;
+					}
+				}
+			},
+			onAfterMove(source, target, move) {
+				if (move.type === 'Flying' || ['firespin','leaftornado','razorwind','twister','whirlpool'].includes(move.id)) {
+					for (const pokemon of this.getAllActive()) {
+						pokemon.boostBy({accuracy: -1});
+					};
+				};
+			},
+			onDamagingHit(damage, target, source, move) {
+				if (move.type === 'Water' && target.hasAbility('watercompaction')) {
+					this.boost({ spd: 2 });
+				};
+				if (target.hasAbility('sandspit')) {
+					for (const pokemon of this.getAllActive()) {
+						pokemon.boostBy({accuracy: -1});
+					}
+				};
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'confusion' && (pokemon.hasType('Fighting') || pokemon.hasAbility('innerfocus'))) return null;
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Beach Field');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},

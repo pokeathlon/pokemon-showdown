@@ -52,6 +52,18 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.effectState.sourceEffect.id === 'sandtomb' && this.field.isBattlefield('desertfield')) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('forestfield')) this.effectState.boundDivisor = 6;
 		},
+		onResidual(pokemon) {
+			const source = this.effectState.source;
+			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
+				delete pokemon.volatiles['partiallytrapped'];
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
+				return;
+			}
+			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
+			if (this.field.isBattlefield('beachfield') && this.effectState.sourceEffect.id === 'sandtomb') this.boost({accuracy: -1}); 
+		},
 	},
 	hail: {
 		inherit: true,
@@ -124,7 +136,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 	sandstorm: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('smoothrock') || this.field.isBattlefield(['skyfield','desertfield'])) {
+			if (source?.hasItem('smoothrock') || this.field.isBattlefield(['skyfield','desertfield', 'beachfield'])) {
 				return 8;
 			}
 			return 5;
