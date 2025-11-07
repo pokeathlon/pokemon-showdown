@@ -2611,6 +2611,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Ceraguard-Buster"]
 	},
 	silretro: {
 		num: 3133,
