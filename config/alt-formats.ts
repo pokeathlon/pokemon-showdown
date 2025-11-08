@@ -288,6 +288,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF 2 Abilities",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Double Ability Mod',
+		],
+		banlist: ['Mega'],
+	},
+	{
 		name: "[Gen 9] IF Custom Game",
 
 		mod: 'gen9infinitefusion',
@@ -1060,7 +1071,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'pokemon:birdo', 'pokemon:birdramon', 'pokemon:biyomon', 'pokemon:blazikenmega', 'pokemon:blisseyegho', 'pokemon:botamon', 'pokemon:calyrexice', 'pokemon:calyrexshadow', 'pokemon:chanseyegho', 'pokemon:chienpao', 'pokemon:chiyu', 'pokemon:coelamon', 'pokemon:crabmon',
 			'pokemon:cryogonalmega', 'pokemon:darkrai', 'pokemon:darmanitangalar', 'pokemon:demidevimon', 'pokemon:deosectwo', 'pokemon:deoxys', 'pokemon:deoxysattack', 'pokemon:devimon', 'pokemon:diaboromon', 'pokemon:dialga', 'pokemon:dialgaorigin', 'pokemon:dracovish',
 			'pokemon:dragapult', 'pokemon:dragonite', 'pokemon:dramsamadarkmega', 'pokemon:drilgannmega', 'pokemon:drimogemon', 'pokemon:elecmon', 'pokemon:electrodemega', 'pokemon:emolgadelta', 'pokemon:enamorus', 'pokemon:etemon', 'pokemon:eternatus', 'pokemon:exor',
-			'pokemon:fafninter', 'pokemon:feraligatregho', 'pokemon:feraligatrmega', 'pokemon:fidgit', 'pokemon:flymon', 'pokemon:frigimon', 'pokemon:frosthra', 'pokemon:gabumon', 'pokemon:garudamon', 'pokemon:garurumon', 'pokemon:gazimon', 'pokemon:genesect',
+			'pokemon:fafninter', 'pokemon:feraligatregho', 'pokemon:feraligatrmegai', 'pokemon:fidgit', 'pokemon:flymon', 'pokemon:frigimon', 'pokemon:frosthra', 'pokemon:gabumon', 'pokemon:garudamon', 'pokemon:garurumon', 'pokemon:gazimon', 'pokemon:genesect',
 			'pokemon:gengarmega', 'pokemon:gigantusk', 'pokemon:giratina', 'pokemon:giratinaorigin', 'pokemon:giratinaprimal', 'pokemon:gomamon', 'pokemon:gougingfire', 'pokemon:greymon', 'pokemon:groudon', 'pokemon:groudonprimal', 'pokemon:haxorusmega', 'pokemon:hooh',
 			'pokemon:hoopadeltaunleashed', 'pokemon:icyall', 'pokemon:ikkakumon', 'pokemon:infermon', 'pokemon:inflagetah', 'pokemon:inflagetahmega', 'pokemon:ironbundle', 'pokemon:jerboltanuclear', 'pokemon:jirachimega', 'pokemon:kabuterimon', 'pokemon:kangaskhanmega',
 			'pokemon:kartana', 'pokemon:keramon', 'pokemon:koraidon', 'pokemon:koromon', 'pokemon:kunemon', 'pokemon:kuwagamon', 'pokemon:kyodonquaza', 'pokemon:kyogre', 'pokemon:kyogreprimal', 'pokemon:kyurem', 'pokemon:kyuremblack', 'pokemon:kyuremwhite',

@@ -89,6 +89,7 @@ export interface PokemonSwitchRequestData {
 	reviving?: boolean;
 	teraType?: string;
 	terastallized?: string;
+	ability2?: ID;
 }
 export interface PokemonMoveRequestData {
 	moves: { move: string, id: ID, target?: string, disabled?: string | boolean, disabledSource?: string }[];

@@ -118,6 +118,7 @@ export interface PokemonSet {
 	 */
 	fusion?: string;
 	altsprite?: string;
+	ability2?: string;
 }
 
 export const Teams = new class Teams {
@@ -204,7 +205,8 @@ export const Teams = new class Teams {
 			}
 
 			if (set.pokeball || set.hpType || set.gigantamax ||
-				(set.dynamaxLevel !== undefined && set.dynamaxLevel !== 10) || set.teraType || set.fusion || set.altsprite) {
+				(set.dynamaxLevel !== undefined && set.dynamaxLevel !== 10) || set.teraType ||
+					 set.fusion || set.altsprite || set.ability2) {
 				buf += `,${set.hpType || ''}`;
 				buf += `,${this.packName(set.pokeball || '')}`;
 				buf += `,${set.gigantamax ? 'G' : ''}`;
@@ -212,6 +214,7 @@ export const Teams = new class Teams {
 				buf += `,${set.teraType || ''}`;
 				buf += `,${set.fusion || ''}`;
 				buf += `,${toID(set.altsprite) || ''}`;
+				buf += `,${this.packName(set.ability2) || ''}`;
 			}
 		}
 
@@ -332,9 +335,9 @@ export const Teams = new class Teams {
 			j = buf.indexOf(']', i);
 			let misc;
 			if (j < 0) {
-				if (i < buf.length) misc = buf.substring(i).split(',', 8);
+				if (i < buf.length) misc = buf.substring(i).split(',', 9);
 			} else {
-				if (i !== j) misc = buf.substring(i, j).split(',', 8);
+				if (i !== j) misc = buf.substring(i, j).split(',', 9);
 			}
 			if (misc) {
 				set.happiness = (misc[0] ? Number(misc[0]) : 255);
@@ -345,6 +348,7 @@ export const Teams = new class Teams {
 				set.teraType = misc[5];
 				set.fusion = misc[6];
 				set.altsprite = toID(misc[7]);
+				set.ability2 = this.unpackName(misc[8], Dex.abilities);
 			}
 			if (j < 0) break;
 			i = j + 1;
@@ -398,7 +402,7 @@ export const Teams = new class Teams {
 		out += `  \n`;
 
 		if (set.ability) {
-			out += `Ability: ${set.ability}  \n`;
+			out += `Ability: ${set.ability}${set.ability2 ? ' / ' + set.ability2 : ''}  \n`;
 		}
 
 		// details
@@ -495,10 +499,22 @@ export const Teams = new class Teams {
 			}
 		} else if (line.startsWith('Trait: ')) {
 			line = line.slice(7);
-			set.ability = aggressive ? toID(line) : line;
+			if (line.includes(' / ')) {
+				const split = line.split(' / ');
+				set.ability = aggressive ? toID(split[0]) : split[0];
+				set.ability2 = aggressive ? toID(split[1]) : split[1];
+			} else {
+				set.ability = aggressive ? toID(line) : line;
+			}
 		} else if (line.startsWith('Ability: ')) {
 			line = line.slice(9);
-			set.ability = aggressive ? toID(line) : line;
+			if (line.includes(' / ')) {
+				const split = line.split(' / ');
+				set.ability = aggressive ? toID(split[0]) : split[0];
+				set.ability2 = aggressive ? toID(split[1]) : split[1];
+			} else {
+				set.ability = aggressive ? toID(line) : line;
+			}
 		} else if (line === 'Shiny: Yes') {
 			set.shiny = true;
 		} else if (line.startsWith('Level: ')) {

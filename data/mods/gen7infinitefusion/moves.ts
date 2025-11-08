@@ -69,13 +69,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (source.species.name === 'Necrozma') {
 					var abil = source.getAbility();
 					source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
-					if (abil && abil.id !== 'prismarmor') source.setAbility(abil, null, true);
+					if (abil && abil.id !== 'prismarmor') source.setAbility(abil, null, null, true);
 				} if (source.m.fusion && source.m.fusion === 'Necrozma') {
 					var abil = source.getAbility();
 					source.fusionChange('Necrozma-Ultra', this.effect);
-					if (abil && abil.id !== 'prismarmor') source.setAbility(abil, null, true);
+					if (abil && abil.id !== 'prismarmor') source.setAbility(abil, null, null, true);
 				}
 			}
+		},
+	},
+
+	// Double Abilities
+	gastroacid: {
+		inherit: true,
+		condition: {
+			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.js
+			onStart(pokemon) {
+				this.add('-endability', pokemon);
+				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityState, pokemon, pokemon, 'gastroacid');
+				if (pokemon.m.innates) {
+					for (const innate of pokemon.m.innates) {
+						pokemon.removeVolatile("ability" + innate);
+					}
+				}
+			},
 		},
 	},
 };
