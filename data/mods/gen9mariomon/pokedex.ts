@@ -399,7 +399,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Mega Mole",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	thwimp: {
@@ -992,7 +992,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		maxHP: 1,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	cataquack: {
@@ -1020,7 +1020,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Cataquack",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	chainchomp: {
@@ -1164,7 +1164,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 480.0,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	foo: {
@@ -1205,7 +1205,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.5,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	uprootnaked: {
@@ -1235,7 +1235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.5,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	strollinstu: {
@@ -1471,7 +1471,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Tuff Puff",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
@@ -1843,7 +1843,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 71.0,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	freezie: {
@@ -1925,7 +1925,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 11.5,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	skeeter: {
@@ -2133,7 +2133,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.1,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	miniyux: {
