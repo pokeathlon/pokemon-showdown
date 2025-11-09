@@ -239,7 +239,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
-					if (!move.ohko && pokemon.hasItem('doubledip') && pokemon.useItem()) {
+					if (!move.ohko && move.category != 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
 						move.accuracy = true;
 						this.battle.actions.useMove(move, pokemon);
 					}
