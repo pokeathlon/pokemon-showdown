@@ -1363,7 +1363,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "While on field, stat changes have the opposite effect. Breaks upon contact with user.",
 	},
-	soulchoir: {
+	soulsymphony: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
@@ -1371,7 +1371,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 		},
 		flags: {},
-		name: "Soul Choir",
+		name: "Soul Symphony",
 		rating: 1.5,
 		num: 0,
 		shortDesc: "This Pokemon's sound-based moves become Ghost type.",

@@ -2022,7 +2022,7 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Lucky 7s",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		onBasePower(basePower, source, target, move) {
             var sevens = 0;
@@ -2437,21 +2437,13 @@ export const Moves: ModdedMoveDataTable = {
 	deadsilence: {
 		num: 0,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 80,
 		category: "Special",
 		name: "Dead Silence",
 		pp: 5,
 		priority: -3,
 		flags: {
-			sound: 1, protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1,
-		},
-		onTry(source) {
-			if (source.volatiles['substitute']) {
-				this.add('-fail', source, 'move: Dead Silence');
-				if (source.volatiles['deadsilence']) source.removeVolatile('deadsilence');
-				this.attrLastMove('[still]');
-				return null;
-			}
+		    protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1,
 		},
 		priorityChargeCallback(pokemon) {
 			pokemon.addVolatile('deadsilence');
@@ -2479,7 +2471,7 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "Fails behind substitute. Perish song if user is not hit before moving.",
+		shortDesc: "Perish song if user is not hit before moving.",
 	},
 	clayhaymaker: {
 		num: 0,
@@ -2523,24 +2515,18 @@ export const Moves: ModdedMoveDataTable = {
 	},
 	simmertoss: {
 		num: 0,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 70,
 		category: "Physical",
 		name: "Simmer Toss",
 		pp: 10,
 		priority: -6,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, noassist: 1, failcopycat: 1 },
-    	onHit(target, source, move) {
-              if (!source.simmer) {
-              source.simmer = true;
-              target.forceSwitchFlag = true;
-            } else source.simmer = false;
-		},
-		secondary: {},
+    	forceSwitch: true,
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		shortDesc: "Switches target out. Cannot do so consecutively.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 };
 
