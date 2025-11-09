@@ -1,5 +1,6 @@
 /config/*
 !/config/*formats.ts
+!/config/avatars
 data/remote/*.json
 server/static/replays/*.html
 server/static/replays/*.json
