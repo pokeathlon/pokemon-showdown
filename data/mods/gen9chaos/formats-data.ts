@@ -209,15 +209,15 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	puppetmon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	metalseadramon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	myotismon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	phantomon: {
 		inherit: true,
