@@ -42,9 +42,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.25);
 			}
 		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
 		flags: { breakable: 1 },
 		name: "Nightmare King",
-		shortDesc: "This Pokemon is healed 1/4 by Dark; is hurt 1.25x by Fairy.",
+		shortDesc: "This Pokemon is healed 1/4 by Dark, 1/8 by Snow; is hurt 1.25x by Fairy.",
 		rating: 5,
 		num: 0,
 	},
