@@ -43970,6 +43970,7 @@ oozma: {
 },
 omeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		vanish: ["6L0"],
 		teleport: ["6L1"],
 		helpinghand: ["6L1", "6M", "6T"],
@@ -44065,9 +44066,11 @@ omeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 champeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		reversal: ["6L0"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44149,9 +44152,11 @@ champeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 lepideon: {
 	learnset: {
+		...Base.eevee.learnset,
 		signalbeam: ["6L0", "6M", "6T"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44229,9 +44234,11 @@ lepideon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 guardeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		irondefense: ["6L0"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44311,9 +44318,11 @@ guardeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 obsideon: {
 	learnset: {
+		...Base.eevee.learnset,
 		pressurize: ["6L0"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44401,9 +44410,11 @@ obsideon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 scorpeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		venomswipe: ["6L0"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44485,9 +44496,11 @@ scorpeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 sphynxeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		bonemerang: ["6L0"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44564,9 +44577,11 @@ sphynxeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 nimbeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		roost: ["6L0", "6M", "6T"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44640,9 +44655,11 @@ nimbeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 draconeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		dragonclaw: ["6L0", "6M"],
 		helpinghand: ["6L1", "6M", "6T"],
 		tackle: ["6L1", "6M", "6T"],
@@ -44716,9 +44733,11 @@ draconeon: {
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 eeveeon: {
 	learnset: {
+		...Base.eevee.learnset,
 		eevoboost: ["6L0"],
 		workup: ["6L1", "6M"],
 		helpinghand: ["6L1", "6M", "6T"],
@@ -44784,9 +44803,11 @@ eeveeon: {
 		sing: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 vareon: {
 	learnset: {
+		...Base.eevee.learnset,
 		curse: ["6L0"],
 		sandattack: ["6L1", "6M", "6T"],
 		growl: ["6L1", "6M", "6T"],
@@ -44861,6 +44882,7 @@ vareon: {
 		sing: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 	},
+	eventData: Base.eevee.eventData,
 },
 terathwack: {
 	learnset: {
