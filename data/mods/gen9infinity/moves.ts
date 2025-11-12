@@ -1683,12 +1683,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
         pp: 5,
         priority: 1,
         flags: {snatch: 1},
-		onHit(target, source, move) {
-			source.side.addSideCondition('lightscreen', source);
-			source.side.addSideCondition('reflect', source)
+		onHit(source) {
+			source.side.addSideCondition('reflect');
+			source.side.addSideCondition('lightscreen');
 		},
         secondary: null,
-        target: "allySide",
+        target: "self",
         type: "Rock",
 	},
 	core: {
@@ -1723,7 +1723,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onDamage(damage, target, source, effect) {
 				if (damage) {
 					let modifier = source.side.active.length;
-					const healAmount = damage;
+					const healAmount = damage / 2;
 					for (const pokemon of source.alliesAndSelf()) {
 						this.heal(healAmount / modifier, pokemon, source, "drain");
 					}
