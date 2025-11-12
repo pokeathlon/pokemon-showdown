@@ -27,4 +27,25 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 5,
 		num: 0,
 	},
+	nightmareking: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Nightmare King');
+				}
+				return null;
+			}
+		},
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fairy') {
+				return this.chainModify(1.25);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Nightmare King",
+		shortDesc: "This Pokemon is healed 1/4 by Dark; is hurt 1.25x by Fairy.",
+		rating: 5,
+		num: 0,
+	},
 };

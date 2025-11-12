@@ -6,7 +6,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	wildcharge: {
 		inherit: true,
-		recoil: [1, 3],
+		recoil: [1, 4],
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
 	},
 	strength: {
 		inherit: true,
@@ -90,6 +94,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
+	},
+	hail: {
+		inherit: true,
+		weather: 'snowscape',
 	},
 
 	// Additions
@@ -712,12 +720,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	terraforce: {
 		num: 0,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 115,
 		category: "Special",
 		name: "Terra Force",
 		desc: "The user hurls a scorching ball of energy that strikes every Pokémon around it.",
 		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
@@ -1155,7 +1163,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	icewolfclaw: {
 		num: 0,
 		accuracy: 100,
-		basePower: 35,
+		basePower: 30,
 		category: "Special",
 		name: "Ice Wolf Claw",
 		desc: "The user launches ice-missiles in all directions. It hits two to five times in a row.",
@@ -1178,7 +1186,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to burn, freeze, or paralyze target.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 20,
 			onHit(target, source) {
@@ -1496,12 +1504,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	webwrecker: {
 		num: 0,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 115,
 		category: "Special",
 		name: "Web Wrecker",
 		desc: "The user recklessly fires a powerful shot of destructive energy. Hits the entire field.",
 		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
@@ -1594,7 +1602,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "25% chance to freeze. Hits adjacent foes.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 25,
 			status: 'frz',
@@ -1629,7 +1637,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	necromagic: {
 		num: 0,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Special",
 		name: "Necro Magic",
 		desc: "The user saps HP from the foe with a cursed grasp, restoring HP equal to half the damage dealt.",
@@ -1645,7 +1653,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	kablow: {
 		num: 0,
 		accuracy: 100,
-		basePower: 155,
+		basePower: 170,
 		category: "Physical",
 		name: "Kablow!",
 		desc: "The user detonates to inflict damage on those around it. Rusty shrapnel is launched at the opponent.",
@@ -1663,5 +1671,185 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Steel",
+	},
+	granite: {
+        num: 0,
+        accuracy: 0,
+        basePower: 0,
+        category: "Status",
+        name: "Granite",
+        desc: "The user quickly sets up a protective reinforcement for their side of the field. Lasts for 3 turns.",
+		shortDesc: "Sets Reflect and Light Screen on user's side.",
+        pp: 5,
+        priority: 1,
+        flags: {snatch: 1},
+		onHit(target, source, move) {
+			source.side.addSideCondition('lightscreen', source);
+			source.side.addSideCondition('reflect', source)
+		},
+        secondary: null,
+        target: "allySide",
+        type: "Rock",
+	},
+	core: {
+			num: 0,
+			accuracy: 70,
+			basePower: 85,
+			category: "Physical",
+			name: "Core",
+			desc: "Bro heats up and burns everything. This also lowers the afflicted targets' Defense stat.",
+			shortDesc: "Lowers the target(s) Defense by 1",
+			pp: 5,
+			priority: 0,
+			flags: {protect: 1, mirror: 1},
+			secondary: {
+				chance: 100,
+				boosts: {
+					def: -1,
+				}
+			},
+			target: "allAdjacent",
+			type: "Fire",
+	},
+	tonic: {
+			num: 0,
+			accuracy: 100,
+			basePower: 0,
+			damage: 'level',
+			category: "Special",
+			name: "Tonic",
+			desc: "The user drains life-force and shares it among your active mons. The power scales with the user's level.",
+			shortDesc: "Does damage equal to the user's level. User recovers 50% of the damage dealt, split among alies.",
+			onDamage(damage, target, source, effect) {
+				if (damage) {
+					let modifier = source.side.active.length;
+					const healAmount = damage;
+					for (const pokemon of source.alliesAndSelf()) {
+						this.heal(healAmount / modifier, pokemon, source, "drain");
+					}
+				}
+			},
+			pp: 5,
+			priority: 0,
+			flags: {contact: 1, protect: 1, mirror: 1},
+			secondary: null, 
+			target: "normal",
+			type: "Water",
+	},
+	gale: {
+			num: 0,
+			accuracy: 100,
+			basePower: 60,
+			category: "Physical",
+			name: "Gale",
+			desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
+			shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
+			pp: 5,
+			priority: 0,
+			flags: {protect: 1, mirror: 1},
+			onAfterHit(target, pokemon, move) {
+				if (!move.hasSheerForce) {
+					if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+						this.add('-end', pokemon, 'Leech Seed', '[from] move: Gale', `[of] ${pokemon}`);
+					}
+					const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+					for (const condition of sideConditions) {
+						if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+							this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
+						}
+					}
+					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+						pokemon.removeVolatile('partiallytrapped');
+					}
+				}
+			},
+			onAfterSubDamage(damage, target, pokemon, move) {
+				if (!move.hasSheerForce) {
+					if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+						this.add('-end', pokemon, 'Leech Seed', '[from] move: Gale', `[of] ${pokemon}`);
+					}
+					const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+					for (const condition of sideConditions) {
+						if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+							this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
+						}
+					}
+					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+						pokemon.removeVolatile('partiallytrapped');
+					}
+				}
+			},
+			secondary: null, 
+			target: "normal",
+			type: "Flying",
+	},
+	cherryblast: {
+			num: 0,
+			accuracy: 100,
+			basePower: 85,
+			category: "Special",
+			name: "Cherry Blast",
+			desc: "Forbidden fruit is shot at the opponent. Likely puts a curse on those hit.",
+			shortDesc: "45% chance to Curse target.",
+			pp: 10,
+			priority: 0,
+			flags: {protect: 1, mirror: 1, pulse: 1},
+			secondary: {
+				chance: 45,
+				volatileStatus: 'curse',
+			}, 
+			target: "normal",
+			type: "Poison",
+	},
+	bullethammer: {
+			num: 0,
+			accuracy: 100,
+			basePower: 140,
+			category: "Physical",
+			name: "Bullet Hammer",
+			desc: "The user bats the opponent with a super-charged hammer. The recoil forces the user to rest.",
+			shortDesc: "Forces the target to switch to a random ally. User cannot move next turn.",
+			pp: 5,
+			priority: 0,
+			flags: {protect: 1, mirror: 1, recharge: 1},
+			secondary: null,
+			forceSwitch: true,
+			self: {
+				volatileStatus: 'mustrecharge',
+			},
+			target: "normal",
+			type: "Steel",
+	},
+	soulchopper: {
+			num: 0,
+			accuracy: 100,
+			basePower: 60,
+			category: "Physical",
+			name: "Soul Chopper",
+			desc: "The user annihilates the foe's soul with mighty cleaves. Always lands a critical hit.",
+			shortDesc: "Always results in a critical hit.",
+			pp: 10,
+			priority: 0,
+			flags: {protect: 1, mirror: 1},
+			willCrit: true,
+			secondary: null,
+			target: "normal",
+			type: "Ghost",
+	},
+	trumpsword: {
+			num: 0,
+			accuracy: 100,
+			basePower: 25,
+			category: "Physical",
+			name: "Trump Sword",
+			desc: "In a flash the user summons sharp swords at the target. It strikes one to four times in a row.",
+			shortDesc: "Hits 1-4 times in one turn.",
+			pp: 10,
+			priority: 1,
+			flags: {protect: 1, mirror: 1},
+			multihit: [1, 4],
+			secondary: null,
+			target: "normal",
+			type: "Steel",
 	},
 };
