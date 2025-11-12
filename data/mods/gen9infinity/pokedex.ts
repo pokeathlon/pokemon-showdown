@@ -3140,7 +3140,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Grass"],
 		gender: "N",
 		baseStats: {hp: 105, atk: 95, def: 130, spa: 70, spd: 65, spe: 60},
-		abilities: {0: "Superluck", H: "Natural Cure"},
+		abilities: {0: "Super Luck", H: "Natural Cure"},
 		heightm: 4.8,
 		weightkg: 519.0,
 		prevo: "Palmon",
