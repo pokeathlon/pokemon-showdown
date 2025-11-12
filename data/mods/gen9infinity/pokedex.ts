@@ -3163,7 +3163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Puppetmon"],
 		tags: ["Infinity"],
 		eggGroups: ["Infinity", "Digimon"],
-		natDexTier: "Uber",
+		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	puppetmon: {
@@ -3224,7 +3224,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Piedmon"],
 		tags: ["Infinity"],
 		eggGroups: ["Infinity", "Digimon"],
-		natDexTier: "OU",
+		natDexTier: "NFE",
 		doublesTier: "NFE",
 	},
 	piedmon: {
@@ -3239,7 +3239,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Phantomon",
 		tags: ["Infinity"],
 		eggGroups: ["Infinity", "Digimon"],
-		natDexTier: "Uber",
+		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
 	venus: {

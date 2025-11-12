@@ -195,6 +195,50 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "(OU)",
 	},
+	cherrymon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	piedmon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	woodmon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	puppetmon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	metalseadramon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	myotismon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	phantomon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	venus: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	mars: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	mercury: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	jupiter: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	meloettapirouette: {
 		inherit: true,
 		natDexTier: "OU",
