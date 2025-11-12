@@ -51959,7 +51959,7 @@ flymon: {
 		thunderpunch: ["6M", "6T"],
 	},
 },
-vegimon: {
+vegiemon: {
 	learnset: {
 		compostbomber: ["6L0", "6L4"],
 		leechseed: ["6L0", "6L4"],
@@ -51983,7 +51983,7 @@ vegimon: {
 		dazzlinggleam: ["6M", "6T"],
 	},
 },
-redvegimon: {
+redvegiemon: {
 	learnset: {
 		powerwhip: ["6L0", "6L4"],
 		gunkshot: ["6L0", "6L4"],
