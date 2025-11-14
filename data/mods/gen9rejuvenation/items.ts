@@ -2489,6 +2489,23 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		desc: "If held by an Urshifu-Rapid-Strike, this item allows it to Mega Evolve in battle.",
 	},
-	
+	interceptiumzparagon: {
+		name: "Interceptium Z (Paragon)",
+		spritenum: 0,
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Interceptiumzparagon",
+		num: 0,
+		desc: "Allows for Paragon-route Interceptium Z moves.",
+	},
+	interceptiumzrenegade: {
+		name: "Interceptium Z (Renegade)",
+		spritenum: 0,
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Interceptiumzrenegade",
+		num: 0,
+		desc: "Allows for Renegade-route Interceptium Z moves.",
+	},
 };
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = Dex.deepClone(ModItems);

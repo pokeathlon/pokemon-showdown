@@ -9122,5 +9122,166 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
+
+	// Interceptium Z moves
+	unleashedpower: {
+		num: 0,
+		accuracy: true,
+		basePower: 150,
+		category: "Physical",
+		name: "Unleashed Power",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: true,
+		onModifyType(move, pokemon) {
+			move.type = pokemon.hpType ? pokemon.hpType: "Normal";
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.randomChance(1, 2))) {
+				move.category = 'Physical';
+			}
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('arenitewall');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	blindingspeed: {
+		num: 0,
+		accuracy: true,
+		basePower: 80,
+		category: "Physical",
+		name: "Unleashed Power",
+		pp: 1,
+		priority: 2,
+		flags: {},
+		isZ: true,
+		onModifyType(move, pokemon) {
+			const types = pokemon.getTypes();
+			let type = types[0];
+			if (type === 'Bird') type = '???';
+			if (type === '???' && types[1]) type = types[1];
+			move.type = type;
+		},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.randomChance(1, 2))) {
+				move.category = 'Physical';
+			}
+		},
+		onAfterMove(source, target, move) {
+			if (this.gameType !== 'doubles') return;
+			const ally = source.allies()[0];
+			const action = this.queue.willMove(ally);
+			if (action) {
+				this.queue.prioritizeAction(action);
+				this.add('-activate', ally, 'move: After You');
+			} else {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	domainshift: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Domain Shift",
+		pp: 1,
+		priority: 2,
+		flags: {},
+		isZ: true,
+		onHit(target, source, move) {
+			let fields = ['swampfield', 'desertfield', 'icyfield', 'rockyfield', 'cavefield', 'mountainfield', 'deepearthfield', 'hauntedfield', 'cityfield', 'psychicterrain', 'grassyterrain', 'mistyterrain', 'electricterrain'];
+			if (source.item === 'interceptiumzparagon') fields.push('rainbowfield', 'forestfield', 'factoryfieldwatersurfacefield', 'crystalcavernfield', 'snowymountainfield', 'blessedfield', 'fairytalefield', 'starlightarenafield', 'bewitchedwoodsfield', 'skyfield');
+			if (source.item === 'interceptiumzrenegade') fields.push('darkcrystalcavern', 'volcanicfield', 'corrosivefield', 'corrosivemistfield', 'volcanictopfield', 'shortcircuitfield', 'murkwatersurfacefield', 'dragonsdenfield', 'dimensionalfield', 'frozendimensionalfield', 'infernalfield', 'backalleyfield');
+			let chosenField = this.sample(fields)
+			if (!this.field.setTerrain(chosenField)) this.field.setBattlefield(this.sample(fields));
+		},
+		condition: {
+			duration: 1,
+			onBattlefieldChange(target, source, sourceEffect) {
+				this.field.battlefieldState.duration = 0;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	elysianshield: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Elysian Shield",
+		pp: 1,
+		priority: 2,
+		flags: {},
+		isZ: "interceptiumzrenegade",
+		onTry(source, target, move) {
+			if (source.item != 'interceptiumzparagon') return false;
+		},
+		onHit(source) {
+			source.side.addSideCondition('auroraveil');
+		},
+		boosts: {
+			def: 1,
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	chthonicmalady: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Chthonic Malady",
+		pp: 1,
+		priority: 2,
+		flags: {},
+		isZ: "interceptiumzparagon",
+		onTry(source, target, move) {
+			if (source.item != 'interceptiumzrenegade') return false;
+		},
+		volatileStatus: 'torment',
+		status: 'ptr',
+		boosts: {
+			atk: -2,
+			spa: -2,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
 };
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);
