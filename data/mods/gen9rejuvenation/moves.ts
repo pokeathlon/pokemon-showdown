@@ -3545,7 +3545,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (move.type != 'Water' && !source.hasType('Water') && move.category === 'Physical' && !source.hasAbility(['swiftswim', 'steelworker'])) {
 					this.chainModify(0.5)
 				}
-				if (source.hasAbility('propellertail') && move.priority > 0) return this.chainModify(1.5)
+				if (source.hasAbility('propellertail') && move.priority > 0) this.chainModify(1.5)
 				if (['anchorshot', 'dragondarts'].includes(move.id)) {
 					this.chainModify(2);
 					this.hint('From the depths!')
@@ -4542,22 +4542,22 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onBasePower(basePower, source, target, move) { // TODO - check if boosts can stack, in which case I'd have to create a variable to store the boosts where the returns are and then return the cummulative boost
 				if (move.type === 'Rock') {
 					this.hint('The crystals charged the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (move.type === 'Dragon') {
 					this.hint('The crystal energy strengthened the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['judgement', 'multiattack', 'prismaticlaser', 'rockclimb', 'strength', 'ancientpower', 'diamondstorm', 'lusterpurge', 'powergem', 'rocksmash', 'rocktomb'].includes(move.id)) {
 					this.hint('The crystals strengthened the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['aurorabeam', 'dazzlinggleam', 'doomdesire', 'flashcannon', 'menacingmoonrazemaelstrom', 'mirrorbeam', 'mirrorshot', 'moongeistbeam', 'photongeyser', 'signalbeam', 'technoblast'].includes(move.id)) {
 					this.hint('The crystals light strengthened the attack!')
-					return this.chainModify(1.3)
+					this.chainModify(1.3)
 				}
 				if ((['bulldoze', 'earthquake', 'fissure', 'magnitude'].includes(move.id) && this.field.battlefieldState.transformation === 1) || move.id === 'tectonicrage') {
-					return this.chainModify(1.3)
+					this.chainModify(1.3)
 				}
 			},
 			onEffectiveness(typeMod, target, type, move) {
@@ -4657,27 +4657,27 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onBasePower(basePower, source, target, move) {
 				if (['Normal', 'Fairy'].includes(move.type) && move.category === 'Special') {
 					this.hint('The holy energy resonated with the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['Dragon', 'Psychic'].includes(move.type)) {
 					this.hint('The legendary energy resonated with the attack!')
-					return this.chainModify(1.2)
+					this.chainModify(1.2)
 				}
 				if ((move.type === 'Dark' && move.category === 'Special') || move.type === 'Ghost') {
 					this.hint('The attack was cleansed...')
-					return this.chainModify(0.5)
+					this.chainModify(0.5)
 				}
 				if (move.id === 'extremespeed') {
 					this.hint('Godspeed!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['judgement', 'sacredfire'].includes(move.id)) {
 					this.hint('Legendary power accelerated the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['mysticalfire', 'magicalleaf', 'ancientpower', 'sacredsword', 'return'].includes(move.id)) {
 					this.hint('The holy energy resonated with the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['aeroblast', 'behemothblade', 'behemothbash', 'crushgrip', 'diamondstorm', 'dragonascent',
 					'doomdesire', 'dynamaxcannon', 'eternabeam', 'fleurcannon', 'genesissupernova', 'hyperspacehole',
@@ -4685,15 +4685,15 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					'originpulse', 'precipiceblades', 'prismaticlaser', 'psychoboost', 'psystrike', 'relicsong',
 					'roaroftime', 'searingsunrazesmash', 'secretsword', 'spacialrend', 'sunsteelstrike'].includes(move.id)) {
 					this.hint('Legendary power accelerated the attack!')
-					return this.chainModify(1.3)
+					this.chainModify(1.3)
 				}
 				if (['ominouswind', 'phantomforce', 'shadowforce', 'spectralscream'].includes(move.id)) {
 					this.hint('Evil spirits gathered!')
-					return this.chainModify(1.3)
+					this.chainModify(1.3)
 				}
 				if (move.id === 'lightthatburnsthesky') {
 					this.hint('The holy light was consumed!')
-					return this.chainModify(1.3)
+					this.chainModify(1.3)
 				}
 			},
 			onEffectiveness(typeMod, target, type, move) {
@@ -4764,31 +4764,31 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 				if (move.type === 'Dragon') {
 					this.hint("The foul beast's attack gained strength!")
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (move.type === 'Steel') {
 					this.hint('For justice!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (move.type === 'Fairy') {
 					this.hint('For ever after!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (move.id === 'drainingkiss') {
 					this.hint('True love never hurt so badly!')
-					return this.chainModify(2)
+					this.chainModify(2)
 				}
 				if (move.id === 'mistball') {
 					this.hint('The magical energy strengthened the attack!')
-					return this.chainModify(2)
+					this.chainModify(2)
 				}
 				if (['airslash', 'aquacutter', 'behemothblade', 'ceaselessedge', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'smartstrike', 'solarblade', 'stoneaxe'].includes(move.id)) {
 					this.hint('The blade cuts true!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 				if (['ancientpower', 'behemothbash', 'fleurcannon', 'magiicalleaf', 'menacingmoonrazemaelstrom', 'moongeistbeam', 'mysticalfire', 'oceanicoperetta', 'relicsong', 'sparklingaria'].includes(move.id)) {
 					this.hint('The magical energy strengthened the attack!')
-					return this.chainModify(1.5)
+					this.chainModify(1.5)
 				}
 			},
 			onEffectiveness(typeMod, target, type, move) {
@@ -5293,6 +5293,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (['darkpulse', 'nightdaze'].includes(move.id)) {
 					this.hint('The attack has been corrupted');
 					this.chainModify(1.2);
+				};
+				if (['freezeshock', 'glaciate', 'iceburn', 'seedflare'].includes(move.id) || (['blizzard', 'coldtruth', 'sheercold'].includes(move.id) && this.field.battlefieldState.transformation === 1)) {
+					this.chainModify(1.3)
 				}
 			},
 			onModifyDefPriority: 10,
