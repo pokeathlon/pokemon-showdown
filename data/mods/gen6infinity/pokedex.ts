@@ -942,6 +942,18 @@ export const cutDex: {[k: string]: number} = {
 	"infermon": 901,
 	"diaboromon": 902,
 	"wizardmon": 903,
+	"woodmon": 904,
+	"cherrymon": 905,
+	"puppetmon": 906,
+	"metalseadaramon": 907,
+	"myotismon": 908,
+	"phantomon": 909,
+	"piedmon": 910,
+	"venus": 911,
+	"mars": 912,
+	"mercury": 913,
+	"jupiter": 914,
+
 };
 
 for (const key in {...Base, ...Pokedex}) {
