@@ -8383,8 +8383,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					this.hint('Sand mixed into the attack!');
 					this.chainModify(2);
 				};
-				if (move.id === 'Strength') {
-					move.type === 'Fighting';
+				if (move.id === 'strength') {
 					this.hint('...And with pure focus!');
 					this.chainModify(1.5);
 				};
@@ -8410,6 +8409,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (pokemon.hasAbility(['innerfocus', 'owntempo', 'purepower', 'sandveil', 'steadfast']) && !target?.hasAbility(['asone', 'unnerve'])) {
 					move.ignoreEvasion = true;
 				};
+				if (move.id === 'strength') move.type === 'Fighting';
 				if (move.id === 'calmmind') move.boosts = {spa: 2, spd: 2};
 				if (move.id === 'focusblast') move.accuracy = 90;
 				if (['kinesis', 'sandattack'].includes(move.id)) move.boosts = {accuracy: -2};
