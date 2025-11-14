@@ -6075,7 +6075,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onModifyMove(move, pokemon, target) {
 				if (move.id === 'autotomize') move.boosts = {spe: 3};
 				if (move.id === 'irondefense') move.boosts = {def: 3};
-				if (move.id === 'metaldefense') move.boosts = {spd: -3};
+				if (move.id === 'metalsound') move.boosts = {spd: -3};
 				if (move.id === 'shiftgear') move.boosts = {atk: 2, spe: 2};
 				if (move.id === 'gearup') move.onHitSide = function (side, source, move) {
 					const targets = side.allies().filter(target => (
@@ -6834,7 +6834,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (move.id === 'roar') move.self = {boosts: {atk: 2}};
 				if (move.id === 'swagger') move.boosts = {atk: 3};
 				if (move.id === 'swordsdance') move.boosts = {atk: 3};
-				if (move.id === 'spikyshielf') move.condition = {
+				if (move.id === 'spikyshield') move.condition = {
 					duration: 1,
 					onStart(target) {
 						this.add('-singleturn', target, 'move: Protect');
