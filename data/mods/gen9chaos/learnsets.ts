@@ -8481,7 +8481,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			grassyglide: ["9M"],
 			doubleedge: ["9M"],
 			supercellslam: ["9M"],
-			scorchingsands: ["9M"],
 			metalsound: ["9M"],
 			magnitude: ["9M"],
 			mudbomb: ["9M"],
