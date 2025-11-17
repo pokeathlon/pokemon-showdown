@@ -2527,6 +2527,10 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	rakura: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	bisharpdeltamega: {
 		inherit: true,
 		natDexTier: "RU",

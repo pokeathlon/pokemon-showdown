@@ -2712,6 +2712,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	rakura: {
+		num: 3140,
+		name: "Rakura",
+		types: ["Rock", "Grass"],
+		baseStats: {hp: 99, atk: 54, def: 80, spa: 111, spd: 118, spe: 73},
+		abilities: {0: "Solar Power", 1: "Cute Charm", H: "Flower Veil"},
+		heightm: 1.2,
+		weightkg: 58.6,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
