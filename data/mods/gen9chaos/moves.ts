@@ -2543,7 +2543,6 @@ export const Moves: ModdedMoveDataTable = {
 			this.field.removePseudoWeather('wonderroom');
 		},
 		onBasePower(basePower, source, target, move) {
-			console.log(this.field.getPseudoWeather())
 			if (this.field.getPseudoWeather('trickroom') || this.field.getPseudoWeather('wonderroom') || this.field.getPseudoWeather('magicroom')) {
 				return this.chainModify(2)
 			}
