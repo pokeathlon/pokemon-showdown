@@ -2538,28 +2538,21 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onHit() {
-			this.field.clearPseudoWeather('magicroom');
-			this.field.clearPseudoWeather('trickroom');
-			this.field.clearPseudoWeather('wonderroom');
+			this.field.removePseudoWeather('magicroom');
+			this.field.removePseudoWeather('trickroom');
+			this.field.removePseudoWeather('wonderroom');
 		},
-		onModifyMove(move, pokemon) {
-			switch (pokemon.effectivePseudoWeather()) {
-			case 'magicroom':
-				move.basePower *= 2;
-				break;
-			case 'trickroom':
-				move.basePower *= 2;
-				break;
-			case 'wonderroom':
-				move.basePower *= 2;
-				break;
+		onBasePower(basePower, source, target, move) {
+			console.log(this.field.getPseudoWeather())
+			if (this.field.getPseudoWeather('trickroom') || this.field.getPseudoWeather('wonderroom') || this.field.getPseudoWeather('magicroom')) {
+				return this.chainModify(2)
 			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		shortDesc: "x2 BP under Trick Room, Wonder Room and Magic Room. Clears Rooms.",
+		shortDesc: "2x BP in Trick Room, Wonder Room and Magic Room. Clears Rooms.",
 	},
 	sugarglaive: {
 		num: 0,
