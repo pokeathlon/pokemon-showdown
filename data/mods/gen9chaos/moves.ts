@@ -2536,7 +2536,7 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Brutal Calamity",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, metronome: 1},
 		onHit() {
 			this.field.clearPseudoWeather('magicroom');
 			this.field.clearPseudoWeather('trickroom');
@@ -2560,6 +2560,23 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Fire",
 		contestType: "Beautiful",
 		shortDesc: "x2 BP under Trick Room, Wonder Room and Magic Room. Clears Rooms.",
+	},
+	sugarglaive: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Sugar Glaive",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1, slicing: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
 	},
 };
 
