@@ -2670,6 +2670,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	catastropede: {
+		num: 3137,
+		name: "Catastropede",
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 132, atk: 71, def: 58, spa: 132, spd: 77, spe: 25},
+		abilities: {0: "Flash Fire", 1: "Overcoat", H: "Infiltrator"},
+		heightm: 1.5,
+		weightkg: 100.5,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

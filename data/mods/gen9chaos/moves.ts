@@ -2528,6 +2528,39 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "Forces the target to switch to a random ally.",
 	},
+	brutalcalamity: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Brutal Calamity",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit() {
+			this.field.clearPseudoWeather('magicroom');
+			this.field.clearPseudoWeather('trickroom');
+			this.field.clearPseudoWeather('wonderroom');
+		},
+		onModifyMove(move, pokemon) {
+			switch (pokemon.effectivePseudoWeather()) {
+			case 'magicroom':
+				move.basePower *= 2;
+				break;
+			case 'trickroom':
+				move.basePower *= 2;
+				break;
+			case 'wonderroom':
+				move.basePower *= 2;
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+		shortDesc: "x2 BP under Trick Room, Wonder Room and Magic Room. Clears Rooms.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
