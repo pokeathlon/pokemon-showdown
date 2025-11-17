@@ -12167,6 +12167,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			facade: ["9M"],
 			terablast: ["9M"],
+			heatcrash: ["9M"],
+			flareblitz: ["9M"],
+			flamecharge: ["9M"],
 		}
 	}
 };
