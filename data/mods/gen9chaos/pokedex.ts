@@ -2726,6 +2726,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	sauphozoa: {
+		num: 3141,
+		name: "Sauphozoa",
+		types: ["Psychic", "Poison"],
+		baseStats: {hp: 103, atk: 87, def: 63, spa: 117, spd: 110, spe: 37},
+		abilities: {0: "Cute Charm", 1: "Gooey", H: "Levitate"},
+		heightm: 2.1,
+		weightkg: 113,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		gender: "N",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
