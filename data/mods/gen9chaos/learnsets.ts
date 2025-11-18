@@ -12406,6 +12406,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			gravity: ["9M"],
 			telekinesis: ["9M"],
 			thunderwave: ["9M"],
+			rapidspin: ["9M"],
+			drainingkiss: ["9M"],
 		}
 	}
 };
