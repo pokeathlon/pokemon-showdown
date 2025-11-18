@@ -12304,7 +12304,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			bodyslam: ["9M"],
 			charm: ["9M"],
 			dreameater: ["9M"],
-			endeavore: ["9M"],
+			endeavor: ["9M"],
 			endure: ["9M"],
 			facade: ["9M"],
 			faketears: ["9M"],
