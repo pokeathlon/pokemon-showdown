@@ -11,6 +11,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			chance: 10,
 			status: 'par',
 		},
+		desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 25% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 25% recoil. 10% chance to paralyze.",
 	},
 	strength: {
 		inherit: true,
@@ -23,11 +25,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		desc: "Has a 30% chance to raise the user's Attack by 1 stage.",
+		shortDesc: "30% chance to raise the user's Attack by 1.",
 	},
 	cut: {
 		inherit: true,
 		basePower: 60,
 		critRatio: 2,
+		desc: "Has a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio.",
 	},
 	dig: {
 		inherit: true,

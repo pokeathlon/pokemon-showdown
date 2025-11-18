@@ -1224,6 +1224,9 @@ ekans: {
 		gigadrain: ["6M", "6T"],
 		seedbomb: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		thunderfang: ["6M"],
+		icefang: ["6M"],
+		firefang: ["6M"],
 	},
 },
 arbok: {
@@ -1509,6 +1512,8 @@ sandslash: {
 		knockoff: ["6M", "6T"],
 		stealthrock: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		fellstinger: ["6M"],
+		gunkshot: ["6M"],
 	},
 },
 nidoranfe: {
@@ -2972,7 +2977,7 @@ meowth: {
 persian: {
 	learnset: {
 		playrough: ["6L1"],
-		payday: ["6L1"],
+		payday: ["6L1", "6M"],
 		switcheroo: ["6L1"],
 		scratch: ["6L1"],
 		growl: ["6L1"],
@@ -3037,6 +3042,7 @@ persian: {
 		seedbomb: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 		gunkshot: ["6M", "6T"],
+		spite: ["6M"],
 	},
 },
 psyduck: {
@@ -10307,6 +10313,7 @@ pichu: {
 		megapunch: ["6M", "6T"],
 		followme: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		surf: ["6M"],
 	},
 },
 cleffa: {
@@ -14010,6 +14017,7 @@ donphan: {
 		ironhead: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 		gunkshot: ["6M", "6T"],
+		slackoff: ["6M"],
 	},
 },
 porygon2: {
@@ -18198,6 +18206,7 @@ mawile: {
 		megapunch: ["6M", "6T"],
 		seismictoss: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		dragondance: ["6M"],
 	},
 },
 aron: {
@@ -27477,6 +27486,7 @@ weavile: {
 		megapunch: ["6M", "6T"],
 		lowkick: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		jumpkick: ["6M"],
 	},
 },
 magnezone: {
@@ -30634,6 +30644,8 @@ pansage: {
 		knockoff: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 		gunkshot: ["6M", "6T"],
+		bellydrum: ["6M"],
+		fakeout: ["6M"],
 	},
 },
 simisage: {
@@ -30751,6 +30763,8 @@ pansear: {
 		irontail: ["6M", "6T"],
 		knockoff: ["6M", "6T"],
 		gunkshot: ["6M", "6T"],
+		bellydrum: ["6M"],
+		fakeout: ["6M"],
 	},
 },
 simisear: {
@@ -30878,6 +30892,8 @@ panpour: {
 		knockoff: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 		gunkshot: ["6M", "6T"],
+		bellydrum: ["6M"],
+		fakeout: ["6M"],
 	},
 },
 simipour: {
@@ -42827,6 +42843,7 @@ kokismash: {
 		megakick: ["6M", "6T"],
 		ironhead: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		machpunch: ["6M"],
 	},
 },
 chargo: {
@@ -43320,6 +43337,7 @@ gorochu: {
 		followme: ["6M", "6T"],
 		sing: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		swordsdance: ["6M"],
 	},
 },
 nidorook: {
@@ -44151,6 +44169,7 @@ champeon: {
 		sing: ["6M", "6T"],
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		playrough: ["6M"],
 	},
 	eventData: Base.eevee.eventData,
 },
@@ -44409,6 +44428,7 @@ obsideon: {
 		sing: ["6M", "6T"],
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		flareblitz: ["6M"],
 	},
 	eventData: Base.eevee.eventData,
 },
@@ -44495,6 +44515,7 @@ scorpeon: {
 		sing: ["6M", "6T"],
 		batonpass: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		closecombat: ["6M"],
 	},
 	eventData: Base.eevee.eventData,
 },
@@ -45480,6 +45501,7 @@ azumarillegho: {
 		megakick: ["6M", "6T"],
 		megapunch: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		accelerock: ["6M"],
 	},
 },
 trubbishegho: {
@@ -45975,6 +45997,7 @@ ludicoloegho: {
 		thunderpunch: ["6M", "6T"],
 		dazzlinggleam: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
+		nastyplot: ["6M"],
 	},
 },
 sunflorid: {
@@ -49266,6 +49289,7 @@ tyrannomon: {
 		rollout: ["6M", "6T"],
 		seedbomb: ["6M", "6T"],
 		suckerpunch: ["6M", "6T"],
+		dragondance: ["6M"],
 	},
 },
 skullgreymon: {
@@ -49802,6 +49826,7 @@ shroomage: {
 		signalbeam: ["6M", "6T"],
 		zenheadbutt: ["6M", "6T"],
 		trick: ["6M", "6T"],
+		aurasphere: ["6M"],
 	},
 },
 calfpint: {
@@ -51421,6 +51446,8 @@ shellmon: {
 		seedbomb: ["6M", "6T"],
 		signalbeam: ["6M", "6T"],
 		dazzlinggleam: ["6M", "6T"],
+		toxicspikes: ["6M"],
+		acidspray: ["6M"],
 	},
 },
 missingno: {
