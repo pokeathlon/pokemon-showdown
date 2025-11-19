@@ -1685,13 +1685,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
         category: "Status",
         name: "Granite",
         desc: "The user quickly sets up a protective reinforcement for their side of the field. Lasts for 3 turns.",
-		shortDesc: "Sets Reflect and Light Screen on user's side.",
+		shortDesc: "Sets Reflect and Light Screen on user's side for 3 turns.",
         pp: 5,
         priority: 1,
         flags: {snatch: 1},
 		onHit(source) {
-			source.side.addSideCondition('reflect');
-			source.side.addSideCondition('lightscreen');
+			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay'? 6 : 3;
+			if (source.side.addSideCondition('lightscreen')) source.side.sideConditions['lightscreen'].duration = source.item === 'lightclay'? 6 : 3;
 		},
         secondary: null,
         target: "self",
