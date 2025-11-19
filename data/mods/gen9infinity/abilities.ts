@@ -27,11 +27,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 5,
 		num: 0,
 	},
-	nightmareking: {
+	nightmareheart: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {
 				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Nightmare King');
+					this.add('-immune', target, '[from] ability: Nightmare Heart');
 				}
 				return null;
 			}
@@ -51,8 +51,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		flags: { breakable: 1 },
-		name: "Nightmare King",
-		shortDesc: "This Pokemon is healed 1/4 by Dark, 1/8 by Snow; is hurt 1.25x by Fairy, 1/8 by Sun..",
+		name: "Nightmare Heart",
+		shortDesc: "This Pokemon is healed 1/4 by Dark, 1/8 by Snow; is hurt 1.25x by Fairy, 1/8 by Sun.",
 		rating: 5,
 		num: 0,
 	},

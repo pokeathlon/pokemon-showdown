@@ -3202,7 +3202,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Poison", "Psychic"],
 		gender: "N",
 		baseStats: {hp: 100, atk: 119, def: 94, spa: 126, spd: 80, spe: 106},
-		abilities: {0: "Tough Claws", H: "Nightmare King"},
+		abilities: {0: "Tough Claws", H: "Nightmare Heart"},
 		heightm: 2.6,
 		weightkg: 238.0,
 		prevo: "Devimon",
