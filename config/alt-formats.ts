@@ -779,6 +779,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
+			'move:assist',
 		],
 	},
 	{
