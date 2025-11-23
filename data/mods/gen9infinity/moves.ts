@@ -1687,7 +1687,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
         desc: "The user quickly sets up a protective reinforcement for their side of the field. Lasts for 3 turns.",
 		shortDesc: "Sets Reflect and Light Screen on user's side for 3 turns.",
         pp: 5,
-        priority: 1,
+        priority: 0,
         flags: {snatch: 1},
 		onHit(source) {
 			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay'? 6 : 3;
@@ -1808,7 +1808,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			priority: 0,
 			flags: {protect: 1, mirror: 1, pulse: 1},
 			secondary: {
-				chance: 45,
+				chance: 25,
 				volatileStatus: 'curse',
 			}, 
 			target: "normal",
