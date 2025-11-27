@@ -2276,7 +2276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 };
 
-const cutDex: {[k: string]: number} = {
+export const cutDex: {[k: string]: number} = {
 	"piranhaplant": 1,
 	"peeweepiranha": 2,
 	"peteypiranha": 3,
