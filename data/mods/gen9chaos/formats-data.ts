@@ -205,7 +205,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	woodmon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "RU",
 	},
 	puppetmon: {
 		inherit: true,
@@ -221,7 +221,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	phantomon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	venus: {
 		inherit: true,
@@ -229,7 +229,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	mars: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	mercury: {
 		inherit: true,
@@ -693,7 +693,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	tracton: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	scizor: {
 		inherit: true,
@@ -2536,6 +2536,10 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	bisharpdeltamega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	uproot: {
 		inherit: true,
 		natDexTier: "RU",
 	},
