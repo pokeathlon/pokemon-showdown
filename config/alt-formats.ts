@@ -299,6 +299,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Mega', 'Uber'],
 	},
 	{
+		name: "[Gen 7] IF Tier Shift",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Tier Shift Mod'
+		],
+		banlist: ['Mega', 'Uber'],
+	},
+	{
 		name: "[Gen 9] IF Custom Game",
 
 		mod: 'gen9infinitefusion',

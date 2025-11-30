@@ -2363,6 +2363,74 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return pokemon;
 		},
 	},
+	fusiontiershiftmod: {
+		effectType: "Rule",
+		name: "Fusion Tier Shift Mod",
+		desc: `Fusion components below OU get their stats, excluding HP, boosted. Only works with fusions. UU/RUBL get +15, RU/NUBL get +20, NU/PUBL get +25, and PU or lower get +30.`,
+		ruleset: ['Overflow Stat Mod'],
+		onBegin() {
+			this.add('rule', 'Fusion Tier Shift Mod: Fusion components get stat buffs depending on their tier, excluding HP. Only works with fusions.');
+		},
+		onModifySpeciesPriority: 6,
+		onModifySpecies(species, target, source, effect) {
+			if (!species.baseStats) return;
+			const boosts: { [tier: string]: number } = {
+				uu: 15,
+				rubl: 15,
+				ru: 20,
+				nubl: 20,
+				nu: 25,
+				publ: 25,
+				pu: 30,
+				zubl: 30,
+				zu: 30,
+				nfe: 30,
+				lc: 30,
+			};
+			const tiers = ['ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zubl', 'zu', 'nfe', 'lc'];
+			const isNatDex = !!this.ruleTable?.has('natdexmod');
+			const fusionName = target?.set?.fusion || undefined;
+			if (!fusionName) return;
+			const fusionSpecies = this.dex.species.get(fusionName);
+			if (!fusionSpecies.exists) return;
+
+			let tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
+			const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
+			// Non-Pokemon bans in lower tiers
+			if (target && !isNatDex) {
+				if (this.toID(target.set.item) === 'lightclay' && tiers.indexOf(tier) > tiers.indexOf('rubl')) tier = 'rubl';
+				if (this.toID(target.set.item) === 'quickclaw' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
+				if (this.toID(target.set.ability) === 'drought' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
+				if (this.toID(target.set.item) === 'damprock' && tiers.indexOf(tier) > tiers.indexOf('publ')) tier = 'publ';
+				if (this.toID(target.set.item) === 'unburden' && tiers.indexOf(tier) > tiers.indexOf('zubl')) tier = 'zubl';
+			}
+			const pokemon = this.dex.deepClone(species);
+			pokemon.bst = pokemon.baseStats['hp'];
+			let boost = 0;
+			let fusionBoost = 0;
+			if ((tier in boosts)) {
+				boost = boosts[tier];
+			};
+			if ((fusionTier in boosts)) {
+				fusionBoost = boosts[tier];
+			};
+			let statName: StatID;
+			for (statName in pokemon.baseStats as StatsTable) {
+				if (statName === 'hp') continue;
+				if (statName === 'spa' || statName === 'spd') {
+					const headStrongBoost = 2 / 3 * boost + 1 / 3 * fusionBoost;
+					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + headStrongBoost, 1, 255);
+					pokemon.bst += pokemon.baseStats[statName];
+				}
+				if (statName === 'atk' || statName === 'def' || statName === 'spe') {
+					const bodyStrongBoost = 1 / 3 * boost + 2 / 3 * fusionBoost;
+					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + bodyStrongBoost, 1, 255);
+					pokemon.bst += pokemon.baseStats[statName];
+				}
+			}
+			return pokemon;
+		},
+	},
 	revelationmonsmod: {
 		effectType: "Rule",
 		name: "Revelationmons Mod",
@@ -3370,6 +3438,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 
 			return problems;
 		},
+		onModifySpeciesPriority: 8,
 		onModifySpecies(species, target, source, effect) {
 			if (!target) return;
 			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
@@ -3549,74 +3618,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
 			}
-		},
-	},
-	fusiontiershiftmod: {
-		effectType: "Rule",
-		name: "Fusion Tier Shift Mod",
-		desc: `Fusion components below OU get their stats, excluding HP, boosted. Only works with fusions. UU/RUBL get +15, RU/NUBL get +20, NU/PUBL get +25, and PU or lower get +30.`,
-		ruleset: ['Overflow Stat Mod'],
-		onBegin() {
-			this.add('rule', 'Fusion Tier Shift Mod: Fusion components get stat buffs depending on their tier, excluding HP. Only works with fusions.');
-		},
-		onModifySpecies(species, target, source, effect) {
-			if (!species.baseStats) return;
-			const boosts: { [tier: string]: number } = {
-				uu: 15,
-				rubl: 15,
-				ru: 20,
-				nubl: 20,
-				nu: 25,
-				publ: 25,
-				pu: 30,
-				zubl: 30,
-				zu: 30,
-				nfe: 30,
-				lc: 30,
-			};
-			const tiers = ['ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zubl', 'zu', 'nfe', 'lc'];
-			const isNatDex = !!this.ruleTable?.has('natdexmod');
-
-			const fusionName = target?.m.fusion;
-			if (!fusionName.exists) return;
-			const fusionSpecies = this.dex.species.get(fusionName);
-			if (!fusionSpecies.exists) return;
-
-			let tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
-			const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
-			// Non-Pokemon bans in lower tiers
-			if (target && !isNatDex) {
-				if (this.toID(target.set.item) === 'lightclay' && tiers.indexOf(tier) > tiers.indexOf('rubl')) tier = 'rubl';
-				if (this.toID(target.set.item) === 'quickclaw' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
-				if (this.toID(target.set.ability) === 'drought' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
-				if (this.toID(target.set.item) === 'damprock' && tiers.indexOf(tier) > tiers.indexOf('publ')) tier = 'publ';
-				if (this.toID(target.set.item) === 'unburden' && tiers.indexOf(tier) > tiers.indexOf('zubl')) tier = 'zubl';
-			}
-			const pokemon = this.dex.deepClone(species);
-			pokemon.bst = pokemon.baseStats['hp'];
-			let boost = 0;
-			let fusionBoost = 0;
-			if ((tier in boosts)) {
-				boost = boosts[tier];
-			};
-			if ((fusionTier in boosts)) {
-				fusionBoost = boosts[tier];
-			};
-			let statName: StatID;
-			for (statName in pokemon.baseStats as StatsTable) {
-				if (statName === 'hp') continue;
-				if (statName === 'spa' || statName === 'spd') {
-					const headStrongBoost = 2 / 3 * boost + 1 / 3 * fusionBoost;
-					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + headStrongBoost, 1, 255);
-					pokemon.bst += pokemon.baseStats[statName];
-				}
-				if (statName === 'atk' || statName === 'def' || statName === 'spe') {
-					const bodyStrongBoost = 1 / 3 * boost + 2 / 3 * fusionBoost;
-					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + bodyStrongBoost, 1, 255);
-					pokemon.bst += pokemon.baseStats[statName];
-				}
-			}
-			return pokemon;
 		},
 	},
 	poasametypeclause: {
@@ -3829,7 +3830,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: `Pok&eacute;mon can have two abilities.`,
 		onValidateSet(set) {
 			const problems: string[] = [];
-			console.log("I'm validating 2 abils");
 
 			const species = this.dex.species.get(set.species);
 			const ability1Pool = new Set<string>(Object.values(species.abilities));
