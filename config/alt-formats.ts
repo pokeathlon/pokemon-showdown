@@ -296,7 +296,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Double Ability Mod',
 		],
-		banlist: ['Mega'],
+		banlist: ['Mega', 'Uber'],
 	},
 	{
 		name: "[Gen 9] IF Custom Game",

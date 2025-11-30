@@ -3551,6 +3551,74 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	fusiontiershiftmod: {
+		effectType: "Rule",
+		name: "Fusion Tier Shift Mod",
+		desc: `Fusion components below OU get their stats, excluding HP, boosted. Only works with fusions. UU/RUBL get +15, RU/NUBL get +20, NU/PUBL get +25, and PU or lower get +30.`,
+		ruleset: ['Overflow Stat Mod'],
+		onBegin() {
+			this.add('rule', 'Fusion Tier Shift Mod: Fusion components get stat buffs depending on their tier, excluding HP. Only works with fusions.');
+		},
+		onModifySpecies(species, target, source, effect) {
+			if (!species.baseStats) return;
+			const boosts: { [tier: string]: number } = {
+				uu: 15,
+				rubl: 15,
+				ru: 20,
+				nubl: 20,
+				nu: 25,
+				publ: 25,
+				pu: 30,
+				zubl: 30,
+				zu: 30,
+				nfe: 30,
+				lc: 30,
+			};
+			const tiers = ['ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zubl', 'zu', 'nfe', 'lc'];
+			const isNatDex = !!this.ruleTable?.has('natdexmod');
+
+			const fusionName = target?.m.fusion;
+			if (!fusionName.exists) return;
+			const fusionSpecies = this.dex.species.get(fusionName);
+			if (!fusionSpecies.exists) return;
+
+			let tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
+			const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
+			// Non-Pokemon bans in lower tiers
+			if (target && !isNatDex) {
+				if (this.toID(target.set.item) === 'lightclay' && tiers.indexOf(tier) > tiers.indexOf('rubl')) tier = 'rubl';
+				if (this.toID(target.set.item) === 'quickclaw' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
+				if (this.toID(target.set.ability) === 'drought' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
+				if (this.toID(target.set.item) === 'damprock' && tiers.indexOf(tier) > tiers.indexOf('publ')) tier = 'publ';
+				if (this.toID(target.set.item) === 'unburden' && tiers.indexOf(tier) > tiers.indexOf('zubl')) tier = 'zubl';
+			}
+			const pokemon = this.dex.deepClone(species);
+			pokemon.bst = pokemon.baseStats['hp'];
+			let boost = 0;
+			let fusionBoost = 0;
+			if ((tier in boosts)) {
+				boost = boosts[tier];
+			};
+			if ((fusionTier in boosts)) {
+				fusionBoost = boosts[tier];
+			};
+			let statName: StatID;
+			for (statName in pokemon.baseStats as StatsTable) {
+				if (statName === 'hp') continue;
+				if (statName === 'spa' || statName === 'spd') {
+					const headStrongBoost = 2 / 3 * boost + 1 / 3 * fusionBoost;
+					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + headStrongBoost, 1, 255);
+					pokemon.bst += pokemon.baseStats[statName];
+				}
+				if (statName === 'atk' || statName === 'def' || statName === 'spe') {
+					const bodyStrongBoost = 1 / 3 * boost + 2 / 3 * fusionBoost;
+					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + bodyStrongBoost, 1, 255);
+					pokemon.bst += pokemon.baseStats[statName];
+				}
+			}
+			return pokemon;
+		},
+	},
 	poasametypeclause: {
 		effectType: 'ValidatorRule',
 		name: 'PoA Same Type Clause',
@@ -3761,25 +3829,41 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		desc: `Pok&eacute;mon can have two abilities.`,
 		onValidateSet(set) {
 			const problems: string[] = [];
-			const abilityPool = new Set<string>(Object.values(this.dex.species.get(set.species).abilities));
+			console.log("I'm validating 2 abils");
+
+			const species = this.dex.species.get(set.species);
+			const ability1Pool = new Set<string>(Object.values(species.abilities));
+			let ability2Pool = new Set<string>();
 
 			if (set.fusion) {
 				const fusionSpecies = this.dex.species.get(set.fusion);
-				for (const ability of Object.values(fusionSpecies.abilities)) {
-					abilityPool.add(ability);
-				}
+				ability2Pool = new Set<string>(Object.values(fusionSpecies.abilities));
+			} else {
+				ability2Pool = new Set(ability1Pool);
 			}
 
+			if (!set.ability || !set.ability2) {
+				problems.push(`This ruleset requires two abilities to be specified.`);
+				return problems;
+			}
 			const ability = this.dex.abilities.get(set.ability);
 			const ability2 = this.dex.abilities.get(set.ability2);
 
-			if (!abilityPool.has(ability.name) || (ability2.exists && !abilityPool.has(ability2.name))) {
-				problems.push(`${set.name} only has access to the following abilities: ${Array.from(abilityPool).join(', ')}.`);
+			if (!ability1Pool.has(ability.name)) {
+				problems.push(`${set.species} (head) only has access to the following abilities: ${Array.from(ability1Pool).join(', ')}.`);
+			}
+			if (ability2.exists && !ability2Pool.has(ability2.name)) {
+				const bodyName = set.fusion || set.species;
+				problems.push(`${bodyName} (body) only has access to the following abilities: ${Array.from(ability2Pool).join(', ')}.`);
 			}
 
 			for (const abilityName of [set.ability, set.ability2]) {
 				const banReason = this.ruleTable.check('ability:' + this.toID(abilityName));
 				if (banReason) problems.push(banReason);
+			}
+
+			if (ability.name === ability2.name) {
+				problems.push(`Cannot have the same ability (${ability.name}) twice.`);
 			}
 
 			return problems;
