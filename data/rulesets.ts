@@ -3851,9 +3851,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				problems.push(`${bodyName} (body) only has access to the following abilities: ${Array.from(ability2Pool).join(', ')}.`);
 			}
 
-			for (const abilityName of [set.ability, set.ability2]) {
-				const banReason = this.ruleTable.check('ability:' + this.toID(abilityName));
-				if (banReason) problems.push(banReason);
+			if (set.ability2) { //Ability 1 is already checked by the validator, check ability2 ban
+				const banReason = this.ruleTable.check('ability:' + this.toID(set.ability2));
+				console.log("banReason: ", banReason)
+				if (banReason) problems.push(`${set.ability2} is banned.`);
 			}
 
 			if (ability.name === ability2.name) {
