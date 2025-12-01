@@ -273,6 +273,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 7] End of the World",
 		desc: "Kyodonquaza?!?!?",
+		searchShow: false,
 
 		mod: 'gen7infinitefusion',
 		ruleset: [
@@ -307,6 +308,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 7] IF 2 Abilities AG",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
 
 		mod: 'gen7infinitefusion',
 		ruleset: [
@@ -487,6 +489,30 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
+			'move:batonpass'
+		],
+	},
+	{
+		name: "[Gen 9] Mariomon Ubers",
+		searchShow: false,
+
+		mod: 'gen9mariomon',
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		banlist: [
+			'AG',
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
+			'move:batonpass', 'move:electrify', 'move:boomburst',
+		],
+	},
+	{
+		name: "[Gen 9] Mariomon UU",
+		searchShow: false,
+
+		mod: 'gen9mariomon',
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		banlist: [
+			'AG', 'Uber', 'OU', 'UUBL',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
 			'move:batonpass', 'move:electrify', 'move:boomburst',
