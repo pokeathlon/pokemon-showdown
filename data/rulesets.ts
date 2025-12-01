@@ -2375,6 +2375,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onModifySpecies(species, target, source, effect) {
 			if (!species.baseStats) return;
 			const boosts: { [tier: string]: number } = {
+				uber: 0,
+				ou: 0,
+				uubl: 0,
 				uu: 15,
 				rubl: 15,
 				ru: 20,
@@ -2387,23 +2390,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				nfe: 30,
 				lc: 30,
 			};
-			const tiers = ['ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zubl', 'zu', 'nfe', 'lc'];
 			const isNatDex = !!this.ruleTable?.has('natdexmod');
 			const fusionName = target?.set?.fusion || undefined;
 			if (!fusionName) return;
 			const fusionSpecies = this.dex.species.get(fusionName);
 			if (!fusionSpecies.exists) return;
 
-			let tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
+			const tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
 			const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
-			// Non-Pokemon bans in lower tiers
-			if (target && !isNatDex) {
-				if (this.toID(target.set.item) === 'lightclay' && tiers.indexOf(tier) > tiers.indexOf('rubl')) tier = 'rubl';
-				if (this.toID(target.set.item) === 'quickclaw' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
-				if (this.toID(target.set.ability) === 'drought' && tiers.indexOf(tier) > tiers.indexOf('nubl')) tier = 'nubl';
-				if (this.toID(target.set.item) === 'damprock' && tiers.indexOf(tier) > tiers.indexOf('publ')) tier = 'publ';
-				if (this.toID(target.set.item) === 'unburden' && tiers.indexOf(tier) > tiers.indexOf('zubl')) tier = 'zubl';
-			}
 			const pokemon = this.dex.deepClone(species);
 			pokemon.bst = pokemon.baseStats['hp'];
 			let boost = 0;
@@ -2412,18 +2406,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				boost = boosts[tier];
 			};
 			if ((fusionTier in boosts)) {
-				fusionBoost = boosts[tier];
+				fusionBoost = boosts[fusionTier];
 			};
 			let statName: StatID;
 			for (statName in pokemon.baseStats as StatsTable) {
 				if (statName === 'hp') continue;
 				if (statName === 'spa' || statName === 'spd') {
-					const headStrongBoost = 2 / 3 * boost + 1 / 3 * fusionBoost;
+					const headStrongBoost = Math.round((2 / 3) * boost + (1 / 3) * fusionBoost);
 					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + headStrongBoost, 1, 255);
 					pokemon.bst += pokemon.baseStats[statName];
 				}
 				if (statName === 'atk' || statName === 'def' || statName === 'spe') {
-					const bodyStrongBoost = 1 / 3 * boost + 2 / 3 * fusionBoost;
+					const bodyStrongBoost = Math.round((1 / 3) * boost + (2 / 3) * fusionBoost);
 					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + bodyStrongBoost, 1, 255);
 					pokemon.bst += pokemon.baseStats[statName];
 				}
@@ -3654,7 +3648,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 			for (const set of team) {
 				if (this.gen === 9 && set.teraType &&
-						!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
+					!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
 					return [`${set.species}'s Tera Type must match the team's type.`];
 				}
 			}
@@ -3753,7 +3747,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if ((!species.isMega && item.megaEvolves && this.toID(item.megaEvolves) != species.id)) {
 				return [`${set.species} cannot hold ${set.item}.`]
 			}
-		}
+		},
 	},
 	multiplemega: {
 		effectType: 'Rule',
@@ -3796,7 +3790,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 
 				// For some reason pokemon that don't exist (such as Blissey-Egho or Castform-Sandy validate. This error message prevents that)
 				if (!dexFusion.exists && !fusion.exists) problems.push(`${dexFusion.name} does not exist in this world...`);
-			} 
+			}
 			if (!["swamptiliken", "gromarshken", "torkipcko", "regitrio"].includes(species.id) && !set.fusion) problems.push(`${species.name} must be fused. Only Hoenn triple fusions are allowed.`);
 			if (!dexSpecies.exists && !species.exists) problems.push(`${dexSpecies.name} does not exist in this world...`);
 			if (problems.length) return problems;
@@ -3817,7 +3811,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
-			if (!set.fusion) return [`All sets must be fused! ${set.species} is not fused.`]
+			if (!set.fusion) return [`All sets must be fused! ${set.species} is not fused.`];
 			const forceSpecies = this.dex.species.get(this.ruleTable.valueRules.get('forcefusion')!);
 			if (species.id !== forceSpecies.id && this.dex.species.get(set.fusion).id !== forceSpecies.id) {
 				return [`${set.species} must be fused with ${forceSpecies.name}.`];
