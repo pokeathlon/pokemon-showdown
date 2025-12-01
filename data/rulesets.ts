@@ -3457,7 +3457,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 
 			if (this.ruleTable.has('ifaveragemons')) newSpecies.baseStats = {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100};
 
-			newSpecies.maxHP = target.baseAbility === 'wonderguard' ? 1 : undefined;
+			newSpecies.maxHP = [target.baseAbility, this.dex.abilities.get(target.set.ability2).id as string].includes('wonderguard')? 1 : undefined;
 			newSpecies.weightkg = (fusionSpecies.weightkg + species.weightkg) / 2;
 			newSpecies.weighthg = newSpecies.weightkg * 10;
 
@@ -3853,7 +3853,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 
 			if (set.ability2) { //Ability 1 is already checked by the validator, check ability2 ban
 				const banReason = this.ruleTable.check('ability:' + this.toID(set.ability2));
-				console.log("banReason: ", banReason)
 				if (banReason) problems.push(`${set.ability2} is banned.`);
 			}
 
