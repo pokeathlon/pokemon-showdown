@@ -1034,7 +1034,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaosfusion',
 		ruleset: ['[Gen 9] Chaos Fusions OU'],
 		banlist: [
-			'ND OU', 'ND UUBL',
+			'ND OU', 'ND UUBL', 'ability:drizzle', 'ability:drought', 'ability:noctem', 'item:lightclay', 'move:lucky7s', 'move:boltbeak',
 		],
 	},
 	{
