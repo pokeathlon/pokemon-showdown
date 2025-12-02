@@ -489,7 +489,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
-			'move:batonpass'
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
+			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
 	},
 	{
@@ -500,9 +502,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG',
-			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
-			'move:batonpass', 'move:electrify', 'move:boomburst',
+			'move:batonpass', 
 		],
 	},
 	{
