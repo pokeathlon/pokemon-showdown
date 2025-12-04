@@ -1516,7 +1516,7 @@ sandslash: {
 		gunkshot: ["6M"],
 	},
 },
-nidoranfe: {
+nidoranf: {
 	learnset: {
 		growl: ["6L1"],
 		scratch: ["6L1"],
@@ -1714,7 +1714,7 @@ nidoqueen: {
 		outrage: ["6M", "6T"],
 	},
 },
-nidoranma: {
+nidoranm: {
 	learnset: {
 		leer: ["6L1"],
 		peck: ["6L1"],

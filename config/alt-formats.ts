@@ -489,7 +489,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
-			'move:batonpass'
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
+			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
 	},
 	{
@@ -500,9 +502,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG',
-			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
-			'move:batonpass', 'move:electrify', 'move:boomburst',
+			'move:batonpass', 
 		],
 	},
 	{
@@ -1032,9 +1032,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
 		mod: 'gen9chaosfusion',
-		ruleset: ['[Gen 9] Chaos Fusions OU'],
+		ruleset: ['Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod', 'Sleep Moves Clause'],
 		banlist: [
-			'ND OU', 'ND UUBL', 'ability:drizzle', 'ability:drought', 'ability:noctem', 'item:lightclay', 'move:lucky7s', 'move:boltbeak',
+			'ND OU', 'ND UUBL', 'ability:drizzle', 'ability:drought', 'ability:noctem', 'item:lightclay', 'move:lucky7s', 'move:boltbeak','item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item:boomerang', 'item: trickrock', 'item:dragonfang',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer',
+			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 
+			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast',
+			'Transform + Fairy Law',
 		],
 	},
 	{
