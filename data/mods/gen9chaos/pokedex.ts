@@ -2187,6 +2187,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 		prevo: "Matterpillar",
+		cosmeticFormes: ["Twinova-Eclipse"]
 	},
 	anneliark: {
 		num: 3106,
