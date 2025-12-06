@@ -23,7 +23,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
 			'Mega', 'Uber',
@@ -55,7 +55,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
 			'Mega', 'Uber',
@@ -75,7 +75,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
 			'Mega', 'Uber',
@@ -326,7 +326,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Tier Shift Mod'
 		],
-		banlist: ['Mega', 'Uber'],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
+			'pokemon:greninjabond', 'pokemon:greninjaash', 'pokemon:kadabra',
+		],
 	},
 	{
 		name: "[Gen 9] IF Custom Game",
@@ -386,8 +392,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9insurgence',
 		ruleset: ['Standard NatDex', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
 		banlist: [
-			'move:hiddenpower', 'move:lastrespects', 'move:shedtail', 'move:revivalblessing', 'move:nanorepair', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'ability:powerconstruct', 'ability:winterjoy', 
-			'Emolga-Delta+Blaze Boost', 'Blastoise-Mega+Shell Smash', 'Parental Bond+Seismic Toss', 'Parental Bond+Night Shade', 
+			'move:hiddenpower', 'move:lastrespects', 'move:shedtail', 'move:revivalblessing', 'move:nanorepair', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'ability:powerconstruct', 'ability:winterjoy',
+			'Emolga-Delta+Blaze Boost', 'Blastoise-Mega+Shell Smash', 'Parental Bond+Seismic Toss', 'Parental Bond+Night Shade',
 		],
 	},
 	{
@@ -399,12 +405,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Default Level = 120', 'Sketch Post-Gen 7 Moves', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',
 			'Endless Battle Clause', 'HP Percentage Mod', 'Obtainable Moves', 'Obtainable Misc', 'Nickname Clause', 'Overflow Stat Mod', 'Species Reveal Clause'],
 		banlist: [
-			'ability:arenatrap', 'ability:contrary', 'ability:gorillatactics', 'ability:speedboost', 'ability:hugepower', 'ability:moody', 'ability:purepower', 
-			'ability:shadowtag', 'ability:wonderguard', 'ability:comatose', 'ability:illuminate', 'ability:athenian', 
+			'ability:arenatrap', 'ability:contrary', 'ability:gorillatactics', 'ability:speedboost', 'ability:hugepower', 'ability:moody', 'ability:purepower',
+			'ability:shadowtag', 'ability:wonderguard', 'ability:comatose', 'ability:illuminate', 'ability:athenian',
 			'ability:ancientpresence', 'ability:omnitype', 'ability:goodasgold', 'ability:blazeboost', 'ability:parentalbond', 'ability:speedswap', 'ability:imposter',
 			'move:lastrespects', 'move:revivalblessing', 'move:shedtail', 'move:achillesheel', 'move:livewire', 'move:permafrost', 'move:nanorepair', 'move:hiddenpower',
-			'item:razorfang', 'item:kingsrock', 
-			'Blastoise-Mega+Shell Smash', 
+			'item:razorfang', 'item:kingsrock',
+			'Blastoise-Mega+Shell Smash',
 		],
 	},
 	{
@@ -502,7 +508,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG',
-			'move:batonpass', 
+			'move:batonpass',
 		],
 	},
 	{
@@ -1022,7 +1028,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item:boomerang', 'item: trickrock', 'item:dragonfang',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer',
 			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge',
 			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast',
 			'Transform + Fairy Law',
 		],
@@ -1038,7 +1044,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND OU', 'ND UUBL', 'ability:drizzle', 'ability:drought', 'ability:noctem', 'item:lightclay', 'move:lucky7s', 'move:boltbeak','item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item:boomerang', 'item: trickrock', 'item:dragonfang',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer',
 			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge', 
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge',
 			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast',
 			'Transform + Fairy Law',
 		],
@@ -1090,7 +1096,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Haxorus-Mega', 'Ho-Oh', 'Hoopa-Delta-Unleashed', 'Hoopa-Unbound', 'Hydreigon-Mega', 'Icyall', 'Inflagetah', 'Inflagetah-Mega', 'Iron Bundle', 'Jerbolta-Nuclear', 'Jirachi-Mega', 'Kangaskhan-Mega', 'Kingambit', 'Koraidon', 'Kyodonquaza', 'Kyogre', 'Kyogre-Primal', 'Kyurem-Black',
 			'Kyurem-White', 'Lanthan', 'Leomon', 'Lucario-Mega', 'Lugia', 'Lukagon', 'Lunala', 'Machinedramon', 'Magearna', 'MagnaAngemon', 'Marshadow', 'Metagross-Delta-Ruin-Crystal', 'Metagross-Delta-Ruin-Mega', 'Metagross-Delta-Spider-Mega', 'Metagross-Mega', 'MetalEtemon', 'MetalGarurumon', 'Mew', 'Mewthree',
 			'Mewtwo', 'pokemon:mewtwoarmor', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Mewtwo-Shadow', 'Mewtwo-Shadow-Mega-X', 'Miraidon', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Nucleon', 'Oculeus', 'Ogerpon-Hearthflame', 'Okuwamon', 'Omnimon', 'Palafin', 'Paldiatina', 'Palkia', 'Palkia-Origin',
-			'Petey Piranha', 'Pheromosa', 'Raffiti', 'Raffiti-Ratthew', 'Rayquaza', 'Rayquaza-Mega', 'Reaptide', 'Regigigas-Primal', 'Reshiram', 'Reuniclus-Mega', 'SaberLeomon', 'Salamence-Mega', 'Scizor-Delta-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Snosquatch', 'Solgaleo', 'Sonic', 'pokemon:spark', 'Super Fly', 'Swamptiliken', 
+			'Petey Piranha', 'Pheromosa', 'Raffiti', 'Raffiti-Ratthew', 'Rayquaza', 'Rayquaza-Mega', 'Reaptide', 'Regigigas-Primal', 'Reshiram', 'Reuniclus-Mega', 'SaberLeomon', 'Salamence-Mega', 'Scizor-Delta-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Snosquatch', 'Solgaleo', 'Sonic', 'pokemon:spark', 'Super Fly', 'Swamptiliken',
 			'Tiptron', 'Togekiss', 'Torterneon', 'UFI', 'Ursaluna-Bloodmoon', 'Urshifu', 'Vareon', 'Venustoizard', 'Volcarona-Delta',
 			'pokemon:volcaronadeltaarmor', 'WarGreymon', 'Xerneas', 'Yatagaryu', 'Yatagaryu-Gossamir', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zapmolticuno', 'Zekrom', 'pokemon:zekromarmor', 'Zekyushiram', 'Zudomon', 'Zygarde', 'Zygarde-Complete',
 			'ability:illuminate', 'ability:moody', 'ability:powerconstruct', 'ability:quickcharge', 'ability:shadowtag',
@@ -1113,7 +1119,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Kyodonquaza', 'Kyogre', 'Kyogre-Primal', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus', 'Lanthan', 'Lucario-Mega', 'Lugia', 'Lunala', 'Machinedramon', 'Magearna', 'MagnaAngemon', 'Marshadow', 'Metagross-Delta-Ruin-Crystal', 'Metagross-Delta-Ruin-Mega',
 			'Metagross-Delta-Spider-Mega', 'Metagross-Mega', 'MetalEtemon', 'MetalGarurumon', 'Mewthree', 'Mewtwo', 'pokemon:mewtwoarmor', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Mewtwo-Shadow', 'Mewtwo-Shadow-Mega-X', 'Miraidon', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necturna',
 			'Necrozma-Dusk-Mane', 'Necrozma-Ultra', 'Oculeus', 'Okuwamon', 'Omnimon', 'Paldiatina', 'Palkia', 'Palkia-Origin', 'Pheromosa', 'Piximon', 'Raffiti', 'Raffiti-Ratthew', 'Rayquaza', 'Rayquaza-Mega', 'Regigigas', 'Regigigas-Primal', 'Reshiram', 'Reuniclus-Mega',
-			'SaberLeomon', 'Salamence-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Solgaleo', 'Sonic', 'Spectrier', 'Stratagem', 'Terapagos-Stellar', 'Typhlosion-Delta-Mega', 'Urshifu', 'Urshifu-Rapid-Strike', 'Volcarona-Delta', 'pokemon:volcaronadeltaarmor', 
+			'SaberLeomon', 'Salamence-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Solgaleo', 'Sonic', 'Spectrier', 'Stratagem', 'Terapagos-Stellar', 'Typhlosion-Delta-Mega', 'Urshifu', 'Urshifu-Rapid-Strike', 'Volcarona-Delta', 'pokemon:volcaronadeltaarmor',
 			'WarGreymon', 'Xerneas', 'Xurkitree', 'Yatagaryu', 'Yatagaryu-Gossamir', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zeraora', 'Zekrom', 'pokemon:zekromarmor', 'Zekyushiram', 'Zudomon', 'Zygarde', 'Zygarde-Complete',
 			'ability:acceleration', 'ability:ancientpresence', 'ability:atomizate', 'ability:athenian', 'ability:arenatrap', 'ability:blazeboost', 'ability:bushido', 'ability:chaosemeralds', 'ability:chlorofury', 'ability:chernobyl', 'ability:comatose',
 			'ability:contrary', 'ability:deepfreeze', 'ability:eventhorizon', 'ability:fairylaw', 'ability:furcoat', 'ability:goodasgold', 'ability:gorillatactics', 'ability:hueshift', 'ability:icescales', 'ability:illusion', 'ability:imposter', 'ability:infuriate',
@@ -1178,7 +1184,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:ancientpresence', 'ability:arenatrap', 'ability:athenian', 'ability:atomizate', 'ability:blazeboost', 'ability:contrary', 'ability:deepfreeze', 'ability:eventhorizon', 'ability:fairylaw', 'ability:foundry', 'ability:gorillatactics', 'ability:hadronengine', 'ability:hugepower', 'ability:illusion', 'ability:innardsout', 'ability:lernean', 'ability:orichalcumpulse', 'ability:chernobyl', 'ability:gulpmissile', 'ability:necromancy', 'ability:inertia',
 			'ability:magnetpull', 'ability:moody', 'ability:multishot', 'ability:musclememory', 'ability:neutralizinggas', 'ability:omnitype', 'ability:parentalbond', 'ability:purefocus', 'ability:purepower', 'ability:quickcharge', 'ability:shadowtag', 'ability:sleet', 'ability:stakeout', 'ability:stormbringer', 'ability:waterbubble', 'ability:wonderguard', 'ability:glitch', 'ability:chaosemeralds', 'ability:sharpcoral', 'ability:regurgitation', 'ability:starfall',
 			'move:achillesheel', 'move:bellydrum', 'move:bigbang', 'move:boltbeak', 'move:chatter', 'move:doubleironbash', 'move:electrify', 'move:lastrespects', 'move:livewire', 'move:octolock', 'move:omniblast', 'move:permafrost', 'move:ragefist', 'move:revivalblessing', 'move:riftjump', 'move:shedtail', 'move:shellsmash', 'move:supremecannon', 'move:thunderstorm', 'move:transcendentsword', 'move:yuckytongue', 'move:zippyzap', 'move:sleeptalk', 'move:nihillight', 'move:ceaselessedge',
-			'item:gengarite', 'item:deltamawilite', 'item:hafliberry', 'item:managel', 'item:crystalpiece'		
+			'item:gengarite', 'item:deltamawilite', 'item:hafliberry', 'item:managel', 'item:crystalpiece'
 		],
 		restricted: ['Arceus'],
 		onValidateTeam(team, format) {
