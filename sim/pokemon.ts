@@ -564,9 +564,6 @@ export class Pokemon {
 			details = illusionDetails;
 		}
 		if (this.terastallized) details += `, tera:${this.terastallized}`;
-		if (this.m.activeInnates?.length) details += `, innates: ${this.m.activeInnates.join('-')}`;
-		if (this.m.innates?.length) details += `, baseinnates: ${this.m.innates.join('-')}`;
-
 		return { side: health.side, secret: `${details}|${health.secret}`, shared: `${details}|${health.shared}` };
 	};
 
