@@ -301,6 +301,8 @@ export class Pokemon {
 	m: {
 		innate?: string, // Partners in Crime
 		originalSpecies?: string, // Mix and Mega
+		activeInnates?: string[],
+		innates?: string[],
 		[key: string]: any,
 	};
 
@@ -371,9 +373,14 @@ export class Pokemon {
 		this.position = 0;
 		let displayedSpeciesName = this.species.name;
 		if (displayedSpeciesName === 'Greninja-Bond') displayedSpeciesName = 'Greninja';
-		this.details = displayedSpeciesName + (this.level === 100 ? '' : ', L' + this.level) +
-			(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
+		this.details =
+			displayedSpeciesName +
+			(this.level === 100 ? '' : ', L' + this.level.toString()) +
+			(this.gender === '' ? '' : ', ' + this.gender) +
+			(this.set.shiny ? ', shiny' : '') +
 			(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+		if (this.m.activeInnates?.length) this.details += `, innates: ${this.m.activeInnates.join('-')}`;
+		if (this.m.innates?.length) this.details += `, baseinnates: ${this.m.innates.join('-')}`;
 
 		this.status = '';
 		this.statusState = this.battle.initEffectState({});
@@ -532,8 +539,16 @@ export class Pokemon {
 		let name = this.species.name;
 		if (['Greninja-Bond', 'Rockruff-Dusk'].includes(name)) name = this.species.baseSpecies;
 		if (!level) level = this.level;
-		return name + (level === 100 ? '' : `, L${level}`) +
-			(this.gender === '' ? '' : `, ${this.gender}`) + (this.set.shiny ? ', shiny' : '');
+		let details =
+			name +
+			(level === 100 ? '' : `, L${level}`) +
+			(this.gender === '' ? '' : `, ${this.gender}`) +
+			(this.set.shiny ? ', shiny' : '') +
+			(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+		if (this.m.activeInnates?.length) details += `, innates: ${this.m.activeInnates.join('-')}`;
+		if (this.m.innates?.length) details += `, baseinnates: ${this.m.innates.join('-')}`;
+
+		return details;
 	}
 
 	getFullDetails = () => {
@@ -543,12 +558,15 @@ export class Pokemon {
 			const level = this.battle.ruleTable.has('illusionlevelmod') ? this.illusion.level : this.level;
 			let displayedSpeciesName = this.illusion.species.name;
 			if (displayedSpeciesName === 'Greninja-Bond') displayedSpeciesName = 'Greninja';
-			const illusionDetails = displayedSpeciesName + (level === 100 ? '' : ', L' + level) +
+			const illusionDetails = displayedSpeciesName + (level === 100 ? '' : ', L' + level.toString()) +
 				(this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
 				(this.illusion.set.fusion ? ', fusion: ' + this.illusion.set.fusion : '') + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '');
 			details = illusionDetails;
 		}
 		if (this.terastallized) details += `, tera:${this.terastallized}`;
+		if (this.m.activeInnates?.length) details += `, innates: ${this.m.activeInnates.join('-')}`;
+		if (this.m.innates?.length) details += `, baseinnates: ${this.m.innates.join('-')}`;
+
 		return { side: health.side, secret: `${details}|${health.secret}`, shared: `${details}|${health.shared}` };
 	};
 
@@ -1158,7 +1176,7 @@ export class Pokemon {
 			pokeball: this.pokeball,
 		};
 		if (this.battle.gen > 6) entry.ability = this.ability;
-		if (this.battle.format.ruleset.includes('Double Ability Mod')) entry.ability2 = toID(this.m.innates[0]);
+		if (this.battle.format.ruleset.includes('Double Ability Mod')) entry.ability2 = toID(this.m.innates?.[0] ?? '');
 		if (this.battle.gen >= 9) {
 			entry.commanding = !!this.volatiles['commanding'] && !this.fainted;
 			entry.reviving = this.isActive && !!this.side.slotConditions[this.position]['revivalblessing'];
@@ -1410,9 +1428,14 @@ export class Pokemon {
 		this.m.fusion = rawSpecies.name;
 		this.set.fusion = rawSpecies.name;
 
-		this.details = this.species.name + (this.level === 100 ? '' : ', L' + this.level) +
-			(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-				(this.set.fusion ? ', fusion: ' + this.set.fusion : '');
+		this.details =
+			this.species.name +
+			(this.level === 100 ? '' : ', L' + this.level.toString()) +
+			(this.gender === '' ? '' : ', ' + this.gender) +
+			(this.set.shiny ? ', shiny' : '') +
+			(this.set.fusion ? ', fusion: ' + this.set.fusion : '');
+		if (this.m.activeInnates?.length) this.details += `, innates: ${this.m.activeInnates.join('-')}`;
+		if (this.m.innates?.length) this.details += `, baseinnates: ${this.m.innates.join('-')}`;
 
 		let details = (this.illusion || this).details;
 		if (this.terastallized) details += `, tera:${this.terastallized}`;
@@ -1449,9 +1472,15 @@ export class Pokemon {
 			this.illusion ? this.illusion.species.name : species.baseSpecies;
 		if (isPermanent) {
 			this.baseSpecies = rawSpecies;
-			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
-				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+			this.details =
+				species.name +
+				(this.level === 100 ? '' : ', L' + this.level.toString()) +
+				(this.gender === '' ? '' : ', ' + this.gender) +
+				(this.set.shiny ? ', shiny' : '') +
+				(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+			if (this.m.activeInnates?.length) this.details += `, innates: ${this.m.activeInnates.join('-')}`;
+			if (this.m.innates?.length) this.details += `, baseinnates: ${this.m.innates.join('-')}`;
+
 			let details = (this.illusion || this).details;
 			if (this.terastallized) details += `, tera:${this.terastallized}`;
 			this.battle.add('detailschange', this, details);

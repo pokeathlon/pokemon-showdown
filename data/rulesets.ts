@@ -2391,23 +2391,26 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				lc: 30,
 			};
 			const isNatDex = !!this.ruleTable?.has('natdexmod');
-			const fusionName = target?.set?.fusion || undefined;
-			if (!fusionName) return;
-			const fusionSpecies = this.dex.species.get(fusionName);
-			if (!fusionSpecies.exists) return;
-
-			const tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
-			const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
 			const pokemon = this.dex.deepClone(species);
 			pokemon.bst = pokemon.baseStats['hp'];
+
+			const tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
 			let boost = 0;
-			let fusionBoost = 0;
-			if ((tier in boosts)) {
+			if (tier in boosts) {
 				boost = boosts[tier];
 			};
-			if ((fusionTier in boosts)) {
-				fusionBoost = boosts[fusionTier];
-			};
+			console.log(species.name, tier);
+			let fusionBoost = 0;
+			const fusionName = target?.set?.fusion || undefined;
+			if (fusionName && this.dex.species.get(fusionName).exists) {
+				const fusionSpecies = this.dex.deepClone(this.dex.species.get(fusionName));
+				const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
+				console.log(species.name, tier, fusionTier);
+				if (fusionTier in boosts) {
+					fusionBoost = boosts[fusionTier];
+				};
+			} else fusionBoost = boost;
+			console.log(boost, fusionBoost);
 			let statName: StatID;
 			for (statName in pokemon.baseStats as StatsTable) {
 				if (statName === 'hp') continue;
@@ -3455,9 +3458,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				newSpecies.bst += newSpecies.baseStats[stat];
 			}
 
-			if (this.ruleTable.has('ifaveragemons')) newSpecies.baseStats = {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100};
+			if (this.ruleTable.has('ifaveragemons')) newSpecies.baseStats = { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 };
 
-			newSpecies.maxHP = [target.baseAbility, this.dex.abilities.get(target.set.ability2).id as string].includes('wonderguard')? 1 : undefined;
+			newSpecies.maxHP = [target.baseAbility, this.dex.abilities.get(target.set.ability2).id as string].includes('wonderguard') ? 1 : undefined;
 			newSpecies.weightkg = (fusionSpecies.weightkg + species.weightkg) / 2;
 			newSpecies.weighthg = newSpecies.weightkg * 10;
 
@@ -3780,13 +3783,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			let problems = [];
 			const species = this.dex.species.get(set.species);
-			const dexSpecies = this.dex.mod('gen9').species.get(species.name)
+			const dexSpecies = this.dex.mod('gen9').species.get(species.name);
 			let hoenn = false;
 			if (set.fusion) {
 				const fusion = this.dex.species.get(set.fusion);
-				const dexFusion = this.dex.mod('gen9').species.get(fusion.name)
+				const dexFusion = this.dex.mod('gen9').species.get(fusion.name);
 				if ((dexSpecies.num >= 252 && dexSpecies.num <= 386) || (dexFusion.num >= 252 && dexFusion.num <= 386)) hoenn = true;
-				if (!hoenn) problems.push(`Your fusion ${dexSpecies.name} + ${dexFusion.name} does not contain a Pokémon from Hoenn.`)
+				if (!hoenn) problems.push(`Your fusion ${dexSpecies.name} + ${dexFusion.name} does not contain a Pokémon from Hoenn.`);
 
 				// For some reason pokemon that don't exist (such as Blissey-Egho or Castform-Sandy validate. This error message prevents that)
 				if (!dexFusion.exists && !fusion.exists) problems.push(`${dexFusion.name} does not exist in this world...`);
@@ -3843,15 +3846,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const ability = this.dex.abilities.get(set.ability);
 			const ability2 = this.dex.abilities.get(set.ability2);
 
+			const possibleProblems: string[] = [];
 			if (!ability1Pool.has(ability.name)) {
-				problems.push(`${set.species} (head) only has access to the following abilities: ${Array.from(ability1Pool).join(', ')}.`);
+				possibleProblems.push(`${set.species} (head) only has access to the following abilities: ${Array.from(ability1Pool).join(', ')}.`);
 			}
 			if (ability2.exists && !ability2Pool.has(ability2.name)) {
 				const bodyName = set.fusion || set.species;
-				problems.push(`${bodyName} (body) only has access to the following abilities: ${Array.from(ability2Pool).join(', ')}.`);
+				possibleProblems.push(`${bodyName} (body) only has access to the following abilities: ${Array.from(ability2Pool).join(', ')}.`);
 			}
+			const validSwappedAbilities = possibleProblems.length == 2 && ability1Pool.has(ability2.name) && ability2Pool.has(ability.name)
+			if (!validSwappedAbilities) for (const problem of possibleProblems) problems.push(problem);
 
-			if (set.ability2) { //Ability 1 is already checked by the validator, check ability2 ban
+			if (set.ability2) { // Ability 1 is already checked by the validator, check ability2 ban
 				const banReason = this.ruleTable.check('ability:' + this.toID(set.ability2));
 				if (banReason) problems.push(`${set.ability2} is banned.`);
 			}
@@ -3864,7 +3870,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
-				if (pokemon.set.ability2) pokemon.m.innates = [pokemon.set.ability2];
+				if (pokemon.set.ability2) {
+					pokemon.m.innates = [pokemon.set.ability2];
+					pokemon.m.activeInnates = [pokemon.set.ability2];
+				}
 			}
 		},
 		onBeforeSwitchIn(pokemon) {
@@ -3874,6 +3883,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					pokemon.volatiles[effect] = this.initEffectState({ id: effect, target: pokemon });
 				}
 			}
+		},
+		onSwitchIn(pokemon) {
+			this.add('-displayabilities', pokemon, [pokemon.ability, ...(pokemon.m.innates || [])] );
 		},
 		onSwitchOut(pokemon) {
 			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
