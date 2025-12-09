@@ -936,6 +936,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
+		name: "[Gen 9] PoA Fusions",
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',],
+		banlist: [
+			'ND AG',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:quiverdance', 'move:spore', 'move:bellydrum', 'move:doubleironbash', 'move:electrify', 'move:geomancy',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
+			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
+			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega'
+		],
+	},
+	{
 		name: "[Gen 9] PoA Free-for-all",
 		searchShow: false,
 
