@@ -943,11 +943,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',],
 		banlist: [
 			'ND AG',
-			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:quiverdance', 'move:spore', 'move:bellydrum', 'move:doubleironbash', 'move:electrify', 'move:geomancy',
-			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:quiverdance', 'move:spore', 'move:bellydrum', 'move:doubleironbash', 'move:electrify', 'move:geomancy', 'move:shellsmash',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost', 'ability:furcoat',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
-			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega'
+			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega', 'pokemon:florgesmega'
 		],
 	},
 	{
