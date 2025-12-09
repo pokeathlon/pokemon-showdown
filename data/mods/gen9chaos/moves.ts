@@ -2441,7 +2441,7 @@ export const Moves: ModdedMoveDataTable = {
 		category: "Special",
 		name: "Dead Silence",
 		pp: 5,
-		priority: -3,
+		priority: 0,
 		flags: {
 		    protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1,
 		},
@@ -2496,7 +2496,7 @@ export const Moves: ModdedMoveDataTable = {
 	retroblast: {
 		num: 0,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Retro Blast",
 		pp: 10,
@@ -2506,12 +2506,13 @@ export const Moves: ModdedMoveDataTable = {
 			chance: 33,
 			boosts: {
 				spd: -1,
+				spa: -1,
 			},
 		},
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Cool",
-		shortDesc: "33% Chance to lower targets Sp. Def by 1 stage",
+		shortDesc: "33% Chance to lower targets Sp. Atk and Sp. Def by 1 stage",
 	},
 	simmertoss: {
 		num: 0,

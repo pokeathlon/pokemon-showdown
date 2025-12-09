@@ -4492,7 +4492,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			whirlwind: ["9M"],
 			withdraw: ["9M"],
 			woodhammer: ["9M"],
-			zenheadbutt: ["9M"]
+			zenheadbutt: ["9M"],
+			wingattack: ["9M"],
+			sleeppowder: ["9M"],
+			stunspore: ["9M"],
         }
 	},
 	niandertroll: {
@@ -7767,7 +7770,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			roost: ["9M"],
 			gigadrain: ["9M"],
 			whirlwind: ["9M"],
-			woodhammer: ["9M"]
+			woodhammer: ["9M"],
+			wingattack: ["9M"],
+			sleeppowder: ["9M"],
+			stunspore: ["9M"],
         }
 	},
 	wrighvern: {
@@ -10017,6 +10023,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			uturn: ["9M"],
 			ragepowder: ["9M"],
 			teleport: ["9M"],
+			gravity: ["9M"],
         }
 	},
 	anneliark: {
@@ -10575,6 +10582,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			vacuumwave: ["9M"],
 		}
 	},
 	zorblob: {
@@ -11025,6 +11033,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			whirlwind: ["9M"],
 			withdraw: ["9M"],
 			woodhammer: ["9M"],
+			wingattack: ["9M"],
+			sleeppowder: ["9M"],
+			stunspore: ["9M"],
 		}
 	},
 	matterpillar: {
@@ -11200,6 +11211,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			rest: ["9M"],
 			sleeptalk: ["9M"],
 			endure: ["9M"],
+			bodypress: ["9M"],
 			terablast: ["9M"],
 			rapidspin: ["9L1"],
 			magnetrise: ["9L1"],
@@ -11280,6 +11292,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			darkpulse: ["9M"],
 			mysticalfire: ["9M"],
 			splash: ["9M"],
+			curse: ["9M"],
 		}
 	},
 	cloudinyte: {
@@ -11692,6 +11705,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			nightshade: ["9M"],
 		}
 	},
 	escarphone: {
@@ -11911,9 +11925,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			thundershock: ["9M"],
 			shockwave: ["9M"],
 			powerwhip: ["9M"],
-			focuspunch: ["9M"],
-			crosschop: ["9M"],
-			lowkick: ["9M"],
 			ironhead: ["9M"],
 			stompingtantrum: ["9M"],
 			flashcannon: ["9M"],
@@ -11931,7 +11942,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			doublekick: ["9M"],
 			gigaimpact: ["9M"],
 			mirrorcoat: ["9M"],
-			destinybond: ["9M"],
 			lightscreen: ["9M"],
 			protect: ["9M"],
 			rest: ["9M"],
@@ -11964,6 +11974,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			simplebeam: ["9M"],
 			sunnyday: ["9M"],
 			encore: ["9M"],
+			taunt: ["9M"],
+			explosion: ["9M"],
+			firepunch: ["9M"],
 		}
 	},
 	utensitile: {
