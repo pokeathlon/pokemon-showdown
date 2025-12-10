@@ -944,7 +944,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'ND AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:quiverdance', 'move:spore', 'move:bellydrum', 'move:doubleironbash', 'move:electrify', 'move:geomancy', 'move:shellsmash',
-			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost', 'ability:furcoat', 'ability:vaporization', 'ability:lernean',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost', 'ability:furcoat', 'ability:vaporization', 'ability:lernean', 'ability:fairylaw',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
 			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega', 'pokemon:florgesmega', 'pokemon:snorlaxfrostmega',
