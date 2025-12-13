@@ -764,7 +764,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				}
 			}
 			if (zombie) {
-				const species = this.runEvent('ModifySpecies', this, null, this.effect, zombie.species);
+				const species = this.runEvent('ModifySpecies', target, null, this.effect, zombie.species);
 				const newSpecies: Species = this.dex.deepClone(species);
 
 				const moves = zombie.moveSlots;

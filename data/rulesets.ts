@@ -3438,7 +3438,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onModifySpeciesPriority: 8,
 		onModifySpecies(species, target, source, effect) {
 			if (!target) return;
-			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			if (effect && ['imposter', 'transform', 'necromancy'].includes(effect.id)) return;
 
 			const newSpecies = this.dex.deepClone(this.dex.species.get(species.name));
 
