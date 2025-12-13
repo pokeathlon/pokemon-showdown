@@ -469,6 +469,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 		ruleset: [ 'Standard NatDex', 'Picked Team Size = 4', 'Tera Type Preview', 'Item Clause = 1', 'Adjust Level Down = 50'],
 	},
+	{
+		name: "[Gen 9] PoA Solo PL",
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
+			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
+		],
+	},
 
 	{
 		section: "Super Mariomon!",
