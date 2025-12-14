@@ -522,6 +522,7 @@ export const cutDex: {[k: string]: number} = {
 	"arceusbug": 493,
 	"arceuspoison": 493,
 	"arceussteel": 493,
+	"arceustypeless": 493,
 	"victini": 494,
 	"snivy": 495,
 	"servine": 496,
