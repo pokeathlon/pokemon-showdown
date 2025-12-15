@@ -2466,7 +2466,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3123,
 		name: "Iron Chamber",
 		types: ["Steel", "Water"],
-		baseStats: {hp: 84, atk: 104, def: 134, spa: 60, spd: 134, spe: 54},
+		baseStats: {hp: 84, atk: 110, def: 134, spa: 54, spd: 134, spe: 54},
 		abilities: {0: "Quark Drive"},
 		heightm: 1.20,
 		weightkg: 172,
