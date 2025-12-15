@@ -294,8 +294,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen7infinitefusion',
 		ruleset: [
-			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Double Ability Mod',
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Double Ability Mod', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
 			'Mega', 'Uber',
