@@ -167,7 +167,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Obtainable',
 		desc: "Makes sure the team is possible to obtain in-game.",
-		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Obtainable Misc'],
+		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Obtainable Fusions', 'Obtainable Misc'],
 		banlist: ['Unreleased', 'Unobtainable', 'Nonexistent'],
 		// Mostly hardcoded in team-validator.ts
 		onValidateTeam(team, format) {
@@ -233,6 +233,67 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Obtainable Formes',
 		desc: "Makes sure in-battle formes only appear in-battle.",
 		// Hardcoded in team-validator.ts
+	},
+	obtainablefusions: {
+		effectType: 'ValidatorRule',
+		name: 'Obtainable Fusions',
+		desc: "Makes sure fused Pokémon are possible to obtain in-game.",
+		onValidateTeam(team, format) {
+			let kyuremCount = 0;
+			let necrozmaDMCount = 0;
+			let necrozmaDWCount = 0;
+			let calyrexCount = 0;
+
+			for (const set of team) {
+				if (!set.fusion) continue;
+				const fusion = this.dex.species.get(set.fusion);
+				if (set.species === 'Kyurem-White' || set.species === 'Kyurem-Black' ||
+					fusion.name === 'Kyurem-White' || fusion.name === 'Kyurem-Black'
+				) {
+					kyuremCount++;
+				}
+				if (set.species === 'Necrozma-Dusk-Mane' || fusion.name === 'Necrozma-Dusk-Mane') {
+					necrozmaDMCount++;
+				}
+				if (set.species === 'Necrozma-Dawn-Wings' || fusion.name === 'Necrozma-Dawn-Wings') {
+					necrozmaDWCount++;
+				}
+				if (set.species === 'Calyrex-Ice' || set.species === 'Calyrex-Shadow' ||
+					fusion.name === 'Calyrex-Ice' || fusion.name === 'Calyrex-Shadow'
+				) {
+					calyrexCount++;
+				}
+			}
+
+			const problems = [];
+
+			if (kyuremCount > 1) {
+				problems.push(
+					`You cannot have more than one Kyurem-Black/Kyurem-White in total (including fusions).`,
+					`(It's untradeable and you can only make one with the DNA Splicers.)`
+				);
+			}
+			if (necrozmaDMCount > 1) {
+				problems.push(
+					`You cannot have more than one Necrozma-Dusk-Mane in total (including fusions).`,
+					`(It's untradeable and you can only make one with the N-Solarizer.)`
+				);
+			}
+			if (necrozmaDWCount > 1) {
+				problems.push(
+					`You cannot have more than one Necrozma-Dawn-Wings in total (including fusions).`,
+					`(It's untradeable and you can only make one with the N-Lunarizer.)`
+				);
+			}
+			if (calyrexCount > 1) {
+				problems.push(
+					`You cannot have more than one Calyrex-Ice/Calyrex-Shadow in total (including fusions).`,
+					`(It's untradeable and you can only make one with the Reins of Unity.)`
+				);
+			}
+
+			return problems;
+		},
 	},
 	obtainablemisc: {
 		effectType: 'ValidatorRule',
@@ -3389,17 +3450,20 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			if (this.format.id.includes("custom") || this.format.name.includes("CG")) return;
 			const problems: string[] = [];
-			const setHas: {[k: string]: true} = {};
+			const setHas: { [k: string]: true } = {};
 
 			const species = this.dex.species.get(set.species);
 			const fusion = this.dex.species.get(set.fusion);
 			const abilityPool = new Set<string>(Object.values(species.abilities));
 
+			if (set.fusion && !fusion.exists) return [`The Pokemon "${set.fusion}" does not exist.`];
+
 			if (set.fusion && fusion.exists) {
-				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion"))) return [`You cannot fuse with triple fusions.`];
+				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion")))
+					return [`You cannot fuse with triple fusions.`];
 
 				[set.species, set.fusion] = [set.fusion, set.species];
-				const {outOfBattleSpecies, tierSpecies} = this.getValidationSpecies(set);
+				const { outOfBattleSpecies, tierSpecies } = this.getValidationSpecies(set);
 				problems.push(...this.validateForme(set));
 				const problem = this.checkSpecies(set, fusion, tierSpecies, setHas);
 				if (problem) problems.push(problem);
@@ -3458,24 +3522,29 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				newSpecies.bst += newSpecies.baseStats[stat];
 			}
 
-			if (this.ruleTable.has('ifaveragemons')) newSpecies.baseStats = { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 };
+			if (this.ruleTable.has('ifaveragemons'))
+				newSpecies.baseStats = { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 };
 
-			newSpecies.maxHP = [target.baseAbility, this.dex.abilities.get(target.set.ability2).id as string].includes('wonderguard') ? 1 : undefined;
+			newSpecies.maxHP =
+				[target.baseAbility, this.dex.abilities.get(target.set.ability2).id as string].includes('wonderguard') ?
+					1 : undefined;
 			newSpecies.weightkg = (fusionSpecies.weightkg + species.weightkg) / 2;
 			newSpecies.weighthg = newSpecies.weightkg * 10;
 
 			let speciesTypes = newSpecies.types;
 			let fusionTypes = fusionSpecies.types;
 
-			if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
-			if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
+			if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal'))
+				speciesTypes = ['Flying'];
+			if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal'))
+				fusionTypes = ['Flying'];
 
 			const typesSet = new Set([speciesTypes[0]]);
 			const bonusType = this.dex.types.get(fusionTypes[fusionTypes.length - 1]);
 			if (bonusType.exists) typesSet.add(bonusType.name);
 			if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
 
-			return {...newSpecies, types: [...typesSet]};
+			return { ...newSpecies, types: [...typesSet] };
 		},
 	},
 	ifmovelegality: {
