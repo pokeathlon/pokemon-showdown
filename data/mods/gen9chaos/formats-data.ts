@@ -427,6 +427,18 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UUBL",
 	},
+	cawmodore: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	florgesmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	chuggalong: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
 	walkingwake: {
 		inherit: true,
 		natDexTier: "UU",
@@ -504,10 +516,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	heatran: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	florgesmega: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -2937,10 +2945,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "LC",
 	},
-	cawmodore: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
 	volkritter: {
 		inherit: true,
 		natDexTier: "LC",
@@ -3104,10 +3108,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	draggalong: {
 		inherit: true,
 		natDexTier: "NFE",
-	},
-	chuggalong: {
-		inherit: true,
-		natDexTier: "UU",
 	},
 	ramnarok: {
 		inherit: true,
