@@ -3997,6 +3997,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	physicalspecialsplitmod: {
+		effectType: "Rule",
+		name: "Physical Special Split Mod",
+		desc: `Changes category of moves as they were before the Gen 4. Fairy-type moves are Special.`,
+		onBegin() {
+			this.add('rule', 'Physical Special Split Mod: Move categories correspond to pre-Gen 4.');
+		},
+		onModifyMove(move, pokemon, target) {
+			const special  = ['Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy', 'Nuclear', 'Cosmic'];
+			special.includes(move.type)? move.category = 'Special' : move.category = 'Physical'
+		},
+	},
 };
 
 const fusionMoves: {[key: string]: {[key: string]: string[]}[]} = {
