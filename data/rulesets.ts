@@ -3924,7 +3924,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				const bodyName = set.fusion || set.species;
 				possibleProblems.push(`${bodyName} (body) only has access to the following abilities: ${Array.from(ability2Pool).join(', ')}.`);
 			}
-			const validSwappedAbilities = possibleProblems.length == 2 && ability1Pool.has(ability2.name) && ability2Pool.has(ability.name)
+			const validSwappedAbilities =
+				possibleProblems.length === 2 && ability1Pool.has(ability2.name) && ability2Pool.has(ability.name);
 			if (!validSwappedAbilities) for (const problem of possibleProblems) problems.push(problem);
 
 			if (set.ability2) { // Ability 1 is already checked by the validator, check ability2 ban
@@ -3937,6 +3938,21 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 
 			return problems;
+		},
+		onValidateTeam(team) {
+			let restrictedAbility = 0;
+			const pivotingAbilities = [
+				'Emergency Exit',
+				'Wimp Out',
+			];
+			for (const set of team) {
+				const ability2 = this.dex.abilities.get(set.ability2);
+				if (pivotingAbilities.includes(set.ability) || (ability2.exists && pivotingAbilities.includes(set.ability2!)))
+					restrictedAbility += 1;
+			}
+			if (restrictedAbility > 1) {
+				return [`You can't use both Wimp Out and Emergency Exit`];
+			}
 		},
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
