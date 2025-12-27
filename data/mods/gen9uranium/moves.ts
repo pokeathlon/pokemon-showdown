@@ -632,28 +632,4 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	
-	rest: {
-		// Rest can heal if called by Sleep Talk
-		// This is a bug present in the game
-		// Unsure if sleep counter is reset or not, for now it is
-		inherit: true,
-		onTry(source) {
-			if (source.hasAbility('comatose')) return false;
-
-			if (source.hp === source.maxhp) {
-				this.add('-fail', source, 'heal');
-				return null;
-			}
-			// insomnia and vital spirit checks are separate so that the message is accurate in multi-ability mods
-			if (source.hasAbility('insomnia')) {
-				this.add('-fail', source, '[from] ability: Insomnia', `[of] ${source}`);
-				return null;
-			}
-			if (source.hasAbility('vitalspirit')) {
-				this.add('-fail', source, '[from] ability: Vital Spirit', `[of] ${source}`);
-				return null;
-			}
-		},
-	},
 };

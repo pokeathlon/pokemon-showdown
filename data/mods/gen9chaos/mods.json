@@ -1,9 +1,6 @@
 {
 		"gen9insurgence": {},
-		"gen9uranium": {
-			"Moves": ["rest"],
-			"Abilities": ["aftermath"]
-		},
+		"gen9uranium": {},
 		"gen9infinity": {
 			"Moves": ["strength", "cut", "wildcharge", "rocksmash"]
 		},
