@@ -3898,6 +3898,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			const problems: string[] = [];
 
+			if (this.format.name.includes('Custom Game') || this.format.name.includes(' CG')) return;
+
 			const species = this.dex.species.get(set.species);
 			const ability1Pool = new Set<string>(Object.values(species.abilities));
 			let ability2Pool = new Set<string>();
@@ -3941,6 +3943,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onValidateTeam(team) {
 			let restrictedAbility = 0;
+
+			if (this.format.name.includes('Custom Game') || this.format.name.includes(' CG')) return;
+			
 			const pivotingAbilities = [
 				'Emergency Exit',
 				'Wimp Out',
