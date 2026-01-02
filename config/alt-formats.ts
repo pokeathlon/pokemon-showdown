@@ -513,7 +513,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
 			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
 	},
@@ -536,7 +536,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'AG', 'Uber', 'OU', 'UUBL',
 			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
 			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
 	},
