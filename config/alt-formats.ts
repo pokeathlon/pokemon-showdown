@@ -386,7 +386,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite', 
 			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite', 
 			'+item:hawluchanite', '+item:malamarite', '+item:meganiumite', '+item:pyroarite', '+item:scolipite', '+item:scraftinite', '+item:skarmorite', '+item:starminite', 
-			'+item:victreebelite', '+item:zygardite', '+item:floettite',
+			'+item:victreebelite', '+item:zygardite',
 			'+pokemon:floetteeternal',
 		],
 	},
