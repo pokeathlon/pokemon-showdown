@@ -2756,7 +2756,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3142,
 		name: "Keepurr",
 		types: ["Ghost", "Normal"],
-		baseStats: {hp: 113, atk: 121, def: 80, spa: 56, spd: 69, spe: 89},
+		baseStats: {hp: 113, atk: 124, def: 80, spa: 57, spd: 70, spe: 87},
 		abilities: {0: "Frisk", 1: "Pickpocket", H: "Kleptomancy"},
 		heightm: 1.03,
 		weightkg: 17.6,
