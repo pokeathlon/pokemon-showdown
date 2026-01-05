@@ -2752,6 +2752,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	keepurr: {
+		num: 3142,
+		name: "Keepurr",
+		types: ["Ghost", "Normal"],
+		baseStats: {hp: 113, atk: 121, def: 80, spa: 56, spd: 69, spe: 89},
+		abilities: {0: "Frisk", 1: "Pickpocket", H: "Kleptomancy"},
+		heightm: 1.03,
+		weightkg: 17.6,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		gender: "N",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

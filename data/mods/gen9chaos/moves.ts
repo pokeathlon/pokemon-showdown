@@ -2560,8 +2560,6 @@ export const Moves: ModdedMoveDataTable = {
 		basePower: 80,
 		category: "Physical",
 		name: "Sugar Glaive",
-		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
-		shortDesc: "User recovers 50% of the damage dealt.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1, slicing: 1},
@@ -2570,6 +2568,26 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Clever",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt.",
+	},
+	misersmaul: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Miser's Maul",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) pokemon.side.addSideCondition('scatteredcoins');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+		shortDesc: "Scatters coins if this KOes the target.",
 	},
 };
 
