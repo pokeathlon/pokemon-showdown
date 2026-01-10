@@ -484,6 +484,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PoA Solo PL",
 
 		mod: 'gen9pokeathlon',
+		searchShow: false,
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause', 'Mega Forme Clause'],
 		banlist: [
 			'ND Uber', 'ND AG',
