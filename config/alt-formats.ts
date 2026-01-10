@@ -475,6 +475,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [ 'Standard NatDex', 'Picked Team Size = 4', 'Tera Type Preview', 'Item Clause = 1', 'Adjust Level Down = 50'],
 	},
 	{
+		name: "[Gen 9] Mariomon Draft",
+		mod: 'gen9mariomon',
+		searchShow: false,
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+	},
+	{
 		name: "[Gen 9] PoA Solo PL",
 
 		mod: 'gen9pokeathlon',
