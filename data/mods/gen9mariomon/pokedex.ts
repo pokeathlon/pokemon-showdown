@@ -725,7 +725,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Bristle"],
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	bristle: {
@@ -1471,7 +1471,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Tuff Puff",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
@@ -1528,7 +1528,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Lil Sparky",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		natDexTier: "UU",
 		doublesTier: "DUU",
 	},
@@ -1596,7 +1596,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 66.6,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	happymoon: {
@@ -1609,7 +1609,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 168.0,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	angrysun: {
@@ -1843,7 +1843,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 71.0,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	freezie: {
@@ -1912,7 +1912,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 235.0,
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	ukiki: {
@@ -1981,7 +1981,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Twirlip",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	bandit: {
@@ -2107,7 +2107,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Brolder",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	phanto: {
@@ -2161,7 +2161,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Mini-Yux",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	exor: {
@@ -2188,7 +2188,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 750.0,
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	gloomtail: {
