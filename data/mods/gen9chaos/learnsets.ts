@@ -12199,7 +12199,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sludgebomb: ["9M"],
 			burnup: ["9M"],
 			crunch: ["9M"],
-			bite: ["9M"],
 			nightslash: ["9M"],
 			pursuit: ["9M"],
 			lashout: ["9M"],
@@ -12215,7 +12214,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			bide: ["9M"],
 			flail: ["9M"],
 			seismictoss: ["9M"],
-			bulldoze: ["9M"],
 		}
 	},
 	nweet: {

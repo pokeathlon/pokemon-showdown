@@ -452,6 +452,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "OU",
 	},
+	ludicoloeghomega: {
+		inherit: true,
+		tier: "OU",
+	},
+	onixbrock: {
+		inherit: true,
+		tier: "OU",
+	},
+	onixcrystal: {
+		inherit: true,
+		tier: "OU",
+	},
 
 	// UU
 	bakemon: {

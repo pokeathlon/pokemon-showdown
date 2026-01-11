@@ -807,6 +807,7 @@ export const cutDex: {[k: string]: number} = {
 	"lotadegho": 765,
 	"lombreegho": 766,
 	"ludicoloegho": 767,
+	"ludicoloeghomega": 767,
 	"sunflorid": 768,
 	"sorcerice": 769,
 	"kecleodon": 770,
@@ -954,6 +955,8 @@ export const cutDex: {[k: string]: number} = {
 	"mars": 912,
 	"mercury": 913,
 	"jupiter": 914,
+	"onixbrock": 915,
+	"onixcrystal": 916,
 
 };
 

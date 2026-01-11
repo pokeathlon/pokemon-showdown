@@ -65,4 +65,18 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 301,
 		gen: 4,
 	},
+	wok: {
+		name: "Wok",
+		spritenum: -5,
+		megaStone: "Ludicolo-Egho-Mega",
+		megaEvolves: "Ludicolo-Egho",
+		itemUser: ["Ludicolo-Egho"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		shortDesc: "If held by a Ludicolo-Egho, this item allows it to Mega Evolve in battle.",
+		num: 0,
+		gen: 6,
+	},
 };

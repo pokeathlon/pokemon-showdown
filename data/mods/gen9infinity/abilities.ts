@@ -56,4 +56,37 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 5,
 		num: 0,
 	},
+	wokhei: {
+		onFoeAfterSetStatus(status, target, source, effect) {
+			if (effect.effectType != 'Move') return;
+			if (target && source === target) return;
+			if (status.id === 'brn') this.boost({atk: 2}, source, source, null, false, true);
+		},
+		flags: {},
+		name: "Wok Hei",
+		shortDesc: "+2 Atk. when burning a foe.",
+		rating: 5,
+		num: 0,
+	},
+	crystalline: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ground' || move.type === 'Water') {
+				this.debug('Crystalline weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ground' || move.type === 'Water') {
+				this.debug('Crystalline weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Crystalline",
+		shortDesc: "Ground-/Water-type moves against this Pokemon deal damage with a halved offensive stat.",
+		rating: 3.5,
+		num: 47,
+	},
 };

@@ -331,6 +331,18 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	ludicoloeghomega: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	onixbrock: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	onixcrystal: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	harptera: {
 		inherit: true,
 		natDexTier: "Uber",
