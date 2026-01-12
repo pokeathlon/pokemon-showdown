@@ -6170,7 +6170,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			substitute: ["9M"],
 			sunnyday: ["9M"],
 			supersonic: ["9L10"],
-			tailwind: ["9M"],
 			thunderbolt: ["9M"],
 			thunderwave: ["9M"],
 			trick: ["9L5", "9M"],
