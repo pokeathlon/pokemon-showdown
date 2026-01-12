@@ -2174,7 +2174,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	hooktail: {
