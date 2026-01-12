@@ -105,6 +105,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		weather: 'snowscape',
 	},
+	diamondstorm: {
+		inherit: true,
+		self: {
+			chance: 50,
+			boosts: {
+				def: 2,
+			},
+		},
+		secondary: {
+			// Sheer Force negates the self even though it is not secondary
+		},
+		shortDesc: "50% chance to raise user's Defense by 2.",
+	},
 
 	// Additions
 	nailflick: {
