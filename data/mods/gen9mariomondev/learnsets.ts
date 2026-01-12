@@ -4159,7 +4159,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			watergun: ["9L8"],
 			zenheadbutt: ["9M"],
 			yawn: ["9M"],
-			chillinwater: ["9M"],
+			chillingwater: ["9M"],
 		},
 	},
 	chincho: {
