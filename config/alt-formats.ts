@@ -566,6 +566,26 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
 	},
 	{
+		name: "[Gen 9] Mariomon Dev OU",
+
+		mod: 'gen9mariomondev',
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		banlist: [
+			'AG', 'Uber',
+			'ability:arenatrap', 'ability:shadowtag',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
+			'move:batonpass', 'move:electrify', 'move:boomburst',
+		],
+	},
+	{
+		name: "[Gen 9] Mariomon Dev VGC",
+		mod: 'gen9mariomondev',
+		gameType: 'doubles',
+
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
+	},
+	{
 		name: "[Gen 9] Mariomon Custom Game",
 
 		mod: 'gen9mariomon',
