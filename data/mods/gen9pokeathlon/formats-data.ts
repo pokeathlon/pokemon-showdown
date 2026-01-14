@@ -877,7 +877,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	silretro: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},

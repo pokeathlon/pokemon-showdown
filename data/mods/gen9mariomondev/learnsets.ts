@@ -3434,7 +3434,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			rollout: ["9L12"],
 			shadowball: ["9M"],
 			shadowbone: ["9L31"],
-			shellsmash: ["9L37"],
 			skullbash: ["9L34"],
 			sleeptalk: ["9M"],
 			snarl: ["9M"],
