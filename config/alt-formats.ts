@@ -382,10 +382,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinitefusion',
 		ruleset: [
 			'Standard NatDex',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', '+ Future', 
-			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite', 
-			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite', 
-			'+item:hawluchanite', '+item:malamarite', '+item:meganiumite', '+item:pyroarite', '+item:scolipite', '+item:scraftinite', '+item:skarmorite', '+item:starminite', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', '+ Future',
+			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite',
+			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite',
+			'+item:hawluchanite', '+item:malamarite', '+item:meganiumite', '+item:pyroarite', '+item:scolipite', '+item:scraftinite', '+item:skarmorite', '+item:starminite',
 			'+item:victreebelite', '+item:zygardite',
 			'+pokemon:floetteeternal',
 		],
@@ -1103,6 +1103,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod', 'Sleep Moves Clause'],
 		banlist: [
+			'ND AG', 'ND Uber', 'Mega',
 			'ND OU', 'ND UUBL', 'ability:drizzle', 'ability:drought', 'ability:noctem', 'item:lightclay', 'move:lucky7s', 'move:boltbeak','item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item:boomerang', 'item: trickrock', 'item:dragonfang',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer',
 			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove',
