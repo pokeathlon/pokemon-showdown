@@ -2195,6 +2195,23 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		prevo: "Matterpillar",
 		cosmeticFormes: ["Twinova-Eclipse"]
 	},
+	fermiworm: {
+		num: 3144,
+		name: "Fermiworm",
+		types: ["Psychic", "Ground"],
+		baseStats: {hp: 53, atk: 23, def: 82, spa: 100, spd: 62, spe: 30},
+		abilities: {0: "Wonder Skin", H: "Strange Anatomy"},
+		heightm: 1.34,
+		weightkg: 333.3,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		gender: 'N',
+		evos: ['Anneliark'],
+		evoLevel: 39,
+		tier: "LC",
+		natDexTier: "LC",
+		doublesTier: "LC",
+	},
 	anneliark: {
 		num: 3106,
 		name: "Anneliark",
@@ -2205,6 +2222,8 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		weightkg: 999.9,
 		tags: ["Pokeathlon"],
 		eggGroups: ["Pokeathlon", "POA"],
+		gender: 'N',
+		prevo: 'Fermiworm',
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
@@ -2623,7 +2642,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		cosmeticFormes: ["Ceraguard-Buster"]
 	},
 	pixsilt: {
-		num: 3133,
+		num: 3143,
 		name: "Pixsilt",
 		types: ["Rock", "Electric"],
 		baseStats: {hp: 40, atk: 90, def: 45, spa: 70, spd: 40, spe: 65},
