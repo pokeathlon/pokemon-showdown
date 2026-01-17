@@ -574,7 +574,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:electrify', 'move:boomburst',
+			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:fishiousrend', 'move:shedtail'
 		],
 	},
 	{
