@@ -935,6 +935,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: null,
 	}, 
+	pixsilt: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	}, 
+	fermiworm: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	}, 
 };
 
 for (const pokemon in Base) {
