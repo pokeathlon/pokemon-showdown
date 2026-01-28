@@ -14,6 +14,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1.5,
 		num: 60,
 	},
+	snowwarning: {
+		inherit: true,
+		onStart(source) {
+			this.field.setWeather('snowscape');
+		},
+	},
 
 	// Additions
 	purefocus: {
