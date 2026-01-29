@@ -5972,7 +5972,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 					'gigaimpact', 'gravapple', 'headlongrush', 'heatcrash', 'heavyslam', 'highhorsepower', 'icehammer', 
 					'iciclecrash', 'irontail', 'magnitude', 'meteormash', 'pound', 'skydrop', 'slam', 'smackdown', 'stomp', 
 					'stompingtantrum', 'strength', 'woodhammer'].includes(move.id) || (move.type === 'Fighting' && move.category === 'Physical')) {
-					this.hint("The chess piece slammed forward!")
+					this.hint("WHAMMO!")
 					let strikeBoost = 1;
 					let roll = this.random(15)
 					if (['guts', 'hugepower', 'purepower', 'sheerforce'].includes(source.ability)){
