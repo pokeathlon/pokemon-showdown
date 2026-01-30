@@ -8767,7 +8767,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				return 5;
 			},
 			onBasePower(basePower, source, target, move) {
-				if (['Rock', 'Ice'].includes(move.id)) {
+				if (['Rock', 'Ice'].includes(move.type)) {
 					this.hint('The snowy mountain strengthened the attack!');
 					this.chainModify(1.5);
 				};
