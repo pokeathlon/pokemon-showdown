@@ -15,11 +15,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onModifySpe(spe, pokemon) {
-			if (["Goomba", "Goomba Stack"].includes(pokemon.species.name) && !pokemon.transformed) {
+			if (["Goomba", "Goomba Stack", "Strollin' Stu"].includes(pokemon.species.name) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Goomba", "Goomba Stack"],
+		itemUser: ["Goomba", "Goomba Stack", "Strollin' Stu"],
 		num: 0,
 	},
 	sturdyshell: {
@@ -30,11 +30,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onModifyDef(def, pokemon) {
-			if (["Koopa Troopa", "Paratroopa", "Dry Bones"].includes(pokemon.species.name) && !pokemon.transformed) {
+			if (["Koopa Troopa", "Paratroopa", "Dry Bones", "Hammer Bro"].includes(pokemon.species.name) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Koopa Troopa", "Paratroopa", "Dry Bones"],
+		itemUser: ["Koopa Troopa", "Paratroopa", "Dry Bones", "Hammer Bro"],
 		num: 0,
 	},
 };
