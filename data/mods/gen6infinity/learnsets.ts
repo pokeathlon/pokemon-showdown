@@ -41073,6 +41073,7 @@ tyrunt: {
 		ironhead: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 		outrage: ["6M", "6T"],
+		dracoblitz: ["6M"],
 	},
 },
 tyrantrum: {
@@ -41199,6 +41200,7 @@ amaura: {
 		ironhead: ["6M", "6T"],
 		sleeptalk: ["6M", "6T"],
 		outrage: ["6M", "6T"],
+		boomburst: ["6M"],
 	},
 },
 aurorus: {
