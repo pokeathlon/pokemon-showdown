@@ -7201,6 +7201,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			uturn: ["9M"],
 			willowisp: ["9M"],
 			focuspunch: ["9M"],
+			poltergeist: ["9M"],
 		},
 	},
 	brolder: {

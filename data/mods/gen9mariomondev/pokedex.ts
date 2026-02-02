@@ -857,7 +857,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Spike Top",
 		types: ["Dark", "Steel"],
 		baseStats: {hp: 50, atk: 65, def: 150, spa: 35, spd: 130, spe: 20},
-		abilities: {0: "Quick Feet", 1: "Heatproof", H: "Shell Armor"},
+		abilities: {0: "Levitate", 1: "Heatproof", H: "Shell Armor"},
 		heightm: 0.8,
 		weightkg: 15.0,
 		prevo: "Buzzy Beetle",
@@ -1288,7 +1288,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Fighter Fly",
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 	},
 	beanie: {
