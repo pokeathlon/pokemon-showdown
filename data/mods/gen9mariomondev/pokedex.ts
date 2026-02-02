@@ -368,7 +368,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Mega Mole"],
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "Uber",
+		tier: "LC",
 		doublesTier: "DUber",
 	},
 	megamole: {
@@ -384,7 +384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Major Burrows"],
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "Uber",
+		tier: "NFE",
 		doublesTier: "DUber",
 	},
 	majorburrows: {
