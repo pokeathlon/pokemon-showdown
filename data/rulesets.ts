@@ -4138,4 +4138,7 @@ const PoAfusionMoves: {[key: string]: {[key: string]: string[]}[]} = { //Preexis
 	"heavycleave": [{"learns": ["cut"], "type": ["Steel"]}],
 	"cometstrike": [{"type": ["Rock"]}],
 	"spiritsiphon": [{"learns": ["gigadrain", "drainingkiss"], "type": ["Ghost"]}],
+	"ceaselessedge": [{"fusion": ["cloudinyte"]}],
+	"skypierce": [{"learns": ["sacredsword"], "type": ["Flying"]}],
+	"wringout": [{"fusion": ["sauphozoa"], "learns": ["coil"]}],
 };
