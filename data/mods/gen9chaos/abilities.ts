@@ -805,9 +805,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		onStart(pokemon) {
 			if (pokemon.hp === pokemon.maxhp) {
 				let success = false;
-				for (const active of this.getAllActive()) {
-					if (active.removeVolatile('substitute')) success = true;
-				}
 				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
 				const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
 				for (const side of sides) {
