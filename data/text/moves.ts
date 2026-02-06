@@ -7634,5 +7634,10 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		start: "  [POKEMON] is keeping the tempo!",
 		cant: "[POKEMON]'s tempo was broken!",
 	},
+	rocketgrab: {
+		name: "Rocket Grab",
+
+		activate: "  ([TARGET] is being withdrawn...)",
+	},
 
 };

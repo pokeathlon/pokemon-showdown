@@ -1258,6 +1258,9 @@ export const Moves: ModdedMoveDataTable = {
 		onTryHit(target, pokemon) {
 			target.side.removeSideCondition('rocketgrab');
 		},
+		onHit(target, source, move) {
+			if (target.volatiles['grabbed']) target.addVolatile('preventswitch');
+		},
 		condition: {
 			duration: 1,
 			onBeforeSwitchOut(pokemon) {
@@ -1268,7 +1271,6 @@ export const Moves: ModdedMoveDataTable = {
 					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Rocket Grab');
-						pokemon.addVolatile('preventswitch');
 						alreadyAdded = true;
 					}
 					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
@@ -1289,7 +1291,9 @@ export const Moves: ModdedMoveDataTable = {
 							}
 						}
 					}
+					pokemon.addVolatile('grabbed');
 					this.actions.runMove('rocketgrab', source, source.getLocOf(pokemon));
+					pokemon.removeVolatile('grabbed');
 				}
 			},
 		},
