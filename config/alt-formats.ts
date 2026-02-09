@@ -335,6 +335,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 7] IF RevelationMons",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+
+		mod: 'gen7infinitefusion',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause', 'RevelationMons mod',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'Mega', 'Uber',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
+			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:facade', 'move:extremespeed', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
+			'pokemon:greninjabond', 'pokemon:greninjaash',
+		],
+	},
+	{
 		name: "[Gen 9] IF Custom Game",
 
 		mod: 'gen9infinitefusion',
