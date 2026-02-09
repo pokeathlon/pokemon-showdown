@@ -7071,7 +7071,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sleeptalk: ["9M"],
 			wish: ["9M"],
 			leechseed: ["9M"],
-			storedpower: ["9M"]
+			storedpower: ["9M"],
+			synthesis: ["9M"],
         }
 	},
 	tinkashank: {
@@ -9079,6 +9080,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			withdraw: ["9M"],
 			yawn: ["9M"],
 			bodypress: ["9M"],
+			splash: ["9M"],
+			watersport: ["9M"],
         }
 	},
 	wyvarice: {
@@ -9253,7 +9256,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			camouflage: ["9M"],
 			defensecurl: ["9M"],
 			echoedvoice: ["9M"],
-			followme: ["9M"],
 			harden: ["9M"],
 			headbutt: ["9M"],
 			metronome: ["9M"],
@@ -9269,14 +9271,11 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			skittersmack: ["9M"],
 			pounce: ["9M"],
 			powder: ["9M"],
-			ragepowder: ["9M"],
 			silverwind: ["9M"],
 			strugglebug: ["9M"],
-			acrobatics: ["9M"],
 			bulldoze: ["9M"],
 			bodypress: ["9M"],
 			earthquake: ["9M"],
-			playrough: ["9M"],
 			hardpress: ["9M"],
 			heavyslam: ["9M"],
 			metalburst: ["9M"],
@@ -9291,8 +9290,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			heatwave: ["9M"],
 			hurricane: ["9M"],
 			meteorbeam: ["9M"],
-			psyshock: ["9M"],
-			shadowball: ["9M"],
 			sludgebomb: ["9M"],
 			storedpower: ["9M"],
 			acidspray: ["9M"],
@@ -9314,12 +9311,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			gravity: ["9M"],
 			embargo: ["9M"],
 			featherdance: ["9M"],
-			guardsplit: ["9M"],
-			guardswap: ["9M"],
 			imprison: ["9M"],
 			irondefense: ["9M"],
 			metalsound: ["9M"],
-			quickguard: ["9M"],
 			wideguard: ["9M"],
 			workup: ["9M"],
 			stealthrock: ["9M"],
@@ -10031,6 +10025,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			ragepowder: ["9M"],
 			teleport: ["9M"],
 			gravity: ["9M"],
+			hyperbeam: ["9M"],
         }
 	},
 	fermiworm: {
@@ -10323,6 +10318,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			blizzard: ["9M"],
 			thunder: ["9M"],
 			thunderbolt: ["9M"],
+			bodyslam: ["9M"]
 		}
 	},
 	malamancer: {
@@ -10373,6 +10369,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			bodyslam: ["9M"]
 		}
 	},
 	stratosting: {
@@ -10906,6 +10903,10 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			closecombat: ["9M"],
 			terablast: ["9M"],
 			facade: ["9M"],
+			thunderwave: ["9M"],
+			rockpolish: ["9M"],
+			stealthrock: ["9M"],
+			shockbombs: ["9M"],
 		}
 	},
 	alphbit: {
@@ -11226,6 +11227,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			growl: ["9M"],
 			leer: ["9M"],
 			attract: ["9M"],
+			cometstrike: ["9M"],
 		}
 	},
 	ironchamber: {
@@ -11294,7 +11296,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			futuresight: ["9L70"],
 			voltswitch: ["9L77"],
 			explosion: ["9L84"],
-			waterspout: ["9L91"]
+			waterspout: ["9L91"],
+			wavecrash: ["9M"],
 		}
 	},
 	hoppyre: {
@@ -12035,6 +12038,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			return: ["9M"],
 			frustration: ["9M"],
 			terablast: ["9M"],
+			rockthrow: ["9M"],
 		}
 	},
 	silretro: {
@@ -12114,6 +12118,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			firepunch: ["9M"],
 			knockoff: ["9M"],
 			dazzlinggleam: ["9M"],
+			rockthrow: ["9M"],
 		}
 	},
 	utensitile: {
@@ -12651,6 +12656,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			faketears: ["9M"],
 			happyhour: ["9M"],
 			terablast: ["9M"],
+			scratch: ["9M"],
 		}
 	}
 };
