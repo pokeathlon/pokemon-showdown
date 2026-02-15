@@ -22,6 +22,9 @@ export class RandomMarioTeams extends RandomTeams {
 
 	override randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
+		const typeWeaknesses: { [k: string]: number } = {};
+		const typeDoubleWeaknesses: { [k: string]: number } = {};
+		const limitFactor = Math.round(this.maxTeamSize / 6) || 1;
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
@@ -30,15 +33,47 @@ export class RandomMarioTeams extends RandomTeams {
 		pool = pool.filter(mon => MarioDex.includes(mon.species as string)) // Filters pool to only be mariomons
 
 		while (pokemon.length < this.maxTeamSize) {
+			let skip = false;
 			const chosenSpecies = this.sampleNoReplace(MarioDex); // Chooses random Mariomon
 			let tempPool = pool.filter(mon => chosenSpecies === mon.species); // Creates temporary pool exclusively of chosenSpecies sets
 			const candidate = {...this.sampleNoReplace(tempPool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
 			const species = this.dex.species.get(candidate.species);
 			
+				// Limit three weak to any type, and one double weak to any type
+				for (const typeName of this.dex.types.names()) {
+					// it's weak to the type
+					if (this.dex.getEffectiveness(typeName, species) > 0) {
+						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
+						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
+							skip = true;
+							break;
+						}
+					}
+					if (this.dex.getEffectiveness(typeName, species) > 1) {
+						if (!typeDoubleWeaknesses[typeName]) typeDoubleWeaknesses[typeName] = 0;
+						if (typeDoubleWeaknesses[typeName] >= limitFactor) {
+							skip = true;
+							break;
+						}
+					}
+				}
+			if (skip) continue;
+			
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
 			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
 			pokemon.push(candidate);
+
+			// Increment weakness counter
+			for (const typeName of this.dex.types.names()) {
+				// it's weak to the type
+				if (this.dex.getEffectiveness(typeName, species) > 0) {
+					typeWeaknesses[typeName]++;
+				}
+				if (this.dex.getEffectiveness(typeName, species) > 1) {
+					typeDoubleWeaknesses[typeName]++;
+				}
+			}
 
 			pool = pool.filter(set => set.species !== candidate.species);
 		}
