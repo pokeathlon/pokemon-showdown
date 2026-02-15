@@ -47,6 +47,22 @@ export class RandomInfTeams extends RandomTeams {
 			let vanillaSpecies = this.sample(vanillaPool);
 			let vanillaCandidate = gen6.randomSet(vanillaSpecies);
 
+			// Force spinner / defog
+			let forceRemover = false;
+			if (pokemon.length === this.maxTeamSize-1) {
+				let remover = false;
+				for (let set of pokemon) {
+					if (set.moves.includes('Rapid Spin') || set.moves.includes('Defog')) {remover = true; break};
+				}
+				if (!remover) {
+					//filter pool by mons with spin or defog, then force set, OR keep rolling vanilla mons until you get spin or defog
+					pool = pool.filter(set => set.moves?.includes('Rapid Spin') || set.moves?.includes('Defog'));
+					namePool = [... new Set(pool.map(set => set.species))]
+					forceRemover = true;
+				}
+			}
+
+
 			// Select species and then one of its sets for better set distribution, only pick from Infinity pokemon, not vanilla ones even if they have handmade sets
 			let chosenSpecies = this.sampleNoReplace(namePool.filter(id => !this.dex.mod('gen9').species.get(id).exists));
 
@@ -60,7 +76,7 @@ export class RandomInfTeams extends RandomTeams {
 
 			let result = this.random(2);
 			if (this.maxTeamSize - pokemon.length === counterVanilla ) result = 1; //skips Infinity mon altogether
-			if (result === 0 || (this.maxTeamSize - pokemon.length === counterInf )) { //add Infinity mon
+			if (result === 0 || (this.maxTeamSize - pokemon.length === counterInf ) || forceRemover) { //add Infinity mon
 				counterInf -= 1;
 
 				pokemon.push(candidate);
