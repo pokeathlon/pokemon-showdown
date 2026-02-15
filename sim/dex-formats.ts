@@ -647,7 +647,9 @@ export class DexFormats {
 		let hasPokemonRule = false;
 		const customRules = customRulesString.split(',').map(rule => {
 			rule = rule.replace(/[\r\n|]*/g, '').trim();
-			const ruleSpec = this.validateRule(rule);
+			const dex = this.dex.forFormat(format);
+			const ruleSpec = dex.formats.validateRule(rule, format);
+
 			if (typeof ruleSpec === 'string') {
 				if (ruleSpec === '-pokemontag:allpokemon' || ruleSpec === '+pokemontag:allpokemon') {
 					if (hasPokemonRule) throw new Error(`You can't ban/unban pokemon before banning/unbanning all Pokemon.`);
