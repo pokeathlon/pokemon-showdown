@@ -990,7 +990,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		bestOfDefault: true,
 		gameType: "doubles",
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Mega Forme Clause'],
+		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause = 1', 'Picked Team Size = Auto', 'Cancel Mod', 'Adjust Level = 50', 'VGC Timer', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Mega Forme Clause'],
 		banlist: [
 			'ability:fairylaw',
 			'item:trickrock','item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium',
