@@ -986,12 +986,35 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
 	},
 	{
+		name: "[Gen 9] PoA VGC",
+		mod: 'gen9pokeathlon',
+		bestOfDefault: true,
+		gameType: "doubles",
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Mega Forme Clause'],
+		banlist: [
+			'ability:fairylaw',
+			'item:trickrock','item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium',
+		],
+	},
+	{
 		name: "[Gen 9] PoA Doubles AG S2",
 		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		gameType: 'doubles',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'Terastal Clause', 'Species Reveal Clause'],
+	},
+	{
+		name: "[Gen 9] PoA S2 VGC",
+		mod: 'gen9pokeathlon',
+		bestOfDefault: true,
+		gameType: "doubles",
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Terastal Clause', 'Z-Move Clause', 'Mega Forme Clause'],
+		banlist: [
+			'pokemon:tyranitardeltamega',
+			'ability:fairylaw',
+			'item:trickrock','item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium',
+		],
 	},
 
 	{
