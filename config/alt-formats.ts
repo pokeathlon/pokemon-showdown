@@ -545,7 +545,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Mariomon Ubers",
-		searchShow: false,
 
 		mod: 'gen9mariomon',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
@@ -556,6 +555,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Mariomon UU",
+		searchShow: false,
 
 		mod: 'gen9mariomon',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
