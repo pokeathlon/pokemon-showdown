@@ -1,6 +1,7 @@
 // Note: These are the rules that formats use
 
 import type { Learnset } from "../sim/dex-species";
+import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMove, hasStatDoubling, isRecoveryMove, isSpammableHighPowerStab } from "./mods/gen7infinitefusion/ifUtils";
 
 // The list of formats is stored in config/formats.js
 export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
@@ -2488,6 +2489,150 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 			return pokemon;
 		},
+	},
+	nofunclause: {
+		effectType: "Rule",
+		name: "No Fun Clause",
+		desc: "Electrify, moves that cause sleep, and moves with a flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.",
+		onValidateSet(set) {
+			let itemMult = 1.0;
+			if (set.item?.toLowerCase() === "choice scarf") itemMult = 1.5;
+			if (set.item?.toLowerCase() === "quick powder") itemMult = 2.0;
+			const hasAbove200Speed = calculateFullFusionStat('spe', set, this.dex) * itemMult > 200;
+			const hasPrankster = set.ability?.toLowerCase() === "prankster";
+
+			const hasElectrify = set.moves?.some(m => m.toLowerCase() === "electrify");
+			const hasHighFlinchChance = set.moves?.some(m => calculateFlinchChance(set, m));
+
+			const problems = [];
+			if (hasAbove200Speed || hasPrankster || canBoostSpeed(set)) {
+				if (hasElectrify) problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
+				if (hasSleepMove(set)) problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
+				if (hasHighFlinchChance) problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
+			}
+			return problems;
+		},
+	},
+	nodancingclause: {
+		effectType: "Rule",
+		name: "No Dancing Clause",
+		desc: "Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.",
+		onValidateSet(set) {
+			const hasPriority = set.moves?.some(m => this.dex.moves.get(m)?.priority > 0);
+			const hasRecovery = set.moves?.some(m => isRecoveryMove(m, this.dex));
+			const numBoosts = countHighestBoosts(set, this.dex);
+
+			const problems = [];
+			if (numBoosts > 4 || ((hasPriority || hasRecovery) && numBoosts > 2))
+				problems.push(`${set.name} is breaking the No Dancing clause.`);
+
+			return problems;
+		},
+	},
+	nodancepartnersclause: {
+		effectType: "Rule",
+		name: "No Dance Partners Clause",
+		desc: "Increasing an ally's stat stages is banned",
+		onValidateSet(set) {
+			const hasBatonPass = set.moves?.some(m => m.toLowerCase() === "baton pass");
+
+			const problems = [];
+			if (hasBatonPass && hasBoosting(set, this.dex)) {
+				problems.push(`${set.name} breaks the No Dance Partners clause.`);
+			}
+			return problems;
+		},
+	},
+	noextremestatsclause: {
+		effectType: "Rule",
+		name: "No Extreme Stats Clause",
+		desc: "Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.",
+		onValidateSet(set) {
+			const fusionStats = getFusionStats(set, this.dex);
+			const problems = [];
+			if (getBst(fusionStats) > 600)
+				problems.push(`${set.name}'s BST breaks the No Extreme Stats Clause.`);
+			if (fusionStats['atk'] + fusionStats['spe'] > 250)
+				problems.push(`${set.name}'s Attack and Speed break the No Extreme Stats Clause.`);
+			if (fusionStats['spa'] + fusionStats['spe'] > 250)
+				problems.push(`${set.name}'s Special Attack and Speed break the No Extreme Stats Clause.`);
+			if (fusionStats['hp'] + fusionStats['def'] > 250)
+				problems.push(`${set.name}'s HP and Defense break the No Extreme Stats Clause.`);
+			if (fusionStats['hp'] + fusionStats['spd'] > 250)
+				problems.push(`${set.name}'s HP and Special Defense break the No Extreme Stats Clause.`);
+			return problems;
+		},
+	},
+	nolimitbreakingclause: {
+		effectType: "Rule",
+		name: "No Limit Breaking Clause",
+		desc: "Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.",
+		onValidateSet(set) {
+			const hasAtkDoubling = hasStatDoubling('atk', set);
+			const limitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) > 250;
+
+			const hasSpaDoubling = hasStatDoubling('spa', set);
+			const limitBreakingSpa = calculateFullFusionStat('spa', set, this.dex) > 250;
+
+			const problems = [];
+			if (limitBreakingAtk && hasAtkDoubling)
+				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
+			if (limitBreakingSpa && hasSpaDoubling)
+				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
+			return problems;
+		},
+	},
+	nonukesclause: {
+		effectType: "Rule",
+		name: "No Nukes Clause",
+		desc: "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.",
+		onValidateSet(set) {
+			const problems = [];
+			for (const move of set.moves) {
+				if (isSpammableHighPowerStab(move, set, this.dex))
+					problems.push(`${set.name}'s ${move} is breaking the No Nukes Clause.`);
+			};
+			return problems;
+		},
+	},
+	noweathercombosclause: {
+		effectType: "Rule",
+		name: "No Weather Combos Clause",
+		desc: "Letting weather conditions increase both your speed and damage output is banned.",
+		onValidateSet(set) {
+			const typing = getFusionTyping(set, this.dex);
+			const hasStabWaterMove =
+				set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "water") &&
+				typing.includes("Water");
+			const hasStabFireMove =
+				set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "fire") &&
+				typing.includes("Fire");
+			const hasSwiftSwim = set.ability.toLowerCase() === "swift swim";
+			const hasChlorophyll = set.ability.toLowerCase() === "chlorophyll";
+
+			const problems = [];
+			if ((hasChlorophyll && hasStabFireMove) || (hasSwiftSwim && hasStabWaterMove))
+				problems.push(`${set.name} is breaking the No Weather Combos Clause.`);
+			return problems;
+		},
+	},
+	notrappingclause: {
+		effectType: "Rule",
+		name: "No Trapping Clause",
+		desc: "Trapping is banned",
+		banlist: ['Arena Trap', 'Magnet Pull', 'Shadow Tag', 'Block', 'Mean Look', 'Anchor Shot', 'Spirit Shackle'],
+	},
+	noevadingclause: {
+		effectType: "Rule",
+		name: "No Evading Clause",
+		desc: "Increasing Evasion is banned",
+		ruleset: ['Evasion Clause'],
+	},
+	noextremegimmicksclause: {
+		effectType: "Rule",
+		name: "No Extreme Gimmicks Clause",
+		desc: "Disguise, Imposter, Moody, and Wonder Guard are banned.",
+		banlist: ['Disguise', 'Imposter', 'Moody', 'Wonder Guard'],
 	},
 	revelationmonsmod: {
 		effectType: "Rule",

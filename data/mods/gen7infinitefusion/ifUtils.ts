@@ -48,3 +48,195 @@ export function swapInnates(source: Pokemon, target: Pokemon, battle: Battle, fr
 	addActiveInnates(source, targetInnates, battle, fromName);
 	addActiveInnates(target, sourceInnates, battle, fromName);
 }
+
+export function countBoosts(move: string, dex: ModdedDex, hasContrary: boolean, extras: number) {
+	const boosts = dex.moves.get(move).boosts;
+	const selfBoosts = dex.moves.get(move).self?.boosts;
+	function isBoostingValue(value: any) {
+		return (typeof value === 'number') ?
+			(!hasContrary && value > 0) || (hasContrary && value < 0) :
+			false;
+	};
+	const numBoosts = (boosts) ?
+		Object.values(boosts)
+			.filter(value => isBoostingValue(value))
+			.reduce((sum, value) => sum + Math.abs(value), 0) :
+		0;
+	const numSelfBoosts = (selfBoosts) ?
+		Object.values(selfBoosts)
+			.filter(value => isBoostingValue(value))
+			.reduce((sum, value) => sum + Math.abs(value), 0) :
+		0;
+	return numBoosts + numSelfBoosts + extras;
+}
+export function hasBoosting(set: PokemonSet, dex: ModdedDex) {
+	const hasContrary = set.ability?.toLowerCase() === "contrary";
+	const extras = (set.ability?.toLowerCase() === "speed boost") ? 1 : 0;
+	return set.moves?.some(m => countBoosts(m, dex, hasContrary, extras));
+}
+export function countHighestBoosts(set: PokemonSet, dex: ModdedDex) {
+	const hasContrary = set.ability?.toLowerCase() === "contrary";
+	const extras = (set.ability?.toLowerCase() === "speed boost") ? 1 : 0;
+	return Math.max(...set.moves.map(m => countBoosts(m, dex, hasContrary, extras)));
+}
+
+export function isRecoveryMove(moveName: string, dex: ModdedDex) {
+	const otherRecoveryMoves = ["rest", "wish", "strength sap"];
+	const move = dex.moves.get(moveName);
+	return move.heal || move.drain || otherRecoveryMoves.includes(moveName);
+}
+
+export function isSpammableHighPowerStab(moveName: string, set: PokemonSet, dex: ModdedDex) {
+	const moveExceptions = [
+		"explosion", "self-destruct",
+		"hyper beam", "giga impact", "prismatic laser", "blast burn", "frenzy plant", "hydro cannon", "roar of time", "rock wrecker",
+		"psycho boost",
+		"focus punch", "shell trap", "last resort",
+		"sky attack", "freeze shock", "ice burn",
+		"doom desire", "future sight",
+	];
+	const statusItems = ["toxic orb", "flame orb"];
+	const isStatusFacade = moveName.toLowerCase() === "facade" && statusItems.includes(set.item?.toLowerCase());
+	const typing = getFusionTyping(set, dex);
+
+	const move = dex.moves.get(moveName);
+	const hasHighBasePower = move.basePower >= 140 || isStatusFacade;
+	const isStab = typing.includes(move.type);
+	const isAnException = moveExceptions.includes(moveName.toLowerCase());
+
+	return isStab && hasHighBasePower && !isAnException;
+}
+
+export function canBoostSpeed(set: PokemonSet) {
+	const speedBoostingMoves = [
+		"quiver dance", "dragon dance", "agility", "rock polish", "autotomize", "trailblaze", "aqua step",
+		"flame charge", "geomancy", "shell smash", "clangorous soul", "shift gear", "tidy up", "victory dance",
+	];
+	const speedBoostingAbilities = [
+		"speed boost", "quick feet", "chlorophyll", "sand rush", "slush rush", "swift swim",
+	];
+	const hasSpeedBoostingAbility = speedBoostingAbilities.includes(set.ability);
+	const hasSpeedBoostingMove = set.moves?.some(m => speedBoostingMoves.includes(m));
+	return hasSpeedBoostingAbility || hasSpeedBoostingMove;
+}
+
+export function calculateBaseFusionStat(statName: StatID, headStat: number, bodyStat: number) {
+	const headStrong: StatID[] = ['hp', 'spa', 'spd'];
+	let baseStat: number;
+	if (headStrong.includes(statName)) {
+		baseStat = Math.floor(headStat * 2 / 3 + bodyStat * 1 / 3);
+	} else {
+		baseStat = Math.floor(headStat * 1 / 3 + bodyStat * 2 / 3);
+	}
+	return baseStat;
+}
+
+export function calculateFullFusionStat(stat: StatID, set: PokemonSet, dex: ModdedDex): number {
+	const headStats = dex.species.get(set.species).baseStats;
+	const bodyStats = set.fusion ? dex.species.get(set.fusion).baseStats : headStats;
+	const baseStat = calculateBaseFusionStat(stat, headStats[stat], bodyStats[stat]);
+
+	const level = set.level ?? 100;
+	const iv = set.ivs?.[stat] ?? 31;
+	const ev = set.evs?.[stat] ?? 0;
+	let natureMult = 1.0;
+	if (stat !== 'hp' && set.nature) {
+		const nature = dex.natures.get(set.nature);
+		if (nature.plus === stat) natureMult *= 1.1;
+		if (nature.minus === stat) natureMult *= 0.9;
+	}
+
+	const unnaturedStat = stat === 'hp' ?
+		Math.floor((2 * baseStat + iv + Math.floor(ev / 4)) * level / 100) + level + 10 :
+		Math.floor((2 * baseStat + iv + Math.floor(ev / 4)) * level / 100) + 5;
+	const fullStat = Math.floor(unnaturedStat * natureMult);
+
+	return fullStat;
+}
+
+export function getFusionStats(set: PokemonSet, dex: ModdedDex) {
+	const headStats = dex.species.get(set.species).baseStats;
+	if (!set.fusion) return headStats;
+	const bodyStats = dex.species.get(set.fusion).baseStats;
+
+	const allStats: StatID[] = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
+	const fusionStats: StatsTable = {} as StatsTable;
+	for (const stat of allStats) {
+		fusionStats[stat] = calculateBaseFusionStat(stat, headStats[stat], bodyStats[stat]);
+	}
+	return fusionStats;
+}
+
+export function getBst(stats: StatsTable) {
+	return Object.values(stats).reduce((sum, val) => sum + val, 0);
+}
+
+export function processTypingForFusion(typing: string[]) {
+	if (typing.includes('Flying') && typing.includes('Normal'))
+		typing = ['Flying'];
+	return typing;
+}
+
+export function getFusionTyping(set: PokemonSet, dex: ModdedDex) {
+	const headTyping = processTypingForFusion(dex.species.get(set.species).types);
+	if (!set.fusion) return headTyping.flat();
+	const bodyTyping = processTypingForFusion(dex.species.get(set.fusion).types);
+
+	const fusedTyping = [headTyping[0]];
+	const bonusType = dex.types.get(bodyTyping[bodyTyping.length - 1]);
+	if (bonusType.exists) fusedTyping.push(bonusType.name);
+	if (bodyTyping.length === 2 && fusedTyping.length === 1) fusedTyping.push(bodyTyping[0]);
+
+	return fusedTyping;
+}
+
+export function hasStatDoubling(stat: StatID, set: PokemonSet): boolean {
+	const doublingMap: Partial<Record<StatID, { items: string[], abilities: string[] }>> = {
+		atk: { items: ['light ball', 'thick club'], abilities: ['huge power', 'pure power'] },
+		spa: { items: ['light ball', 'deep sea tooth'], abilities: ['pure focus'] },
+		spd: { items: ['deep sea scale', 'metal powder'], abilities: [] },
+		def: { items: [], abilities: ['fur coat'] },
+		spe: { items: [], abilities: ['unburden', 'chlorophyll', 'swift swim', 'sand rush', 'slush rush'] },
+	};
+
+	const statDoublers = doublingMap[stat];
+	if (!statDoublers) return false;
+
+	const item = set.item?.toLowerCase();
+	const hasStatDoublingItem = item ? statDoublers.items.includes(item) : false;
+	const ability = set.ability?.toLowerCase();
+	const hasStatDoublingAbility = ability ? statDoublers.abilities.includes(ability) : false;
+
+	return hasStatDoublingItem || hasStatDoublingAbility;
+}
+
+export function calculateFlinchChance(set: PokemonSet, move: string) {
+	const multiHitMoves = [
+		"bullet seed", "rock blast", "icicle spear", "pin missile", "fury attack", "fury swipes", "comet punch",
+		"arm thrust", "barrage", "bone rush", "spike cannon", "tail slap", "water shuriken", "beat up",
+	];
+	const flinch30moves = [
+		"air slash", "iron head", "icicle crash", "rock slide", "needle arm", "rolling kick", "snore", "triple arrows",
+		"bite", "headbutt", "stomp", "zing zap",
+	];
+	const flinch20moves = [
+		"zen headbutt", "waterfall", "dark pulse", "fiery wrath", "dragon rush", "twister",
+	];
+	const lowerCaseMove = move.toLowerCase();
+	const hasSereneGrace = set.ability && set.ability.toLowerCase() === "serene grace";
+	const hasStench = set.ability && set.ability.toLowerCase() === "stench";
+	const hasKingsRock = set.item && set.item.toLowerCase() === "kings rock";
+	if (lowerCaseMove === "fake out") return 100;
+	else if (lowerCaseMove === "double iron bash") return 51;
+	else if (flinch30moves.includes(lowerCaseMove) && hasSereneGrace) return 60;
+	else if (flinch20moves.includes(lowerCaseMove) && hasSereneGrace) return 40;
+	else if (multiHitMoves.includes(lowerCaseMove) && (hasStench || hasKingsRock)) return 41;
+	else return 0;
+}
+
+export function hasSleepMove(set: PokemonSet) {
+	const sleepMoves = [
+		"spore", "sleep powder", "hypnosis", "lovely kiss", "sing", "grass whistle", "dark void", "relic song",
+	];
+	return set.moves.some(m => sleepMoves.includes(m.toLowerCase()));
+}
