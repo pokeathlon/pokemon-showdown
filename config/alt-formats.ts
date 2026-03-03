@@ -354,15 +354,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 7] IF Literally 1984",
-		desc: "There are no bans! Just a few clauses...",
+		desc: `There are no bans! Just a few clauses... (Use "/rule [clausename]" in any chat to see what each clause does)`,
 
 		mod: 'gen7infinitefusion',
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause',
 			'No Fun Clause', 'No Evading Clause', 'No Extreme Gimmicks Clause', 'No Trapping Clause',
 			'No Dancing Clause', 'No Dance Partners Clause',
 			'No Extreme Stats Clause', 'No Limit Breaking Clause', 'No Nukes Clause', 'No Weather Combos Clause',
+		],
+		banlist: [
+			'Mega',
 		],
 	},
 	{

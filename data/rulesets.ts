@@ -2493,7 +2493,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	nofunclause: {
 		effectType: "Rule",
 		name: "No Fun Clause",
-		desc: "Electrify, moves that cause sleep, and moves with a flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.",
+		desc: "Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.",
+		onBegin() {
+			this.add('rule', 'No Fun Clause: Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.');
+		},
 		onValidateSet(set) {
 			let itemMult = 1.0;
 			if (set.item?.toLowerCase() === "choice scarf") itemMult = 1.5;
@@ -2517,6 +2520,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: "Rule",
 		name: "No Dancing Clause",
 		desc: "Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.",
+		onBegin() {
+			this.add('rule', 'Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.');
+		},
 		onValidateSet(set) {
 			const hasPriority = set.moves?.some(m => this.dex.moves.get(m)?.priority > 0);
 			const hasRecovery = set.moves?.some(m => isRecoveryMove(m, this.dex));
@@ -2532,7 +2538,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	nodancepartnersclause: {
 		effectType: "Rule",
 		name: "No Dance Partners Clause",
-		desc: "Increasing an ally's stat stages is banned",
+		desc: "Increasing an ally's stat stages is banned.",
+		onBegin() {
+			this.add('rule', "Increasing an ally's stat stages is banned.");
+		},
 		onValidateSet(set) {
 			const hasBatonPass = set.moves?.some(m => m.toLowerCase() === "baton pass");
 
@@ -2547,6 +2556,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: "Rule",
 		name: "No Extreme Stats Clause",
 		desc: "Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.",
+		onBegin() {
+			this.add('rule', 'Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.');
+		},
 		onValidateSet(set) {
 			const fusionStats = getFusionStats(set, this.dex);
 			const problems = [];
@@ -2567,6 +2579,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: "Rule",
 		name: "No Limit Breaking Clause",
 		desc: "Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.",
+		onBegin() {
+			this.add('rule', 'Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.');
+		},
 		onValidateSet(set) {
 			const hasAtkDoubling = hasStatDoubling('atk', set);
 			const limitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) > 250;
@@ -2586,6 +2601,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: "Rule",
 		name: "No Nukes Clause",
 		desc: "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.",
+		onBegin() {
+			this.add('rule', "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.");
+		},
 		onValidateSet(set) {
 			const problems = [];
 			for (const move of set.moves) {
@@ -2599,6 +2617,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: "Rule",
 		name: "No Weather Combos Clause",
 		desc: "Letting weather conditions increase both your speed and damage output is banned.",
+		onBegin() {
+			this.add('rule', 'Letting weather conditions increase both your speed and damage output is banned.');
+		},
 		onValidateSet(set) {
 			const typing = getFusionTyping(set, this.dex);
 			const hasStabWaterMove =
@@ -2619,19 +2640,28 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	notrappingclause: {
 		effectType: "Rule",
 		name: "No Trapping Clause",
-		desc: "Trapping is banned",
+		desc: "Trapping is banned.",
+		onBegin() {
+			this.add('rule', 'Trapping is banned.');
+		},
 		banlist: ['Arena Trap', 'Magnet Pull', 'Shadow Tag', 'Block', 'Mean Look', 'Anchor Shot', 'Spirit Shackle'],
 	},
 	noevadingclause: {
 		effectType: "Rule",
 		name: "No Evading Clause",
-		desc: "Increasing Evasion is banned",
+		desc: "Increasing Evasion is banned.",
+		onBegin() {
+			this.add('rule', 'Increasing Evasion is banned.');
+		},
 		ruleset: ['Evasion Clause'],
 	},
 	noextremegimmicksclause: {
 		effectType: "Rule",
 		name: "No Extreme Gimmicks Clause",
 		desc: "Disguise, Imposter, Moody, and Wonder Guard are banned.",
+		onBegin() {
+			this.add('rule', 'Disguise, Imposter, Moody, and Wonder Guard are banned.');
+		},
 		banlist: ['Disguise', 'Imposter', 'Moody', 'Wonder Guard'],
 	},
 	revelationmonsmod: {
