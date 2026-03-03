@@ -95,13 +95,22 @@ export function isSpammableHighPowerStab(moveName: string, set: PokemonSet, dex:
 		"sky attack", "freeze shock", "ice burn",
 		"doom desire", "future sight",
 	];
+	const ateAbilities: Record<string, string> = {
+		aerilate: "Flying",
+		galvanize: "Electric",
+		pixilate: "Fairy",
+		refrigerate: "Ice",
+	};
 	const statusItems = ["toxic orb", "flame orb"];
 	const isStatusFacade = moveName.toLowerCase() === "facade" && statusItems.includes(set.item?.toLowerCase());
 	const typing = getFusionTyping(set, dex);
 
 	const move = dex.moves.get(moveName);
 	const hasHighBasePower = move.basePower >= 140 || isStatusFacade;
-	const isStab = typing.includes(move.type);
+	const hasAteTyping =
+		Object.keys(ateAbilities).includes(set.ability.toLowerCase()) &&
+		typing.includes(ateAbilities[set.ability.toLowerCase()]);
+	const isStab = typing.includes(move.type) || (move.type === "Normal" && hasAteTyping);
 	const isAnException = moveExceptions.includes(moveName.toLowerCase());
 
 	return isStab && hasHighBasePower && !isAnException;
