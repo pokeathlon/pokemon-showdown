@@ -320,6 +320,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 7] IF Tier Shift",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
 
 		mod: 'gen7infinitefusion',
 		ruleset: [
