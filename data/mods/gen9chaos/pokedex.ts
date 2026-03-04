@@ -2562,6 +2562,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Cactusplash-Sheriff"]
 	},
 	dryguaro: {
 		num: 3128,
@@ -2577,6 +2578,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DOU",
+		cosmeticFormes: ["Dryguaro-Sheriff"]
 	},
 	varkacosm: {
 		num: 3129,
