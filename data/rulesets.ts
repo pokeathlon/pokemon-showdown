@@ -2508,10 +2508,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const hasHighFlinchChance = set.moves?.some(m => calculateFlinchChance(set, m));
 
 			const problems = [];
-			if (hasAbove200Speed || hasPrankster || canBoostSpeed(set)) {
-				if (hasElectrify) problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
-				if (hasSleepMove(set)) problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
-				if (hasHighFlinchChance) problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
+			if (hasAbove200Speed || canBoostSpeed(set)) {
+				if (hasPrankster && hasElectrify)
+					problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
+				if (hasPrankster && hasSleepMove(set))
+					problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
+				if (hasHighFlinchChance)
+					problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
 			}
 			return problems;
 		},
