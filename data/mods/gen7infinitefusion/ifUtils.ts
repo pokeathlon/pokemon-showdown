@@ -124,8 +124,8 @@ export function canBoostSpeed(set: PokemonSet) {
 	const speedBoostingAbilities = [
 		"speed boost", "quick feet", "chlorophyll", "sand rush", "slush rush", "swift swim",
 	];
-	const hasSpeedBoostingAbility = speedBoostingAbilities.includes(set.ability);
-	const hasSpeedBoostingMove = set.moves?.some(m => speedBoostingMoves.includes(m));
+	const hasSpeedBoostingAbility = speedBoostingAbilities.includes(set.ability.toLowerCase());
+	const hasSpeedBoostingMove = set.moves?.some(m => speedBoostingMoves.includes(m.toLowerCase()));
 	return hasSpeedBoostingAbility || hasSpeedBoostingMove;
 }
 
