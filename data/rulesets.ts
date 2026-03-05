@@ -2626,11 +2626,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			const typing = getFusionTyping(set, this.dex);
 			const hasStabWaterMove =
-				set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "water") &&
-				typing.includes("Water");
+				set.moves.some(m => m.toLowerCase() === "weather ball") || (
+					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "water") &&
+					typing.includes("Water")
+				);
 			const hasStabFireMove =
-				set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "fire") &&
-				typing.includes("Fire");
+				set.moves.some(m => m.toLowerCase() === "weather ball") || (
+					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "fire") &&
+					typing.includes("Fire")
+				);
 			const hasSwiftSwim = set.ability.toLowerCase() === "swift swim";
 			const hasChlorophyll = set.ability.toLowerCase() === "chlorophyll";
 
