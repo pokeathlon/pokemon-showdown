@@ -57,6 +57,13 @@ export function countBoosts(move: string, dex: ModdedDex, hasContrary: boolean, 
 			(!hasContrary && value > 0) || (hasContrary && value < 0) :
 			false;
 	};
+	const boostingMoves = [
+		"trailblaze", "aqua step", "flame charge", "aura wheel", "esper wing", "order up", "scale shot",
+		"power-up punch",
+		"diamond storm", "psyshield bash",
+		"charge beam", "fiery dance", "electro shot", "torch song", "meteor beam", "mystical power",
+	];
+	const boostingMovesExtras = boostingMoves.includes(move.toLowerCase()) ? 1 : 0;
 	const numBoosts = (boosts) ?
 		Object.values(boosts)
 			.filter(value => isBoostingValue(value))
@@ -67,7 +74,7 @@ export function countBoosts(move: string, dex: ModdedDex, hasContrary: boolean, 
 			.filter(value => isBoostingValue(value))
 			.reduce((sum, value) => sum + Math.abs(value), 0) :
 		0;
-	return numBoosts + numSelfBoosts + extras;
+	return numBoosts + numSelfBoosts + extras + boostingMovesExtras;
 }
 export function hasBoosting(set: PokemonSet, dex: ModdedDex) {
 	const hasContrary = set.ability?.toLowerCase() === "contrary";
@@ -118,7 +125,7 @@ export function isSpammableHighPowerStab(moveName: string, set: PokemonSet, dex:
 
 export function canBoostSpeed(set: PokemonSet) {
 	const speedBoostingMoves = [
-		"quiver dance", "dragon dance", "agility", "rock polish", "autotomize", "trailblaze", "aqua step",
+		"quiver dance", "dragon dance", "agility", "rock polish", "autotomize", "trailblaze", "aqua step", "aura wheel",
 		"flame charge", "geomancy", "shell smash", "clangorous soul", "shift gear", "tidy up", "victory dance",
 	];
 	const speedBoostingAbilities = [
