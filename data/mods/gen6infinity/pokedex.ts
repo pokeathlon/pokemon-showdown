@@ -957,6 +957,13 @@ export const cutDex: {[k: string]: number} = {
 	"jupiter": 914,
 	"onixbrock": 915,
 	"onixcrystal": 916,
+	"psyduckmisty": 917,
+	"pikachuash": 918,
+	"raticateblue": 919,
+	"zoroarkn": 920,
+	"missingnomega": 921,
+	"arbokjessie": 922,
+	"weezingjames": 923,
 
 };
 
