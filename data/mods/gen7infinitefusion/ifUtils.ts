@@ -90,7 +90,7 @@ export function countHighestBoosts(set: PokemonSet, dex: ModdedDex) {
 export function isRecoveryMove(moveName: string, dex: ModdedDex) {
 	const otherRecoveryMoves = ["rest", "wish", "strength sap"];
 	const move = dex.moves.get(moveName);
-	return move.heal || move.drain || otherRecoveryMoves.includes(moveName);
+	return move.heal || move.drain || otherRecoveryMoves.includes(moveName.toLowerCase());
 }
 
 export function isSpammableHighPowerStab(moveName: string, set: PokemonSet, dex: ModdedDex) {
