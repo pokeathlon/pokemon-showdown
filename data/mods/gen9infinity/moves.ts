@@ -290,12 +290,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	thunderslash: {
 		num: 0,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		name: "Thunder Slash",
 		desc: "The foe is slashed with an electrified blade. Critical hits land easier.",
 		shortDesc: "High critical hit ratio.",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
@@ -1703,8 +1703,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
         priority: 0,
         flags: {snatch: 1},
 		onHit(source) {
-			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay'? 6 : 3;
-			if (source.side.addSideCondition('lightscreen')) source.side.sideConditions['lightscreen'].duration = source.item === 'lightclay'? 6 : 3;
+			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay'? 7 : 4;
+			if (source.side.addSideCondition('lightscreen')) source.side.sideConditions['lightscreen'].duration = source.item === 'lightclay'? 7 : 4;
 		},
         secondary: null,
         target: "self",
@@ -1713,7 +1713,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	core: {
 			num: 0,
 			accuracy: 70,
-			basePower: 85,
+			basePower: 90,
 			category: "Physical",
 			name: "Core",
 			desc: "Bro heats up and burns everything. This also lowers the afflicted targets' Defense stat.",
@@ -1742,13 +1742,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onDamage(damage, target, source, effect) {
 				if (damage) {
 					let modifier = source.side.active.length;
-					const healAmount = damage / 2;
+					const healAmount = damage*0.75;
 					for (const pokemon of source.alliesAndSelf()) {
 						this.heal(healAmount / modifier, pokemon, source, "drain");
 					}
 				}
 			},
-			pp: 5,
+			pp: 10,
 			priority: 0,
 			flags: {contact: 1, protect: 1, mirror: 1},
 			secondary: null, 
@@ -1763,7 +1763,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			name: "Gale",
 			desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
 			shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
-			pp: 5,
+			pp: 10,
 			priority: 0,
 			flags: {protect: 1, mirror: 1},
 			onAfterHit(target, pokemon, move) {
@@ -1830,7 +1830,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	bullethammer: {
 			num: 0,
 			accuracy: 100,
-			basePower: 140,
+			basePower: 150,
 			category: "Physical",
 			name: "Bullet Hammer",
 			desc: "The user bats the opponent with a super-charged hammer. The recoil forces the user to rest.",
@@ -1892,5 +1892,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
 };
