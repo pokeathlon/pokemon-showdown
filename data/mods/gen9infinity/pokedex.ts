@@ -163,6 +163,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		baseStats: {hp: 111, atk: 100, def: 110, spa: 110, spd: 101, spe: 0},
 		otherFormes: ["MissingNo.-Mega"],
 		formeOrder: ["MissingNo.", "MissingNo.-Mega"],
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	butterfree: {
 		inherit: true,
@@ -3395,6 +3397,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6,
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	raticateblue: {
 		num: 20,
@@ -3407,6 +3411,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	zoroarkn: {
 		num: 571,
@@ -3419,6 +3425,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.1,
 		color: "Gray",
 		eggGroups: ["Field"],
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	missingnomega: {
 		num: 0,
@@ -3433,6 +3441,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Infinity"],
 		eggGroups: ["Infinity"],
 		requiredItem: "Missingnite",
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	arbokjessie: {
 		num: 24,
@@ -3444,6 +3454,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 65,
 		color: "Purple",
 		eggGroups: ["Field", "Dragon"],
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	weezingjames: {
 		num: 110,
@@ -3455,5 +3467,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.5,
 		color: "Purple",
 		eggGroups: ["Amorphous"],
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 };

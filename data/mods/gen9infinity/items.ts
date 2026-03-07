@@ -82,7 +82,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	missingnite: {
 		name: "Missingnite",
 		spritenum: -5,
-		megaStone: "MissinNo.-Mega",
+		megaStone: "MissingNo.-Mega",
 		megaEvolves: "MissingNo.",
 		itemUser: ["MissingNo."],
 		onTakeItem(item, source) {
