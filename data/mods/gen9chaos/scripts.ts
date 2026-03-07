@@ -246,6 +246,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasAbility('pixelperfect')) {
 						this.battle.boost({ accuracy: 1 }, pokemon);
 					}
+					if (pokemon.hasAbility('glitchout')) {
+						let glitchmoves = ["swordsdance", "mindreader", "vanish", "irondefense", "nastyplot", "amnesia", "agility", "whirlwind", "stealthrock", "spikes", "toxicspikes", "stickyweb", "reflect", "lightscreen"]
+						this.battle.actions.useMove(this.battle.sample(glitchmoves), pokemon);
+					}
 					hitResults[i] = false;
 					continue;
 				}

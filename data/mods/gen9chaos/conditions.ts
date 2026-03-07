@@ -25,7 +25,7 @@ export const Conditions: ModdedConditionDataTable = {
 		name: 'partiallytrapped',
 		duration: 5,
 		durationCallback(target, source) {
-			if (this.effectState.sourceEffect.id === 'greatbind') return source?.hasItem('gripclaw')? 6 : 5;
+			if (source?.lastMoveUsed?.id === 'greatbind') return source?.hasItem('gripclaw')? 6 : 5; // always 4 turns, 5 if grip claw
 			if (source?.hasItem('gripclaw')) return 8;
 			return this.random(5, 7);
 		},
