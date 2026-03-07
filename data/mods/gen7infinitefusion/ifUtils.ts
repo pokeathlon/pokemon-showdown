@@ -206,7 +206,7 @@ export function getFusionTyping(set: PokemonSet, dex: ModdedDex) {
 	return fusedTyping;
 }
 
-export function hasStatDoubling(stat: StatID, set: PokemonSet): boolean {
+export function countStatDoubling(stat: StatID, set: PokemonSet): number {
 	const doublingMap: Partial<Record<StatID, { items: string[], abilities: string[] }>> = {
 		atk: { items: ['light ball', 'thick club'], abilities: ['huge power', 'pure power'] },
 		spa: { items: ['light ball', 'deep sea tooth'], abilities: ['pure focus'] },
@@ -216,14 +216,17 @@ export function hasStatDoubling(stat: StatID, set: PokemonSet): boolean {
 	};
 
 	const statDoublers = doublingMap[stat];
-	if (!statDoublers) return false;
+	if (!statDoublers) return 1;
 
 	const item = set.item?.toLowerCase();
 	const hasStatDoublingItem = item ? statDoublers.items.includes(item) : false;
 	const ability = set.ability?.toLowerCase();
 	const hasStatDoublingAbility = ability ? statDoublers.abilities.includes(ability) : false;
 
-	return hasStatDoublingItem || hasStatDoublingAbility;
+	let modifierCount = 1;
+	if (hasStatDoublingAbility) modifierCount *= 2;
+	if (hasStatDoublingItem) modifierCount *= 2;
+	return modifierCount;
 }
 
 export function calculateFlinchChance(set: PokemonSet, move: string) {

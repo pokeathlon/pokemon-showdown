@@ -1,7 +1,7 @@
 // Note: These are the rules that formats use
 
 import type { Learnset } from "../sim/dex-species";
-import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMove, hasStatDoubling, isRecoveryMove, isSpammableHighPowerStab } from "./mods/gen7infinitefusion/ifUtils";
+import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, countStatDoubling, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMove, hasStatDoubling, isRecoveryMove, isSpammableHighPowerStab } from "./mods/gen7infinitefusion/ifUtils";
 
 // The list of formats is stored in config/formats.js
 export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
@@ -2586,16 +2586,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.');
 		},
 		onValidateSet(set) {
-			const hasAtkDoubling = hasStatDoubling('atk', set);
-			const limitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) > 250;
+			const atkModifier = countStatDoubling('atk', set);
+			const hasLimitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) * atkModifier > 500;
 
-			const hasSpaDoubling = hasStatDoubling('spa', set);
-			const limitBreakingSpa = calculateFullFusionStat('spa', set, this.dex) > 250;
+			const spaModifier = countStatDoubling('spa', set);
+			const hasLimitBreakingSpa = calculateFullFusionStat('spa', set, this.dex) * spaModifier > 500;
 
 			const problems = [];
-			if (limitBreakingAtk && hasAtkDoubling)
+			if (hasLimitBreakingAtk)
 				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
-			if (limitBreakingSpa && hasSpaDoubling)
+			if (hasLimitBreakingSpa)
 				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
 			return problems;
 		},
