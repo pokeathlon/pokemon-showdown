@@ -52,11 +52,11 @@ export class RandomInfTeams extends RandomTeams {
 			if (pokemon.length === this.maxTeamSize-1) {
 				let remover = false;
 				for (let set of pokemon) {
-					if (set.moves.includes('Rapid Spin') || set.moves.includes('Defog')) {remover = true; break};
+					if (set.moves.includes('Rapid Spin') || set.moves.includes('Defog') || set.moves.includes('Gale') || set.moves.includes('Transcendent Sword')) {remover = true; break};
 				}
 				if (!remover) {
 					//filter pool by mons with spin or defog, then force set, OR keep rolling vanilla mons until you get spin or defog
-					pool = pool.filter(set => set.moves?.includes('Rapid Spin') || set.moves?.includes('Defog'));
+					pool = pool.filter(set => (set.moves?.includes('Rapid Spin') || set.moves?.includes('Defog') || set.moves?.includes('Gale') || set.moves?.includes('Transcendent Sword')));
 					namePool = [... new Set(pool.map(set => set.species))]
 					forceRemover = true;
 				}

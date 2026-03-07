@@ -27,6 +27,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	steelgem: {inherit: true, isNonstandard: null},
 	watergem: {inherit: true, isNonstandard: null},
 
+	lightball: {
+		inherit: true,
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Ash"],
+	},
+
 	// Additions
 	longclub: {
 		name: "Long Club",
@@ -79,14 +84,18 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		gen: 6,
 	},
-	missingnite: {
-		name: "Missingnite",
+	corrupteddata: {
+		name: "Corrupted Data",
 		spritenum: -5,
-		megaStone: "MissingNo.-Mega",
-		megaEvolves: "MissingNo.",
 		itemUser: ["MissingNo."],
+		onSwitchInPriority: -1,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'MissingNo.' && !pokemon.transformed) {
+				pokemon.formeChange('MissingNo.-Mega', this.effect, true);
+			}
+		},
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.baseSpecies.baseSpecies === 'MissingNo.') return false;
 			return true;
 		},
 		shortDesc: "If held by a MissingNo., this item allows it to Mega Evolve in battle.",

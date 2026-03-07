@@ -482,6 +482,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	missingnomega: {
 		inherit: true,
+		isNonstandard: null,
 		tier: "OU",
 	},
 	arbokjessie: {
@@ -986,6 +987,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	missingno: {
 		inherit: true,
+		isNonstandard: null,
 		tier: "RU",
 	},
 	obsideon: {
