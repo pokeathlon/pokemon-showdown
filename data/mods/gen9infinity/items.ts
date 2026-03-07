@@ -79,4 +79,18 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		gen: 6,
 	},
+	missingnite: {
+		name: "Missingnite",
+		spritenum: -5,
+		megaStone: "MissinNo.-Mega",
+		megaEvolves: "MissingNo.",
+		itemUser: ["MissingNo."],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		shortDesc: "If held by a MissingNo., this item allows it to Mega Evolve in battle.",
+		num: 0,
+		gen: 6,
+	},
 };
