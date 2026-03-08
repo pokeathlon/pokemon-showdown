@@ -2903,7 +2903,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3148,
 		name: "Lunura",
 		types: ["Fairy", "Flying"],
-		baseStats: {hp: 91, atk: 116, def: 119, spa: 64, spd: 65, spe: 70},
+		baseStats: {hp: 84, atk: 58, def: 90, spa: 99, spd: 72, spe: 92},
 		abilities: {0: "Sticky Hold", 1: "Wonder Skin", H: "Cloud Nine"},
 		heightm: 0.9,
 		weightkg: 5.74,
