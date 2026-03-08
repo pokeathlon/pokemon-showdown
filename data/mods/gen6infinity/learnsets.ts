@@ -52793,6 +52793,8 @@ devimon: {
 		superpower: ["6M", "6T"],
 		defog: ["6M", "6T"],
 		hurricane: ["6M", "6T"],
+		blizzard: ["6M", "6T"],
+		icefang: ["6M", "6T"],
 	},
 },
 bakemon: {
@@ -52939,6 +52941,8 @@ wizardmon: {
 		defog: ["6M", "6T"],
 		ironhead: ["6M", "6T"],
 		trick: ["6M", "6T"],
+		sheercold: ["6M"],
+		aurorabeam: ["6M"],
 	},
 },
 woodmon: {
@@ -53114,6 +53118,8 @@ myotismon: {
 		zenheadbutt: ["6M"],
 		defog: ["6M"],
 		hurricane: ["6M"],
+		blizzard: ["6M", "6T"],
+		icefang: ["6M", "6T"],
 	},
 },
 phantomon: {
