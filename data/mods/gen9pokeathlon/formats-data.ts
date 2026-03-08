@@ -971,6 +971,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: null,
 	}, 
+	tenkibo: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	tenkibomagicalhero: {
+		inherit: true,
+		tier: "Illegal",
+		natDexTier: "Illegal",
+		isNonstandard: null,
+	},
 };
 
 for (const pokemon in Base) {

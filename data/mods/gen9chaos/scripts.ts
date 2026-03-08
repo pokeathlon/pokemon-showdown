@@ -178,6 +178,23 @@ export const Scripts: ModdedBattleScriptsData = {
 			} else {
 				this.battle.queue.insertChoice({ choice: 'runSwitch', pokemon });
 			}
+			if (pokemon.species.id === 'tenkibo') {
+				let moveIndex = pokemon.baseMoves.indexOf('starlightblast');
+				if (moveIndex >= 0) {
+					const move = this.battle.dex.moves.get('starlightcalling');
+					pokemon.baseMoveSlots[moveIndex] = {
+						move: move.name,
+						id: move.id,
+						pp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						maxpp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						target: move.target,
+						disabled: false,
+						disabledSource: '',
+						used: false,
+					};
+					pokemon.moveSlots = pokemon.baseMoveSlots.slice();
+				}
+			}
 
 			return true;
 		},
@@ -374,6 +391,23 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.terastallized) {
 				this.knownType = true;
 				this.apparentType = this.terastallized;
+			}
+			if (species.id === 'tenkibomagicalhero') {
+				let moveIndex = this.baseMoves.indexOf('starlightcalling');
+				if (moveIndex >= 0) {
+					const move = this.battle.dex.moves.get('starlightblast');
+					this.baseMoveSlots[moveIndex] = {
+						move: move.name,
+						id: move.id,
+						pp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						maxpp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						target: move.target,
+						disabled: false,
+						disabledSource: '',
+						used: false,
+					};
+					this.moveSlots = this.baseMoveSlots.slice();
+				}
 			}
 			return true;
 		},

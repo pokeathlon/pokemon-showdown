@@ -2615,6 +2615,42 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Clever",
 		shortDesc: "100% to raise accuracy. Never misses.",
 	},
+	starlightcalling: { //move changes on formeChange and then again on switchin
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Starlight Calling",
+		pp: 10,
+		priority: 0,
+		flags: { snatch: 1, heal: 1, metronome: 1 },
+		onAfterMove(source, target, move) {
+			if (source.species.id === 'tenkibo') {
+				source.formeChange('Tenkibo-Magical-Hero', this.effect, false, '[msg]');
+			}
+		},
+		secondary: {},
+		heal: [1,3],
+		target: "self",
+		type: "Fairy",
+		contestType: "Clever",
+		shortDesc: "Heals 33%, transform into Tenkibo-Magical-Hero. If Tenkibo-Magical-Hero, 100BP Special move.",
+	},
+	starlightblast: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Starlight Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, failcopycat: 1, failmimic: 1 },
+		secondary: {},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+		shortDesc: "Heals 33%, transform into Tenkibo-Magical-Hero. If Tenkibo-Magical-Hero, 100BP Special move.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
