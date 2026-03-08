@@ -11,6 +11,10 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	zoroarkn: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 	yatagaryu: {
 		inherit: true,
 		natDexTier: "Uber",

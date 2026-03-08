@@ -8,7 +8,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	barrimander: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	berserkergene: {
@@ -29,7 +29,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	braskeptic: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "RUBL",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	bunnor: {
@@ -64,7 +64,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	decidueyeolul: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	dracat: {
@@ -74,7 +74,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dracotion: {
 		inherit: true,
-		natDexTier: "RUBL",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	drifbozu: {
@@ -155,7 +155,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	guarig: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	harportia: {
@@ -176,12 +176,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	hydroupa: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	icyall: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	imitotion: {
@@ -196,7 +196,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	ironeverlasting: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	jovianshk: {
@@ -236,7 +236,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	maggony: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	magnegauss: {
@@ -284,7 +284,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	monetoad: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	mosster: {
@@ -355,12 +355,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pupitardelta: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	rabbicicle: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	raikousupra: {
@@ -375,7 +375,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	rotomhisui: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	rotomhisuiarmored: {
@@ -405,7 +405,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sekrilon: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	sekrilonmega: {
@@ -450,7 +450,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	soulply: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	squice: {
@@ -498,12 +498,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tinkatonrhinian: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	toxice: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	treatern: {
@@ -518,7 +518,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tyranisacer: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 		isNonstandard: "Unobtainable",
 	},
 	tyranitardelta: {
@@ -548,7 +548,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	caramitti: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
 	caramitticrazed: {
@@ -586,7 +586,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	magnetonterof: {
 		inherit: true,
 		tier: "NFE",
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	magiliar: {
@@ -639,7 +639,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	wyvarice: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	wallapillar: {
@@ -717,7 +717,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	twinova: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	fermiworm: {
@@ -735,7 +735,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	reneguana: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "RU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	pupprodigy: {
@@ -920,13 +920,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	arcaspark: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	catastropede: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	nweet: {
@@ -938,25 +938,25 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	jawladin: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	},
 	rakura: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	}, 
 	sauphozoa: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	}, 
 	keepurr: {
 		inherit: true,
 		tier: "OU",
-		natDexTier: "OU",
+		natDexTier: "UU",
 		isNonstandard: null,
 	}, 
 	verdicent: {
