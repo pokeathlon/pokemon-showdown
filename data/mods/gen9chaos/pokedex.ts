@@ -2899,6 +2899,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	lunura: {
+		num: 3148,
+		name: "Lunura",
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 91, atk: 116, def: 119, spa: 64, spd: 65, spe: 70},
+		abilities: {0: "Sticky Hold", 1: "Wonder Skin", H: "Cloud Nine"},
+		heightm: 0.9,
+		weightkg: 5.74,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
