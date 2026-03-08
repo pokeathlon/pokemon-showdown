@@ -642,6 +642,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 		isNonstandard: null,
 	},
+	wallapillar: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	}, 
+	bulwarva: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	}, 
 	poltank: {
 		inherit: true,
 		tier: "OU",
@@ -708,6 +720,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 		isNonstandard: null,
 	},
+	fermiworm: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	}, 
 	anneliark: {
 		inherit: true,
 		tier: "OU",
@@ -875,6 +893,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
+	pixsilt: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	}, 
 	silretro: {
 		inherit: true,
 		tier: "OU",
@@ -935,16 +959,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: null,
 	}, 
-	pixsilt: {
+	verdicent: {
 		inherit: true,
-		tier: "LC",
-		natDexTier: "LC",
+		tier: "OU",
+		natDexTier: "OU",
 		isNonstandard: null,
 	}, 
-	fermiworm: {
+	martiantis: {
 		inherit: true,
-		tier: "LC",
-		natDexTier: "LC",
+		tier: "OU",
+		natDexTier: "OU",
 		isNonstandard: null,
 	}, 
 };

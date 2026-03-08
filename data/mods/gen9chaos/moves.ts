@@ -2593,6 +2593,28 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Clever",
 		shortDesc: "Scatters coins if this KOes the target.",
 	},
+	salchowjump: {
+		num: 0,
+		accuracy: true,
+		basePower: 85,
+		category: "Physical",
+		name: "Salchow Jump",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, dance: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					accuracy: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+		shortDesc: "100% to raise accuracy. Never misses.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
