@@ -810,13 +810,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen6infinity',
 		team: 'random',
-		ruleset: ['Obtainable', 'Sleep Clause Mod', 'HP Percentage Mod', 'Cancel Mod', 'Illusion Level Mod', 'Species Reveal Clause'],
+		ruleset: ['Obtainable', 'Sleep Clause Mod', 'HP Percentage Mod', 'Cancel Mod', 'Illusion Level Mod', 'Species Reveal Clause', '+ Future'],
 	},
 	{
 		name: "[Gen 6] Infinity OU",
 
 		mod: 'gen6infinity',
-		ruleset: ['Standard', 'Swagger Clause', 'Baton Pass Clause', 'No Event Moves', 'Overflow Stat Mod', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Swagger Clause', 'Baton Pass Clause', 'No Event Moves', 'Overflow Stat Mod', 'Species Reveal Clause', '+ Future'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:purefocus',
@@ -829,7 +829,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen6infinity',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause'],
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future'],
 	},
 	{
 		name: "[Gen 9] Infinity NatDex OU",
