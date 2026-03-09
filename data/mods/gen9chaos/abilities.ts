@@ -1181,9 +1181,10 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "This Pokemon's Fairy-Type moves have 1.5x power.",
 	},
 	windyspirit: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
 			if (move.flags.wind) {
+				this.debug('Windy Spirit boost');
 				return this.chainModify(1.2);
 			}
 		},
