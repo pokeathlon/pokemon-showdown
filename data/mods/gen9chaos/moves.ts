@@ -2651,6 +2651,26 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Clever",
 		shortDesc: "Heals 33%, transform into Tenkibo-Magical-Hero. If Tenkibo-Magical-Hero, 100BP Special move.",
 	},
+	foolsgambit: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Fool's Gambit",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1, biting: 1 },
+		self: {
+			boosts: {
+				def: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+		shortDesc: "Lowers the user's Def by 2.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

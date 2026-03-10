@@ -1374,6 +1374,17 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "This Pokemon's sound-based moves become Ghost type.",
 	},
+	caeciliandefense: {
+		onModifyMove(move, pokemon) {
+			if (move.category === "Status") return;
+			if (pokemon.attackedBy.some(p => p.damage > 0 && p.thisTurn)) move.overrideOffensiveStat = 'def';
+		},
+		flags: {},
+		name: "Caecilian Defense",
+		rating: 4,
+		num: 0,
+		shortDesc: "Uses Def. stat as offensive stat if it has been attacked this turn.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

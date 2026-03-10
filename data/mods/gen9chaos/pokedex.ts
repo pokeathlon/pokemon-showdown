@@ -2927,6 +2927,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	slithereina: {
+		num: 3150,
+		name: "Slithereina",
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 60, atk: 79, def: 135, spa: 48, spd: 97, spe: 57},
+		abilities: {0: "Shed Skin", 1: "Intimidate", H: "Caecilian Defense"},
+		heightm: 3.6,
+		weightkg: 78.0,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
