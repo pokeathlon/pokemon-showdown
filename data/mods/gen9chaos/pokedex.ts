@@ -2913,6 +2913,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	funglow: {
+		num: 3149,
+		name: "Funglow",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 80, atk: 68, def: 90, spa: 99, spd: 122, spe: 36},
+		abilities: {0: "Illuminate", 1: "Effect Spore", H: "Poison Heal"},
+		heightm: 1.2,
+		weightkg: 40.0,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
