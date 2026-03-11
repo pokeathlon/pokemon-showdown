@@ -2941,6 +2941,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	regasunde: {
+		num: 3151,
+		name: "Regasunde",
+		types: ["Grass", "Bug"],
+		baseStats: {hp: 80, atk: 80, def: 97, spa: 90, spd: 72, spe: 116},
+		abilities: {0: "Overgrow", H: "Tough Claws"},
+		heightm: 1.37,
+		weightkg: 60.0,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

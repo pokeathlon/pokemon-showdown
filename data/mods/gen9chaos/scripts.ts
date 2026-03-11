@@ -185,7 +185,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					pokemon.baseMoveSlots[moveIndex] = {
 						move: move.name,
 						id: move.id,
-						pp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						pp: pokemon.baseMoveSlots[moveIndex].pp,
 						maxpp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
 						target: move.target,
 						disabled: false,
@@ -399,7 +399,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.baseMoveSlots[moveIndex] = {
 						move: move.name,
 						id: move.id,
-						pp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
+						pp: this.baseMoveSlots[moveIndex].pp,
 						maxpp: move.noPPBoosts ? move.pp : move.pp * 8 / 5,
 						target: move.target,
 						disabled: false,

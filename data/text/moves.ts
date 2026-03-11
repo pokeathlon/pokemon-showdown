@@ -7639,5 +7639,11 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 
 		activate: "  ([TARGET] is being withdrawn...)",
 	},
+	chitinsnare: {
+		name: "Chitin Snare",
+		
+		start: "  [POKEMON] readied an attack!",
+		activate: "  [TARGET] got snared!",
+	},
 
 };

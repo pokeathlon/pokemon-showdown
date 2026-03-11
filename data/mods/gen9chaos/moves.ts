@@ -2671,6 +2671,43 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Lowers the user's Def by 2.",
 	},
+	chitinsnare: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Chitin Snare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, allyanim: 1, metronome: 1, contact: 1},
+		onAfterMove(source, target, move) {
+			if (!source.moveThisTurnResult) return;
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'chitinsnare',
+				source,
+				moveData: {
+					id: 'chitinsnare',
+					name: "Chitin Snare",
+					accuracy: 100,
+					basePower: 70,
+					category: "Special",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Bug',
+				},
+			});
+			this.add('-start', source, 'move: Chitin Snare');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+		shortDesc: "If succesful, hits again 2 turns later.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
