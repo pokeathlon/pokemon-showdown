@@ -2454,7 +2454,8 @@ export const Moves: ModdedMoveDataTable = {
 		},
 		onAfterHit(pokemon, target, move) {
 			if (!pokemon.volatiles['deadsilence']?.lostFocus) {
-				this.actions.useMove('perishsong', target);
+				pokemon.addVolatile('perishsong');
+				target.addVolatile('perishsong');
 			}
 		},
 		condition: {
