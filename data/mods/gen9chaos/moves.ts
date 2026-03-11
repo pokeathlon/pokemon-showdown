@@ -2709,6 +2709,40 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Clever",
 		shortDesc: "If succesful, hits again 2 turns later.",
 	},
+	smolderdash: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Smolder Dash",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1 },
+		onHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				let hazardRemoved = false;
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', `[of] ${pokemon}`);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stickyweb'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Smolder Dash', `[of] ${pokemon}`);
+						hazardRemoved = true;
+					}
+				}
+				if (hazardRemoved) target.trySetStatus('brn', pokemon)
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		secondary: {},
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+		shortDesc: "Clears grounded hazards, burns if succesful.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
