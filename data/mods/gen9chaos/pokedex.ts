@@ -3001,6 +3001,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	regalunith: {
+		num: 3155,
+		name: "Regalunith",
+		types: ["Ice", "Rock"],
+		baseStats: {hp: 75, atk: 76, def: 70, spa: 110, spd: 85, spe: 112},
+		abilities: {0: "Technician", 1:"Oblivious", H: "Misty Surge"},
+		heightm: 2.99,
+		weightkg: 272.15,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

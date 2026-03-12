@@ -2743,6 +2743,24 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cool",
 		shortDesc: "Clears grounded hazards, burns if succesful.",
 	},
+	lunarianforce: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Lunarian Force",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onHit(target, source, move) {
+			if (this.field.isTerrain('mistyterrain')) target.addVolatile('gastroacid');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+		shortDesc: "If Misty Terrain; nullifies the target's Ability."
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
