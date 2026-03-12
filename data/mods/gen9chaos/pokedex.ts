@@ -3015,6 +3015,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	galathea: {
+		num: 3156,
+		name: "Galathea",
+		types: ["Poison", "Ground"],
+		baseStats: {hp: 81, atk: 61, def: 69, spa: 112, spd: 131, spe: 96},
+		abilities: {0: "Pressure", H: "Filter"},
+		heightm: 1.6,
+		weightkg: 62.1,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

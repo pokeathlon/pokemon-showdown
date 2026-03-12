@@ -2761,6 +2761,22 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "If Misty Terrain; nullifies the target's Ability."
 	},
+	mourningkiss: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Mourning Kiss",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1 },
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cute",
+		shortDesc: "User recovers 50% of the damage dealt.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
