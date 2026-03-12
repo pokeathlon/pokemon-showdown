@@ -2303,6 +2303,6 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	strangeanatomy: {
 		name: "Strange Anatomy",
 
-		changeAbility: " [POKEMON] is morphing strangely!",
+		changeAbility: "  [POKEMON]'s Ability became Strange Anatomy!",
 	}
 };

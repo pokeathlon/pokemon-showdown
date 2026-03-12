@@ -1064,17 +1064,17 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 	},
 	crystalmana: {
-		onTerrainChange(pokemon) {
+		onTerrainChange(pokemon) { //goes before onStart
 			if (this.field.terrain) {
-				this.add('-activate', pokemon, 'ability: Crystal Mana');
 				this.boost({def: 1, spd: 1})
+				pokemon.abilityState.preTerrain = this.field.terrain;
 			}
 		},
 		onStart(pokemon) {
-			if (this.field.terrain) {
-				this.add('-activate', pokemon, 'ability: Crystal Mana');
+			if (this.field.terrain && !pokemon.abilityState.preTerrain) { 
 				this.boost({def: 1, spd: 1})
 			}
+			pokemon.abilityState.preTerrain = undefined //clear var
 		},
 		flags: {},
 		name: "Crystal Mana",
