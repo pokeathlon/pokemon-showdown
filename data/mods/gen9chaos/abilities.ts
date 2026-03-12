@@ -1195,19 +1195,13 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
 	},
 	strangeanatomy: {
-		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Strange Anatomy');
-		},
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
 			if (sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'strangeanatomy') {
 				return;
 			}
 			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
-				const oldAbility = source.setAbility('strangeanatomy', target);
-				if (oldAbility) {
-					this.add('-activate', target, 'ability: Strange Anatomy', this.dex.abilities.get(oldAbility).name, `[of] ${source}`);
-				}
+				source.setAbility('strangeanatomy', target);
 			}
 		},
 		onBasePowerPriority: 23,

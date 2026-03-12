@@ -2299,5 +2299,10 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		
 		start: "  [POKEMON] is surrounded by distortion energy from below!",
 		end: "  [POKEMON]'s bubble of distortion collapses!",
+	},
+	strangeanatomy: {
+		name: "Strange Anatomy",
+
+		changeAbility: " [POKEMON] is morphing strangely!",
 	}
 };
