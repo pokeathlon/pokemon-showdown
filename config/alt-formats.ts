@@ -597,7 +597,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9mariomon',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Same Type Clause'],
 		banlist: [
-			'pokemon:superfly', 'pokemon:peteypiranha', 'pokemon:gushen',
+			'pokemon:superfly', 'pokemon:peteypiranha', 'pokemon:gushen', 'pokemon:sonic',
 			'ability:arenatrap', 'ability:shadowtag',
 			'move:batonpass', 'move:electrify', 'move:boomburst',
 		],
