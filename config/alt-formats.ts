@@ -592,6 +592,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['pokemon:fighterfly', 'pokemon:gushen', 'pokemon:koopatroopa', 'move:electrify', 'item:kingsrock'],
 	},
 	{
+		name: "[Gen 9] Mariomon Monotype",
+
+		mod: 'gen9mariomon',
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Same Type Clause'],
+		banlist: [
+			'pokemon:superfly', 'pokemon:peteypiranha', 'pokemon:gushen',
+			'ability:arenatrap', 'ability:shadowtag',
+			'move:batonpass', 'move:electrify', 'move:boomburst',
+		],
+	},
+	{
 		name: "[Gen 9] Mariomon VGC",
 		mod: 'gen9mariomon',
 		gameType: 'doubles',
