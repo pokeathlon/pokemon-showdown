@@ -3029,6 +3029,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	sthencio: {
+		num: 3157,
+		name: "Sthencio",
+		types: ["Fighting", "Dragon"],
+		baseStats: {hp: 118, atk: 101, def: 69, spa: 55, spd: 79, spe: 96},
+		abilities: {0: "Shed Skin", 1: "Technician", H: "Infiltrator"},
+		heightm: 1.7,
+		weightkg: 92.3,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
