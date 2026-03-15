@@ -274,7 +274,10 @@ export function GetMegaStoneStats(item: Item, dex: ModdedDex) {
 export function GetMegaStoneTyping(item: Item, species: Species, dex: ModdedDex) {
 	const megaSpecies = dex.species.get(item.megaStone);
 	const baseSpecies = dex.species.get(item.megaEvolves);
+	let type1 = species.types[0];
+	let type2 = megaSpecies.types[1];
 	if (megaSpecies.types === baseSpecies.types) return species.types;
-	if (species.types[0] === megaSpecies.types[1]) return [species.types[0]];
-	else return [species.types[0], megaSpecies.types[1]];
+	if (!type2) return [type1];
+	if (type1 === type2) return [type1];
+	else return [type1, type2];
 }
