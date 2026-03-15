@@ -2660,7 +2660,7 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Fool's Gambit",
 		pp: 5,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1, biting: 1 },
+		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1, bite: 1 },
 		self: {
 			boosts: {
 				def: -2,
