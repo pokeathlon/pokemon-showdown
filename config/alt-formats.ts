@@ -380,7 +380,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
 		],
 		banlist: [
-			'ND AG', 'ND Uber',
+			'ND AG',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
@@ -1240,7 +1240,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Standard NatDex', 'Terastal Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'Restrict Ability = wonderguard',
 		],
 		banlist: [
-			'ND Uber', 'ND AG',
+			'ND AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock', 'item:heatrock', 'item:darkrock',
 			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist',
