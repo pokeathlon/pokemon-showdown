@@ -2531,15 +2531,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
 			pokemon.ability = pokemon.baseAbility = this.toID(megaAbility);
 		},
-		// onSwitchIn(pokemon) {
-		// 	if (!pokemon || !pokemon.item) return;
-		// 	const item = this.dex.items.get(pokemon.item);
-		// 	if (!item.megaStone) return;
+		onSwitchIn(pokemon) {
+			if (!pokemon || !pokemon.item) return;
+			const item = this.dex.items.get(pokemon.item);
+			if (!item.megaStone) return;
 
-		// 	// this.add('-mega', pokemon, item.megaStone);
-		// 	// this.add('-formechange', pokemon, pokemon.species, '[from] ' + item.name);
-		// 	this.add('replace', pokemon, pokemon.getUpdatedDetails());
-		// },
+			this.add('-mega', pokemon, item.megaStone);
+			this.add('-formechange', pokemon, item.megaStone, '[silent]');
+			this.add('-formechange', pokemon, pokemon.species);
+			this.add('replace', pokemon, pokemon.getUpdatedDetails());
+		},
 	},
 	nofunclause: {
 		effectType: "Rule",
