@@ -190,7 +190,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'DUber', 'Mega',
 			'ability:hugepower', 'ability:purepower', 'ability:commander', 'ability:swordofruin', 'ability:beadsofruin', 'ability:contrary', 'ability:wonderguard', 'ability:powerconstruct', 'ability:simple', 'ability:zerotohero', 'ability:shadowtag', 'ability:imposter', 'ability:moody',
-			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:spore'
+			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:spore',
 		],
 	},
 	{
@@ -366,6 +366,24 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'Mega',
+		],
+	},
+	{
+		name: "[Gen 9] IF NatDex Mix and Mega",
+		desc: `Pokemon can use any Mega Stone. Each Mega Stone gives the same base stat bonuses to any Pokemon.`,
+		searchShow: false,
+
+		mod: 'gen9infinitefusion',
+		ruleset: [
+			"Mix and Mega Mod",
+			'Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause',
+		],
+		banlist: [
+			'ND AG', 'ND Uber',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
 		],
 	},
 	{
@@ -1211,6 +1229,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:commander', 'ability:fairylaw', 'ability:illuminate', 'ability:inertia', 'ability:powerconstruct', 'ability:quickcharge',
 			'item:berserkgene', 'item:eeviumz', 'item:focusband', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:trickrock',
 			'Prankster + After You',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Mix and Mega",
+
+		mod: 'gen9chaos',
+		ruleset: [
+			"Mix and Mega Mod",
+			'Standard NatDex', 'Terastal Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'Restrict Ability = wonderguard',
+		],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock', 'item:heatrock', 'item:darkrock',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist',
+			'move:zippyzap', 'MegaKabuterimon + Speed Boost',
 		],
 	},
 	{

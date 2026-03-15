@@ -1,7 +1,7 @@
 // Note: These are the rules that formats use
 
 import type { Learnset } from "../sim/dex-species";
-import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, countStatDoubling, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMove, hasStatDoubling, isRecoveryMove, isSpammableHighPowerStab } from "./mods/gen7infinitefusion/ifUtils";
+import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, countStatDoubling, GetMegaStoneStats, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMove, isRecoveryMove, isSpammableHighPowerStab, GetMegaStoneTyping } from "./mods/gen7infinitefusion/ifUtils";
 
 // The list of formats is stored in config/formats.js
 export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
@@ -2461,18 +2461,15 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (tier in boosts) {
 				boost = boosts[tier];
 			};
-			console.log(species.name, tier);
 			let fusionBoost = 0;
 			const fusionName = target?.set?.fusion || undefined;
 			if (fusionName && this.dex.species.get(fusionName).exists) {
 				const fusionSpecies = this.dex.deepClone(this.dex.species.get(fusionName));
 				const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
-				console.log(species.name, tier, fusionTier);
 				if (fusionTier in boosts) {
 					fusionBoost = boosts[fusionTier];
 				};
 			} else fusionBoost = boost;
-			console.log(boost, fusionBoost);
 			let statName: StatID;
 			for (statName in pokemon.baseStats as StatsTable) {
 				if (statName === 'hp') continue;
@@ -2489,6 +2486,60 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 			return pokemon;
 		},
+	},
+	mixandmegamod: {
+		effectType: "Rule",
+		name: "Mix and Mega Mod",
+		desc: `Pokemon can hold any Mega Stone. Each Mega Stone gives the same base stat bonuses to any Pokemon.`,
+		ruleset: ['Overflow Stat Mod'],
+		onBegin() {
+			this.add('rule', 'Mix and Mega Mod: Pokemon can use any Mega Stone.');
+		},
+		onModifySpeciesPriority: 7,
+		onModifySpecies(species, target, source, effect) {
+			if (!target || !target.item) return species;
+			const item = this.dex.items.get(target.item);
+			if (!item.megaStone || !item.megaEvolves) return species;
+
+			const pokemon = this.dex.deepClone(species);
+
+			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
+			pokemon.abilities = {
+				0: megaAbility,
+				1: megaAbility,
+				H: megaAbility,
+				S: megaAbility,
+			};
+
+			pokemon.types = GetMegaStoneTyping(item, species, this.dex);
+
+			const megaStoneBonuses = GetMegaStoneStats(item, this.dex);
+			pokemon.bst = 0;
+			let statName: StatID;
+			for (statName in pokemon.baseStats as StatsTable) {
+				const statDif = megaStoneBonuses[statName];
+				pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + statDif, 1, 255);
+				pokemon.bst += pokemon.baseStats[statName];
+			}
+			return pokemon;
+		},
+		onBeforeSwitchIn(pokemon) {
+			if (!pokemon || !pokemon.item) return;
+			const item = this.dex.items.get(pokemon.item);
+			if (!item.megaStone) return;
+
+			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
+			pokemon.ability = pokemon.baseAbility = this.toID(megaAbility);
+		},
+		// onSwitchIn(pokemon) {
+		// 	if (!pokemon || !pokemon.item) return;
+		// 	const item = this.dex.items.get(pokemon.item);
+		// 	if (!item.megaStone) return;
+
+		// 	// this.add('-mega', pokemon, item.megaStone);
+		// 	// this.add('-formechange', pokemon, pokemon.species, '[from] ' + item.name);
+		// 	this.add('replace', pokemon, pokemon.getUpdatedDetails());
+		// },
 	},
 	nofunclause: {
 		effectType: "Rule",
@@ -4127,7 +4178,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			let restrictedAbility = 0;
 
 			if (this.format.name.includes('Custom Game') || this.format.name.includes(' CG')) return;
-			
+
 			const pivotingAbilities = [
 				'Emergency Exit',
 				'Wimp Out',

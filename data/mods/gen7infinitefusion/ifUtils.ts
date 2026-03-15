@@ -1,4 +1,4 @@
-import { Pokemon, Battle } from '../../../sim';
+import type { Pokemon, Battle } from '../../../sim';
 import { toID } from '../../../sim/dex';
 
 export function removeInnates(pokemon: Pokemon, battle: Battle) {
@@ -258,4 +258,23 @@ export function hasSleepMove(set: PokemonSet) {
 		"spore", "sleep powder", "hypnosis", "lovely kiss", "sing", "grass whistle", "dark void", "relic song",
 	];
 	return set.moves.some(m => sleepMoves.includes(m.toLowerCase()));
+}
+
+export function GetMegaStoneStats(item: Item, dex: ModdedDex) {
+	const megaSpecies = dex.species.get(item.megaStone);
+	const baseSpecies = dex.species.get(item.megaEvolves);
+	const diff = {} as StatsTable;
+	let stat: StatID;
+	for (stat in megaSpecies.baseStats) {
+		diff[stat] = megaSpecies.baseStats[stat] - baseSpecies.baseStats[stat];
+	}
+	return diff;
+}
+
+export function GetMegaStoneTyping(item: Item, species: Species, dex: ModdedDex) {
+	const megaSpecies = dex.species.get(item.megaStone);
+	const baseSpecies = dex.species.get(item.megaEvolves);
+	if (megaSpecies.types === baseSpecies.types) return species.types;
+	if (species.types[0] === megaSpecies.types[1]) return [species.types[0]];
+	else return [species.types[0], megaSpecies.types[1]];
 }
