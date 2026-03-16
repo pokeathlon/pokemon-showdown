@@ -1241,11 +1241,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'ND AG',
+			'pokemon:arkhaos', 'pokemon:calyrexshadowrider', 'pokemon:diaboromon', 'pokemon:fidgit', 'pokemon:frosthra', 'pokemon:icyall', 'pokemon:koraidon', 'pokemon:miraidon', 'pokemon:nucleon', 'pokemon:omnimon', 'pokemon:raffiti', 'pokemon:reaptide', 'pokemon:sonic', 'pokemon:supersonic',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay', 'item:trickrock', 'item:damprock', 'item:heatrock', 'item:darkrock',
-			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist',
-			'move:zippyzap', 'MegaKabuterimon + Speed Boost',
+			'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel',
+			'item:kingsrock', 'item:trickrock', 'item:focusband',
+			'item:beedrillite', 'item:blazikenite', 'item:cryogonalite', 'item:donphanite', 'item:electrodite', 'item:eevite', 'item:froslassitei', 'item:gengarite', 'item:hydreigonite', 
+			'item:inflagetite', 'item:kangaskhanite', 'item:lopunnite', 'item:marowakite', 'item:mawilite', 'item:deltamawilite', 'item:medichamite', 'item:deltamedichamite', 
+			'item:shadowmewtwonitex', 'item:pidgeotite', 'item:reuniclite', 'item:stunfiskite', 'item:sunflorite', 'item:deltasunflorite', 'item:zygardite'
 		],
+		restricted: [
+			'Arceus', 'Basculegion-M', 'Blissey-Egho', 'Calyrex-Ice', 'Chansey-Egho', 'Crustle-Delta-Cake', 'Deosectwo', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Eternatus', 'Flutter Mane', 'Gengar', 'Giratina', 'Gigantusk', 'Gouging Fire', 'Groudon', 'Ho-Oh', 'Hoopa-Delta-Unleashed', 
+			'Infermon', 'Inflagetah', 'Iron Bundle', 'Kyodonquaza', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lukagon', 'Lunala', 'MagnaAngemon', 'Marshadow', 'Manaphy', 'Melmetal', 'Machinedramon', 'Naganadel', 'MetalEtemon', 'Mewtwo', 'Mewtwo-Shadow', 'Mewthree', 'Necrozma-Dawn-Wings', 
+			'Necrozma-Dusk-Mane', 'Oculeus', 'Okuwamon', 'Palkia', 'Rayquaza', 'Reshiram', 'Regigigas', 'SaberLeomon', 'Seikamater', 'Shedinja', 'Slaking', 'Solgaleo', 'Sneasler', 'SkullGreymon', 'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Urshifu-Rapid-Strike', 'Ufi', 'Volcarona-Delta', 'Xerneas', 
+			'Yatagaryu', 'Yveltal', 'WarGreymon', 'Zacian', 'Zekrom', 'Zekyushiram',
+		]
 	},
 	{
 		name: "[Gen 9] Chaos Monotype",

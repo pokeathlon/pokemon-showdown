@@ -2495,6 +2495,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onBegin() {
 			this.add('rule', 'Mix and Mega Mod: Pokemon can use any Mega Stone.');
 		},
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (this.ruleTable.isRestrictedSpecies(species) && this.dex.items.get(set.item).megaStone) return [`${set.species} is restricted, and therefore cannot hold a Mega Stone`];
+		},
 		onModifySpeciesPriority: 7,
 		onModifySpecies(species, target, source, effect) {
 			if (!target || !target.item) return;
