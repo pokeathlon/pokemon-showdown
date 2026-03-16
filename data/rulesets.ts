@@ -2497,21 +2497,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onModifySpeciesPriority: 7,
 		onModifySpecies(species, target, source, effect) {
-			if (!target || !target.item) return species;
+			if (!target || !target.item) return;
 			const item = this.dex.items.get(target.item);
-			if (!item.megaStone || !item.megaEvolves) return species;
-
+			if (!item.megaStone || !item.megaEvolves) return;
+			if (!target.itemState.hasMegaEvolved) return;
 			const pokemon = this.dex.deepClone(species);
-
-			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
-			pokemon.abilities = {
-				0: megaAbility,
-				1: megaAbility,
-				H: megaAbility,
-				S: megaAbility,
-			};
-
-			pokemon.types = GetMegaStoneTyping(item, species, this.dex);
 
 			const megaStoneBonuses = GetMegaStoneStats(item, this.dex);
 			pokemon.bst = 0;
@@ -2521,25 +2511,34 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + statDif, 1, 255);
 				pokemon.bst += pokemon.baseStats[statName];
 			}
+			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
+			pokemon.abilities = {
+				0: megaAbility,
+				1: megaAbility,
+				H: megaAbility,
+				S: megaAbility,
+			};
+			pokemon.types = GetMegaStoneTyping(item, species, this.dex);
+			return pokemon;
+		},
+		onAfterMega(pokemon) {
+			pokemon.itemState.hasMegaEvolved = true;
+			pokemon.formeChange(this.dex.species.get(pokemon.itemState.baseSpecies).name, this.effect, true) //triggers mod species upon mega evolving
+			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
 			return pokemon;
 		},
 		onBeforeSwitchIn(pokemon) {
-			if (!pokemon || !pokemon.item) return;
+			if (!pokemon || !pokemon.item || pokemon.itemState.hasMegaEvolved) return;
 			const item = this.dex.items.get(pokemon.item);
 			if (!item.megaStone) return;
-
-			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
-			pokemon.ability = pokemon.baseAbility = this.toID(megaAbility);
+			pokemon.itemState.baseSpecies = pokemon.species; //tie base species to megastone
+			pokemon.canMegaEvo = item.megaStone;
 		},
 		onSwitchIn(pokemon) {
-			if (!pokemon || !pokemon.item) return;
-			const item = this.dex.items.get(pokemon.item);
-			if (!item.megaStone) return;
-
-			this.add('-mega', pokemon, item.megaStone);
-			this.add('-formechange', pokemon, item.megaStone, '[silent]');
-			this.add('-formechange', pokemon, pokemon.species);
+			if (!pokemon.itemState.hasMegaEvolved) return;
 			this.add('replace', pokemon, pokemon.getUpdatedDetails());
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
+			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
 		},
 	},
 	nofunclause: {

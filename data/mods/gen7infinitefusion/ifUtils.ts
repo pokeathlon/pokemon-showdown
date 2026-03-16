@@ -272,12 +272,15 @@ export function GetMegaStoneStats(item: Item, dex: ModdedDex) {
 }
 
 export function GetMegaStoneTyping(item: Item, species: Species, dex: ModdedDex) {
-	const megaSpecies = dex.species.get(item.megaStone);
-	const baseSpecies = dex.species.get(item.megaEvolves);
+	const megaSpeciesTypes = dex.species.get(item.megaStone).types
+	const baseMegaTypes = dex.species.get(item.megaEvolves).types //if no types gained by mega itself, retain species.types
+
 	let type1 = species.types[0];
-	let type2 = megaSpecies.types[1];
-	if (megaSpecies.types === baseSpecies.types) return species.types;
-	if (!type2) return [type1];
-	if (type1 === type2) return [type1];
+	if (baseMegaTypes[0] != megaSpeciesTypes[0]) type1 = megaSpeciesTypes[0]; //primary can also be replaced -> see Mega Staraptor
+
+	let type2 = species.types[1];
+	if (baseMegaTypes[1] != megaSpeciesTypes[1]) type2 = megaSpeciesTypes[1] //secondary type is species' unless the mega changes secondary type
+
+	if (megaSpeciesTypes === species.types || !type2 || type2 === type1) return species.types;
 	else return [type1, type2];
 }
