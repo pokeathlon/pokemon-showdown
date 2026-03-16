@@ -3043,6 +3043,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	patabyte: {
+		num: 3158,
+		name: "Patabyte",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 91, atk: 61, def: 78, spa: 99, spd: 78, spe: 123},
+		abilities: {0: "Trace", 1: "Frisk", H: "Anticipation"},
+		heightm: 1.09,
+		weightkg: 22.2,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
