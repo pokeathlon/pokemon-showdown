@@ -2524,9 +2524,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onAfterMega(pokemon) {
 			pokemon.itemState.hasMegaEvolved = true;
 			pokemon.formeChange(this.dex.species.get(pokemon.itemState.baseSpecies).name, this.effect, true) //triggers mod species upon mega evolving
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
 			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
 			return pokemon;
 		},
+		
 		onBeforeSwitchIn(pokemon) {
 			if (!pokemon || !pokemon.item || pokemon.itemState.hasMegaEvolved) return;
 			const item = this.dex.items.get(pokemon.item);
@@ -2539,6 +2541,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('replace', pokemon, pokemon.getUpdatedDetails());
 			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
 			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
+		},
+		onTakeItem(item, pokemon, source, move) {
+			if (this.dex.items.get(pokemon.item).megaStone) return false;
 		},
 	},
 	nofunclause: {
