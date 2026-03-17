@@ -2497,7 +2497,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
-			if (this.ruleTable.isRestrictedSpecies(species) && this.dex.items.get(set.item).megaStone) return [`${set.species} is restricted, and therefore cannot hold a Mega Stone`];
+			if (this.ruleTable.isRestrictedSpecies(species) && this.dex.items.get(set.item).megaStone)
+				return [`${set.species} is restricted, and therefore cannot hold a Mega Stone`];
 		},
 		onModifySpeciesPriority: 7,
 		onModifySpecies(species, target, source, effect) {
@@ -2527,17 +2528,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onAfterMega(pokemon) {
 			pokemon.itemState.hasMegaEvolved = true;
-			pokemon.formeChange(this.dex.species.get(pokemon.itemState.baseSpecies).name, this.effect, true) //triggers mod species upon mega evolving
+			pokemon.formeChange(this.dex.species.get(pokemon.itemState.baseSpecies).name, this.effect, true); // triggers mod species upon mega evolving
 			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
 			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
 			return pokemon;
 		},
-		
 		onBeforeSwitchIn(pokemon) {
 			if (!pokemon || !pokemon.item || pokemon.itemState.hasMegaEvolved) return;
 			const item = this.dex.items.get(pokemon.item);
 			if (!item.megaStone) return;
-			pokemon.itemState.baseSpecies = pokemon.species; //tie base species to megastone
+			pokemon.itemState.baseSpecies = pokemon.species; // tie base species to megastone
 			pokemon.canMegaEvo = item.megaStone;
 		},
 		onSwitchIn(pokemon) {

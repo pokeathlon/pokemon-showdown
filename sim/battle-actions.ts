@@ -1894,7 +1894,8 @@ export class BattleActions {
 		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
 
-		pokemon.formeChange(speciesid, pokemon.getItem(), true);
+		if (!this.battle.ruleTable?.has('mixandmegamod'))
+			pokemon.formeChange(speciesid, pokemon.getItem(), true);
 		if (this.battle.ruleTable?.has('multiplemega')) {
 			pokemon.canMegaEvo = null;
 			return true;
@@ -1911,7 +1912,7 @@ export class BattleActions {
 
 			this.battle.runEvent('AfterMega', pokemon);
 			return true;
-		}	
+		}
 	}
 
 	// Let's Go

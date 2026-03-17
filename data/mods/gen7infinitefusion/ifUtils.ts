@@ -271,16 +271,39 @@ export function GetMegaStoneStats(item: Item, dex: ModdedDex) {
 	return diff;
 }
 
+export function areTypesEqual(types1: string[], types2: string[]) {
+	if (types1.length !== types2.length) return false;
+	const sortedTypes1 = [...types1].sort();
+	const sortedTypes2 = [...types2].sort();
+	return sortedTypes1.every((val, ind) => val === sortedTypes2[ind]);
+}
+
 export function GetMegaStoneTyping(item: Item, species: Species, dex: ModdedDex) {
-	const megaSpeciesTypes = dex.species.get(item.megaStone).types
-	const baseMegaTypes = dex.species.get(item.megaEvolves).types //if no types gained by mega itself, retain species.types
+	const megaSpeciesTypes = dex.species.get(item.megaStone).types;
+	const baseMegaTypes = dex.species.get(item.megaEvolves).types;
 
 	let type1 = species.types[0];
-	if (baseMegaTypes[0] != megaSpeciesTypes[0]) type1 = megaSpeciesTypes[0]; //primary can also be replaced -> see Mega Staraptor
-
 	let type2 = species.types[1];
-	if (baseMegaTypes[1] != megaSpeciesTypes[1]) type2 = megaSpeciesTypes[1] //secondary type is species' unless the mega changes secondary type
+	let extraType = null;
+	// primary can also be replaced -> see Mega Staraptor
+	if (baseMegaTypes[0] !== megaSpeciesTypes[0]) {
+		type1 = megaSpeciesTypes[0];
+		extraType = megaSpeciesTypes[0];
+	}
+	// secondary type is species' unless the mega changes secondary type
+	if (baseMegaTypes[1] !== megaSpeciesTypes[1]) {
+		type2 = megaSpeciesTypes[1];
+		extraType = megaSpeciesTypes[1];
+	}
+	// if the mega removes the secondary typing, we consider it the same as giving the first one (e.g. aggronite -> steel secondary)
+	if (megaSpeciesTypes.length < baseMegaTypes.length) type2 = megaSpeciesTypes[0];
 
-	if (megaSpeciesTypes === species.types || !type2 || type2 === type1) return species.types;
+	// if the mega adds a secondary typing that's the same as the first one, the pokemon becomes monotype
+	else if (type2 === type1) return [type1];
+	// if no types gained by mega itself, retain species.types
+	if (areTypesEqual(megaSpeciesTypes, baseMegaTypes) || extraType && species.types.includes(extraType))
+		return species.types;
+	// if the pokemon is a triple fusion with 3+ types, it just gains an extra one
+	else if (species.types.length > 2 && extraType !== null) return [...species.types, extraType];
 	else return [type1, type2];
 }
