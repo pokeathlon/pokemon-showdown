@@ -475,15 +475,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
-		banlist: ['move:hiddenpower'],
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
+		banlist: ['move:hiddenpower', 'move:swagger'],
 	},
 	{
 		name: "[Gen 9] Ins HBF MM Draft",
 		searchShow: false,
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Multiple Mega'],
-		banlist: ['move:hiddenpower'],
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Multiple Mega'],
+		banlist: ['move:hiddenpower', 'move:swagger'],
 	},
 	{
 		name: "[Gen 9] Chaos Tera Preview Draft",
@@ -530,7 +530,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon Draft",
 		mod: 'gen9mariomon',
 		searchShow: false,
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		banlist: ['move:swagger'],
 	},
 	{
 		name: "[Gen 9] PoA Solo PL",
@@ -570,22 +571,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon OU",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:electrify', 'move:boomburst',
+			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:swagger',
 		],
 	},
 	{
 		name: "[Gen 9] Mariomon Ubers",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG',
-			'move:batonpass',
+			'move:batonpass', 'move:swagger',
 		],
 	},
 	{
@@ -593,12 +594,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber', 'OU', 'UUBL',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:electrify', 'move:boomburst',
+			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:swagger',
 		],
 	},
 	{
@@ -613,11 +614,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon Monotype",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Same Type Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Same Type Clause'],
 		banlist: [
 			'pokemon:superfly', 'pokemon:peteypiranha', 'pokemon:gushen', 'pokemon:sonic',
 			'ability:arenatrap', 'ability:shadowtag',
-			'move:batonpass', 'move:electrify', 'move:boomburst',
+			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:swagger',
 		],
 	},
 	{
@@ -632,12 +633,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon Dev OU",
 
 		mod: 'gen9mariomondev',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Swagger Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:fishiousrend', 'move:shedtail'
+			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:fishiousrend', 'move:shedtail', 'move:swagger',
 		],
 	},
 	{
@@ -673,12 +674,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 6] Insurgence OU",
 
 		mod: 'gen6insurgence',
-		ruleset: ['Standard', 'Swagger Clause', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'No Event Moves', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew',
-			'move:batonpass', 'move:permafrost', 'move:livewire', "move:achillesheel",
+			'move:batonpass', 'move:permafrost', 'move:livewire', "move:achillesheel", 'move:swagger',
 		],
 	},
 	{
@@ -760,12 +761,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 6] Uranium OU",
 
 		mod: 'gen6uranium',
-		ruleset: ['Standard', 'Swagger Clause', 'Nuclear Clause', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Nuclear Clause', 'Species Reveal Clause'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew',
-			'move:batonpass',
+			'move:batonpass', 'move:swagger',
 		],
 	},
 	{
@@ -845,12 +846,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 6] Infinity OU",
 
 		mod: 'gen6infinity',
-		ruleset: ['Standard', 'Swagger Clause', 'Baton Pass Clause', 'No Event Moves', 'Overflow Stat Mod', 'Species Reveal Clause', '+ Future'],
+		ruleset: ['Standard', 'Baton Pass Clause', 'No Event Moves', 'Overflow Stat Mod', 'Species Reveal Clause', '+ Future'],
 		banlist: [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:purefocus',
 			'item:souldew',
-			'move:vanish', 'move:cinderbreath',
+			'move:vanish', 'move:cinderbreath', 'move:swagger',
 		],
 	},
 	{
