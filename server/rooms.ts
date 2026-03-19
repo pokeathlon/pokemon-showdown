@@ -2050,6 +2050,16 @@ export class GameRoom extends BasicRoom {
 		const battle = this.battle;
 		if (!battle) return;
 
+		if (!user?.registered) {
+			connection?.popup(`Your account must be registered to upload replays.`);
+			return;
+		}
+
+		if (battle.turn <= 1 && battle.inputLog?.slice(-1)[0].includes('>forcelose')) {
+			connection?.popup(`There was an error uploading your replay.`);
+			return;
+		}
+
 		// retrieve spectator log (0) if there are privacy concerns
 		const format = Dex.formats.get(this.format, true);
 
@@ -2064,10 +2074,6 @@ export class GameRoom extends BasicRoom {
 		let rating = 0;
 		if (battle.ended && this.rated) rating = this.rated;
 
-		if (battle.replaySaved) {
-			connection?.popup(`The replay for this battle was already saved. You can find it at https://replay.pokeathlon.com/`);
-			return;
-		}
 		battle.replaySaved = true;
 
 		let buf = '<!DOCTYPE html>\n';
@@ -2083,7 +2089,7 @@ export class GameRoom extends BasicRoom {
 		buf += `let daily = Math.floor(Date.now()/1000/60/60/24);document.write('<script src="https://play.pokeathlon.com/js/replay-embed.js?version'+daily+'"></'+'script>');\n`;
 		buf += '</script>\n';
 
-		const replayName = `${toID(battle.p1.name)}-${toID(battle.p2.name)}${battle.p3 ? '-' + toID(battle.p3.name) : ''}${battle.p4 ? '-' + toID(battle.p4.name) : ''}-${Date.now()}`;
+		const replayName = battle.roomid.slice(7);
 
 		FS(`server/static/replays/${replayName}.html`).writeSync(buf);
 		FS(`server/static/replays/${replayName}.log`).writeSync(data);
@@ -2099,7 +2105,7 @@ export class GameRoom extends BasicRoom {
 			uploadtime: Math.trunc(Date.now() / 1000),
 		}));
 
-		FS('server/static/replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
+		if (!battle.replaySaved) FS('server/static/replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
 
 		connection?.popup(
 			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
