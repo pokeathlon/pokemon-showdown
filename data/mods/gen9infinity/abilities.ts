@@ -97,6 +97,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	migraine: {
 		onModifyPriority(priority, pokemon, target, move) {
+			if (move.category === "Status") return;
 			return -7;
 		},
 		onModifyCritRatio(critRatio, source, target) {
