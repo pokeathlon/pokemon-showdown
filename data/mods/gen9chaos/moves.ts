@@ -198,6 +198,45 @@ export const Moves: ModdedMoveDataTable = {
 			return !!this.boost({ atk: 1, spe: 1 }, pokemon, pokemon, null, false, true) || success;
 		},
 	},
+	gale: {
+		inherit: true,
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				for (const volatile of removeVolatileUniversal) {
+					if (pokemon.hp && pokemon.removeVolatile(this.dex.toID(volatile))) {
+						this.add('-end', pokemon, volatile, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				const sideConditions = removeAllUniversal;
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				for (const volatile of removeVolatileUniversal) {
+					if (pokemon.hp && pokemon.removeVolatile(this.dex.toID(volatile))) {
+						this.add('-end', pokemon, volatile, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				const sideConditions = removeAllUniversal;
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+	},
 
 	// OTHER
 	darkvoid: {
