@@ -118,7 +118,7 @@ if (process.argv[2] === 'full') {
 	const months = fs.readdirSync(`${logs}/usage`).map(element => element.split('.')[0]).toReversed();
 	let a = start;
 	a += `\n--- POK&Eacute;ATHLON USAGE STATS ---\n\n`;
-	a += `${pad('BATTLES', ' ', 8)} | MONTH\n${pad('', '-', 18)}\n`;
+	a += `${pad('BATTLES', ' ', 8)} | MONTH\n${pad('', '-', 19)}\n`;
 
 	for (const month of months) {
 		if (!fs.existsSync(`${server}/usage/${month}`)) fs.mkdirSync(`${server}/usage/${month}`);
@@ -141,7 +141,7 @@ if (process.argv[2] === 'full') {
 
 			const dex = Dex.mod(formatinfo[format] ? formatinfo[format].mod : format.substring(0, 4));
 
-			b += `${pad(usage[format].total.ladders, ' ', 8)} | <a href=/${month}/${format}.html>${pad(formatinfo[format] ? formatinfo[format].name : format, ' ', 30)}</a> | ${'&block;'.repeat(Math.sqrt(usage[format].total.ladders / 10) + 1)}\n`;
+			b += `${pad(usage[format].total.ladders, ' ', 8)} | <a href=/${month}/${format}.html>${pad(formatinfo[format] ? formatinfo[format].name : format, ' ', 30)}</a>| ${'&block;'.repeat(Math.sqrt(usage[format].total.ladders / 10) + 1)}\n`;
 
 			let c = start;
 			c += `<a href=/${month}.html><- back</a>\n\n`;
@@ -154,7 +154,7 @@ if (process.argv[2] === 'full') {
 				const name = species[0].split('+').map(element => dex.species.get(element).name).join(' + ');
 				const sets = usage[format].sets[species[0]];
 
-				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a> | ${'&block;'.repeat((Math.pow(percent, isFusions ? 2 : 1.5) / 10) + 1)}\n`;
+				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a>| ${'&block;'.repeat((Math.pow(percent, isFusions ? 2 : 1.5) / 10) + 1)}\n`;
 
 				let d = start;
 				d += `<a href=/${month}/${format}.html><- back</a>\n\n`;
