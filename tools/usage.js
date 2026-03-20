@@ -16,11 +16,6 @@ const incrementObj = (obj, key, amount=1) => {
 	obj[key] += amount;
 }
 
-const orderObj = (obj) => {
-	if (!obj) return [];
-	return Object.entries(obj).toSorted((a, b) => b[1] - a[1]);
-} 
-
 const pad = (text, fill, count) => {
 	text = `${text}`.substring(0, count);
 	return text + fill.repeat(count - text.length);
@@ -151,25 +146,51 @@ const pad = (text, fill, count) => {
 			c += `${pad('USAGE %', ' ', 8)} | POK&Eacute;MON\n${pad('', '-', 36)}\n`;
 
 			for (const species of Object.entries(usage[format].species).toSorted((a, b) => b[1] - a[1])) {
-				const percent = (species[1] / usage[format].total.teams) * 100;
+				let percent = (species[1] / usage[format].total.teams) * 100;
 				if (percent < 0.5) continue;
 
 				const name = species[0].split('+').map(element => dex.species.get(element).name).join(' + ');
+				const sets = usage[format].sets[species[0]];
 
-				c += `${pad(percent, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${name}</a>\n`;
+				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${name}</a>\n`;
 
 				let d = start;
 				d += `<a href=/${month}/${format}.html><- back</a>\n\n`;
 				d += `--- ${name.toUpperCase()} ---\n\n`;
-				d += `${pad('RANK', ' ', 4)} | ${pad('MOVES', ' ', 24)} | ${pad('ABILITIES', ' ', 36)} | ${pad('ITEMS', ' ', 24)}\n${pad('', '-', 97)}\n`;
+				d += `${pad('USAGE %', ' ', 8)} | ${pad('MOVES', ' ', 24)}\n${pad('', '-', 35)}\n`;
 
-				const sets = usage[format].sets[species[0]];
+				total = 0;
 				const moves = Object.entries(sets.moves).toSorted((a, b) => b[1] - a[1]);
-				const abilities = Object.entries(sets.abilities).toSorted((a, b) => b[1] - a[1]);
-				const items = Object.entries(sets.items).toSorted((a, b) => b[1] - a[1]);
+				moves.forEach(entry => total += entry[1]);
 
-				for (let i = 0; i < Math.max(moves.length, items.length, abilities.length); i++) {
-					d += `${pad(i + 1, ' ', 4)} | ${pad(moves[i] ? dex.moves.get(moves[i][0]) : '', ' ', 24)} | ${pad(abilities[i] ? abilities[i][0].split('+').map(element => dex.abilities.get(element).name).join(' + ') : '', ' ', 36)} | ${pad(items[i] ? dex.items.get(items[i][0]) : '', ' ', 24)}\n`
+				for (const move of moves) {
+					percent = (move[1] / total) * 100;
+
+					d += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | ${pad(dex.moves.get(move[0]), ' ', 24)}\n`;
+				}
+
+				d += `\n${pad('USAGE %', ' ', 8)} | ${pad('ABILITIES', ' ', 24)}\n${pad('', '-', 35)}\n`;
+
+				total = 0;
+				const abilities = Object.entries(sets.abilities).toSorted((a, b) => b[1] - a[1]);
+				abilities.forEach(entry => total += entry[1]);
+				
+				for (const ability of abilities) {
+					percent = (ability[1] / total) * 100;
+
+					d += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | ${pad(ability[0].split('+').map(element => dex.abilities.get(element).name).join(' + '), ' ', 24)}\n`;
+				}
+
+				d += `\n${pad('USAGE %', ' ', 8)} | ${pad('ITEMS', ' ', 24)}\n${pad('', '-', 35)}\n`;
+
+				total = 0;
+				const items = Object.entries(sets.items).toSorted((a, b) => b[1] - a[1]);
+				items.forEach(entry => total += entry[1]);
+
+				for (const item of items) {
+					percent = (item[1] / total) * 100;
+
+					d += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | ${pad(dex.items.get(item[0]), ' ', 24)}\n`;
 				}
 
 				d += `\n<a href=/${month}/${format}.html><- back</a>`;
@@ -190,8 +211,4 @@ const pad = (text, fill, count) => {
 
 	a += end;
 	fs.writeFileSync(`${server}/usage/index.html`, a);
-
-	// Usage
-
-	// Sets
 }
