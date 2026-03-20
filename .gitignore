@@ -2,6 +2,7 @@
 !/config/*formats.ts
 !/config/avatars
 data/remote/*.json
+server/static/usage/**/*.html
 server/static/replays/*.html
 server/static/replays/*.json
 server/static/replays/*.log
