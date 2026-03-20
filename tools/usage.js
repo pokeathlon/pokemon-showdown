@@ -112,7 +112,7 @@ if (process.argv[2] === 'full') {
 
 	const server = path.resolve(__dirname, '../server/static');
 
-	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t</head>\n\t<body>\n\t\t<pre style="word-wrap: break-word; white-space: pre-wrap;">`
+	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t\t<style>\n\t\t\ta { text-decoration: none; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<pre style="word-wrap: break-word; white-space: pre-wrap;">`
 	const end = `\n\t\t</pre>\n\t</body>\n</html>`;
 
 	const months = fs.readdirSync(`${logs}/usage`).map(element => element.split('.')[0]).toReversed();
@@ -127,23 +127,25 @@ if (process.argv[2] === 'full') {
 		const usage = JSON.parse(fs.readFileSync(`${logs}/usage/${month}.json`, 'utf-8'));
 		Object.keys(usage).forEach(format => total += usage[format].total.ladders);
 
-		a += `${pad(total, ' ', 8)} | <a href=/${month}.html>${month}</a>\n`;
+		a += `${pad(total, ' ', 8)} | <a href=/${month}.html>${month}</a> | ${'&block;'.repeat(Math.sqrt(total / 100) + 1)}\n`;
 
 		let b = start;
 		b += `<a href=/><- back</a>\n\n`;
-		b += `${pad('BATTLES', ' ', 8)} | FORMAT\n${pad('', '-', 36)}\n`;
+		b += `${pad('BATTLES', ' ', 8)} | ${pad('FORMAT', ' ', 30)}\n${pad('', '-', 41)}\n`;
 
 		for (const format of Object.keys(usage).toSorted((a, b) => usage[b].total.ladders - usage[a].total.ladders)) {
 			if (!usage[format].total.ladders) continue;
 			if (!fs.existsSync(`${server}/usage/${month}/${format}`)) fs.mkdirSync(`${server}/usage/${month}/${format}`);
 
+			const isFusions = !formatinfo[format] || formatinfo[format].ruleset.includes('Infinite Fusion Mod');
+
 			const dex = Dex.mod(formatinfo[format] ? formatinfo[format].mod : format.substring(0, 4));
 
-			b += `${pad(usage[format].total.ladders, ' ', 8)} | <a href=/${month}/${format}.html>${formatinfo[format] ? formatinfo[format].name : format}</a>\n`;
+			b += `${pad(usage[format].total.ladders, ' ', 8)} | <a href=/${month}/${format}.html>${pad(formatinfo[format] ? formatinfo[format].name : format, ' ', 30)}</a> | ${'&block;'.repeat(Math.sqrt(usage[format].total.ladders / 10) + 1)}\n`;
 
 			let c = start;
 			c += `<a href=/${month}.html><- back</a>\n\n`;
-			c += `${pad('USAGE %', ' ', 8)} | POK&Eacute;MON\n${pad('', '-', 36)}\n`;
+			c += `${pad('USAGE %', ' ', 8)} | ${pad('POK&Eacute;MON', ' ', isFusions ? 36 : 24)}\n${pad('', '-', 11 + (isFusions ? 36 : 24))}\n`;
 
 			for (const species of Object.entries(usage[format].species).toSorted((a, b) => b[1] - a[1])) {
 				let percent = (species[1] / usage[format].total.teams) * 100;
@@ -152,7 +154,7 @@ if (process.argv[2] === 'full') {
 				const name = species[0].split('+').map(element => dex.species.get(element).name).join(' + ');
 				const sets = usage[format].sets[species[0]];
 
-				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${name}</a>\n`;
+				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a> | ${'&block;'.repeat((Math.pow(percent, isFusions ? 2 : 1.5) / 10) + 1)}\n`;
 
 				let d = start;
 				d += `<a href=/${month}/${format}.html><- back</a>\n\n`;
