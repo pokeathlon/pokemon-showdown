@@ -30,7 +30,7 @@ const pad = (text, fill, count) => {
 	}
 }
 
-{
+if (process.argv[2] === 'full') {
 	process.stdout.write('Compiling usage... \n');
 	const months = fs.readdirSync(logs).filter((path) => path.startsWith('20'));
 
