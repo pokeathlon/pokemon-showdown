@@ -5,7 +5,7 @@ const path = require('path');
 const { Dex } = require('../dist/sim/dex');
 
 const logs = path.resolve(__dirname, '../logs');
-const formatinfo = {};
+const server = path.resolve(__dirname, '../server/static');
 
 const toID = (text) => {
 	return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
@@ -20,6 +20,8 @@ const pad = (text, fill, count) => {
 	text = `${text}`.substring(0, count);
 	return text + fill.repeat(count - text.length);
 }
+
+const formatinfo = {};
 
 {
 	process.stdout.write('Indexing formats... \n');
@@ -103,19 +105,17 @@ if (process.argv[2] === 'full') {
 			process.stdout.write('\r                                                \r');
 		}
 
-		fs.writeFileSync(`${logs}/usage/${month}.json`, JSON.stringify(usage, null, 2));
+		fs.writeFileSync(`${server}/usage/raw/${month}.json`, JSON.stringify(usage, null, 2));
 	}
 }
 
 {
 	process.stdout.write('Generating HTML files... \n');
 
-	const server = path.resolve(__dirname, '../server/static');
-
 	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t\t<style>\n\t\t\ta { text-decoration: none; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<pre style="word-wrap: break-word; white-space: pre-wrap;">`
 	const end = `\n\t\t</pre>\n\t</body>\n</html>`;
 
-	const months = fs.readdirSync(`${logs}/usage`).map(element => element.split('.')[0]).toReversed();
+	const months = fs.readdirSync(`${server}/usage/raw`).map(element => element.split('.')[0]).toReversed();
 	let a = start;
 	a += `\n--- POK&Eacute;ATHLON USAGE STATS ---\n\n`;
 	a += `${pad('BATTLES', ' ', 8)} |  MONTH  |    GRAPH\n${pad('', '-', 29)}\n`;
