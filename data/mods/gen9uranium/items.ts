@@ -3,12 +3,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Nuclear Arbokite",
 		desc: "If held by a Nuclear Arbok, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Arbok-Nuclear-Mega",
-		megaEvolves: "Arbok-Nuclear",
+		megaStone: { "Arbok-Nuclear": "Arbok-Nuclear-Mega" },
 		itemUser: ["Arbok-Nuclear"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -16,12 +14,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Nuclear Gyaradosite",
 		desc: "If held by a Nuclear Gyarados, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Gyarados-Nuclear-Mega",
-		megaEvolves: "Gyarados-Nuclear",
+		megaStone: { "Gyarados-Nuclear": "Gyarados-Nuclear-Mega" },
 		itemUser: ["Gyarados-Nuclear"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -29,12 +25,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Arbokite",
 		desc: "If held by an Arbok, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Arbok-Mega",
-		megaEvolves: "Arbok",
+		megaStone: { "Arbok": "Arbok-Mega" },
 		itemUser: ["Arbok"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -42,12 +36,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Whimsicottite",
 		desc: "If held by a Whimsicott, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Whimsicott-Mega",
-		megaEvolves: "Whimsicott",
+		megaStone: { "Whimsicott": "Whimsicott-Mega" },
 		itemUser: ["Whimsicott"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -55,12 +47,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Metalynxite",
 		desc: "If held by a Metalynx, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Metalynx-Mega",
-		megaEvolves: "Metalynx",
+		megaStone: { "Metalynx": "Metalynx-Mega" },
 		itemUser: ["Metalynx"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -68,12 +58,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Archillesite",
 		desc: "If held by an Archilles, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Archilles-Mega",
-		megaEvolves: "Archilles",
+		megaStone: { "Archilles": "Archilles-Mega" },
 		itemUser: ["Archilles"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -81,12 +69,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Electruxolite",
 		desc: "If held by an Electruxo, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Electruxo-Mega",
-		megaEvolves: "Electruxo",
+		megaStone: { "Electruxo": "Electruxo-Mega" },
 		itemUser: ["Electruxo"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -94,12 +80,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Baariettite",
 		desc: "If held by a Baariette, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Baariette-Mega",
-		megaEvolves: "Baariette",
+		megaStone: { "Baariette": "Baariette-Mega" },
 		itemUser: ["Baariette"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -107,12 +91,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Nuclear Baariettite",
 		desc: "If held by a Nuclear Baariette, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Baariette-Nuclear-Mega",
-		megaEvolves: "Baariette-Nuclear",
+		megaStone: { "Baariette-Nuclear": "Baariette-Nuclear-Mega" },
 		itemUser: ["Baariette-Nuclear"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -120,12 +102,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Drilgannite",
 		desc: "If held by a Drilgann, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Drilgann-Mega",
-		megaEvolves: "Drilgann",
+		megaStone: { "Drilgann": "Drilgann-Mega" },
 		itemUser: ["Drilgann"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -133,12 +113,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Unidentified Fallen Object",
 		desc: "If held by an S51-A, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "S51-A-Mega",
-		megaEvolves: "S51-A",
+		megaStone: { "S51-A": "S51-A-Mega" },
 		itemUser: ["S51-A"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -146,12 +124,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Inflagetite",
 		desc: "If held by an Inflagetah, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Inflagetah-Mega",
-		megaEvolves: "Inflagetah",
+		megaStone: { "Inflagetah": "Inflagetah-Mega" },
 		itemUser: ["Inflagetah"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -159,12 +135,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Syrentideite",
 		desc: "If held by a Syrentide, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Syrentide-Mega",
-		megaEvolves: "Syrentide",
+		megaStone: { "Syrentide": "Syrentide-Mega" },
 		itemUser: ["Syrentide"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -172,12 +146,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Dramsamaite",
 		desc: "If held by a Dramsama, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Dramsama-Mega",
-		megaEvolves: "Dramsama",
+		megaStone: { "Dramsama": "Dramsama-Mega" },
 		itemUser: ["Dramsama"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -185,12 +157,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Dark Dramsamaite",
 		desc: "If held by a Dramsama, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Dramsama-Dark-Mega",
-		megaEvolves: "Dramsama",
+		megaStone: { "Dramsama": "Dramsama-Mega" },
 		itemUser: ["Dramsama"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -198,12 +168,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Nuclear Dramsamaite",
 		desc: "If held by a Nuclear Dramsama, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Dramsama-Nuclear-Mega",
-		megaEvolves: "Dramsama-Nuclear",
+		megaStone: { "Dramsama-Nuclear": "Dramsama-Nuclear-Mega" },
 		itemUser: ["Dramsama-Nuclear"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -211,12 +179,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Dark Nuclear Dramsamaite",
 		desc: "If held by a Nuclear Dramsama, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Dramsama-Nuclear-Dark-Mega",
-		megaEvolves: "Dramsama-Nuclear",
+		megaStone: { "Dramsama-Nuclear": "Dramsama-Nuclear-Mega" },
 		itemUser: ["Dramsama-Nuclear"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -224,12 +190,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Kiricornite",
 		desc: "If held by a Kiricorn, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Kiricorn-Mega",
-		megaEvolves: "Kiricorn",
+		megaStone: { "Kiricorn": "Kiricorn-Mega" },
 		itemUser: ["Kiricorn"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -237,12 +201,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Oblivicornite",
 		desc: "If held by an Oblivicorn, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
-		megaStone: "Oblivicorn-Mega",
-		megaEvolves: "Oblivicorn",
+		megaStone: { "Oblivicorn": "Oblivicorn-Mega" },
 		itemUser: ["Oblivicorn"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},

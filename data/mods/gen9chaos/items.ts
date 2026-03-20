@@ -70,12 +70,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Electrodite",
 		desc: "If held by a Electrode, this item allows it to Mega Evolve in battle.",
 		spritenum: 596,
-		megaStone: "Electrode-Mega",
-		megaEvolves: "Electrode",
+		megaStone: { "Electrode": "Electrode-Mega" },
 		itemUser: ["Electrode"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -83,12 +81,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Florgesite",
 		desc: "If held by a Florges, this item allows it to Mega Evolve in battle.",
 		spritenum: 615,
-		megaStone: "Florges-Mega",
-		megaEvolves: "Florges",
+		megaStone: { "Florges": "Florges-Mega" },
 		itemUser: ["Florges"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -96,12 +92,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Frosty Snorlaxite",
 		desc: "If held by a Snorlax-Frost, this item allows it to Mega Evolve in battle.",
 		spritenum: 623,
-		megaStone: "Snorlax-Frost-Mega",
-		megaEvolves: "Snorlax-Frost",
+		megaStone: { "Snorlax-Frost": "Snorlax-Frost-Mega" },
 		itemUser: ["Snorlax-Frost"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -109,12 +103,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Delta Blazikenite",
 		desc: "If held by a Blaziken-Delta, this item allows it to Mega Evolve in battle.",
 		spritenum: -3,
-		megaStone: "Blaziken-Delta-Mega",
-		megaEvolves: "Blaziken-Delta",
+		megaStone: { "Blaziken-Delta": "Blaziken-Delta-Mega" },
 		itemUser: ["Blaziken-Delta"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -122,12 +114,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Delta Sceptilite",
 		desc: "If held by a Sceptile-Delta, this item allows it to Mega Evolve in battle.",
 		spritenum: -3,
-		megaStone: "Sceptile-Delta-Mega",
-		megaEvolves: "Sceptile-Delta",
+		megaStone: { "Sceptile-Delta": "Sceptile-Delta-Mega" },
 		itemUser: ["Sceptile-Delta"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -135,12 +125,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Sekrilite",
 		desc: "If held by a Sekrilon, this item allows it to Mega Evolve in battle.",
 		spritenum: 623,
-		megaStone: "Sekrilon-Mega",
-		megaEvolves: "Sekrilon",
+		megaStone: { "Sekrilon": "Sekrilon-Mega" },
 		itemUser: ["Sekrilon"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
@@ -148,12 +136,10 @@ export const Items: ModdedItemDataTable = {
 		name: "Delta Tyranitarite",
 		desc: "If held by a Tyranitar-Delta, this item allows it to Mega Evolve in battle.",
 		spritenum: -1,
-		megaStone: "Tyranitar-Delta-Mega",
-		megaEvolves: "Tyranitar-Delta",
+		megaStone: { "Tyranitar-Delta": "Tyranitar-Delta-Mega" },
 		itemUser: ["Tyranitar-Delta"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
 		num: 0,
 	},
