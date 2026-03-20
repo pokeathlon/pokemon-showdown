@@ -166,7 +166,7 @@ if (process.argv[2] === 'full') {
 				moves.forEach(entry => total += entry[1]);
 
 				for (const move of moves) {
-					percent = (move[1] / total) * 100;
+					percent = (move[1] / species[1]) * 100;
 
 					d += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | ${pad(dex.moves.get(move[0]), ' ', 24)}\n`;
 				}
