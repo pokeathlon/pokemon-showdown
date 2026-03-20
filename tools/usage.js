@@ -135,7 +135,7 @@ const pad = (text, fill, count) => {
 		a += `${pad(total, ' ', 8)} | <a href=/${month}.html>${month}</a>\n`;
 
 		let b = start;
-		b += `<a href=/index.html><- back</a>\n\n`;
+		b += `<a href=/><- back</a>\n\n`;
 		b += `${pad('BATTLES', ' ', 8)} | FORMAT\n${pad('', '-', 36)}\n`;
 
 		for (const format of Object.keys(usage).toSorted((a, b) => usage[b].total.ladders - usage[a].total.ladders)) {
@@ -182,7 +182,7 @@ const pad = (text, fill, count) => {
 			fs.writeFileSync(`${server}/usage/${month}/${format}.html`, c);
 		}
 
-		b += `\n<a href=/index.html><- back</a>`;
+		b += `\n<a href=/><- back</a>`;
 		b += end;
 		fs.writeFileSync(`${server}/usage/${month}.html`, b);
 
