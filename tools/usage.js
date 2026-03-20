@@ -44,7 +44,7 @@ const pad = (text, fill, count) => {
 
 		const formats = fs.readdirSync(`${logs}/${month}`);
 		for (const format of formats) {
-			if (formatinfo[format].team) continue;
+			if (formatinfo[format] && formatinfo[format].team) continue;
 			process.stdout.write(month + ' ' + format);
 
 			usage[format] = {
@@ -58,8 +58,8 @@ const pad = (text, fill, count) => {
 				sets: {},
 			};
 
-			const isFusions = formatinfo[format].ruleset.includes('Infinite Fusion Mod');
-			const is2Ability = formatinfo[format].ruleset.includes('Double Ability Mod');
+			const isFusions = !formatinfo[format] || formatinfo[format].ruleset.includes('Infinite Fusion Mod');
+			const is2Ability = !formatinfo[format] || formatinfo[format].ruleset.includes('Double Ability Mod');
 
 			const dates = fs.readdirSync(`${logs}/${month}/${format}`);
 
@@ -142,9 +142,9 @@ const pad = (text, fill, count) => {
 			if (!usage[format].total.ladders) continue;
 			if (!fs.existsSync(`${server}/usage/${month}/${format}`)) fs.mkdirSync(`${server}/usage/${month}/${format}`);
 
-			const dex = Dex.mod(formatinfo[format].mod);
+			const dex = Dex.mod(formatinfo[format] ? formatinfo[format].mod : format.substring(0, 4));
 
-			b += `${pad(usage[format].total.ladders, ' ', 8)} │ <a href=/${month}/${format}.html>${formatinfo[format].name}</a>\n`;
+			b += `${pad(usage[format].total.ladders, ' ', 8)} │ <a href=/${month}/${format}.html>${formatinfo[format] ? formatinfo[format].name : format}</a>\n`;
 
 			let c = start;
 			c += `<a href=/${month}.html><- back</a>\n\n`;
