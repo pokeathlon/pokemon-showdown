@@ -66,12 +66,12 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	raffiti: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "AG",
 		doublesTier: "DUber",
 	},
 	raffitiratthew: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "AG",
 		doublesTier: "DUber",
 	},
 	seikamater: {
@@ -3142,10 +3142,12 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	arceusprimal: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	arkhaos: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	blisseyegho: {
 		inherit: true,
@@ -3158,6 +3160,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	calyrexshadow: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	crustledeltacake: {
 		inherit: true,
@@ -3174,6 +3177,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	diaboromon: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	dialga: {
 		inherit: true,
@@ -3202,6 +3206,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	gengarmega: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	giratina: {
 		inherit: true,
@@ -3214,6 +3219,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	giratinaprimal: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	groudon: {
 		inherit: true,
@@ -3322,6 +3328,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	miraidon: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	necrozmadawnwings: {
 		inherit: true,
@@ -3338,6 +3345,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	omnimon: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	paldiatina: {
 		inherit: true,
@@ -3358,6 +3366,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	rayquazamega: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	reaptide: {
 		inherit: true,
@@ -3390,6 +3399,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	xerneas: {
 		inherit: true,
 		doublesTier: "DUber",
+		natDexTier: "AG",
 	},
 	yveltal: {
 		inherit: true,

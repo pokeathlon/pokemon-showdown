@@ -581,6 +581,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Mariomon Ubers",
+		searchShow: false,
 
 		mod: 'gen9mariomon',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
@@ -1151,6 +1152,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaos',
 		ruleset: [
 			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause'
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Ubers",
+
+		mod: 'gen9chaos',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'Restrict Ability = wonderguard'],
+		banlist: [
+			'ND AG',
+			'ability:illuminate', 'ability:deepfreeze', 'ability:persistent', 'ability:atomizate', 'ability:multishot', 'ability:illusionist',
+			'item:focusband', 'item:lightclay', 'item:trickrock', 'item:reuniclite',
+			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:fibregraft', 'move:livewire', 'move:permafrost', 'move:hammerthrow', 'move:omniblast', 'move:supremecannon',
 		],
 	},
 	{
