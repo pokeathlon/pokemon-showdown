@@ -1128,6 +1128,24 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Endless Battle Clause: Forcing endless battles is banned');
 		},
 	},
+	moodyclause: {
+		effectType: 'ValidatorRule',
+		name: 'Moody Clause',
+		desc: "Bans the ability Moody",
+		banlist: ['Moody'],
+		onBegin() {
+			this.add('rule', 'Moody Clause: Moody is banned');
+		},
+	},
+	swaggerclause: {
+		effectType: 'ValidatorRule',
+		name: 'Swagger Clause',
+		desc: "Bans the move Swagger",
+		banlist: ['Swagger'],
+		onBegin() {
+			this.add('rule', 'Swagger Clause: Swagger is banned');
+		},
+	},
 	drypassclause: {
 		effectType: 'ValidatorRule',
 		name: 'DryPass Clause',
@@ -1689,6 +1707,35 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Full Arceus Clause',
 		desc: "Allows Level 80 Arceus from Hall of Origin",
 		// Implemented in sim/team-validator.ts
+	},
+	arceusevlimit: {
+		effectType: 'ValidatorRule',
+		name: 'Arceus EV Limit',
+		desc: "Restricts Arceus to a maximum of 100 EVs in any one stat, and only multiples of 10",
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (species.num === 493 && set.evs) {
+				let stat: StatID;
+				for (stat in set.evs) {
+					const ev = set.evs[stat];
+					if (ev > 100) {
+						return [
+							"Arceus can't have more than 100 EVs in any stat, because Arceus is only obtainable from level 100 events.",
+							"Level 100 Pokemon can only gain EVs from vitamins (Carbos etc), which are capped at 100 EVs.",
+						];
+					}
+					if (!(
+						ev % 10 === 0 ||
+						(ev % 10 === 8 && ev % 4 === 0)
+					)) {
+						return [
+							"Arceus can only have EVs that are multiples of 10, because Arceus is only obtainable from level 100 events.",
+							"Level 100 Pokemon can only gain EVs from vitamins (Carbos etc), which boost in multiples of 10.",
+						];
+					}
+				}
+			}
+		},
 	},
 	inversemod: {
 		effectType: 'Rule',
@@ -2515,7 +2562,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onModifySpecies(species, target, source, effect) {
 			if (!target || !target.item) return;
 			const item = this.dex.items.get(target.item);
-			if (!item.megaStone || !item.megaEvolves) return;
+			if (!item.megaStone) return;
 			if (!target.itemState.hasMegaEvolved) return;
 			const pokemon = this.dex.deepClone(species);
 
@@ -2549,7 +2596,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const item = this.dex.items.get(pokemon.item);
 			if (!item.megaStone) return;
 			pokemon.itemState.baseSpecies = pokemon.species; // tie base species to megastone
-			pokemon.canMegaEvo = item.megaStone;
+			pokemon.canMegaEvo = Object.values(item.megaStone)[0];
 		},
 		onSwitchIn(pokemon) {
 			if (!pokemon.itemState.hasMegaEvolved) return;
@@ -3964,8 +4011,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					if (monocat && !cats.includes(species.id)) monocat = false;
 				}
 				const item = this.dex.items.get(set.item);
-				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-					species = this.dex.species.get(item.megaStone);
+				if (item.megaStone?.[species.name]) {
+					species = this.dex.species.get(item.megaStone[species.name]);
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
 				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
@@ -4072,7 +4119,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
 			const item = this.dex.items.get(set.item);
-			if ((!species.isMega && item.megaEvolves && this.toID(item.megaEvolves) != species.id)) {
+			const megaEvolves = item.megaStone ? Object.keys(item.megaStone)[0] : "";
+			if ((!species.isMega && this.toID(megaEvolves) != species.id)) {
 				return [`${set.species} cannot hold ${set.item}.`]
 			}
 		},

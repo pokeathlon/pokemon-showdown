@@ -26,7 +26,9 @@ export function removeInnate(pokemon: Pokemon, innate: string, battle: Battle) {
 	battle.add('-displayabilities', pokemon, [pokemon.ability, ...(pokemon.m.activeInnates || [])], pokemon.m.innates);
 }
 
-export function addActiveInnates(pokemon: Pokemon, innatesToAdd: string[] | undefined, battle: Battle, fromName: string, ofPokemon: string | undefined) {
+export function addActiveInnates(
+	pokemon: Pokemon, innatesToAdd: string[] | undefined, battle: Battle, fromName: string, ofPokemon?: string
+) {
 	for (const innate of (innatesToAdd || [])) {
 		const pokemonHasAbility = pokemon.m.activeInnates?.includes(innate) || pokemon.ability === toID(innate);
 		const abilityIsNotTraceable = battle.dex.abilities.getByID(innate).flags['notrace'];
@@ -261,8 +263,13 @@ export function hasSleepMove(set: PokemonSet) {
 }
 
 export function GetMegaStoneStats(item: Item, dex: ModdedDex) {
-	const megaSpecies = dex.species.get(item.megaStone);
-	const baseSpecies = dex.species.get(item.megaEvolves);
+	if (!item.megaStone) return {} as StatsTable;
+
+	const baseSpeciesName = Object.keys(item.megaStone)[0];
+	const megaSpeciesName = item.megaStone[baseSpeciesName];
+	const baseSpecies = dex.species.get(baseSpeciesName);
+	const megaSpecies = dex.species.get(megaSpeciesName);
+
 	const diff = {} as StatsTable;
 	let stat: StatID;
 	for (stat in megaSpecies.baseStats) {
@@ -279,8 +286,12 @@ export function areTypesEqual(types1: string[], types2: string[]) {
 }
 
 export function GetMegaStoneTyping(item: Item, species: Species, dex: ModdedDex) {
-	const megaSpeciesTypes = dex.species.get(item.megaStone).types;
-	const baseMegaTypes = dex.species.get(item.megaEvolves).types;
+	if (!item.megaStone) return {} as StatsTable;
+
+	const baseSpeciesName = Object.keys(item.megaStone)[0];
+	const megaSpeciesName = item.megaStone[baseSpeciesName];
+	const baseMegaTypes = dex.species.get(baseSpeciesName).types;
+	const megaSpeciesTypes = dex.species.get(megaSpeciesName).types;
 
 	let type1 = species.types[0];
 	let type2 = species.types[1];
@@ -295,9 +306,9 @@ export function GetMegaStoneTyping(item: Item, species: Species, dex: ModdedDex)
 		type2 = megaSpeciesTypes[1];
 		extraType = megaSpeciesTypes[1];
 	}
+
 	// if the mega removes the secondary typing, we consider it the same as giving the first one (e.g. aggronite -> steel secondary)
 	if (megaSpeciesTypes.length < baseMegaTypes.length) type2 = megaSpeciesTypes[0];
-
 	// if the mega adds a secondary typing that's the same as the first one, the pokemon becomes monotype
 	else if (type2 === type1) return [type1];
 	// if no types gained by mega itself, retain species.types

@@ -13,9 +13,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				return altForme.name;
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
-			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+			if (item.megaStone?.[species.baseSpecies] && item.megaStone[species.baseSpecies] !== species.name) {
 				if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
-				return item.megaStone;
+				return item.megaStone[species.baseSpecies];
 			}
 			return null;
 		},
@@ -132,7 +132,8 @@ export const Scripts: ModdedBattleScriptsData = {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
 							for (const item of allowedItems) {
-								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
+								const megaFormeName = item.megaStone?.[this.illusion.species.name];
+								if (megaFormeName) megaForme = this.battle.dex.species.get(megaFormeName);
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
