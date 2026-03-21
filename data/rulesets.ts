@@ -2574,7 +2574,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + statDif, 1, 255);
 				pokemon.bst += pokemon.baseStats[statName];
 			}
-			const megaAbility = this.dex.species.get(item.megaStone).abilities[0];
+			const megaAbility = this.dex.species.get(Object.values(item.megaStone)[0]).abilities[0];
 			pokemon.abilities = {
 				0: megaAbility,
 				1: megaAbility,
