@@ -2483,68 +2483,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return pokemon;
 		},
 	},
-	fusiontiershiftmod: {
-		effectType: "Rule",
-		name: "Fusion Tier Shift Mod",
-		desc: `Fusion components below OU get their stats, excluding HP, boosted. Only works with fusions. UU/RUBL get +15, RU/NUBL get +20, NU/PUBL get +25, and PU or lower get +30.`,
-		ruleset: ['Overflow Stat Mod'],
-		onBegin() {
-			this.add('rule', 'Fusion Tier Shift Mod: Fusion components get stat buffs depending on their tier, excluding HP. Only works with fusions.');
-		},
-		onModifySpeciesPriority: 6,
-		onModifySpecies(species, target, source, effect) {
-			if (!species.baseStats) return;
-			const boosts: { [tier: string]: number } = {
-				uber: 0,
-				ou: 0,
-				uubl: 0,
-				uu: 15,
-				rubl: 15,
-				ru: 20,
-				nubl: 20,
-				nu: 25,
-				publ: 25,
-				pu: 30,
-				zubl: 30,
-				zu: 30,
-				nfe: 30,
-				lc: 30,
-			};
-			const isNatDex = !!this.ruleTable?.has('natdexmod');
-			const pokemon = this.dex.deepClone(species);
-			pokemon.bst = pokemon.baseStats['hp'];
-
-			const tier: string = this.toID(isNatDex ? species.natDexTier : species.tier);
-			let boost = 0;
-			if (tier in boosts) {
-				boost = boosts[tier];
-			};
-			let fusionBoost = 0;
-			const fusionName = target?.set?.fusion || undefined;
-			if (fusionName && this.dex.species.get(fusionName).exists) {
-				const fusionSpecies = this.dex.deepClone(this.dex.species.get(fusionName));
-				const fusionTier: string = this.toID(isNatDex ? fusionSpecies.natDexTier : fusionSpecies.tier);
-				if (fusionTier in boosts) {
-					fusionBoost = boosts[fusionTier];
-				};
-			} else fusionBoost = boost;
-			let statName: StatID;
-			for (statName in pokemon.baseStats as StatsTable) {
-				if (statName === 'hp') continue;
-				if (statName === 'spa' || statName === 'spd') {
-					const headStrongBoost = Math.round((2 / 3) * boost + (1 / 3) * fusionBoost);
-					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + headStrongBoost, 1, 255);
-					pokemon.bst += pokemon.baseStats[statName];
-				}
-				if (statName === 'atk' || statName === 'def' || statName === 'spe') {
-					const bodyStrongBoost = Math.round((1 / 3) * boost + (2 / 3) * fusionBoost);
-					pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + bodyStrongBoost, 1, 255);
-					pokemon.bst += pokemon.baseStats[statName];
-				}
-			}
-			return pokemon;
-		},
-	},
 	mixandmegamod: {
 		effectType: "Rule",
 		name: "Mix and Mega Mod",
@@ -2607,187 +2545,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onTakeItem(item, pokemon, source, move) {
 			if (this.dex.items.get(pokemon.item).megaStone) return false;
 		},
-	},
-	nofunclause: {
-		effectType: "Rule",
-		name: "No Fun Clause",
-		desc: "Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.",
-		onBegin() {
-			this.add('rule', 'No Fun Clause: Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.');
-		},
-		onValidateSet(set) {
-			let itemMult = 1.0;
-			if (set.item?.toLowerCase() === "choice scarf") itemMult = 1.5;
-			if (set.item?.toLowerCase() === "quick powder") itemMult = 2.0;
-			const hasAbove200Speed = calculateFullFusionStat('spe', set, this.dex) * itemMult > 200;
-			const hasPrankster = set.ability?.toLowerCase() === "prankster";
-
-			const hasElectrify = set.moves?.some(m => m.toLowerCase() === "electrify");
-			const hasHighFlinchChance = set.moves?.some(m => calculateFlinchChance(set, m));
-
-			const problems = [];
-			if (hasAbove200Speed || canBoostSpeed(set)) {
-				if (hasPrankster && hasElectrify)
-					problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
-				if (hasPrankster && hasSleepMove(set))
-					problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
-				if (hasHighFlinchChance)
-					problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
-			}
-			return problems;
-		},
-	},
-	nodancingclause: {
-		effectType: "Rule",
-		name: "No Dancing Clause",
-		desc: "Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.",
-		onBegin() {
-			this.add('rule', 'Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.');
-		},
-		onValidateSet(set) {
-			const hasPriority = set.moves?.some(m => this.dex.moves.get(m)?.priority > 0);
-			const hasRecovery = set.moves?.some(m => isRecoveryMove(m, this.dex));
-			const numBoosts = countHighestBoosts(set, this.dex);
-
-			const problems = [];
-			if (numBoosts > 4 || ((hasPriority || hasRecovery) && numBoosts > 2))
-				problems.push(`${set.name} is breaking the No Dancing clause.`);
-
-			return problems;
-		},
-	},
-	nodancepartnersclause: {
-		effectType: "Rule",
-		name: "No Dance Partners Clause",
-		desc: "Increasing an ally's stat stages is banned.",
-		onBegin() {
-			this.add('rule', "Increasing an ally's stat stages is banned.");
-		},
-		onValidateSet(set) {
-			const hasBatonPass = set.moves?.some(m => m.toLowerCase() === "baton pass");
-
-			const problems = [];
-			if (hasBatonPass && hasBoosting(set, this.dex)) {
-				problems.push(`${set.name} breaks the No Dance Partners clause.`);
-			}
-			return problems;
-		},
-	},
-	noextremestatsclause: {
-		effectType: "Rule",
-		name: "No Extreme Stats Clause",
-		desc: "Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.",
-		onBegin() {
-			this.add('rule', 'Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.');
-		},
-		onValidateSet(set) {
-			const fusionStats = getFusionStats(set, this.dex);
-			const problems = [];
-			if (getBst(fusionStats) > 600)
-				problems.push(`${set.name}'s BST breaks the No Extreme Stats Clause.`);
-			if (fusionStats['atk'] + fusionStats['spe'] > 250)
-				problems.push(`${set.name}'s Attack and Speed break the No Extreme Stats Clause.`);
-			if (fusionStats['spa'] + fusionStats['spe'] > 250)
-				problems.push(`${set.name}'s Special Attack and Speed break the No Extreme Stats Clause.`);
-			if (fusionStats['hp'] + fusionStats['def'] > 250)
-				problems.push(`${set.name}'s HP and Defense break the No Extreme Stats Clause.`);
-			if (fusionStats['hp'] + fusionStats['spd'] > 250)
-				problems.push(`${set.name}'s HP and Special Defense break the No Extreme Stats Clause.`);
-			return problems;
-		},
-	},
-	nolimitbreakingclause: {
-		effectType: "Rule",
-		name: "No Limit Breaking Clause",
-		desc: "Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.",
-		onBegin() {
-			this.add('rule', 'Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.');
-		},
-		onValidateSet(set) {
-			const atkModifier = countStatDoubling('atk', set);
-			const hasLimitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) * atkModifier > 500;
-
-			const spaModifier = countStatDoubling('spa', set);
-			const hasLimitBreakingSpa = calculateFullFusionStat('spa', set, this.dex) * spaModifier > 500;
-
-			const problems = [];
-			if (hasLimitBreakingAtk)
-				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
-			if (hasLimitBreakingSpa)
-				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
-			return problems;
-		},
-	},
-	nonukesclause: {
-		effectType: "Rule",
-		name: "No Nukes Clause",
-		desc: "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.",
-		onBegin() {
-			this.add('rule', "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.");
-		},
-		onValidateSet(set) {
-			const problems = [];
-			for (const move of set.moves) {
-				if (isSpammableHighPowerStab(move, set, this.dex))
-					problems.push(`${set.name}'s ${move} is breaking the No Nukes Clause.`);
-			};
-			return problems;
-		},
-	},
-	noweathercombosclause: {
-		effectType: "Rule",
-		name: "No Weather Combos Clause",
-		desc: "Letting weather conditions increase both your speed and damage output is banned.",
-		onBegin() {
-			this.add('rule', 'Letting weather conditions increase both your speed and damage output is banned.');
-		},
-		onValidateSet(set) {
-			const typing = getFusionTyping(set, this.dex);
-			const hasStabWaterMove =
-				set.moves.some(m => m.toLowerCase() === "weather ball") || (
-					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "water") &&
-					typing.includes("Water")
-				);
-			const hasStabFireMove =
-				set.moves.some(m => m.toLowerCase() === "weather ball") || (
-					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "fire") &&
-					typing.includes("Fire")
-				);
-			const hasSwiftSwim = set.ability.toLowerCase() === "swift swim";
-			const hasChlorophyll = set.ability.toLowerCase() === "chlorophyll";
-
-			const problems = [];
-			if ((hasChlorophyll && hasStabFireMove) || (hasSwiftSwim && hasStabWaterMove))
-				problems.push(`${set.name} is breaking the No Weather Combos Clause.`);
-			return problems;
-		},
-	},
-	notrappingclause: {
-		effectType: "Rule",
-		name: "No Trapping Clause",
-		desc: "Trapping is banned.",
-		onBegin() {
-			this.add('rule', 'Trapping is banned.');
-		},
-		banlist: ['Arena Trap', 'Magnet Pull', 'Shadow Tag', 'Block', 'Mean Look', 'Anchor Shot', 'Spirit Shackle'],
-	},
-	noevadingclause: {
-		effectType: "Rule",
-		name: "No Evading Clause",
-		desc: "Increasing Evasion is banned.",
-		onBegin() {
-			this.add('rule', 'Increasing Evasion is banned.');
-		},
-		ruleset: ['Evasion Clause'],
-	},
-	noextremegimmicksclause: {
-		effectType: "Rule",
-		name: "No Extreme Gimmicks Clause",
-		desc: "Disguise, Imposter, Moody, and Wonder Guard are banned.",
-		onBegin() {
-			this.add('rule', 'Disguise, Imposter, Moody, and Wonder Guard are banned.');
-		},
-		banlist: ['Disguise', 'Imposter', 'Moody', 'Wonder Guard'],
 	},
 	revelationmonsmod: {
 		effectType: "Rule",
@@ -3590,129 +3347,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
-	rebalancelevels: {
-		effectType: 'Rule',
-		name: 'Rebalance Levels',
-		desc: "Automatically rebalances each Pokemon's level if an added rule modifies its base stats in a way that only depends on its species",
-		onBegin() {
-			const rebalanceLevel = (oldSpecies: Species, set: PokemonSet, newSpecies: Species): number => {
-				const oldLevel = set.level;
-				// calculate the adjusted stats of the new species at its old level
-				// could use the actual stat calcs, but let's just use the same approximation we use everywhere else
-				let newStats: StatsTable = this.spreadModify(newSpecies.baseStats, set);
-				// calculate the old stats to compare against
-				const oldStats = this.spreadModify(oldSpecies.baseStats, set);
-				if (JSON.stringify(newStats) === JSON.stringify(oldStats)) return oldLevel;
-				const statRatios = { power: 0, bulk: 0, speed: 0 };
-				let statRatioTotal = 0;
-				// calculate the ratio of the expected average damaging power of the new stats to that of the old
-				statRatioTotal += statRatios.power = Math.log((oldStats.atk + oldStats.spa) / (newStats.atk + newStats.spa));
-				// calculate the ratio of the expected average damage-tanking ability of the new stats to that of the old
-				statRatioTotal += statRatios.bulk = (
-					Math.log(oldStats.hp * oldStats.def * oldStats.spd / (oldStats.def + oldStats.spd)) -
-					Math.log(newStats.hp * newStats.def * newStats.spd / (newStats.def + newStats.spd))
-				);
-				// calculate the ratio of the new speed to the old stats' speed at half weight
-				statRatioTotal += statRatios.speed = Math.log(oldStats.spe / newStats.spe) / 2;
-				// make a naive guess as to what level the pokemon should be without considering that level affects damage output
-				let newLevel = Math.min(Math.floor(Math.E ** (statRatioTotal / 5) * oldLevel), this.ruleTable.maxLevel);
-				const overestimate = newLevel > oldLevel;
-				// start accounting for level's affect on damage output and increment the guess by 1 until it looks right
-				while (newLevel !== oldLevel) {
-					// the getAdjustedStats function takes level's affect on damage into account automatically
-					newStats = this.spreadModify(newSpecies.baseStats, set);
-					statRatioTotal = 0;
-					statRatioTotal += statRatios.power = Math.log((oldStats.atk + oldStats.spa) / (newStats.atk + newStats.spa));
-					statRatioTotal += statRatios.bulk = (
-						Math.log(oldStats.hp * oldStats.def * oldStats.spd / (oldStats.def + oldStats.spd)) -
-						Math.log(newStats.hp * newStats.def * newStats.spd / (newStats.def + newStats.spd))
-					);
-					statRatioTotal += statRatios.speed = Math.log(oldStats.spe / newStats.spe) / 2;
-					if (overestimate && statRatioTotal >= 0 || !overestimate && statRatioTotal <= 0) break;
-					// initial estimate will never be closer to the old level than it should be
-					if (overestimate) {
-						newLevel--;
-					} else {
-						newLevel++;
-					}
-				}
-				return newLevel;
-			};
-
-			for (const poke of this.getAllPokemon()) {
-				const oldSpecies = this.dex.species.get(poke.set.species);
-				const newSpecies = poke.species;
-				poke.set.level = (poke as any).level = rebalanceLevel(oldSpecies, poke.set, newSpecies);
-
-				// recalculate stats to match new level
-				// can't use setSpecies because that will re-run the 'ModifySpecies' event
-				const stats = this.spreadModify(poke.species.baseStats, poke.set);
-				if (poke.species.maxHP) stats.hp = poke.species.maxHP;
-
-				poke.baseMaxhp = stats.hp;
-				poke.maxhp = stats.hp;
-				poke.hp = stats.hp;
-
-				poke.baseStoredStats = stats;
-				let statName: StatIDExceptHP;
-				for (statName in poke.storedStats) {
-					poke.storedStats[statName] = stats[statName];
-				}
-				poke.speed = poke.storedStats.spe;
-				poke.details = poke.getUpdatedDetails();
-			}
-		},
-		onValidateRule() {
-			if (!this.format.team) throw new Error('The Rebalance Levels rule is only intended to work with randomized teams.');
-			if (this.ruleTable.adjustLevel) {
-				throw new Error(`This format's rules force Pokemon to be level ${this.ruleTable.adjustLevel}, so they can't be rebalanced.`);
-			}
-			const speciesMods = [...this.ruleTable.keys()].map(r => this.dex.data.Rulesets[r]).filter(r => r?.onModifySpecies);
-			if (!speciesMods.length) throw new Error('This format has no rules that modify base stats.');
-		},
-	},
-	chaosstabmonsmovelegality: {
-		effectType: 'ValidatorRule',
-		name: 'Chaos STABmons Move Legality',
-		desc: "Allows Pok&eacute;mon to use any move that they or a previous evolution/out-of-battle forme share a type with",
-		ruleset: ['OM Unobtainable Moves'],
-		checkCanLearn(move, species, setSources, set) {
-			const nonstandard = move.isNonstandard === 'Past' && !this.ruleTable.has('natdexmod');
-			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`)) {
-				const speciesTypes: string[] = [];
-
-				const pokemon = this.dex.species.get(species.name);
-				if (pokemon.forme || pokemon.otherFormes) {
-					const baseSpecies = this.dex.species.get(pokemon.baseSpecies);
-					const originalForme = this.dex.species.get(pokemon.changesFrom || pokemon.name);
-					speciesTypes.push(...originalForme.types);
-					if (baseSpecies.otherFormes) {
-						for (const formeName of baseSpecies.otherFormes) {
-							if (baseSpecies.prevo) {
-								const prevo = this.dex.species.get(baseSpecies.prevo);
-								if (prevo.evos.includes(formeName)) continue;
-							}
-							const forme = this.dex.species.get(formeName);
-							if (forme.changesFrom === originalForme.name && !forme.battleOnly) {
-								speciesTypes.push(...forme.types);
-							}
-						}
-					}
-				} else {
-					speciesTypes.push(...pokemon.types);
-				}
-
-				let prevo = pokemon.prevo;
-				while (prevo) {
-					const prevoSpecies = this.dex.species.get(prevo);
-					speciesTypes.push(...prevoSpecies.types);
-					prevo = prevoSpecies.prevo;
-				}
-				if (speciesTypes.includes(move.type)) return null;
-			}
-			return this.checkCanLearn(move, species, setSources, set);
-		},
-	},
 	noeventmoves: {
 		effectType: 'ValidatorRule',
 		name: "No Event Moves",
@@ -3823,9 +3457,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				}
 				newSpecies.bst += newSpecies.baseStats[stat];
 			}
-
-			if (this.ruleTable.has('ifaveragemons'))
-				newSpecies.baseStats = { hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100 };
 
 			newSpecies.maxHP =
 				[target.baseAbility, this.dex.abilities.get(target.set.ability2).id as string].includes('wonderguard') ?
@@ -3989,46 +3620,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
-	poasametypeclause: {
-		effectType: 'ValidatorRule',
-		name: 'PoA Same Type Clause',
-		desc: "Forces all Pok&eacute;mon on a team to share a type with each other",
-		onBegin() {
-			this.add('rule', 'Same Type Clause: Pokémon in a team must share a type, or be cats');
-		},
-		onValidateTeam(team) {
-			const cats = ['berserkergene', 'bewitwing', 'catzelwyrm', 'dracat', 'enteisupra', 'felapstan', 'growlsome', 'incineroarolul', 'raikousupra', 'zorblob', 'keepurr'];
-			let monocat = false;
-			let typeTable: string[] = [];
-			for (const [i, set] of team.entries()) {
-				let species = this.dex.species.get(set.species);
-				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
-				if (i === 0) {
-					typeTable = species.types;
-					if (cats.includes(species.id)) monocat = true; // monocat
-				} else {
-					typeTable = typeTable.filter(type => species.types.includes(type));
-					if (monocat && !cats.includes(species.id)) monocat = false;
-				}
-				const item = this.dex.items.get(set.item);
-				if (item.megaStone?.[species.name]) {
-					species = this.dex.species.get(item.megaStone[species.name]);
-					typeTable = typeTable.filter(type => species.types.includes(type));
-				}
-				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-					species = this.dex.species.get("Necrozma-Ultra");
-					typeTable = typeTable.filter(type => species.types.includes(type));
-				}
-				if (!typeTable.length && monocat === false) return [`Your team must share a type, or be composed entirely of cats.`];
-			}
-			for (const set of team) {
-				if (this.gen === 9 && set.teraType &&
-					!typeTable.includes(set.teraType) && this.ruleTable.has(`enforcesameteratype`)) {
-					return [`${set.species}'s Tera Type must match the team's type.`];
-				}
-			}
-		},
-	},
 	sketchclause: {
 		effectType: 'ValidatorRule',
 		name: 'Sketch Clause',
@@ -4125,30 +3716,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
-	multiplemega: {
-		effectType: 'Rule',
-		name: 'Multiple Mega',
-		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
-		// hardcoded in sim/side.ts and sim/battle-actions.ts
-		onBegin() {
-			this.add('rule', 'Multiple Mega: Allows for any number of Pokémon to mega-evolve during battle.');
-		},
-	},
-	candynamax: {
-		effectType: 'Rule',
-		name: 'Can Dynamax',
-		desc: "Allows for Dynamax to be used.",
-		// hardcoded in sim/side.ts
-	},
-	ifaveragemons: {
-		effectType: "Rule",
-		name: "IF Averagemons",
-		desc: `Pok&eacute;mon have all of their base stats set to 100.`,
-		// hardcoded in Infinite Fusion Mod
-		onBegin() {
-			this.add('rule', 'IF Averagemons: Pok\u00e9mon have all of their base stats set to 100.');
-		},
-	},
 	ifnewlandsclause: {
 		effectType: 'ValidatorRule',
 		name: 'IF New Lands Clause',
@@ -4173,25 +3740,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onBegin() {
 			this.add('rule', 'IF New Lands Clause: Every fusion must include a Pokémon from the Hoenn region.');
-		},
-	},
-	forcefusion: {
-		effectType: 'ValidatorRule',
-		name: 'Force Fusion',
-		desc: `Forces all pokemon to share a fusion component. Usage: Force Fusion = [Pokemon], e.g. "Force Fusion = Furret"`,
-		hasValue: true,
-		onValidateRule(value) {
-			const species = this.dex.species.get(value);
-			if (!species.exists) throw new Error(`Does not exist: "${value}"`);
-			return species.id;
-		},
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			if (!set.fusion) return [`All sets must be fused! ${set.species} is not fused.`];
-			const forceSpecies = this.dex.species.get(this.ruleTable.valueRules.get('forcefusion')!);
-			if (species.id !== forceSpecies.id && this.dex.species.get(set.fusion).id !== forceSpecies.id) {
-				return [`${set.species} must be fused with ${forceSpecies.name}.`];
-			}
 		},
 	},
 	doubleabilitymod: {
@@ -4321,6 +3869,210 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+
+	// IF literally 1984
+	nofunclause: {
+		effectType: "Rule",
+		name: "No Fun Clause",
+		desc: "Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.",
+		onBegin() {
+			this.add('rule', 'No Fun Clause: Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.');
+		},
+		onValidateSet(set) {
+			let itemMult = 1.0;
+			if (set.item?.toLowerCase() === "choice scarf") itemMult = 1.5;
+			if (set.item?.toLowerCase() === "quick powder") itemMult = 2.0;
+			const hasAbove200Speed = calculateFullFusionStat('spe', set, this.dex) * itemMult > 200;
+			const hasPrankster = set.ability?.toLowerCase() === "prankster";
+
+			const hasElectrify = set.moves?.some(m => m.toLowerCase() === "electrify");
+			const hasHighFlinchChance = set.moves?.some(m => calculateFlinchChance(set, m));
+
+			const problems = [];
+			if (hasAbove200Speed || canBoostSpeed(set)) {
+				if (hasPrankster && hasElectrify)
+					problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
+				if (hasPrankster && hasSleepMove(set))
+					problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
+				if (hasHighFlinchChance)
+					problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
+			}
+			return problems;
+		},
+	},
+	nodancingclause: {
+		effectType: "Rule",
+		name: "No Dancing Clause",
+		desc: "Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.",
+		onBegin() {
+			this.add('rule', 'Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.');
+		},
+		onValidateSet(set) {
+			const hasPriority = set.moves?.some(m => this.dex.moves.get(m)?.priority > 0);
+			const hasRecovery = set.moves?.some(m => isRecoveryMove(m, this.dex));
+			const numBoosts = countHighestBoosts(set, this.dex);
+
+			const problems = [];
+			if (numBoosts > 4 || ((hasPriority || hasRecovery) && numBoosts > 2))
+				problems.push(`${set.name} is breaking the No Dancing clause.`);
+
+			return problems;
+		},
+	},
+	nodancepartnersclause: {
+		effectType: "Rule",
+		name: "No Dance Partners Clause",
+		desc: "Increasing an ally's stat stages is banned.",
+		onBegin() {
+			this.add('rule', "Increasing an ally's stat stages is banned.");
+		},
+		onValidateSet(set) {
+			const hasBatonPass = set.moves?.some(m => m.toLowerCase() === "baton pass");
+
+			const problems = [];
+			if (hasBatonPass && hasBoosting(set, this.dex)) {
+				problems.push(`${set.name} breaks the No Dance Partners clause.`);
+			}
+			return problems;
+		},
+	},
+	noextremestatsclause: {
+		effectType: "Rule",
+		name: "No Extreme Stats Clause",
+		desc: "Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.",
+		onBegin() {
+			this.add('rule', 'Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.');
+		},
+		onValidateSet(set) {
+			const fusionStats = getFusionStats(set, this.dex);
+			const problems = [];
+			if (getBst(fusionStats) > 600)
+				problems.push(`${set.name}'s BST breaks the No Extreme Stats Clause.`);
+			if (fusionStats['atk'] + fusionStats['spe'] > 250)
+				problems.push(`${set.name}'s Attack and Speed break the No Extreme Stats Clause.`);
+			if (fusionStats['spa'] + fusionStats['spe'] > 250)
+				problems.push(`${set.name}'s Special Attack and Speed break the No Extreme Stats Clause.`);
+			if (fusionStats['hp'] + fusionStats['def'] > 250)
+				problems.push(`${set.name}'s HP and Defense break the No Extreme Stats Clause.`);
+			if (fusionStats['hp'] + fusionStats['spd'] > 250)
+				problems.push(`${set.name}'s HP and Special Defense break the No Extreme Stats Clause.`);
+			return problems;
+		},
+	},
+	nolimitbreakingclause: {
+		effectType: "Rule",
+		name: "No Limit Breaking Clause",
+		desc: "Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.",
+		onBegin() {
+			this.add('rule', 'Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.');
+		},
+		onValidateSet(set) {
+			const atkModifier = countStatDoubling('atk', set);
+			const hasLimitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) * atkModifier > 500;
+
+			const spaModifier = countStatDoubling('spa', set);
+			const hasLimitBreakingSpa = calculateFullFusionStat('spa', set, this.dex) * spaModifier > 500;
+
+			const problems = [];
+			if (hasLimitBreakingAtk)
+				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
+			if (hasLimitBreakingSpa)
+				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
+			return problems;
+		},
+	},
+	nonukesclause: {
+		effectType: "Rule",
+		name: "No Nukes Clause",
+		desc: "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.",
+		onBegin() {
+			this.add('rule', "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.");
+		},
+		onValidateSet(set) {
+			const problems = [];
+			for (const move of set.moves) {
+				if (isSpammableHighPowerStab(move, set, this.dex))
+					problems.push(`${set.name}'s ${move} is breaking the No Nukes Clause.`);
+			};
+			return problems;
+		},
+	},
+	noweathercombosclause: {
+		effectType: "Rule",
+		name: "No Weather Combos Clause",
+		desc: "Letting weather conditions increase both your speed and damage output is banned.",
+		onBegin() {
+			this.add('rule', 'Letting weather conditions increase both your speed and damage output is banned.');
+		},
+		onValidateSet(set) {
+			const typing = getFusionTyping(set, this.dex);
+			const hasStabWaterMove =
+				set.moves.some(m => m.toLowerCase() === "weather ball") || (
+					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "water") &&
+					typing.includes("Water")
+				);
+			const hasStabFireMove =
+				set.moves.some(m => m.toLowerCase() === "weather ball") || (
+					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "fire") &&
+					typing.includes("Fire")
+				);
+			const hasSwiftSwim = set.ability.toLowerCase() === "swift swim";
+			const hasChlorophyll = set.ability.toLowerCase() === "chlorophyll";
+
+			const problems = [];
+			if ((hasChlorophyll && hasStabFireMove) || (hasSwiftSwim && hasStabWaterMove))
+				problems.push(`${set.name} is breaking the No Weather Combos Clause.`);
+			return problems;
+		},
+	},
+	notrappingclause: {
+		effectType: "Rule",
+		name: "No Trapping Clause",
+		desc: "Trapping is banned.",
+		onBegin() {
+			this.add('rule', 'Trapping is banned.');
+		},
+		banlist: ['Arena Trap', 'Magnet Pull', 'Shadow Tag', 'Block', 'Mean Look', 'Anchor Shot', 'Spirit Shackle'],
+	},
+	noevadingclause: {
+		effectType: "Rule",
+		name: "No Evading Clause",
+		desc: "Increasing Evasion is banned.",
+		onBegin() {
+			this.add('rule', 'Increasing Evasion is banned.');
+		},
+		ruleset: ['Evasion Clause'],
+	},
+	noextremegimmicksclause: {
+		effectType: "Rule",
+		name: "No Extreme Gimmicks Clause",
+		desc: "Disguise, Imposter, Moody, and Wonder Guard are banned.",
+		onBegin() {
+			this.add('rule', 'Disguise, Imposter, Moody, and Wonder Guard are banned.');
+		},
+		banlist: ['Disguise', 'Imposter', 'Moody', 'Wonder Guard'],
+	},
+
+	// Unused rulesets
+	forcefusion: {
+		effectType: 'ValidatorRule',
+		name: 'Force Fusion',
+		desc: `Forces all pokemon to share a fusion component. Usage: Force Fusion = [Pokemon], e.g. "Force Fusion = Furret"`,
+		hasValue: true,
+		onValidateRule(value) {
+			const species = this.dex.species.get(value);
+			if (!species.exists) throw new Error(`Does not exist: "${value}"`);
+			return species.id;
+		},
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (!set.fusion) return [`All sets must be fused! ${set.species} is not fused.`];
+			const forceSpecies = this.dex.species.get(this.ruleTable.valueRules.get('forcefusion')!);
+			if (species.id !== forceSpecies.id && this.dex.species.get(set.fusion).id !== forceSpecies.id) {
+				return [`${set.species} must be fused with ${forceSpecies.name}.`];
+			}
+		},
+	},
 	physicalspecialsplitmod: {
 		effectType: "Rule",
 		name: "Physical Special Split Mod",
@@ -4332,6 +4084,21 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const special  = ['Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy', 'Nuclear', 'Cosmic'];
 			special.includes(move.type)? move.category = 'Special' : move.category = 'Physical'
 		},
+	},
+	multiplemega: {
+		effectType: 'Rule',
+		name: 'Multiple Mega',
+		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
+		// hardcoded in sim/side.ts and sim/battle-actions.ts
+		onBegin() {
+			this.add('rule', 'Multiple Mega: Allows for any number of Pokémon to mega-evolve during battle.');
+		},
+	},
+	candynamax: {
+		effectType: 'Rule',
+		name: 'Can Dynamax',
+		desc: "Allows for Dynamax to be used.",
+		// hardcoded in sim/side.ts
 	},
 };
 

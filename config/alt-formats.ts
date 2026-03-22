@@ -237,23 +237,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 7] IF Averagemons",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-		searchShow: false,
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Ability Clause = 1', 'Sleep Moves Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 'IF Averagemons',
-		],
-		banlist: [
-			'Mega',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite', 'item:quickpowder', 'item:metalpowder',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush',  'ability:contrary', 'ability:simple', 'ability:magicguard', 'ability:sheerforce', 'ability:poisonheal', 'ability:snowwarning', 'ability:sandstream',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:tailglow', 'move:quiverdance',
-			'pokemon:greninjabond', 'pokemon:greninjaash', 'pokemon:kyogre',
-		],
-	},
-	{
 		name: "[Gen 7] New Lands",
 		desc: "Welcome to Hoenn!",
 
@@ -266,24 +249,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush', 'ability:adaptability', 'ability:purepower',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
-			'pokemon:greninjabond', 'pokemon:greninjaash',
-		],
-	},
-	{
-		name: "[Gen 7] End of the World",
-		desc: "Kyodonquaza?!?!?",
-		searchShow: false,
-
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', '+ Kyodonquaza',
-		],
-		banlist: [
-			'Mega', 'Uber',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush',
 			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
 		],
@@ -316,24 +281,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Double Ability Mod',
 		],
 		banlist: ['Mega'],
-	},
-	{
-		name: "[Gen 7] IF Tier Shift",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-		searchShow: false,
-
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Tier Shift Mod',
-		],
-		banlist: [
-			'Mega', 'Uber',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:eviolite',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
-			'pokemon:greninjabond', 'pokemon:greninjaash', 'pokemon:kadabra',
-		],
 	},
 	{
 		name: "[Gen 7] IF RevelationMons",
@@ -411,23 +358,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "Drafts",
 	},
 	{
-		name: "[Gen 7] IF Dex Draft",
-		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
-		searchShow: false,
-
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause',
-		],
-		banlist: [
-			'Mega',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard',
-			'move:batonpass', 'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst',
-		],
-	},
-	{
 		name: "[Gen 9] IF NatDex Draft",
 		searchShow: false,
 
@@ -454,43 +384,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Ins NDL Random Ability Draft",
-		searchShow: false,
-
-		mod: 'gen9insurgence',
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 6', 'Max Move Count = 4', 'Max Level = 120',
-			'Default Level = 120', 'Sketch Post-Gen 7 Moves', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',
-			'Endless Battle Clause', 'HP Percentage Mod', 'Obtainable Moves', 'Obtainable Misc', 'Nickname Clause', 'Overflow Stat Mod', 'Species Reveal Clause'],
-		banlist: [
-			'ability:arenatrap', 'ability:contrary', 'ability:gorillatactics', 'ability:speedboost', 'ability:hugepower', 'ability:moody', 'ability:purepower',
-			'ability:shadowtag', 'ability:wonderguard', 'ability:comatose', 'ability:illuminate', 'ability:athenian',
-			'ability:ancientpresence', 'ability:omnitype', 'ability:goodasgold', 'ability:blazeboost', 'ability:parentalbond', 'ability:speedswap', 'ability:imposter',
-			'move:lastrespects', 'move:revivalblessing', 'move:shedtail', 'move:achillesheel', 'move:livewire', 'move:permafrost', 'move:nanorepair', 'move:hiddenpower',
-			'item:razorfang', 'item:kingsrock',
-			'Blastoise-Mega+Shell Smash',
-		],
-	},
-	{
 		name: "[Gen 9] Ins HBF Draft",
 		searchShow: false,
 
 		mod: 'gen9insurgence',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
 		banlist: ['move:hiddenpower', 'move:swagger'],
-	},
-	{
-		name: "[Gen 9] Ins HBF MM Draft",
-		searchShow: false,
-		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Multiple Mega'],
-		banlist: ['move:hiddenpower', 'move:swagger'],
-	},
-	{
-		name: "[Gen 9] Chaos Tera Preview Draft",
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Mega Forme Clause', '+CAP', '+item:crucibellite', '+item:vilevial', 'Species Reveal Clause'],
 	},
 	{
 		name: "[Gen 9] Chaos Draft",
@@ -508,45 +407,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [],
 	},
 	{
-		name: "[Gen 9] Random Ability Draft",
-		mod: 'gen9',
-		searchShow: false,
-
-		ruleset: [
-			'Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999',
-			'Default Level = 100', 'Sketch Post-Gen 7 Moves', 'Sleep Clause Mod', 'OHKO Clause', 'Evasion Clause',
-			'Endless Battle Clause', 'HP Percentage Mod', 'Obtainable Moves', 'Obtainable Misc', 'Nickname Clause',
-		],
-	},
-	{
-		name: "[Gen 9] NatDex VGC Draft",
-		mod: 'gen9',
-		searchShow: false,
-
-		gameType: 'doubles',
-		ruleset: [ 'Standard NatDex', 'Picked Team Size = 4', 'Tera Type Preview', 'Item Clause = 1', 'Adjust Level Down = 50'],
-	},
-	{
 		name: "[Gen 9] Mariomon Draft",
 		mod: 'gen9mariomon',
 		searchShow: false,
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: ['move:swagger'],
-	},
-	{
-		name: "[Gen 9] PoA Solo PL",
-
-		mod: 'gen9pokeathlon',
-		searchShow: false,
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause', 'Mega Forme Clause'],
-		banlist: [
-			'ND Uber', 'ND AG',
-			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel',
-			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
-			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
-			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
-			'pokemon:keepurr',
-		],
 	},
 
 	{
@@ -953,14 +818,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] PoA Ubers",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause', 'Mega Forme Clause'],
-		banlist: ['ND AG'],
-	},
-	{
 		name: "[Gen 9] PoA UU",
 		searchShow: false,
 
@@ -969,14 +826,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'ND OU', 'ND UUBL',
 		],
-	},
-	{
-		name: "[Gen 9] PoA LC",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
-		banlist: [],
 	},
 	{
 		name: "[Gen 9] PoA AG",
@@ -1093,19 +942,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause'],
-	},
-	{
-		name: "[Gen 9] PoA Mono",
-		searchShow: false,
-
-		mod: 'gen9pokeathlon',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Z-Move Clause', 'PoA Same Type Clause', 'Species Reveal Clause'],
-		banlist: [
-			'pokemon:berserkergene', 'pokemon:electrodemega', 'pokemon:florgesmega', 'pokemon:snorlaxfrostmega', 'pokemon:sceptiledeltamega', 'pokemon:blazikendeltamega', 'pokemon:suicunesupra',
-			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
-			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot',
-			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay',
-		],
 	},
 	{
 		name: "[Gen 9] PoA Custom Game",
@@ -1271,28 +1107,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		]
 	},
 	{
-		name: "[Gen 9] Chaos Monotype",
-		desc: `All the Pok&eacute;mon on a team must share a type.`,
-		searchShow: false,
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Same Type Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause'],
-		banlist: [
-			'Alakazam-Mega', 'Annihilape', 'Arceus', 'Arceus-Primal', 'Archilles-Mega', 'Arkhaos', 'Baxcalibur', 'Birdo', 'Blastoise-Mega', 'Blaziken', 'Blaziken-Mega', 'Blissey-Egho', 'Calyrex-Ice', 'Calyrex-Shadow', 'Celemewchi', 'Chi-Yu', 'Chien-Pao', 'Chuggalong',
-			'Crustle-Delta-Cake', 'Cryogonal-Mega', 'Darkrai', 'Deosectwo', 'Deoxys', 'Deoxys-Attack', 'Diaboromon', 'Dialga', 'Dialga-Origin', 'Dracovish', 'Dragapult', 'Dragonite-Delta', 'Dramsama-Dark-Mega', 'Drilgann-Mega', 'Eevee-Mega', 'Eeveeon', 'Electrode-Mega',
-			'Emolga-Delta', 'Espathra', 'Eternatus', 'Exor', 'Fafninter', 'Fafninter-Christmas', 'Feraligatr-Egho', 'Feraligatr-Mega', 'Fidgit', 'Flutter Mane', 'Flymon', 'Frosthra', 'Garchomp-Mega', 'Genesect', 'Gengar-Mega', 'Gigantusk', 'Giratina', 'Giratina-Origin', 'Giratina-Primal', 'Gouging Fire', 'Groudon', 'Groudon-Primal',
-			'Haxorus-Mega', 'Ho-Oh', 'Hoopa-Delta-Unleashed', 'Hoopa-Unbound', 'Hydreigon-Mega', 'Icyall', 'Inflagetah', 'Inflagetah-Mega', 'Iron Bundle', 'Jerbolta-Nuclear', 'Jirachi-Mega', 'Kangaskhan-Mega', 'Kingambit', 'Koraidon', 'Kyodonquaza', 'Kyogre', 'Kyogre-Primal', 'Kyurem-Black',
-			'Kyurem-White', 'Lanthan', 'Leomon', 'Lucario-Mega', 'Lugia', 'Lukagon', 'Lunala', 'Machinedramon', 'Magearna', 'MagnaAngemon', 'Marshadow', 'Metagross-Delta-Ruin-Crystal', 'Metagross-Delta-Ruin-Mega', 'Metagross-Delta-Spider-Mega', 'Metagross-Mega', 'MetalEtemon', 'MetalGarurumon', 'Mew', 'Mewthree',
-			'Mewtwo', 'pokemon:mewtwoarmor', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Mewtwo-Shadow', 'Mewtwo-Shadow-Mega-X', 'Miraidon', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Nucleon', 'Oculeus', 'Ogerpon-Hearthflame', 'Okuwamon', 'Omnimon', 'Palafin', 'Paldiatina', 'Palkia', 'Palkia-Origin',
-			'Petey Piranha', 'Pheromosa', 'Raffiti', 'Raffiti-Ratthew', 'Rayquaza', 'Rayquaza-Mega', 'Reaptide', 'Regigigas-Primal', 'Reshiram', 'Reuniclus-Mega', 'SaberLeomon', 'Salamence-Mega', 'Scizor-Delta-Mega', 'Seikamater', 'Shaymin-Sky', 'SkullGreymon', 'Snosquatch', 'Solgaleo', 'Sonic', 'pokemon:spark', 'Super Fly', 'Swamptiliken',
-			'Tiptron', 'Togekiss', 'Torterneon', 'UFI', 'Ursaluna-Bloodmoon', 'Urshifu', 'Vareon', 'Venustoizard', 'Volcarona-Delta',
-			'pokemon:volcaronadeltaarmor', 'WarGreymon', 'Xerneas', 'Yatagaryu', 'Yatagaryu-Gossamir', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zapmolticuno', 'Zekrom', 'pokemon:zekromarmor', 'Zekyushiram', 'Zudomon', 'Zygarde', 'Zygarde-Complete',
-			'ability:illuminate', 'ability:moody', 'ability:powerconstruct', 'ability:quickcharge', 'ability:shadowtag',
-			'item:boosterenergy', 'item:damprock', 'item:focusband', 'item:heatrock', 'item:icyrock', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:smoothrock', 'item:terrainextender', 'item:trickrock', 'item:darkrock',
-			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:jumpship', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail', 'move:swagger', 'move:wildfire'
-		],
-	},
-	{
 		name: "[Gen 9] Chaos AAA",
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 		searchShow: false,
@@ -1318,43 +1132,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:supercell',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:trickrock',
 			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:cinderbreath', 'move:electrify', 'move:fibregraft', 'move:hammerthrow', 'move:lastrespects', 'move:livewire', 'move:permafrost', 'move:shedtail', 'move:swagger'
-		],
-	},
-	{
-		name: "[Gen 9] Chaos STABmons",
-		searchShow: false,
-		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
-
-		mod: 'gen9chaos',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', 'Nuclear Move Clause', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'Chaos STABmons Move Legality', 'Z-Move Clause'],
-		banlist: [
-			'ability:arenatrap', 'ability:fairylaw', 'ability:illuminate', 'ability:moody', 'ability:quickcharge', 'ability:shadowtag',
-			'item:damprock', 'item:darkrock', 'item:focusband', 'item:heatrock', 'item:icyrock', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:smoothrock', 'item:terrainextender', 'item:trickrock',
-			'move:achillesheel', 'move:assist', 'move:batonpass', 'move:eevoboost', 'move:electrify', 'move:fibregraft', 'move:hammerthrow', 'move:lastrespects', 'move:livewire', 'move:omniblast', 'move:permafrost', 'move:ragefist', 'move:revivalblessing', 'move:riftjump', 'move:shedtail', 'move:shellsmash', 'move:vengefulpulse', 'move:yuckytongue',
-			'move:cinderbreath', 'move:mugencannon', 'move:devilsdeed', 'move:icewolfclaw', 'move:getlucky', 'move:nimbusfist', 'move:infinityarrow', 'move:glaciallance', 'move:lightofruin', 'move:duoscissorclaw',
-			'pokemon:landorus', 'pokemon:fafninterchristmas', 'pokemon:araquanid', 'pokemon:pheromosa', 'pokemon:hydreigonmega', 'pokemon:spectrier', 'pokemon:fluttermane', 'pokemon:agumon', 'pokemon:airdramon', 'pokemon:alakazammega', 'pokemon:angemon', 'pokemon:arceus', 'pokemon:arceusprimal', 'pokemon:archillesmega', 'pokemon:arkhaos', 'pokemon:azumarill', 'pokemon:azumarillegho', 'pokemon:bakemon', 'pokemon:baxcalibur', 'pokemon:betamon',
-			'pokemon:birdo', 'pokemon:birdramon', 'pokemon:biyomon', 'pokemon:blazikenmega', 'pokemon:blisseyegho', 'pokemon:botamon', 'pokemon:calyrexice', 'pokemon:calyrexshadow', 'pokemon:chanseyegho', 'pokemon:chienpao', 'pokemon:chiyu', 'pokemon:coelamon', 'pokemon:crabmon',
-			'pokemon:cryogonalmega', 'pokemon:darkrai', 'pokemon:darmanitangalar', 'pokemon:demidevimon', 'pokemon:deosectwo', 'pokemon:deoxys', 'pokemon:deoxysattack', 'pokemon:devimon', 'pokemon:diaboromon', 'pokemon:dialga', 'pokemon:dialgaorigin', 'pokemon:dracovish',
-			'pokemon:dragapult', 'pokemon:dragonite', 'pokemon:dramsamadarkmega', 'pokemon:drilgannmega', 'pokemon:drimogemon', 'pokemon:elecmon', 'pokemon:electrodemega', 'pokemon:emolgadelta', 'pokemon:enamorus', 'pokemon:etemon', 'pokemon:eternatus', 'pokemon:exor',
-			'pokemon:fafninter', 'pokemon:feraligatregho', 'pokemon:feraligatrmegai', 'pokemon:fidgit', 'pokemon:flymon', 'pokemon:frigimon', 'pokemon:frosthra', 'pokemon:gabumon', 'pokemon:garudamon', 'pokemon:garurumon', 'pokemon:gazimon', 'pokemon:genesect',
-			'pokemon:gengarmega', 'pokemon:gigantusk', 'pokemon:giratina', 'pokemon:giratinaorigin', 'pokemon:giratinaprimal', 'pokemon:gomamon', 'pokemon:gougingfire', 'pokemon:greymon', 'pokemon:groudon', 'pokemon:groudonprimal', 'pokemon:haxorusmega', 'pokemon:hooh',
-			'pokemon:hoopadeltaunleashed', 'pokemon:icyall', 'pokemon:ikkakumon', 'pokemon:infermon', 'pokemon:inflagetah', 'pokemon:inflagetahmega', 'pokemon:ironbundle', 'pokemon:jerboltanuclear', 'pokemon:jirachimega', 'pokemon:kabuterimon', 'pokemon:kangaskhanmega',
-			'pokemon:kartana', 'pokemon:keramon', 'pokemon:koraidon', 'pokemon:koromon', 'pokemon:kunemon', 'pokemon:kuwagamon', 'pokemon:kyodonquaza', 'pokemon:kyogre', 'pokemon:kyogreprimal', 'pokemon:kyurem', 'pokemon:kyuremblack', 'pokemon:kyuremwhite',
-			'pokemon:lanthan', 'pokemon:leomon', 'pokemon:lilliganthisui', 'pokemon:lillymon', 'pokemon:lucariomega', 'pokemon:lugia', 'pokemon:lukagon', 'pokemon:lunala', 'pokemon:machinedramon', 'pokemon:magearna', 'pokemon:magnaangemon', 'pokemon:manaphy', 'pokemon:marshadow',
-			'pokemon:mawiledeltamega', 'pokemon:megakabuterimon', 'pokemon:megaseadramon', 'pokemon:melmetal', 'pokemon:metagrossdeltaruincrystal', 'pokemon:metagrossdeltaruinmega', 'pokemon:metagrossdeltaspidermega', 'pokemon:metagrossmega', 'pokemon:metaletemon',
-			'pokemon:metalgarurumon', 'pokemon:metalgreymon', 'pokemon:mewthree', 'pokemon:mewtwo', 'pokemon:mewtwoarmor', 'pokemon:mewtwomegax', 'pokemon:mewtwomegay', 'pokemon:mewtwoshadow', 'pokemon:mewtwoshadowmegax', 'pokemon:miraidon', 'pokemon:mojyamon',
-			'pokemon:monochromon', 'pokemon:monzaemon', 'pokemon:motimon', 'pokemon:naganadel', 'pokemon:necrozmadawnwings', 'pokemon:necrozmaduskmane', 'pokemon:necturna', 'pokemon:nucleon', 'pokemon:numemon', 'pokemon:oblivicornmega', 'pokemon:ockthane',
-			'pokemon:oculeus', 'pokemon:ogerponhearthflame', 'pokemon:ogerponwellspring', 'pokemon:ogremon', 'pokemon:okuwamon', 'pokemon:omnimon', 'pokemon:pagumon', 'pokemon:paldiatina', 'pokemon:palkia', 'pokemon:palkiaorigin', 'pokemon:palmon', 'pokemon:patamon',
-			'pokemon:piximon', 'pokemon:porygonx', 'pokemon:porygonz', 'pokemon:raffiti', 'pokemon:raffitiratthew', 'pokemon:rayquaza', 'pokemon:rayquazamega', 'pokemon:reaptide', 'pokemon:redvegiemon', 'pokemon:regigigasprimal', 'pokemon:regimyo', 'pokemon:reshiram', 'pokemon:reuniclusmega', 'pokemon:saberleomon', 'pokemon:salamencemega',
-			'pokemon:scizordeltamega', 'pokemon:seadramon', 'pokemon:seikamater', 'pokemon:shayminsky', 'pokemon:shellmon', 'pokemon:silvally', 'pokemon:skullgreymon', 'pokemon:snorlaxfrostmega', 'pokemon:snosquatch', 'pokemon:solgaleo', 'pokemon:sonic', 'pokemon:swamptiliken',
-			'pokemon:tapukoko', 'pokemon:tapulele', 'pokemon:tentomon', 'pokemon:terapagos', 'pokemon:togemon', 'pokemon:tsunomon', 'pokemon:tyrannomon', 'pokemon:ufi', 'pokemon:unimon', 'pokemon:ursalunabloodmoon', 'pokemon:urshifu', 'pokemon:vareon', 'pokemon:vegiemon',
-			'pokemon:volcaronadelta', 'pokemon:volcaronadeltaarmor', 'pokemon:wargreymon', 'pokemon:weregarurumon', 'pokemon:whamon', 'pokemon:wizardmon', 'pokemon:xerneas', 'pokemon:xurkitree', 'pokemon:yatagaryu', 'pokemon:yatagaryugossamir', 'pokemon:yveltal', 'pokemon:zacian', 'pokemon:zaciancrowned',
-			'pokemon:zamazentacrowned', 'pokemon:zekrom', 'pokemon:zekromarmor', 'pokemon:zekyushiram', 'pokemon:zudomon', 'pokemon:zygarde', 'pokemon:zygardecomplete',
-		],
-		restricted: [
-			'move:acupressure', 'move:astralbarrage', 'move:bellydrum', 'move:boltbeak', 'move:bulwark', 'move:ceaselessedge', 'move:chatter', 'move:clangoroussoul', 'move:direclaw', 'move:doubleironbash', 'move:dragonenergy', 'move:electroshot', 'move:eruption', 'move:extremespeed', 'move:filletaway', 'move:finalgambit', 'move:fishiousrend', 'move:flameimpact',
-			'move:flowertrick', 'move:geomancy', 'move:gigatonhammer', 'move:groomguard', 'move:infernalblade', 'move:jaggedshot', 'move:metalcruncher', 'move:nanorepair', 'move:noretreat', 'move:populationbomb', 'move:retrograde', 'move:rocketgrab', 'move:shiftgear', 'move:shroudedblows', 'move:subduction', 'move:supremecannon', 'move:terraforce',
-			'move:thousandarrows', 'move:transcendentsword', 'move:triplearrows', 'move:vcreate', 'move:victorydance', 'move:waterspout', 'move:webwrecker', 'move:wickedblow', 'move:wickedtorque',
 		],
 	},
 	{
