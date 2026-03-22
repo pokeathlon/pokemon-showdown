@@ -1320,7 +1320,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Kecleodon",
 		types: ["Normal"],
 		baseStats: {hp: 90, atk: 110, def: 75, spa: 80, spd: 140, spe: 40},
-		abilities: {0: "Protean"},
+		abilities: {0: "Living Prism", 1: "Protean"},
 		heightm: 2.6,
 		weightkg: 142.0,
 		prevo: "Kecleon",
