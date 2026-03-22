@@ -3710,7 +3710,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
 			const item = this.dex.items.get(set.item);
-			const megaEvolves = item.megaStone ? Object.keys(item.megaStone)[0] : "";
+			const megaEvolves = item.megaStone ? Object.keys(item.megaStone)[0] : false;
+			if (!megaEvolves) return;
 			if ((!species.isMega && this.toID(megaEvolves) != species.id)) {
 				return [`${set.species} cannot hold ${set.item}.`]
 			}
