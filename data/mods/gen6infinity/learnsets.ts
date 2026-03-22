@@ -53602,7 +53602,7 @@ psyduckmisty: {
 		signalbeam: ["6M", "6T"],
 		megakick: ["6M", "6T"],
 		megapunch: ["6M", "6T"],
-		allyswitch: ["6L1"],
+		entrainment: ["6L1"],
 		trick: ["6L1"],
 		foulplay: ["6L66"],
 		psychoboost: ["6L94"],
