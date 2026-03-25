@@ -3057,6 +3057,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	condorfeit: {
+		num: 3159,
+		name: "Condorfeit",
+		types: ["Dark", "Steel"],
+		baseStats: {hp: 79, atk: 87, def: 114, spa: 95, spd: 74, spe: 79},
+		abilities: {0: "Levitate", H: "Early Bird"},
+		heightm: 0.88,
+		weightkg: 81.64,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
