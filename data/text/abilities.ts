@@ -2296,7 +2296,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	asabove: {
 		name: "As Above",
-		
+
 		start: "  [POKEMON] is surrounded by distortion energy from below!",
 		end: "  [POKEMON]'s bubble of distortion collapses!",
 	},
@@ -2304,5 +2304,5 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		name: "Strange Anatomy",
 
 		changeAbility: "  [POKEMON]'s Ability became Strange Anatomy!",
-	}
+	},
 };

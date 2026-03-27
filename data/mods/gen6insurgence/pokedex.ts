@@ -1,10 +1,10 @@
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
-import { Pokedex as Parent} from '../gen9insurgence/pokedex';
+import { Pokedex as Parent } from '../gen9insurgence/pokedex';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
-const cutDex: {[k: string]: number} = {
+const cutDex: { [k: string]: number } = {
 	"bulbasaur": 1,
 	"ivysaur": 2,
 	"venusaur": 3,
@@ -1061,10 +1061,10 @@ const cutDex: {[k: string]: number} = {
 	"ufi": 925,
 };
 
-for (const key in {...Base, ...Pokedex}) {
+for (const key in { ...Base, ...Pokedex }) {
 	const id = key as keyof typeof Base;
-	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
 
-	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
-	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

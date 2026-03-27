@@ -718,7 +718,7 @@ export class Side {
 		// Mega evolution
 
 		const mixandmega = this.battle.format.mod === 'mixandmega';
-		const multipleMega = this.battle.format.ruleTable?.has('multiplemega')
+		const multipleMega = this.battle.format.ruleTable?.has('multiplemega');
 		const mega = (event === 'mega');
 		const megax = (event === 'megax');
 		const megay = (event === 'megay');

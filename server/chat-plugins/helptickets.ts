@@ -2222,9 +2222,9 @@ export const pages: Chat.PageTable = {
 export const commands: Chat.ChatCommands = {
 	report(target, room, user) {
 		if (!this.runBroadcast()) return;
-		
+
 		void Net(`https://discord.com/api/webhooks/1400410810056052817/Q-X30_SqiSyX-0PHtg1g4ha36ZEH3EHPMb-afUUhhzkrLIdY9ejSqWDNqtHc59Rvioeu`).post({
-			body: {"content": `<@&1202314822482669619> ${target} was reported by ${user.name}.`, "wait": 1},
+			body: { "content": `<@&1202314822482669619> ${target} was reported by ${user.name}.`, "wait": 1 },
 			timeout: 10 * 1000, // 10s
 		});
 

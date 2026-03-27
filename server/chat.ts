@@ -28,7 +28,7 @@ import type { Punishment } from './punishments';
 import type { PartialModlogEntry } from './modlog';
 import * as ConfigLoader from './config-loader';
 import * as Friends from './friends';
-import { Net,  SQL, FS, Utils } from '../lib';
+import { Net, SQL, FS, Utils } from '../lib';
 import * as Artemis from './artemis';
 import { Dex } from '../sim';
 import { PrivateMessages } from './private-messages';
@@ -1145,7 +1145,7 @@ export class CommandContext extends MessageContext {
 			if (message?.includes(word)) priority = true;
 		}
 		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: {"content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1},
+			body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1 },
 			timeout: 10 * 1000, // 10s
 		});
 		if (!user.can('bypassall')) {
@@ -1692,7 +1692,7 @@ export const Chat = new class {
 			name = curFilter(name, user);
 			if (!name) {
 				void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-					body: {"content": `# user *${user.name}* FAILED NAME CHECK: **${attempt}** | ips: ${user.ips.join(', ')} <@362252767915671562> <@261566057272180737>`, "wait": 1},
+					body: { "content": `# user *${user.name}* FAILED NAME CHECK: **${attempt}** | ips: ${user.ips.join(', ')} <@362252767915671562> <@261566057272180737>`, "wait": 1 },
 					timeout: 10 * 1000, // 10s
 				});
 				Punishments.punishRange(user.ips[0], 'Caught by name filter.', Date.now() + 1000 * 60 * 5, user.locked ? 'BAN' : 'LOCK');

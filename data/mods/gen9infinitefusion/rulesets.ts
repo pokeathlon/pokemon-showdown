@@ -2,7 +2,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 	obtainable: {
 		inherit: true,
 		onValidateTeam(team, format) {
-			let problems: string[] = [];
+			const problems: string[] = [];
 			[
 				['DNA Splicers', ['Kyurem-White', 'Kyurem-Black']],
 				['N-Solarizer', ['Necrozma-Dusk-Mane']],
@@ -14,8 +14,8 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 						const fusion = this.dex.species.get(set.fusion).name;
 						if (
 							[set.species, fusion].every(name => data[1].includes(name)) ||
-							([set.species, fusion].some(name => data[1].includes(name)) && 
-							team.filter(obj => obj!== set).some(test => [test.species, this.dex.species.get(test.fusion).name].some(name => data[1].includes(name))))
+							([set.species, fusion].some(name => data[1].includes(name)) &&
+								team.filter(obj => obj !== set).some(test => [test.species, this.dex.species.get(test.fusion).name].some(name => data[1].includes(name))))
 						) {
 							problems.push(
 								`You cannot have more than one ${(data[1] as string[]).join('/')}.`,

@@ -243,7 +243,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		itemUser: ["Barand", "Barand-Nuclear"],
 		shortDesc: "If held by a Barand, its critical hit ratio is raised by 2 stages.",
 	},
-	
+
 	prettyribbon: {
 		name: "Pretty Ribbon",
 		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
@@ -259,7 +259,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	
+
 	// Current items that do not exist
 	dracoplate: {
 		inherit: true,

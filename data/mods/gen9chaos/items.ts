@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Utils } from '../../../lib';
 import { Items as Base } from '../../items';
-import { ModdedItemDataTable } from '../../../sim/dex-items';
+import { type ModdedItemDataTable } from '../../../sim/dex-items';
 
 export const Items: ModdedItemDataTable = {
 	lightball: {
@@ -218,7 +218,7 @@ export const Items: ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	managel: { // Can't figure out how to make it not clearBoosts(), so modifying moves instead 
+	managel: { // Can't figure out how to make it not clearBoosts(), so modifying moves instead
 		name: "Mana Gel",
 		shortDesc: "The holder cannot have its stat changes cleared or stolen. Psych Up will fail when used against the holder.",
 		spritenum: -3,
@@ -269,8 +269,8 @@ export const Items: ModdedItemDataTable = {
 		},
 		onTryMovePriority: -1,
 		onTryMove(source, target, move) {
-			if (move.id === 'wish'  && source.hp != source.baseMaxhp && source.useItem()) {
-				this.heal(source.baseMaxhp *1.3/2, source, source)
+			if (move.id === 'wish' && source.hp != source.baseMaxhp && source.useItem()) {
+				this.heal(source.baseMaxhp * 1.3 / 2, source, source);
 			}
 			if (move.id === 'wish' && source.hp === source.baseMaxhp) {
 				this.add('-fail', source, 'move: Wish');
@@ -280,7 +280,7 @@ export const Items: ModdedItemDataTable = {
 		},
 		onBasePower(basePower, source, target, move) {
 			if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
-				return this.chainModify(1.3)
+				return this.chainModify(1.3);
 			}
 		},
 		fling: {
@@ -290,8 +290,8 @@ export const Items: ModdedItemDataTable = {
 				const boosts: SparseBoostsTable = {};
 				let i: BoostID;
 				for (i in pokemon.boosts) {
-						activate = true;
-						boosts[i] = 0;
+					activate = true;
+					boosts[i] = 0;
 				}
 				if (activate && !pokemon.item('managel')) {
 					pokemon.setBoost(boosts);
@@ -342,9 +342,9 @@ for (const mod in mods) {
 	for (const key in ModItems) {
 		const id = key as keyof typeof ModItems;
 
-		if (Manual[id] || (mods[mod]["Items"] && mods[mod]["Items"].includes(id))) continue;
+		if (Manual[id] || (mods[mod]["Items"]?.includes(id))) continue;
 
-		if (!Items[id]) Items[id] = Base[id] ? {inherit: true} : {};
+		if (!Items[id]) Items[id] = Base[id] ? { inherit: true } : {};
 
 		for (const attr in ModItems[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;

@@ -1,4 +1,4 @@
-const prevos: {[k: string]: string[]} = {
+const prevos: { [k: string]: string[] } = {
 	"unimon": ["Elecmon", "Biyomon", "Patamon"],
 	"mojyamon": ["Elecmon", "Gomamon"],
 	"piximon": ["Unimon", "Mojyamon"],
@@ -104,7 +104,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
 					if (pokemon.hasAbility('glitchout')) {
-						let glitchmoves = ["swordsdance", "mindreader", "vanish", "irondefense", "nastyplot", "amnesia", "agility", "whirlwind", "stealthrock", "spikes", "toxicspikes", "stickyweb", "reflect", "lightscreen"]
+						const glitchmoves = ["swordsdance", "mindreader", "vanish", "irondefense", "nastyplot", "amnesia", "agility", "whirlwind", "stealthrock", "spikes", "toxicspikes", "stickyweb", "reflect", "lightscreen"];
 						this.battle.actions.useMove(this.battle.sample(glitchmoves), pokemon);
 					}
 					hitResults[i] = false;

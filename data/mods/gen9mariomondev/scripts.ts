@@ -1,4 +1,4 @@
-const {Dex} = require('../../../sim/dex');
+const { Dex } = require('../../../sim/dex');
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
@@ -26,7 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 					return true;
-				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') && 
+				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') &&
 					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending) {
 					return true;
 				}
@@ -155,5 +155,5 @@ export const Scripts: ModdedBattleScriptsData = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-	}
+	},
 };

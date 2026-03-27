@@ -1,4 +1,4 @@
-const prevos: {[k: string]: string[]} = {
+const prevos: { [k: string]: string[] } = {
 	// Digimon
 	"unimon": ["Elecmon", "Biyomon", "Patamon"],
 	"mojyamon": ["Elecmon", "Gomamon"],
@@ -58,7 +58,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				} else {
 					console.log('Misspelled move: ' + move);
 				}
-				
 			}
 		}
 	},
@@ -179,7 +178,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.queue.insertChoice({ choice: 'runSwitch', pokemon });
 			}
 			if (pokemon.species.id === 'tenkibo') {
-				let moveIndex = pokemon.baseMoves.indexOf('starlightblast');
+				const moveIndex = pokemon.baseMoves.indexOf('starlightblast');
 				if (moveIndex >= 0) {
 					const move = this.battle.dex.moves.get('starlightcalling');
 					pokemon.baseMoveSlots[moveIndex] = {
@@ -264,7 +263,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.battle.boost({ accuracy: 1 }, pokemon);
 					}
 					if (pokemon.hasAbility('glitchout')) {
-						let glitchmoves = ["swordsdance", "mindreader", "vanish", "irondefense", "nastyplot", "amnesia", "agility", "whirlwind", "stealthrock", "spikes", "toxicspikes", "stickyweb", "reflect", "lightscreen"]
+						const glitchmoves = ["swordsdance", "mindreader", "vanish", "irondefense", "nastyplot", "amnesia", "agility", "whirlwind", "stealthrock", "spikes", "toxicspikes", "stickyweb", "reflect", "lightscreen"];
 						this.battle.actions.useMove(this.battle.sample(glitchmoves), pokemon);
 					}
 					hitResults[i] = false;
@@ -298,7 +297,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
 					!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 					return true;
-				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') && 
+				} if (pokemon.ability === ('chaosemeralds' as ID) && (pokemon.species.id === 'supersonic' || pokemon.m.fusion === 'Super Sonic') &&
 					!pokemon.volatiles['gastroacid'] && !pokemon.transformed && !pokemon.abilityState.ending) {
 					return true;
 				}
@@ -324,7 +323,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-						(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				if (!this.illusion) this.battle.add('detailschange', this, details);
@@ -355,7 +354,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
 									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
-										(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
+									(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
 								this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
@@ -394,7 +393,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.apparentType = this.terastallized;
 			}
 			if (species.id === 'tenkibomagicalhero') {
-				let moveIndex = this.baseMoves.indexOf('starlightcalling');
+				const moveIndex = this.baseMoves.indexOf('starlightcalling');
 				if (moveIndex >= 0) {
 					const move = this.battle.dex.moves.get('starlightblast');
 					this.baseMoveSlots[moveIndex] = {

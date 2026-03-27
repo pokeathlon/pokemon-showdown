@@ -87,7 +87,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
-			const shouldSkipAbility = sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'mummy'
+			const shouldSkipAbility = sourceAbility.flags['cantsuppress'] || sourceAbility.id === 'mummy';
 			if (!shouldSkipAbility) {
 				if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
 					const oldAbility = source.setAbility('mummy', target);
@@ -190,8 +190,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const isDoubleAbilBattle = this.format.ruleset?.includes('Double Ability Mod');
 			const possibleTargets = pokemon.adjacentFoes().filter(
 				target =>
-					(!target.getAbility().flags['notrace'] && target.ability !== 'noability')
-					||
+					(!target.getAbility().flags['notrace'] && target.ability !== 'noability') ||
 					(isDoubleAbilBattle && (target.m.activeInnates || []).some(innate => !this.dex.abilities.get(innate).flags['notrace']))
 			);
 			if (!possibleTargets.length) return;

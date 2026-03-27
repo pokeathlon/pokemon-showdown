@@ -7641,7 +7641,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	chitinsnare: {
 		name: "Chitin Snare",
-		
+
 		start: "  [POKEMON] readied an attack!",
 		activate: "  [TARGET] got snared!",
 	},

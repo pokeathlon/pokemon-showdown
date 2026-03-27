@@ -1,4 +1,4 @@
-import {Scripts as Parent} from '../gen9uranium/scripts';
+import { Scripts as Parent } from '../gen9uranium/scripts';
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen6',

@@ -132,7 +132,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
 				if (target.species.id === 'wiggler') target.formeChange('Wiggler-Angry');
 				if (target.m.fusion === 'Wiggler') target.fusionChange('Wiggler-Angry');
-				this.boost({atk: 12}, target, target);
+				this.boost({ atk: 12 }, target, target);
 			}
 		},
 	},
@@ -177,7 +177,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.m.fusion === 'Sonic') pokemon.fusionChange('Super Sonic', this.effect);
 			this.heal(pokemon.baseMaxhp);
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Chaos Emeralds",
 		shortDesc: "When Sonic reaches 1 HP, fully heal and transform into Super Sonic.",
 		rating: 5,

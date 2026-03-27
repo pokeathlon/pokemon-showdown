@@ -130,7 +130,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -146,7 +146,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Usually goes first.",
 		pp: 20,
 		priority: 1,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -161,7 +161,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to poison the target.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -179,7 +179,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -195,7 +195,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to lower the target's accuracy by 1.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, punch: 1},
+		flags: { protect: 1, mirror: 1, punch: 1 },
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -215,7 +215,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "This move does not check accuracy.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -230,7 +230,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -247,7 +247,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		multihit: [2, 5],
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -263,7 +263,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		recoil: [25, 100],
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -278,7 +278,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio. 10% burn chance.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		critRatio: 2,
 		secondary: {
 			chance: 10,
@@ -297,7 +297,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -313,7 +313,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to lower the target's accuracy by 1.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -333,7 +333,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Has 33% recoil. 10% chance to burn. Thaws user.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, defrost: 1 },
 		recoil: [33, 100],
 		secondary: {
 			chance: 10,
@@ -352,7 +352,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to make the target flinch.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, bite: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, bite: 1 },
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -370,7 +370,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
 		pp: 10,
 		priority: 3,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
 				this.hint("Ambush only works on your first turn out.");
@@ -394,14 +394,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Raises the user's Sp. Def by 3.",
 		pp: 15,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: { snatch: 1 },
 		boosts: {
 			spd: 3,
 		},
 		secondary: null,
 		target: "self",
 		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: { effect: 'clearnegativeboost' },
 	},
 	astralshot: {
 		num: 0,
@@ -413,7 +413,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Cosmic",
@@ -428,7 +428,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "15% chance to make the target flinch.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1 },
 		secondary: {
 			chance: 15,
 			volatileStatus: 'flinch',
@@ -446,7 +446,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "25% chance to make the target flinch.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 25,
 			volatileStatus: 'flinch',
@@ -464,7 +464,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Has 33% recoil.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, bullet: 1},
+		flags: { protect: 1, mirror: 1, bullet: 1 },
 		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
@@ -480,7 +480,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to lower the target's speed by 1.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1, punch: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, defrost: 1, punch: 1 },
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -500,7 +500,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect. Hits adjacent foes.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Ground",
@@ -515,7 +515,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to poison the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -533,14 +533,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Raises the user's Sp. Def by 2.",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: { snatch: 1 },
 		boosts: {
 			spd: 2,
 		},
 		secondary: null,
 		target: "self",
 		type: "Rock",
-		zMove: {effect: 'crit2'},
+		zMove: { effect: 'crit2' },
 	},
 	vanish: {
 		num: 0,
@@ -552,14 +552,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Raises the user's evasiveness by 2.",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: { snatch: 1 },
 		boosts: {
 			evasion: 2,
 		},
 		secondary: null,
 		target: "self",
 		type: "Ghost",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: { effect: 'clearnegativeboost' },
 	},
 	cactussmash: {
 		num: 0,
@@ -571,7 +571,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Has 33% recoil. 35% chance to poison.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [33, 100],
 		secondary: {
 			chance: 35,
@@ -591,7 +591,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 3,
 		noPPBoosts: true,
 		priority: -2,
-		flags: {snatch: 1},
+		flags: { snatch: 1 },
 		boosts: {
 			atk: 1,
 			def: 1,
@@ -602,7 +602,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: { effect: 'clearnegativeboost' },
 	},
 	dejavu: {
 		num: 0,
@@ -614,7 +614,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "This move does not check accuracy.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -629,7 +629,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to burn, freeze, or paralyze target.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -656,7 +656,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to make the target flinch.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -674,7 +674,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to burn the target.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'brn',
@@ -692,7 +692,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to lower the target's accuracy by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -712,7 +712,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "15% chance to burn the target.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1 },
 		secondary: {
 			chance: 15,
 			status: 'brn',
@@ -730,7 +730,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits 2 times in one turn.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		multihit: 2,
 		secondary: null,
 		target: "normal",
@@ -746,7 +746,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "allAdjacent",
 		type: "Fire",
@@ -761,7 +761,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -776,7 +776,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "10% chance to freeze the target.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 10,
 			status: 'frz',
@@ -794,7 +794,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "70% chance to raise the user's Sp. Atk by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 70,
 			self: {
@@ -816,7 +816,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
@@ -846,7 +846,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "This move does not check accuracy.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1, bullet: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -861,7 +861,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Destroys screens, unless the target is immune.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
@@ -882,7 +882,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Breaks the target's protection for this turn.",
 		pp: 5,
 		priority: 0,
-		flags: {mirror: 1, bypasssub: 1},
+		flags: { mirror: 1, bypasssub: 1 },
 		breaksProtect: true,
 		secondary: null,
 		target: "normal",
@@ -898,7 +898,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "45% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 45,
 			status: 'par',
@@ -916,7 +916,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "10% chance to freeze. Super effective on Water.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Water') return 1;
 		},
@@ -937,7 +937,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -954,7 +954,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 0,
 		noPPBoosts: true,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'par',
@@ -973,7 +973,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 9,
 		noPPBoosts: true,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "???",
@@ -989,7 +989,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 19,
 		noPPBoosts: true,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		self: {
 			volatileStatus: 'mustrecharge',
 		},
@@ -1007,7 +1007,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect.",
 		pp: 30,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "???",
@@ -1022,14 +1022,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lowers the target's Defense by 2.",
 		pp: 40,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: { protect: 1, mirror: 1, sound: 1 },
 		boosts: {
 			def: -2,
 		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		zMove: {boost: {atk: 1}},
+		zMove: { boost: { atk: 1 } },
 	},
 	hornbuster: {
 		num: 0,
@@ -1041,7 +1041,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to raise the user's Speed by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 100,
 			self: {
@@ -1063,7 +1063,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to lower the target's accuracy by 1.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1 },
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -1083,7 +1083,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to lower the target's speed by 1.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -1103,7 +1103,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "This move does not check accuracy.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, slicing: 1},
+		flags: { protect: 1, mirror: 1, slicing: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -1118,7 +1118,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to paralyze the target.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 100,
 			status: 'par',
@@ -1136,7 +1136,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to lower the target's defense by 1.",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -1156,7 +1156,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "This move does not check accuracy.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, slicing: 1},
+		flags: { protect: 1, mirror: 1, slicing: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -1171,7 +1171,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Protects from moves. Contact: loses 1/8 max HP.",
 		pp: 10,
 		priority: 4,
-		flags: {snatch: 1, noassist: 1, failcopycat: 1},
+		flags: { snatch: 1, noassist: 1, failcopycat: 1 },
 		stallingMove: true,
 		volatileStatus: 'beamshield',
 		onPrepareHit(pokemon) {
@@ -1218,7 +1218,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Fairy",
-		zMove: {boost: {def: 1}},
+		zMove: { boost: { def: 1 } },
 	},
 	icewolfclaw: {
 		num: 0,
@@ -1231,7 +1231,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		multihit: [2, 5],
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "allAdjacent",
 		type: "Ice",
@@ -1246,7 +1246,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to burn, freeze, or paralyze target.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1 },
 		secondary: {
 			chance: 20,
 			onHit(target, source) {
@@ -1273,7 +1273,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to burn the target.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'brn',
@@ -1291,7 +1291,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "allAdjacent",
 		type: "Ground",
@@ -1306,7 +1306,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to poison the target.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 50,
 			status: 'psn',
@@ -1324,7 +1324,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, punch: 1},
+		flags: { protect: 1, mirror: 1, punch: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -1339,7 +1339,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'par',
@@ -1357,7 +1357,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to lower the target's defense by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -1377,7 +1377,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "20% chance to raise the user's Attack by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, punch: 1 },
 		secondary: {
 			chance: 20,
 			self: {
@@ -1399,7 +1399,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Raises the user's Attack and Speed by 1.",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: { snatch: 1 },
 		boosts: {
 			atk: 1,
 			spe: 1,
@@ -1407,7 +1407,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "self",
 		type: "Dark",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: { effect: 'clearnegativeboost' },
 	},
 	evilwing: {
 		num: 0,
@@ -1419,7 +1419,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'par',
@@ -1437,7 +1437,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lowers adjacent pokemon's Attack and Sp. Atk by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: { protect: 1, mirror: 1, sound: 1 },
 		boosts: {
 			atk: -1,
 			spa: -1,
@@ -1445,7 +1445,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Dark",
-		zMove: {boost: {def: 1}},
+		zMove: { boost: { def: 1 } },
 	},
 	bugblaster: {
 		num: 0,
@@ -1457,7 +1457,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "10% chance to lower the target's attack by 1.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1 },
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -1477,7 +1477,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to poison the target.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -1495,7 +1495,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "User switches out after damaging the target.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
@@ -1511,7 +1511,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to raise the user's Speed by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 100,
 			self: {
@@ -1533,7 +1533,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, failinstruct: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, failinstruct: 1 },
 		self: {
 			volatileStatus: 'lockedmove',
 		},
@@ -1555,7 +1555,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		volatileStatus: 'partiallytrapped',
 		secondary: null,
 		target: "normal",
@@ -1571,7 +1571,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "allAdjacent",
 		type: "Dark",
@@ -1587,10 +1587,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 1,
 		noPPBoosts: true,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		onHit(target, source, move) {
 			let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ evasion: -1 });
 			const removeTarget = [
 				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
 			];
@@ -1627,7 +1627,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect. Hits adjacent Pokemon.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: { protect: 1, mirror: 1, sound: 1 },
 		secondary: null,
 		target: "allAdjacent",
 		type: "Normal",
@@ -1642,7 +1642,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		self: {
 			boosts: {
 				spa: -2,
@@ -1662,7 +1662,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "25% chance to freeze. Hits adjacent foes.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, pulse: 1 },
 		secondary: {
 			chance: 25,
 			status: 'frz',
@@ -1680,7 +1680,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to burn the target. Destroys foe's Berry/Gem.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		onHit(pokemon, source) {
 			const item = pokemon.getItem();
 			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
@@ -1704,7 +1704,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "User recovers 50% of the damage dealt.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		drain: [1, 2],
 		secondary: null,
 		target: "normal",
@@ -1720,7 +1720,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "The user faints. Sets Spikes and Toxic Spikes layer.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1, noparentalbond: 1 },
 		onHit(target, source, move) {
 			for (const side of source.side.foeSidesWithConditions()) {
 				side.addSideCondition('spikes');
@@ -1733,112 +1733,112 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Steel",
 	},
 	granite: {
-        num: 0,
-        accuracy: 0,
-        basePower: 0,
-        category: "Status",
-        name: "Granite",
-        desc: "The user sets up a protective reinforcement for their side of the field. Lasts for 3 turns.",
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Granite",
+		desc: "The user sets up a protective reinforcement for their side of the field. Lasts for 3 turns.",
 		shortDesc: "Sets Reflect and Light Screen on user's side for 3 turns.",
-        pp: 5,
-        priority: 0,
-        flags: {snatch: 1},
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1 },
 		onHit(source) {
-			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay'? 7 : 4;
-			if (source.side.addSideCondition('lightscreen')) source.side.sideConditions['lightscreen'].duration = source.item === 'lightclay'? 7 : 4;
+			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay' ? 7 : 4;
+			if (source.side.addSideCondition('lightscreen')) source.side.sideConditions['lightscreen'].duration = source.item === 'lightclay' ? 7 : 4;
 		},
-        secondary: null,
-        target: "self",
-        type: "Rock",
+		secondary: null,
+		target: "self",
+		type: "Rock",
 	},
 	core: {
-			num: 0,
-			accuracy: 70,
-			basePower: 90,
-			category: "Physical",
-			name: "Core",
-			desc: "Bro heats up and burns everything. This also lowers the afflicted targets' Defense stat.",
-			shortDesc: "Lowers the target(s) Defense by 1",
-			pp: 5,
-			priority: 0,
-			flags: {protect: 1, mirror: 1},
-			secondary: {
-				chance: 100,
-				boosts: {
-					def: -1,
-				}
+		num: 0,
+		accuracy: 70,
+		basePower: 90,
+		category: "Physical",
+		name: "Core",
+		desc: "Bro heats up and burns everything. This also lowers the afflicted targets' Defense stat.",
+		shortDesc: "Lowers the target(s) Defense by 1",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
 			},
-			target: "allAdjacent",
-			type: "Fire",
+		},
+		target: "allAdjacent",
+		type: "Fire",
 	},
 	tonic: {
-			num: 0,
-			accuracy: 100,
-			basePower: 0,
-			damage: 'level',
-			category: "Special",
-			name: "Tonic",
-			desc: "The user drains life-force and shares it among your active mons. The power scales with the user's level.",
-			shortDesc: "Does damage equal to the user's level. User recovers 50% of the damage dealt, split among alies.",
-			onDamage(damage, target, source, effect) {
-				if (damage) {
-					let modifier = source.side.active.length;
-					const healAmount = damage*0.75;
-					for (const pokemon of source.alliesAndSelf()) {
-						this.heal(healAmount / modifier, pokemon, source, "drain");
-					}
+		num: 0,
+		accuracy: 100,
+		basePower: 0,
+		damage: 'level',
+		category: "Special",
+		name: "Tonic",
+		desc: "The user drains life-force and shares it among your active mons. The power scales with the user's level.",
+		shortDesc: "Does damage equal to the user's level. User recovers 50% of the damage dealt, split among alies.",
+		onDamage(damage, target, source, effect) {
+			if (damage) {
+				const modifier = source.side.active.length;
+				const healAmount = damage * 0.75;
+				for (const pokemon of source.alliesAndSelf()) {
+					this.heal(healAmount / modifier, pokemon, source, "drain");
 				}
-			},
-			pp: 10,
-			priority: 0,
-			flags: {contact: 1, protect: 1, mirror: 1},
-			secondary: null, 
-			target: "normal",
-			type: "Water",
+			}
+		},
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: null,
+		target: "normal",
+		type: "Water",
 	},
 	gale: {
-			num: 0,
-			accuracy: 100,
-			basePower: 60,
-			category: "Physical",
-			name: "Gale",
-			desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
-			shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
-			pp: 10,
-			priority: 0,
-			flags: {protect: 1, mirror: 1},
-			onAfterHit(target, pokemon, move) {
-				if (!move.hasSheerForce) {
-					if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
-						this.add('-end', pokemon, 'Leech Seed', '[from] move: Gale', `[of] ${pokemon}`);
-					}
-					const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-					for (const condition of sideConditions) {
-						if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-							this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
-						}
-					}
-					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
-						pokemon.removeVolatile('partiallytrapped');
+		num: 0,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Gale",
+		desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Gale', `[of] ${pokemon}`);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
 					}
 				}
-			},
-			onAfterSubDamage(damage, target, pokemon, move) {
-				if (!move.hasSheerForce) {
-					if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
-						this.add('-end', pokemon, 'Leech Seed', '[from] move: Gale', `[of] ${pokemon}`);
-					}
-					const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-					for (const condition of sideConditions) {
-						if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-							this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
-						}
-					}
-					if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
-						pokemon.removeVolatile('partiallytrapped');
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Gale', `[of] ${pokemon}`);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
 					}
 				}
-			},
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
 		secondary: {
 			chance: 100,
 			self: {
@@ -1847,77 +1847,77 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
-			target: "normal",
-			type: "Flying",
+		target: "normal",
+		type: "Flying",
 	},
 	cherryblast: {
-			num: 0,
-			accuracy: 100,
-			basePower: 85,
-			category: "Special",
-			name: "Cherry Blast",
-			desc: "Forbidden fruit is shot at the opponent. Likely puts a curse on those hit.",
-			shortDesc: "25% chance to Curse target.",
-			pp: 10,
-			priority: 0,
-			flags: {protect: 1, mirror: 1, pulse: 1},
-			secondary: {
-				chance: 25,
-				volatileStatus: 'curse',
-			}, 
-			target: "normal",
-			type: "Poison",
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Cherry Blast",
+		desc: "Forbidden fruit is shot at the opponent. Likely puts a curse on those hit.",
+		shortDesc: "25% chance to Curse target.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 25,
+			volatileStatus: 'curse',
+		},
+		target: "normal",
+		type: "Poison",
 	},
 	bullethammer: {
-			num: 0,
-			accuracy: 100,
-			basePower: 150,
-			category: "Physical",
-			name: "Bullet Hammer",
-			desc: "The user bats the opponent with a super-charged hammer. The recoil forces the user to rest.",
-			shortDesc: "Forces the target to switch to a random ally. User cannot move next turn.",
-			pp: 5,
-			priority: 0,
-			flags: {protect: 1, mirror: 1, recharge: 1},
-			secondary: null,
-			forceSwitch: true,
-			self: {
-				volatileStatus: 'mustrecharge',
-			},
-			target: "normal",
-			type: "Steel",
+		num: 0,
+		accuracy: 100,
+		basePower: 150,
+		category: "Physical",
+		name: "Bullet Hammer",
+		desc: "The user bats the opponent with a super-charged hammer. The recoil forces the user to rest.",
+		shortDesc: "Forces the target to switch to a random ally. User cannot move next turn.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, recharge: 1 },
+		secondary: null,
+		forceSwitch: true,
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		target: "normal",
+		type: "Steel",
 	},
 	soulchopper: {
-			num: 0,
-			accuracy: 100,
-			basePower: 60,
-			category: "Physical",
-			name: "Soul Chopper",
-			desc: "The user annihilates the foe's soul with mighty cleaves. Always lands a critical hit.",
-			shortDesc: "Always results in a critical hit.",
-			pp: 10,
-			priority: 0,
-			flags: {protect: 1, mirror: 1},
-			willCrit: true,
-			secondary: null,
-			target: "normal",
-			type: "Ghost",
+		num: 0,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Soul Chopper",
+		desc: "The user annihilates the foe's soul with mighty cleaves. Always lands a critical hit.",
+		shortDesc: "Always results in a critical hit.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
 	},
 	trumpsword: {
-			num: 0,
-			accuracy: 100,
-			basePower: 25,
-			category: "Physical",
-			name: "Trump Sword",
-			desc: "In a flash the user summons sharp swords at the target. It strikes one to four times in a row.",
-			shortDesc: "Hits 1-4 times in one turn.",
-			pp: 10,
-			priority: 1,
-			flags: {protect: 1, mirror: 1},
-			multihit: [1, 4],
-			secondary: null,
-			target: "normal",
-			type: "Steel",
+		num: 0,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Trump Sword",
+		desc: "In a flash the user summons sharp swords at the target. It strikes one to four times in a row.",
+		shortDesc: "Hits 1-4 times in one turn.",
+		pp: 10,
+		priority: 1,
+		flags: { protect: 1, mirror: 1 },
+		multihit: [1, 4],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
 	},
 	greatbind: {
 		num: 0,

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Utils } from '../../../lib';
 import { Conditions as Base } from '../../conditions';
-import { ModdedConditionDataTable } from '../../../sim/dex-conditions';
+import { type ModdedConditionDataTable } from '../../../sim/dex-conditions';
 
 import { treasures } from './abilities';
 
@@ -25,7 +25,7 @@ export const Conditions: ModdedConditionDataTable = {
 		name: 'partiallytrapped',
 		duration: 5,
 		durationCallback(target, source) {
-			if (source?.lastMoveUsed?.id === 'greatbind') return source?.hasItem('gripclaw')? 6 : 5; // always 4 turns, 5 if grip claw
+			if (source?.lastMoveUsed?.id === 'greatbind') return source?.hasItem('gripclaw') ? 6 : 5; // always 4 turns, 5 if grip claw
 			if (source?.hasItem('gripclaw')) return 8;
 			return this.random(5, 7);
 		},
@@ -111,10 +111,10 @@ for (const mod in mods) {
 	for (const key in ModConditions) {
 		const id = key as keyof typeof ModConditions;
 
-		if (Manual[id] || (mods[mod]["Conditions"] && mods[mod]["Conditions"].includes(id))) continue;
+		if (Manual[id] || (mods[mod]["Conditions"]?.includes(id))) continue;
 
-		if (!Conditions[id]) Conditions[id] = Base[id] ? {inherit: true} : {};
-					
+		if (!Conditions[id]) Conditions[id] = Base[id] ? { inherit: true } : {};
+
 		for (const attr in ModConditions[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
 			if (Conditions[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);

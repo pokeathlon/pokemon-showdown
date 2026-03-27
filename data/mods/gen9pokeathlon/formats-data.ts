@@ -1,4 +1,4 @@
-import {Pokedex as Base} from '../gen9chaos/pokedex';
+import { Pokedex as Base } from '../gen9chaos/pokedex';
 
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	aviotion: {
@@ -647,13 +647,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 		natDexTier: "LC",
 		isNonstandard: null,
-	}, 
+	},
 	bulwarva: {
 		inherit: true,
 		tier: "NFE",
 		natDexTier: "NFE",
 		isNonstandard: null,
-	}, 
+	},
 	poltank: {
 		inherit: true,
 		tier: "OU",
@@ -725,7 +725,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 		natDexTier: "LC",
 		isNonstandard: null,
-	}, 
+	},
 	anneliark: {
 		inherit: true,
 		tier: "OU",
@@ -898,7 +898,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 		natDexTier: "LC",
 		isNonstandard: null,
-	}, 
+	},
 	silretro: {
 		inherit: true,
 		tier: "OU",
@@ -946,31 +946,31 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
-	}, 
+	},
 	sauphozoa: {
 		inherit: true,
 		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
-	}, 
+	},
 	keepurr: {
 		inherit: true,
 		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
-	}, 
+	},
 	verdicent: {
 		inherit: true,
 		tier: "OU",
 		natDexTier: "OU",
 		isNonstandard: null,
-	}, 
+	},
 	martiantis: {
 		inherit: true,
 		tier: "OU",
 		natDexTier: "OU",
 		isNonstandard: null,
-	}, 
+	},
 	tenkibo: {
 		inherit: true,
 		tier: "OU",
@@ -1059,5 +1059,5 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 
 for (const pokemon in Base) {
 	const key = pokemon as keyof typeof FormatsData;
-	if (!FormatsData[key]) FormatsData[key] = {inherit: true, isNonstandard: "Custom", tier: "Illegal", natDexTier: "Illegal", doublesTier: "Illegal"};
+	if (!FormatsData[key]) FormatsData[key] = { inherit: true, isNonstandard: "Custom", tier: "Illegal", natDexTier: "Illegal", doublesTier: "Illegal" };
 }

@@ -219,7 +219,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	regieleki: {
 		inherit: true,
 		natDexTier: "Uber",
-	},blazikenmega: {
+	}, blazikenmega: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
@@ -628,7 +628,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	registeel: {
 		inherit: true,
-		natDexTier: "UU",	
+		natDexTier: "UU",
 	},
 	rillaboom: {
 		inherit: true,

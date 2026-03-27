@@ -7,19 +7,19 @@ const { Dex } = require('../dist/sim/dex');
 const logs = path.resolve(__dirname, '../logs');
 const server = path.resolve(__dirname, '../server/static');
 
-const toID = (text) => {
+const toID = text => {
 	return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
-}
+};
 
-const incrementObj = (obj, key, amount=1) => {
+const incrementObj = (obj, key, amount = 1) => {
 	if (!obj[key]) obj[key] = 0;
 	obj[key] += amount;
-}
+};
 
 const pad = (text, fill, count) => {
 	text = `${text}`.substring(0, count);
 	return text + fill.repeat(count - text.length);
-}
+};
 
 const formatinfo = {};
 
@@ -34,7 +34,7 @@ const formatinfo = {};
 
 if (process.argv[2] === 'full') {
 	process.stdout.write('Compiling usage... \n');
-	const months = fs.readdirSync(logs).filter((path) => path.startsWith('20'));
+	const months = fs.readdirSync(logs).filter(path => path.startsWith('20'));
 
 	for (const month of months) {
 		const usage = {};
@@ -112,7 +112,7 @@ if (process.argv[2] === 'full') {
 {
 	process.stdout.write('Generating HTML files... \n');
 
-	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t\t<style>\n\t\t\ta { text-decoration: none; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<pre style="word-wrap: break-word; white-space: pre-wrap;">`
+	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t\t<style>\n\t\t\ta { text-decoration: none; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<pre style="word-wrap: break-word; white-space: pre-wrap;">`;
 	const end = `\n\t\t</pre>\n\t</body>\n</html>`;
 
 	const months = fs.readdirSync(`${server}/usage/raw`).map(element => element.split('.')[0]).toReversed();
@@ -176,7 +176,7 @@ if (process.argv[2] === 'full') {
 				total = 0;
 				const abilities = Object.entries(sets.abilities).toSorted((a, b) => b[1] - a[1]);
 				abilities.forEach(entry => total += entry[1]);
-				
+
 				for (const ability of abilities) {
 					percent = (ability[1] / total) * 100;
 
@@ -208,7 +208,6 @@ if (process.argv[2] === 'full') {
 		b += `\n<a href=/><- back</a>`;
 		b += end;
 		fs.writeFileSync(`${server}/usage/${month}.html`, b);
-
 	}
 
 	a += end;

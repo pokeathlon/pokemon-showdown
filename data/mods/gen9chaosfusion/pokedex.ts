@@ -5,6 +5,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 for (const i in Pokedex) {
 	const mon = i as keyof typeof Pokedex;
 	if (Pokedex[mon].types?.includes('Nuclear')) {
-		Pokedex[mon] = {...Pokedex[mon], natDexTier: "RU"};
+		Pokedex[mon] = { ...Pokedex[mon], natDexTier: "RU" };
 	}
 }

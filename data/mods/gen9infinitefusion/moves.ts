@@ -104,13 +104,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri') tatsugiri = this.dex.species.get(tatsugiri.m.fusion); // Should never happen
 			switch (tatsugiri.baseSpecies.forme) {
 			case 'Droopy':
-				this.boost({def: 1}, pokemon, pokemon);
+				this.boost({ def: 1 }, pokemon, pokemon);
 				break;
 			case 'Stretchy':
-				this.boost({spe: 1}, pokemon, pokemon);
+				this.boost({ spe: 1 }, pokemon, pokemon);
 				break;
 			default:
-				this.boost({atk: 1}, pokemon, pokemon);
+				this.boost({ atk: 1 }, pokemon, pokemon);
 				break;
 			}
 		},
@@ -121,8 +121,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 3,
 			onStart(target) {
 				if (['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies) ||
-						['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.dex.species.get(target.m.fusion).baseSpecies) ||
-							target.baseSpecies.name === 'Gengar-Mega') {
+					['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.dex.species.get(target.m.fusion).baseSpecies) ||
+					target.baseSpecies.name === 'Gengar-Mega') {
 					this.add('-immune', target);
 					return null;
 				}

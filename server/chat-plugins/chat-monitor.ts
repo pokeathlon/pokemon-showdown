@@ -445,7 +445,7 @@ export const namefilter: Chat.NameFilter = (name, user) => {
 		return '';
 	}
 	if (id === toID(user.trackRename)) return '';
-	let lcName = name
+	const lcName = name
 		.replace(/\u039d/g, 'N').toLowerCase()
 		.replace(/[\u200b\u007F\u00AD]/g, '')
 		.replace(/\u03bf/g, 'o')

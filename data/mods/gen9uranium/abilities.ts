@@ -146,7 +146,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Disenchant",
 		shortDesc: "This Pokemon is immune to Fairy-type moves.",
 		rating: 3.5,
@@ -191,7 +191,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			for (const fieldPokemon of this.getAllPokemon()) {
 				if (fieldPokemon !== pokemon && fieldPokemon.hasType('Nuclear')) shouldBoost = true;
 			}
-			if (shouldBoost) this.boost({atk: 1, spa: 1}, pokemon);
+			if (shouldBoost) this.boost({ atk: 1, spa: 1 }, pokemon);
 		},
 		flags: {},
 		name: "Geiger Sense",
@@ -202,7 +202,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	infuriate: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
-				this.boost({atk: 1}, target);
+				this.boost({ atk: 1 }, target);
 			}
 		},
 		flags: {},
@@ -230,7 +230,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Lead Skin",
 		shortDesc: "This Pokemon is immune to Nuclear-type moves.",
 		rating: 3.5,
@@ -254,7 +254,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({spe: -1}, target, pokemon, null, true);
+					this.boost({ spe: -1 }, target, pokemon, null, true);
 				}
 			}
 		},

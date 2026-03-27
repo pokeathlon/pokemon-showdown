@@ -1,6 +1,6 @@
 import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
-import { Abilities as Parent} from '../gen9uranium/abilities';
+import { Abilities as Parent } from '../gen9uranium/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	...Utils.deepClone(Parent),
@@ -50,7 +50,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 0,
 	},
-	
+
 	aftermath: {
 		// Aftermath deals damage even if the target doesn't faint
 		// This is a bug present in the game

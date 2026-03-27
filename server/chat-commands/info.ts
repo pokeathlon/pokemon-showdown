@@ -12,7 +12,7 @@ import * as net from 'net';
 import { YouTube, Twitch } from '../chat-plugins/youtube';
 import { Net, Utils } from '../../lib';
 import { RoomSections } from './room-settings';
-import { Battle } from '../../sim/battle';
+import { type Battle } from '../../sim/battle';
 
 const ONLINE_SYMBOL = ` \u25C9 `;
 const OFFLINE_SYMBOL = ` \u25CC `;

@@ -1,6 +1,6 @@
 import { Utils } from '../../../lib';
 import { Moves as Base } from '../../moves';
-import { Moves as Parent} from '../gen9uranium/moves';
+import { Moves as Parent } from '../gen9uranium/moves';
 
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	...Utils.deepClone(Parent),
@@ -26,7 +26,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	sleeptalk: {
 		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, nosketch: 1},
+		flags: { failencore: 1, nosleeptalk: 1, nosketch: 1 },
 		onTryHit(pokemon) {
 			return !pokemon.volatiles['choicelock'] && !pokemon.volatiles['encore'];
 		},

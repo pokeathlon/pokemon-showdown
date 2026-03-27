@@ -1,4 +1,4 @@
-const eeveelutions: {[k: string]: string} = {
+const eeveelutions: { [k: string]: string } = {
 	"Water": "vaporeon",
 	"Fire": "flareon",
 	"Grass": "leafeon",
@@ -10,7 +10,7 @@ const eeveelutions: {[k: string]: string} = {
 	"Normal": "eeveemega",
 };
 
-const eeveeabilities: {[k: string]: string} = {
+const eeveeabilities: { [k: string]: string } = {
 	"vaporeon": "waterabsorb",
 	"flareon": "flashfire",
 	"leafeon": "chlorophyll",
@@ -202,9 +202,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	ancientpresence: {
 		onModifyMove(move, pokemon, target) {
 			move.forceSTAB = true;
-			if (!target || !target.hp) return;
+			if (!target?.hp) return;
 			const curType = target.getTypes();
-			target.setType('???')
+			target.setType('???');
 			if (target.runImmunity(move.type)) {
 				move.type = '???';
 			}
@@ -231,7 +231,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyTypePriority: -5,
 		onModifyType(move, pokemon, target) {
 			if (move.category === 'Status' || move.type !== 'Fire') return;
-			this.boost({spa: 1, atk: 1, spe: 1}, pokemon);
+			this.boost({ spa: 1, atk: 1, spe: 1 }, pokemon);
 			if (pokemon.species.id === 'emolgadelta') {
 				pokemon.formeChange('emolgadeltafired');
 			}
@@ -259,12 +259,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			duration: 3,
 			onStart(pokemon) {
 				if (pokemon.side.totalFainted) {
-					this.boost({spe: 1, spa: pokemon.side.totalFainted}, pokemon);
+					this.boost({ spe: 1, spa: pokemon.side.totalFainted }, pokemon);
 				}
 			},
 			onEnd(pokemon) {
 				if (pokemon.side.totalFainted) {
-					this.boost({spe: -1, spa: -pokemon.side.totalFainted}, pokemon);
+					this.boost({ spe: -1, spa: -pokemon.side.totalFainted }, pokemon);
 				}
 			},
 		},
@@ -287,7 +287,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(0.5);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Ethereal Shroud",
 		shortDesc: "Grants the user Ghost-type immunities and resistances.",
 		rating: 3,
@@ -309,7 +309,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
 			if (move.id === 'stealthrock') {
-				this.actions.useMove('hotcoals', pokemon, {target: target});
+				this.actions.useMove('hotcoals', pokemon, { target });
 				return null;
 			}
 		},
@@ -343,7 +343,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Heliophobia",
 		desc: "At the end of each turn, this Pokemon restores 1/8 of its maximum HP, rounded down, if the weather is Darkness, and loses 1/8 of its maximum HP, rounded down, if the weather is Sunny Day. The weather effects are prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "This Pokemon is healed 1/8 by Darkness; damaged 1/8 by Sun.",
@@ -353,7 +353,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	hubris: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({spa: length}, source);
+				this.boost({ spa: length }, source);
 			}
 		},
 		flags: {},
@@ -400,7 +400,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	irrelephant: {
 		onModifyMove(move, pokemon, target) {
-			if (!target || !target.hp) return;
+			if (!target?.hp) return;
 			const curType = target.getTypes();
 			target.setType('???');
 			move.ignoreImmunity = {};
@@ -422,7 +422,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			let formeIndex = formeOrder.indexOf( '-' + pokemon.species.name.split('-').slice(-1));
+			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').slice(-1));
 			if (formeIndex === -1) formeIndex = 4;
 			if (formeIndex > targetForme) {
 				for (const name of ['Hydreigon-Mega']) {
@@ -438,12 +438,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyMove(move, pokemon, target) {
 			if (!['Hydreigon-Mega'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item)) || move.category === "Status" || !move.basePower) return;
 
-			this.effectState.move = {...move};
+			this.effectState.move = { ...move };
 
 			delete move.secondaries;
 			delete move.secondary;
 			delete move.self?.boosts;
-			
+
 			if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
 
 			for (const name of ['Hydreigon-Mega']) {
@@ -471,8 +471,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onSourceDamagingHit(damage, target, pokemon, move) {
 			if (['Hydreigon-Mega'].some(item => pokemon.species.name.includes(item) || pokemon.m.fusion?.includes(item))) {
-				if (move.multihit && typeof(move.multihit) === 'number' && Math.floor(move.multihit - 1) === move.hit) {
-					move = {...this.effectState.move};
+				if (move.multihit && typeof (move.multihit) === 'number' && Math.floor(move.multihit - 1) === move.hit) {
+					move = { ...this.effectState.move };
 				}
 			}
 		},
@@ -504,13 +504,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				'Bug', 'Dark', 'Dragon', 'Electric',
 				'Fairy', 'Fighting', 'Fire', 'Flying',
 				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal',
-				'Poison', 'Psychic', 'Rock', 'Steel', 'Water'
+				'Poison', 'Psychic', 'Rock', 'Steel', 'Water',
 			]);
 		},
 		onFoeAfterMove(source, target, move) {
 			target.setType(target.baseTypes);
 		},
-		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
+		flags: { breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Omnitype",
 		shortDesc: "When defending, the user has every type.",
 		rating: 4,
@@ -633,7 +633,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Protean Maxima",
 		shortDesc: "Transforms into the eeveelution corresponding to the type of the move used.",
 		rating: 4.5,
@@ -828,12 +828,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			},
 			onStart(pokemon) {
 				if (pokemon.side.totalFainted) {
-					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1});
+					this.boost({ atk: 1, def: 1, spa: 1, spd: 1, spe: 1 });
 				}
 			},
 			onEnd(pokemon) {
 				if (pokemon.side.totalFainted) {
-					this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1});
+					this.boost({ atk: -1, def: -1, spa: -1, spd: -1, spe: -1 });
 				}
 			},
 		},
@@ -864,7 +864,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of this.getAllActive()) {
-				if (!target || !target.hp) continue;
+				if (!target?.hp) continue;
 				if (target.hasType('Water') && !(target.teraType === 'Stellar' && target.terastallized)) {
 					this.damage(target.maxhp / 8, target, pokemon);
 				}
@@ -872,7 +872,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		name: "Vaporization",
 		shortDesc: "Vaporizes Water-type attacks and damages water types.",
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		rating: 3.5,
 		num: 0,
 	},
@@ -886,13 +886,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	windforce: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Flying') {
-				if (!this.boost({spe: 1})) {
+				if (!this.boost({ spe: 1 })) {
 					this.add('-immune', target, '[from] ability: Wind Force');
 				}
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Wind Force",
 		desc: "This Pokemon is immune to Flying-type moves and raises its Speed by 1 stage when hit by an Flying-type move.",
 		shortDesc: "Raises Speed when hit by Flying-type move; Flying immunity.",

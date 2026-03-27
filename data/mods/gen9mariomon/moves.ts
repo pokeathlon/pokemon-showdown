@@ -30,7 +30,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		multihit: [2, 5],
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -49,7 +49,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nosketch: 1},
+		flags: { protect: 1, mirror: 1, nosketch: 1 },
 		isNonstandard: "Unobtainable",
 		target: "normal",
 		type: "Fire",
@@ -64,11 +64,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		multihit: 2,
 		secondary: {
 			chance: 15,
-			volatileStatus: 'flinch'
+			volatileStatus: 'flinch',
 		},
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nosketch: 1},
+		flags: { protect: 1, mirror: 1, nosketch: 1 },
 		isNonstandard: "Unobtainable",
 		target: "normal",
 		type: "Flying",
@@ -87,7 +87,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nosketch: 1},
+		flags: { protect: 1, mirror: 1, nosketch: 1 },
 		isNonstandard: "Unobtainable",
 		target: "normal",
 		type: "Ice",
@@ -99,6 +99,6 @@ for (const key in Base) {
 	if (Moves[id]) continue;
 
 	if (Base[id].isNonstandard && ["Past", "Unobtainable"].includes(Base[id].isNonstandard)) {
-		Moves[id] = {inherit: true, isNonstandard: null};
+		Moves[id] = { inherit: true, isNonstandard: null };
 	}
 }

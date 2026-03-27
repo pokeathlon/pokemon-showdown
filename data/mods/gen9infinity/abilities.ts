@@ -66,7 +66,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onFoeAfterSetStatus(status, target, source, effect) {
 			if (effect.effectType != 'Move') return;
 			if (target && source === target) return;
-			if (status.id === 'brn') this.boost({atk: 2}, source, source, null, false, true);
+			if (status.id === 'brn') this.boost({ atk: 2 }, source, source, null, false, true);
 		},
 		flags: {},
 		name: "Wok Hei",
@@ -117,7 +117,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				move.ignoreImmunity['Electric'] = true;
 			}
 		},
-		onModifyDamage(damage, source, target, move) { //simulates resistance
+		onModifyDamage(damage, source, target, move) { // simulates resistance
 			if (move && target.hasType('Ground') && move.type === 'Electric') {
 				return this.chainModify(0.5);
 			}
@@ -145,9 +145,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (pokemon.status && pokemon.status === 'slp') pokemon.faint()
+			if (pokemon.status && pokemon.status === 'slp') pokemon.faint();
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Restless Spirit",
 		shortDesc: "Immune to status bar sleep; if asleep at end of turn, faints.",
 		rating: 5,
@@ -202,7 +202,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onFaint(pokemon) {
 			pokemon.illusion = null;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1 },
 		name: "Illusionist",
 		shortDesc: "Illusion. While illusion, x1.25 evasion. Loses illusion when attacking.",
 		rating: 5,
@@ -212,14 +212,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: {},
 		name: "Glitch Out",
 		shortDesc: "If user misses a move, will select random move from list.",
-		desc:"After the user misses a move, a move will be randomly selected from: Swords Dance, Mind Reader, Vanish, Iron Defense, Nasty Plot, Amnesia, Agility, Whirlwind, Stealth Rock, Spikes, Toxic Spikes, Sticky Web, Reflect, Lightscreen, and used.",
+		desc: "After the user misses a move, a move will be randomly selected from: Swords Dance, Mind Reader, Vanish, Iron Defense, Nasty Plot, Amnesia, Agility, Whirlwind, Stealth Rock, Spikes, Toxic Spikes, Sticky Web, Reflect, Lightscreen, and used.",
 		rating: 5,
 		num: 0,
 	},
 	grandentrance: {
 		onStart(target) {
-            const stat = target.getBestStat(true, true);
-            this.boost({[stat]: 1}, target);
+			const stat = target.getBestStat(true, true);
+			this.boost({ [stat]: 1 }, target);
 		},
 		flags: {},
 		name: "Grand Entrance",

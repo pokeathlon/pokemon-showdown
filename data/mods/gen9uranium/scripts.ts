@@ -1,4 +1,4 @@
-const prevos: {[k: string]: string[]} = {
+const prevos: { [k: string]: string[] } = {
 	"seikamater": ["Sponee", "Smore", "Tricwe"],
 };
 
@@ -53,7 +53,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.baseSpecies = rawSpecies;
 				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-						(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				if (!this.illusion) this.battle.add('detailschange', this, details);
@@ -130,7 +130,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!action) throw new Error(`Action not passed to resolveAction`);
 			if (action.choice === 'pass') return [];
 			const actions = [action];
-	
+
 			if (!action.side && action.pokemon) action.side = action.pokemon.side;
 			if (!action.move && action.moveid) action.move = this.battle.dex.getActiveMove(action.moveid);
 			if (!action.order) {
@@ -141,7 +141,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					beforeTurn: 4,
 					beforeTurnMove: 5,
 					revivalblessing: 6,
-	
+
 					megaEvo: 101,
 					megaEvoX: 101,
 					megaEvoY: 101,
@@ -152,10 +152,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					runDynamax: 105,
 					terastallize: 106,
 					priorityChargeMove: 107,
-	
+
 					shift: 200,
 					// default is 200 (for moves)
-	
+
 					residual: 300,
 				};
 				if (action.choice in orders) {
@@ -219,12 +219,12 @@ export const Scripts: ModdedBattleScriptsData = {
 					action.pokemon.switchFlag = false;
 				}
 			}
-	
+
 			const deferPriority = this.battle.gen === 7 && action.mega && action.mega !== 'done';
 			if (action.move) {
 				let target = null;
 				action.move = this.battle.dex.getActiveMove(action.move);
-	
+
 				if (!action.targetLoc) {
 					target = this.battle.getRandomTarget(action.pokemon, action.move);
 					// TODO: what actually happens here?

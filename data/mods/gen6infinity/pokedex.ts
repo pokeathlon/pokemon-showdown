@@ -1,11 +1,11 @@
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
-import { Pokedex as Parent} from '../gen9infinity/pokedex';
+import { Pokedex as Parent } from '../gen9infinity/pokedex';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
-export const cutDex: {[k: string]: number} = {
+export const cutDex: { [k: string]: number } = {
 	"bulbasauregho": 1,
 	"ivysauregho": 2,
 	"venusauregho": 3,
@@ -967,10 +967,10 @@ export const cutDex: {[k: string]: number} = {
 
 };
 
-for (const key in {...Base, ...Pokedex}) {
+for (const key in { ...Base, ...Pokedex }) {
 	const id = key as keyof typeof Base;
-	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
 
-	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
-	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

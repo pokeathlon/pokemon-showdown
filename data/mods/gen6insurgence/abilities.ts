@@ -1,6 +1,6 @@
 import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
-import { Abilities as Parent} from '../gen9insurgence/abilities';
+import { Abilities as Parent } from '../gen9insurgence/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	...Utils.deepClone(Parent),
@@ -31,7 +31,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
 			if (move.id === 'stealthrock') {
-				this.actions.useMove('hotcoals', pokemon, {target: target});
+				this.actions.useMove('hotcoals', pokemon, { target });
 				return null;
 			}
 		},
