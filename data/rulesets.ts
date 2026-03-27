@@ -168,7 +168,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		effectType: 'ValidatorRule',
 		name: 'Obtainable',
 		desc: "Makes sure the team is possible to obtain in-game.",
-		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Obtainable Fusions', 'Obtainable Misc'],
+		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Obtainable Misc'],
 		banlist: ['Unreleased', 'Unobtainable', 'Nonexistent'],
 		// Mostly hardcoded in team-validator.ts
 		onValidateTeam(team, format) {
@@ -234,67 +234,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Obtainable Formes',
 		desc: "Makes sure in-battle formes only appear in-battle.",
 		// Hardcoded in team-validator.ts
-	},
-	obtainablefusions: {
-		effectType: 'ValidatorRule',
-		name: 'Obtainable Fusions',
-		desc: "Makes sure fused Pokémon are possible to obtain in-game.",
-		onValidateTeam(team, format) {
-			let kyuremCount = 0;
-			let necrozmaDMCount = 0;
-			let necrozmaDWCount = 0;
-			let calyrexCount = 0;
-
-			for (const set of team) {
-				if (!set.fusion) continue;
-				const fusion = this.dex.species.get(set.fusion);
-				if (set.species === 'Kyurem-White' || set.species === 'Kyurem-Black' ||
-					fusion.name === 'Kyurem-White' || fusion.name === 'Kyurem-Black'
-				) {
-					kyuremCount++;
-				}
-				if (set.species === 'Necrozma-Dusk-Mane' || fusion.name === 'Necrozma-Dusk-Mane') {
-					necrozmaDMCount++;
-				}
-				if (set.species === 'Necrozma-Dawn-Wings' || fusion.name === 'Necrozma-Dawn-Wings') {
-					necrozmaDWCount++;
-				}
-				if (set.species === 'Calyrex-Ice' || set.species === 'Calyrex-Shadow' ||
-					fusion.name === 'Calyrex-Ice' || fusion.name === 'Calyrex-Shadow'
-				) {
-					calyrexCount++;
-				}
-			}
-
-			const problems = [];
-
-			if (kyuremCount > 1) {
-				problems.push(
-					`You cannot have more than one Kyurem-Black/Kyurem-White in total (including fusions).`,
-					`(It's untradeable and you can only make one with the DNA Splicers.)`
-				);
-			}
-			if (necrozmaDMCount > 1) {
-				problems.push(
-					`You cannot have more than one Necrozma-Dusk-Mane in total (including fusions).`,
-					`(It's untradeable and you can only make one with the N-Solarizer.)`
-				);
-			}
-			if (necrozmaDWCount > 1) {
-				problems.push(
-					`You cannot have more than one Necrozma-Dawn-Wings in total (including fusions).`,
-					`(It's untradeable and you can only make one with the N-Lunarizer.)`
-				);
-			}
-			if (calyrexCount > 1) {
-				problems.push(
-					`You cannot have more than one Calyrex-Ice/Calyrex-Shadow in total (including fusions).`,
-					`(It's untradeable and you can only make one with the Reins of Unity.)`
-				);
-			}
-
-			return problems;
-		},
 	},
 	obtainablemisc: {
 		effectType: 'ValidatorRule',
@@ -1128,24 +1067,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Endless Battle Clause: Forcing endless battles is banned');
 		},
 	},
-	moodyclause: {
-		effectType: 'ValidatorRule',
-		name: 'Moody Clause',
-		desc: "Bans the ability Moody",
-		banlist: ['Moody'],
-		onBegin() {
-			this.add('rule', 'Moody Clause: Moody is banned');
-		},
-	},
-	swaggerclause: {
-		effectType: 'ValidatorRule',
-		name: 'Swagger Clause',
-		desc: "Bans the move Swagger",
-		banlist: ['Swagger'],
-		onBegin() {
-			this.add('rule', 'Swagger Clause: Swagger is banned');
-		},
-	},
 	drypassclause: {
 		effectType: 'ValidatorRule',
 		name: 'DryPass Clause',
@@ -1707,35 +1628,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Full Arceus Clause',
 		desc: "Allows Level 80 Arceus from Hall of Origin",
 		// Implemented in sim/team-validator.ts
-	},
-	arceusevlimit: {
-		effectType: 'ValidatorRule',
-		name: 'Arceus EV Limit',
-		desc: "Restricts Arceus to a maximum of 100 EVs in any one stat, and only multiples of 10",
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			if (species.num === 493 && set.evs) {
-				let stat: StatID;
-				for (stat in set.evs) {
-					const ev = set.evs[stat];
-					if (ev > 100) {
-						return [
-							"Arceus can't have more than 100 EVs in any stat, because Arceus is only obtainable from level 100 events.",
-							"Level 100 Pokemon can only gain EVs from vitamins (Carbos etc), which are capped at 100 EVs.",
-						];
-					}
-					if (!(
-						ev % 10 === 0 ||
-						(ev % 10 === 8 && ev % 4 === 0)
-					)) {
-						return [
-							"Arceus can only have EVs that are multiples of 10, because Arceus is only obtainable from level 100 events.",
-							"Level 100 Pokemon can only gain EVs from vitamins (Carbos etc), which boost in multiples of 10.",
-						];
-					}
-				}
-			}
-		},
 	},
 	inversemod: {
 		effectType: 'Rule',
@@ -2481,69 +2373,6 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				pokemon.bst += pokemon.baseStats[statName];
 			}
 			return pokemon;
-		},
-	},
-	mixandmegamod: {
-		effectType: "Rule",
-		name: "Mix and Mega Mod",
-		desc: `Pokemon can hold any Mega Stone. Each Mega Stone gives the same base stat bonuses to any Pokemon.`,
-		ruleset: ['Overflow Stat Mod'],
-		onBegin() {
-			this.add('rule', 'Mix and Mega Mod: Pokemon can use any Mega Stone.');
-		},
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			if (this.ruleTable.isRestrictedSpecies(species) && this.dex.items.get(set.item).megaStone)
-				return [`${set.species} is restricted, and therefore cannot hold a Mega Stone`];
-		},
-		onModifySpeciesPriority: 7,
-		onModifySpecies(species, target, source, effect) {
-			if (!target || !target.item) return;
-			const item = this.dex.items.get(target.item);
-			if (!item.megaStone) return;
-			if (!target.itemState.hasMegaEvolved) return;
-			const pokemon = this.dex.deepClone(species);
-
-			const megaStoneBonuses = GetMegaStoneStats(item, this.dex);
-			pokemon.bst = 0;
-			let statName: StatID;
-			for (statName in pokemon.baseStats as StatsTable) {
-				const statDif = megaStoneBonuses[statName];
-				pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + statDif, 1, 255);
-				pokemon.bst += pokemon.baseStats[statName];
-			}
-			const megaAbility = this.dex.species.get(Object.values(item.megaStone)[0]).abilities[0];
-			pokemon.abilities = {
-				0: megaAbility,
-				1: megaAbility,
-				H: megaAbility,
-				S: megaAbility,
-			};
-			pokemon.types = GetMegaStoneTyping(item, species, this.dex);
-			return pokemon;
-		},
-		onAfterMega(pokemon) {
-			pokemon.itemState.hasMegaEvolved = true;
-			pokemon.formeChange(this.dex.species.get(pokemon.itemState.baseSpecies).name, this.effect, true); // triggers mod species upon mega evolving
-			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
-			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
-			return pokemon;
-		},
-		onBeforeSwitchIn(pokemon) {
-			if (!pokemon || !pokemon.item || pokemon.itemState.hasMegaEvolved) return;
-			const item = this.dex.items.get(pokemon.item);
-			if (!item.megaStone) return;
-			pokemon.itemState.baseSpecies = pokemon.species; // tie base species to megastone
-			pokemon.canMegaEvo = Object.values(item.megaStone)[0];
-		},
-		onSwitchIn(pokemon) {
-			if (!pokemon.itemState.hasMegaEvolved) return;
-			this.add('replace', pokemon, pokemon.getUpdatedDetails());
-			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
-			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
-		},
-		onTakeItem(item, pokemon, source, move) {
-			if (this.dex.items.get(pokemon.item).megaStone) return false;
 		},
 	},
 	revelationmonsmod: {
@@ -3347,6 +3176,87 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	rebalancelevels: {
+		effectType: 'Rule',
+		name: 'Rebalance Levels',
+		desc: "Automatically rebalances each Pokemon's level if an added rule modifies its base stats in a way that only depends on its species",
+		onBegin() {
+			const rebalanceLevel = (oldSpecies: Species, set: PokemonSet, newSpecies: Species): number => {
+				const oldLevel = set.level;
+				// calculate the adjusted stats of the new species at its old level
+				// could use the actual stat calcs, but let's just use the same approximation we use everywhere else
+				let newStats: StatsTable = this.spreadModify(newSpecies.baseStats, set);
+				// calculate the old stats to compare against
+				const oldStats = this.spreadModify(oldSpecies.baseStats, set);
+				if (JSON.stringify(newStats) === JSON.stringify(oldStats)) return oldLevel;
+				const statRatios = { power: 0, bulk: 0, speed: 0 };
+				let statRatioTotal = 0;
+				// calculate the ratio of the expected average damaging power of the new stats to that of the old
+				statRatioTotal += statRatios.power = Math.log((oldStats.atk + oldStats.spa) / (newStats.atk + newStats.spa));
+				// calculate the ratio of the expected average damage-tanking ability of the new stats to that of the old
+				statRatioTotal += statRatios.bulk = (
+					Math.log(oldStats.hp * oldStats.def * oldStats.spd / (oldStats.def + oldStats.spd)) -
+					Math.log(newStats.hp * newStats.def * newStats.spd / (newStats.def + newStats.spd))
+				);
+				// calculate the ratio of the new speed to the old stats' speed at half weight
+				statRatioTotal += statRatios.speed = Math.log(oldStats.spe / newStats.spe) / 2;
+				// make a naive guess as to what level the pokemon should be without considering that level affects damage output
+				let newLevel = Math.min(Math.floor(Math.E ** (statRatioTotal / 5) * oldLevel), this.ruleTable.maxLevel);
+				const overestimate = newLevel > oldLevel;
+				// start accounting for level's affect on damage output and increment the guess by 1 until it looks right
+				while (newLevel !== oldLevel) {
+					// the getAdjustedStats function takes level's affect on damage into account automatically
+					newStats = this.spreadModify(newSpecies.baseStats, set);
+					statRatioTotal = 0;
+					statRatioTotal += statRatios.power = Math.log((oldStats.atk + oldStats.spa) / (newStats.atk + newStats.spa));
+					statRatioTotal += statRatios.bulk = (
+						Math.log(oldStats.hp * oldStats.def * oldStats.spd / (oldStats.def + oldStats.spd)) -
+						Math.log(newStats.hp * newStats.def * newStats.spd / (newStats.def + newStats.spd))
+					);
+					statRatioTotal += statRatios.speed = Math.log(oldStats.spe / newStats.spe) / 2;
+					if (overestimate && statRatioTotal >= 0 || !overestimate && statRatioTotal <= 0) break;
+					// initial estimate will never be closer to the old level than it should be
+					if (overestimate) {
+						newLevel--;
+					} else {
+						newLevel++;
+					}
+				}
+				return newLevel;
+			};
+
+			for (const poke of this.getAllPokemon()) {
+				const oldSpecies = this.dex.species.get(poke.set.species);
+				const newSpecies = poke.species;
+				poke.set.level = (poke as any).level = rebalanceLevel(oldSpecies, poke.set, newSpecies);
+
+				// recalculate stats to match new level
+				// can't use setSpecies because that will re-run the 'ModifySpecies' event
+				const stats = this.spreadModify(poke.species.baseStats, poke.set);
+				if (poke.species.maxHP) stats.hp = poke.species.maxHP;
+
+				poke.baseMaxhp = stats.hp;
+				poke.maxhp = stats.hp;
+				poke.hp = stats.hp;
+
+				poke.baseStoredStats = stats;
+				let statName: StatIDExceptHP;
+				for (statName in poke.storedStats) {
+					poke.storedStats[statName] = stats[statName];
+				}
+				poke.speed = poke.storedStats.spe;
+				poke.details = poke.getUpdatedDetails();
+			}
+		},
+		onValidateRule() {
+			if (!this.format.team) throw new Error('The Rebalance Levels rule is only intended to work with randomized teams.');
+			if (this.ruleTable.adjustLevel) {
+				throw new Error(`This format's rules force Pokemon to be level ${this.ruleTable.adjustLevel}, so they can't be rebalanced.`);
+			}
+			const speciesMods = [...this.ruleTable.keys()].map(r => this.dex.data.Rulesets[r]).filter(r => r?.onModifySpecies);
+			if (!speciesMods.length) throw new Error('This format has no rules that modify base stats.');
+		},
+	},
 	noeventmoves: {
 		effectType: 'ValidatorRule',
 		name: "No Event Moves",
@@ -3868,6 +3778,69 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (restrictedAbility.length > 1) {
 				return [`You can only use one restricted ability (you have: ${restrictedAbility.join(', ')})`];
 			}
+		},
+	},
+	mixandmegamod: {
+		effectType: "Rule",
+		name: "Mix and Mega Mod",
+		desc: `Pokemon can hold any Mega Stone. Each Mega Stone gives the same base stat bonuses to any Pokemon.`,
+		ruleset: ['Overflow Stat Mod'],
+		onBegin() {
+			this.add('rule', 'Mix and Mega Mod: Pokemon can use any Mega Stone.');
+		},
+		onValidateSet(set) {
+			const species = this.dex.species.get(set.species);
+			if (this.ruleTable.isRestrictedSpecies(species) && this.dex.items.get(set.item).megaStone)
+				return [`${set.species} is restricted, and therefore cannot hold a Mega Stone`];
+		},
+		onModifySpeciesPriority: 7,
+		onModifySpecies(species, target, source, effect) {
+			if (!target || !target.item) return;
+			const item = this.dex.items.get(target.item);
+			if (!item.megaStone) return;
+			if (!target.itemState.hasMegaEvolved) return;
+			const pokemon = this.dex.deepClone(species);
+
+			const megaStoneBonuses = GetMegaStoneStats(item, this.dex);
+			pokemon.bst = 0;
+			let statName: StatID;
+			for (statName in pokemon.baseStats as StatsTable) {
+				const statDif = megaStoneBonuses[statName];
+				pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + statDif, 1, 255);
+				pokemon.bst += pokemon.baseStats[statName];
+			}
+			const megaAbility = this.dex.species.get(Object.values(item.megaStone)[0]).abilities[0];
+			pokemon.abilities = {
+				0: megaAbility,
+				1: megaAbility,
+				H: megaAbility,
+				S: megaAbility,
+			};
+			pokemon.types = GetMegaStoneTyping(item, species, this.dex);
+			return pokemon;
+		},
+		onAfterMega(pokemon) {
+			pokemon.itemState.hasMegaEvolved = true;
+			pokemon.formeChange(this.dex.species.get(pokemon.itemState.baseSpecies).name, this.effect, true); // triggers mod species upon mega evolving
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
+			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
+			return pokemon;
+		},
+		onBeforeSwitchIn(pokemon) {
+			if (!pokemon || !pokemon.item || pokemon.itemState.hasMegaEvolved) return;
+			const item = this.dex.items.get(pokemon.item);
+			if (!item.megaStone) return;
+			pokemon.itemState.baseSpecies = pokemon.species; // tie base species to megastone
+			pokemon.canMegaEvo = Object.values(item.megaStone)[0];
+		},
+		onSwitchIn(pokemon) {
+			if (!pokemon.itemState.hasMegaEvolved) return;
+			this.add('replace', pokemon, pokemon.getUpdatedDetails());
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name);
+			this.add('-start', pokemon, `${this.dex.items.get(pokemon.item).name}`);
+		},
+		onTakeItem(item, pokemon, source, move) {
+			if (this.dex.items.get(pokemon.item).megaStone) return false;
 		},
 	},
 
