@@ -4,6 +4,7 @@ import { TeamValidator } from '../../../sim';
 
 export class RandomChaosTeams extends RandomTeams {
 	randomChaosSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
+	randomChaosDoublesSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaosdoubles'];
 	validator = new TeamValidator('gen9chaosag');
 	levels: AnyObject = {
 		"AG": 75,
@@ -24,7 +25,8 @@ export class RandomChaosTeams extends RandomTeams {
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomChaosSets);
+		const isDoubles = this.format.gameType !== 'singles';
+		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.format.gameType === 'singles' ? this.randomChaosSets : this.randomChaosDoublesSets);
 
 		while (pokemon.length < this.maxTeamSize) {
 			const candidate = {...this.sampleNoReplace(pool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};

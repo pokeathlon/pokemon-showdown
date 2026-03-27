@@ -965,7 +965,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9chaos',
 		team: 'random',
 		ruleset: [
-			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause', 'Overflow Stat Mod', 'Species Reveal Clause'
+			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause', 'Overflow Stat Mod', 'Species Reveal Clause',
 		],
 	},
 	{
@@ -1063,6 +1063,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "Chaos: Extras",
 		column: 4,
+	},
+	{
+		name: "[Gen 9] Chaos Doubles Randbat",
+		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
+
+		mod: 'gen9chaos',
+		gameType: 'doubles',
+		team: 'random',
+		ruleset: [
+			'Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause', 'Overflow Stat Mod', 'Species Reveal Clause',
+		],
 	},
 	{
 		name: "[Gen 9] Chaos Doubles OU",
