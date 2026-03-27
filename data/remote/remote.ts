@@ -5,7 +5,7 @@ function compileRandbats(): { [key: string]: Partial<RandomTeamsTypes.RandomSet>
 	for (const mod in randbats) {
 		sets[mod] = [];
 		const indices: { [key: string]: number } = {};
-		randbats[mod][0].forEach((label, index) => indices[label] = index);
+		randbats[mod][0].forEach((label, index) => { indices[label] = index; });
 
 		randbats[mod].slice(1).forEach((entry, index) => {
 			const set: Partial<RandomTeamsTypes.RandomSet> = { moves: [] };

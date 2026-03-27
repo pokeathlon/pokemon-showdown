@@ -2071,9 +2071,6 @@ export class GameRoom extends BasicRoom {
 
 		const data = this.getLog(hideDetails ? 0 : -1);
 
-		let rating = 0;
-		if (battle.ended && this.rated) rating = this.rated;
-
 		let buf = '<!DOCTYPE html>\n';
 		buf += '<meta charset="utf-8" />\n';
 		buf += '<!-- version 1 -->\n';
@@ -2089,9 +2086,9 @@ export class GameRoom extends BasicRoom {
 
 		const replayName = battle.roomid.slice(7);
 
-		FS(`server/static/replays/${replayName}.html`).writeSync(buf);
-		FS(`server/static/replays/${replayName}.log`).writeSync(data);
-		FS(`server/static/replays/${replayName}.json`).writeSync(JSON.stringify({
+		await FS(`server/static/replays/${replayName}.html`).write(buf);
+		await FS(`server/static/replays/${replayName}.log`).write(data);
+		await FS(`server/static/replays/${replayName}.json`).write(JSON.stringify({
 			id: replayName,
 			log: data,
 			players: battle.players.map(p => p.name),
@@ -2103,7 +2100,7 @@ export class GameRoom extends BasicRoom {
 			uploadtime: Math.trunc(Date.now() / 1000),
 		}));
 
-		if (!battle.replaySaved) FS('server/static/replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
+		if (!battle.replaySaved) await FS('server/static/replays/replays.csv').append(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
 		battle.replaySaved = true;
 
 		connection?.popup(

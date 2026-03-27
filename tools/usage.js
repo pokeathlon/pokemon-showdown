@@ -125,7 +125,7 @@ if (process.argv[2] === 'full') {
 
 		let total = 0;
 		const usage = JSON.parse(fs.readFileSync(`${logs}/usage/${month}.json`, 'utf-8'));
-		Object.keys(usage).forEach(format => total += usage[format].total.ladders);
+		Object.keys(usage).forEach(format => { total += usage[format].total.ladders; });
 
 		a += `${pad(total, ' ', 8)} | <a href=/${month}.html>${month}</a> | ${'&block;'.repeat(Math.sqrt(total / 100) + 1)}\n`;
 
@@ -163,7 +163,7 @@ if (process.argv[2] === 'full') {
 
 				total = 0;
 				const moves = Object.entries(sets.moves).toSorted((a, b) => b[1] - a[1]);
-				moves.forEach(entry => total += entry[1]);
+				moves.forEach(entry => { total += entry[1]; });
 
 				for (const move of moves) {
 					percent = (move[1] / species[1]) * 100;
@@ -175,7 +175,7 @@ if (process.argv[2] === 'full') {
 
 				total = 0;
 				const abilities = Object.entries(sets.abilities).toSorted((a, b) => b[1] - a[1]);
-				abilities.forEach(entry => total += entry[1]);
+				abilities.forEach(entry => { total += entry[1]; });
 
 				for (const ability of abilities) {
 					percent = (ability[1] / total) * 100;
@@ -187,7 +187,7 @@ if (process.argv[2] === 'full') {
 
 				total = 0;
 				const items = Object.entries(sets.items).toSorted((a, b) => b[1] - a[1]);
-				items.forEach(entry => total += entry[1]);
+				items.forEach(entry => { total += entry[1]; });
 
 				for (const item of items) {
 					percent = (item[1] / total) * 100;

@@ -25,7 +25,7 @@ export class RandomChaosTeams extends RandomTeams {
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		const isDoubles = this.format.gameType !== 'singles';
+
 		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.format.gameType === 'singles' ? this.randomChaosSets : this.randomChaosDoublesSets);
 
 		while (pokemon.length < this.maxTeamSize) {

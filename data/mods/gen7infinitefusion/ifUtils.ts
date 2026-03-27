@@ -255,7 +255,7 @@ export function calculateFlinchChance(set: PokemonSet, move: string) {
 	else return 0;
 }
 
-export function hasSleepMove(set: PokemonSet) {
+export function hasSleepMoveFusion(set: PokemonSet) {
 	const sleepMoves = [
 		"spore", "sleep powder", "hypnosis", "lovely kiss", "sing", "grass whistle", "dark void", "relic song",
 	];

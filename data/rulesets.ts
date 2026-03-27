@@ -1,7 +1,7 @@
 // Note: These are the rules that formats use
 
 import type { Learnset } from "../sim/dex-species";
-import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, countStatDoubling, GetMegaStoneStats, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMove, isRecoveryMove, isSpammableHighPowerStab, GetMegaStoneTyping } from "./mods/gen7infinitefusion/ifUtils";
+import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, countStatDoubling, GetMegaStoneStats, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMoveFusion, isRecoveryMove, isSpammableHighPowerStab, GetMegaStoneTyping } from "./mods/gen7infinitefusion/ifUtils";
 
 // The list of formats is stored in config/formats.js
 export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
@@ -3309,7 +3309,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					return [`You cannot fuse with triple fusions.`];
 
 				[set.species, set.fusion] = [set.fusion, set.species];
-				const { outOfBattleSpecies, tierSpecies } = this.getValidationSpecies(set);
+				const { tierSpecies } = this.getValidationSpecies(set);
 				problems.push(...this.validateForme(set));
 				const problem = this.checkSpecies(set, fusion, tierSpecies, setHas);
 				if (problem) problems.push(problem);
@@ -3588,7 +3588,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					problems.push(`The combination of Nuclear Tera-type with ${this.dex.moves.get(move).name} cannot be used.`);
 				}
 				// Prevents hafli berry + natural gift
-				if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id == 'naturalgift') {
+				if (set.item === 'Hafli Berry' && this.dex.moves.get(move).id === 'naturalgift') {
 					problems.push(`The combination of ${set.item} with ${this.dex.moves.get(move).name} cannot be used.`);
 				}
 				// Prevents nuclear moves (!set.fusion is to prevent the error from appearing twice, since the earlier if should catch it.)
@@ -3622,7 +3622,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const item = this.dex.items.get(set.item);
 			const megaEvolves = item.megaStone ? Object.keys(item.megaStone)[0] : false;
 			if (!megaEvolves) return;
-			if ((!species.isMega && this.toID(megaEvolves) != species.id)) {
+			if ((!species.isMega && this.toID(megaEvolves) !== species.id)) {
 				return [`${set.species} cannot hold ${set.item}.`];
 			}
 		},
@@ -3866,7 +3866,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (hasAbove200Speed || canBoostSpeed(set)) {
 				if (hasPrankster && hasElectrify)
 					problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
-				if (hasPrankster && hasSleepMove(set))
+				if (hasPrankster && hasSleepMoveFusion(set))
 					problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
 				if (hasHighFlinchChance)
 					problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
