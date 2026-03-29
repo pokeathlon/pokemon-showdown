@@ -2363,6 +2363,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		tier: "OU",
 		natDexTier: "OU",
 		doublesTier: "DUU",
+		cosmeticFormes: ["Nebulant-Sabuteur"],
 	},
 	zorblob: {
 		num: 3114,
