@@ -419,6 +419,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] Mariomon VGC Randbat",
+
+		mod: 'gen9mariomon',
+		team: 'random',
+		ruleset: [
+			'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'HP Percentage Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause', 'Overflow Stat Mod', 'Species Reveal Clause',
+		],
+	},
+	{
 		name: "[Gen 9] Mariomon Random Battle",
 
 		mod: 'gen9mariomon',
