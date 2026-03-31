@@ -3072,6 +3072,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	eversheen: {
+		num: 3160,
+		name: "Eversheen",
+		types: ["Ice", "Grass"],
+		baseStats: { hp: 100, atk: 71, def: 130, spa: 111, spd: 66, spe: 35 },
+		abilities: { 0: "Natural Anomaly", 1: "Analytic", H: "Ice Body" },
+		heightm: 1.4,
+		weightkg: 283.6,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

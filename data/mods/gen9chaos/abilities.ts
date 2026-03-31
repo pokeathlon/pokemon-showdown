@@ -1376,6 +1376,19 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "Uses Def. stat as offensive stat if it has been attacked this turn.",
 	},
+	naturalanomaly: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Flying' || move.type === 'Poison' || move.type === 'Bug' || move.type === 'Fire' || move.type === 'Ice') {
+				this.debug('Natural Anomaly weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Natural Anomaly",
+		shortDesc: "This Pokemon takes halved damage from Grass-type's weaknesses.",
+		rating: 3,
+		num: 0,
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
