@@ -423,6 +423,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9mariomon',
 		team: 'random',
+		gameType: 'doubles',
 		ruleset: [
 			'Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'HP Percentage Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Terastal Clause', 'Overflow Stat Mod', 'Species Reveal Clause',
 		],
