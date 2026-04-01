@@ -61,6 +61,7 @@ export class RandomMarioTeams extends RandomTeams {
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
+			candidate.shiny = this.prng.randomChance(1, 10);
 			if (this.validator.validateSet({ ...candidate, level: 100 } as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
