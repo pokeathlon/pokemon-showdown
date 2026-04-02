@@ -3086,6 +3086,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	glaviathan: {
+		num: 3161,
+		name: "Glaviathan",
+		types: ["Water", "Rock"],
+		baseStats: { hp: 87, atk: 120, def: 53, spa: 97, spd: 78, spe: 100 },
+		abilities: { 0: "Clear Body", 1: "Dragon's Maw", H: "Weak Armor" },
+		heightm: 1.4,
+		weightkg: 283.6,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

@@ -2816,6 +2816,26 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Cute",
 		shortDesc: "User recovers 50% of the damage dealt.",
 	},
+	splintercannon: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Splinter Cannon",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		self: {
+			boosts: {
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Beautiful",
+		shortDesc: "Lowers the user's Sp. Def by 1.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
