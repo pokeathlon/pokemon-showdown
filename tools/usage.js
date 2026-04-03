@@ -124,7 +124,7 @@ if (process.argv[2] === 'full') {
 		if (!fs.existsSync(`${server}/usage/${month}`)) fs.mkdirSync(`${server}/usage/${month}`);
 
 		let total = 0;
-		const usage = JSON.parse(fs.readFileSync(`${logs}/usage/${month}.json`, 'utf-8'));
+		const usage = JSON.parse(fs.readFileSync(`${server}/usage/raw/${month}.json`, 'utf-8'));
 		Object.keys(usage).forEach(format => { total += usage[format].total.ladders; });
 
 		a += `${pad(total, ' ', 8)} | <a href=/${month}.html>${month}</a> | ${'&block;'.repeat(Math.sqrt(total / 100) + 1)}\n`;
