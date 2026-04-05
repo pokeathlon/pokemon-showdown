@@ -758,4 +758,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	xerneas: {
+		inherit: true,
+		doublesTier: "DUber",
+	},
 };
