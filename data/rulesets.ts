@@ -3673,7 +3673,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				ability2Pool = new Set(ability1Pool);
 			}
 
-			if (!set.ability || !set.ability2) {
+			if ((!set.ability || !set.ability2) && !(!set.fusion && ability1Pool.size === 1)) {
 				problems.push(`This ruleset requires two abilities to be specified.`);
 				return problems;
 			}

@@ -413,6 +413,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
 		banlist: ['move:swagger'],
 	},
+	{
+		name: "[Gen 9] Mariomon VGC Draft",
+		mod: 'gen9mariomon',
+		gameType: 'doubles',
+
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE', 'Double Ability Mod'],
+	},
 
 	{
 		section: "Super Mariomon!",
