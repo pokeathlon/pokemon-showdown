@@ -828,9 +828,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tyranitardeltamega: {
 		inherit: true,
-		tier: "Uber",
 		natDexTier: "Uber",
-		isNonstandard: null,
+		isNonstandard: "Unobtainable",
 	},
 	wyrmplode: {
 		inherit: true,
