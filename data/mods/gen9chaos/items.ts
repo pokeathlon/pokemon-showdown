@@ -332,6 +332,17 @@ export const Items: ModdedItemDataTable = {
 		},
 		num: 0,
 	},
+	tofagrifite: {
+		name: "Tofagrifite",
+		desc: "If held by a Tofagrif, this item allows it to Mega Evolve in battle.",
+		spritenum: 596,
+		megaStone: { "Tofagrif": "Tofagrif-Mega" },
+		itemUser: ["Tofagrif"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
 };
 
 const Manual = Utils.deepClone(Items);

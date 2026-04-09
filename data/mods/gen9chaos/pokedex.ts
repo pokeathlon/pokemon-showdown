@@ -3100,6 +3100,23 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	tofagrifmega: {
+		num: 3095,
+		name: "Tofagrif-Mega",
+		types: ["Grass", "Flying"],
+		baseStats: { hp: 72, atk: 122, def: 86, spa: 60, spd: 108, spe: 137 },
+		abilities: { 0: "Sweet Collateral" },
+		heightm: 1.14,
+		weightkg: 44.9,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+		baseSpecies: "Tofagrif",
+		forme: "Mega",
+		requiredItem: "Tofagrifite",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

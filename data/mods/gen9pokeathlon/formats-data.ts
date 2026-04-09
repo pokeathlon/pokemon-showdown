@@ -546,6 +546,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
+	tofagrifmega: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
 	caramitti: {
 		inherit: true,
 		natDexTier: "UU",

@@ -1389,6 +1389,22 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 3,
 		num: 0,
 	},
+	sweetcollateral: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug(`Base Power: ${basePowerAfterMultiplier}`);
+			if (basePowerAfterMultiplier <= 65) {
+				this.debug('Sweet Collat boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Sweet Collateral",
+		rating: 3.5,
+		num: 101,
+		shortDesc: "This Pokemon's moves of 65 power or less have 1.5x power, including Struggle.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
