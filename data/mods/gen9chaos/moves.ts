@@ -2553,7 +2553,7 @@ export const Moves: ModdedMoveDataTable = {
 				spa: -1,
 			},
 		},
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
 		shortDesc: "33% Chance to lower targets Sp. Atk and Sp. Def by 1 stage",
