@@ -7403,6 +7403,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			superpower: ["9M"],
 			dynamicpunch: ["9M"],
 			focuspunch: ["9M"],
+			stealthrock: ["9M"],
 		},
 	},
 	bossbrolder: {
@@ -7457,6 +7458,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			eruption: ["9M"],
 			pyroball: ["9M"],
 			temperflare: ["9M"],
+			stealthrock: ["9M"],
 		},
 	},
 	phanto: {

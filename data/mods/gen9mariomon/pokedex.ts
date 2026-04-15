@@ -420,7 +420,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		num: 10029,
 		name: "Thwomp",
 		types: ["Rock"],
-		baseStats: { hp: 100, atk: 105, def: 116, spa: 38, spd: 60, spe: 30 },
+		baseStats: { hp: 80, atk: 105, def: 116, spa: 38, spd: 116, spe: 30 },
 		abilities: { 0: "Sturdy", 1: "Levitate", H: "Sheer Force" },
 		heightm: 2.7,
 		weightkg: 105.0,
