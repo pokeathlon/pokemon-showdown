@@ -30,7 +30,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'boomerang' as ID;
 						move.move = 'Boomerang';
 					}
@@ -40,7 +40,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'hammerthrow' as ID;
 						move.move = 'Hammer Throw';
 					}
@@ -55,7 +55,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect.name, `[of] ${source}`);
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'boomerang' as ID;
 						move.move = 'Boomerang';
 					}
@@ -65,7 +65,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'hammerthrow' as ID;
 						move.move = 'Hammer Throw';
 					}
@@ -85,7 +85,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'fireball' as ID;
 						move.move = 'Fire Ball';
 					}
@@ -95,7 +95,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'hammerthrow' as ID;
 						move.move = 'Hammer Throw';
 					}
@@ -110,7 +110,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect.name, `[of] ${source}`);
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'fireball' as ID;
 						move.move = 'Fire Ball';
 					}
@@ -120,7 +120,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'hammerthrow' as ID;
 						move.move = 'Hammer Throw';
 					}
@@ -140,7 +140,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'icetoss' as ID;
 						move.move = 'Ice Toss';
 					}
@@ -150,7 +150,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'hammerthrow' as ID;
 						move.move = 'Hammer Throw';
 					}
@@ -170,7 +170,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			}
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'icetoss' as ID;
 						move.move = 'Ice Toss';
 					}
@@ -180,7 +180,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onFieldEnd() {
 			for (const target of this.getAllPokemon()) {
 				for (const move of target.moveSlots) {
-					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id)) {
+					if (['hammerthrow', 'boomerang', 'fireball', 'icetoss'].includes(move.id) && target.species.id === 'hammerbro') {
 						move.id = 'hammerthrow' as ID;
 						move.move = 'Hammer Throw';
 					}

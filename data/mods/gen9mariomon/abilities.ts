@@ -43,6 +43,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.species.id === 'uproot' && this.effectState.busted) {
 				const speciesid = 'Uproot-Naked';
 				pokemon.formeChange(speciesid, this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 	},

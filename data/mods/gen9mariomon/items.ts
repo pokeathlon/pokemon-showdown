@@ -106,26 +106,6 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 
 	// Past items that are now legal
-	fightinggem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	flyinggem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	groundgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	watergem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	normalgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	berryjuice: {
 		inherit: true,
 		isNonstandard: null,
@@ -154,11 +134,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onModifyDef(def, pokemon) {
-			if (["Koopa Troopa", "Paratroopa", "Dry Bones"].includes(pokemon.species.name) && !pokemon.transformed) {
+			if (["Koopa Troopa", "Paratroopa", "Dry Bones", "Hammer Bro"].includes(pokemon.species.name) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Koopa Troopa", "Paratroopa", "Dry Bones"],
+		itemUser: ["Koopa Troopa", "Paratroopa", "Dry Bones", "Hammer Bro"],
 		num: 0,
 	},
 };
