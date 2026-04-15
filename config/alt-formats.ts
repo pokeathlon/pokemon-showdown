@@ -1180,6 +1180,27 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Chaos 35",
+
+		mod: 'gen9chaos',
+		ruleset: [
+			'Standard NatDex', 'Terastal Clause', 'Nuclear Move Clause', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 
+			'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'Restrict Ability = wonderguard', 'Z-Move Clause', '- all pokemon',
+			'+pokemon:noiverndelta', '+pokemon:conkeldurr', '+pokemon:bewitwing', '+pokemon:laissure', '+pokemon:blastoisedelta', '+pokemon:lunachi', '+pokemon:spiketop',
+			'+pokemon:sekrilon', '+pokemon:reneguana', '+pokemon:lilligantdeltawater', '+pokemon:chronobour', '+pokemon:mandibuzz', '+pokemon:escarphone', '+pokemon:flygon',
+			'+pokemon:regasunde', '+pokemon:drilgann', '+pokemon:mochimechi', '+pokemon:nebulant', '+pokemon:goodrahisui', '+pokemon:glavinug', '+pokemon:grimmsnarl',
+			'+pokemon:quagsire', '+pokemon:regalunith', '+pokemon:celestray', '+pokemon:tangrowthegho', '+pokemon:krilowatt', '+pokemon:ceruledge', '+pokemon:crobat',
+			'+pokemon:blubelrog', '+pokemon:togemon', '+pokemon:incandele', '+pokemon:wyrmplode', '+pokemon:empirilla', '+pokemon:saharaja', '+pokemon:gargryph'
+		],
+		banlist: [
+			'ND Uber', 'ND AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:berserkgene', 'item:lightclay',
+			'move:assist', 'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:fibregraft', 'move:hammerthrow', 'move:supremecannon', 'move:nimbusfist', 'move:meltdown',
+			'move:zippyzap', 'MegaKabuterimon + Speed Boost',
+		],
+	},
+	{
 		name: "[Gen 9] Chaos Free-for-all",
 		searchShow: false,
 
