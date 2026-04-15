@@ -2126,7 +2126,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Tweester",
 		types: ["Ground"],
 		baseStats: { hp: 60, atk: 80, def: 60, spa: 100, spd: 110, spe: 115 },
-		abilities: { 0: "Sand Stream", H: "Sand Force" },
+		abilities: { 0: "Sand Stream", H: "Wind Rider" },
 		heightm: 3.1,
 		weightkg: 0.1,
 		tags: ["Mariomon"],

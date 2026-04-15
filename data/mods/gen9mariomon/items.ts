@@ -1,9 +1,5 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Current items that do not exist
-	loadeddice: {
-		inherit: true,
-		isNonstandard: "Future",
-	},
 	boosterenergy: {
 		inherit: true,
 		isNonstandard: "Future",
@@ -128,7 +124,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sturdyshell: {
 		name: "Sturdy Shell",
-		shortDesc: "If held by a Koopa Troopa/Paratroopa/Dry Bones, its Defense is doubled.",
+		shortDesc: "If held by Koopa Troopa/Paratroopa/Dry Bones/Hammer Bro, its Defense is doubled.",
 		spritenum: -5,
 		fling: {
 			basePower: 10,
