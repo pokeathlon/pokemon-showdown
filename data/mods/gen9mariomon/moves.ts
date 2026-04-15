@@ -18,6 +18,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	bittermalice: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		shortDesc: "30% chance to frostbite the target.",
+	},
 
 	// Additions
 	hammerthrow: {
