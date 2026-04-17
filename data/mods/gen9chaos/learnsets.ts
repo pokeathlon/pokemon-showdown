@@ -10946,7 +10946,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sludgebomb: ["9M"],
 			snarl: ["9M"],
 			snatch: ["9M"],
-			spikes: ["9M"],
 			stompingtantrum: ["9M"],
 			substitute: ["9M"],
 			superfang: ["9M"],
@@ -10970,6 +10969,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			wideguard: ["9M"],
 			withdraw: ["9M"],
 			zenheadbutt: ["9M"],
+			dragontail: ["9M"],
+			psychicfangs: ["9M"],
+			shadowclaw: ["9M"],
 		} 
 	},
 	whacksteroid: {

@@ -1295,15 +1295,13 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "If Zorblob: 1/2 damage taken and transforms to Split after taking 1/4 max HP damage.",
 	},
 	coatofarms: {
-		onModifySecondaries(secondaries) {
-			this.debug('Coat of Arms prevent secondary');
-			return secondaries.filter(effect => !!effect.self);
-		},
-		onStart(target) {
+		onBeforeSwitchIn(target) {
 			if (!target.species.name.includes('Tanukief')) return;
-			const coatype = target.species.name.includes('Tanukief-') ? target.species.name.replace('Tanukief-', '') : 'Normal';
-			if (!target.addType(coatype)) return;
-			this.add('-start', target, 'typeadd', coatype, '[from] ability: Coat of Arms');
+			target.abilityState.coatType = target.species.name.includes('Tanukief-') ? target.species.name.replace('Tanukief-', '') : 'Normal';
+			if (!target.addType(target.abilityState.coatType)) return;
+		},
+		onSwitchIn(target) {
+			this.add('-start', target, 'typeadd', target.abilityState.coatType, '[from] ability: Coat of Arms'); //client adds it to the mon switching out if done before switch in
 		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
