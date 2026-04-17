@@ -7653,6 +7653,8 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trickroom: ["9M"],
 			weatherball: ["9M"],
 			wonderroom: ["9M"],
+			simplebeam: ["9M"],
+			psyshieldbash: ["9M"],
 		},
 	},
 	exor: {
