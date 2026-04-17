@@ -255,6 +255,10 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	bowser: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 	dragapult: {
 		inherit: true,
 		natDexTier: "OU",
