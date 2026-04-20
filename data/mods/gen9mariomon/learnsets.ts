@@ -5945,7 +5945,6 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			drainingkiss: ["9M"],
 			drainpunch: ["9M"],
 			faketears: ["9M"],
-			firepunch: ["9M"],
 			frustration: ["9M"],
 			harden: ["9L10"],
 			helpinghand: ["9M"],
