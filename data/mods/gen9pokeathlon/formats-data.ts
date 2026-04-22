@@ -241,7 +241,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	magnegauss: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
