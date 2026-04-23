@@ -1310,7 +1310,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Coat of Arms",
 		rating: 4,
 		num: 0,
-		shortDesc: "Gains additional type based on form. Immune to secondary effects.",
+		shortDesc: "Gains additional type based on form.",
 	},
 	retribution: {
 		onSourceAfterFaint(length, target, source, effect) {
