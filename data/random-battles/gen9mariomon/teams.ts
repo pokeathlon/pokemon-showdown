@@ -5,6 +5,7 @@ import { cutDex } from '../../mods/gen9mariomon/pokedex';
 
 export class RandomMarioTeams extends RandomTeams {
 	randomMarioSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
+	randomMarioVGCSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9mariomonvgc'];
 	validator = new TeamValidator('gen9mariomonag');
 	levels: AnyObject = {
 		"AG": 75,
@@ -28,7 +29,7 @@ export class RandomMarioTeams extends RandomTeams {
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomMarioSets);
+		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.format.gameType === 'singles' ? this.randomMarioSets : this.randomMarioVGCSets);
 		const MarioDex = Object.keys(cutDex);
 		pool = pool.filter(mon => MarioDex.includes(mon.species!)); // Filters pool to only be mariomons
 
