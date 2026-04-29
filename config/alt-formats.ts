@@ -853,7 +853,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] PoA UU S2",
-		searchShow: false,
 
 		mod: 'gen9pokeathlon',
 		ruleset: ['[Gen 9] PoA OU S2'],
