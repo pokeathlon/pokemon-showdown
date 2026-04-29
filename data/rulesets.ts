@@ -1072,7 +1072,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'DryPass Clause',
 		desc: "Stops teams from bringing Pok&eacute;mon with Baton Pass + any form of trapping, residual recovery, boosting, or Substitute.",
 		ruleset: ['Baton Pass Stat Clause', 'Baton Pass Stat Trap Clause'],
-		banlist: ['Baton Pass + Substitute', 'Baton Pass + Ingrain', 'Baton Pass + Aqua Ring', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Baton Pass + Jaw Lock', 'Baton Pass + Anchor Shot', 'Baton Pass + Spirit Shackles', 'Baton Pass + Thousand Waves'],
+		banlist: ['Baton Pass + Substitute', 'Baton Pass + Ingrain', 'Baton Pass + Aqua Ring', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Baton Pass + Jaw Lock', 'Baton Pass + Anchor Shot', 'Baton Pass + Spirit Shackle', 'Baton Pass + Thousand Waves'],
 	},
 	batonpassclause: {
 		effectType: 'ValidatorRule',
