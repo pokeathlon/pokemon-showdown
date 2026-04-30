@@ -457,6 +457,26 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 		},
 	},
+	megasol: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	spicespray: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	piercingdrill: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	dragonize: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
 
 	// POA
 	///////////////////////////////////////////////////////////////////

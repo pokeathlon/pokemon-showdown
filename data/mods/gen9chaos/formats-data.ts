@@ -3437,4 +3437,124 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		doublesTier: "DUber",
 	},
+	meganiummega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	victreebelmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	starmiemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	dragonitemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	feraligatrmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	skarmorymega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	chimechomega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	froslassmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	emboarmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	excadrillmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	chandeluremega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	golurkmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	chesnaughtmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	delphoxmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	greninjamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	floettemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	meowsticmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	hawluchamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	crabominablemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	drampamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	scovillainmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	glimmoramega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	clefablemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
 };
