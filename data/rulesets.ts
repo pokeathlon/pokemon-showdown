@@ -1201,14 +1201,17 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		onValidateTeam(team) {
 			const boostingEffects = [
-				'absorbbulb', 'acidarmor', 'acupressure', 'agility', 'amnesia', 'ancientpower', 'angerpoint', 'apicotberry', 'autotomize',
-				'barrier', 'bellydrum', 'bulkup', 'calmmind', 'cellbattery', 'charge', 'chargebeam', 'coil', 'contrary', 'cosmicpower', 'cottonguard', 'curse',
-				'defensecurl', 'defendorder', 'defiant', 'download', 'dragondance', 'fierydance', 'flamecharge', 'focusenergy', 'ganlonberry', 'growth',
-				'harden', 'honeclaws', 'howl', 'irondefense', 'justified', 'lansatberry', 'liechiberry', 'lightningrod', 'meditate', 'metalclaw',
-				'meteormash', 'motordrive', 'moxie', 'nastyplot', 'ominouswind', 'petayaberry', 'quiverdance', 'rage', 'rattled',
-				'rockpolish', 'salacberry', 'sapsipper', 'sharpen', 'shellsmash', 'shiftgear', 'silverwind', 'skullbash', 'speedboost',
-				'starfberry', 'steadfast', 'steelwing', 'stockpile', 'stormdrain', 'swordsdance', 'tailglow', 'weakarmor', 'withdraw',
-				'workup',
+				'absorbbulb', 'acidarmor', 'acupressure', 'agility', 'amnesia', 'ancientpower', 'angerpoint', 'angershell', 'apicotberry', 'aquastep', 'aromaticmist', 'aurawheel', 'autotomize',
+				'barrier', 'battlebond', 'beastboost', 'berserk', 'bellydrum', 'bulkup', 'calmmind', 'cellbattery', 'charge', 'chargebeam', 'chillingneigh',
+				'clangoroussoul', 'coil', 'contrary', 'cosmicpower', 'cottonguard', 'curse', 'competitive', 'defensecurl', 'defendorder', 'defiant',
+				'diamondstorm', 'download', 'dragondance', 'embodyaspect', 'electroshot', 'esperwing', 'fellstinger', 'fierydance', 'filletaway', 'flamecharge',
+				'flowershield', 'focusenergy', 'ganlonberry', 'geomancy', 'grimneigh', 'growth', 'guarddog', 'harden', 'honeclaws', 'howl', 'intrepidsword',
+				'irondefense', 'justified', 'lansatberry', 'liechiberry', 'lightningrod', 'meditate', 'metalclaw', 'meteorbeam', 'meteormash', 'moody',
+				'motordrive', 'moxie', 'mysticalpower', 'nastyplot', 'noretreat', 'ominouswind', 'opportunist', 'orderup', 'poweruppunch', 'petayaberry',
+				'psyshieldbash', 'quiverdance', 'rage', 'rattled', 'rockpolish', 'salacberry', 'sapsipper', 'scaleshot', 'sharpen', 'shellsmash', 'shelter', 'shiftgear',
+				'silverwind', 'skullbash', 'steelwing', 'stockpile', 'stuffcheeks', 'soulheart', 'speedboost', 'stamina', 'starfberry', 'steadfast',
+				'steamengine', 'steelwing', 'stockpile', 'stormdrain', 'swordsdance', 'tailglow', 'takeheart', 'torchsong', 'thermalexchange', 'tidyup',
+				'victorydance', 'watercompaction', 'weakarmor', 'weaknesspolicy', 'wellbakedbody', 'windrider', 'withdraw', 'workup',
 			];
 			for (const set of team) {
 				const moves = set.moves.map(this.toID);
