@@ -105,6 +105,10 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		inherit: true,
 		evos: ["Staruhz"],
 	},
+	floetteeternal: {
+		inherit: true,
+		baseSpecies: undefined,
+	},
 
 	// Additions
 	ashenash: {
