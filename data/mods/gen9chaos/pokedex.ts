@@ -3117,6 +3117,23 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		forme: "Mega",
 		requiredItem: "Tofagrifite",
 	},
+	heracrosssubarcticmega: {
+		num: 214,
+		name: "Heracross-Subarctic-Mega",
+		types: ["Bug", "Ice"],
+		baseStats: { hp: 85, atk: 35, def: 125, spa: 185, spd: 80, spe: 90 },
+		abilities: { 0: "Snow Warning" },
+		heightm: 1.5,
+		weightkg: 64,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+		baseSpecies: "Heracross-Subarctic",
+		forme: "Mega",
+		requiredItem: "Subarctic Heracronite",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

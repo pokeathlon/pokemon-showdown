@@ -173,6 +173,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 		isNonstandard: "Unobtainable",
 	},
+	heracrosssubarcticmega: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
 	hydroupa: {
 		inherit: true,
 		tier: "UU",

@@ -234,7 +234,7 @@ export const Items: ModdedItemDataTable = {
 	sekrilite: {
 		name: "Sekrilite",
 		desc: "If held by a Sekrilon, this item allows it to Mega Evolve in battle.",
-		spritenum: 623,
+		spritenum: -3,
 		megaStone: { "Sekrilon": "Sekrilon-Mega" },
 		itemUser: ["Sekrilon"],
 		onTakeItem(item, source) {
@@ -245,7 +245,7 @@ export const Items: ModdedItemDataTable = {
 	deltatyranitarite: {
 		name: "Delta Tyranitarite",
 		desc: "If held by a Tyranitar-Delta, this item allows it to Mega Evolve in battle.",
-		spritenum: -1,
+		spritenum: -3,
 		megaStone: { "Tyranitar-Delta": "Tyranitar-Delta-Mega" },
 		itemUser: ["Tyranitar-Delta"],
 		onTakeItem(item, source) {
@@ -448,6 +448,17 @@ export const Items: ModdedItemDataTable = {
 		spritenum: 596,
 		megaStone: { "Tofagrif": "Tofagrif-Mega" },
 		itemUser: ["Tofagrif"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	subarcticheracronite: {
+		name: "Subarctic Heracronite",
+		desc: "If held by a Heracross-Subarctic, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Heracross-Subarctic": "Heracross-Subarctic-Mega" },
+		itemUser: ["Heracross-Subarctic"],
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
