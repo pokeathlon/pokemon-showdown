@@ -1,0 +1,28 @@
+export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
+	cosmic: {
+		inherit: true,
+		damageTaken: {
+			Bug: 0,
+			Cosmic: 2,
+			Dark: 1,
+			Dragon: 1,
+			Electric: 0,
+			Fairy: 0,
+			Fighting: 2,
+			Fire: 2,
+			Flying: 2,
+			Ghost: 0,
+			Grass: 0,
+			Ground: 3,
+			Ice: 0,
+			Light: 1,
+			Normal: 0,
+			Poison: 0,
+			Psychic: 0,
+			Rock: 1,
+			Sound: 3,
+			Steel: 2,
+			Water: 0,
+		},
+	},
+};
