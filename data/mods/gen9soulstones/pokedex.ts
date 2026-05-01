@@ -2,16 +2,16 @@ import { Pokedex as Base } from '../../pokedex';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	koffingsoulstones: {
-	num: 1,
-	name: "Koffing-Soulstones",
-	types: ['Fire', 'Poison'],
-	baseStats: { hp: 60, atk: 40, def: 55, spa: 65, spd: 85, spe: 35 },
-	abilities: { 0: "Levitate", 1: "White Smoke" },
-	heightm: 0.6,
-	weightkg: 1.0,
-	color: "Red",
-	evos: ["Weezing"],
-	eggGroups: ["Soulstones"],
+		num: 1,
+		name: "Koffing-Soulstones",
+		types: ['Fire', 'Poison'],
+		baseStats: { hp: 60, atk: 40, def: 55, spa: 65, spd: 85, spe: 35 },
+		abilities: { 0: "Levitate", 1: "White Smoke" },
+		heightm: 0.6,
+		weightkg: 1.0,
+		color: "Red",
+		evos: ["Weezing"],
+		eggGroups: ["Soulstones"],
 	},
 	weezingsoulstones: {
 		num: 2,
@@ -23,6 +23,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	solosissoulstones: {
@@ -36,6 +37,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Duosion"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	duosionsoulstones: {
@@ -49,6 +51,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Reuniclus"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	reuniclussoulstones: {
@@ -61,6 +64,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.1,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gastlysoulstones: {
@@ -74,6 +78,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Haunter"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hauntersoulstones: {
@@ -87,6 +92,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Gengar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gengarsoulstones: {
@@ -99,6 +105,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	doduosoulstones: {
@@ -112,6 +119,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Dodrio"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dodriosoulstones: {
@@ -124,6 +132,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 85.2,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ekanssoulstones: {
@@ -137,6 +146,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Arbok"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	arboksoulstones: {
@@ -149,6 +159,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 65.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	staryusoulstones: {
@@ -162,6 +173,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Starmie"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	starmiesoulstones: {
@@ -174,6 +186,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 80.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	onixsoulstones: {
@@ -187,6 +200,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Steelix"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	steelixsoulstones: {
@@ -199,6 +213,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slugmasoulstones: {
@@ -212,6 +227,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Magcargo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magcargosoulstones: {
@@ -224,6 +240,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wailmersoulstones: {
@@ -237,6 +254,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Wailord"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wailordsoulstones: {
@@ -249,6 +267,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 398.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fletchlingsoulstones: {
@@ -262,6 +281,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Fletchinder"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fletchindersoulstones: {
@@ -275,6 +295,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Talonflame"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	talonflamesoulstones: {
@@ -287,6 +308,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 24.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	natusoulstones: {
@@ -300,6 +322,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Xatu"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	xatusoulstones: {
@@ -312,6 +335,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ruffletsoulstones: {
@@ -325,6 +349,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Braviary"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	braviarysoulstones: {
@@ -337,6 +362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 41.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	nosepasssoulstones: {
@@ -350,6 +376,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Probopass"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	probopasssoulstones: {
@@ -362,6 +389,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 340.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	zubatsoulstones: {
@@ -375,6 +403,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Golbat"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	golbatsoulstones: {
@@ -388,6 +417,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Crobat"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	crobatsoulstones: {
@@ -400,6 +430,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tangelasoulstones: {
@@ -413,6 +444,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Tangrowth"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tangrowthsoulstones: {
@@ -425,6 +457,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tympolesoulstones: {
@@ -438,6 +471,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Palpitoad"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	palpitoadsoulstones: {
@@ -451,6 +485,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Seismitoad"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	seismitoadsoulstones: {
@@ -463,6 +498,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 62.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gulpinsoulstones: {
@@ -476,6 +512,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Swalot"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swalotsoulstones: {
@@ -488,6 +525,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 80.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spinaraksoulstones: {
@@ -501,6 +539,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Ariados"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ariadossoulstones: {
@@ -513,6 +552,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	baltoysoulstones: {
@@ -526,6 +566,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Claydol"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	claydolsoulstones: {
@@ -538,6 +579,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 108.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	zoruasoulstones: {
@@ -551,6 +593,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Zoroark"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	zoroarksoulstones: {
@@ -563,6 +606,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.1,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ducklettsoulstones: {
@@ -576,6 +620,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Swanna"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swannasoulstones: {
@@ -588,6 +633,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 24.2,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	golettsoulstones: {
@@ -601,6 +647,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Golurk"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	golurksoulstones: {
@@ -613,6 +660,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 330.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	morelullsoulstones: {
@@ -626,6 +674,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Shiinotic"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shiinoticsoulstones: {
@@ -638,6 +687,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 11.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	larvestasoulstones: {
@@ -651,6 +701,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Volcarona"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	volcaronasoulstones: {
@@ -663,6 +714,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 46.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	stantlersoulstones: {
@@ -676,6 +728,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Wyrdeer"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magikarpsoulstones: {
@@ -689,6 +742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Gyarados"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gyaradossoulstones: {
@@ -701,6 +755,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 235.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bergmitesoulstones: {
@@ -714,6 +769,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Avalugg"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	avaluggsoulstones: {
@@ -726,6 +782,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 505.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ledybasoulstones: {
@@ -739,6 +796,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Ledian"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lediansoulstones: {
@@ -751,6 +809,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 35.6,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ponytasoulstones: {
@@ -764,6 +823,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Rapidash"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rapidashsoulstones: {
@@ -776,6 +836,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 95.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	amaurasoulstones: {
@@ -789,6 +850,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Aurorus"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aurorussoulstones: {
@@ -801,6 +863,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 255.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	geodudesoulstones: {
@@ -814,6 +877,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Graveler"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gravelersoulstones: {
@@ -827,6 +891,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Golem"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	golemsoulstones: {
@@ -839,6 +904,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 600.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skrelpsoulstones: {
@@ -852,6 +918,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Dragalge"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dragalgesoulstones: {
@@ -864,6 +931,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	litleosoulstones: {
@@ -877,6 +945,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Pyroar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pyroarsoulstones: {
@@ -889,6 +958,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lunatonesoulstones: {
@@ -901,6 +971,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 168.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	solrocksoulstones: {
@@ -913,6 +984,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 154.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drowzeesoulstones: {
@@ -926,6 +998,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Hypno"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hypnosoulstones: {
@@ -938,6 +1011,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.6,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	seelsoulstones: {
@@ -951,6 +1025,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Dewgong"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dewgongsoulstones: {
@@ -963,6 +1038,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 240.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skiddosoulstones: {
@@ -976,6 +1052,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Gogoat"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gogoatsoulstones: {
@@ -988,6 +1065,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 91.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kabutosoulstones: {
@@ -1001,6 +1079,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Kabutops"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kabutopssoulstones: {
@@ -1013,6 +1092,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shroomishsoulstones: {
@@ -1026,6 +1106,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Breloom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	breloomsoulstones: {
@@ -1038,6 +1119,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.2,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aerodactylsoulstones: {
@@ -1050,6 +1132,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 59.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	roggenrolasoulstones: {
@@ -1063,6 +1146,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Boldore"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	boldoresoulstones: {
@@ -1076,6 +1160,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Gigalith"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gigalithsoulstones: {
@@ -1088,6 +1173,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 260.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	finneonsoulstones: {
@@ -1101,6 +1187,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Lumineon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lumineonsoulstones: {
@@ -1113,6 +1200,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 24.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gligarsoulstones: {
@@ -1126,6 +1214,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Gliscor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gliscorsoulstones: {
@@ -1138,6 +1227,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 42.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lillipupsoulstones: {
@@ -1151,6 +1241,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Herdier"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	herdiersoulstones: {
@@ -1164,6 +1255,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Stoutland"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	stoutlandsoulstones: {
@@ -1176,6 +1268,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drifloonsoulstones: {
@@ -1189,6 +1282,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Drifblim"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drifblimsoulstones: {
@@ -1201,6 +1295,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	minccinosoulstones: {
@@ -1214,6 +1309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Cinccino"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cinccinosoulstones: {
@@ -1226,6 +1322,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 7.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bonslysoulstones: {
@@ -1239,6 +1336,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Sudowoodo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sudowoodosoulstones: {
@@ -1251,6 +1349,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 38.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	druddigonsoulstones: {
@@ -1263,6 +1362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 139.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	woobatsoulstones: {
@@ -1276,6 +1376,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Swoobat"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swoobatsoulstones: {
@@ -1288,6 +1389,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 10.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	krabbysoulstones: {
@@ -1301,6 +1403,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Kingler"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kinglersoulstones: {
@@ -1313,6 +1416,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hoothootsoulstones: {
@@ -1326,6 +1430,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Noctowl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	noctowlsoulstones: {
@@ -1338,6 +1443,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.8,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	voltorbsoulstones: {
@@ -1351,6 +1457,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Electrode"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	electrodesoulstones: {
@@ -1363,6 +1470,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 66.6,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sandygastsoulstones: {
@@ -1376,6 +1484,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Palossand"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	palossandsoulstones: {
@@ -1388,6 +1497,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 250.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	weedlesoulstones: {
@@ -1401,6 +1511,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Kakuna"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kakunasoulstones: {
@@ -1414,6 +1525,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Beedrill"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	beedrillsoulstones: {
@@ -1426,6 +1538,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	machopsoulstones: {
@@ -1439,6 +1552,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Machoke"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	machokesoulstones: {
@@ -1452,6 +1566,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Machamp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	machampsoulstones: {
@@ -1464,6 +1579,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 130.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bulbasaursoulstones: {
@@ -1477,6 +1593,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Ivysaur"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ivysaursoulstones: {
@@ -1490,6 +1607,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Venusaur"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	venusaursoulstones: {
@@ -1502,6 +1620,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 100.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	taurossoulstones: {
@@ -1514,6 +1633,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 88.4,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	carvanhasoulstones: {
@@ -1527,6 +1647,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Sharpedo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sharpedosoulstones: {
@@ -1539,6 +1660,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 88.8,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	timburrsoulstones: {
@@ -1552,6 +1674,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Gurdurr"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gurdurrsoulstones: {
@@ -1565,6 +1688,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Conkeldurr"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	conkeldurrsoulstones: {
@@ -1577,6 +1701,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 87.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	litwicksoulstones: {
@@ -1590,6 +1715,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Lampent"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lampentsoulstones: {
@@ -1603,6 +1729,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Chandelure"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chandeluresoulstones: {
@@ -1615,6 +1742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.3,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vanillitesoulstones: {
@@ -1628,6 +1756,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Vanillish"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vanillishsoulstones: {
@@ -1641,6 +1770,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Vanilluxe"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vanilluxesoulstones: {
@@ -1653,6 +1783,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 57.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	elekidsoulstones: {
@@ -1666,6 +1797,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Electabuzz"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	electabuzzsoulstones: {
@@ -1679,6 +1811,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Electivire"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	electiviresoulstones: {
@@ -1691,6 +1824,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 138.6,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	poppliosoulstones: {
@@ -1704,6 +1838,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Brionne"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	brionnesoulstones: {
@@ -1717,6 +1852,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Primarina"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	primarinasoulstones: {
@@ -1729,6 +1865,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 44.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	snoruntsoulstones: {
@@ -1742,6 +1879,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Glalie", "Froslass"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	glaliesoulstones: {
@@ -1754,6 +1892,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 256.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	froslasssoulstones: {
@@ -1766,6 +1905,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 26.6,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magbysoulstones: {
@@ -1779,6 +1919,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Magmar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magmarsoulstones: {
@@ -1792,6 +1933,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Magmortar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magmortarsoulstones: {
@@ -1804,6 +1946,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 68.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	exeggcutesoulstones: {
@@ -1817,6 +1960,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Exeggutor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	exeggutorsoulstones: {
@@ -1829,6 +1973,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	joltiksoulstones: {
@@ -1842,6 +1987,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Galvantula"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	galvantulasoulstones: {
@@ -1854,6 +2000,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 14.3,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grimersoulstones: {
@@ -1867,6 +2014,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Muk"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	muksoulstones: {
@@ -1879,6 +2027,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 30.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chimcharsoulstones: {
@@ -1892,6 +2041,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Monferno"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	monfernosoulstones: {
@@ -1905,6 +2055,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Infernape"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	infernapesoulstones: {
@@ -1917,6 +2068,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sableyesoulstones: {
@@ -1929,6 +2081,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 11.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cubchoosoulstones: {
@@ -1942,6 +2095,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Beartic"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bearticsoulstones: {
@@ -1954,6 +2108,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 260.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	treeckosoulstones: {
@@ -1967,6 +2122,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Grovyle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grovylesoulstones: {
@@ -1980,6 +2136,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Sceptile"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sceptilesoulstones: {
@@ -1992,6 +2149,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 52.2,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	larvitarsoulstones: {
@@ -2005,6 +2163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Pupitar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pupitarsoulstones: {
@@ -2018,6 +2177,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Tyranitar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tyranitarsoulstones: {
@@ -2030,6 +2190,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 202.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hippopotassoulstones: {
@@ -2043,6 +2204,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Hippowdon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hippowdonsoulstones: {
@@ -2055,6 +2217,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 300.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bronzorsoulstones: {
@@ -2068,6 +2231,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Bronzong"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bronzongsoulstones: {
@@ -2080,6 +2244,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 187.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swirlixsoulstones: {
@@ -2093,6 +2258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Slurpuff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slurpuffsoulstones: {
@@ -2105,6 +2271,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mareepsoulstones: {
@@ -2118,6 +2285,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Flaaffy"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	flaaffysoulstones: {
@@ -2131,6 +2299,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Ampharos"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ampharossoulstones: {
@@ -2143,6 +2312,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.5,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swablusoulstones: {
@@ -2156,6 +2326,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Altaria"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	altariasoulstones: {
@@ -2168,6 +2339,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.6,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	abrasoulstones: {
@@ -2181,6 +2353,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Kadabra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kadabrasoulstones: {
@@ -2194,6 +2367,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Alakazam"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	alakazamsoulstones: {
@@ -2206,6 +2380,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 48.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	venipedesoulstones: {
@@ -2219,6 +2394,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Whirlipede"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	whirlipedesoulstones: {
@@ -2232,6 +2408,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Scolipede"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scolipedesoulstones: {
@@ -2244,6 +2421,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 200.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	heracrosssoulstones: {
@@ -2256,6 +2434,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 54.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	teddiursasoulstones: {
@@ -2269,6 +2448,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Ursaring"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ursaringsoulstones: {
@@ -2282,6 +2462,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Ursaluna"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	psyducksoulstones: {
@@ -2295,6 +2476,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Golduck"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	golducksoulstones: {
@@ -2307,6 +2489,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 76.6,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	duskullsoulstones: {
@@ -2320,6 +2503,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Dusclops"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dusclopssoulstones: {
@@ -2333,6 +2517,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Dusknoir"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dusknoirsoulstones: {
@@ -2345,6 +2530,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 106.6,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skittysoulstones: {
@@ -2358,6 +2544,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Delcatty"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	delcattysoulstones: {
@@ -2370,6 +2557,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.6,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	teevee: {
@@ -2383,6 +2571,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Vaporeon", "Jolteon", "Flareon", "Leafeon", "Glaceon", "Espeon", "Umbreon", "Sylveon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tvaporeon: {
@@ -2395,6 +2584,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tjolteon: {
@@ -2407,6 +2597,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 24.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tflareon: {
@@ -2419,6 +2610,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 250.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tespeon: {
@@ -2431,6 +2623,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 26.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tumbreon: {
@@ -2443,6 +2636,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 27.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tleafeon: {
@@ -2455,6 +2649,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 25.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tglaceon: {
@@ -2467,6 +2662,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 25.9,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsylveon: {
@@ -2479,6 +2675,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 23.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	deerlingsoulstones: {
@@ -2492,6 +2689,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Sawsbuck"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sawsbucksoulstones: {
@@ -2504,6 +2702,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 92.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aronsoulstones: {
@@ -2517,6 +2716,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Lairon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	laironsoulstones: {
@@ -2530,6 +2730,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Aggron"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aggronsoulstones: {
@@ -2542,6 +2743,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 360.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shellossoulstones: {
@@ -2555,6 +2757,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Gastrodon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gastrodonsoulstones: {
@@ -2567,6 +2770,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.9,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	meowthsoulstones: {
@@ -2580,6 +2784,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Persian", "Perrserker"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	persiansoulstones: {
@@ -2592,6 +2797,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wurmplessoulstones: {
@@ -2605,6 +2811,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Silcoon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	silcoonsoulstones: {
@@ -2618,6 +2825,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Beautifly"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	beautiflysoulstones: {
@@ -2630,6 +2838,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.4,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wurmplecsoulstones: {
@@ -2643,6 +2852,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Cascoon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cascoonsoulstones: {
@@ -2656,6 +2866,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Dustox"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dustoxsoulstones: {
@@ -2668,6 +2879,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 31.6,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aipomsoulstones: {
@@ -2681,6 +2893,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Ambipom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ambipomsoulstones: {
@@ -2693,6 +2906,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.3,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rattatasoulstones: {
@@ -2706,6 +2920,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Raticate"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	raticatesoulstones: {
@@ -2718,6 +2933,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 18.5,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	starlysoulstones: {
@@ -2731,6 +2947,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Staravia"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	staraviasoulstones: {
@@ -2744,6 +2961,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Staraptor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	staraptorsoulstones: {
@@ -2756,6 +2974,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 24.9,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kricketotsoulstones: {
@@ -2769,6 +2988,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Kricketune"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kricketunesoulstones: {
@@ -2781,6 +3001,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 25.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slowpokesoulstones: {
@@ -2794,6 +3015,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Slowbro", "Slowking"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slowbrosoulstones: {
@@ -2806,6 +3028,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 78.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slowkingsoulstones: {
@@ -2818,6 +3041,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 79.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rookideesoulstones: {
@@ -2831,6 +3055,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Corvisquire"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	corvisquiresoulstones: {
@@ -2844,6 +3069,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Corviknight"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	corviknightsoulstones: {
@@ -2856,6 +3082,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	oddishsoulstones: {
@@ -2869,6 +3096,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Gloom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gloomsoulstones: {
@@ -2882,6 +3110,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Vileplume", "Bellossom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vileplumesoulstones: {
@@ -2894,6 +3123,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 18.6,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bellossomsoulstones: {
@@ -2906,6 +3136,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.8,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sunkernsoulstones: {
@@ -2919,6 +3150,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Sunflora"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sunflorasoulstones: {
@@ -2931,6 +3163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 8.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	stunkysoulstones: {
@@ -2944,6 +3177,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Skuntank"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skuntanksoulstones: {
@@ -2956,6 +3190,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 38.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	feebassoulstones: {
@@ -2969,6 +3204,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Milotic"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	miloticsoulstones: {
@@ -2981,6 +3217,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 162.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	horseasoulstones: {
@@ -2994,6 +3231,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Seadra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	seadrasoulstones: {
@@ -3007,6 +3245,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Kingdra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kingdrasoulstones: {
@@ -3019,6 +3258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 152.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	yampersoulstones: {
@@ -3032,6 +3272,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Boltund"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	boltundsoulstones: {
@@ -3044,6 +3285,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	venonatsoulstones: {
@@ -3057,6 +3299,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Venomoth"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	venomothsoulstones: {
@@ -3069,6 +3312,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 12.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	caterpiesoulstones: {
@@ -3082,6 +3326,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Metapod"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	metapodsoulstones: {
@@ -3095,6 +3340,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Butterfree"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	butterfreesoulstones: {
@@ -3107,6 +3353,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mankeysoulstones: {
@@ -3120,6 +3367,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Primeape"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	primeapesoulstones: {
@@ -3133,6 +3381,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Annihilape"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tynamosoulstones: {
@@ -3146,6 +3395,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Eelektrik"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	eelektriksoulstones: {
@@ -3159,6 +3409,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Eelektross"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	eelektrosssoulstones: {
@@ -3171,6 +3422,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 80.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	eeveesoulstones: {
@@ -3184,6 +3436,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Galaxeon", "Prismeon", "Octaveon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	galaxeonsoulstones: {
@@ -3196,6 +3449,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	prismeonsoulstones: {
@@ -3208,6 +3462,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	octaveonsoulstones: {
@@ -3220,6 +3475,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	basculinsoulstones: {
@@ -3233,6 +3489,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Basculegion"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chinchousoulstones: {
@@ -3246,6 +3503,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Lanturn"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lanturnsoulstones: {
@@ -3258,6 +3516,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 22.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	noibatsoulstones: {
@@ -3271,6 +3530,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Noivern"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	noivernsoulstones: {
@@ -3283,6 +3543,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 85.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	parassoulstones: {
@@ -3296,6 +3557,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Parasect"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	parasectsoulstones: {
@@ -3308,6 +3570,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	impidimpsoulstones: {
@@ -3321,6 +3584,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Morgrem"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	morgremsoulstones: {
@@ -3334,6 +3598,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Grimmsnarl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grimmsnarlsoulstones: {
@@ -3346,6 +3611,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pidovesoulstones: {
@@ -3359,6 +3625,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Tranquill"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tranquillsoulstones: {
@@ -3372,6 +3639,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Unfezant"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	unfezantsoulstones: {
@@ -3384,6 +3652,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	seedotsoulstones: {
@@ -3397,6 +3666,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Nuzleaf"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	nuzleafsoulstones: {
@@ -3410,6 +3680,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Shiftry"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shiftrysoulstones: {
@@ -3422,6 +3693,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 59.6,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hoppipsoulstones: {
@@ -3435,6 +3707,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Skiploom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skiploomsoulstones: {
@@ -3448,6 +3721,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Jumpluff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	jumpluffsoulstones: {
@@ -3460,6 +3734,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dwebblesoulstones: {
@@ -3473,6 +3748,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Crustle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	crustlesoulstones: {
@@ -3485,6 +3761,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 200.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sentretsoulstones: {
@@ -3498,6 +3775,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Furret"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	furretsoulstones: {
@@ -3510,6 +3788,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chikoritasoulstones: {
@@ -3523,6 +3802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Bayleef"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bayleefsoulstones: {
@@ -3536,6 +3816,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Meganium"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	meganiumsoulstones: {
@@ -3548,6 +3829,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 100.5,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cyndaquilsoulstones: {
@@ -3561,6 +3843,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Quilava"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	quilavasoulstones: {
@@ -3574,6 +3857,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Typhlosion"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	typhlosionsoulstones: {
@@ -3586,6 +3870,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 79.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	raltssoulstones: {
@@ -3599,6 +3884,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Kirlia"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kirliasoulstones: {
@@ -3612,6 +3898,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Gardevoir", "Gallade"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gardevoirsoulstones: {
@@ -3624,6 +3911,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 48.4,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	galladesoulstones: {
@@ -3636,6 +3924,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 52.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	numelsoulstones: {
@@ -3649,6 +3938,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Camerupt"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cameruptsoulstones: {
@@ -3661,6 +3951,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 220.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	laprassoulstones: {
@@ -3673,6 +3964,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 220.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	totodilesoulstones: {
@@ -3686,6 +3978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Croconaw"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	croconawsoulstones: {
@@ -3699,6 +3992,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Feraligatr"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	feraligatrsoulstones: {
@@ -3711,6 +4005,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 88.8,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	diglettsoulstones: {
@@ -3724,6 +4019,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Dugtrio"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dugtriosoulstones: {
@@ -3736,6 +4032,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.3,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	croagunksoulstones: {
@@ -3749,6 +4046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Toxicroak"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toxicroaksoulstones: {
@@ -3761,6 +4059,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 44.4,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spritzeesoulstones: {
@@ -3774,6 +4073,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Aromatisse"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aromatissesoulstones: {
@@ -3786,6 +4086,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	durantsoulstones: {
@@ -3798,6 +4099,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	yanmasoulstones: {
@@ -3811,6 +4113,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Yanmega"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	yanmegasoulstones: {
@@ -3823,6 +4126,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 51.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	azurillsoulstones: {
@@ -3836,6 +4140,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Marill"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	marillsoulstones: {
@@ -3849,6 +4154,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Azumarill"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	azumarillsoulstones: {
@@ -3861,6 +4167,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	comfeysoulstones: {
@@ -3873,6 +4180,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.3,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rowletsoulstones: {
@@ -3886,6 +4194,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Dartrix"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dartrixsoulstones: {
@@ -3899,6 +4208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Decidueye"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	decidueyesoulstones: {
@@ -3911,6 +4221,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 36.6,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skorupisoulstones: {
@@ -3924,6 +4235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Drapion"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drapionsoulstones: {
@@ -3936,6 +4248,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	furfrousoulstones: {
@@ -3948,6 +4261,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	meloettasoulstones: {
@@ -3960,6 +4274,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	poochyenasoulstones: {
@@ -3973,6 +4288,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Mightyena"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mightyenasoulstones: {
@@ -3985,6 +4301,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 37.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	littensoulstones: {
@@ -3998,6 +4315,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Torracat"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	torracatsoulstones: {
@@ -4011,6 +4329,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Incineroar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	incineroarsoulstones: {
@@ -4023,6 +4342,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 83.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spiritombsoulstones: {
@@ -4035,6 +4355,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 999.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	absolsoulstones: {
@@ -4047,6 +4368,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 47.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	honedgesoulstones: {
@@ -4060,6 +4382,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Doublade"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	doubladesoulstones: {
@@ -4073,6 +4396,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Aegislash"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	aegislashsoulstones: {
@@ -4085,6 +4409,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 53.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	beldumsoulstones: {
@@ -4098,6 +4423,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Metang"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	metangsoulstones: {
@@ -4111,6 +4437,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Metagross"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	metagrosssoulstones: {
@@ -4123,6 +4450,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 550.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dunsparcesoulstones: {
@@ -4136,6 +4464,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Dudunsparce"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	medititesoulstones: {
@@ -4149,6 +4478,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Medicham"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	medichamsoulstones: {
@@ -4161,6 +4491,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 31.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	nincadasoulstones: {
@@ -4174,6 +4505,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Ninjask", "Shedinja"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ninjasksoulstones: {
@@ -4186,6 +4518,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 12.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shedinjasoulstones: {
@@ -4198,6 +4531,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.2,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	deinosoulstones: {
@@ -4211,6 +4545,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Zweilous"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	zweiloussoulstones: {
@@ -4224,6 +4559,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Hydreigon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hydreigonsoulstones: {
@@ -4236,6 +4572,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 160.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cherubisoulstones: {
@@ -4249,6 +4586,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Cherrim"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cherrimsoulstones: {
@@ -4261,6 +4599,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.3,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gossifleursoulstones: {
@@ -4274,6 +4613,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Eldegoss"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	eldegosssoulstones: {
@@ -4286,6 +4626,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 2.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	espurrsoulstones: {
@@ -4299,6 +4640,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Meowstic"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	meowsticsoulstones: {
@@ -4311,6 +4653,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 8.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	corsolasoulstones: {
@@ -4324,6 +4667,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Cursola"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cursolasoulstones: {
@@ -4336,6 +4680,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.4,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pidgeysoulstones: {
@@ -4349,6 +4694,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Pidgeotto"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pidgeottosoulstones: {
@@ -4362,6 +4708,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Pidgeot"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pidgeotsoulstones: {
@@ -4374,6 +4721,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mantykesoulstones: {
@@ -4387,6 +4735,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Mantine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mantinesoulstones: {
@@ -4399,6 +4748,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 220.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lileepsoulstones: {
@@ -4412,6 +4762,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Cradily"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cradilysoulstones: {
@@ -4424,6 +4775,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.4,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	murkrowsoulstones: {
@@ -4437,6 +4789,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Honchkrow"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	honchkrowsoulstones: {
@@ -4449,6 +4802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 27.3,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cacneasoulstones: {
@@ -4462,6 +4816,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Cacturne"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cacturnesoulstones: {
@@ -4474,6 +4829,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 77.4,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	happinysoulstones: {
@@ -4487,6 +4843,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Chansey"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chanseysoulstones: {
@@ -4500,6 +4857,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Blissey"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	blisseysoulstones: {
@@ -4512,6 +4870,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 46.8,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tentacoolsoulstones: {
@@ -4525,6 +4884,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Tentacruel"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tentacruelsoulstones: {
@@ -4537,6 +4897,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bounsweetsoulstones: {
@@ -4550,6 +4911,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Steenee"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	steeneesoulstones: {
@@ -4563,6 +4925,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Tsareena"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsareenasoulstones: {
@@ -4575,6 +4938,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 21.4,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	growlithesoulstones: {
@@ -4588,6 +4952,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Arcanine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	arcaninesoulstones: {
@@ -4600,6 +4965,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 155.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	elgyemsoulstones: {
@@ -4613,6 +4979,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Beheeyem"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	beheeyemsoulstones: {
@@ -4625,6 +4992,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	silicobrasoulstones: {
@@ -4638,6 +5006,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Sandaconda"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sandacondasoulstones: {
@@ -4650,6 +5019,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 65.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pichusoulstones: {
@@ -4663,6 +5033,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Pikachu"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pikachusoulstones: {
@@ -4676,6 +5047,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Raichu"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	raichusoulstones: {
@@ -4688,6 +5060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 30.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	yamasksoulstones: {
@@ -4701,6 +5074,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Cofagrigus", "Runerigus"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cofagrigussoulstones: {
@@ -4713,6 +5087,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 76.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sinisteasoulstones: {
@@ -4726,6 +5101,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Polteageist"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	polteageistsoulstones: {
@@ -4738,6 +5114,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.4,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	throhsoulstones: {
@@ -4750,6 +5127,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sawksoulstones: {
@@ -4762,6 +5140,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 51.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sandilesoulstones: {
@@ -4775,6 +5154,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Krokorok"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	krokoroksoulstones: {
@@ -4788,6 +5168,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Krookodile"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	krookodilesoulstones: {
@@ -4800,6 +5181,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 96.3,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mudkipsoulstones: {
@@ -4813,6 +5195,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Marshtomp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	marshtompsoulstones: {
@@ -4826,6 +5209,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Swampert"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swampertsoulstones: {
@@ -4838,6 +5222,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.9,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	goldeensoulstones: {
@@ -4851,6 +5236,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Seaking"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	seakingsoulstones: {
@@ -4863,6 +5249,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	taillowsoulstones: {
@@ -4876,6 +5263,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Swellow"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swellowsoulstones: {
@@ -4888,6 +5276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 19.8,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	patratsoulstones: {
@@ -4901,6 +5290,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Watchog"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	watchogsoulstones: {
@@ -4913,6 +5303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 27.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gothitasoulstones: {
@@ -4926,6 +5317,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Gothorita"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gothoritasoulstones: {
@@ -4939,6 +5331,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Gothitelle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gothitellesoulstones: {
@@ -4951,6 +5344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 44.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sphealsoulstones: {
@@ -4964,6 +5358,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Sealeo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sealeosoulstones: {
@@ -4977,6 +5372,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Walrein"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	walreinsoulstones: {
@@ -4989,6 +5385,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 150.6,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	surskitsoulstones: {
@@ -5002,6 +5399,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Masquerain"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	masquerainsoulstones: {
@@ -5014,6 +5412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.6,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wingullsoulstones: {
@@ -5027,6 +5426,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Pelipper"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pelippersoulstones: {
@@ -5039,6 +5439,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	charmandersoulstones: {
@@ -5052,6 +5453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Charmeleon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	charmeleonsoulstones: {
@@ -5065,6 +5467,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Charizard"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	charizardsoulstones: {
@@ -5077,6 +5480,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 90.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magnemitesoulstones: {
@@ -5090,6 +5494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Magneton"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magnetonsoulstones: {
@@ -5103,6 +5508,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Magnezone"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	magnezonesoulstones: {
@@ -5115,6 +5521,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 180.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	regirocksoulstones: {
@@ -5127,6 +5534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 230.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	regicesoulstones: {
@@ -5139,6 +5547,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 175.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	registeelsoulstones: {
@@ -5151,6 +5560,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 205.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spearowsoulstones: {
@@ -5164,6 +5574,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Fearow"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fearowsoulstones: {
@@ -5176,6 +5587,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 38.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	igglybuffsoulstones: {
@@ -5189,6 +5601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Jigglypuff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	jigglypuffsoulstones: {
@@ -5202,6 +5615,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Wigglytuff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wigglytuffsoulstones: {
@@ -5214,6 +5628,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vullabysoulstones: {
@@ -5227,6 +5642,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Mandibuzz"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mandibuzzsoulstones: {
@@ -5239,6 +5655,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shinxsoulstones: {
@@ -5252,6 +5669,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Luxio"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	luxiosoulstones: {
@@ -5265,6 +5683,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Luxray"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	luxraysoulstones: {
@@ -5277,6 +5696,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 42.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	electrikesoulstones: {
@@ -5290,6 +5710,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Manectric"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	manectricsoulstones: {
@@ -5302,6 +5723,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.2,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ferroseedsoulstones: {
@@ -5315,6 +5737,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Ferrothorn"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ferrothornsoulstones: {
@@ -5327,6 +5750,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 110.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mareaniesoulstones: {
@@ -5340,6 +5764,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Toxapex"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toxapexsoulstones: {
@@ -5352,6 +5777,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 14.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swinubsoulstones: {
@@ -5365,6 +5791,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Piloswine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	piloswinesoulstones: {
@@ -5378,6 +5805,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Mamoswine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mamoswinesoulstones: {
@@ -5390,6 +5818,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 291.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	torkoalsoulstones: {
@@ -5402,6 +5831,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 80.4,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	turtwigsoulstones: {
@@ -5415,6 +5845,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Grotle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grotlesoulstones: {
@@ -5428,6 +5859,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Torterra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	torterrasoulstones: {
@@ -5440,6 +5872,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 310.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bunearysoulstones: {
@@ -5453,6 +5886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Lopunny"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lopunnysoulstones: {
@@ -5465,6 +5899,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.3,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dittosoulstones: {
@@ -5477,6 +5912,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 4.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tphione: {
@@ -5489,6 +5925,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.1,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmanaphy: {
@@ -5501,6 +5938,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.4,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	darkraisoulstones: {
@@ -5513,6 +5951,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 50.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cresseliasoulstones: {
@@ -5525,6 +5964,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 85.6,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	buizelsoulstones: {
@@ -5538,6 +5978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Floatzel"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	floatzelsoulstones: {
@@ -5550,6 +5991,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	budewsoulstones: {
@@ -5563,6 +6005,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Roselia"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	roseliasoulstones: {
@@ -5576,6 +6019,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Roserade"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	roseradesoulstones: {
@@ -5588,6 +6032,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 14.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	klefkisoulstones: {
@@ -5600,6 +6045,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dewpidersoulstones: {
@@ -5613,6 +6059,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Araquanid"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	araquanidsoulstones: {
@@ -5625,6 +6072,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 82.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgothita: {
@@ -5638,6 +6086,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Gothorita"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgothorita: {
@@ -5651,6 +6100,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Gothitelle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgothitelle: {
@@ -5663,6 +6113,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 44.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tyruntsoulstones: {
@@ -5676,6 +6127,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Tyrantrum"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tyrantrumsoulstones: {
@@ -5688,6 +6140,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 270.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cubonesoulstones: {
@@ -5701,6 +6154,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Marowak"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	marowaksoulstones: {
@@ -5713,6 +6167,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 45.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tspritzee: {
@@ -5726,6 +6181,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Aromatisse"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	taromatisse: {
@@ -5738,6 +6194,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	thorsea: {
@@ -5751,6 +6208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Seadra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tseadra: {
@@ -5764,6 +6222,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Kingdra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tkingdra: {
@@ -5776,6 +6235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 152.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cutieflysoulstones: {
@@ -5789,6 +6249,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Ribombee"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ribombeesoulstones: {
@@ -5801,6 +6262,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	omanytesoulstones: {
@@ -5814,6 +6276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Omastar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	omastarsoulstones: {
@@ -5826,6 +6289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 35.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skwovetsoulstones: {
@@ -5839,6 +6303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Greedent"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	greedentsoulstones: {
@@ -5851,6 +6316,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgrimer: {
@@ -5864,6 +6330,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Muk"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmuk: {
@@ -5876,6 +6343,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 30.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	phanpysoulstones: {
@@ -5889,6 +6357,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Donphan"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	donphansoulstones: {
@@ -5901,6 +6370,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pikipeksoulstones: {
@@ -5914,6 +6384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Trumbeak"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trumbeaksoulstones: {
@@ -5927,6 +6398,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Toucannon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toucannonsoulstones: {
@@ -5939,6 +6411,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 26.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pinecosoulstones: {
@@ -5952,6 +6425,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Forretress"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	forretresssoulstones: {
@@ -5964,6 +6438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 125.8,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	thoothoot: {
@@ -5977,6 +6452,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Noctowl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tnoctowl: {
@@ -5989,6 +6465,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.8,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	stuffulsoulstones: {
@@ -6002,6 +6479,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Bewear"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bewearsoulstones: {
@@ -6014,6 +6492,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 135.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	carbinksoulstones: {
@@ -6026,6 +6505,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 255.7,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	giblesoulstones: {
@@ -6039,6 +6519,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Gabite"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gabitesoulstones: {
@@ -6052,6 +6533,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Garchomp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	garchompsoulstones: {
@@ -6064,6 +6546,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 95.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vulpixsoulstones: {
@@ -6077,6 +6560,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Ninetales"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ninetalessoulstones: {
@@ -6089,6 +6573,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 19.9,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tbounsweet: {
@@ -6102,6 +6587,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Steenee"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsteenee: {
@@ -6115,6 +6601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Tsareena"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttsareena: {
@@ -6127,6 +6614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 21.4,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	purrloinsoulstones: {
@@ -6140,6 +6628,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Liepard"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	liepardsoulstones: {
@@ -6152,6 +6641,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 37.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toxelsoulstones: {
@@ -6165,6 +6655,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Toxtricity"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toxtricitysoulstones: {
@@ -6177,6 +6668,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdewpider: {
@@ -6190,6 +6682,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Araquanid"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	taraquanid: {
@@ -6202,6 +6695,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 82.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	goomysoulstones: {
@@ -6215,6 +6709,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Sliggoo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sliggoosoulstones: {
@@ -6228,6 +6723,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Goodra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	goodrasoulstones: {
@@ -6240,6 +6736,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 150.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mimejrsoulstones: {
@@ -6253,6 +6750,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Mrmime"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mrmimesoulstones: {
@@ -6266,6 +6764,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Mrrime"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mrrimesoulstones: {
@@ -6278,6 +6777,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 58.2,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdiglett: {
@@ -6291,6 +6791,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Dugtrio"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdugtrio: {
@@ -6303,6 +6804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.3,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	luvdiscsoulstones: {
@@ -6315,6 +6817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 8.7,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	smearglesoulstones: {
@@ -6327,6 +6830,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 58.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shieldonsoulstones: {
@@ -6340,6 +6844,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Bastiodon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bastiodonsoulstones: {
@@ -6352,6 +6857,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 149.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	applinsoulstones: {
@@ -6365,6 +6871,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Flapple", "Appletun", "Dipplin"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	flapplesoulstones: {
@@ -6377,6 +6884,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 16.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	appletunsoulstones: {
@@ -6389,6 +6897,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 140.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mimikyusoulstones: {
@@ -6401,6 +6910,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.7,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wooloosoulstones: {
@@ -6414,6 +6924,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Dubwool"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dubwoolsoulstones: {
@@ -6426,6 +6937,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 243.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tabsol: {
@@ -6438,6 +6950,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 47.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	snivysoulstones: {
@@ -6451,6 +6964,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Servine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	servinesoulstones: {
@@ -6464,6 +6978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Serperior"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	serperiorsoulstones: {
@@ -6476,6 +6991,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 63.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fennekinsoulstones: {
@@ -6489,6 +7005,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Braixen"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	braixensoulstones: {
@@ -6502,6 +7019,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Delphox"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	delphoxsoulstones: {
@@ -6514,6 +7032,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tvoltorb: {
@@ -6527,6 +7046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Electrode"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	telectrode: {
@@ -6539,6 +7059,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 450.6,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	snoversoulstones: {
@@ -6552,6 +7073,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Abomasnow"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	abomasnowsoulstones: {
@@ -6564,6 +7086,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 135.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	texeggcute: {
@@ -6577,6 +7100,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Exeggutor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	texeggutor: {
@@ -6589,6 +7113,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsableye: {
@@ -6601,6 +7126,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 11.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trubbishsoulstones: {
@@ -6614,6 +7140,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Garbodor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	garbodorsoulstones: {
@@ -6626,6 +7153,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 107.3,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tswablu: {
@@ -6639,6 +7167,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Altaria"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	taltaria: {
@@ -6651,6 +7180,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.6,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tslugma: {
@@ -6664,6 +7194,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Magcargo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmagcargo: {
@@ -6676,6 +7207,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmudkip: {
@@ -6689,6 +7221,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Marshtomp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmarshtomp: {
@@ -6702,6 +7235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Swampert"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tswampert: {
@@ -6714,6 +7248,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.9,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chespinsoulstones: {
@@ -6727,6 +7262,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Quilladin"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	quilladinsoulstones: {
@@ -6740,6 +7276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Chesnaught"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chesnaughtsoulstones: {
@@ -6752,6 +7289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 90.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	froakiesoulstones: {
@@ -6765,6 +7303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Frogadier"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	frogadiersoulstones: {
@@ -6778,6 +7317,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Greninja"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	greninjasoulstones: {
@@ -6790,6 +7330,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	jangmoosoulstones: {
@@ -6803,6 +7344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Hakamoo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hakamoosoulstones: {
@@ -6816,6 +7358,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Kommoo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kommoosoulstones: {
@@ -6828,6 +7371,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 78.2,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scraggysoulstones: {
@@ -6841,6 +7385,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Scrafty"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scraftysoulstones: {
@@ -6853,6 +7398,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 30.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tchikorita: {
@@ -6866,6 +7412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Bayleef"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tbayleef: {
@@ -6879,6 +7426,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Meganium"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmeganium: {
@@ -6891,6 +7439,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 100.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcyndaquil: {
@@ -6904,6 +7453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Quilava"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tquilava: {
@@ -6917,6 +7467,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Typhlosion"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttyphlosion: {
@@ -6929,6 +7480,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 79.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttotodile: {
@@ -6942,6 +7494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Croconaw"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcroconaw: {
@@ -6955,6 +7508,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Feraligatr"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tferaligatr: {
@@ -6967,6 +7521,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 88.8,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsurskit: {
@@ -6980,6 +7535,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Masquerain"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmasquerain: {
@@ -6992,6 +7548,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.6,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tstantler: {
@@ -7005,6 +7562,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Wyrdeer"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	clamperlsoulstones: {
@@ -7018,6 +7576,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Huntail", "Gorebyss"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	huntailsoulstones: {
@@ -7030,6 +7589,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 27.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gorebysssoulstones: {
@@ -7042,6 +7602,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 22.6,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	klinksoulstones: {
@@ -7055,6 +7616,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Klang"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	klangsoulstones: {
@@ -7068,6 +7630,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Klinklang"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	klinklangsoulstones: {
@@ -7080,6 +7643,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	darumakasoulstones: {
@@ -7093,6 +7657,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Darmanitan"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	darmanitansoulstones: {
@@ -7105,6 +7670,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 92.9,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tskitty: {
@@ -7118,6 +7684,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Delcatty"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdelcatty: {
@@ -7130,6 +7697,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.6,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdoduo: {
@@ -7143,6 +7711,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["T.Dodrio"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdodrio: {
@@ -7155,6 +7724,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 85.2,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tnumel: {
@@ -7168,6 +7738,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Camerupt"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcamerupt: {
@@ -7180,6 +7751,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 220.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	binaclesoulstones: {
@@ -7193,6 +7765,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Barbaracle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	barbaraclesoulstones: {
@@ -7205,6 +7778,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 96.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	arrokudasoulstones: {
@@ -7218,6 +7792,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Barraskewda"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	barraskewdasoulstones: {
@@ -7230,6 +7805,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 30.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmachop: {
@@ -7243,6 +7819,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Machoke"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmachoke: {
@@ -7256,6 +7833,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Machamp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmachamp: {
@@ -7268,6 +7846,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 130.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	falinkssoulstones: {
@@ -7280,6 +7859,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 62.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	smoochumsoulstones: {
@@ -7293,6 +7873,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Jynx"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	jynxsoulstones: {
@@ -7305,6 +7886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.6,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	zigzagoonsoulstones: {
@@ -7318,6 +7900,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Linoone"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	linoonesoulstones: {
@@ -7331,6 +7914,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Obstagoon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	obstagoonsoulstones: {
@@ -7343,6 +7927,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 46.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	indeedeesoulstones: {
@@ -7355,6 +7940,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cranidossoulstones: {
@@ -7368,6 +7954,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Rampardos"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rampardossoulstones: {
@@ -7380,6 +7967,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 102.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgible: {
@@ -7393,6 +7981,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Gabite"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgabite: {
@@ -7406,6 +7995,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Garchomp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgarchomp: {
@@ -7418,6 +8008,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 95.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tyanma: {
@@ -7431,6 +8022,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Yanmega"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tyanmega: {
@@ -7443,6 +8035,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 51.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	remoraidsoulstones: {
@@ -7456,6 +8049,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Octillery"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	octillerysoulstones: {
@@ -7468,6 +8062,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	misdreavussoulstones: {
@@ -7481,6 +8076,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Mismagius"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mismagiussoulstones: {
@@ -7493,6 +8089,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 4.4,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	poliwagsoulstones: {
@@ -7506,6 +8103,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Poliwhirl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	poliwhirlsoulstones: {
@@ -7519,6 +8117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Poliwrath", "Politoed"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	poliwrathsoulstones: {
@@ -7531,6 +8130,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 54.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	politoedsoulstones: {
@@ -7543,6 +8143,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.9,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	phantumpsoulstones: {
@@ -7556,6 +8157,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Trevenant"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trevenantsoulstones: {
@@ -7568,6 +8170,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 71.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tyroguesoulstones: {
@@ -7581,6 +8184,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Hitmonlee", "Hitmonchan", "Hitmontop"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hitmonleesoulstones: {
@@ -7593,6 +8197,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 49.8,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hitmonchansoulstones: {
@@ -7605,6 +8210,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 50.2,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hitmontopsoulstones: {
@@ -7617,6 +8223,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 48.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pincurchinsoulstones: {
@@ -7629,6 +8236,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scythersoulstones: {
@@ -7642,6 +8250,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Scizor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scizorsoulstones: {
@@ -7654,6 +8263,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 118.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pinsirsoulstones: {
@@ -7666,6 +8276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rolycolysoulstones: {
@@ -7679,6 +8290,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Carkol"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	carkolsoulstones: {
@@ -7692,6 +8304,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Coalossal"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	coalossalsoulstones: {
@@ -7704,6 +8317,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 310.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	riolusoulstones: {
@@ -7717,6 +8331,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Lucario"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lucariosoulstones: {
@@ -7729,6 +8344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 54.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trapinchsoulstones: {
@@ -7742,6 +8358,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Vibrava"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vibravasoulstones: {
@@ -7755,6 +8372,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Flygon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	flygonsoulstones: {
@@ -7767,6 +8385,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 82.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dhelmisesoulstones: {
@@ -7779,6 +8398,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 210.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgeodude: {
@@ -7792,6 +8412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Graveler"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgraveler: {
@@ -7805,6 +8426,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Golem"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgolem: {
@@ -7817,6 +8439,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 316.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	troggenrola: {
@@ -7830,6 +8453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Boldore"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tboldore: {
@@ -7843,6 +8467,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Gigalith"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgigalith: {
@@ -7855,6 +8480,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 260.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tvanillite: {
@@ -7868,6 +8494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Vanillish"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tvanillish: {
@@ -7881,6 +8508,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Vanilluxe"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tvanilluxe: {
@@ -7893,6 +8521,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 57.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dratinisoulstones: {
@@ -7906,6 +8535,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Dragonair"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dragonairsoulstones: {
@@ -7919,6 +8549,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Dragonite"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dragonitesoulstones: {
@@ -7931,6 +8562,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 210.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmurkrow: {
@@ -7944,6 +8576,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Honchkrow"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	thonchkrow: {
@@ -7956,6 +8589,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 27.3,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cleffasoulstones: {
@@ -7969,6 +8603,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Clefairy"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	clefairysoulstones: {
@@ -7982,6 +8617,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Clefable"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	clefablesoulstones: {
@@ -7994,6 +8630,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tkabuto: {
@@ -8007,6 +8644,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Kabutops"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tkabutops: {
@@ -8019,6 +8657,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	archensoulstones: {
@@ -8032,6 +8671,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Archeops"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	archeopssoulstones: {
@@ -8044,6 +8684,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tirtougasoulstones: {
@@ -8057,6 +8698,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Carracosta"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	carracostasoulstones: {
@@ -8069,6 +8711,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dreepysoulstones: {
@@ -8082,6 +8725,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Drakloak"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drakloaksoulstones: {
@@ -8095,6 +8739,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Dragapult"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dragapultsoulstones: {
@@ -8107,6 +8752,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 50.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wimpodsoulstones: {
@@ -8120,6 +8766,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Golisopod"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	golisopodsoulstones: {
@@ -8132,6 +8779,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 108.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	munnasoulstones: {
@@ -8145,6 +8793,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Musharna"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	musharnasoulstones: {
@@ -8157,6 +8806,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shuppetsoulstones: {
@@ -8170,6 +8820,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Banette"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	banettesoulstones: {
@@ -8182,6 +8833,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 12.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	stonjournersoulstones: {
@@ -8194,6 +8846,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 520.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tlapras: {
@@ -8206,6 +8859,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 220.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	twooloo: {
@@ -8219,6 +8873,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Dubwool"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdubwool: {
@@ -8231,6 +8886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 43.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bidoofsoulstones: {
@@ -8244,6 +8900,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Bibarel"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bibarelsoulstones: {
@@ -8256,6 +8913,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 31.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drilbursoulstones: {
@@ -8269,6 +8927,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Excadrill"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	excadrillsoulstones: {
@@ -8281,6 +8940,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.4,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdrilbur: {
@@ -8294,6 +8954,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Excadrill"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	texcadrill: {
@@ -8306,6 +8967,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.4,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	snomsoulstones: {
@@ -8319,6 +8981,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Frosmoth"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	frosmothsoulstones: {
@@ -8331,6 +8994,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 42.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	houndoursoulstones: {
@@ -8344,6 +9008,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Houndoom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	houndoomsoulstones: {
@@ -8356,6 +9021,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 35.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	piplupsoulstones: {
@@ -8369,6 +9035,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Prinplup"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	prinplupsoulstones: {
@@ -8382,6 +9049,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Empoleon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	empoleonsoulstones: {
@@ -8394,6 +9062,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 84.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsolosis: {
@@ -8407,6 +9076,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Duosion"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tduosion: {
@@ -8420,6 +9090,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Reuniclus"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	treuniclus: {
@@ -8432,6 +9103,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.1,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mudbraysoulstones: {
@@ -8445,6 +9117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Mudsdale"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mudsdalesoulstones: {
@@ -8457,6 +9130,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 920.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cramorantsoulstones: {
@@ -8469,6 +9143,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 18.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	thoppip: {
@@ -8482,6 +9157,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Skiploom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tskiploom: {
@@ -8495,6 +9171,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Jumpluff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tjumpluff: {
@@ -8507,6 +9184,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sewaddlesoulstones: {
@@ -8520,6 +9198,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Swadloon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	swadloonsoulstones: {
@@ -8533,6 +9212,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Leavanny"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	leavannysoulstones: {
@@ -8545,6 +9225,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	whismursoulstones: {
@@ -8558,6 +9239,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Loudred"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	loudredsoulstones: {
@@ -8571,6 +9253,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Exploud"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	exploudsoulstones: {
@@ -8583,6 +9266,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 84.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sizzlipedesoulstones: {
@@ -8596,6 +9280,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Centiskorch"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	centiskorchsoulstones: {
@@ -8608,6 +9293,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sobblesoulstones: {
@@ -8621,6 +9307,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Drizzile"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drizzilesoulstones: {
@@ -8634,6 +9321,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Inteleon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	inteleonsoulstones: {
@@ -8646,6 +9334,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 45.2,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttimburr: {
@@ -8659,6 +9348,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Gurdurr"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgurdurr: {
@@ -8672,6 +9362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Conkeldurr"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tconkeldurr: {
@@ -8684,6 +9375,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 87.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	corphishsoulstones: {
@@ -8697,6 +9389,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Crawdaunt"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	crawdauntsoulstones: {
@@ -8709,6 +9402,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 32.8,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	carnivinesoulstones: {
@@ -8721,6 +9415,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 27.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	anorithsoulstones: {
@@ -8734,6 +9429,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Armaldo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	armaldosoulstones: {
@@ -8746,6 +9442,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 68.2,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bagonsoulstones: {
@@ -8759,6 +9456,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Shelgon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shelgonsoulstones: {
@@ -8772,6 +9470,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Salamence"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	salamencesoulstones: {
@@ -8784,6 +9483,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 102.6,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	munchlaxsoulstones: {
@@ -8797,6 +9497,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Snorlax"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	snorlaxsoulstones: {
@@ -8809,6 +9510,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 460.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tlarvesta: {
@@ -8822,6 +9524,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Volcarona"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tvolcarona: {
@@ -8834,6 +9537,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 46.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tepigsoulstones: {
@@ -8847,6 +9551,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Pignite"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pignitesoulstones: {
@@ -8860,6 +9565,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Emboar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	emboarsoulstones: {
@@ -8872,6 +9578,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 150.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sneaselsoulstones: {
@@ -8885,6 +9592,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Sneasler", "Weavile"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	weavilesoulstones: {
@@ -8897,6 +9605,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	milcerysoulstones: {
@@ -8910,6 +9619,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Alcremie"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	alcremiesoulstones: {
@@ -8922,6 +9632,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	frillishsoulstones: {
@@ -8935,6 +9646,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Jellicent"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	jellicentsoulstones: {
@@ -8947,6 +9659,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 135.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	clobbopussoulstones: {
@@ -8960,6 +9673,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Grapploct"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grapploctsoulstones: {
@@ -8972,6 +9686,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 39.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tnosepass: {
@@ -8985,6 +9700,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Probopass"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tprobopass: {
@@ -8997,6 +9713,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cufantsoulstones: {
@@ -9010,6 +9727,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Copperajah"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	copperajahsoulstones: {
@@ -9022,6 +9740,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 650.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	blitzlesoulstones: {
@@ -9035,6 +9754,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Zebstrika"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	zebstrikasoulstones: {
@@ -9047,6 +9767,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 79.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slakothsoulstones: {
@@ -9060,6 +9781,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Vigoroth"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vigorothsoulstones: {
@@ -9073,6 +9795,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Slaking"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	slakingsoulstones: {
@@ -9085,6 +9808,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 130.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	miltanksoulstones: {
@@ -9097,6 +9821,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.5,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	helioptilesoulstones: {
@@ -9110,6 +9835,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Heliolisk"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	heliolisksoulstones: {
@@ -9122,6 +9848,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 21.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hatennasoulstones: {
@@ -9135,6 +9862,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Hattrem"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hattremsoulstones: {
@@ -9148,6 +9876,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Hatterene"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hatterenesoulstones: {
@@ -9160,6 +9889,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.1,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tswinub: {
@@ -9173,6 +9903,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Piloswine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tpiloswine: {
@@ -9186,6 +9917,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Mamoswine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmamoswine: {
@@ -9198,6 +9930,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 291.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chinglingsoulstones: {
@@ -9211,6 +9944,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Chimecho"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chimechosoulstones: {
@@ -9223,6 +9957,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmagnemite: {
@@ -9236,6 +9971,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Magneton"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmagneton: {
@@ -9249,6 +9985,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Magnezone"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmagnezone: {
@@ -9261,6 +9998,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 180.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	timpidimp: {
@@ -9274,6 +10012,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Morgrem"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmorgrem: {
@@ -9287,6 +10026,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Grimmsnarl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgrimmsnarl: {
@@ -9299,6 +10039,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dedennesoulstones: {
@@ -9311,6 +10052,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 2.2,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tbudew: {
@@ -9324,6 +10066,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Roselia"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	troselia: {
@@ -9337,6 +10080,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Roserade"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	troserade: {
@@ -9349,6 +10093,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 14.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lotadsoulstones: {
@@ -9362,6 +10107,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Lombre"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lombresoulstones: {
@@ -9375,6 +10121,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Ludicolo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ludicolosoulstones: {
@@ -9387,6 +10134,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 55.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wattrelsoulstones: {
@@ -9400,6 +10148,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Kilowattrel"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kilowattrelsoulstones: {
@@ -9412,6 +10161,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 38.6,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wyrdeersoulstones: {
@@ -9424,6 +10174,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 95.1,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	twyrdeer: {
@@ -9436,6 +10187,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 95.1,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	annihilapesoulstones: {
@@ -9448,6 +10200,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 56.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	finizensoulstones: {
@@ -9461,6 +10214,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Palafin"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	palafinsoulstones: {
@@ -9473,6 +10227,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.2,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	porygonsoulstones: {
@@ -9486,6 +10241,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Porygon2"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	porygon2soulstones: {
@@ -9499,6 +10255,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Porygonz"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	porygonzsoulstones: {
@@ -9511,6 +10268,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ursalunasoulstones: {
@@ -9523,6 +10281,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 290.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pawmisoulstones: {
@@ -9536,6 +10295,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Pawmo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pawmosoulstones: {
@@ -9549,6 +10309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Pawmot"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pawmotsoulstones: {
@@ -9561,6 +10322,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 41.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fuecocosoulstones: {
@@ -9574,6 +10336,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Crocalor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	crocalorsoulstones: {
@@ -9587,6 +10350,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Skeledirge"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skeledirgesoulstones: {
@@ -9599,6 +10363,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 326.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tinkatinksoulstones: {
@@ -9612,6 +10377,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Tinkatuff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tinkatuffsoulstones: {
@@ -9625,6 +10391,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Tinkaton"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tinkatonsoulstones: {
@@ -9637,6 +10404,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 112.8,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tfeebas: {
@@ -9650,6 +10418,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Milotic"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmilotic: {
@@ -9662,6 +10431,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 162.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sneaslersoulstones: {
@@ -9674,6 +10444,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	skarmorysoulstones: {
@@ -9686,6 +10457,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 50.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	woopersoulstones: {
@@ -9699,6 +10471,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Quagsire", "Clodsire"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	quagsiresoulstones: {
@@ -9711,6 +10484,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	flabbsoulstones: {
@@ -9724,6 +10498,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Floette"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	floettesoulstones: {
@@ -9737,6 +10512,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Florges"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	florgessoulstones: {
@@ -9749,6 +10525,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 10.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	emolgasoulstones: {
@@ -9761,6 +10538,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	salanditsoulstones: {
@@ -9774,6 +10552,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Salazzle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	salazzlesoulstones: {
@@ -9786,6 +10565,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 22.2,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dudunsparcesoulstones: {
@@ -9798,6 +10578,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 14.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hoopasoulstones: {
@@ -9810,6 +10591,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gimmighoulsoulstones: {
@@ -9823,6 +10605,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Gholdengo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gholdengosoulstones: {
@@ -9835,6 +10618,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 98.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	delibirdsoulstones: {
@@ -9847,6 +10631,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.3,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dipplinsoulstones: {
@@ -9860,6 +10645,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Hydrapple"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	basculegionsoulstones: {
@@ -9872,6 +10658,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 18.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tapukokosoulstones: {
@@ -9884,6 +10671,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tapulelesoulstones: {
@@ -9896,6 +10684,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 18.6,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tapubulusoulstones: {
@@ -9908,6 +10697,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 45.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tapufinisoulstones: {
@@ -9920,6 +10710,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 21.2,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	eternatussoulstones: {
@@ -9932,6 +10723,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 950.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tbronzor: {
@@ -9945,6 +10737,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Bronzong"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tbronzong: {
@@ -9957,6 +10750,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 187.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pumpkaboosoulstones: {
@@ -9970,6 +10764,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Gourgeist"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	gourgeistsoulstones: {
@@ -9982,6 +10777,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.5,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fomantissoulstones: {
@@ -9995,6 +10791,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Lurantis"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lurantissoulstones: {
@@ -10007,6 +10804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 18.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cottoneesoulstones: {
@@ -10020,6 +10818,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Whimsicott"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	whimsicottsoulstones: {
@@ -10032,6 +10831,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6.6,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tarountulasoulstones: {
@@ -10045,6 +10845,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Spidops"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spidopssoulstones: {
@@ -10057,6 +10858,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 16.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	combeesoulstones: {
@@ -10070,6 +10872,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Vespiquen"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vespiquensoulstones: {
@@ -10082,6 +10885,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 38.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wishiwashisoulstones: {
@@ -10094,6 +10898,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.3,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tropiussoulstones: {
@@ -10106,6 +10911,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 100.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	makuhitasoulstones: {
@@ -10119,6 +10925,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Hariyama"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hariyamasoulstones: {
@@ -10131,6 +10938,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 253.8,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmimejr: {
@@ -10144,6 +10952,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Mrmime"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmrmime: {
@@ -10157,6 +10966,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Mrrime"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmrrime: {
@@ -10169,6 +10979,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 58.2,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tponyta: {
@@ -10182,6 +10993,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Rapidash"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trapidash: {
@@ -10194,6 +11006,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 95.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgolett: {
@@ -10207,6 +11020,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Golurk"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgolurk: {
@@ -10219,6 +11033,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 330.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	karrablastsoulstones: {
@@ -10232,6 +11047,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Escavalier"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	escavaliersoulstones: {
@@ -10244,6 +11060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cryogonalsoulstones: {
@@ -10256,6 +11073,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 148.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pawniardsoulstones: {
@@ -10269,6 +11087,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Bisharp"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bisharpsoulstones: {
@@ -10282,6 +11101,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Kingambit"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	kingambitsoulstones: {
@@ -10294,6 +11114,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	smolivsoulstones: {
@@ -10307,6 +11128,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Dolliv"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dollivsoulstones: {
@@ -10320,6 +11142,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Arboliva"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	arbolivasoulstones: {
@@ -10332,6 +11155,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 48.2,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	nickitsoulstones: {
@@ -10345,6 +11169,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Thievul"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	thievulsoulstones: {
@@ -10357,6 +11182,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 19.9,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tspheal: {
@@ -10370,6 +11196,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["T.Sealeo"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsealeo: {
@@ -10383,6 +11210,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["T.Walrein"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	twalrein: {
@@ -10395,6 +11223,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 150.6,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	barboachsoulstones: {
@@ -10408,6 +11237,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Whiscash"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	whiscashsoulstones: {
@@ -10420,6 +11250,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 23.6,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	oricoriosoulstones: {
@@ -10432,6 +11263,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.4,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	axewsoulstones: {
@@ -10445,6 +11277,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Fraxure"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	fraxuresoulstones: {
@@ -10458,6 +11291,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Haxorus"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	haxorussoulstones: {
@@ -10470,6 +11304,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 105.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pachirisusoulstones: {
@@ -10482,6 +11317,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.9,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	qwilfishsoulstones: {
@@ -10495,6 +11331,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Overqwil"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	overqwilsoulstones: {
@@ -10507,6 +11344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	miniorsoulstones: {
@@ -10519,6 +11357,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	greavardsoulstones: {
@@ -10532,6 +11371,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Houndstone"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	houndstonesoulstones: {
@@ -10544,6 +11384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sandshrewsoulstones: {
@@ -10557,6 +11398,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Sandslash"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sandslashsoulstones: {
@@ -10569,6 +11411,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.5,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cetoddlesoulstones: {
@@ -10582,6 +11425,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Cetitan"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cetitansoulstones: {
@@ -10594,6 +11438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 700.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	torchicsoulstones: {
@@ -10607,6 +11452,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Combusken"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	combuskensoulstones: {
@@ -10620,6 +11466,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Blaziken"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	blazikensoulstones: {
@@ -10632,6 +11479,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 52.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	naclisoulstones: {
@@ -10645,6 +11493,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Naclstack"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	naclstacksoulstones: {
@@ -10658,6 +11507,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Garganacl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	garganaclsoulstones: {
@@ -10670,6 +11520,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 240.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	frigibaxsoulstones: {
@@ -10683,6 +11534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Arctibax"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	arctibaxsoulstones: {
@@ -10696,6 +11548,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Baxcalibur"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	baxcalibursoulstones: {
@@ -10708,6 +11561,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 210.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wynautsoulstones: {
@@ -10721,6 +11575,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Wobbuffet"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wobbuffetsoulstones: {
@@ -10733,6 +11588,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bouffalantsoulstones: {
@@ -10745,6 +11601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 94.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spindasoulstones: {
@@ -10757,6 +11614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mienfoosoulstones: {
@@ -10770,6 +11628,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Mienshao"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mienshaosoulstones: {
@@ -10782,6 +11641,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 35.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	togepisoulstones: {
@@ -10795,6 +11655,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Togetic"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	togeticsoulstones: {
@@ -10808,6 +11669,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Togekiss"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	togekisssoulstones: {
@@ -10820,6 +11682,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 38.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tzorua: {
@@ -10833,6 +11696,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Zoroark"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tzoroark: {
@@ -10845,6 +11709,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.1,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	clodsiresoulstones: {
@@ -10857,6 +11722,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	panchamsoulstones: {
@@ -10870,6 +11736,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Pangoro"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pangorosoulstones: {
@@ -10882,6 +11749,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 136.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	oshawottsoulstones: {
@@ -10895,6 +11763,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Dewott"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dewottsoulstones: {
@@ -10908,6 +11777,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Samurott"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	samurottsoulstones: {
@@ -10920,6 +11790,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 94.6,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tbergmite: {
@@ -10933,6 +11804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Avalugg"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tavalugg: {
@@ -10945,6 +11817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 505.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttyrunt: {
@@ -10958,6 +11831,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Tyrantrum"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttyrantrum: {
@@ -10970,6 +11844,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 270.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wiglettsoulstones: {
@@ -10983,6 +11858,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Wugtrio"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wugtriosoulstones: {
@@ -10995,6 +11871,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.4,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pluslesoulstones: {
@@ -11007,6 +11884,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 4.2,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	minunsoulstones: {
@@ -11019,6 +11897,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 4.2,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgrowlithe: {
@@ -11032,6 +11911,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Arcanine"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tarcanine: {
@@ -11044,6 +11924,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 155.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pansagesoulstones: {
@@ -11057,6 +11938,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Simisage"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	simisagesoulstones: {
@@ -11069,6 +11951,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 30.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	pansearsoulstones: {
@@ -11082,6 +11965,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Simisear"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	simisearsoulstones: {
@@ -11094,6 +11978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	panpoursoulstones: {
@@ -11107,6 +11992,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Simipour"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	simipoursoulstones: {
@@ -11119,6 +12005,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rhyhornsoulstones: {
@@ -11132,6 +12019,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Rhydon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rhydonsoulstones: {
@@ -11145,6 +12033,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Rhyperior"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rhyperiorsoulstones: {
@@ -11157,6 +12046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 582.8,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tduskull: {
@@ -11170,6 +12060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Dusclops"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdusclops: {
@@ -11183,6 +12074,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Dusknoir"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdusknoir: {
@@ -11195,6 +12087,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 106.6,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	glameowsoulstones: {
@@ -11208,6 +12101,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Purugly"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	puruglysoulstones: {
@@ -11220,6 +12114,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 43.8,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shelldersoulstones: {
@@ -11233,6 +12128,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Cloyster"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cloystersoulstones: {
@@ -11245,6 +12141,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 132.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	inkaysoulstones: {
@@ -11258,6 +12155,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Malamar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	malamarsoulstones: {
@@ -11270,6 +12168,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 47.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dondozosoulstones: {
@@ -11282,6 +12181,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 220.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tatsugirisoulstones: {
@@ -11294,6 +12194,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 8.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bunnelbysoulstones: {
@@ -11307,6 +12208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Diggersby"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	diggersbysoulstones: {
@@ -11319,6 +12221,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 42.4,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rockruffsoulstones: {
@@ -11332,6 +12235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Lycanroc"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lycanrocsoulstones: {
@@ -11344,6 +12248,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 25.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trowlet: {
@@ -11357,6 +12262,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Dartrix"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdartrix: {
@@ -11370,6 +12276,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Decidueye"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdecidueye: {
@@ -11382,6 +12289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 36.6,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lickitungsoulstones: {
@@ -11395,6 +12303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Lickilicky"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lickilickysoulstones: {
@@ -11407,6 +12316,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 140.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	squirtlesoulstones: {
@@ -11420,6 +12330,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Wartortle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wartortlesoulstones: {
@@ -11433,6 +12344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Blastoise"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	blastoisesoulstones: {
@@ -11445,6 +12357,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 85.5,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcacnea: {
@@ -11458,6 +12371,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Cacturne"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcacturne: {
@@ -11470,6 +12384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 77.4,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bellsproutsoulstones: {
@@ -11483,6 +12398,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Weepinbell"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	weepinbellsoulstones: {
@@ -11496,6 +12412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Victreebel"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	victreebelsoulstones: {
@@ -11508,6 +12425,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	petililsoulstones: {
@@ -11521,6 +12439,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Lilligant"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lilligantsoulstones: {
@@ -11533,6 +12452,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 16.3,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tphantump: {
@@ -11546,6 +12466,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Trevenant"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttrevenant: {
@@ -11558,6 +12479,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 71.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tigglybuff: {
@@ -11571,6 +12493,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Jigglypuff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tjigglypuff: {
@@ -11584,6 +12507,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Wigglytuff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	twigglytuff: {
@@ -11596,6 +12520,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tandemaussoulstones: {
@@ -11609,6 +12534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Maushold"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mausholdsoulstones: {
@@ -11621,6 +12547,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 2.8,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tminior: {
@@ -11633,6 +12560,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	perrserkersoulstones: {
@@ -11645,6 +12573,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grubbinsoulstones: {
@@ -11658,6 +12587,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Charjabug"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	charjabugsoulstones: {
@@ -11671,6 +12601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Vikavolt"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	vikavoltsoulstones: {
@@ -11683,6 +12614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 45.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tteddiursa: {
@@ -11696,6 +12628,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Ursaring"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tursaring: {
@@ -11709,6 +12642,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Ursaluna"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tursaluna: {
@@ -11721,6 +12655,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 290.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	runerigussoulstones: {
@@ -11733,6 +12668,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 66.6,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsneasel: {
@@ -11746,6 +12682,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["T.Sneasler", "T.Weavile"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tweavile: {
@@ -11758,6 +12695,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsneasler: {
@@ -11770,6 +12708,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 34.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	heatmorsoulstones: {
@@ -11782,6 +12721,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 58.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shucklesoulstones: {
@@ -11794,6 +12734,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 20.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttandemaus: {
@@ -11807,6 +12748,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Maushold"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmaushold: {
@@ -11819,6 +12761,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 2.8,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	orangurusoulstones: {
@@ -11831,6 +12774,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 76.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	passimiansoulstones: {
@@ -11843,6 +12787,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 82.8,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcetoddle: {
@@ -11856,6 +12801,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Cetitan"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcetitan: {
@@ -11868,6 +12814,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 700.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tscyther: {
@@ -11881,6 +12828,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Scizor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tscizor: {
@@ -11893,6 +12841,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 118.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	shelmetsoulstones: {
@@ -11906,6 +12855,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Accelgor"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	accelgorsoulstones: {
@@ -11918,6 +12868,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 25.3,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	snubbullsoulstones: {
@@ -11931,6 +12882,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		evos: ["Granbull"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	granbullsoulstones: {
@@ -11943,6 +12895,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 48.7,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	chewtlesoulstones: {
@@ -11956,6 +12909,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Drednaw"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drednawsoulstones: {
@@ -11968,6 +12922,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 115.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tskiddo: {
@@ -11981,6 +12936,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Gogoat"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgogoat: {
@@ -11993,6 +12949,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 91.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sigilyphsoulstones: {
@@ -12005,6 +12962,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 14.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	orthwormsoulstones: {
@@ -12017,6 +12975,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 310.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	burmysoulstones: {
@@ -12030,6 +12989,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Wormadam", "Mothim"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	wormadamsoulstones: {
@@ -12042,6 +13002,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mothimsoulstones: {
@@ -12054,6 +13015,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 23.3,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sprigatitosoulstones: {
@@ -12067,6 +13029,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Floragato"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	floragatosoulstones: {
@@ -12080,6 +13043,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["Meowscarada"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	meowscaradasoulstones: {
@@ -12092,6 +13056,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 31.2,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	klawfsoulstones: {
@@ -12104,6 +13069,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 79.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	glimmetsoulstones: {
@@ -12117,6 +13083,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Glimmora"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	glimmorasoulstones: {
@@ -12129,6 +13096,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 45.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	maractussoulstones: {
@@ -12141,6 +13109,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 28.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cyclizarsoulstones: {
@@ -12153,6 +13122,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 63.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bramblinsoulstones: {
@@ -12166,6 +13136,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Brambleghast"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	brambleghastsoulstones: {
@@ -12178,6 +13149,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toedscoolsoulstones: {
@@ -12191,6 +13163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Toedscruel"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	toedscruelsoulstones: {
@@ -12203,6 +13176,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 58.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	stunfisksoulstones: {
@@ -12215,6 +13189,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 11.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	capsakidsoulstones: {
@@ -12228,6 +13203,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["Scovillain"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scovillainsoulstones: {
@@ -12240,6 +13216,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 15.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	quaxlysoulstones: {
@@ -12253,6 +13230,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Quaxwell"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	quaxwellsoulstones: {
@@ -12266,6 +13244,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Quaquaval"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	quaquavalsoulstones: {
@@ -12278,6 +13257,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.9,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	foongussoulstones: {
@@ -12291,6 +13271,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Amoonguss"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	amoongusssoulstones: {
@@ -12303,6 +13284,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 10.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tparas: {
@@ -12316,6 +13298,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Parasect"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tparasect: {
@@ -12328,6 +13311,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 29.5,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tphanpy: {
@@ -12341,6 +13325,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Donphan"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tdonphan: {
@@ -12353,6 +13338,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 120.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	meltansoulstones: {
@@ -12366,6 +13352,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Melmetal"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	melmetalsoulstones: {
@@ -12378,6 +13365,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 800.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	unownsoulstones: {
@@ -12390,6 +13378,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 5.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	trookidee: {
@@ -12403,6 +13392,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Corvisquire"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcorvisquire: {
@@ -12416,6 +13406,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Corviknight"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcorviknight: {
@@ -12428,6 +13419,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 75.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tlitleo: {
@@ -12441,6 +13433,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Pyroar"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tpyroar: {
@@ -12453,6 +13446,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 81.5,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttangela: {
@@ -12466,6 +13460,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["T.Tangrowth"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttangrowth: {
@@ -12478,6 +13473,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tadbulbsoulstones: {
@@ -12491,6 +13487,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Bellibolt"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	belliboltsoulstones: {
@@ -12503,6 +13500,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 113.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mewsoulstones: {
@@ -12515,6 +13513,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 4.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	scorbunnysoulstones: {
@@ -12528,6 +13527,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["Raboot"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rabootsoulstones: {
@@ -12541,6 +13541,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["Cinderace"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	cinderacesoulstones: {
@@ -12553,6 +13554,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 33.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	komalasoulstones: {
@@ -12565,6 +13567,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 19.9,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hydrapplesoulstones: {
@@ -12577,6 +13580,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 140.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	blipbugsoulstones: {
@@ -12590,6 +13594,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Dottler"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dottlersoulstones: {
@@ -12603,6 +13608,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Orbeetle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	orbeetlesoulstones: {
@@ -12615,6 +13621,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 40.8,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	turtonatorsoulstones: {
@@ -12627,6 +13634,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 212.0,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmudbray: {
@@ -12640,6 +13648,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Mudsdale"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmudsdale: {
@@ -12652,6 +13661,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 920.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	hawluchasoulstones: {
@@ -12664,6 +13674,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 21.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	flamigosoulstones: {
@@ -12676,6 +13687,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 37.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	relicanthsoulstones: {
@@ -12688,6 +13700,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 23.4,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	farfetchdsoulstones: {
@@ -12701,6 +13714,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Sirfetchd"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sirfetchdsoulstones: {
@@ -12713,6 +13727,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 117.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rotomsoulstones: {
@@ -12725,6 +13740,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.3,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	duraludonsoulstones: {
@@ -12738,6 +13754,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		evos: ["Archaludon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	archaludonsoulstones: {
@@ -12750,6 +13767,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 60.0,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tpichu: {
@@ -12763,6 +13781,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Pikachu"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tpikachu: {
@@ -12776,6 +13795,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Raichu"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	traichu: {
@@ -12788,6 +13808,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	audinosoulstones: {
@@ -12800,6 +13821,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 31.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tralts: {
@@ -12813,6 +13835,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Kirlia"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tkirlia: {
@@ -12826,6 +13849,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["T.Gardevoir", "T.Gallade"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgardevoir: {
@@ -12838,6 +13862,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 48.4,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgallade: {
@@ -12850,6 +13875,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 52.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	drampasoulstones: {
@@ -12862,6 +13888,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 185.0,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bombirdiersoulstones: {
@@ -12874,6 +13901,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 42.9,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	maschiffsoulstones: {
@@ -12887,6 +13915,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		evos: ["Mabosstiff"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	mabosstiffsoulstones: {
@@ -12899,6 +13928,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 61.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	nymblesoulstones: {
@@ -12912,6 +13942,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Lokix"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	lokixsoulstones: {
@@ -12924,6 +13955,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 17.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	squawkabillysoulstones: {
@@ -12936,6 +13968,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 2.4,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttreecko: {
@@ -12949,6 +13982,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Grovyle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgrovyle: {
@@ -12962,6 +13996,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["T.Sceptile"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsceptile: {
@@ -12974,6 +14009,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 52.2,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tspiritomb: {
@@ -12986,6 +14022,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 999.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	eiscuesoulstones: {
@@ -12998,6 +14035,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 89.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tkomala: {
@@ -13010,6 +14048,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1000.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tblitzle: {
@@ -13023,6 +14062,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		evos: ["T.Zebstrika"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tzebstrika: {
@@ -13035,6 +14075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 79.5,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tturtwig: {
@@ -13048,6 +14089,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Grotle"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgrotle: {
@@ -13061,6 +14103,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		evos: ["T.Torterra"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ttorterra: {
@@ -13073,6 +14116,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 310.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	poltchageistsoulstones: {
@@ -13086,6 +14130,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		evos: ["Sinistcha"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sinistchasoulstones: {
@@ -13098,6 +14143,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.4,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tnacli: {
@@ -13111,6 +14157,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Naclstack"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tnaclstack: {
@@ -13124,6 +14171,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Garganacl"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tgarganacl: {
@@ -13136,6 +14184,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 240.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcottonee: {
@@ -13149,6 +14198,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Whimsicott"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	twhimsicott: {
@@ -13161,6 +14211,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 6.6,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	sevipersoulstones: {
@@ -13173,6 +14224,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 52.5,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tmimikyu: {
@@ -13185,6 +14237,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.7,
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	togedemarusoulstones: {
@@ -13197,6 +14250,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 3.3,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grookeysoulstones: {
@@ -13210,6 +14264,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Thwackey"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	thwackeysoulstones: {
@@ -13223,6 +14278,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["Rillaboom"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	rillaboomsoulstones: {
@@ -13235,6 +14291,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 90.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	charcadetsoulstones: {
@@ -13248,6 +14305,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Armarouge", "Ceruledge"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	armarougesoulstones: {
@@ -13260,6 +14318,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 85.0,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	ceruledgesoulstones: {
@@ -13272,6 +14331,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 62.0,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	spoinksoulstones: {
@@ -13285,6 +14345,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		evos: ["Grumpig"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	grumpigsoulstones: {
@@ -13297,6 +14358,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 71.5,
 		color: "Red",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	bruxishsoulstones: {
@@ -13309,6 +14371,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 19.0,
 		color: "Gray",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	volbeatsoulstones: {
@@ -13321,6 +14384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 17.7,
 		color: "Pink",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	illumisesoulstones: {
@@ -13333,6 +14397,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 17.7,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tonix: {
@@ -13346,6 +14411,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		evos: ["T.Steelix"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsteelix: {
@@ -13358,6 +14424,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		color: "Brown",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcharmander: {
@@ -13371,6 +14438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Charmeleon"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcharmeleon: {
@@ -13384,6 +14452,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Green",
 		evos: ["T.Charizard"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tcharizard: {
@@ -13396,6 +14465,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 90.5,
 		color: "Green",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tpoltchageist: {
@@ -13409,6 +14479,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		evos: ["T.Sinistcha"],
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	tsinistcha: {
@@ -13421,6 +14492,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 0.4,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	manaphysoulstones: {
@@ -13433,6 +14505,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.4,
 		color: "Blue",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	dialgasoulstones: {
@@ -13445,6 +14518,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 683.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	palkiasoulstones: {
@@ -13457,6 +14531,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 336.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	giratinasoulstones: {
@@ -13469,6 +14544,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 750.0,
 		color: "Black",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 	arceussoulstones: {
@@ -13481,6 +14557,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 320.0,
 		color: "White",
 		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
 		tier: "OU",
 	},
 };
