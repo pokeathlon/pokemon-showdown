@@ -236,6 +236,16 @@ export const Moves: ModdedMoveDataTable = {
 				}
 			}
 		},
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Gale",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		type: "Flying",
+		desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
 	},
 
 	// OTHER
