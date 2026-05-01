@@ -16,6 +16,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetUnderwater
 	},
 
@@ -31,6 +32,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 20
 	},
 
@@ -46,6 +48,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TwoTurnAttackInvulnerableUnderwater
 	},
 
@@ -61,6 +64,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfUserLostHPThisTurn
 	},
 
@@ -76,6 +80,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 10
 	},
 
@@ -91,6 +96,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -106,6 +112,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilQuarterOfDamageDealt
 	},
 
@@ -121,6 +128,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CureUserBurnPoisonParalysis
 	},
 
@@ -136,6 +144,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "randomNormal",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: MultiTurnAttackConfuseUserAtEnd
 	},
 
@@ -151,6 +160,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
@@ -166,6 +176,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserHalfOfTotalHP
 	},
 
@@ -181,6 +192,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 20
 	},
 
@@ -196,6 +208,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserSpAtk2
 	},
 
@@ -211,6 +224,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	swarmoverload: {
@@ -225,6 +239,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealtParalyzeTarget, CHANCE: 10
 	},
 
@@ -240,6 +255,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ResetTargetStatStages
 	},
 
@@ -255,6 +271,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ProtectUserFromTargetingMovesSpikyShield
 	},
 
@@ -270,6 +287,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitsTargetInSkyGroundsTarget
 	},
 
@@ -285,6 +303,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 30
 	},
 
@@ -300,6 +319,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserDefSpDef1RaiseUserAtkSpAtkSpd2
 	},
 
@@ -315,6 +335,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutUserDamagingMove
 	},
 
@@ -330,6 +351,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed2
 	},
 
@@ -345,6 +367,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 10
 	},
 
@@ -360,6 +383,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DisableTargetHealingMoves
 	},
 
@@ -375,6 +399,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 100
 	},
 
@@ -390,6 +415,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 10
 	},
 
@@ -405,6 +431,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -420,6 +447,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FailsIfTargetActed
 	},
 
@@ -435,6 +463,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 20
 	},
 
@@ -450,6 +479,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 20
 	},
 
@@ -465,6 +495,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitOncePerUserTeamMember
 	},
 
@@ -480,6 +511,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -495,6 +527,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	stardust: {
@@ -509,6 +542,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1
 	},
 
@@ -524,6 +558,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 20
 	},
 
@@ -539,6 +574,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -554,6 +590,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserPositiveStatStages
 	},
 
@@ -569,6 +606,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -584,6 +622,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 30
 	},
 
@@ -599,6 +638,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitThreeTimesAlwaysCriticalHit
 	},
 
@@ -614,6 +654,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoTimes
 	},
 
@@ -629,6 +670,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: AttackAndSkipNextTurn
 	},
 
@@ -644,6 +686,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed2
 	},
 
@@ -659,6 +702,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	blackout: {
@@ -673,6 +717,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "all",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: StartWeakenLightMoves
 	},
 
@@ -688,6 +733,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutUserDamagingMove
 	},
 
@@ -703,6 +749,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 10
 	},
 
@@ -718,6 +765,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 100
 	},
 
@@ -733,6 +781,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 100
 	},
 
@@ -748,6 +797,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SleepTargetSuperEffectiveAgainstFairy, CHANCE: 10
 	},
 
@@ -763,6 +813,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	heartbreak: {
@@ -777,6 +828,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefSpDef1
 	},
 
@@ -792,6 +844,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 10
 	},
 
@@ -807,6 +860,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 30
 	},
 
@@ -822,6 +876,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfAllyFaintedLastTurn
 	},
 
@@ -837,6 +892,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ResetTargetStatStages
 	},
 
@@ -852,6 +908,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
 	},
 
@@ -867,6 +924,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	execution: {
@@ -881,6 +939,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAttack2
 	},
 
@@ -896,6 +955,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -911,6 +971,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 30
 	},
 
@@ -926,6 +987,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAttack1, CHANCE: 100
 	},
 
@@ -941,6 +1003,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 10
 	},
 
@@ -956,6 +1019,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 20
 	},
 
@@ -971,6 +1035,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget
 	},
 
@@ -986,6 +1051,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTargetDoublePowerIfTargetInSky, CHANCE: 10
 	},
 
@@ -1001,6 +1067,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByThreeQuartersOfDamageDone
 	},
 
@@ -1016,6 +1083,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: InflictRandomStatus, CHANCE: 100
 	},
 
@@ -1031,6 +1099,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealtParalyzeTarget, CHANCE: 10
 	},
 
@@ -1046,6 +1115,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 10
 	},
 
@@ -1061,6 +1131,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 20
 	},
 
@@ -1077,6 +1148,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	nagaskin: {
@@ -1091,6 +1163,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserHalfOfTotalHP
 	},
 
@@ -1106,6 +1179,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutUserDamagingMove
 	},
 
@@ -1122,6 +1196,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	batteryacid: {
@@ -1136,6 +1211,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget, CHANCE: 30
 	},
 
@@ -1151,6 +1227,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 30
 	},
 
@@ -1166,6 +1243,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	magnetforce: {
@@ -1180,6 +1258,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpDef1, CHANCE: 30
 	},
 
@@ -1195,6 +1274,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 30
 	},
 
@@ -1210,6 +1290,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	staticshock: {
@@ -1224,6 +1305,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 10
 	},
 
@@ -1239,6 +1321,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
 	},
 
@@ -1254,6 +1337,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UserTargetSwapStatStages
 	},
 
@@ -1269,6 +1353,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	etherealburst: {
@@ -1283,6 +1368,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	fabledrush: {
@@ -1297,6 +1383,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserDefense1
 	},
 
@@ -1312,6 +1399,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk2
 	},
 
@@ -1327,6 +1415,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -1342,6 +1431,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SetTargetTypesToFairy
 	},
 
@@ -1357,6 +1447,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 30
 	},
 
@@ -1372,6 +1463,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 10
 	},
 
@@ -1387,6 +1479,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	nymphsspell: {
@@ -1401,6 +1494,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAttack1, CHANCE: 100
 	},
 
@@ -1416,6 +1510,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserHP
 	},
 
@@ -1431,6 +1526,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTargetFailsIfNotUserFirstTurn, CHANCE: 100
 	},
 
@@ -1446,6 +1542,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	sirenssong: {
@@ -1460,6 +1557,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle
 	},
 
@@ -1475,6 +1573,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -1490,6 +1589,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpDef1, CHANCE: 30
 	},
 
@@ -1505,6 +1605,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CrashDamageIfFailsUnusableInGravity
 	},
 
@@ -1520,6 +1621,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentAllyOrSelf",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseMinMaxStat1
 	},
 
@@ -1535,6 +1637,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 10
 	},
 
@@ -1550,6 +1653,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpDef1, CHANCE: 30
 	},
 
@@ -1565,6 +1669,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SuperEffectiveAgainstPsychic
 	},
 
@@ -1580,6 +1685,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	chakrablast: {
@@ -1594,6 +1700,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserSpAtk2
 	},
 
@@ -1609,6 +1716,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 30
 	},
 
@@ -1624,6 +1732,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 10
 	},
 
@@ -1639,6 +1748,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	edgestrike: {
@@ -1654,6 +1764,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 10
 	},
 
@@ -1669,6 +1780,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: AttackAndSkipNextTurn
 	},
 
@@ -1684,6 +1796,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ExtraPowerIfEvasion
 	},
 
@@ -1699,6 +1812,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfAllyFaintedLastTurn
 	},
 
@@ -1714,6 +1828,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 20
 	},
 
@@ -1729,6 +1844,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 10
 	},
 
@@ -1744,6 +1860,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAtkSpDef1
 	},
 
@@ -1759,6 +1876,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -1774,6 +1892,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -1789,6 +1908,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -1804,6 +1924,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilQuarterOfDamageDealt
 	},
 
@@ -1819,6 +1940,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 100
 	},
 
@@ -1834,6 +1956,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 10
 	},
 
@@ -1849,6 +1972,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	erosion: {
@@ -1863,6 +1987,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SuperEffectiveAgainstRock
 	},
 
@@ -1878,6 +2003,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -1893,6 +2019,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAttack1, CHANCE: 10
 	},
 
@@ -1908,6 +2035,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 100
 	},
 
@@ -1923,6 +2051,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	skydive: {
@@ -1937,6 +2066,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
 	},
 
@@ -1952,6 +2082,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserFasterThanTarget
 	},
 
@@ -1967,6 +2098,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetMainStats1, CHANCE: 10
 	},
 
@@ -1982,6 +2114,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	turbulence: {
@@ -1996,6 +2129,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveTargetItem
 	},
 
@@ -2011,6 +2145,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitThreeTimesPowersUpWithEachHit
 	},
 
@@ -2026,6 +2161,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 10
 	},
 
@@ -2041,6 +2177,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 10
 	},
 
@@ -2056,6 +2193,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 10
 	},
 
@@ -2071,6 +2209,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack2IfTargetFaints
 	},
 
@@ -2086,6 +2225,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 10
 	},
 
@@ -2101,6 +2241,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByThreeQuartersOfDamageDone
 	},
 
@@ -2116,6 +2257,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtkSpd1
 	},
 
@@ -2131,6 +2273,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -2146,6 +2289,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	soulshield: {
@@ -2160,6 +2304,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserDefSpDef1
 	},
 
@@ -2175,6 +2320,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserDefSpDef1Ingrain // TwoTurnAttackRaiseUserSpAtkSpDefSpd2
 	},
 
@@ -2190,6 +2336,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SuperEffectiveAgainstBug
 	},
 
@@ -2205,6 +2352,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 100
 	},
 
@@ -2220,6 +2368,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SleepTarget, CHANCE: 10
 	},
 
@@ -2235,6 +2384,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 100
 	},
 
@@ -2250,6 +2400,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 30
 	},
 
@@ -2265,6 +2416,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -2280,6 +2432,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BindTarget
 	},
 
@@ -2295,6 +2448,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle
 	},
 
@@ -2310,6 +2464,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CategoryDependsOnHigherDamageIgnoreTargetAbility
 	},
 
@@ -2325,6 +2480,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 10
 	},
 
@@ -2340,6 +2496,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UserStealTargetPositiveStatStages
 	},
 
@@ -2355,6 +2512,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle, CHANCE: 100
 	},
 
@@ -2370,6 +2528,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	seismicshift: {
@@ -2384,6 +2543,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithTargetWeight
 	},
 
@@ -2399,6 +2559,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "randomNormal",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: MultiTurnAttackConfuseUserAtEnd
 	},
 
@@ -2414,6 +2575,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 30
 	},
 
@@ -2429,6 +2591,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 20
 	},
 
@@ -2444,6 +2607,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CureUserPartyStatus
 	},
 
@@ -2459,6 +2623,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
@@ -2474,6 +2639,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 10
 	},
 
@@ -2489,6 +2655,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetDamagingMove
 	},
 
@@ -2504,6 +2671,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 10
 	},
 
@@ -2519,6 +2687,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 30
 	},
 
@@ -2534,6 +2703,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 50
 	},
 
@@ -2549,6 +2719,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1
 	},
 
@@ -2564,6 +2735,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAtkDef1
 	},
 
@@ -2579,6 +2751,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CureUserBurnPoisonParalysis
 	},
 
@@ -2594,6 +2767,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAtkDef1
 	},
 
@@ -2609,6 +2783,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetHPLessThanHalf
 	},
 
@@ -2624,6 +2799,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserSpAtk2
 	},
 
@@ -2639,6 +2815,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: AttackTwoTurnsLater
 	},
 
@@ -2654,6 +2831,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -2669,6 +2847,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ProtectallySideFromStatusMoves
 	},
 
@@ -2684,6 +2863,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ProtectallySideFromDamagingMovesIfUserFirstTurn
 	},
 
@@ -2699,6 +2879,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	holyfire: {
@@ -2713,6 +2894,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget
 	},
 
@@ -2728,6 +2910,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 10
 	},
 
@@ -2743,6 +2926,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 10
 	},
 
@@ -2758,6 +2942,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TwoTurnAttackOneTurnInSun
 	},
 
@@ -2773,6 +2958,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 10
 	},
 
@@ -2788,6 +2974,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
@@ -2803,6 +2990,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 100
 	},
 
@@ -2818,6 +3006,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealallySideQuarterOfTotalHPCureStatus
 	},
 
@@ -2833,6 +3022,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfUserLostHPThisTurn
 	},
 
@@ -2848,6 +3038,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -2863,6 +3054,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -2878,6 +3070,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: MaxUserSpecialAttackLoseHalfOfTotalHP
 	},
 
@@ -2893,6 +3086,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -2909,6 +3103,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	skyblessing: {
@@ -2923,6 +3118,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserDefSpDef1
 	},
 
@@ -2938,6 +3134,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 10
 	},
 
@@ -2953,6 +3150,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget
 	},
 
@@ -2968,6 +3166,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtkSpDef1
 	},
 
@@ -2983,6 +3182,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 100
 	},
 
@@ -2998,6 +3198,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle
 	},
 
@@ -3013,6 +3214,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithConsecutiveUseOnallySide
 	},
 
@@ -3028,6 +3230,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserHeavierThanTarget
 	},
 
@@ -3043,6 +3246,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "randomNormal",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: MultiTurnAttackConfuseUserAtEnd
 	},
 
@@ -3058,6 +3262,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SuperEffectiveAgainstGhost
 	},
 
@@ -3073,6 +3278,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ExtendWeatherTerrainIfTargetFaints
 	},
 
@@ -3088,6 +3294,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SleepTarget
 	},
 
@@ -3103,6 +3310,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CureUserPartyStatus
 	},
 
@@ -3118,6 +3326,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	pulse: {
@@ -3132,6 +3341,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	maim: {
@@ -3146,6 +3356,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 30
 	},
 
@@ -3161,6 +3372,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	shutdown: {
@@ -3175,6 +3387,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTargetFailsIfNotUserFirstTurn, CHANCE: 100
 	},
 
@@ -3190,6 +3403,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitThreeTimesPowersUpWithEachHit
 	},
 
@@ -3205,6 +3419,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAtkSpAtkSpd1
 	},
 
@@ -3220,6 +3435,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	allergy: {
@@ -3234,6 +3450,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
@@ -3250,6 +3467,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget, CHANCE: 100
 	},
 
@@ -3265,6 +3483,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	poisonspit: {
@@ -3279,6 +3498,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget, CHANCE: 100
 	},
 
@@ -3294,6 +3514,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveTargetItem
 	},
 
@@ -3309,6 +3530,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -3324,6 +3546,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: NegateTargetAbility
 	},
 
@@ -3339,6 +3562,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 10
 	},
 
@@ -3354,6 +3578,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -3369,6 +3594,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk2IfTargetFaints
 	},
 
@@ -3384,6 +3610,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetDamagingMove
 	},
 
@@ -3399,6 +3626,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAtkSpd1
 	},
 
@@ -3414,6 +3642,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 30
 	},
 
@@ -3429,6 +3658,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	minddrain: {
@@ -3443,6 +3673,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -3458,6 +3689,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 100
 	},
 
@@ -3473,6 +3705,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealallySideQuarterOfTotalHP
 	},
 
@@ -3488,6 +3721,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 30
 	},
 
@@ -3503,6 +3737,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	amberwave: {
@@ -3517,6 +3752,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 10
 	},
 
@@ -3532,6 +3768,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeBurnOrFreezeTarget, CHANCE: 20
 	},
 
@@ -3547,6 +3784,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseUserBaseDefenseInsteadOfUserBaseAttack
 	},
 
@@ -3562,6 +3800,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 30
 	},
 
@@ -3577,6 +3816,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 10
 	},
 
@@ -3593,6 +3833,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 30
 	},
 
@@ -3608,6 +3849,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	gemstorm: {
@@ -3622,6 +3864,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: AlwaysHitsInSandstorm
 	},
 
@@ -3637,6 +3880,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtkSpDef1
 	},
 
@@ -3652,6 +3896,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -3667,6 +3912,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TwoTurnAttackChargeRaiseUserSpAtk1
 	},
 
@@ -3682,6 +3928,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle
 	},
 
@@ -3697,6 +3944,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	crescendo: {
@@ -3711,6 +3959,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: MultiTurnAttackPowersUpEachTurn
 	},
 
@@ -3726,6 +3975,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1
 	},
 
@@ -3741,6 +3991,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAttack2
 	},
 
@@ -3756,6 +4007,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SleepTarget, CHANCE: 20
 	},
 
@@ -3771,6 +4023,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtkSpDef1
 	},
 
@@ -3786,6 +4039,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpDef1, CHANCE: 30
 	},
 
@@ -3801,6 +4055,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 20
 	},
 
@@ -3816,6 +4071,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SleepTargetNextTurn
 	},
 
@@ -3831,6 +4087,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 30
 	},
 
@@ -3846,6 +4103,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget, CHANCE: 30
 	},
 
@@ -3861,6 +4119,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserHalfOfTotalHP
 	},
 
@@ -3876,6 +4135,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserMainStats1, CHANCE: 10
 	},
 
@@ -3891,6 +4151,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealallySideQuarterOfTotalHPCureStatus
 	},
 
@@ -3906,6 +4167,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAtkSpAtk1SwitchOutUser
 	},
 
@@ -3921,6 +4183,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -3936,6 +4199,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentAllyOrSelf",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseMinMaxStat1
 	},
 
@@ -3951,6 +4215,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 30
 	},
 
@@ -3966,6 +4231,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ResetTargetStatStages
 	},
 
@@ -3981,6 +4247,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -3996,6 +4263,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	staccato: {
@@ -4010,6 +4278,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTargetFailsIfNotUserFirstTurn, CHANCE: 100
 	},
 
@@ -4025,6 +4294,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 10
 	},
 
@@ -4040,6 +4310,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfUserStatsLoweredThisTurn
 	},
 
@@ -4055,6 +4326,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 10
 	},
 
@@ -4070,6 +4342,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FailsIfTargetActed
 	},
 
@@ -4085,6 +4358,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CannotBeRedirected
 	},
 
@@ -4100,6 +4374,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 20
 	},
 
@@ -4115,6 +4390,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetDefenseInsteadOfTargetSpDef
 	},
 
@@ -4130,6 +4406,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: StartallySideImmunityToStatStageLowering
 	},
 
@@ -4145,6 +4422,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	shieldbash: {
@@ -4159,6 +4437,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseUserBaseDefenseInsteadOfUserBaseAttack
 	},
 
@@ -4175,6 +4454,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	swordstrike: {
@@ -4189,6 +4469,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 20
 	},
 
@@ -4204,6 +4485,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfAllyFaintedLastTurn
 	},
 
@@ -4219,6 +4501,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAttack2
 	},
 
@@ -4235,6 +4518,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 30
 	},
 
@@ -4250,6 +4534,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetDamagingMove
 	},
 
@@ -4265,6 +4550,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CannotBeRedirected
 	},
 
@@ -4281,6 +4567,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	surgingblow: {
@@ -4295,6 +4582,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FailsIfTargetActed
 	},
 
@@ -4310,6 +4598,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -4325,6 +4614,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetDamagingMove
 	},
 
@@ -4340,6 +4630,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed2
 	},
 
@@ -4355,6 +4646,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 30
 	},
 
@@ -4370,6 +4662,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -4385,6 +4678,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SuperEffectiveAgainstCosmic
 	},
 
@@ -4400,6 +4694,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseUserBaseSpDefInsteadOfUserBaseSpAtk
 	},
 
@@ -4415,6 +4710,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
 	},
 
@@ -4430,6 +4726,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
 	},
 
@@ -4445,6 +4742,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
 	},
 
@@ -4460,6 +4758,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CategoryDependsOnHigherDamageIgnoreTargetAbility
 	},
 
@@ -4475,6 +4774,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
@@ -4490,6 +4790,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CategoryDependsOnHigherDamageIgnoreTargetAbility
 	},
 
@@ -4505,6 +4806,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseUserBaseSpDefInsteadOfUserBaseSpAtk
 	},
 
@@ -4520,6 +4822,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 30
 	},
 
@@ -4535,6 +4838,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	clusterrockets: {
@@ -4549,6 +4853,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -4564,6 +4869,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveScreens
 	},
 
@@ -4579,6 +4885,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 100
 	},
 
@@ -4594,6 +4901,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	sonicwave: {
@@ -4608,6 +4916,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FixedDamageUserLevelRandom
 	},
 
@@ -4623,6 +4932,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 100
 	},
 
@@ -4638,6 +4948,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveScreens
 	},
 
@@ -4653,6 +4964,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetDamagingMove
 	},
 
@@ -4668,6 +4980,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAtkSpAtk1
 	},
 
@@ -4683,6 +4996,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserHeavierThanTarget
 	},
 
@@ -4698,6 +5012,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -4713,6 +5028,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	radiowaves: {
@@ -4727,6 +5043,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget, CHANCE: 30
 	},
 
@@ -4742,6 +5059,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 10
 	},
 
@@ -4757,6 +5075,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAtkDef1
 	},
 
@@ -4772,6 +5091,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Cosmic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserMainStats1, CHANCE: 10
 	},
 
@@ -4787,6 +5107,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseUserBaseSpDefInsteadOfUserBaseSpAtk
 	},
 
@@ -4802,6 +5123,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfUserConsumedBerry
 	},
 
@@ -4817,6 +5139,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: AttackTwoTurnsLater
 	},
 
@@ -4832,6 +5155,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk2IfTargetFaints
 	},
 
@@ -4847,6 +5171,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BindTarget
 	},
 
@@ -4862,6 +5187,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefSpDef1
 	},
 
@@ -4877,6 +5203,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTargetFailsIfNotUserFirstTurn, CHANCE: 100
 	},
 
@@ -4892,6 +5219,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SuperEffectiveAgainstWater
 	},
 
@@ -4907,6 +5235,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed2LowerUserWeight
 	},
 
@@ -4922,6 +5251,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1
 	},
 
@@ -4937,6 +5267,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CureTargetStatusHealUserHalfOfTotalHP
 	},
 
@@ -4952,6 +5283,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1
 	},
 
@@ -4967,6 +5299,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget
 	},
 
@@ -4982,6 +5315,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitThreeTimesAlwaysCriticalHit
 	},
 
@@ -4997,6 +5331,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
@@ -5012,6 +5347,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -5027,6 +5363,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 20
 	},
 
@@ -5042,6 +5379,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: InvertTargetStatStages
 	},
 
@@ -5057,6 +5395,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetMainStats1, CHANCE: 10
 	},
 
@@ -5072,6 +5411,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserPositiveStatStages
 	},
 
@@ -5087,6 +5427,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 20
 	},
 
@@ -5102,6 +5443,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FreezeTarget, CHANCE: 10
 	},
 
@@ -5117,6 +5459,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
 	},
 
@@ -5132,6 +5475,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FailsIfUserHasUnusedMove
 	},
 
@@ -5147,6 +5491,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: GlitchMove
 	},
 
@@ -5162,6 +5507,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	luminescence: {
@@ -5176,6 +5522,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 10
 	},
 
@@ -5191,6 +5538,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserAtkDef1
 	},
 
@@ -5206,6 +5554,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 20
 	},
 
@@ -5221,6 +5570,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 10
 	},
 
@@ -5236,6 +5586,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ResetTargetStatStages
 	},
 
@@ -5251,6 +5602,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -5266,6 +5618,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpDef1, CHANCE: 30
 	},
 
@@ -5281,6 +5634,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: StealStatsAndPassToAlly
 	},
 
@@ -5296,6 +5650,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -5311,6 +5666,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveTargetItem
 	},
 
@@ -5326,6 +5682,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 20
 	},
 
@@ -5341,6 +5698,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PoisonTarget, CHANCE: 20
 	},
 
@@ -5356,6 +5714,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserDefSpDef1
 	},
 
@@ -5371,6 +5730,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 20
 	},
 
@@ -5386,6 +5746,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 30
 	},
 
@@ -5401,6 +5762,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAttack1, CHANCE: 10
 	},
 
@@ -5416,6 +5778,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	arrowflurry: {
@@ -5430,6 +5793,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -5445,6 +5809,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefSpDef1SwitchOutUser
 	},
 
@@ -5460,6 +5825,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveUserBindingAndEntryHazards, CHANCE: 100
 	},
 
@@ -5475,6 +5841,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveTargetItem
 	},
 
@@ -5490,6 +5857,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -5506,6 +5874,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	trample: {
@@ -5520,6 +5889,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 10
 	},
 
@@ -5535,6 +5905,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetNotActed
 	},
 
@@ -5550,6 +5921,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserSpeed1
 	},
 
@@ -5565,6 +5937,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CrashDamageIfFailsUnusableInGravity
 	},
 
@@ -5580,6 +5953,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RecoilThirdOfDamageDealt
 	},
 
@@ -5595,6 +5969,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoTimesFlinchTarget, CHANCE: 30
 	},
 
@@ -5610,6 +5985,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -5625,6 +6001,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -5640,6 +6017,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 10
 	},
 
@@ -5655,6 +6033,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 10
 	},
 
@@ -5670,6 +6049,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 100
 	},
 
@@ -5685,6 +6065,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	gloom: {
@@ -5699,6 +6080,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 10
 	},
 
@@ -5714,6 +6096,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 100
 	},
 
@@ -5729,6 +6112,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 10
 	},
 
@@ -5744,6 +6128,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetHPLessThanHalf
 	},
 
@@ -5759,6 +6144,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfUserLastMoveFailed
 	},
 
@@ -5774,6 +6160,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -5789,6 +6176,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAttack2
 	},
 
@@ -5804,6 +6192,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk2
 	},
 
@@ -5819,6 +6208,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: CureUserBurnPoisonParalysis
 	},
 
@@ -5834,6 +6224,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ProtectUserFromDamagingMovesObstruct
 	},
 
@@ -5849,6 +6240,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 30
 	},
 
@@ -5864,6 +6256,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 100
 	},
 
@@ -5879,6 +6272,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ExtraPowerIfEvasion
 	},
 
@@ -5894,6 +6288,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 10
 	},
 
@@ -5909,6 +6304,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithUserPositiveStatStages
 	},
 
@@ -5924,6 +6320,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 100
 	},
 
@@ -5939,6 +6336,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 30
 	},
 
@@ -5954,6 +6352,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef1, CHANCE: 10
 	},
 
@@ -5969,6 +6368,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DisableTargetUsingSameMoveConsecutively
 	},
 
@@ -5984,6 +6384,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DisableTargetStatusMoves
 	},
 
@@ -6000,6 +6401,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	firewall: {
@@ -6014,6 +6416,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allySide",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ProtectallySideFromMultiTargetDamagingMoves
 	},
 
@@ -6029,6 +6432,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PursueSwitchingFoe
 	},
 
@@ -6044,6 +6448,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserDefense1
 	},
 
@@ -6059,6 +6464,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -6074,6 +6480,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitThreeTimesPowersUpWithEachHit
 	},
 
@@ -6089,6 +6496,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefSpDef1
 	},
 
@@ -6104,6 +6512,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle
 	},
 
@@ -6119,6 +6528,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Flying",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAtkAcc1
 	},
 
@@ -6134,6 +6544,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
 	},
 
@@ -6149,6 +6560,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
 	},
 
@@ -6164,6 +6576,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveTargetItem
 	},
 
@@ -6179,6 +6592,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
 	},
 
@@ -6194,6 +6608,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -6209,6 +6624,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -6224,6 +6640,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetDamagingMove
 	},
 
@@ -6239,6 +6656,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 10
 	},
 
@@ -6254,6 +6672,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtkAcc1
 	},
 
@@ -6269,6 +6688,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetHPLessThanHalf
 	},
 
@@ -6284,6 +6704,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 10
 	},
 
@@ -6299,6 +6720,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -6314,6 +6736,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveScreens
 	},
 
@@ -6329,6 +6752,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
 	},
 
@@ -6344,6 +6768,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 10
 	},
 
@@ -6359,6 +6784,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 20
 	},
 
@@ -6374,6 +6800,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -6389,6 +6816,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpDef2, CHANCE: 100
 	},
 
@@ -6404,6 +6832,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 10
 	},
 
@@ -6419,6 +6848,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: SwitchOutTargetStatusMove
 	},
 
@@ -6434,6 +6864,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Ground",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpDef3
 	},
 
@@ -6449,6 +6880,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	iciclestrike: {
@@ -6464,6 +6896,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	tundrarush: {
@@ -6478,6 +6911,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 30
 	},
 
@@ -6493,6 +6927,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 20
 	},
 
@@ -6508,6 +6943,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfTargetNotActed
 	},
 
@@ -6523,6 +6959,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk2IfTargetFaints
 	},
 
@@ -6538,6 +6975,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle, CHANCE: 100
 	},
 
@@ -6553,6 +6991,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
 	},
 
@@ -6568,6 +7007,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: AttackTwoTurnsLater
 	},
 
@@ -6583,6 +7023,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAtkSpAtk1
 	},
 
@@ -6598,6 +7039,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed2
 	},
 
@@ -6613,6 +7055,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget, CHANCE: 20
 	},
 
@@ -6628,6 +7071,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoTimes
 	},
 
@@ -6643,6 +7087,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: DoublePowerIfUserLastMoveFailed
 	},
 
@@ -6658,6 +7103,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Light",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 10
 	},
 
@@ -6673,6 +7119,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 100
 	},
 
@@ -6689,6 +7136,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	harness: {
@@ -6703,6 +7151,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HealUserByHalfOfDamageDone
 	},
 
@@ -6718,6 +7167,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	fluxwave: {
@@ -6732,6 +7182,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 20
 	},
 
@@ -6747,6 +7198,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
 	},
 
@@ -6762,6 +7214,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 10
 	},
 
@@ -6777,6 +7230,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 10
 	},
 
@@ -6792,6 +7246,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAtkSpAtk1, CHANCE: 10
 	},
 
@@ -6807,6 +7262,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -6822,6 +7278,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 50
 	},
 
@@ -6837,6 +7294,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveScreens
 	},
 
@@ -6852,6 +7310,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ParalyzeTarget, CHANCE: 10
 	},
 
@@ -6867,6 +7326,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: PowerHigherWithTargetPositiveStatStages
 	},
 
@@ -6882,6 +7342,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RemoveTargetItem
 	},
 
@@ -6897,6 +7358,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: ConfuseTarget, CHANCE: 10
 	},
 
@@ -6912,6 +7374,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAtkSpAtk1, CHANCE: 10
 	},
 
@@ -6927,6 +7390,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: HitTwoToFiveTimes
 	},
 
@@ -6942,6 +7406,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
 	},
 
@@ -6957,6 +7422,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -6972,6 +7438,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserDefSpDef1
 	},
 
@@ -6987,6 +7454,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattleLowerTargetDefSpDef1EachTurn
 	},
 
@@ -7003,6 +7471,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	percussionblast: {
@@ -7017,6 +7486,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 20
 	},
 
@@ -7032,6 +7502,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: UseTargetDefenseInsteadOfTargetSpDef
 	},
 
@@ -7047,6 +7518,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Sound",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerUserSpAtk2
 	},
 
@@ -7062,6 +7534,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	bulletcharge: {
@@ -7076,6 +7549,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed1, CHANCE: 30
 	},
 
@@ -7091,6 +7565,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetSpeed1, CHANCE: 100
 	},
 
@@ -7106,6 +7581,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 100
 	},
 
@@ -7121,6 +7597,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: StartHealUserEachTurnTrapUserInBattle
 	},
 
@@ -7136,6 +7613,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentAllyOrSelf",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseMinMaxStat1
 	},
 
@@ -7151,6 +7629,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: BurnTarget
 	},
 
@@ -7166,6 +7645,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: FlinchTarget, CHANCE: 30
 	},
 
@@ -7181,6 +7661,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserAttack1, CHANCE: 20
 	},
 
@@ -7196,6 +7677,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpeed2
 	},
 
@@ -7211,6 +7693,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: TrapTargetInBattle
 	},
 
@@ -7226,6 +7709,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 10
 	},
 
@@ -7241,6 +7725,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 10
 	},
 
@@ -7256,6 +7741,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetDefense1, CHANCE: 20
 	},
 
@@ -7272,6 +7758,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	metallicgleam: {
@@ -7286,6 +7773,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 10
 	},
 
@@ -7301,6 +7789,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: RaiseUserDefense1, CHANCE: 30
 	},
 	torrent: {
@@ -7315,6 +7804,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 	},
 
 	riptide: {
@@ -7329,6 +7819,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Tough",
+		shortDesc: "No additional effect.",
 		// FUNCTION CODE: LowerTargetAttack1, CHANCE: 20
 	},
 
