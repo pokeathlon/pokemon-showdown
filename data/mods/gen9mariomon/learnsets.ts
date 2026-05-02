@@ -6817,7 +6817,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trick: ["9M"],
 			tripleaxel: ["9M"],
 			uturn: ["9M"],
-			willowisp: ["9M"],
+			charm: ["9M"],
 			dynamicpunch: ["9M"],
 			teeterdance: ["9M"],
 			instruct: ["9M"],
