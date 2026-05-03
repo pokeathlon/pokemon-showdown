@@ -3592,7 +3592,7 @@ koffingsoulstones: {
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
-		prevo: "Shomoo",
+		prevo: "Shomo-o",
 	},
 	swallos: {
 		num: 204,
