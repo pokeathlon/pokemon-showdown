@@ -278,33 +278,33 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon's Normal-type moves become Cosmic-type and have 1.2x power.",
 	},
-	darkswarm: { // TODO ACTUAL IMPLEMENTATION WITH RELEVANT MON
+	darkswarm: { // TEST
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi-Soulstones' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
+				if (pokemon.species.id === 'wishiwashisoulstones') {
+					pokemon.formeChange('Wishiwashi-Soulstones-Swarm');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiwashischool') {
-					pokemon.formeChange('Wishiwashi');
+				if (pokemon.species.id === 'wishiwashisoulstones') {
+					pokemon.formeChange('Wishiwashi-Soulstones');
 				}
 			}
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (
-				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 ||
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi-Soulstones' || pokemon.level < 20 ||
 				pokemon.transformed || !pokemon.hp
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
+				if (pokemon.species.id === 'wishiwashisoulstones') {
+					pokemon.formeChange('Wishiwashi-Soulstones-Swarm');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiwashischool') {
-					pokemon.formeChange('Wishiwashi');
+				if (pokemon.species.id === 'wishiwashisoulstonesswarm') {
+					pokemon.formeChange('Wishiwashi-Soulstones');
 				}
 			}
 		},
@@ -312,51 +312,40 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Dark Swarm",
 		rating: 3,
 		num: 0,
+		shortDesc: "If user is Wishiwashi-Soulstones, changes to Symphny Form if it has > 1/4 max HP.",
 	},
-	destructivecore: { //TODO ACTUAL IMPLEMENTATION WITH TOGEDEMARU
+	destructivecore: { //TEST (ask if it also has the status immunity that minior has)
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Minior' || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Meteor') {
-					pokemon.formeChange('Minior-Meteor');
+				if (pokemon.species.forme !== 'Togedemaru-Soulstones') {
+					pokemon.formeChange('Togedemaru-Soulstones-Reactive');
 				}
 			} else {
-				if (pokemon.species.forme === 'Meteor') {
+				if (pokemon.species.forme === 'Togedemaru-Soulstones') {
 					pokemon.formeChange(pokemon.set.species);
 				}
 			}
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Minior' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Meteor') {
-					pokemon.formeChange('Minior-Meteor');
+				if (pokemon.species.forme !== 'Togedemaru-Soulstones') {
+					pokemon.formeChange('Togedemaru-Soulstones-Reactive');
 				}
 			} else {
-				if (pokemon.species.forme === 'Meteor') {
+				if (pokemon.species.forme === 'Togedemaru-Soulstones') {
 					pokemon.formeChange(pokemon.set.species);
 				}
 			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (target.species.id !== 'miniormeteor' || target.transformed) return;
-			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Shields Down');
-			}
-			return false;
-		},
-		onTryAddVolatile(status, target) {
-			if (target.species.id !== 'miniormeteor' || target.transformed) return;
-			if (status.id !== 'yawn') return;
-			this.add('-immune', target, '[from] ability: Shields Down');
-			return null;
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Destructive Core",
 		rating: 3,
 		num: 0,
+		shortDesc: "If Togedemaru-Soulstones, switch-in/end of turn it changes to Reactive at 1/2 max HP or less.",
 	},
 	disarray: {
 		onStart(pokemon) {
@@ -989,33 +978,33 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's offensive stat is 1.5x with Cosmic attacks.",
 	},
-	symphony: { //TODO - ADD TO RELEVANT FORM
+	symphony: { //TEST
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Unown-Soulstones' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
+				if (pokemon.species.id === 'unownsoulstones') {
+					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiwashischool') {
-					pokemon.formeChange('Wishiwashi');
+				if (pokemon.species.id === 'unownsoulstonessymphony') {
+					pokemon.formeChange('Unown-Soulstones');
 				}
 			}
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (
-				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 ||
+				pokemon.baseSpecies.baseSpecies !== 'Unown-Soulstones' || pokemon.level < 20 ||
 				pokemon.transformed || !pokemon.hp
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
+				if (pokemon.species.id === 'unownsoulstones') {
+					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
-				if (pokemon.species.id === 'wishiwashischool') {
-					pokemon.formeChange('Wishiwashi');
+				if (pokemon.species.id === 'unownsoulstonesymphony') {
+					pokemon.formeChange('Unown-Soulstones');
 				}
 			}
 		},
@@ -1023,6 +1012,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Symphony",
 		rating: 3,
 		num: 0,
+		shortDesc: "If user is Unown-Soulstones, changes to Symphny Form if it has > 1/4 max HP.",
 	},
 	synthesize: {
 		onResidual(target, source, effect) {
@@ -1036,18 +1026,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1.5,
 		num: 0,
 	},
-	teleface: { //TODO - ADD TO RELEVANT FORM
+	teleface: { //TEST
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
-			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuenoice') {
+			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuesoulstonesnotv') {
 				this.add('-activate', pokemon, 'ability: TV Face');
 				this.effectState.busted = false;
-				pokemon.formeChange('Eiscue', this.effect, true);
+				pokemon.formeChange('Eiscue-Soulstones', this.effect, true);
 			}
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (effect?.effectType === 'Move' && effect.category === 'Physical' && target.species.id === 'eiscue') {
+			if (effect?.effectType === 'Move' && effect.category === 'Physical' && target.species.id === 'eiscuesoulstones') {
 				this.add('-activate', target, 'ability: TV Face');
 				this.effectState.busted = true;
 				return 0;
@@ -1055,14 +1045,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' || target.species.id !== 'eiscue') return;
+			if (move.category !== 'Physical' || target.species.id !== 'eiscuesoulstones') return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move)) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' || target.species.id !== 'eiscue') return;
+			if (move.category !== 'Physical' || target.species.id !== 'eiscuesoulstones') return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
@@ -1071,18 +1061,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
-				pokemon.formeChange('Eiscue-Noice', this.effect, true);
+			if (pokemon.species.id === 'eiscuesoulstones' && this.effectState.busted) {
+				pokemon.formeChange('Eiscue-Soulstones-Noice', this.effect, true);
 			}
 		},
 		onTerrainChange(pokemon, source, sourceEffect) {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuenoice') {
+			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuesoulstonesnotv') {
 				this.add('-activate', pokemon, 'ability: TTVle Face');
 				this.effectState.busted = false;
-				pokemon.formeChange('Eiscue', this.effect, true);
+				pokemon.formeChange('Eiscue-Soulstones', this.effect, true);
 			}
 		},
 		flags: {
@@ -1300,34 +1290,34 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon receives 1/2 damage from wind moves. Its own have 1.3x power.",
 	},
-	wintergift: { //TODO - check form change (Cherrim -> Cherrim-Hailing)
+	wintergift: { //TEST
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim-Soulstones' || pokemon.transformed) return;
 			if (!pokemon.hp) return;
 			if (['hail', 'snowscape'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
+				if (pokemon.species.id !== 'cherrimsoulstoneshailing') {
+					pokemon.formeChange('Cherrim-Soulstones-Hailing', this.effect, false, '0', '[msg]');
 				}
 			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
+				if (pokemon.species.id === 'cherrimsoulstoneshailing') {
+					pokemon.formeChange('Cherrim-Soulstones', this.effect, false, '0', '[msg]');
 				}
 			}
 		},
 		onAllyModifySpAPriority: 3,
 		onAllyModifySpA(spa, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim-Soulstones') return;
 			if (['hail', 'snowscape'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim-Soulstones') return;
 			if (['hail', 'snowscape'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
@@ -1336,6 +1326,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Winter Gift",
 		rating: 1,
 		num: 0,
-		shortDesc: "If user is Cherrim-Soulstones and Hail or Snow is active, it and allies' Sp. Atk and Sp. Def are 1.5x.",
+		shortDesc: "If user is Cherrim-Soulstones-Soulstones and Hail or Snow is active, it and allies' Sp. Atk and Sp. Def are 1.5x.",
 	},
 };
