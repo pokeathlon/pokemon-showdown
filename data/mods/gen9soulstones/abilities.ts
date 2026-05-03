@@ -780,6 +780,27 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "Light immunity.",
 	},
+	hivemind: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Hivemind boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Hivemind boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Hivemind",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Bug-type attack.",
+	},
 	packedsnow: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0 && this.field.isWeather(['hail', 'snowscape'])) {
