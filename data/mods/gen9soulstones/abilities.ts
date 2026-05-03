@@ -488,7 +488,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	icyveins: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
 				if (move.type === 'Water' || move.type === 'Ice') {
 					this.debug('Ivy Veins boost');
 					return this.chainModify(1.3);
@@ -707,5 +707,614 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 2,
 		num: 0,
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's offensive stat is 1.5x with Sound attacks.",
+	},
+	nebulacloud: {
+		onAllyTryBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Cosmic')) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Nebula Cloud', `[of] ${effectHolder}`);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Nebula Cloud');
+				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Nebula Cloud', `[of] ${effectHolder}`);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (target.hasType('Grass') && status.id === 'yawn') {
+				this.debug('Nebula Cloud blocking yawn');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Nebula Cloud', `[of] ${effectHolder}`);
+				return null;
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Nebula Cloud",
+		rating: 0,
+		num: 0,
+		shortDesc: "This side's Cosmic types can't have stats lowered or status inflicted by other Pokemon.",
+	},
+	nobility: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Nobility', move, `[of] ${target}`);
+				return false;
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Nobility",
+		rating: 2.5,
+		num: 214,
+	},
+	opaqueness: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Light') {
+				this.add('-immune', target, '[from] ability: Water Absorb');
+				return null;
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Opaqueness",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "Light immunity.",
+	},
+	packedsnow: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0 && this.field.isWeather(['hail', 'snowscape'])) {
+				this.debug('Packed Snow neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		flags: { breakable: 1 },
+		name: "Packed Snow",
+		rating: 3,
+		num: 0,
+		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks during snow or hail. Hail immunity.",
+	},
+	pounce: {
+		onModifyPriority(priority, pokemon) {
+			if (pokemon.activeMoveActions === 0) return priority + 1;
+		},
+		flags: {},
+		name: "Pounce",
+		shortDesc: "+1 priority on first turn out.",
+		rating: 4.5,
+		num: 0,
+	},
+	precision: {
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('precision - enhancing accuracy');
+			return this.chainModify(1.3);
+		},
+		flags: {},
+		name: "Precision",
+		rating: 3,
+		num: 0,
+		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.3.",
+	},
+	pureheart: {
+		onResidual(target, source, effect) {
+			this.heal(target.baseMaxhp / 16);
+		},
+		flags: {},
+		name: "Pure Heart",
+		shortDesc: "Heals 1/16 HP every turn.",
+		rating: 1.5,
+		num: 0,
+	},
+	realism: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ghost' || move.type === 'Fairy') {
+				this.debug('Realism weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ghost' || move.type === 'Fairy') {
+				this.debug('Realism weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Realism",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "Ghost-/Fairy-type moves against this Pokemon deal damage with a halved offensive stat.",
+	},
+	reaper: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.heal(source.maxhp / 5, source, source)
+			}
+		},
+		flags: {},
+		name: "Reaper",
+		rating: 3,
+		num: 0,
+		shortDesc: "This Pokemon is healed by 1/5 max HP if it attacks and KOes another Pokemon.",
+	},
+	regrowth: { //TEST
+		onResidual(target, source, effect) {
+			let negBoosts = false;
+			let i: BoostID;
+			for (i in target.boosts) {
+				if (target.boosts[i] < 0) {
+					target.boosts[i] += 1
+					negBoosts = true;
+				}
+			}
+			if (!negBoosts) this.heal(target.baseMaxhp / 16);
+		},
+		flags: {},
+		name: "Regrowth",
+		shortDesc: "Raises negative stat boosts on self by 1 stage. Otherwise, heals 1/16 HP every turn.",
+		rating: 1.5,
+		num: 0,
+	},
+	requiem: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Requiem boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Requiem boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Requiem",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Dark-type attack.",
+	},
+	scorchscale: {
+		onFoeTryMove(target, source, move) {
+			if (move.priority > 0.1 && move.category != 'Status') {
+				source.trySetStatus('brn', target);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Scorch Scale",
+		rating: 2.5,
+		num: 0,
+		shortDesc: "Burns any foe that uses priority attacks on it."
+	},
+	sharpshooter: {
+		onAccuracy(accuracy, target, source, move) {
+			if (!move.flags.contact) {
+				return true;
+			}
+			return accuracy;
+		},
+		flags: {},
+		name: "Sharp Shooter",
+		rating: 4,
+		num: 0,
+		shortDesc: "Non-contact moves used by this Pokemon will always hit.",
+	},
+	spellcaster: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Spellcaster boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Spellcaster boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Spellcaster",
+		rating: 2,
+		num: 0,
+		shortDesc: "At 1/3 or less of its max HP, this Pokemon's offensive stat is 1.5x with Psychic attacks.",
+	},
+	starstruck: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Cosmic' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Starstruck boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Cosmic' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Starstruck boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Starstruck",
+		rating: 2,
+		num: 0,
+		shortDesc: "At 1/3 or less of its max HP, this Pokemon's offensive stat is 1.5x with Cosmic attacks.",
+	},
+	symphony: { //TODO - ADD TO RELEVANT FORM
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
+		name: "Symphony",
+		rating: 3,
+		num: 0,
+	},
+	synthesize: {
+		onResidual(target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		flags: {},
+		name: "Synthesize",
+		shortDesc: "Heals 1/8 HP every turn in sun.",
+		rating: 1.5,
+		num: 0,
+	},
+	teleface: { //TODO - ADD TO RELEVANT FORM
+		onSwitchInPriority: -2,
+		onStart(pokemon) {
+			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: TV Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect?.effectType === 'Move' && effect.category === 'Physical' && target.species.id === 'eiscue') {
+				this.add('-activate', target, 'ability: TV Face');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'eiscue') return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
+			if (!target.runImmunity(move)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'eiscue') return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
+				pokemon.formeChange('Eiscue-Noice', this.effect, true);
+			}
+		},
+		onTerrainChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuenoice') {
+				this.add('-activate', pokemon, 'ability: TTVle Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},
+		name: "TV Face",
+		rating: 3,
+		num: 0,
+		shortDesc: "If Eiscue-Soulstones, the first physical hit it takes deals 0 damage. Effect is restored in Snow.",
+	},
+	terminator: {
+		onDamage(damage, target, source, effect) {
+			this.effectState.checkedTerminator = !(
+				effect.effectType === "Move" && !effect.multihit &&
+				!(effect.hasSheerForce && source.hasAbility('sheerforce'))
+			);
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedTerminator;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedTerminator = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({ atk: 1 }, target, target);
+			}
+		},
+		flags: {},
+		name: "Terminator",
+		rating: 2,
+		num: 0,
+		shortDesc: "This Pokemon's Atk is raised by 1 when it reaches 1/2 or less of its max HP.",
+	},
+	terrorize: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Terrorize weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Terrorize weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Terrorize boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Terrorize boost');
+				return this.chainModify(2);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Terrorize",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon's Psychic power is 2x; Bug power against it is halved.",
+	},
+	tormented: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifySpAPriority: 5,
+		onModifySpA(spa) {
+			return this.modify(spa, 1.5);
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Special' && typeof accuracy === 'number') {
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		flags: {},
+		name: "Tormented",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon's Sp. Atk is 1.5x and accuracy of its special attacks is 0.8x.",
+	},
+	tropicalhide: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' || move.type === 'Water') {
+				this.debug('Tropical Hide weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' || move.type === 'Water') {
+				this.debug('Tropical Hide weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Tropical Hide",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "Grass-/Water-type moves against this Pokemon deal damage with a halved offensive stat.",
+	},
+	unbreakable: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.def && boost.def < 0) {
+				delete boost.def;
+				if (!(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+					this.add("-fail", target, "unboost", "Defense", "[from] ability:Unbreakable", `[of] ${target}`);
+				}
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Unbreakable",
+		rating: 0.5,
+		num: 0,
+		shortDesc: "Prevents other Pokemon from lowering this Pokemon's Defense stat stage.",
+	},
+	vengeful: {
+		onDamage(damage, target, source, effect) {
+			this.effectState.checkedTerminator = !(
+				effect.effectType === "Move" && !effect.multihit &&
+				!(effect.hasSheerForce && source.hasAbility('sheerforce'))
+			);
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedTerminator;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedTerminator = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit && !move.smartTarget ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({ atk: 1, spe: 1 }, target, target);
+			}
+		},
+		flags: {},
+		name: "Vengeful",
+		rating: 2,
+		num: 0,
+		shortDesc: "This Pokemon's Atk and Speed is raised by 1 when it reaches 1/2 or less of its max HP.",
+	},
+	vitality: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({ spd: 1 });
+		},
+		flags: {},
+		name: "Vitality",
+		rating: 4,
+		num: 0,
+		shortDesc: "This Pokemon's Sp. Def is raised by 1 stage after it is damaged by a move.",
+	},
+	whiteout: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Dark' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Light';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.2);
+		},
+		flags: {},
+		name: "Whiteout",
+		rating: 4,
+		num: 0,
+		shortDesc: "This Pokemon's Dark-type moves become Light-type and have 1.2x power.",
+	},
+	windfury: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['wind']) {
+				this.debug('Wind Fury boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['wind']) {
+				this.debug('Wind Fury weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Wind Fury",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon receives 1/2 damage from wind moves. Its own have 1.3x power.",
+	},
+	wintergift: { //TODO - check form change (Cherrim -> Cherrim-Hailing)
+		onSwitchInPriority: -2,
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['hail', 'snowscape'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
+				}
+			}
+		},
+		onAllyModifySpAPriority: 3,
+		onAllyModifySpA(spa, pokemon) {
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (['hail', 'snowscape'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyModifySpDPriority: 4,
+		onAllyModifySpD(spd, pokemon) {
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (['hail', 'snowscape'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1 },
+		name: "Winter Gift",
+		rating: 1,
+		num: 0,
+		shortDesc: "If user is Cherrim-Soulstones and Hail or Snow is active, it and allies' Sp. Atk and Sp. Def are 1.5x.",
 	},
 };
