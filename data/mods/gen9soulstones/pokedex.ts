@@ -117,6 +117,7 @@ koffingsoulstones: {
 	gengarsoulstonesmega: {
 		num: 8,
 		name: "Gengar-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Flying'],
 		baseStats: { hp: 65, atk: 65, def: 95, spa: 145, spd: 100, spe: 130 },
 		abilities: { 0: "Ice Body" },
@@ -162,6 +163,7 @@ koffingsoulstones: {
 	dodriosoulstonesmega: {
 		num: 10,
 		name: "Dodrio-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Flying'],
 		baseStats: { hp: 80, atk: 60, def: 60, spa: 140, spd: 130, spe: 120 },
 		abilities: { 0: "Competitive" },
@@ -207,6 +209,7 @@ koffingsoulstones: {
 	arboksoulstonesmega: {
 		num: 12,
 		name: "Arbok-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ground', 'Poison'],
 		baseStats: { hp: 55, atk: 130, def: 89, spa: 85, spd: 89, spe: 120 },
 		abilities: { 0: "Intimidate" },
@@ -252,6 +255,7 @@ koffingsoulstones: {
 	starmiesoulstonesmega: {
 		num: 14,
 		name: "Starmie-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Rock'],
 		baseStats: { hp: 75, atk: 75, def: 100, spa: 130, spd: 110, spe: 130 },
 		abilities: { 0: "Filter" },
@@ -297,6 +301,7 @@ koffingsoulstones: {
 	steelixsoulstonesmega: {
 		num: 16,
 		name: "Steelix-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Rock'],
 		baseStats: { hp: 75, atk: 135, def: 170, spa: 55, spd: 95, spe: 80 },
 		abilities: { 0: "Skill Link" },
@@ -441,6 +446,7 @@ koffingsoulstones: {
 	xatusoulstonesmega: {
 		num: 25,
 		name: "Xatu-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Steel', 'Electric'],
 		baseStats: { hp: 75, atk: 95, def: 75, spa: 120, spd: 110, spe: 120 },
 		abilities: { 0: "No Guard" },
@@ -628,6 +634,7 @@ koffingsoulstones: {
 	seismitoadsoulstonesmega: {
 		num: 37,
 		name: "Seismitoad-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Grass', 'Poison'],
 		baseStats: { hp: 95, atk: 100, def: 110, spa: 124, spd: 110, spe: 70 },
 		abilities: { 0: "Protean" },
@@ -813,6 +820,7 @@ koffingsoulstones: {
 	golurksoulstonesmega: {
 		num: 49,
 		name: "Golurk-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Steel', 'Psychic'],
 		baseStats: { hp: 94, atk: 139, def: 115, spa: 75, spd: 115, spe: 65 },
 		abilities: { 0: "Levitate" },
@@ -928,6 +936,7 @@ koffingsoulstones: {
 	gyaradossoulstonesmega: {
 		num: 56,
 		name: "Gyarados-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Dark'],
 		baseStats: { hp: 95, atk: 155, def: 109, spa: 70, spd: 130, spe: 81 },
 		abilities: { 0: "Mold Breaker" },
@@ -973,6 +982,7 @@ koffingsoulstones: {
 	avaluggsoulstonesmega: {
 		num: 58,
 		name: "Avalugg-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Rock'],
 		baseStats: { hp: 95, atk: 137, def: 184, spa: 44, spd: 126, spe: 28 },
 		abilities: { 0: "Sand Stream" },
@@ -997,6 +1007,7 @@ koffingsoulstones: {
 		evos: ["Ledian-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Ledyba-Soulstones-Sixth", "Ledyba-Soulstones-Pink", "Ledyba-Soulstones-Green", "Ledyba-Soulstones-Blue", "Ledyba-Soulstones-Gold"],
 		tier: "OU",
 	},
 	lediansoulstones: {
@@ -1010,6 +1021,7 @@ koffingsoulstones: {
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Ledian-Soulstones-Sixth", "Ledian-Soulstones-Pink", "Ledian-Soulstones-Green", "Ledian-Soulstones-Blue", "Ledian-Soulstones-Gold"],
 		tier: "OU",
 		prevo: "Ledyba-Soulstones",
 	},
@@ -1046,6 +1058,7 @@ koffingsoulstones: {
 	rapidashsoulstonesmega: {
 		num: 62,
 		name: "Rapidash-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Fire'],
 		baseStats: { hp: 65, atk: 140, def: 90, spa: 75, spd: 95, spe: 145 },
 		abilities: { 0: "Sheer Force" },
@@ -1369,6 +1382,7 @@ koffingsoulstones: {
 	aerodactylsoulstonesmega: {
 		num: 84,
 		name: "Aerodactyl-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Dragon', 'Flying'],
 		baseStats: { hp: 80, atk: 135, def: 85, spa: 70, spd: 95, spe: 150 },
 		abilities: { 0: "Multiscale" },
@@ -1429,6 +1443,7 @@ koffingsoulstones: {
 	gigalithsoulstonesmega: {
 		num: 87,
 		name: "Gigalith-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Water'],
 		baseStats: { hp: 95, atk: 75, def: 120, spa: 140, spd: 125, spe: 75 },
 		abilities: { 0: "Icy Veins" },
@@ -1502,6 +1517,7 @@ koffingsoulstones: {
 	gliscorsoulstonesmega: {
 		num: 91,
 		name: "Gliscor-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Rock', 'Dragon'],
 		baseStats: { hp: 95, atk: 135, def: 125, spa: 45, spd: 135, spe: 75 },
 		abilities: { 0: "No Guard" },
@@ -1646,6 +1662,7 @@ koffingsoulstones: {
 	sudowoodosoulstonesmega: {
 		num: 100,
 		name: "Sudowoodo-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ground', 'Grass'],
 		baseStats: { hp: 90, atk: 40, def: 100, spa: 130, spd: 130, spe: 100 },
 		abilities: { 0: "Adaptability" },
@@ -1760,6 +1777,7 @@ koffingsoulstones: {
 	noctowlsoulstonesmega: {
 		num: 107,
 		name: "Noctowl-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Psychic', 'Light'],
 		baseStats: { hp: 73, atk: 55, def: 100, spa: 125, spd: 107, spe: 115 },
 		abilities: { 0: "Vitality" },
@@ -1805,6 +1823,7 @@ koffingsoulstones: {
 	electrodesoulstonesmega: {
 		num: 109,
 		name: "Electrode-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice'],
 		baseStats: { hp: 60, atk: 130, def: 90, spa: 50, spd: 120, spe: 140 },
 		abilities: { 0: "Sheer Force" },
@@ -1893,6 +1912,7 @@ koffingsoulstones: {
 	beedrillsoulstonesmega: {
 		num: 114,
 		name: "Beedrill-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Steel'],
 		baseStats: { hp: 95, atk: 35, def: 70, spa: 140, spd: 105, spe: 120 },
 		abilities: { 0: "Trace" },
@@ -1953,6 +1973,7 @@ koffingsoulstones: {
 	machampsoulstonesmega: {
 		num: 117,
 		name: "Machamp-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ground', 'Fighting'],
 		baseStats: { hp: 110, atk: 150, def: 110, spa: 55, spd: 95, spe: 85 },
 		abilities: { 0: "Sniper" },
@@ -2013,6 +2034,7 @@ koffingsoulstones: {
 	venusaursoulstonesmega: {
 		num: 120,
 		name: "Venusaur-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Fairy'],
 		baseStats: { hp: 80, atk: 82, def: 118, spa: 130, spd: 120, spe: 95 },
 		abilities: { 0: "Magic Bounce" },
@@ -2071,6 +2093,7 @@ koffingsoulstones: {
 	sharpedosoulstonesmega: {
 		num: 123,
 		name: "Sharpedo-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Steel', 'Flying'],
 		baseStats: { hp: 65, atk: 100, def: 75, spa: 100, spd: 75, spe: 145 },
 		abilities: { 0: "Aerilate" },
@@ -2174,6 +2197,7 @@ koffingsoulstones: {
 	chandeluresoulstonesmega: {
 		num: 129,
 		name: "Chandelure-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Light', 'Ghost'],
 		baseStats: { hp: 70, atk: 65, def: 80, spa: 140, spd: 135, spe: 130 },
 		abilities: { 0: "Levitate" },
@@ -2348,6 +2372,7 @@ koffingsoulstones: {
 	glaliesoulstonesmega: {
 		num: 140,
 		name: "Glalie-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Dark'],
 		baseStats: { hp: 70, atk: 140, def: 150, spa: 50, spd: 50, spe: 120 },
 		abilities: { 0: "Strong Jaw" },
@@ -2379,6 +2404,7 @@ koffingsoulstones: {
 	froslasssoulstonesmega: {
 		num: 141,
 		name: "Froslass-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Flying'],
 		baseStats: { hp: 70, atk: 65, def: 65, spa: 130, spd: 130, spe: 120 },
 		abilities: { 0: "Shadow Tag" },
@@ -2566,6 +2592,7 @@ koffingsoulstones: {
 	infernapesoulstonesmega: {
 		num: 153,
 		name: "Infernape-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Fighting'],
 		baseStats: { hp: 106, atk: 104, def: 91, spa: 104, spd: 91, spe: 138 },
 		abilities: { 0: "Levitate" },
@@ -2596,6 +2623,7 @@ koffingsoulstones: {
 	sableyesoulstonesmega: {
 		num: 154,
 		name: "Sableye-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fire', 'Dark'],
 		baseStats: { hp: 75, atk: 140, def: 130, spa: 45, spd: 130, spe: 60 },
 		abilities: { 0: "Magic Guard" },
@@ -2641,6 +2669,7 @@ koffingsoulstones: {
 	bearticsoulstonesmega: {
 		num: 156,
 		name: "Beartic-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Normal'],
 		baseStats: { hp: 100, atk: 140, def: 120, spa: 50, spd: 105, spe: 90 },
 		abilities: { 0: "Fluffy" },
@@ -2701,6 +2730,7 @@ koffingsoulstones: {
 	sceptilesoulstonesmega: {
 		num: 159,
 		name: "Sceptile-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Dragon'],
 		baseStats: { hp: 105, atk: 130, def: 105, spa: 65, spd: 95, spe: 130 },
 		abilities: { 0: "Tinted Lens" },
@@ -2761,6 +2791,7 @@ koffingsoulstones: {
 	tyranitarsoulstonesmega: {
 		num: 162,
 		name: "Tyranitar-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Steel', 'Dragon'],
 		baseStats: { hp: 120, atk: 125, def: 144, spa: 115, spd: 125, spe: 71 },
 		abilities: { 0: "Analytic" },
@@ -2806,6 +2837,7 @@ koffingsoulstones: {
 	hippowdonsoulstonesmega: {
 		num: 164,
 		name: "Hippowdon-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Grass', 'Water'],
 		baseStats: { hp: 138, atk: 142, def: 148, spa: 48, spd: 72, spe: 77 },
 		abilities: { 0: "Rock Head" },
@@ -2922,6 +2954,7 @@ koffingsoulstones: {
 	ampharossoulstonesmega: {
 		num: 171,
 		name: "Ampharos-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fairy', 'Flying'],
 		baseStats: { hp: 100, atk: 65, def: 65, spa: 105, spd: 140, spe: 135 },
 		abilities: { 0: "Dazzling" },
@@ -2967,6 +3000,7 @@ koffingsoulstones: {
 	altariasoulstonesmega: {
 		num: 173,
 		name: "Altaria-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Poison', 'Dragon'],
 		baseStats: { hp: 75, atk: 60, def: 105, spa: 130, spd: 125, spe: 95 },
 		abilities: { 0: "Corrosion" },
@@ -3083,6 +3117,7 @@ koffingsoulstones: {
 	heracrosssoulstonesmega: {
 		num: 180,
 		name: "Heracross-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Ground'],
 		baseStats: { hp: 80, atk: 135, def: 115, spa: 40, spd: 115, spe: 115 },
 		abilities: { 0: "Water Absorb" },
@@ -3382,6 +3417,7 @@ koffingsoulstones: {
 	sawsbucksoulstonesmega: {
 		num: 200,
 		name: "Sawsbuck-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Normal', 'Fire'],
 		baseStats: { hp: 70, atk: 140, def: 85, spa: 50, spd: 85, spe: 145 },
 		abilities: { 0: "Reckless" },
@@ -3442,6 +3478,7 @@ koffingsoulstones: {
 	aggronsoulstonesmega: {
 		num: 203,
 		name: "Aggron-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Rock'],
 		baseStats: { hp: 80, atk: 135, def: 160, spa: 65, spd: 115, spe: 75 },
 		abilities: { 0: "Hivemind" },
@@ -4134,6 +4171,7 @@ koffingsoulstones: {
 	slowkingsoulstonesmega: {
 		num: 225,
 		name: "Slowking-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Normal', 'Bug'],
 		baseStats: { hp: 95, atk: 65, def: 110, spa: 130, spd: 120, spe: 70 },
 		abilities: { 0: "Hivemind" },
@@ -4194,6 +4232,7 @@ koffingsoulstones: {
 	corviknightsoulstonesmega: {
 		num: 228,
 		name: "Corviknight-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Dark', 'Electric'],
 		baseStats: { hp: 75, atk: 120, def: 100, spa: 80, spd: 100, spe: 120 },
 		abilities: { 0: "Black Light" },
@@ -4395,6 +4434,7 @@ koffingsoulstones: {
 	kingdrasoulstonesmega: {
 		num: 241,
 		name: "Kingdra-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Water', 'Light'],
 		baseStats: { hp: 100, atk: 85, def: 120, spa: 105, spd: 120, spe: 110 },
 		abilities: { 0: "Mega Launcher" },
@@ -4511,6 +4551,7 @@ koffingsoulstones: {
 	butterfreesoulstonesmega: {
 		num: 248,
 		name: "Butterfree-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Fairy'],
 		baseStats: { hp: 85, atk: 50, def: 60, spa: 135, spd: 115, spe: 105 },
 		abilities: { 0: "Dazzling" },
@@ -4980,6 +5021,7 @@ koffingsoulstones: {
 	furretsoulstonesmega: {
 		num: 280,
 		name: "Furret-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Poison'],
 		baseStats: { hp: 75, atk: 41, def: 54, spa: 135, spd: 110, spe: 115 },
 		abilities: { 0: "Haunted" },
@@ -5126,6 +5168,7 @@ koffingsoulstones: {
 	gardevoirsoulstonesmega: {
 		num: 289,
 		name: "Gardevoir-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Dark', 'Poison'],
 		baseStats: { hp: 68, atk: 65, def: 75, spa: 155, spd: 135, spe: 120 },
 		abilities: { 0: "Irredeemable" },
@@ -5157,6 +5200,7 @@ koffingsoulstones: {
 	galladesoulstonesmega: {
 		num: 290,
 		name: "Gallade-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Dark', 'Poison'],
 		baseStats: { hp: 108, atk: 105, def: 110, spa: 85, spd: 100, spe: 110 },
 		abilities: { 0: "Sharpness" },
@@ -5286,6 +5330,7 @@ koffingsoulstones: {
 	dugtriosoulstonesmega: {
 		num: 298,
 		name: "Dugtrio-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Ground'],
 		baseStats: { hp: 75, atk: 120, def: 90, spa: 50, spd: 120, spe: 130 },
 		abilities: { 0: "Wandering Spirit" },
@@ -5443,6 +5488,7 @@ koffingsoulstones: {
 	azumarillsoulstonesmega: {
 		num: 308,
 		name: "Azumarill-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fighting'],
 		baseStats: { hp: 90, atk: 90, def: 90, spa: 90, spd: 90, spe: 70 },
 		abilities: { 0: "Huge Power" },
@@ -5648,6 +5694,7 @@ koffingsoulstones: {
 	meloettasoulstonesmega: {
 		num: 316,
 		name: "Meloetta-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fire', 'Sound'],
 		baseStats: { hp: 100, atk: 77, def: 97, spa: 148, spd: 148, spe: 130 },
 		abilities: { 0: "Pure Heart" },
@@ -5762,6 +5809,7 @@ koffingsoulstones: {
 	absolsoulstonesmega: {
 		num: 323,
 		name: "Absol-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Light'],
 		baseStats: { hp: 65, atk: 130, def: 90, spa: 75, spd: 80, spe: 125 },
 		abilities: { 0: "Light Aura" },
@@ -5991,6 +6039,7 @@ koffingsoulstones: {
 	metagrosssoulstonesmega: {
 		num: 329,
 		name: "Metagross-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Psychic'],
 		baseStats: { hp: 80, atk: 140, def: 130, spa: 140, spd: 140, spe: 70 },
 		abilities: { 0: "Weak Armor" },
@@ -6050,6 +6099,7 @@ koffingsoulstones: {
 	medichamsoulstonesmega: {
 		num: 332,
 		name: "Medicham-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Light', 'Fighting'],
 		baseStats: { hp: 60, atk: 50, def: 115, spa: 85, spd: 125, spe: 115 },
 		abilities: { 0: "Genius" },
@@ -6348,6 +6398,7 @@ koffingsoulstones: {
 	pidgeotsoulstonesmega: {
 		num: 349,
 		name: "Pidgeot-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Flying'],
 		baseStats: { hp: 83, atk: 60, def: 85, spa: 130, spd: 90, spe: 131 },
 		abilities: { 0: "Refrigerate" },
@@ -6520,6 +6571,7 @@ koffingsoulstones: {
 	blisseysoulstonesmega: {
 		num: 360,
 		name: "Blissey-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Normal', 'Steel'],
 		baseStats: { hp: 105, atk: 120, def: 140, spa: 75, spd: 135, spe: 65 },
 		abilities: { 0: "Motor Drive" },
@@ -6565,6 +6617,7 @@ koffingsoulstones: {
 	tentacruelsoulstonesmega: {
 		num: 362,
 		name: "Tentacruel-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Water'],
 		baseStats: { hp: 100, atk: 40, def: 120, spa: 130, spd: 145, spe: 80 },
 		abilities: { 0: "Analytic" },
@@ -6625,6 +6678,7 @@ koffingsoulstones: {
 	tsareenasoulstonesmegax: {
 		num: 365,
 		name: "Tsareena-Soulstones-Mega-X",
+		forme: "Mega-X",
 		types: ['Light', 'Dark'],
 		baseStats: { hp: 92, atk: 130, def: 118, spa: 45, spd: 112, spe: 113 },
 		abilities: { 0: "Light Aura" },
@@ -6633,12 +6687,13 @@ koffingsoulstones: {
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		requiredItem: "Tsareenitex",
+		requiredItem: "Tsareenite-X",
 		tier: "OU",
 	},
 	tsareenasoulstonesmegay: {
 		num: 365,
 		name: "Tsareena-Soulstones-Mega-Y",
+		forme: "Mega-Y",
 		types: ['Dark'],
 		baseStats: { hp: 92, atk: 130, def: 118, spa: 45, spd: 112, spe: 113 },
 		abilities: { 0: "Dark Aura" },
@@ -6647,7 +6702,7 @@ koffingsoulstones: {
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		requiredItem: "Tsareenitey",
+		requiredItem: "Tsareenite-Y",
 		tier: "OU",
 	},
 
@@ -6712,6 +6767,7 @@ koffingsoulstones: {
 	beheeyemsoulstonesmega: {
 		num: 369,
 		name: "Beheeyem-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Dark'],
 		baseStats: { hp: 115, atk: 90, def: 120, spa: 65, spd: 130, spe: 65 },
 		abilities: { 0: "Genius" },
@@ -6757,6 +6813,7 @@ koffingsoulstones: {
 	sandacondasoulstonesmega: {
 		num: 371,
 		name: "Sandaconda-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Water'],
 		baseStats: { hp: 70, atk: 125, def: 102, spa: 120, spd: 112, spe: 81 },
 		abilities: { 0: "Maelstrom" },
@@ -6817,6 +6874,7 @@ koffingsoulstones: {
 	raichusoulstonesmega: {
 		num: 374,
 		name: "Raichu-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Sound', 'Steel'],
 		baseStats: { hp: 60, atk: 70, def: 85, spa: 130, spd: 100, spe: 140 },
 		abilities: { 0: "Filter" },
@@ -6862,6 +6920,7 @@ koffingsoulstones: {
 	cofagrigussoulstonesmega: {
 		num: 376,
 		name: "Cofagrigus-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Sound', 'Ghost'],
 		baseStats: { hp: 58, atk: 40, def: 145, spa: 145, spd: 145, spe: 50 },
 		abilities: { 0: "Charisma" },
@@ -7019,6 +7078,7 @@ koffingsoulstones: {
 	swampertsoulstonesmega: {
 		num: 386,
 		name: "Swampert-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Fire'],
 		baseStats: { hp: 110, atk: 70, def: 125, spa: 120, spd: 130, spe: 80 },
 		abilities: { 0: "Comet Storm" },
@@ -7163,6 +7223,7 @@ koffingsoulstones: {
 	gothitellesoulstonesmega: {
 		num: 395,
 		name: "Gothitelle-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fairy', 'Fighting'],
 		baseStats: { hp: 70, atk: 135, def: 80, spa: 55, spd: 115, spe: 135 },
 		abilities: { 0: "Adaptability" },
@@ -7322,6 +7383,7 @@ koffingsoulstones: {
 	charizardsoulstonesmega: {
 		num: 405,
 		name: "Charizard-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ground', 'Dragon'],
 		baseStats: { hp: 95, atk: 122, def: 98, spa: 84, spd: 105, spe: 130 },
 		abilities: { 0: "Irredeemable" },
@@ -7492,6 +7554,7 @@ koffingsoulstones: {
 	wigglytuffsoulstonesmega: {
 		num: 416,
 		name: "Wigglytuff-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Water', 'Normal'],
 		baseStats: { hp: 100, atk: 50, def: 110, spa: 85, spd: 110, spe: 80 },
 		abilities: { 0: "Water Bubble" },
@@ -7608,6 +7671,7 @@ koffingsoulstones: {
 	manectricsoulstonesmega: {
 		num: 423,
 		name: "Manectric-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ground', 'Ghost'],
 		baseStats: { hp: 70, atk: 135, def: 65, spa: 55, spd: 115, spe: 135 },
 		abilities: { 0: "Cursed Body" },
@@ -7724,6 +7788,7 @@ koffingsoulstones: {
 	mamoswinesoulstonesmega: {
 		num: 430,
 		name: "Mamoswine-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Ground'],
 		baseStats: { hp: 120, atk: 120, def: 135, spa: 55, spd: 110, spe: 90 },
 		abilities: { 0: "Galvanize" },
@@ -7797,6 +7862,7 @@ koffingsoulstones: {
 	torterrasoulstonesmega: {
 		num: 434,
 		name: "Torterra-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Dragon', 'Fire'],
 		baseStats: { hp: 95, atk: 129, def: 135, spa: 75, spd: 135, spe: 56 },
 		abilities: { 0: "Stamina" },
@@ -7842,6 +7908,7 @@ koffingsoulstones: {
 	lopunnysoulstonesmega: {
 		num: 436,
 		name: "Lopunny-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic', 'Ice'],
 		baseStats: { hp: 55, atk: 116, def: 100, spa: 74, spd: 120, spe: 115 },
 		abilities: { 0: "Dancer" },
@@ -8079,6 +8146,7 @@ koffingsoulstones: {
 	tgothitellemega: {
 		num: 452,
 		name: "T.Gothitelle-Mega",
+		forme: "Mega",
 		types: ['Poison', 'Sound'],
 		baseStats: { hp: 70, atk: 125, def: 105, spa: 125, spd: 100, spe: 65 },
 		abilities: { 0: "Nobility" },
@@ -8363,6 +8431,7 @@ koffingsoulstones: {
 	donphansoulstonesmega: {
 		num: 471,
 		name: "Donphan-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Ground'],
 		baseStats: { hp: 90, atk: 140, def: 130, spa: 40, spd: 130, spe: 70 },
 		abilities: { 0: "Sheer Force" },
@@ -8563,6 +8632,7 @@ koffingsoulstones: {
 	garchompsoulstonesmega: {
 		num: 484,
 		name: "Garchomp-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Dragon'],
 		baseStats: { hp: 108, atk: 130, def: 115, spa: 110, spd: 125, spe: 112 },
 		abilities: { 0: "Infiltrator" },
@@ -8608,6 +8678,7 @@ koffingsoulstones: {
 	ninetalessoulstonesmega: {
 		num: 486,
 		name: "Ninetales-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic'],
 		baseStats: { hp: 73, atk: 76, def: 95, spa: 121, spd: 125, spe: 115 },
 		abilities: { 0: "Charisma" },
@@ -8724,6 +8795,7 @@ koffingsoulstones: {
 	toxtricitysoulstonesmega: {
 		num: 493,
 		name: "Toxtricity-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Grass', 'Fighting'],
 		baseStats: { hp: 95, atk: 105, def: 110, spa: 92, spd: 110, spe: 90 },
 		abilities: { 0: "Gorilla Tactics" },
@@ -8776,6 +8848,7 @@ koffingsoulstones: {
 		evos: ["Sliggoo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Goomy-Soulstones-Cherry", "Goomy-Soulstones-BlueRazz", "Goomy-Soulstones-Lemon", "Goomy-Soulstones-Orange", "Goomy-Soulstones-Grape"],
 		tier: "OU",
 	},
 	sliggoosoulstones: {
@@ -8790,6 +8863,7 @@ koffingsoulstones: {
 		evos: ["Goodra-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Sliggoo-Soulstones-Cherry", "Sliggoo-Soulstones-BlueRazz", "Sliggoo-Soulstones-Lemon", "Sliggoo-Soulstones-Orange", "Sliggoo-Soulstones-Grape"],
 		tier: "OU",
 		prevo: "Goomy-Soulstones",
 	},
@@ -8804,6 +8878,7 @@ koffingsoulstones: {
 		color: "Green",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Goodra-Soulstones-Cherry", "Goodra-Soulstones-BlueRazz", "Goodra-Soulstones-Lemon", "Goodra-Soulstones-Orange", "Goodra-Soulstones-Grape"],
 		tier: "OU",
 		prevo: "Sliggoo-Soulstones",
 	},
@@ -8883,6 +8958,7 @@ koffingsoulstones: {
 	tdugtriomega: {
 		num: 503,
 		name: "T.Dugtrio-Mega",
+		forme: "Mega",
 		types: ['Ice'],
 		baseStats: { hp: 75, atk: 110, def: 100, spa: 110, spd: 80, spe: 110 },
 		abilities: { 0: "Thick Fat" },
@@ -8913,6 +8989,7 @@ koffingsoulstones: {
 	luvdiscsoulstonesmega: {
 		num: 504,
 		name: "Luvdisc-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Water', 'Sound'],
 		baseStats: { hp: 55, atk: 115, def: 90, spa: 65, spd: 90, spe: 130 },
 		abilities: { 0: "Hustle" },
@@ -9067,6 +9144,7 @@ koffingsoulstones: {
 	tabsolmega: {
 		num: 514,
 		name: "T.Absol-Mega",
+		forme: "Mega",
 		types: ['Psychic', 'Cosmic'],
 		baseStats: { hp: 65, atk: 120, def: 105, spa: 45, spd: 115, spe: 115 },
 		abilities: { 0: "Sniper" },
@@ -9226,6 +9304,7 @@ koffingsoulstones: {
 	abomasnowsoulstonesmega: {
 		num: 524,
 		name: "Abomasnow-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Grass'],
 		baseStats: { hp: 90, atk: 102, def: 115, spa: 102, spd: 115, spe: 70 },
 		abilities: { 0: "Regenerator" },
@@ -9284,6 +9363,7 @@ koffingsoulstones: {
 	tsableyemega: {
 		num: 527,
 		name: "T.Sableye-Mega",
+		forme: "Mega",
 		types: ['Water', 'Bug'],
 		baseStats: { hp: 90, atk: 130, def: 120, spa: 50, spd: 120, spe: 70 },
 		abilities: { 0: "Soundproof" },
@@ -9329,6 +9409,7 @@ koffingsoulstones: {
 	garbodorsoulstonesmega: {
 		num: 529,
 		name: "Garbodor-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Poison'],
 		baseStats: { hp: 80, atk: 60, def: 132, spa: 116, spd: 132, spe: 60 },
 		abilities: { 0: "Neutralizing Gas" },
@@ -9374,6 +9455,7 @@ koffingsoulstones: {
 	taltariamega: {
 		num: 531,
 		name: "T.Altaria-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Flying'],
 		baseStats: { hp: 75, atk: 50, def: 100, spa: 135, spd: 140, spe: 90 },
 		abilities: { 0: "Lightning Rod" },
@@ -9462,6 +9544,7 @@ koffingsoulstones: {
 	tswampertmega: {
 		num: 536,
 		name: "T.Swampert-Mega",
+		forme: "Mega",
 		types: ['Rock', 'Light'],
 		baseStats: { hp: 120, atk: 75, def: 100, spa: 140, spd: 120, spe: 80 },
 		abilities: { 0: "Vitality" },
@@ -9793,6 +9876,7 @@ koffingsoulstones: {
 	tmasquerainmega: {
 		num: 558,
 		name: "T.Masquerain-Mega",
+		forme: "Mega",
 		types: ['Grass', 'Flying'],
 		baseStats: { hp: 70, atk: 60, def: 82, spa: 130, spd: 122, spe: 90 },
 		abilities: { 0: "Triage" },
@@ -10062,6 +10146,7 @@ koffingsoulstones: {
 	barbaraclesoulstonesmega: {
 		num: 575,
 		name: "Barbaracle-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Rock', 'Psychic'],
 		baseStats: { hp: 105, atk: 60, def: 80, spa: 155, spd: 96, spe: 104 },
 		abilities: { 0: "Solid Rock" },
@@ -10163,6 +10248,7 @@ koffingsoulstones: {
 	falinkssoulstonesmega: {
 		num: 581,
 		name: "Falinks-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Cosmic'],
 		baseStats: { hp: 85, atk: 105, def: 90, spa: 105, spd: 90, spe: 95 },
 		abilities: { 0: "Hadron Engine" },
@@ -10419,6 +10505,7 @@ koffingsoulstones: {
 	mismagiussoulstonesmega: {
 		num: 598,
 		name: "Mismagius-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Light', 'Sound'],
 		baseStats: { hp: 85, atk: 35, def: 90, spa: 135, spd: 135, spe: 115 },
 		abilities: { 0: "Dazzling" },
@@ -10618,6 +10705,7 @@ koffingsoulstones: {
 	scizorsoulstonesmega: {
 		num: 611,
 		name: "Scizor-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Light', 'Steel'],
 		baseStats: { hp: 75, atk: 65, def: 130, spa: 140, spd: 140, spe: 50 },
 		abilities: { 0: "Mega Launcher" },
@@ -10691,6 +10779,7 @@ koffingsoulstones: {
 	coalossalsoulstonesmega: {
 		num: 615,
 		name: "Coalossal-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Rock', 'Ground'],
 		baseStats: { hp: 110, atk: 120, def: 150, spa: 60, spd: 140, spe: 30 },
 		abilities: { 0: "Impenetrable" },
@@ -10878,6 +10967,7 @@ koffingsoulstones: {
 	tgigalithmega: {
 		num: 627,
 		name: "T.Gigalith-Mega",
+		forme: "Mega",
 		types: ['Rock', 'Electric'],
 		baseStats: { hp: 85, atk: 70, def: 105, spa: 135, spd: 130, spe: 105 },
 		abilities: { 0: "Conductor" },
@@ -10981,6 +11071,7 @@ koffingsoulstones: {
 	dragonitesoulstonesmega: {
 		num: 633,
 		name: "Dragonite-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Light', 'Dragon'],
 		baseStats: { hp: 91, atk: 120, def: 115, spa: 120, spd: 124, spe: 130 },
 		abilities: { 0: "Pure Heart" },
@@ -11196,6 +11287,7 @@ koffingsoulstones: {
 	dragapultsoulstonesmega: {
 		num: 647,
 		name: "Dragapult-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Steel', 'Flying'],
 		baseStats: { hp: 115, atk: 80, def: 110, spa: 135, spd: 120, spe: 140 },
 		abilities: { 0: "No Guard" },
@@ -11297,6 +11389,7 @@ koffingsoulstones: {
 	banettesoulstonesmega: {
 		num: 653,
 		name: "Banette-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fairy', 'Dark'],
 		baseStats: { hp: 74, atk: 130, def: 95, spa: 63, spd: 103, spe: 90 },
 		abilities: { 0: "Prankster" },
@@ -11508,6 +11601,7 @@ koffingsoulstones: {
 	houndoomsoulstonesmega: {
 		num: 667,
 		name: "Houndoom-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fire', 'Light'],
 		baseStats: { hp: 85, atk: 110, def: 90, spa: 120, spd: 90, spe: 105 },
 		abilities: { 0: "Speed Boost" },
@@ -11568,6 +11662,7 @@ koffingsoulstones: {
 	empoleonsoulstonesmega: {
 		num: 670,
 		name: "Empoleon-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Water', 'Ice'],
 		baseStats: { hp: 84, atk: 131, def: 118, spa: 86, spd: 121, spe: 90 },
 		abilities: { 0: "Filter" },
@@ -11712,6 +11807,7 @@ koffingsoulstones: {
 	tjumpluffmega: {
 		num: 679,
 		name: "T.Jumpluff-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Light'],
 		baseStats: { hp: 85, atk: 45, def: 90, spa: 105, spd: 105, spe: 130 },
 		abilities: { 0: "Tintedlens" },
@@ -11815,6 +11911,7 @@ koffingsoulstones: {
 	exploudsoulstonesmega: {
 		num: 685,
 		name: "Exploud-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Sound'],
 		baseStats: { hp: 104, atk: 66, def: 93, spa: 126, spd: 93, spe: 108 },
 		abilities: { 0: "Punk Rock" },
@@ -11860,6 +11957,7 @@ koffingsoulstones: {
 	centiskorchsoulstonesmega: {
 		num: 687,
 		name: "Centiskorch-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Poison'],
 		baseStats: { hp: 100, atk: 135, def: 95, spa: 50, spd: 120, spe: 125 },
 		abilities: { 0: "Leeching Fangs" },
@@ -12075,6 +12173,7 @@ koffingsoulstones: {
 	salamencesoulstonesmega: {
 		num: 701,
 		name: "Salamence-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fire', 'Poison'],
 		baseStats: { hp: 105, atk: 130, def: 105, spa: 130, spd: 110, spe: 120 },
 		abilities: { 0: "Dragons Maw" },
@@ -12303,6 +12402,7 @@ koffingsoulstones: {
 	grapploctsoulstonesmega: {
 		num: 716,
 		name: "Grapploct-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Water', 'Fighting'],
 		baseStats: { hp: 90, atk: 118, def: 120, spa: 62, spd: 120, spe: 70 },
 		abilities: { 0: "Contrary" },
@@ -12531,6 +12631,7 @@ koffingsoulstones: {
 	hatterenesoulstonesmega: {
 		num: 731,
 		name: "Hatterene-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Psychic', 'Ghost'],
 		baseStats: { hp: 72, atk: 65, def: 130, spa: 141, spd: 138, spe: 64 },
 		abilities: { 0: "Realism" },
@@ -12619,6 +12720,7 @@ koffingsoulstones: {
 	chimechosoulstonesmega: {
 		num: 736,
 		name: "Chimecho-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Steel'],
 		baseStats: { hp: 75, atk: 50, def: 60, spa: 135, spd: 120, spe: 115 },
 		abilities: { 0: "Levitate" },
@@ -12722,6 +12824,7 @@ koffingsoulstones: {
 	tgrimmsnarlmega: {
 		num: 742,
 		name: "T.Grimmsnarl-Mega",
+		forme: "Mega",
 		types: ['Fire', 'Dark'],
 		baseStats: { hp: 75, atk: 120, def: 105, spa: 85, spd: 115, spe: 110 },
 		abilities: { 0: "Darkaura" },
@@ -12894,6 +12997,7 @@ koffingsoulstones: {
 	twyrdeermega: {
 		num: 753,
 		name: "T.Wyrdeer-Mega",
+		forme: "Mega",
 		types: ['Electric'],
 		baseStats: { hp: 93, atk: 135, def: 92, spa: 70, spd: 100, spe: 135 },
 		abilities: { 0: "Sheerforce" },
@@ -13010,6 +13114,7 @@ koffingsoulstones: {
 	ursalunasoulstonesmega: {
 		num: 760,
 		name: "Ursaluna-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ghost', 'Cosmic'],
 		baseStats: { hp: 95, atk: 125, def: 105, spa: 85, spd: 130, spe: 110 },
 		abilities: { 0: "Ethereal" },
@@ -13295,6 +13400,7 @@ koffingsoulstones: {
 	emolgasoulstonesmega: {
 		num: 779,
 		name: "Emolga-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Poison', 'Flying'],
 		baseStats: { hp: 65, atk: 135, def: 75, spa: 40, spd: 75, spe: 138 },
 		abilities: { 0: "Moxie" },
@@ -13682,6 +13788,7 @@ koffingsoulstones: {
 	vespiquensoulstonesmega: {
 		num: 805,
 		name: "Vespiquen-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Steel', 'Fire'],
 		baseStats: { hp: 80, atk: 30, def: 102, spa: 120, spd: 122, spe: 120 },
 		abilities: { 0: "Levitate" },
@@ -14367,6 +14474,7 @@ koffingsoulstones: {
 	blazikensoulstonesmega: {
 		num: 849,
 		name: "Blaziken-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ground', 'Flying'],
 		baseStats: { hp: 80, atk: 130, def: 105, spa: 60, spd: 115, spe: 140 },
 		abilities: { 0: "Sand Veil" },
@@ -14427,6 +14535,7 @@ koffingsoulstones: {
 	garganaclsoulstonesmega: {
 		num: 852,
 		name: "Garganacl-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Fairy'],
 		baseStats: { hp: 130, atk: 120, def: 115, spa: 45, spd: 115, spe: 75 },
 		abilities: { 0: "Arsonist" },
@@ -14515,6 +14624,7 @@ koffingsoulstones: {
 	wobbuffetsoulstonesmega: {
 		num: 857,
 		name: "Wobbuffet-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Normal', 'Dark'],
 		baseStats: { hp: 140, atk: 33, def: 103, spa: 103, spd: 93, spe: 33 },
 		abilities: { 0: "Requiem" },
@@ -14839,6 +14949,7 @@ koffingsoulstones: {
 	pluslesoulstonesmega: {
 		num: 879,
 		name: "Plusle-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Flying'],
 		baseStats: { hp: 56, atk: 91, def: 61, spa: 119, spd: 71, spe: 136 },
 		abilities: { 0: "Delta Stream" },
@@ -14869,6 +14980,7 @@ koffingsoulstones: {
 	minunsoulstonesmega: {
 		num: 880,
 		name: "Minun-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice'],
 		baseStats: { hp: 65, atk: 127, def: 112, spa: 64, spd: 60, spe: 106 },
 		abilities: { 0: "Packed Snow" },
@@ -15187,6 +15299,7 @@ koffingsoulstones: {
 		color: "Brown",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Tatsugiri-Soulstones-Pink", "Tatsugiri-Soulstones-Blue"],
 		tier: "OU",
 	},
 	bunnelbysoulstones: {
@@ -15364,6 +15477,7 @@ koffingsoulstones: {
 	blastoisesoulstonesmega: {
 		num: 914,
 		name: "Blastoise-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Poison', 'Steel'],
 		baseStats: { hp: 84, atk: 83, def: 130, spa: 120, spd: 135, spe: 78 },
 		abilities: { 0: "Mega Launcher" },
@@ -15408,6 +15522,7 @@ koffingsoulstones: {
 	tcacturnemega: {
 		num: 916,
 		name: "T.Cacturne-Mega",
+		forme: "Mega",
 		types: ['Fire', 'Dark'],
 		baseStats: { hp: 70, atk: 50, def: 100, spa: 130, spd: 110, spe: 115 },
 		abilities: { 0: "Solar Power" },
@@ -15708,6 +15823,7 @@ koffingsoulstones: {
 	tursalunamega: {
 		num: 936,
 		name: "T.Ursaluna-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Poison'],
 		baseStats: { hp: 105, atk: 110, def: 125, spa: 65, spd: 125, spe: 120 },
 		abilities: { 0: "Sharpness" },
@@ -16001,6 +16117,7 @@ koffingsoulstones: {
 	drednawsoulstonesmega: {
 		num: 956,
 		name: "Drednaw-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Rock', 'Steel'],
 		baseStats: { hp: 90, atk: 120, def: 120, spa: 43, spd: 128, spe: 84 },
 		abilities: { 0: "Impenetrable" },
@@ -16539,6 +16656,7 @@ koffingsoulstones: {
 		evos: ["Melmetal-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Meltan-Soulstones-StrawberryVanilla", "Meltan-Soulstones-SaltedCaramel", "Meltan-Soulstones-BananaPeanutButter"],
 		tier: "OU",
 	},
 	melmetalsoulstones: {
@@ -16552,6 +16670,7 @@ koffingsoulstones: {
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Melmetal-Soulstones-StrawberryVanilla", "Melmetal-Soulstones-SaltedCaramel", "Melmetal-Soulstones-BananaPeanutButter"],
 		tier: "OU",
 		otherFormes: ["Melmetal-Soulstones-Mega"],
 		formeOrder: ["Melmetal-Soulstones", "Melmetal-Soulstones-Mega"],
@@ -16560,6 +16679,7 @@ koffingsoulstones: {
 	melmetalsoulstonesmega: {
 		num: 989,
 		name: "Melmetal-Soulstones-Mega",
+		forme: "Mega",
 		types: ['Ice', 'Fairy'],
 		baseStats: { hp: 135, atk: 143, def: 133, spa: 70, spd: 135, spe: 84 },
 		abilities: { 0: "Refrigerate" },
@@ -17207,6 +17327,7 @@ koffingsoulstones: {
 		color: "Green",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		cosmeticFormes: ["Squawkabilly-Soulstones-Green", "Squawkabilly-Soulstones-Blue"],
 		tier: "OU",
 	},
 	ttreecko: {
@@ -17480,6 +17601,7 @@ koffingsoulstones: {
 	twhimsicottmega: {
 		num: 1052,
 		name: "T.Whimsicott-Mega",
+		forme: "Mega",
 		types: ['Electric', 'Grass'],
 		baseStats: { hp: 75, atk: 107, def: 90, spa: 107, spd: 100, spe: 101 },
 		abilities: { 0: "Wind Rider" },
@@ -17801,6 +17923,7 @@ koffingsoulstones: {
 	tcharizardmega: {
 		num: 1071,
 		name: "T.Charizard-Mega",
+		forme: "Mega",
 		types: ['Bug', 'Flying'],
 		baseStats: { hp: 90, atk: 125, def: 108, spa: 84, spd: 100, spe: 127 },
 		abilities: { 0: "Gale Wings" },
