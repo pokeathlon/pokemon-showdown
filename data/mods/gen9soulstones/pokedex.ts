@@ -12,6 +12,7 @@ koffingsoulstones: {
 		color: "Red",
 		evos: ["Weezing-Soulstones"],
 		eggGroups: ["Soulstones"],
+		tier: "LC",
 	},
 	weezingsoulstones: {
 		num: 2,
@@ -38,7 +39,7 @@ koffingsoulstones: {
 		evos: ["Duosion-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	duosionsoulstones: {
 		num: 4,
@@ -52,7 +53,7 @@ koffingsoulstones: {
 		evos: ["Reuniclus-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Solosis-Soulstones",
 	},
 	reuniclussoulstones: {
@@ -81,7 +82,7 @@ koffingsoulstones: {
 		evos: ["Haunter-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hauntersoulstones: {
 		num: 7,
@@ -95,7 +96,7 @@ koffingsoulstones: {
 		evos: ["Gengar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Gastly-Soulstones",
 	},
 	gengarsoulstones: {
@@ -142,7 +143,7 @@ koffingsoulstones: {
 		evos: ["Dodrio-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dodriosoulstones: {
 		num: 10,
@@ -188,7 +189,7 @@ koffingsoulstones: {
 		evos: ["Arbok-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	arboksoulstones: {
 		num: 12,
@@ -234,7 +235,7 @@ koffingsoulstones: {
 		evos: ["Starmie-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	starmiesoulstones: {
 		num: 14,
@@ -280,7 +281,7 @@ koffingsoulstones: {
 		evos: ["Steelix-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	steelixsoulstones: {
 		num: 16,
@@ -326,7 +327,7 @@ koffingsoulstones: {
 		evos: ["Magcargo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	magcargosoulstones: {
 		num: 18,
@@ -354,7 +355,7 @@ koffingsoulstones: {
 		evos: ["Wailord-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wailordsoulstones: {
 		num: 20,
@@ -382,7 +383,7 @@ koffingsoulstones: {
 		evos: ["Fletchinder-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	fletchindersoulstones: {
 		num: 22,
@@ -396,7 +397,7 @@ koffingsoulstones: {
 		evos: ["Talonflame-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Fletchling-Soulstones",
 	},
 	talonflamesoulstones: {
@@ -425,7 +426,7 @@ koffingsoulstones: {
 		evos: ["Xatu-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	xatusoulstones: {
 		num: 25,
@@ -471,7 +472,7 @@ koffingsoulstones: {
 		evos: ["Braviary-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	braviarysoulstones: {
 		num: 27,
@@ -499,7 +500,7 @@ koffingsoulstones: {
 		evos: ["Probopass-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	probopasssoulstones: {
 		num: 29,
@@ -527,7 +528,7 @@ koffingsoulstones: {
 		evos: ["Golbat-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	golbatsoulstones: {
 		num: 31,
@@ -541,7 +542,7 @@ koffingsoulstones: {
 		evos: ["Crobat-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Zubat-Soulstones",
 	},
 	crobatsoulstones: {
@@ -570,7 +571,7 @@ koffingsoulstones: {
 		evos: ["Tangrowth-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tangrowthsoulstones: {
 		num: 34,
@@ -598,7 +599,7 @@ koffingsoulstones: {
 		evos: ["Palpitoad-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	palpitoadsoulstones: {
 		num: 36,
@@ -612,7 +613,7 @@ koffingsoulstones: {
 		evos: ["Seismitoad-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Tympole-Soulstones",
 	},
 	seismitoadsoulstones: {
@@ -659,7 +660,7 @@ koffingsoulstones: {
 		evos: ["Swalot-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	swalotsoulstones: {
 		num: 39,
@@ -687,7 +688,7 @@ koffingsoulstones: {
 		evos: ["Ariados-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ariadossoulstones: {
 		num: 41,
@@ -715,7 +716,7 @@ koffingsoulstones: {
 		evos: ["Claydol-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	claydolsoulstones: {
 		num: 43,
@@ -743,7 +744,7 @@ koffingsoulstones: {
 		evos: ["Zoroark-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	zoroarksoulstones: {
 		num: 45,
@@ -771,7 +772,7 @@ koffingsoulstones: {
 		evos: ["Swanna-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	swannasoulstones: {
 		num: 47,
@@ -799,7 +800,7 @@ koffingsoulstones: {
 		evos: ["Golurk-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	golurksoulstones: {
 		num: 49,
@@ -845,7 +846,7 @@ koffingsoulstones: {
 		evos: ["Shiinotic-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shiinoticsoulstones: {
 		num: 51,
@@ -873,7 +874,7 @@ koffingsoulstones: {
 		evos: ["Volcarona-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	volcaronasoulstones: {
 		num: 53,
@@ -901,7 +902,7 @@ koffingsoulstones: {
 		evos: ["Wyrdeer-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	magikarpsoulstones: {
 		num: 55,
@@ -915,7 +916,7 @@ koffingsoulstones: {
 		evos: ["Gyarados-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gyaradossoulstones: {
 		num: 56,
@@ -961,7 +962,7 @@ koffingsoulstones: {
 		evos: ["Avalugg-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	avaluggsoulstones: {
 		num: 58,
@@ -1008,7 +1009,7 @@ koffingsoulstones: {
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Ledyba-Soulstones-Sixth", "Ledyba-Soulstones-Pink", "Ledyba-Soulstones-Green", "Ledyba-Soulstones-Blue", "Ledyba-Soulstones-Gold"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lediansoulstones: {
 		num: 60,
@@ -1037,7 +1038,7 @@ koffingsoulstones: {
 		evos: ["Rapidash-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	rapidashsoulstones: {
 		num: 62,
@@ -1083,7 +1084,7 @@ koffingsoulstones: {
 		evos: ["Aurorus-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	aurorussoulstones: {
 		num: 64,
@@ -1111,7 +1112,7 @@ koffingsoulstones: {
 		evos: ["Graveler-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gravelersoulstones: {
 		num: 66,
@@ -1125,7 +1126,7 @@ koffingsoulstones: {
 		evos: ["Golem-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Geodude-Soulstones",
 	},
 	golemsoulstones: {
@@ -1154,7 +1155,7 @@ koffingsoulstones: {
 		evos: ["Dragalge-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dragalgesoulstones: {
 		num: 69,
@@ -1182,7 +1183,7 @@ koffingsoulstones: {
 		evos: ["Pyroar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pyroarsoulstones: {
 		num: 71,
@@ -1236,7 +1237,7 @@ koffingsoulstones: {
 		evos: ["Hypno-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hypnosoulstones: {
 		num: 75,
@@ -1264,7 +1265,7 @@ koffingsoulstones: {
 		evos: ["Dewgong-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dewgongsoulstones: {
 		num: 77,
@@ -1292,7 +1293,7 @@ koffingsoulstones: {
 		evos: ["Gogoat-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gogoatsoulstones: {
 		num: 79,
@@ -1320,7 +1321,7 @@ koffingsoulstones: {
 		evos: ["Kabutops-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kabutopssoulstones: {
 		num: 81,
@@ -1348,7 +1349,7 @@ koffingsoulstones: {
 		evos: ["Breloom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	breloomsoulstones: {
 		num: 83,
@@ -1407,7 +1408,7 @@ koffingsoulstones: {
 		evos: ["Boldore-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	boldoresoulstones: {
 		num: 86,
@@ -1421,7 +1422,7 @@ koffingsoulstones: {
 		evos: ["Gigalith-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Roggenrola-Soulstones",
 	},
 	gigalithsoulstones: {
@@ -1468,7 +1469,7 @@ koffingsoulstones: {
 		evos: ["Lumineon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lumineonsoulstones: {
 		num: 89,
@@ -1496,7 +1497,7 @@ koffingsoulstones: {
 		evos: ["Gliscor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gliscorsoulstones: {
 		num: 91,
@@ -1542,7 +1543,7 @@ koffingsoulstones: {
 		evos: ["Herdier-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	herdiersoulstones: {
 		num: 93,
@@ -1556,7 +1557,7 @@ koffingsoulstones: {
 		evos: ["Stoutland-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Lillipup-Soulstones",
 	},
 	stoutlandsoulstones: {
@@ -1585,7 +1586,7 @@ koffingsoulstones: {
 		evos: ["Drifblim-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	drifblimsoulstones: {
 		num: 96,
@@ -1613,7 +1614,7 @@ koffingsoulstones: {
 		evos: ["Cinccino-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cinccinosoulstones: {
 		num: 98,
@@ -1641,7 +1642,7 @@ koffingsoulstones: {
 		evos: ["Sudowoodo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sudowoodosoulstones: {
 		num: 100,
@@ -1700,7 +1701,7 @@ koffingsoulstones: {
 		evos: ["Swoobat-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	swoobatsoulstones: {
 		num: 103,
@@ -1728,7 +1729,7 @@ koffingsoulstones: {
 		evos: ["Kingler-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kinglersoulstones: {
 		num: 105,
@@ -1756,7 +1757,7 @@ koffingsoulstones: {
 		evos: ["Noctowl-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	noctowlsoulstones: {
 		num: 107,
@@ -1802,7 +1803,7 @@ koffingsoulstones: {
 		evos: ["Electrode-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	electrodesoulstones: {
 		num: 109,
@@ -1848,7 +1849,7 @@ koffingsoulstones: {
 		evos: ["Palossand-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	palossandsoulstones: {
 		num: 111,
@@ -1876,7 +1877,7 @@ koffingsoulstones: {
 		evos: ["Kakuna-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kakunasoulstones: {
 		num: 113,
@@ -1890,7 +1891,7 @@ koffingsoulstones: {
 		evos: ["Beedrill-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Weedle-Soulstones",
 	},
 	beedrillsoulstones: {
@@ -1937,7 +1938,7 @@ koffingsoulstones: {
 		evos: ["Machoke-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	machokesoulstones: {
 		num: 116,
@@ -1951,7 +1952,7 @@ koffingsoulstones: {
 		evos: ["Machamp-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Machop-Soulstones",
 	},
 	machampsoulstones: {
@@ -1998,7 +1999,7 @@ koffingsoulstones: {
 		evos: ["Ivysaur-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ivysaursoulstones: {
 		num: 119,
@@ -2012,7 +2013,7 @@ koffingsoulstones: {
 		evos: ["Venusaur-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Bulbasaur-Soulstones",
 	},
 	venusaursoulstones: {
@@ -2072,7 +2073,7 @@ koffingsoulstones: {
 		evos: ["Sharpedo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sharpedosoulstones: {
 		num: 123,
@@ -2118,7 +2119,7 @@ koffingsoulstones: {
 		evos: ["Gurdurr-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gurdurrsoulstones: {
 		num: 125,
@@ -2132,7 +2133,7 @@ koffingsoulstones: {
 		evos: ["Conkeldurr-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Timburr-Soulstones",
 	},
 	conkeldurrsoulstones: {
@@ -2161,7 +2162,7 @@ koffingsoulstones: {
 		evos: ["Lampent-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lampentsoulstones: {
 		num: 128,
@@ -2175,7 +2176,7 @@ koffingsoulstones: {
 		evos: ["Chandelure-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Litwick-Soulstones",
 	},
 	chandeluresoulstones: {
@@ -2222,7 +2223,7 @@ koffingsoulstones: {
 		evos: ["Vanillish-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	vanillishsoulstones: {
 		num: 131,
@@ -2236,7 +2237,7 @@ koffingsoulstones: {
 		evos: ["Vanilluxe-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Vanillite-Soulstones",
 	},
 	vanilluxesoulstones: {
@@ -2265,7 +2266,7 @@ koffingsoulstones: {
 		evos: ["Electabuzz-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	electabuzzsoulstones: {
 		num: 134,
@@ -2279,7 +2280,7 @@ koffingsoulstones: {
 		evos: ["Electivire-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Elekid-Soulstones",
 	},
 	electiviresoulstones: {
@@ -2308,7 +2309,7 @@ koffingsoulstones: {
 		evos: ["Brionne-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	brionnesoulstones: {
 		num: 137,
@@ -2322,7 +2323,7 @@ koffingsoulstones: {
 		evos: ["Primarina-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Popplio-Soulstones",
 	},
 	primarinasoulstones: {
@@ -2351,7 +2352,7 @@ koffingsoulstones: {
 		evos: ["Glalie-Soulstones", "Froslass-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	glaliesoulstones: {
 		num: 140,
@@ -2429,7 +2430,7 @@ koffingsoulstones: {
 		evos: ["Magmar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	magmarsoulstones: {
 		num: 143,
@@ -2443,7 +2444,7 @@ koffingsoulstones: {
 		evos: ["Magmortar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Magby-Soulstones",
 	},
 	magmortarsoulstones: {
@@ -2472,7 +2473,7 @@ koffingsoulstones: {
 		evos: ["Exeggutor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	exeggutorsoulstones: {
 		num: 146,
@@ -2500,7 +2501,7 @@ koffingsoulstones: {
 		evos: ["Galvantula-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	galvantulasoulstones: {
 		num: 148,
@@ -2528,7 +2529,7 @@ koffingsoulstones: {
 		evos: ["Muk-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	muksoulstones: {
 		num: 150,
@@ -2556,7 +2557,7 @@ koffingsoulstones: {
 		evos: ["Monferno-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	monfernosoulstones: {
 		num: 152,
@@ -2570,7 +2571,7 @@ koffingsoulstones: {
 		evos: ["Infernape-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Chimchar-Soulstones",
 	},
 	infernapesoulstones: {
@@ -2648,7 +2649,7 @@ koffingsoulstones: {
 		evos: ["Beartic-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bearticsoulstones: {
 		num: 156,
@@ -2694,7 +2695,7 @@ koffingsoulstones: {
 		evos: ["Grovyle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	grovylesoulstones: {
 		num: 158,
@@ -2708,7 +2709,7 @@ koffingsoulstones: {
 		evos: ["Sceptile-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Treecko-Soulstones",
 	},
 	sceptilesoulstones: {
@@ -2755,7 +2756,7 @@ koffingsoulstones: {
 		evos: ["Pupitar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pupitarsoulstones: {
 		num: 161,
@@ -2769,7 +2770,7 @@ koffingsoulstones: {
 		evos: ["Tyranitar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Larvitar-Soulstones",
 	},
 	tyranitarsoulstones: {
@@ -2816,7 +2817,7 @@ koffingsoulstones: {
 		evos: ["Hippowdon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hippowdonsoulstones: {
 		num: 164,
@@ -2862,7 +2863,7 @@ koffingsoulstones: {
 		evos: ["Bronzong-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bronzongsoulstones: {
 		num: 166,
@@ -2890,7 +2891,7 @@ koffingsoulstones: {
 		evos: ["Slurpuff-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	slurpuffsoulstones: {
 		num: 168,
@@ -2918,7 +2919,7 @@ koffingsoulstones: {
 		evos: ["Flaaffy-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	flaaffysoulstones: {
 		num: 170,
@@ -2932,7 +2933,7 @@ koffingsoulstones: {
 		evos: ["Ampharos-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Mareep-Soulstones",
 	},
 	ampharossoulstones: {
@@ -2979,7 +2980,7 @@ koffingsoulstones: {
 		evos: ["Altaria-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	altariasoulstones: {
 		num: 173,
@@ -3025,7 +3026,7 @@ koffingsoulstones: {
 		evos: ["Kadabra-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kadabrasoulstones: {
 		num: 175,
@@ -3039,7 +3040,7 @@ koffingsoulstones: {
 		evos: ["Alakazam-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Abra-Soulstones",
 	},
 	alakazamsoulstones: {
@@ -3068,7 +3069,7 @@ koffingsoulstones: {
 		evos: ["Whirlipede-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	whirlipedesoulstones: {
 		num: 178,
@@ -3082,7 +3083,7 @@ koffingsoulstones: {
 		evos: ["Scolipede-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Venipede-Soulstones",
 	},
 	scolipedesoulstones: {
@@ -3142,7 +3143,7 @@ koffingsoulstones: {
 		evos: ["Ursaring-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ursaringsoulstones: {
 		num: 182,
@@ -3156,7 +3157,7 @@ koffingsoulstones: {
 		evos: ["Ursaluna-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Teddiursa-Soulstones",
 	},
 	psyducksoulstones: {
@@ -3171,7 +3172,7 @@ koffingsoulstones: {
 		evos: ["Golduck-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	golducksoulstones: {
 		num: 184,
@@ -3199,7 +3200,7 @@ koffingsoulstones: {
 		evos: ["Dusclops-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dusclopssoulstones: {
 		num: 186,
@@ -3213,7 +3214,7 @@ koffingsoulstones: {
 		evos: ["Dusknoir-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Duskull-Soulstones",
 	},
 	dusknoirsoulstones: {
@@ -3242,7 +3243,7 @@ koffingsoulstones: {
 		evos: ["Delcatty-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	delcattysoulstones: {
 		num: 189,
@@ -3270,7 +3271,7 @@ koffingsoulstones: {
 		evos: ["T.Vaporeon", "T.Jolteon", "T.Flareon", "T.Leafeon", "T.Glaceon", "T.Espeon", "T.Umbreon", "T.Sylveon"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tvaporeon: {
 		num: 191,
@@ -3396,7 +3397,7 @@ koffingsoulstones: {
 		evos: ["Sawsbuck-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sawsbucksoulstones: {
 		num: 200,
@@ -3442,7 +3443,7 @@ koffingsoulstones: {
 		evos: ["Lairon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	laironsoulstones: {
 		num: 202,
@@ -3456,7 +3457,7 @@ koffingsoulstones: {
 		evos: ["Aggron-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Aron-Soulstones",
 	},
 	aggronsoulstones: {
@@ -3503,7 +3504,7 @@ koffingsoulstones: {
 		evos: ["Gastrodon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrodonsoulstones: {
 		num: 205,
@@ -3531,7 +3532,7 @@ koffingsoulstones: {
 		evos: ["Gastronair"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastronair: {
 		num: 205,
@@ -3559,7 +3560,7 @@ koffingsoulstones: {
 		evos: ["Gaxorus"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gaxorus: {
 		num: 205,
@@ -3587,7 +3588,7 @@ koffingsoulstones: {
 		evos: ["Gastreigon"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastreigon: {
 		num: 205,
@@ -3615,7 +3616,7 @@ koffingsoulstones: {
 		evos: ["Gastroo"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastroo: {
 		num: 205,
@@ -3643,7 +3644,7 @@ koffingsoulstones: {
 		evos: ["Gastaria"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastaria: {
 		num: 205,
@@ -3671,7 +3672,7 @@ koffingsoulstones: {
 		evos: ["Gastrogon"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrogon: {
 		num: 205,
@@ -3699,7 +3700,7 @@ koffingsoulstones: {
 		evos: ["Gastrochomp"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrochomp: {
 		num: 205,
@@ -3727,7 +3728,7 @@ koffingsoulstones: {
 		evos: ["Gastrapple"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrapple: {
 		num: 205,
@@ -3755,7 +3756,7 @@ koffingsoulstones: {
 		evos: ["Gastrapult"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrapult: {
 		num: 205,
@@ -3783,7 +3784,7 @@ koffingsoulstones: {
 		evos: ["Gastralge"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastralge: {
 		num: 205,
@@ -3811,7 +3812,7 @@ koffingsoulstones: {
 		evos: ["Gastrantrum"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrantrum: {
 		num: 205,
@@ -3839,7 +3840,7 @@ koffingsoulstones: {
 		evos: ["Gastramence"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastramence: {
 		num: 205,
@@ -3867,7 +3868,7 @@ koffingsoulstones: {
 		evos: ["Gascalibur"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gascalibur: {
 		num: 205,
@@ -3895,7 +3896,7 @@ koffingsoulstones: {
 		evos: ["Persian-Soulstones", "Perrserker-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	persiansoulstones: {
 		num: 207,
@@ -3923,7 +3924,7 @@ koffingsoulstones: {
 		evos: ["Silcoon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	silcoonsoulstones: {
 		num: 209,
@@ -3937,7 +3938,7 @@ koffingsoulstones: {
 		evos: ["Beautifly-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Wurmple-S-Soulstones",
 	},
 	beautiflysoulstones: {
@@ -3966,7 +3967,7 @@ koffingsoulstones: {
 		evos: ["Cascoon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cascoonsoulstones: {
 		num: 212,
@@ -3980,7 +3981,7 @@ koffingsoulstones: {
 		evos: ["Dustox-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Wurmple-C-Soulstones",
 	},
 	dustoxsoulstones: {
@@ -4009,7 +4010,7 @@ koffingsoulstones: {
 		evos: ["Ambipom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ambipomsoulstones: {
 		num: 215,
@@ -4037,7 +4038,7 @@ koffingsoulstones: {
 		evos: ["Raticate-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	raticatesoulstones: {
 		num: 217,
@@ -4065,7 +4066,7 @@ koffingsoulstones: {
 		evos: ["Staravia-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	staraviasoulstones: {
 		num: 219,
@@ -4079,7 +4080,7 @@ koffingsoulstones: {
 		evos: ["Staraptor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Starly-Soulstones",
 	},
 	staraptorsoulstones: {
@@ -4108,7 +4109,7 @@ koffingsoulstones: {
 		evos: ["Kricketune-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kricketunesoulstones: {
 		num: 222,
@@ -4136,7 +4137,7 @@ koffingsoulstones: {
 		evos: ["Slowbro-Soulstones", "Slowking-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	slowbrosoulstones: {
 		num: 224,
@@ -4196,7 +4197,7 @@ koffingsoulstones: {
 		evos: ["Corvisquire-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	corvisquiresoulstones: {
 		num: 227,
@@ -4210,7 +4211,7 @@ koffingsoulstones: {
 		evos: ["Corviknight-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Rookidee-Soulstones",
 	},
 	corviknightsoulstones: {
@@ -4257,7 +4258,7 @@ koffingsoulstones: {
 		evos: ["Gloom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gloomsoulstones: {
 		num: 230,
@@ -4271,7 +4272,7 @@ koffingsoulstones: {
 		evos: ["Vileplume-Soulstones", "Bellossom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Oddish-Soulstones",
 	},
 	vileplumesoulstones: {
@@ -4314,7 +4315,7 @@ koffingsoulstones: {
 		evos: ["Sunflora-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sunflorasoulstones: {
 		num: 234,
@@ -4342,7 +4343,7 @@ koffingsoulstones: {
 		evos: ["Skuntank-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	skuntanksoulstones: {
 		num: 236,
@@ -4370,7 +4371,7 @@ koffingsoulstones: {
 		evos: ["Milotic-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	miloticsoulstones: {
 		num: 238,
@@ -4398,7 +4399,7 @@ koffingsoulstones: {
 		evos: ["Seadra-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	seadrasoulstones: {
 		num: 240,
@@ -4412,7 +4413,7 @@ koffingsoulstones: {
 		evos: ["Kingdra-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Horsea-Soulstones",
 	},
 	kingdrasoulstones: {
@@ -4459,7 +4460,7 @@ koffingsoulstones: {
 		evos: ["Boltund-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	boltundsoulstones: {
 		num: 243,
@@ -4487,7 +4488,7 @@ koffingsoulstones: {
 		evos: ["Venomoth-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	venomothsoulstones: {
 		num: 245,
@@ -4515,7 +4516,7 @@ koffingsoulstones: {
 		evos: ["Metapod-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	metapodsoulstones: {
 		num: 247,
@@ -4529,7 +4530,7 @@ koffingsoulstones: {
 		evos: ["Butterfree-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Caterpie-Soulstones",
 	},
 	butterfreesoulstones: {
@@ -4576,7 +4577,7 @@ koffingsoulstones: {
 		evos: ["Primeape-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	primeapesoulstones: {
 		num: 250,
@@ -4590,7 +4591,7 @@ koffingsoulstones: {
 		evos: ["Annihilape-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Mankey-Soulstones",
 	},
 	tynamosoulstones: {
@@ -4605,7 +4606,7 @@ koffingsoulstones: {
 		evos: ["Eelektrik-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	eelektriksoulstones: {
 		num: 252,
@@ -4619,7 +4620,7 @@ koffingsoulstones: {
 		evos: ["Eelektross-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Tynamo-Soulstones",
 	},
 	eelektrosssoulstones: {
@@ -4648,7 +4649,7 @@ koffingsoulstones: {
 		evos: ["Galaxeon", "Prismeon", "Octaveon"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	galaxeon: {
 		num: 255,
@@ -4702,7 +4703,7 @@ koffingsoulstones: {
 		evos: ["Basculegion-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	chinchousoulstones: {
 		num: 259,
@@ -4716,7 +4717,7 @@ koffingsoulstones: {
 		evos: ["Lanturn-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lanturnsoulstones: {
 		num: 260,
@@ -4744,7 +4745,7 @@ koffingsoulstones: {
 		evos: ["Noivern-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	noivernsoulstones: {
 		num: 262,
@@ -4772,7 +4773,7 @@ koffingsoulstones: {
 		evos: ["Parasect-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	parasectsoulstones: {
 		num: 264,
@@ -4800,7 +4801,7 @@ koffingsoulstones: {
 		evos: ["Morgrem-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	morgremsoulstones: {
 		num: 266,
@@ -4814,7 +4815,7 @@ koffingsoulstones: {
 		evos: ["Grimmsnarl-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Impidimp-Soulstones",
 	},
 	grimmsnarlsoulstones: {
@@ -4843,7 +4844,7 @@ koffingsoulstones: {
 		evos: ["Tranquill-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tranquillsoulstones: {
 		num: 269,
@@ -4857,7 +4858,7 @@ koffingsoulstones: {
 		evos: ["Unfezant-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Pidove-Soulstones",
 	},
 	unfezantsoulstones: {
@@ -4886,7 +4887,7 @@ koffingsoulstones: {
 		evos: ["Nuzleaf-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	nuzleafsoulstones: {
 		num: 272,
@@ -4900,7 +4901,7 @@ koffingsoulstones: {
 		evos: ["Shiftry-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Seedot-Soulstones",
 	},
 	shiftrysoulstones: {
@@ -4929,7 +4930,7 @@ koffingsoulstones: {
 		evos: ["Skiploom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	skiploomsoulstones: {
 		num: 275,
@@ -4943,7 +4944,7 @@ koffingsoulstones: {
 		evos: ["Jumpluff-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Hoppip-Soulstones",
 	},
 	jumpluffsoulstones: {
@@ -4972,7 +4973,7 @@ koffingsoulstones: {
 		evos: ["Crustle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	crustlesoulstones: {
 		num: 278,
@@ -5000,7 +5001,7 @@ koffingsoulstones: {
 		evos: ["Furret-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	furretsoulstones: {
 		num: 280,
@@ -5046,7 +5047,7 @@ koffingsoulstones: {
 		evos: ["Bayleef-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bayleefsoulstones: {
 		num: 282,
@@ -5060,7 +5061,7 @@ koffingsoulstones: {
 		evos: ["Meganium-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Chikorita-Soulstones",
 	},
 	meganiumsoulstones: {
@@ -5089,7 +5090,7 @@ koffingsoulstones: {
 		evos: ["Quilava-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	quilavasoulstones: {
 		num: 285,
@@ -5103,7 +5104,7 @@ koffingsoulstones: {
 		evos: ["Typhlosion-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Cyndaquil-Soulstones",
 	},
 	typhlosionsoulstones: {
@@ -5132,7 +5133,7 @@ koffingsoulstones: {
 		evos: ["Kirlia-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kirliasoulstones: {
 		num: 288,
@@ -5146,7 +5147,7 @@ koffingsoulstones: {
 		evos: ["Gardevoir-Soulstones", "Gallade-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Ralts-Soulstones",
 	},
 	gardevoirsoulstones: {
@@ -5225,7 +5226,7 @@ koffingsoulstones: {
 		evos: ["Camerupt-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cameruptsoulstones: {
 		num: 292,
@@ -5266,7 +5267,7 @@ koffingsoulstones: {
 		evos: ["Croconaw-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	croconawsoulstones: {
 		num: 295,
@@ -5280,7 +5281,7 @@ koffingsoulstones: {
 		evos: ["Feraligatr-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Totodile-Soulstones",
 	},
 	feraligatrsoulstones: {
@@ -5309,7 +5310,7 @@ koffingsoulstones: {
 		evos: ["Dugtrio-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dugtriosoulstones: {
 		num: 298,
@@ -5355,7 +5356,7 @@ koffingsoulstones: {
 		evos: ["Toxicroak-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	toxicroaksoulstones: {
 		num: 300,
@@ -5383,7 +5384,7 @@ koffingsoulstones: {
 		evos: ["Aromatisse-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	aromatissesoulstones: {
 		num: 302,
@@ -5424,7 +5425,7 @@ koffingsoulstones: {
 		evos: ["Yanmega-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	yanmegasoulstones: {
 		num: 305,
@@ -5452,7 +5453,7 @@ koffingsoulstones: {
 		evos: ["Marill-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	marillsoulstones: {
 		num: 307,
@@ -5466,7 +5467,7 @@ koffingsoulstones: {
 		evos: ["Azumarill-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Azurill-Soulstones",
 	},
 	azumarillsoulstones: {
@@ -5526,7 +5527,7 @@ koffingsoulstones: {
 		evos: ["Dartrix-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dartrixsoulstones: {
 		num: 311,
@@ -5540,7 +5541,7 @@ koffingsoulstones: {
 		evos: ["Decidueye-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Rowlet-Soulstones",
 	},
 	decidueyesoulstones: {
@@ -5569,7 +5570,7 @@ koffingsoulstones: {
 		evos: ["Drapion-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	drapionsoulstones: {
 		num: 314,
@@ -5719,7 +5720,7 @@ koffingsoulstones: {
 		evos: ["Mightyena-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mightyenasoulstones: {
 		num: 318,
@@ -5747,7 +5748,7 @@ koffingsoulstones: {
 		evos: ["Torracat-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	torracatsoulstones: {
 		num: 320,
@@ -5761,7 +5762,7 @@ koffingsoulstones: {
 		evos: ["Incineroar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Litten-Soulstones",
 	},
 	incineroarsoulstones: {
@@ -5834,7 +5835,7 @@ koffingsoulstones: {
 		evos: ["Doublade-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	doubladesoulstones: {
 		num: 325,
@@ -5848,7 +5849,7 @@ koffingsoulstones: {
 		evos: ["Aegislash-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Honedge-Soulstones",
 	},
 	aegislashsoulstones: {
@@ -5877,7 +5878,7 @@ koffingsoulstones: {
 		evos: ["Doublade-Soulstones-Bow"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	doubladesoulstonesbow: {
 		num: 325,
@@ -5891,7 +5892,7 @@ koffingsoulstones: {
 		evos: ["Aegislash"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	aegislashsoulstonesbow: {
 		num: 326,
@@ -5919,7 +5920,7 @@ koffingsoulstones: {
 		evos: ["Doublade-Soulstones-Axe"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	doubladesoulstonesaxe: {
 		num: 325,
@@ -5933,7 +5934,7 @@ koffingsoulstones: {
 		evos: ["Aegislash"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	aegislashsoulstonesaxe: {
 		num: 326,
@@ -5961,7 +5962,7 @@ koffingsoulstones: {
 		evos: ["Doublade-Soulstones-Hammer"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	doubladesoulstoneshammer: {
 		num: 325,
@@ -5975,7 +5976,7 @@ koffingsoulstones: {
 		evos: ["Aegislash"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	aegislashsoulstoneshammer: {
 		num: 326,
@@ -6003,7 +6004,7 @@ koffingsoulstones: {
 		evos: ["Metang-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	metangsoulstones: {
 		num: 328,
@@ -6017,7 +6018,7 @@ koffingsoulstones: {
 		evos: ["Metagross-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Beldum-Soulstones",
 	},
 	metagrosssoulstones: {
@@ -6064,7 +6065,7 @@ koffingsoulstones: {
 		evos: ["Dudunsparce-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	medititesoulstones: {
 		num: 331,
@@ -6078,7 +6079,7 @@ koffingsoulstones: {
 		evos: ["Medicham-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	medichamsoulstones: {
 		num: 332,
@@ -6124,7 +6125,7 @@ koffingsoulstones: {
 		evos: ["Ninjask-Soulstones", "Shedinja-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ninjasksoulstones: {
 		num: 334,
@@ -6166,7 +6167,7 @@ koffingsoulstones: {
 		evos: ["Zweilous-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	zweiloussoulstones: {
 		num: 337,
@@ -6180,7 +6181,7 @@ koffingsoulstones: {
 		evos: ["Hydreigon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Deino-Soulstones",
 	},
 	hydreigonsoulstones: {
@@ -6209,7 +6210,7 @@ koffingsoulstones: {
 		evos: ["Cherrim-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cherrimsoulstones: {
 		num: 340,
@@ -6250,7 +6251,7 @@ koffingsoulstones: {
 		evos: ["Eldegoss-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	eldegosssoulstones: {
 		num: 342,
@@ -6278,7 +6279,7 @@ koffingsoulstones: {
 		evos: ["Meowstic-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	meowsticsoulstones: {
 		num: 344,
@@ -6306,7 +6307,7 @@ koffingsoulstones: {
 		evos: ["Meowstic-Soulstones-Arsonist"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	meowsticsoulstonesarsonist: {
 		num: 344,
@@ -6334,7 +6335,7 @@ koffingsoulstones: {
 		evos: ["Cursola-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cursolasoulstones: {
 		num: 346,
@@ -6362,7 +6363,7 @@ koffingsoulstones: {
 		evos: ["Pidgeotto-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pidgeottosoulstones: {
 		num: 348,
@@ -6376,7 +6377,7 @@ koffingsoulstones: {
 		evos: ["Pidgeot-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Pidgey-Soulstones",
 	},
 	pidgeotsoulstones: {
@@ -6423,7 +6424,7 @@ koffingsoulstones: {
 		evos: ["Mantine-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mantinesoulstones: {
 		num: 351,
@@ -6451,7 +6452,7 @@ koffingsoulstones: {
 		evos: ["Cradily-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cradilysoulstones: {
 		num: 353,
@@ -6479,7 +6480,7 @@ koffingsoulstones: {
 		evos: ["Honchkrow-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	honchkrowsoulstones: {
 		num: 355,
@@ -6507,7 +6508,7 @@ koffingsoulstones: {
 		evos: ["Cacturne-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cacturnesoulstones: {
 		num: 357,
@@ -6535,7 +6536,7 @@ koffingsoulstones: {
 		evos: ["Chansey-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	chanseysoulstones: {
 		num: 359,
@@ -6549,7 +6550,7 @@ koffingsoulstones: {
 		evos: ["Blissey-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Happiny-Soulstones",
 	},
 	blisseysoulstones: {
@@ -6596,7 +6597,7 @@ koffingsoulstones: {
 		evos: ["Tentacruel-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tentacruelsoulstones: {
 		num: 362,
@@ -6642,7 +6643,7 @@ koffingsoulstones: {
 		evos: ["Steenee-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	steeneesoulstones: {
 		num: 364,
@@ -6656,7 +6657,7 @@ koffingsoulstones: {
 		evos: ["Tsareena-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Bounsweet-Soulstones",
 	},
 	tsareenasoulstones: {
@@ -6718,7 +6719,7 @@ koffingsoulstones: {
 		evos: ["Arcanine-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	arcaninesoulstones: {
 		num: 367,
@@ -6746,7 +6747,7 @@ koffingsoulstones: {
 		evos: ["Beheeyem-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	beheeyemsoulstones: {
 		num: 369,
@@ -6792,7 +6793,7 @@ koffingsoulstones: {
 		evos: ["Sandaconda-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sandacondasoulstones: {
 		num: 371,
@@ -6838,7 +6839,7 @@ koffingsoulstones: {
 		evos: ["Pikachu-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pikachusoulstones: {
 		num: 373,
@@ -6852,7 +6853,7 @@ koffingsoulstones: {
 		evos: ["Raichu-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Pichu-Soulstones",
 	},
 	raichusoulstones: {
@@ -6899,7 +6900,7 @@ koffingsoulstones: {
 		evos: ["Cofagrigus-Soulstones", "Runerigus-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cofagrigussoulstones: {
 		num: 376,
@@ -6945,7 +6946,7 @@ koffingsoulstones: {
 		evos: ["Polteageist-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	polteageistsoulstones: {
 		num: 378,
@@ -6999,7 +7000,7 @@ koffingsoulstones: {
 		evos: ["Krokorok-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	krokoroksoulstones: {
 		num: 382,
@@ -7013,7 +7014,7 @@ koffingsoulstones: {
 		evos: ["Krookodile-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Sandile-Soulstones",
 	},
 	krookodilesoulstones: {
@@ -7042,7 +7043,7 @@ koffingsoulstones: {
 		evos: ["Marshtomp-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	marshtompsoulstones: {
 		num: 385,
@@ -7056,7 +7057,7 @@ koffingsoulstones: {
 		evos: ["Swampert-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Mudkip-Soulstones",
 	},
 	swampertsoulstones: {
@@ -7103,7 +7104,7 @@ koffingsoulstones: {
 		evos: ["Seaking-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	seakingsoulstones: {
 		num: 388,
@@ -7131,7 +7132,7 @@ koffingsoulstones: {
 		evos: ["Swellow-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	swellowsoulstones: {
 		num: 390,
@@ -7159,7 +7160,7 @@ koffingsoulstones: {
 		evos: ["Watchog-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	watchogsoulstones: {
 		num: 392,
@@ -7187,7 +7188,7 @@ koffingsoulstones: {
 		evos: ["Gothorita-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gothoritasoulstones: {
 		num: 394,
@@ -7201,7 +7202,7 @@ koffingsoulstones: {
 		evos: ["Gothitelle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Gothita-Soulstones",
 	},
 	gothitellesoulstones: {
@@ -7248,7 +7249,7 @@ koffingsoulstones: {
 		evos: ["Sealeo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sealeosoulstones: {
 		num: 397,
@@ -7262,7 +7263,7 @@ koffingsoulstones: {
 		evos: ["Walrein-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Spheal-Soulstones",
 	},
 	walreinsoulstones: {
@@ -7291,7 +7292,7 @@ koffingsoulstones: {
 		evos: ["Masquerain-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	masquerainsoulstones: {
 		num: 400,
@@ -7319,7 +7320,7 @@ koffingsoulstones: {
 		evos: ["Pelipper-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pelippersoulstones: {
 		num: 402,
@@ -7347,7 +7348,7 @@ koffingsoulstones: {
 		evos: ["Charmeleon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	charmeleonsoulstones: {
 		num: 404,
@@ -7361,7 +7362,7 @@ koffingsoulstones: {
 		evos: ["Charizard-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Charmander-Soulstones",
 	},
 	charizardsoulstones: {
@@ -7408,7 +7409,7 @@ koffingsoulstones: {
 		evos: ["Magneton-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	magnetonsoulstones: {
 		num: 407,
@@ -7422,7 +7423,7 @@ koffingsoulstones: {
 		evos: ["Magnezone-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Magnemite-Soulstones",
 	},
 	magnezonesoulstones: {
@@ -7490,7 +7491,7 @@ koffingsoulstones: {
 		evos: ["Fearow-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	fearowsoulstones: {
 		num: 413,
@@ -7518,7 +7519,7 @@ koffingsoulstones: {
 		evos: ["Jigglypuff-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	jigglypuffsoulstones: {
 		num: 415,
@@ -7532,7 +7533,7 @@ koffingsoulstones: {
 		evos: ["Wigglytuff-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Igglybuff-Soulstones",
 	},
 	wigglytuffsoulstones: {
@@ -7579,7 +7580,7 @@ koffingsoulstones: {
 		evos: ["Mandibuzz-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mandibuzzsoulstones: {
 		num: 418,
@@ -7607,7 +7608,7 @@ koffingsoulstones: {
 		evos: ["Luxio-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	luxiosoulstones: {
 		num: 420,
@@ -7621,7 +7622,7 @@ koffingsoulstones: {
 		evos: ["Luxray-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Shinx-Soulstones",
 	},
 	luxraysoulstones: {
@@ -7650,7 +7651,7 @@ koffingsoulstones: {
 		evos: ["Manectric-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	manectricsoulstones: {
 		num: 423,
@@ -7696,7 +7697,7 @@ koffingsoulstones: {
 		evos: ["Ferrothorn-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ferrothornsoulstones: {
 		num: 425,
@@ -7724,7 +7725,7 @@ koffingsoulstones: {
 		evos: ["Toxapex-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	toxapexsoulstones: {
 		num: 427,
@@ -7752,7 +7753,7 @@ koffingsoulstones: {
 		evos: ["Piloswine-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	piloswinesoulstones: {
 		num: 429,
@@ -7766,7 +7767,7 @@ koffingsoulstones: {
 		evos: ["Mamoswine-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Swinub-Soulstones",
 	},
 	mamoswinesoulstones: {
@@ -7826,7 +7827,7 @@ koffingsoulstones: {
 		evos: ["Grotle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	grotlesoulstones: {
 		num: 433,
@@ -7840,7 +7841,7 @@ koffingsoulstones: {
 		evos: ["Torterra-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Turtwig-Soulstones",
 	},
 	torterrasoulstones: {
@@ -7887,7 +7888,7 @@ koffingsoulstones: {
 		evos: ["Lopunny-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lopunnysoulstones: {
 		num: 436,
@@ -7998,7 +7999,7 @@ koffingsoulstones: {
 		evos: ["Floatzel-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	floatzelsoulstones: {
 		num: 443,
@@ -8026,7 +8027,7 @@ koffingsoulstones: {
 		evos: ["Roselia-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	roseliasoulstones: {
 		num: 445,
@@ -8040,7 +8041,7 @@ koffingsoulstones: {
 		evos: ["Roserade-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Budew-Soulstones",
 	},
 	roseradesoulstones: {
@@ -8082,7 +8083,7 @@ koffingsoulstones: {
 		evos: ["Araquanid-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	araquanidsoulstones: {
 		num: 449,
@@ -8110,7 +8111,7 @@ koffingsoulstones: {
 		evos: ["T.Gothorita"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgothorita: {
 		num: 451,
@@ -8124,7 +8125,7 @@ koffingsoulstones: {
 		evos: ["T.Gothitelle"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Gothita",
 	},
 	tgothitelle: {
@@ -8171,7 +8172,7 @@ koffingsoulstones: {
 		evos: ["Tyrantrum-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tyrantrumsoulstones: {
 		num: 454,
@@ -8199,7 +8200,7 @@ koffingsoulstones: {
 		evos: ["Marowak-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	marowaksoulstones: {
 		num: 456,
@@ -8227,7 +8228,7 @@ koffingsoulstones: {
 		evos: ["T.Aromatisse"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	taromatisse: {
 		num: 458,
@@ -8255,7 +8256,7 @@ koffingsoulstones: {
 		evos: ["T.Seadra"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tseadra: {
 		num: 460,
@@ -8269,7 +8270,7 @@ koffingsoulstones: {
 		evos: ["T.Kingdra"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Horsea",
 	},
 	tkingdra: {
@@ -8298,7 +8299,7 @@ koffingsoulstones: {
 		evos: ["Ribombee-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ribombeesoulstones: {
 		num: 463,
@@ -8326,7 +8327,7 @@ koffingsoulstones: {
 		evos: ["Omastar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	omastarsoulstones: {
 		num: 465,
@@ -8354,7 +8355,7 @@ koffingsoulstones: {
 		evos: ["Greedent-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	greedentsoulstones: {
 		num: 467,
@@ -8382,7 +8383,7 @@ koffingsoulstones: {
 		evos: ["T.Muk"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmuk: {
 		num: 469,
@@ -8410,7 +8411,7 @@ koffingsoulstones: {
 		evos: ["Donphan-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	donphansoulstones: {
 		num: 471,
@@ -8456,7 +8457,7 @@ koffingsoulstones: {
 		evos: ["Trumbeak-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	trumbeaksoulstones: {
 		num: 473,
@@ -8470,7 +8471,7 @@ koffingsoulstones: {
 		evos: ["Toucannon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Pikipek-Soulstones",
 	},
 	toucannonsoulstones: {
@@ -8499,7 +8500,7 @@ koffingsoulstones: {
 		evos: ["Forretress-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	forretresssoulstones: {
 		num: 476,
@@ -8527,7 +8528,7 @@ koffingsoulstones: {
 		evos: ["T.Noctowl"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tnoctowl: {
 		num: 478,
@@ -8555,7 +8556,7 @@ koffingsoulstones: {
 		evos: ["Bewear-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bewearsoulstones: {
 		num: 480,
@@ -8596,7 +8597,7 @@ koffingsoulstones: {
 		evos: ["Gabite-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gabitesoulstones: {
 		num: 483,
@@ -8610,7 +8611,7 @@ koffingsoulstones: {
 		evos: ["Garchomp-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Gible-Soulstones",
 	},
 	garchompsoulstones: {
@@ -8657,7 +8658,7 @@ koffingsoulstones: {
 		evos: ["Ninetales-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ninetalessoulstones: {
 		num: 486,
@@ -8703,7 +8704,7 @@ koffingsoulstones: {
 		evos: ["T.Steenee"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tsteenee: {
 		num: 488,
@@ -8717,7 +8718,7 @@ koffingsoulstones: {
 		evos: ["T.Tsareena"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Bounsweet",
 	},
 	ttsareena: {
@@ -8746,7 +8747,7 @@ koffingsoulstones: {
 		evos: ["Liepard-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	liepardsoulstones: {
 		num: 491,
@@ -8774,7 +8775,7 @@ koffingsoulstones: {
 		evos: ["Toxtricity-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	toxtricitysoulstones: {
 		num: 493,
@@ -8820,7 +8821,7 @@ koffingsoulstones: {
 		evos: ["T.Araquanid"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	taraquanid: {
 		num: 495,
@@ -8849,7 +8850,7 @@ koffingsoulstones: {
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Goomy-Soulstones-Cherry", "Goomy-Soulstones-BlueRazz", "Goomy-Soulstones-Lemon", "Goomy-Soulstones-Orange", "Goomy-Soulstones-Grape"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sliggoosoulstones: {
 		num: 497,
@@ -8864,7 +8865,7 @@ koffingsoulstones: {
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Sliggoo-Soulstones-Cherry", "Sliggoo-Soulstones-BlueRazz", "Sliggoo-Soulstones-Lemon", "Sliggoo-Soulstones-Orange", "Sliggoo-Soulstones-Grape"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Goomy-Soulstones",
 	},
 	goodrasoulstones: {
@@ -8894,7 +8895,7 @@ koffingsoulstones: {
 		evos: ["Mrmime-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mrmimesoulstones: {
 		num: 500,
@@ -8908,7 +8909,7 @@ koffingsoulstones: {
 		evos: ["Mrrime-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Mime Jr.-Soulstones",
 	},
 	mrrimesoulstones: {
@@ -8937,7 +8938,7 @@ koffingsoulstones: {
 		evos: ["T.Dugtrio"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdugtrio: {
 		num: 503,
@@ -9027,7 +9028,7 @@ koffingsoulstones: {
 		evos: ["Bastiodon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bastiodonsoulstones: {
 		num: 507,
@@ -9055,7 +9056,7 @@ koffingsoulstones: {
 		evos: ["Flapple-Soulstones", "Appletun-Soulstones", "Dipplin-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	flapplesoulstones: {
 		num: 509,
@@ -9110,7 +9111,7 @@ koffingsoulstones: {
 		evos: ["Dubwool-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dubwoolsoulstones: {
 		num: 513,
@@ -9169,7 +9170,7 @@ koffingsoulstones: {
 		evos: ["Servine-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	servinesoulstones: {
 		num: 516,
@@ -9183,7 +9184,7 @@ koffingsoulstones: {
 		evos: ["Serperior-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Snivy-Soulstones",
 	},
 	serperiorsoulstones: {
@@ -9212,7 +9213,7 @@ koffingsoulstones: {
 		evos: ["Braixen-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	braixensoulstones: {
 		num: 519,
@@ -9226,7 +9227,7 @@ koffingsoulstones: {
 		evos: ["Delphox-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Fennekin-Soulstones",
 	},
 	delphoxsoulstones: {
@@ -9255,7 +9256,7 @@ koffingsoulstones: {
 		evos: ["T.Electrode"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	telectrode: {
 		num: 522,
@@ -9283,7 +9284,7 @@ koffingsoulstones: {
 		evos: ["Abomasnow-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	abomasnowsoulstones: {
 		num: 524,
@@ -9329,7 +9330,7 @@ koffingsoulstones: {
 		evos: ["T.Exeggutor"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	texeggutor: {
 		num: 526,
@@ -9388,7 +9389,7 @@ koffingsoulstones: {
 		evos: ["Garbodor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	garbodorsoulstones: {
 		num: 529,
@@ -9434,7 +9435,7 @@ koffingsoulstones: {
 		evos: ["T.Altaria"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	taltaria: {
 		num: 531,
@@ -9480,7 +9481,7 @@ koffingsoulstones: {
 		evos: ["T.Magcargo"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmagcargo: {
 		num: 533,
@@ -9508,7 +9509,7 @@ koffingsoulstones: {
 		evos: ["T.Marshtomp"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmarshtomp: {
 		num: 535,
@@ -9522,7 +9523,7 @@ koffingsoulstones: {
 		evos: ["T.Swampert"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Mudkip",
 	},
 	tswampert: {
@@ -9569,7 +9570,7 @@ koffingsoulstones: {
 		evos: ["Quilladin-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	quilladinsoulstones: {
 		num: 538,
@@ -9583,7 +9584,7 @@ koffingsoulstones: {
 		evos: ["Chesnaught-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Chespin-Soulstones",
 	},
 	chesnaughtsoulstones: {
@@ -9612,7 +9613,7 @@ koffingsoulstones: {
 		evos: ["Frogadier-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	frogadiersoulstones: {
 		num: 541,
@@ -9626,7 +9627,7 @@ koffingsoulstones: {
 		evos: ["Greninja-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Froakie-Soulstones",
 	},
 	greninjasoulstones: {
@@ -9655,7 +9656,7 @@ koffingsoulstones: {
 		evos: ["Hakamoo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hakamoosoulstones: {
 		num: 544,
@@ -9669,7 +9670,7 @@ koffingsoulstones: {
 		evos: ["Kommoo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Jangmo-o-Soulstones",
 	},
 	kommoosoulstones: {
@@ -9698,7 +9699,7 @@ koffingsoulstones: {
 		evos: ["Scrafty-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	scraftysoulstones: {
 		num: 547,
@@ -9726,7 +9727,7 @@ koffingsoulstones: {
 		evos: ["T.Bayleef"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tbayleef: {
 		num: 549,
@@ -9740,7 +9741,7 @@ koffingsoulstones: {
 		evos: ["T.Meganium"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Chikorita",
 	},
 	tmeganium: {
@@ -9769,7 +9770,7 @@ koffingsoulstones: {
 		evos: ["T.Quilava"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tquilava: {
 		num: 552,
@@ -9783,7 +9784,7 @@ koffingsoulstones: {
 		evos: ["T.Typhlosion"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Cyndaquil",
 	},
 	ttyphlosion: {
@@ -9812,7 +9813,7 @@ koffingsoulstones: {
 		evos: ["T.Croconaw"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tcroconaw: {
 		num: 555,
@@ -9826,7 +9827,7 @@ koffingsoulstones: {
 		evos: ["T.Feraligatr"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Totodile",
 	},
 	tferaligatr: {
@@ -9855,7 +9856,7 @@ koffingsoulstones: {
 		evos: ["T.Masquerain"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmasquerain: {
 		num: 558,
@@ -9901,7 +9902,7 @@ koffingsoulstones: {
 		evos: ["T.Wyrdeer"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	clamperlsoulstones: {
 		num: 560,
@@ -9915,7 +9916,7 @@ koffingsoulstones: {
 		evos: ["Huntail-Soulstones", "Gorebyss-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	huntailsoulstones: {
 		num: 561,
@@ -9957,7 +9958,7 @@ koffingsoulstones: {
 		evos: ["Klang-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	klangsoulstones: {
 		num: 564,
@@ -9971,7 +9972,7 @@ koffingsoulstones: {
 		evos: ["Klinklang-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Klink-Soulstones",
 	},
 	klinklangsoulstones: {
@@ -10000,7 +10001,7 @@ koffingsoulstones: {
 		evos: ["Darmanitan-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	darmanitansoulstones: {
 		num: 567,
@@ -10041,7 +10042,7 @@ koffingsoulstones: {
 		evos: ["T.Delcatty"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdelcatty: {
 		num: 569,
@@ -10069,7 +10070,7 @@ koffingsoulstones: {
 		evos: ["T.Dodrio"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdodrio: {
 		num: 571,
@@ -10097,7 +10098,7 @@ koffingsoulstones: {
 		evos: ["T.Camerupt"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tcamerupt: {
 		num: 573,
@@ -10125,7 +10126,7 @@ koffingsoulstones: {
 		evos: ["Barbaracle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	barbaraclesoulstones: {
 		num: 575,
@@ -10171,7 +10172,7 @@ koffingsoulstones: {
 		evos: ["Barraskewda-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	barraskewdasoulstones: {
 		num: 577,
@@ -10199,7 +10200,7 @@ koffingsoulstones: {
 		evos: ["T.Machoke"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmachoke: {
 		num: 579,
@@ -10213,7 +10214,7 @@ koffingsoulstones: {
 		evos: ["T.Machamp"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Machop",
 	},
 	tmachamp: {
@@ -10273,7 +10274,7 @@ koffingsoulstones: {
 		evos: ["Jynx-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	jynxsoulstones: {
 		num: 583,
@@ -10301,7 +10302,7 @@ koffingsoulstones: {
 		evos: ["Linoone-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	linoonesoulstones: {
 		num: 585,
@@ -10315,7 +10316,7 @@ koffingsoulstones: {
 		evos: ["Obstagoon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Zigzagoon-Soulstones",
 	},
 	obstagoonsoulstones: {
@@ -10357,7 +10358,7 @@ koffingsoulstones: {
 		evos: ["Rampardos-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	rampardossoulstones: {
 		num: 589,
@@ -10385,7 +10386,7 @@ koffingsoulstones: {
 		evos: ["T.Gabite"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgabite: {
 		num: 591,
@@ -10399,7 +10400,7 @@ koffingsoulstones: {
 		evos: ["T.Garchomp"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Gible",
 	},
 	tgarchomp: {
@@ -10428,7 +10429,7 @@ koffingsoulstones: {
 		evos: ["T.Yanmega"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tyanmega: {
 		num: 594,
@@ -10456,7 +10457,7 @@ koffingsoulstones: {
 		evos: ["Octillery-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	octillerysoulstones: {
 		num: 596,
@@ -10484,7 +10485,7 @@ koffingsoulstones: {
 		evos: ["Mismagius-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mismagiussoulstones: {
 		num: 598,
@@ -10530,7 +10531,7 @@ koffingsoulstones: {
 		evos: ["Poliwhirl-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	poliwhirlsoulstones: {
 		num: 600,
@@ -10544,7 +10545,7 @@ koffingsoulstones: {
 		evos: ["Poliwrath-Soulstones", "Politoed-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Poliwag-Soulstones",
 	},
 	poliwrathsoulstones: {
@@ -10587,7 +10588,7 @@ koffingsoulstones: {
 		evos: ["Trevenant-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	trevenantsoulstones: {
 		num: 604,
@@ -10615,7 +10616,7 @@ koffingsoulstones: {
 		evos: ["Hitmonlee-Soulstones", "Hitmonchan-Soulstones", "Hitmontop-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hitmonleesoulstones: {
 		num: 606,
@@ -10684,7 +10685,7 @@ koffingsoulstones: {
 		evos: ["Scizor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	scizorsoulstones: {
 		num: 611,
@@ -10743,7 +10744,7 @@ koffingsoulstones: {
 		evos: ["Carkol-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	carkolsoulstones: {
 		num: 614,
@@ -10757,7 +10758,7 @@ koffingsoulstones: {
 		evos: ["Coalossal-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Rolycoly-Soulstones",
 	},
 	coalossalsoulstones: {
@@ -10804,7 +10805,7 @@ koffingsoulstones: {
 		evos: ["Lucario-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lucariosoulstones: {
 		num: 617,
@@ -10832,7 +10833,7 @@ koffingsoulstones: {
 		evos: ["Vibrava-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	vibravasoulstones: {
 		num: 619,
@@ -10846,7 +10847,7 @@ koffingsoulstones: {
 		evos: ["Flygon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Trapinch-Soulstones",
 	},
 	flygonsoulstones: {
@@ -10888,7 +10889,7 @@ koffingsoulstones: {
 		evos: ["T.Graveler"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgraveler: {
 		num: 623,
@@ -10902,7 +10903,7 @@ koffingsoulstones: {
 		evos: ["T.Golem"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Geodude",
 	},
 	tgolem: {
@@ -10931,7 +10932,7 @@ koffingsoulstones: {
 		evos: ["T.Boldore"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tboldore: {
 		num: 626,
@@ -10945,7 +10946,7 @@ koffingsoulstones: {
 		evos: ["T.Gigalith"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Roggenrola",
 	},
 	tgigalith: {
@@ -10992,7 +10993,7 @@ koffingsoulstones: {
 		evos: ["T.Vanillish"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tvanillish: {
 		num: 629,
@@ -11006,7 +11007,7 @@ koffingsoulstones: {
 		evos: ["T.Vanilluxe"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Vanillite",
 	},
 	tvanilluxe: {
@@ -11035,7 +11036,7 @@ koffingsoulstones: {
 		evos: ["Dragonair-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dragonairsoulstones: {
 		num: 632,
@@ -11049,7 +11050,7 @@ koffingsoulstones: {
 		evos: ["Dragonite-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Dratini-Soulstones",
 	},
 	dragonitesoulstones: {
@@ -11096,7 +11097,7 @@ koffingsoulstones: {
 		evos: ["T.Honchkrow"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	thonchkrow: {
 		num: 635,
@@ -11124,7 +11125,7 @@ koffingsoulstones: {
 		evos: ["Clefairy-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	clefairysoulstones: {
 		num: 637,
@@ -11138,7 +11139,7 @@ koffingsoulstones: {
 		evos: ["Clefable-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Cleffa-Soulstones",
 	},
 	clefablesoulstones: {
@@ -11167,7 +11168,7 @@ koffingsoulstones: {
 		evos: ["T.Kabutops"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tkabutops: {
 		num: 640,
@@ -11195,7 +11196,7 @@ koffingsoulstones: {
 		evos: ["Archeops-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	archeopssoulstones: {
 		num: 642,
@@ -11223,7 +11224,7 @@ koffingsoulstones: {
 		evos: ["Carracosta-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	carracostasoulstones: {
 		num: 644,
@@ -11251,7 +11252,7 @@ koffingsoulstones: {
 		evos: ["Drakloak-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	drakloaksoulstones: {
 		num: 646,
@@ -11265,7 +11266,7 @@ koffingsoulstones: {
 		evos: ["Dragapult-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Dreepy-Soulstones",
 	},
 	dragapultsoulstones: {
@@ -11312,7 +11313,7 @@ koffingsoulstones: {
 		evos: ["Golisopod-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	golisopodsoulstones: {
 		num: 649,
@@ -11340,7 +11341,7 @@ koffingsoulstones: {
 		evos: ["Musharna-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	musharnasoulstones: {
 		num: 651,
@@ -11368,7 +11369,7 @@ koffingsoulstones: {
 		evos: ["Banette-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	banettesoulstones: {
 		num: 653,
@@ -11440,7 +11441,7 @@ koffingsoulstones: {
 		evos: ["T.Dubwool"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdubwool: {
 		num: 657,
@@ -11468,7 +11469,7 @@ koffingsoulstones: {
 		evos: ["Bibarel-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bibarelsoulstones: {
 		num: 659,
@@ -11496,7 +11497,7 @@ koffingsoulstones: {
 		evos: ["Excadrill-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	excadrillsoulstones: {
 		num: 661,
@@ -11524,7 +11525,7 @@ koffingsoulstones: {
 		evos: ["T.Excadrill"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	texcadrill: {
 		num: 663,
@@ -11552,7 +11553,7 @@ koffingsoulstones: {
 		evos: ["Frosmoth-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	frosmothsoulstones: {
 		num: 665,
@@ -11580,7 +11581,7 @@ koffingsoulstones: {
 		evos: ["Houndoom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	houndoomsoulstones: {
 		num: 667,
@@ -11626,7 +11627,7 @@ koffingsoulstones: {
 		evos: ["Prinplup-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	prinplupsoulstones: {
 		num: 669,
@@ -11640,7 +11641,7 @@ koffingsoulstones: {
 		evos: ["Empoleon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Piplup-Soulstones",
 	},
 	empoleonsoulstones: {
@@ -11687,7 +11688,7 @@ koffingsoulstones: {
 		evos: ["T.Duosion"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tduosion: {
 		num: 672,
@@ -11701,7 +11702,7 @@ koffingsoulstones: {
 		evos: ["T.Reuniclus"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Solosis",
 	},
 	treuniclus: {
@@ -11730,7 +11731,7 @@ koffingsoulstones: {
 		evos: ["Mudsdale-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mudsdalesoulstones: {
 		num: 675,
@@ -11771,7 +11772,7 @@ koffingsoulstones: {
 		evos: ["T.Skiploom"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tskiploom: {
 		num: 678,
@@ -11785,7 +11786,7 @@ koffingsoulstones: {
 		evos: ["T.Jumpluff"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Hoppip",
 	},
 	tjumpluff: {
@@ -11832,7 +11833,7 @@ koffingsoulstones: {
 		evos: ["Swadloon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	swadloonsoulstones: {
 		num: 681,
@@ -11846,7 +11847,7 @@ koffingsoulstones: {
 		evos: ["Leavanny-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Sewaddle-Soulstones",
 	},
 	leavannysoulstones: {
@@ -11875,7 +11876,7 @@ koffingsoulstones: {
 		evos: ["Loudred-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	loudredsoulstones: {
 		num: 684,
@@ -11889,7 +11890,7 @@ koffingsoulstones: {
 		evos: ["Exploud-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Whismur-Soulstones",
 	},
 	exploudsoulstones: {
@@ -11936,7 +11937,7 @@ koffingsoulstones: {
 		evos: ["Centiskorch-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	centiskorchsoulstones: {
 		num: 687,
@@ -11982,7 +11983,7 @@ koffingsoulstones: {
 		evos: ["Drizzile-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	drizzilesoulstones: {
 		num: 689,
@@ -11996,7 +11997,7 @@ koffingsoulstones: {
 		evos: ["Inteleon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Sobble-Soulstones",
 	},
 	inteleonsoulstones: {
@@ -12025,7 +12026,7 @@ koffingsoulstones: {
 		evos: ["T.Gurdurr"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgurdurr: {
 		num: 692,
@@ -12039,7 +12040,7 @@ koffingsoulstones: {
 		evos: ["T.Conkeldurr"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Timburr",
 	},
 	tconkeldurr: {
@@ -12068,7 +12069,7 @@ koffingsoulstones: {
 		evos: ["Crawdaunt-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	crawdauntsoulstones: {
 		num: 695,
@@ -12109,7 +12110,7 @@ koffingsoulstones: {
 		evos: ["Armaldo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	armaldosoulstones: {
 		num: 698,
@@ -12137,7 +12138,7 @@ koffingsoulstones: {
 		evos: ["Shelgon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shelgonsoulstones: {
 		num: 700,
@@ -12151,7 +12152,7 @@ koffingsoulstones: {
 		evos: ["Salamence-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Bagon-Soulstones",
 	},
 	salamencesoulstones: {
@@ -12198,7 +12199,7 @@ koffingsoulstones: {
 		evos: ["Snorlax-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	snorlaxsoulstones: {
 		num: 703,
@@ -12226,7 +12227,7 @@ koffingsoulstones: {
 		evos: ["T.Volcarona"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tvolcarona: {
 		num: 705,
@@ -12254,7 +12255,7 @@ koffingsoulstones: {
 		evos: ["Pignite-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pignitesoulstones: {
 		num: 707,
@@ -12268,7 +12269,7 @@ koffingsoulstones: {
 		evos: ["Emboar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Tepig-Soulstones",
 	},
 	emboarsoulstones: {
@@ -12297,7 +12298,7 @@ koffingsoulstones: {
 		evos: ["Sneasler-Soulstones", "Weavile-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	weavilesoulstones: {
 		num: 710,
@@ -12325,7 +12326,7 @@ koffingsoulstones: {
 		evos: ["Alcremie-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	alcremiesoulstones: {
 		num: 712,
@@ -12353,7 +12354,7 @@ koffingsoulstones: {
 		evos: ["Jellicent-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	jellicentsoulstones: {
 		num: 714,
@@ -12381,7 +12382,7 @@ koffingsoulstones: {
 		evos: ["Grapploct-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	grapploctsoulstones: {
 		num: 716,
@@ -12427,7 +12428,7 @@ koffingsoulstones: {
 		evos: ["T.Probopass"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tprobopass: {
 		num: 718,
@@ -12455,7 +12456,7 @@ koffingsoulstones: {
 		evos: ["Copperajah-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	copperajahsoulstones: {
 		num: 720,
@@ -12483,7 +12484,7 @@ koffingsoulstones: {
 		evos: ["Zebstrika-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	zebstrikasoulstones: {
 		num: 722,
@@ -12511,7 +12512,7 @@ koffingsoulstones: {
 		evos: ["Vigoroth-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	vigorothsoulstones: {
 		num: 724,
@@ -12525,7 +12526,7 @@ koffingsoulstones: {
 		evos: ["Slaking-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Slakoth-Soulstones",
 	},
 	slakingsoulstones: {
@@ -12567,7 +12568,7 @@ koffingsoulstones: {
 		evos: ["Heliolisk-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	heliolisksoulstones: {
 		num: 728,
@@ -12595,7 +12596,7 @@ koffingsoulstones: {
 		evos: ["Hattrem-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hattremsoulstones: {
 		num: 730,
@@ -12609,7 +12610,7 @@ koffingsoulstones: {
 		evos: ["Hatterene-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Hatenna-Soulstones",
 	},
 	hatterenesoulstones: {
@@ -12656,7 +12657,7 @@ koffingsoulstones: {
 		evos: ["T.Piloswine"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tpiloswine: {
 		num: 733,
@@ -12670,7 +12671,7 @@ koffingsoulstones: {
 		evos: ["T.Mamoswine"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Swinub",
 	},
 	tmamoswine: {
@@ -12699,7 +12700,7 @@ koffingsoulstones: {
 		evos: ["Chimecho-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	chimechosoulstones: {
 		num: 736,
@@ -12745,7 +12746,7 @@ koffingsoulstones: {
 		evos: ["T.Magneton"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmagneton: {
 		num: 738,
@@ -12759,7 +12760,7 @@ koffingsoulstones: {
 		evos: ["T.Magnezone"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Magnemite",
 	},
 	tmagnezone: {
@@ -12788,7 +12789,7 @@ koffingsoulstones: {
 		evos: ["T.Morgrem"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmorgrem: {
 		num: 741,
@@ -12802,7 +12803,7 @@ koffingsoulstones: {
 		evos: ["T.Grimmsnarl"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Impidimp",
 	},
 	tgrimmsnarl: {
@@ -12862,7 +12863,7 @@ koffingsoulstones: {
 		evos: ["T.Roselia"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	troselia: {
 		num: 745,
@@ -12876,7 +12877,7 @@ koffingsoulstones: {
 		evos: ["T.Roserade"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Budew",
 	},
 	troserade: {
@@ -12905,7 +12906,7 @@ koffingsoulstones: {
 		evos: ["Lombre-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lombresoulstones: {
 		num: 748,
@@ -12919,7 +12920,7 @@ koffingsoulstones: {
 		evos: ["Ludicolo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Lotad-Soulstones",
 	},
 	ludicolosoulstones: {
@@ -12948,7 +12949,7 @@ koffingsoulstones: {
 		evos: ["Kilowattrel-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	kilowattrelsoulstones: {
 		num: 751,
@@ -13036,7 +13037,7 @@ koffingsoulstones: {
 		evos: ["Palafin-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	palafinsoulstones: {
 		num: 756,
@@ -13064,7 +13065,7 @@ koffingsoulstones: {
 		evos: ["Porygon2-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	porygon2soulstones: {
 		num: 758,
@@ -13078,7 +13079,7 @@ koffingsoulstones: {
 		evos: ["Porygonz-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Porygon-Soulstones",
 	},
 	porygonzsoulstones: {
@@ -13139,7 +13140,7 @@ koffingsoulstones: {
 		evos: ["Pawmo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pawmosoulstones: {
 		num: 762,
@@ -13153,7 +13154,7 @@ koffingsoulstones: {
 		evos: ["Pawmot-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Pawmi-Soulstones",
 	},
 	pawmotsoulstones: {
@@ -13182,7 +13183,7 @@ koffingsoulstones: {
 		evos: ["Crocalor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	crocalorsoulstones: {
 		num: 765,
@@ -13196,7 +13197,7 @@ koffingsoulstones: {
 		evos: ["Skeledirge-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Fuecoco-Soulstones",
 	},
 	skeledirgesoulstones: {
@@ -13225,7 +13226,7 @@ koffingsoulstones: {
 		evos: ["Tinkatuff-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tinkatuffsoulstones: {
 		num: 768,
@@ -13239,7 +13240,7 @@ koffingsoulstones: {
 		evos: ["Tinkaton-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Tinkatink-Soulstones",
 	},
 	tinkatonsoulstones: {
@@ -13268,7 +13269,7 @@ koffingsoulstones: {
 		evos: ["T.Milotic"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmilotic: {
 		num: 771,
@@ -13323,7 +13324,7 @@ koffingsoulstones: {
 		evos: ["Quagsire-Soulstones", "Clodsire-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	quagsiresoulstones: {
 		num: 775,
@@ -13351,7 +13352,7 @@ koffingsoulstones: {
 		evos: ["Floette-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	floettesoulstones: {
 		num: 777,
@@ -13365,7 +13366,7 @@ koffingsoulstones: {
 		evos: ["Florges-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Flabébé-Soulstones",
 	},
 	florgessoulstones: {
@@ -13425,7 +13426,7 @@ koffingsoulstones: {
 		evos: ["Salazzle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	salazzlesoulstones: {
 		num: 781,
@@ -13492,7 +13493,7 @@ koffingsoulstones: {
 		evos: ["Gholdengo-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gholdengosoulstones: {
 		num: 785,
@@ -13533,7 +13534,7 @@ koffingsoulstones: {
 		evos: ["Hydrapple-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Applin-Soulstones",
 	},
 	basculegionsoulstones: {
@@ -13627,7 +13628,7 @@ koffingsoulstones: {
 		evos: ["T.Bronzong"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tbronzong: {
 		num: 795,
@@ -13655,7 +13656,7 @@ koffingsoulstones: {
 		evos: ["Gourgeist-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gourgeistsoulstones: {
 		num: 797,
@@ -13683,7 +13684,7 @@ koffingsoulstones: {
 		evos: ["Lurantis-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lurantissoulstones: {
 		num: 799,
@@ -13711,7 +13712,7 @@ koffingsoulstones: {
 		evos: ["Whimsicott-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	whimsicottsoulstones: {
 		num: 801,
@@ -13739,7 +13740,7 @@ koffingsoulstones: {
 		evos: ["Spidops-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	spidopssoulstones: {
 		num: 803,
@@ -13767,7 +13768,7 @@ koffingsoulstones: {
 		evos: ["Vespiquen-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	vespiquensoulstones: {
 		num: 805,
@@ -13852,7 +13853,7 @@ koffingsoulstones: {
 		evos: ["Hariyama-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	hariyamasoulstones: {
 		num: 809,
@@ -13880,7 +13881,7 @@ koffingsoulstones: {
 		evos: ["T.Mr. Mime"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmrmime: {
 		num: 811,
@@ -13894,7 +13895,7 @@ koffingsoulstones: {
 		evos: ["T.Mr. Rime"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Mime Jr.",
 	},
 	tmrrime: {
@@ -13923,7 +13924,7 @@ koffingsoulstones: {
 		evos: ["T.Rapidash"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	trapidash: {
 		num: 814,
@@ -13951,7 +13952,7 @@ koffingsoulstones: {
 		evos: ["T.Golurk"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgolurk: {
 		num: 816,
@@ -13979,7 +13980,7 @@ koffingsoulstones: {
 		evos: ["Escavalier-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	escavaliersoulstones: {
 		num: 818,
@@ -14020,7 +14021,7 @@ koffingsoulstones: {
 		evos: ["Bisharp-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	bisharpsoulstones: {
 		num: 821,
@@ -14034,7 +14035,7 @@ koffingsoulstones: {
 		evos: ["Kingambit-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Pawniard-Soulstones",
 	},
 	kingambitsoulstones: {
@@ -14063,7 +14064,7 @@ koffingsoulstones: {
 		evos: ["Dolliv-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dollivsoulstones: {
 		num: 824,
@@ -14077,7 +14078,7 @@ koffingsoulstones: {
 		evos: ["Arboliva-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Smoliv-Soulstones",
 	},
 	arbolivasoulstones: {
@@ -14106,7 +14107,7 @@ koffingsoulstones: {
 		evos: ["Thievul-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	thievulsoulstones: {
 		num: 827,
@@ -14134,7 +14135,7 @@ koffingsoulstones: {
 		evos: ["T.Sealeo"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tsealeo: {
 		num: 829,
@@ -14148,7 +14149,7 @@ koffingsoulstones: {
 		evos: ["T.Walrein"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Spheal",
 	},
 	twalrein: {
@@ -14177,7 +14178,7 @@ koffingsoulstones: {
 		evos: ["Whiscash-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	whiscashsoulstones: {
 		num: 832,
@@ -14257,7 +14258,7 @@ koffingsoulstones: {
 		evos: ["Fraxure-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	fraxuresoulstones: {
 		num: 835,
@@ -14271,7 +14272,7 @@ koffingsoulstones: {
 		evos: ["Haxorus-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Axew-Soulstones",
 	},
 	haxorussoulstones: {
@@ -14313,7 +14314,7 @@ koffingsoulstones: {
 		evos: ["Overqwil-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	overqwilsoulstones: {
 		num: 839,
@@ -14354,7 +14355,7 @@ koffingsoulstones: {
 		evos: ["Houndstone-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	houndstonesoulstones: {
 		num: 842,
@@ -14382,7 +14383,7 @@ koffingsoulstones: {
 		evos: ["Sandslash-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sandslashsoulstones: {
 		num: 844,
@@ -14410,7 +14411,7 @@ koffingsoulstones: {
 		evos: ["Cetitan-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cetitansoulstones: {
 		num: 846,
@@ -14438,7 +14439,7 @@ koffingsoulstones: {
 		evos: ["Combusken-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	combuskensoulstones: {
 		num: 848,
@@ -14452,7 +14453,7 @@ koffingsoulstones: {
 		evos: ["Blaziken-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Torchic-Soulstones",
 	},
 	blazikensoulstones: {
@@ -14499,7 +14500,7 @@ koffingsoulstones: {
 		evos: ["Naclstack-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	naclstacksoulstones: {
 		num: 851,
@@ -14513,7 +14514,7 @@ koffingsoulstones: {
 		evos: ["Garganacl-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Nacli-Soulstones",
 	},
 	garganaclsoulstones: {
@@ -14560,7 +14561,7 @@ koffingsoulstones: {
 		evos: ["Arctibax-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	arctibaxsoulstones: {
 		num: 854,
@@ -14574,7 +14575,7 @@ koffingsoulstones: {
 		evos: ["Baxcalibur-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Frigibax-Soulstones",
 	},
 	baxcalibursoulstones: {
@@ -14603,7 +14604,7 @@ koffingsoulstones: {
 		evos: ["Wobbuffet-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wobbuffetsoulstones: {
 		num: 857,
@@ -14675,7 +14676,7 @@ koffingsoulstones: {
 		evos: ["Mienshao-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mienshaosoulstones: {
 		num: 861,
@@ -14703,7 +14704,7 @@ koffingsoulstones: {
 		evos: ["Togetic-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	togeticsoulstones: {
 		num: 863,
@@ -14717,7 +14718,7 @@ koffingsoulstones: {
 		evos: ["Togekiss-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Togepi-Soulstones",
 	},
 	togekisssoulstones: {
@@ -14746,7 +14747,7 @@ koffingsoulstones: {
 		evos: ["T.Zoroark"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tzoroark: {
 		num: 866,
@@ -14788,7 +14789,7 @@ koffingsoulstones: {
 		evos: ["Pangoro-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	pangorosoulstones: {
 		num: 869,
@@ -14816,7 +14817,7 @@ koffingsoulstones: {
 		evos: ["Dewott-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dewottsoulstones: {
 		num: 871,
@@ -14830,7 +14831,7 @@ koffingsoulstones: {
 		evos: ["Samurott-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Oshawott-Soulstones",
 	},
 	samurottsoulstones: {
@@ -14859,7 +14860,7 @@ koffingsoulstones: {
 		evos: ["T.Avalugg"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tavalugg: {
 		num: 874,
@@ -14887,7 +14888,7 @@ koffingsoulstones: {
 		evos: ["T.Tyrantrum"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ttyrantrum: {
 		num: 876,
@@ -14915,7 +14916,7 @@ koffingsoulstones: {
 		evos: ["Wugtrio-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wugtriosoulstones: {
 		num: 878,
@@ -15005,7 +15006,7 @@ koffingsoulstones: {
 		evos: ["T.Arcanine"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tarcanine: {
 		num: 882,
@@ -15033,7 +15034,7 @@ koffingsoulstones: {
 		evos: ["Simisage-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	simisagesoulstones: {
 		num: 884,
@@ -15061,7 +15062,7 @@ koffingsoulstones: {
 		evos: ["Simisear-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	simisearsoulstones: {
 		num: 886,
@@ -15089,7 +15090,7 @@ koffingsoulstones: {
 		evos: ["Simipour-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	simipoursoulstones: {
 		num: 888,
@@ -15117,7 +15118,7 @@ koffingsoulstones: {
 		evos: ["Rhydon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	rhydonsoulstones: {
 		num: 890,
@@ -15131,7 +15132,7 @@ koffingsoulstones: {
 		evos: ["Rhyperior-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Rhyhorn-Soulstones",
 	},
 	rhyperiorsoulstones: {
@@ -15160,7 +15161,7 @@ koffingsoulstones: {
 		evos: ["T.Dusclops"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdusclops: {
 		num: 893,
@@ -15174,7 +15175,7 @@ koffingsoulstones: {
 		evos: ["T.Dusknoir"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Duskull",
 	},
 	tdusknoir: {
@@ -15203,7 +15204,7 @@ koffingsoulstones: {
 		evos: ["Purugly-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	puruglysoulstones: {
 		num: 896,
@@ -15231,7 +15232,7 @@ koffingsoulstones: {
 		evos: ["Cloyster-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	cloystersoulstones: {
 		num: 898,
@@ -15259,7 +15260,7 @@ koffingsoulstones: {
 		evos: ["Malamar-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	malamarsoulstones: {
 		num: 900,
@@ -15314,7 +15315,7 @@ koffingsoulstones: {
 		evos: ["Diggersby-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	diggersbysoulstones: {
 		num: 904,
@@ -15342,7 +15343,7 @@ koffingsoulstones: {
 		evos: ["Lycanroc-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lycanrocsoulstones: {
 		num: 906,
@@ -15370,7 +15371,7 @@ koffingsoulstones: {
 		evos: ["T.Dartrix"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdartrix: {
 		num: 908,
@@ -15384,7 +15385,7 @@ koffingsoulstones: {
 		evos: ["T.Decidueye"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Rowlet",
 	},
 	tdecidueye: {
@@ -15413,7 +15414,7 @@ koffingsoulstones: {
 		evos: ["Lickilicky-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lickilickysoulstones: {
 		num: 911,
@@ -15441,7 +15442,7 @@ koffingsoulstones: {
 		evos: ["Wartortle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wartortlesoulstones: {
 		num: 913,
@@ -15455,7 +15456,7 @@ koffingsoulstones: {
 		evos: ["Blastoise-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Squirtle-Soulstones",
 	},
 	blastoisesoulstones: {
@@ -15501,7 +15502,7 @@ koffingsoulstones: {
 		evos: ["T.Cacturne"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tcacturne: {
 		num: 916,
@@ -15547,7 +15548,7 @@ koffingsoulstones: {
 		evos: ["Weepinbell-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	weepinbellsoulstones: {
 		num: 918,
@@ -15561,7 +15562,7 @@ koffingsoulstones: {
 		evos: ["Victreebel-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Bellsprout-Soulstones",
 	},
 	victreebelsoulstones: {
@@ -15590,7 +15591,7 @@ koffingsoulstones: {
 		evos: ["Lilligant-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lilligantsoulstones: {
 		num: 921,
@@ -15618,7 +15619,7 @@ koffingsoulstones: {
 		evos: ["T.Trevenant"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ttrevenant: {
 		num: 923,
@@ -15646,7 +15647,7 @@ koffingsoulstones: {
 		evos: ["T.Jigglypuff"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tjigglypuff: {
 		num: 925,
@@ -15660,7 +15661,7 @@ koffingsoulstones: {
 		evos: ["T.Wigglytuff"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Igglybuff",
 	},
 	twigglytuff: {
@@ -15689,7 +15690,7 @@ koffingsoulstones: {
 		evos: ["Maushold-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mausholdsoulstones: {
 		num: 928,
@@ -15744,7 +15745,7 @@ koffingsoulstones: {
 		evos: ["Charjabug-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	charjabugsoulstones: {
 		num: 932,
@@ -15758,7 +15759,7 @@ koffingsoulstones: {
 		evos: ["Vikavolt-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Grubbin-Soulstones",
 	},
 	vikavoltsoulstones: {
@@ -15787,7 +15788,7 @@ koffingsoulstones: {
 		evos: ["T.Ursaring"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tursaring: {
 		num: 935,
@@ -15801,7 +15802,7 @@ koffingsoulstones: {
 		evos: ["T.Ursaluna"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Teddiursa",
 	},
 	tursaluna: {
@@ -15862,7 +15863,7 @@ koffingsoulstones: {
 		evos: ["T.Sneasler", "T.Weavile"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tweavile: {
 		num: 939,
@@ -15930,7 +15931,7 @@ koffingsoulstones: {
 		evos: ["T.Maushold"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmaushold: {
 		num: 944,
@@ -15984,7 +15985,7 @@ koffingsoulstones: {
 		evos: ["T.Cetitan"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tcetitan: {
 		num: 948,
@@ -16012,7 +16013,7 @@ koffingsoulstones: {
 		evos: ["T.Scizor"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tscizor: {
 		num: 950,
@@ -16040,7 +16041,7 @@ koffingsoulstones: {
 		evos: ["Accelgor-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	accelgorsoulstones: {
 		num: 952,
@@ -16068,7 +16069,7 @@ koffingsoulstones: {
 		evos: ["Granbull-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	granbullsoulstones: {
 		num: 954,
@@ -16096,7 +16097,7 @@ koffingsoulstones: {
 		evos: ["Drednaw-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	drednawsoulstones: {
 		num: 956,
@@ -16142,7 +16143,7 @@ koffingsoulstones: {
 		evos: ["T.Gogoat"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgogoat: {
 		num: 958,
@@ -16196,7 +16197,7 @@ koffingsoulstones: {
 		evos: ["Wormadam-Soulstones", "Mothim-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wormadamsoulstones: {
 		num: 962,
@@ -16238,7 +16239,7 @@ koffingsoulstones: {
 		evos: ["Wormadam-Soulstones-Rock", "Mothim-Soulstones-Rock"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wormadamsoulstonesrock: {
 		num: 53,
@@ -16280,7 +16281,7 @@ koffingsoulstones: {
 		evos: ["Wormadam-Soulstones-Snow", "Mothim-Soulstones-Snow"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	wormadamsoulstonessnow: {
 		num: 56,
@@ -16322,7 +16323,7 @@ koffingsoulstones: {
 		evos: ["Floragato-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	floragatosoulstones: {
 		num: 965,
@@ -16336,7 +16337,7 @@ koffingsoulstones: {
 		evos: ["Meowscarada-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Sprigatito-Soulstones",
 	},
 	meowscaradasoulstones: {
@@ -16378,7 +16379,7 @@ koffingsoulstones: {
 		evos: ["Glimmora-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	glimmorasoulstones: {
 		num: 969,
@@ -16432,7 +16433,7 @@ koffingsoulstones: {
 		evos: ["Brambleghast-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	brambleghastsoulstones: {
 		num: 973,
@@ -16460,7 +16461,7 @@ koffingsoulstones: {
 		evos: ["Toedscruel-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	toedscruelsoulstones: {
 		num: 975,
@@ -16501,7 +16502,7 @@ koffingsoulstones: {
 		evos: ["Scovillain-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	scovillainsoulstones: {
 		num: 978,
@@ -16529,7 +16530,7 @@ koffingsoulstones: {
 		evos: ["Quaxwell-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	quaxwellsoulstones: {
 		num: 980,
@@ -16543,7 +16544,7 @@ koffingsoulstones: {
 		evos: ["Quaquaval-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Quaxly-Soulstones",
 	},
 	quaquavalsoulstones: {
@@ -16572,7 +16573,7 @@ koffingsoulstones: {
 		evos: ["Amoonguss-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	amoongusssoulstones: {
 		num: 983,
@@ -16600,7 +16601,7 @@ koffingsoulstones: {
 		evos: ["T.Parasect"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tparasect: {
 		num: 985,
@@ -16628,7 +16629,7 @@ koffingsoulstones: {
 		evos: ["T.Donphan"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tdonphan: {
 		num: 987,
@@ -16657,7 +16658,7 @@ koffingsoulstones: {
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Meltan-Soulstones-StrawberryVanilla", "Meltan-Soulstones-SaltedCaramel", "Meltan-Soulstones-BananaPeanutButter"],
-		tier: "OU",
+		tier: "LC",
 	},
 	melmetalsoulstones: {
 		num: 989,
@@ -16731,7 +16732,7 @@ koffingsoulstones: {
 		evos: ["T.Corvisquire"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tcorvisquire: {
 		num: 992,
@@ -16745,7 +16746,7 @@ koffingsoulstones: {
 		evos: ["T.Corviknight"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Rookidee",
 	},
 	tcorviknight: {
@@ -16774,7 +16775,7 @@ koffingsoulstones: {
 		evos: ["T.Pyroar"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tpyroar: {
 		num: 995,
@@ -16802,7 +16803,7 @@ koffingsoulstones: {
 		evos: ["T.Tangrowth"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	ttangrowth: {
 		num: 997,
@@ -16830,7 +16831,7 @@ koffingsoulstones: {
 		evos: ["Bellibolt-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	belliboltsoulstones: {
 		num: 999,
@@ -16871,7 +16872,7 @@ koffingsoulstones: {
 		evos: ["Raboot-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	rabootsoulstones: {
 		num: 1002,
@@ -16885,7 +16886,7 @@ koffingsoulstones: {
 		evos: ["Cinderace-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Scorbunny-Soulstones",
 	},
 	cinderacesoulstones: {
@@ -16941,7 +16942,7 @@ koffingsoulstones: {
 		evos: ["Dottler-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	dottlersoulstones: {
 		num: 1007,
@@ -16955,7 +16956,7 @@ koffingsoulstones: {
 		evos: ["Orbeetle-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Blipbug-Soulstones",
 	},
 	orbeetlesoulstones: {
@@ -16997,7 +16998,7 @@ koffingsoulstones: {
 		evos: ["T.Mudsdale"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tmudsdale: {
 		num: 1011,
@@ -17064,7 +17065,7 @@ koffingsoulstones: {
 		evos: ["Sirfetchd-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sirfetchdsoulstones: {
 		num: 1016,
@@ -17105,7 +17106,7 @@ koffingsoulstones: {
 		evos: ["Archaludon-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	archaludonsoulstones: {
 		num: 1019,
@@ -17133,7 +17134,7 @@ koffingsoulstones: {
 		evos: ["T.Pikachu"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tpikachu: {
 		num: 1021,
@@ -17147,7 +17148,7 @@ koffingsoulstones: {
 		evos: ["T.Raichu"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Pichu",
 	},
 	traichu: {
@@ -17189,7 +17190,7 @@ koffingsoulstones: {
 		evos: ["T.Kirlia"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tkirlia: {
 		num: 1025,
@@ -17203,7 +17204,7 @@ koffingsoulstones: {
 		evos: ["T.Gardevoir", "T.Gallade"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Ralts",
 	},
 	tgardevoir: {
@@ -17272,7 +17273,7 @@ koffingsoulstones: {
 		evos: ["Mabosstiff-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	mabosstiffsoulstones: {
 		num: 1031,
@@ -17300,7 +17301,7 @@ koffingsoulstones: {
 		evos: ["Lokix-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	lokixsoulstones: {
 		num: 1033,
@@ -17342,7 +17343,7 @@ koffingsoulstones: {
 		evos: ["T.Grovyle"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgrovyle: {
 		num: 1036,
@@ -17356,7 +17357,7 @@ koffingsoulstones: {
 		evos: ["T.Sceptile"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Treecko",
 	},
 	tsceptile: {
@@ -17438,7 +17439,7 @@ koffingsoulstones: {
 		evos: ["T.Zebstrika"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tzebstrika: {
 		num: 1042,
@@ -17466,7 +17467,7 @@ koffingsoulstones: {
 		evos: ["T.Grotle"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tgrotle: {
 		num: 1044,
@@ -17480,7 +17481,7 @@ koffingsoulstones: {
 		evos: ["T.Torterra"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Turtwig",
 	},
 	ttorterra: {
@@ -17509,7 +17510,7 @@ koffingsoulstones: {
 		evos: ["Sinistcha-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sinistchasoulstones: {
 		num: 1047,
@@ -17537,7 +17538,7 @@ koffingsoulstones: {
 		evos: ["T.Naclstack"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tnaclstack: {
 		num: 1049,
@@ -17551,7 +17552,7 @@ koffingsoulstones: {
 		evos: ["T.Garganacl"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Nacli",
 	},
 	tgarganacl: {
@@ -17580,7 +17581,7 @@ koffingsoulstones: {
 		evos: ["T.Whimsicott"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	twhimsicott: {
 		num: 1052,
@@ -17679,7 +17680,7 @@ koffingsoulstones: {
 		evos: ["Thwackey-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	thwackeysoulstones: {
 		num: 1057,
@@ -17693,7 +17694,7 @@ koffingsoulstones: {
 		evos: ["Rillaboom-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "Grookey-Soulstones",
 	},
 	rillaboomsoulstones: {
@@ -17722,7 +17723,7 @@ koffingsoulstones: {
 		evos: ["Armarouge-Soulstones", "Ceruledge-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	armarougesoulstones: {
 		num: 1060,
@@ -17764,7 +17765,7 @@ koffingsoulstones: {
 		evos: ["Grumpig-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	grumpigsoulstones: {
 		num: 1063,
@@ -17792,7 +17793,7 @@ koffingsoulstones: {
 		evos: ["Grumpig-Soulstones-Toxic"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	grumpigsoulstonestoxicorb: {
 		num: 1063,
@@ -17859,7 +17860,7 @@ koffingsoulstones: {
 		evos: ["T.Steelix"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tsteelix: {
 		num: 1068,
@@ -17887,7 +17888,7 @@ koffingsoulstones: {
 		evos: ["T.Charmeleon"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tcharmeleon: {
 		num: 1070,
@@ -17901,7 +17902,7 @@ koffingsoulstones: {
 		evos: ["T.Charizard"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "NFE",
 		prevo: "T.Charmander",
 	},
 	tcharizard: {
@@ -17948,7 +17949,7 @@ koffingsoulstones: {
 		evos: ["T.Sinistcha"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	tsinistcha: {
 		num: 1073,
