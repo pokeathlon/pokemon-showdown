@@ -75022,7 +75022,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	flabbsoulstones: {
+	flabebesoulstones: {
 		learnset: {
 			aromatherapy: ["9L23", "9M"],
 			attract: ["9M"],

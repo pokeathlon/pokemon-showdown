@@ -2637,6 +2637,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
     squawkabillysoulstonesblue: "Squawkabilly-Soulstones",
     tatsugirisoulstonesblue: "Tatsugiri-Soulstones",
     tatsugirisoulstonespink: "Tatsugiri-Soulstones",
+	flabbsoulstones: "Flabébé-Soulstones",
 	
 	//PoA
 	bewitwinglegacy: "Bewitwing",

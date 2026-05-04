@@ -13342,7 +13342,7 @@ koffingsoulstones: {
 	},
 	flabebesoulstones: {
 		num: 776,
-		name: "Flabébé-Soulstones",
+		name: "Flabe\u0301be\u0301-Soulstones",
 		types: ['Fairy', 'Water'],
 		baseStats: { hp: 44, atk: 28, def: 58, spa: 61, spd: 70, spe: 42 },
 		abilities: { 0: "Rain Dish", 1: "Synthesize" },
