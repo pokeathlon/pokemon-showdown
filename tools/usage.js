@@ -53,6 +53,7 @@ if (process.argv[2] === 'full') {
 				daily: {},
 				species: {},
 				sets: {},
+				winrates: {},
 			};
 
 			const isFusions = !formatinfo[format] || formatinfo[format].ruleset.includes('Infinite Fusion Mod');
@@ -85,6 +86,18 @@ if (process.argv[2] === 'full') {
 							const species = `${toID(set['species'])}${isFusions && set['fusion'] ? '+' + toID(set['fusion']) : ''}`;
 							incrementObj(usage[format].species, species);
 
+							if (!usage[format].winrates[species]) usage[format].winrates[species] = {
+								wins: 0,
+								losses: 0,
+								rate: 1,
+							};
+
+							if (data[`p${i}`] === data['winner']) {
+								usage[format].winrates[species].wins += 1;
+							} else {
+								usage[format].winrates[species].losses += 1;
+							}
+
 							if (!usage[format].sets[species]) usage[format].sets[species] = {
 								abilities: {},
 								items: {},
@@ -102,6 +115,11 @@ if (process.argv[2] === 'full') {
 					}
 				}
 			}
+
+			for (const species in usage[format].winrates) {
+				usage[format].winrates[species].rate = usage[format].winrates[species].wins / (usage[format].winrates[species].wins + usage[format].winrates[species].losses);
+			}
+
 			process.stdout.write('\r                                                \r');
 		}
 
@@ -141,20 +159,22 @@ if (process.argv[2] === 'full') {
 
 			const dex = Dex.mod(formatinfo[format] ? formatinfo[format].mod : format.substring(0, 4));
 
-			b += `${pad(usage[format].total.ladders, ' ', 8)} | <a href=/${month}/${format}.html>${pad(formatinfo[format] ? formatinfo[format].name : format, ' ', 30)}</a>\n`;
+			b += `${pad(usage[format].total.ladders, ' ', 8)} | <a href=/${month}/${format}/usage.html>${pad(formatinfo[format] ? formatinfo[format].name : format, ' ', 30)}</a>\n`;
 
 			let c = start;
 			c += `<a href=/${month}.html><- back</a>\n\n`;
-			c += `${pad('USAGE %', ' ', 8)} | ${pad('POK&Eacute;MON', ' ', isFusions ? 36 : 24)}\n${pad('', '-', 11 + (isFusions ? 36 : 24))}\n`;
+			c += `USAGE &#x25BC; | WINRATE <a href=/${month}/${format}/winrate.html>&#x25B6;</a> | ${pad('POK&Eacute;MON', ' ', isFusions ? 36 : 24)}\n${pad('', '-', 11 + (isFusions ? 36 : 24))}\n`;
 
 			for (const species of Object.entries(usage[format].species).toSorted((a, b) => b[1] - a[1])) {
 				let percent = (species[1] / usage[format].total.teams) * 100;
 				if (percent < 0.5) continue;
 
+				let winrate = usage[format].winrates[species[0]].rate * 100;
+
 				const name = species[0].split('+').map(element => dex.species.get(element).name).join(' + ');
 				const sets = usage[format].sets[species[0]];
 
-				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a>\n`;
+				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 7)} | ${pad(`${winrate}`.includes('.') ? winrate : `${winrate}.`, '0', 9)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a>\n`;
 
 				let d = start;
 				d += `<a href=/${month}/${format}.html><- back</a>\n\n`;
@@ -202,7 +222,27 @@ if (process.argv[2] === 'full') {
 
 			c += `\n<a href=/${month}.html><- back</a>`;
 			c += end;
-			fs.writeFileSync(`${server}/usage/${month}/${format}.html`, c);
+			fs.writeFileSync(`${server}/usage/${month}/${format}/usage.html`, c);
+
+			let winrates = start;
+			winrates += `<a href=/${month}.html><- back</a>\n\n`;
+			winrates += `USAGE <a href=/${month}/${format}/usage.html>&#x25B6;</a> | WINRATE &#x25BC; | ${pad('POK&Eacute;MON', ' ', isFusions ? 36 : 24)}\n${pad('', '-', 11 + (isFusions ? 36 : 24))}\n`;
+
+			for (const species of Object.entries(usage[format].winrates).toSorted((a, b) => b[1].rate - a[1].rate)) {
+				let percent = (usage[format].species[species[0]] / usage[format].total.teams) * 100;
+				if (percent < 0.5) continue;
+
+				let winrate = species[1].rate * 100;
+
+				const name = species[0].split('+').map(element => dex.species.get(element).name).join(' + ');
+				const sets = usage[format].sets[species[0]];
+
+				winrates += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 7)} | ${pad(`${winrate}`.includes('.') ? winrate : `${winrate}.`, '0', 9)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a>\n`;
+			}
+
+			winrates += `\n<a href=/${month}.html><- back</a>`;
+			winrates += end;
+			fs.writeFileSync(`${server}/usage/${month}/${format}/winrate.html`, winrates);
 		}
 
 		b += `\n<a href=/><- back</a>`;
