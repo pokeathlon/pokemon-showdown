@@ -130,7 +130,7 @@ if (process.argv[2] === 'full') {
 {
 	process.stdout.write('Generating HTML files... \n');
 
-	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t\t<style>\n\t\t\ta { text-decoration: none; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<pre style="word-wrap: break-word; white-space: pre-wrap;">`;
+	const start = `<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name="color-scheme" content="light dark">\n\t\t<style>\n\t\t\ta { text-decoration: none; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<pre>`;
 	const end = `\n\t\t</pre>\n\t</body>\n</html>`;
 
 	const months = fs.readdirSync(`${server}/usage/raw`).map(element => element.split('.')[0]).toReversed();
