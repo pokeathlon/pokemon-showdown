@@ -177,7 +177,7 @@ if (process.argv[2] === 'full') {
 				c += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 7)} | ${pad(`${winrate}`.includes('.') ? winrate : `${winrate}.`, '0', 9)} | <a href=/${month}/${format}/${species[0]}.html>${pad(name, ' ', isFusions ? 36 : 24)}</a>\n`;
 
 				let d = start;
-				d += `<a href=/${month}/${format}.html><- back</a>\n\n`;
+				d += `<a href=/${month}/${format}/usage.html><- back</a>\n\n`;
 				d += `--- ${name.toUpperCase()} ---\n\n`;
 				d += `${pad('USAGE %', ' ', 8)} | ${pad('MOVES', ' ', 24)}\n${pad('', '-', 35)}\n`;
 
@@ -215,7 +215,7 @@ if (process.argv[2] === 'full') {
 					d += `${pad(`${percent}`.includes('.') ? percent : `${percent}.`, '0', 8)} | ${pad(dex.items.get(item[0]), ' ', 24)}\n`;
 				}
 
-				d += `\n<a href=/${month}/${format}.html><- back</a>`;
+				d += `\n<a href=/${month}/${format}/usage.html><- back</a>`;
 				d += end;
 				fs.writeFileSync(`${server}/usage/${month}/${format}/${species[0]}.html`, d);
 			}
