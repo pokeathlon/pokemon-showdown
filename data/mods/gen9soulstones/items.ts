@@ -5,8 +5,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	
 	// New items 
 	
-	assaultvest: {
-		name: "Assault Vest",
+	assaultarmor: {
+		name: "Assault Armor",
 		spritenum: -3,
 		fling: {
 			basePower: 80,
