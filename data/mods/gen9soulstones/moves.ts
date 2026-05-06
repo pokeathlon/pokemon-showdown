@@ -22,6 +22,40 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	fly: {
+		inherit: true,
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'gust' || move.id === 'twister' || move.id === 'dragongale') {
+					return this.chainModify(2);
+				}
+			},
+		},
+	},
+	bounce: {
+		inherit: true,
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceBasePower(basePower, target, source, move) {
+				if (move.id === 'gust' || move.id === 'twister' || move.id === 'dragongale') {
+					return this.chainModify(2);
+				}
+			},
+		},
+	},
 	// Additions
 		tidalwave: {
 		num: 0,
@@ -216,7 +250,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Bug",
 		contestType: "Tough",
 		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
-		// FUNCTION CODE: MultiTurnAttackConfuseUserAtEnd
 	},
 
 	infection: {
@@ -239,7 +272,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Bug",
 		contestType: "Tough",
 		shortDesc: "Power doubles if the target has a status ailment.",
-		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
 	},
 
 	nectartap: {
@@ -561,7 +593,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Cosmic",
 		contestType: "Tough",
 		shortDesc: "Foe(s)'s healing moves are disabled.",
-		// FUNCTION CODE: DisableTargetHealingMoves
 	},
 
 	meteordrive: {
@@ -645,7 +676,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Cosmic",
 		contestType: "Tough",
 		shortDesc: "Usually goes first. Fails if target is not attacking.",
-		// FUNCTION CODE: FailsIfTargetActed
 	},
 
 	solareclipse: {
@@ -1366,11 +1396,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'flinch',
+		},
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTargetDoublePowerIfTargetInSky, CHANCE: 10
+		shortDesc: "10% to flinch. 2x power if foe in sky.",
 	},
 
 	dragongnaw: {
@@ -1949,7 +1982,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
-				this.hint("Fake Out only works on your first turn out.");
+				this.hint("Peekaboo only works on your first turn out.");
 				return false;
 			}
 		},
@@ -2682,7 +2715,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
-				this.add('-enditem', target, item.name, '[from] move: Knock Off', `[of] ${source}`);
+				this.add('-enditem', target, item.name, '[from] move: Turbulence', `[of] ${source}`);
 			}
 		},
 		target: "normal",
@@ -4315,7 +4348,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
 		onTry(source) {
 			if (source.activeMoveActions > 1) {
-				this.hint("Fake Out only works on your first turn out.");
+				this.hint("Shutdown only works on your first turn out.");
 				return false;
 			}
 		},
@@ -4470,7 +4503,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
-				this.add('-enditem', target, item.name, '[from] move: Knock Off', `[of] ${source}`);
+				this.add('-enditem', target, item.name, '[from] move: Spoil', `[of] ${source}`);
 			}
 		},
 		target: "normal",
@@ -4754,11 +4787,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 20,
+			onHit(target, source) {
+				const status = this.sample(['brn', 'par', 'frz']);
+				target.trySetStatus(status, source);
+			},
+		},
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ParalyzeBurnOrFreezeTarget, CHANCE: 20
+		shortDesc: "20% chance to burn, freezs, or paralyze target.",
 	},
 
 	boulderhurl: {
@@ -4770,11 +4809,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		overrideOffensiveStat: 'def',
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseUserBaseDefenseInsteadOfUserBaseAttack
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
 	},
 
 	catapult: {
@@ -4786,10 +4825,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bullet: 1 },
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Speed by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -4798,6 +4833,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Speed by 1.",
 	},
 
 	crystaldust: {
@@ -4809,16 +4848,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				accuracy: -1,
 			},
 		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 	},
 
 	diamondblade: {
@@ -4830,11 +4869,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		critRatio: 2,
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -4843,6 +4877,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		critRatio: 2,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Attack by 1.",
 	},
 
 	diamondshard: {
@@ -4869,11 +4908,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onModifyMove(move) {
+			if (this.field.isWeather('sandstorm')) move.accuracy = true;
+		},
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: AlwaysHitsInSandstorm
+		shortDesc: "Can't miss in Sandstorm.",
 	},
 
 	glisten: {
@@ -4884,12 +4925,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Glisten",
 		pp: 15,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1,  snatch: 1},
+		boosts: {
+			spa: 1,
+			spd: 1,
+		},
 		target: "self",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtkSpDef1
+		shortDesc: "Raises the user's Sp. Atk and Sp. Def by 1.",
 	},
 
 	mineralwave: {
@@ -4901,16 +4945,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Rock",
-		contestType: "Tough",
-		shortDesc: "100% chance to lower the target's Speed by 1.",
 		secondary: {
 			chance: 100,
 			boosts: {
 				spe: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
 	},
 
 	moonstoneray: {
@@ -4921,12 +4965,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Moonstone Ray",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, protect: 1, mirror: 1, charge: 1 },
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({ spa: 1 }, attacker, attacker, move);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: TwoTurnAttackChargeRaiseUserSpAtk1
+		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.",
 	},
 
 	battlecry: {
@@ -4938,11 +4993,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		onHit(target, source, move) {
+			return target.addVolatile('trapped', source, move, 'trapper');
+		},
 		target: "allAdjacentFoes",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: TrapTargetInBattle
+		shortDesc: "Prevents the target from switching out.",
 	},
 
 	boombox: {
@@ -4969,11 +5026,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.volatiles['crescendo'] || move.hit === 1) {
+				pokemon.addVolatile('crescendo');
+			}
+			const bp = this.clampIntRange(move.basePower * pokemon.volatiles['crescendo'].multiplier, 1, 160);
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectState.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
+				}
+				this.effectState.duration = 2;
+			},
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: MultiTurnAttackPowersUpEachTurn
+		shortDesc: "Power doubles with each hit, up to 160.",
 	},
 
 	darkwhispers: {
@@ -4985,11 +5061,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		boosts: {
+			spa: -1,
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1
+		shortDesc: "Lowers the target's Sp. Atk by 1.",
 	},
 
 	fortissimo: {
@@ -5001,11 +5079,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, sound: 1 },
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserAttack2
+		shortDesc: "Lowers the user's Attack by 2.",
 	},
 
 	gentlechimes: {
@@ -5017,14 +5099,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "allAdjacentFoes",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "20% chance to sleep target",
 		secondary: {
 			chance: 20,
 			volatileStatus: 'slp',
 		},
+		target: "allAdjacentFoes",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "20% chance to sleep target",
 	},
 
 	gossip: {
@@ -5036,11 +5118,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		boosts: {
+			spa: -1,
+			spd: -1,
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtkSpDef1
+		shortDesc: "Lowers the target's Sp. Atk and Sp. Def by 1.",
 	},
 
 	hallelujah: {
@@ -5052,10 +5137,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Sp. Def by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -5064,6 +5145,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Sp. Def by 1.",
 	},
 
 	hyperacusis: {
@@ -5075,16 +5160,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Sp.Def by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				spd: -1,
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Sp.Def by 1.",
 	},
 
 	lullaby: {
@@ -5096,11 +5181,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		volatileStatus: 'yawn',
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SleepTargetNextTurn
+		shortDesc: "Puts the target to sleep after 1 turn.",
 	},
 
 	megaphone: {
@@ -5112,10 +5197,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -5124,6 +5205,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Attack by 1.",
 	},
 
 	noisepollution: {
@@ -5135,14 +5220,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "30% chance to poison target",
 		secondary: {
 			chance: 30,
 			volatileStatus: 'psn',
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "30% chance to poison target",
 	},
 
 	odetojoy: {
@@ -5153,12 +5238,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Ode to Joy",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, sound: 1 },
+		flags: {metronome: 1, sound: 1, heal: 1 },
+		heal: [1, 2],
 		target: "self",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HealUserHalfOfTotalHP
+		shortDesc: "Heals the user by 50% of its max HP.",
 	},
 
 	perfectpitch: {
@@ -5170,11 +5255,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					atk: 1,
+					def: 1,
+					spa: 1,
+					spd: 1,
+					spe: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserMainStats1, CHANCE: 10
+		shortDesc: "10% chance to raise all stats by 1 (not acc/eva).",
 	},
 
 	philharmonic: {
@@ -5185,12 +5281,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Philharmonic",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, sound: 1 },
-		target: "allySide",
+		flags: {metronome: 1, sound: 1, heal: 1 },
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
+		},
+		target: "allies",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HealallySideQuarterOfTotalHPCureStatus
+		shortDesc: "User and allies: healed 1/4 max HP, status cured.",
 	},
 
 	rallentando: {
@@ -5201,12 +5300,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Rallentando",
 		pp: 5,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1, reflectable: 1 },
+		onHit(target, source, move) {
+			const success = this.boost({ atk: -1, spa: -1 }, target, source);
+			if (!success && !target.hasAbility('mirrorarmor')) {
+				delete move.selfSwitch;
+			}
+		},
+		selfSwitch: true,
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetAtkSpAtk1SwitchOutUser
+		shortDesc: "Lowers target's Atk, Sp. Atk by 1. User switches.",
 	},
 
 	reverb: {
@@ -5218,11 +5323,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times in one turn.",
 	},
 
 	schizophrenia: {
@@ -5233,12 +5338,26 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Schizophrenia",
 		pp: 30,
 		priority: 0,
-		flags: {metronome: 1, sound: 1 },
+		flags: {metronome: 1, sound: 1, snatch: 1 },
+		onHit(pokemon) {
+			let badStat: StatIDExceptHP = 'atk';
+			let badStatVal = 0;
+			const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			for (const i of stats) {
+				if (pokemon.getStat(i, true, true) < badStatVal) {
+					badStat = i;
+					badStatVal = pokemon.getStat(i, true, true);
+				}
+			}
+
+			const goodStat = pokemon.getBestStat(true, true);
+			if (pokemon.boosts[goodStat] >= 6 && pokemon.boosts[badStat] <= -6) return false;
+			this.boost({ [goodStat]: 1, [badStat]: 1 }, pokemon);
+		},
 		target: "adjacentAllyOrSelf",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseMinMaxStat1
+		shortDesc: "Raises user's lowest and highest stats by 1 stage.",
 	},
 
 	songofpassion: {
@@ -5250,10 +5369,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Sp. Atk by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -5262,6 +5377,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Sp. Atk by 1.",
 	},
 
 	songofsilence: {
@@ -5273,11 +5392,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ResetTargetStatStages
+		shortDesc: "Resets all of the target's stat stages to 0.",
 	},
 
 	soniccrash: {
@@ -5289,11 +5411,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, sound: 1 },
+		recoil: [1,3],
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RecoilThirdOfDamageDealt
+		shortDesc: "Has 1/3 recoil.",
 	},
 
 	sonicpunch: {
@@ -5320,11 +5442,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 3,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Staccato only works on your first turn out.");
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTargetFailsIfNotUserFirstTurn, CHANCE: 100
+		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
 	},
 
 	talksmack: {
@@ -5336,16 +5467,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Defense by 1.",
 	},
 
 	wail: {
@@ -5357,11 +5488,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		onBasePower(basePower, source) {
+			if (source.statsLoweredThisTurn) {
+				this.debug('wail buff');
+				return this.chainModify(2);
+			}
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfUserStatsLoweredThisTurn
+		shortDesc: "2x power if the user had a stat lowered this turn.",
 	},
 
 	chromeray: {
@@ -5373,14 +5509,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "10% chance to paralyze target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'par',
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "10% chance to paralyze target",
 	},
 
 	goldenbullet: {
@@ -5392,11 +5528,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 1,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FailsIfTargetActed
+		shortDesc: "Usually goes first. Fails if target is not attacking.",
 	},
 
 	hellbullet: {
@@ -5408,11 +5550,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		tracksTarget: true,
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CannotBeRedirected
+		shortDesc: "Cannot be redirected.",
 	},
 
 	magneticcannon: {
@@ -5424,16 +5566,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, pulse: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Sp.Def by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				spd: -1,
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Sp.Def by 1.",
 	},
 
 	missileshot: {
@@ -5445,14 +5587,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		overrideDefensiveStat: 'def',
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetDefenseInsteadOfTargetSpDef
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
 	},
 
-	nervesofsteel: {
+	nervesofsteel: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: true,
@@ -5460,12 +5602,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Nerves of Steel",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		sideCondition: 'mist',
 		target: "allySide",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: StartallySideImmunityToStatStageLowering
+		shortDesc: "For 5 turns, protects user's party from stat drops.",
 	},
 
 	quicksilver: {
@@ -5492,11 +5634,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		overrideOffensiveStat: 'def',
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseUserBaseDefenseInsteadOfUserBaseAttack
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
 	},
 
 	smartblade: {
@@ -5524,10 +5666,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "20% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 20,
 			self: {
@@ -5536,6 +5674,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 	},
 
 	timebomb: {
@@ -5547,11 +5689,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		onBasePower(basePower, pokemon) {
+			if (pokemon.side.faintedLastTurn) {
+				this.debug('Boosted for a faint last turn');
+				return this.chainModify(2);
+			}
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfAllyFaintedLastTurn
+		shortDesc: "Power doubles if an ally fainted last turn.",
 	},
 
 	titanhammer: {
@@ -5563,11 +5710,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserAttack2
+		shortDesc: "Lowers the user's Attack by 2.",
 	},
 
 	coralbomb: {
@@ -5579,15 +5730,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bullet: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'brn',
+		},
 		critRatio: 2,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
 		shortDesc: "30% chance to burn target",
-		secondary: {
-			chance: 30,
-			volatileStatus: 'brn',
-		},
 	},
 
 	hypertorrent: {
@@ -5599,11 +5750,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		selfSwitch: true,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SwitchOutTargetDamagingMove
+		shortDesc: "User switches out after damaging the target.",
 	},
 
 	oceanblast: {
@@ -5615,11 +5766,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		tracksTarget: true,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CannotBeRedirected
+		shortDesc: "Cannot be redirected.",
 	},
 
 	oceanwrath: {
@@ -5647,11 +5798,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 1,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, punch: 1 },
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FailsIfTargetActed
+		shortDesc: "Usually goes first. Fails if target is not attacking.",
 	},
 
 	waterpressure: {
@@ -5663,11 +5820,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		recoil: [1,3],
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RecoilThirdOfDamageDealt
+		shortDesc: "Has 1/3 recoil.",
 	},
 
 	waterwhip: {
@@ -5679,11 +5836,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		selfSwitch: true,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SwitchOutTargetDamagingMove
+		shortDesc: "User switches out after damaging the target.",
 	},
 
 	quicksand: {
@@ -5695,11 +5852,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		boosts: {
+			spe: -2,
+		},
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpeed2
+		shortDesc: "Lowers the target's Speed by 2.",
 	},
 
 	dragonfury: {
@@ -5711,10 +5870,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Dragon",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -5723,6 +5878,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Attack by 1.",
 	},
 
 	sweepingtalon: {
@@ -5734,11 +5893,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	satelliteray: {
@@ -5750,11 +5912,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Cosmic') return 1;
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SuperEffectiveAgainstCosmic
+		shortDesc: "Super effective on Cosmic.",
 	},
 
 	holyward: {
@@ -5766,11 +5930,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		overrideOffensiveStat: 'spd',
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseUserBaseSpDefInsteadOfUserBaseSpAtk
+		shortDesc: "Uses user's Sp. Def stat as Sp. Atk in damage calculation.",
 	},
 
 	bewitch: {
@@ -5782,11 +5946,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		overrideDefensiveStat: 'spd',
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
 
 	alkalinebomb: {
@@ -5798,11 +5962,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		overrideDefensiveStat: 'spd',
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
 
 	mixedwaves: {
@@ -5814,11 +5978,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		overrideDefensiveStat: 'spd',
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
 
 	concoction: {
@@ -5830,11 +5994,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical < special || (physical === special && this.randomChance(1, 2))) {
+				move.category = 'Special';
+			}
+		},
+		ignoreAbility: true,
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CategoryDependsOnHigherDamageIgnoreTargetAbility
+		shortDesc: "Ignores the Abilities of other Pokemon. Special if would be stronger.",
 	},
 
 	cruelwhip: {
@@ -5846,11 +6022,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
+		shortDesc: "Power doubles if the target has a status ailment.",
 	},
 
 	bombardment: {
@@ -5862,11 +6044,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bullet: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical < special || (physical === special && this.randomChance(1, 2))) {
+				move.category = 'Special';
+			}
+		},
+		ignoreAbility: true,
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CategoryDependsOnHigherDamageIgnoreTargetAbility
+		shortDesc: "Ignores the Abilities of other Pokemon. Special if would be stronger.",
 	},
 
 	scentedshield: {
@@ -5878,11 +6072,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		overrideOffensiveStat: 'spd',
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseUserBaseSpDefInsteadOfUserBaseSpAtk
+		shortDesc: "Uses user's Sp. Def stat as Sp. Atk in damage calculation.",
 	},
 
 	ironsparks: {
@@ -5894,14 +6088,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "30% chance to burn target",
 		secondary: {
 			chance: 30,
 			volatileStatus: 'brn',
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "30% chance to burn target",
 	},
 
 	shrapnel: {
@@ -5928,11 +6122,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	powerdrill: {
@@ -5944,11 +6141,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveScreens
+		shortDesc: "Destroys screens, unless the target is immune.",
 	},
 
 	overclock: {
@@ -5960,10 +6162,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
 		secondary: {
 			chance: 100,
 			self: {
@@ -5972,6 +6170,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
 	},
 
 	sonicblast: {
@@ -5998,11 +6200,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		damageCallback(pokemon) {
+			return (this.random(50, 151) * pokemon.level) / 100;
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FixedDamageUserLevelRandom
+		shortDesc: "Random damage equal to 0.5x-1.5x user's level.",
 	},
 
 	deafen: {
@@ -6014,16 +6218,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "100% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 100,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 
 	shatter: {
@@ -6035,11 +6239,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, sound: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveScreens
+		shortDesc: "Destroys screens, unless the target is immune.",
 	},
 
 	penance: {
@@ -6051,11 +6260,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		selfSwitch: true,
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SwitchOutTargetDamagingMove
+		shortDesc: "User switches out after damaging the target.",
 	},
 
 	stargaze: {
@@ -6066,12 +6275,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Star Gaze",
 		pp: 30,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
 		target: "self",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserAtkSpAtk1
+		shortDesc: "Raises the user's Attack and Sp. Atk by 1.",
 	},
 
 	gravitypress: {
@@ -6083,11 +6295,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target) {
+			const targetWeight = target.getWeight();
+			const pokemonWeight = pokemon.getWeight();
+			let bp;
+			if (pokemonWeight >= targetWeight * 5) {
+				bp = 120;
+			} else if (pokemonWeight >= targetWeight * 4) {
+				bp = 100;
+			} else if (pokemonWeight >= targetWeight * 3) {
+				bp = 80;
+			} else if (pokemonWeight >= targetWeight * 2) {
+				bp = 60;
+			} else {
+				bp = 40;
+			}
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: PowerHigherWithUserHeavierThanTarget
+		shortDesc: "More power the heavier the user than the target.",
 	},
 
 	meteorshower: {
@@ -6099,11 +6328,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times in one turn.",
 	},
 
 	celestialfury: {
@@ -6130,14 +6359,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Cosmic",
-		contestType: "Tough",
-		shortDesc: "30% chance to poison target",
 		secondary: {
 			chance: 30,
 			volatileStatus: 'psn',
 		},
+		target: "normal",
+		type: "Cosmic",
+		contestType: "Tough",
+		shortDesc: "30% chance to poison target",
 	},
 
 	radiation: {
@@ -6149,16 +6378,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Cosmic",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Sp.Def by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				spd: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Cosmic",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Sp.Def by 1.",
 	},
 
 	cosmicavatar: {
@@ -6170,11 +6399,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				atk: -1,
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserAtkDef1
+		shortDesc: "Lowers the user's Attack and Defense by 1.",
 	},
 
 	astralwind: {
@@ -6186,11 +6420,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					atk: 1,
+					def: 1,
+					spa: 1,
+					spd: 1,
+					spe: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserMainStats1, CHANCE: 10
+		shortDesc: "10% chance to raise all stats by 1 (not acc/eva).",
 	},
 
 	soundbarrier: {
@@ -6202,11 +6447,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		overrideOffensiveStat: 'spd',
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseUserBaseSpDefInsteadOfUserBaseSpAtk
+		shortDesc: "Uses user's Sp. Def stat as Sp. Atk in damage calculation.",
 	},
 
 	flatulence: {
@@ -6218,11 +6463,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.ateBerry) {
+				this.debug('BP doubled from berry eaten');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfUserConsumedBerry
+		shortDesc: "Power doubles if the user ate a berry.",
 	},
 
 	darkomen: {
@@ -6234,11 +6485,32 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'darkomen',
+				source,
+				moveData: {
+					id: 'darkomen',
+					name: "Dark Omen",
+					accuracy: 90,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Dark',
+				},
+			});
+			this.add('-start', source, 'move: Dark Omen');
+			return this.NOT_FAIL;
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: AttackTwoTurnsLater
+		shortDesc: "Hits two turns after being used.",
 	},
 
 	duneblast: {
@@ -6250,14 +6522,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({ spa: 2 }, pokemon, pokemon, move);
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtk2IfTargetFaints
+		shortDesc: "Raises user's Sp. Atk by 2 if this KOes the target.",
 	},
 
-	sandsnare: {
+	sandsnare: { //TEST
 		num: 0,
 		basePower: 100,
 		accuracy: 75,
@@ -6266,11 +6540,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		volatileStatus: 'partiallytrapped',
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: BindTarget
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
 
 	rattletail: {
@@ -6282,11 +6556,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		boosts: {
+			def: -1,
+			spd: -1,
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetDefSpDef1
+		shortDesc: "Lowers the target's Def and Sp. Def by 1.",
 	},
 
 	stonegaze: {
@@ -6298,11 +6575,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 3,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Stone Gaze only works on your first turn out.");
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTargetFailsIfNotUserFirstTurn, CHANCE: 100
+		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
 	},
 
 	boil: {
@@ -6314,11 +6600,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SuperEffectiveAgainstWater
+		shortDesc: "Super effective on Water.",
 	},
 
 	meltaway: {
@@ -6329,12 +6617,26 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Melt Away",
 		pp: 15,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1,  snatch: 1},
+		onTryHit(pokemon) {
+			const hasContrary = pokemon.hasAbility('contrary');
+			if ((!hasContrary && pokemon.boosts.spe === 6) || (hasContrary && pokemon.boosts.spe === -6)) {
+				return false;
+			}
+		},
+		boosts: {
+			spe: 2,
+		},
+		onHit(pokemon) {
+			if (pokemon.weighthg > 1) {
+				pokemon.weighthg = Math.max(1, pokemon.weighthg - 1000);
+				this.add('-start', pokemon, 'Autotomize');
+			}
+		},
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpeed2LowerUserWeight
+		shortDesc: "Raises the user's Speed by 2; user loses 100 kg.",
 	},
 
 	kindle: {
@@ -6345,12 +6647,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Kindle",
 		pp: 40,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1,  snatch: 1},
+		boosts: {
+			atk: 1,
+		},
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserAttack1
+		shortDesc: "Raises the user's Attack by 1.",
 	},
 
 	hotsprings: {
@@ -6362,11 +6666,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onHit(target, source) {
+			if (!target.cureStatus()) {
+				this.add('-fail', source);
+				this.attrLastMove('[still]');
+				return this.NOT_FAIL;
+			}
+			this.heal(Math.ceil(source.maxhp * 0.5), source);
+		},
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CureTargetStatusHealUserHalfOfTotalHP
+		shortDesc: "Cures target's status; heals user 1/2 max HP if so.",
 	},
 
 	ignite: {
@@ -6377,12 +6688,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Ignite",
 		pp: 40,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		boosts: {
+			atk: 1,
+		},
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtk1
+		shortDesc: "Raises the user's Sp. Atk by 1.",
 	},
 
 	heatstroke: {
@@ -6394,11 +6707,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		volatileStatus: 'confusion',
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ConfuseTarget
+		shortDesc: "Confuses the target.",
 	},
 
 	chaosblast: {
@@ -6410,11 +6723,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		willCrit: true,
+		multihit: 3,
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitThreeTimesAlwaysCriticalHit
+		shortDesc: "Always results in a critical hit. Hits 3 times.",
 	},
 
 	phobia: {
@@ -6426,11 +6740,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfTargetStatusProblem
+		shortDesc: "Power doubles if the target has a status ailment.",
 	},
 
 	siphon: {
@@ -6441,12 +6761,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Siphon",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, protect: 1, mirror: 1, heal: 1 },
+		drain: [1,2],
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HealUserByHalfOfDamageDone
+		shortDesc: "User recovers 50% of the damage dealt.",
 	},
 
 	manipulation: {
@@ -6458,16 +6778,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Dark",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Sp.Def by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				spd: -1,
 			},
 		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Sp.Def by 1.",
 	},
 
 	judoflip: {
@@ -6479,11 +6799,21 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onHit(target) {
+			let success = false;
+			let i: BoostID;
+			for (i in target.boosts) {
+				if (target.boosts[i] === 0) continue;
+				target.boosts[i] = -target.boosts[i];
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-invertboost', target, '[from] move: Judo Flip');
+		},
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: InvertTargetStatStages
+		shortDesc: "Inverts the target's stat stages.",
 	},
 
 	elegy: {
@@ -6495,11 +6825,20 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		secondary: {
+			chance: 10,
+				boosts: {
+					atk: 1,
+					def: 1,
+					spa: 1,
+					spd: 1,
+					spe: 1,
+				},
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetMainStats1, CHANCE: 10
+		shortDesc: "10% chance to lower all of target's stats by 1 (not acc/eva).",
 	},
 
 	boomingbeats: {
@@ -6511,11 +6850,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: PowerHigherWithUserPositiveStatStages
+		shortDesc: " + 20 power for each of the user's stat boosts.",
 	},
 
 	psychobreak: {
@@ -6527,16 +6870,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Psychic",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Defense by 1.",
 	},
 
 	bonechill: {
@@ -6548,14 +6891,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Ghost",
-		contestType: "Tough",
-		shortDesc: "10% chance to freeze target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'frz',
 		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+		shortDesc: "10% chance to freeze target",
 	},
 
 	refraction: {
@@ -6567,11 +6910,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
+		shortDesc: "Ignores the target's stat stage changes.",
 	},
 
 	zephyrpurge: {
@@ -6583,14 +6927,25 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onTry(source) {
+			if (source.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
+			let hasZephyrSurge = false; // User must actually have Last Resort for it to succeed
+			for (const moveSlot of source.moveSlots) {
+				if (moveSlot.id === 'zephyrsurge') {
+					hasZephyrSurge = true;
+					continue;
+				}
+				if (!moveSlot.used) return false;
+			}
+			return hasZephyrSurge;
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FailsIfUserHasUnusedMove
+		shortDesc: "Fails unless each known move has been used.",
 	},
 
-	glitch: {
+	glitch: { //TEST
 		num: 0,
 		basePower: 95,
 		accuracy: 100,
@@ -6599,11 +6954,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onEffectiveness(typeMod, target, type) {
+			return -1*typeMod
+		},
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: GlitchMove
+		shortDesc: "Inverts type chart for damage calculation.",
 	},
 
 	sonicnova: {
@@ -6630,16 +6987,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Light",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				accuracy: -1,
 			},
 		},
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 	},
 
 	bouldercrush: {
@@ -6651,11 +7008,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				atk: -1,
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserAtkDef1
+		shortDesc: "Lowers the user's Attack and Defense by 1.",
 	},
 
 	stonesurge: {
@@ -6705,11 +7067,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ResetTargetStatStages
+		shortDesc: "Resets all of the target's stat stages to 0.",
 	},
 
 	mudblast: {
@@ -6721,11 +7086,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	mudsurge: {
@@ -6737,10 +7105,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Ground",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Sp. Def by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -6749,9 +7113,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Sp. Def by 1.",
 	},
 
-	grabandgo: {
+	grabandgo: { //TEST
 		num: 0,
 		basePower: 55,
 		accuracy: 100,
@@ -6760,11 +7128,23 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onHit(target) {
+			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
+				this.attrLastMove('[still]');
+				this.add('-fail', target);
+				return this.NOT_FAIL;
+			}
+		},
+		self: {
+			onHit(source) {
+				source.skipBeforeSwitchOutEventFlag = true;
+			},
+		},
+		stealsBoosts: true,
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: StealStatsAndPassToAlly
+		shortDesc: "Steals foe's stat stage changes before hitting. Passes the boosts to an ally."
 	},
 
 	aquafang: {
@@ -6776,11 +7156,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bite: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	powerwash: {
@@ -6792,11 +7175,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Power Wash', `[of] ${source}`);
+			}
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveTargetItem
+		shortDesc: "Removes item.",
 	},
 
 	energysurge: {
@@ -6808,10 +7196,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Electric",
-		contestType: "Tough",
-		shortDesc: "20% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 20,
 			self: {
@@ -6820,6 +7204,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 	},
 
 	dirtybomb: {
@@ -6831,14 +7219,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
-		target: "normal",
-		type: "Dark",
-		contestType: "Tough",
-		shortDesc: "20% chance to poison target",
 		secondary: {
 			chance: 20,
 			volatileStatus: 'psn',
 		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+		shortDesc: "20% chance to poison target",
 	},
 
 	tempestflare: {
@@ -6850,11 +7238,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserDefSpDef1
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
 	},
 
 	sacredstrike: {
@@ -6866,16 +7259,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Light",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Defense by 1.",
 	},
 
 	rainbowscales: {
@@ -6887,11 +7280,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				accuracy: -1,
+			},
+		},
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetAccuracy1, CHANCE: 30
+		shortDesc: "30% chance to lower the target's accuracy by 1.",
 	},
 
 	scorch: {
@@ -6903,16 +7301,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Fire",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Attack by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				atk: -1,
 			},
 		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Attack by 1.",
 	},
 
 	aerialpulse: {
@@ -6939,11 +7337,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times.",
 	},
 
 	piddle: {
@@ -6955,11 +7353,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onHit(target, source, move) {
+			const success = this.boost({ def: -1, spd: -1 }, target, source);
+			if (!success && !target.hasAbility('mirrorarmor')) {
+				delete move.selfSwitch;
+			}
+		},
+		selfSwitch: true,
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetDefSpDef1SwitchOutUser
+		shortDesc: "Lowers target's Def, Sp. Def by 1. User switches.",
 	},
 
 	overflow: {
@@ -6971,11 +7375,50 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Overflow', `[of] ${pokemon}`);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Overflow', `[of] ${pokemon}`);
+					}
+				}
+				if (pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+					this.add('-end', pokemon, 'Leech Seed', '[from] move: Overflow', `[of] ${pokemon}`);
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Overflow', `[of] ${pokemon}`);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveUserBindingAndEntryHazards, CHANCE: 100
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
 	},
 
 	quakeslam: {
@@ -6987,11 +7430,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Quake Slam', `[of] ${source}`);
+			}
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveTargetItem
+		shortDesc: "Removes item.",
 	},
 
 	throwingstar: {
@@ -7003,11 +7451,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times.",
 	},
 
 	tremor: {
@@ -7035,14 +7483,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Ground",
-		contestType: "Tough",
-		shortDesc: "10% chance to paralyze target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'par',
 		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "10% chance to paralyze target",
 	},
 
 	wraithpulse: {
@@ -7054,11 +7502,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, pulse: 1 },
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfTargetNotActed
+		shortDesc: "Usually goes first. Fails if target is not attacking.",
 	},
 
 	chitinousstrike: {
@@ -7070,11 +7524,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserSpeed1
+		shortDesc: "Lowers the user's Speed by 1.",
 	},
 
 	radiantlance: {
@@ -7085,12 +7543,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Radiant Lance",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, gravity: 1 },
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Radiant Lance'));
+		},
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CrashDamageIfFailsUnusableInGravity
+		shortDesc: "User is hurt by 50% of its max HP if it misses.",
 	},
 
 	fabledslam: {
@@ -7102,11 +7563,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		recoil: [1,3],
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RecoilThirdOfDamageDealt
+		shortDesc: "Has 1/3 recoil.",
 	},
 
 	doublescoop: {
@@ -7118,11 +7579,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, punch: 1 },
+		multihit: 2,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoTimesFlinchTarget, CHANCE: 30
+		shortDesc: "Hits twice. 30% chance to make the target flinch.",
 	},
 
 	slurp: {
@@ -7133,12 +7598,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Slurp",
 		pp: 25,
 		priority: 0,
-		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bite: 1 },
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bite: 1, heal: 1 },
+		drain: [1,2],
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HealUserByHalfOfDamageDone
+		shortDesc: "User recovers 50% of the damage dealt.",
 	},
 
 	suckblood: {
@@ -7149,12 +7614,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Suck Blood",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bite: 1 },
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, bite: 1, heal: 1  },
+		drain: [1,2],
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HealUserByHalfOfDamageDone
+		shortDesc: "User recovers 50% of the damage dealt.",
 	},
 
 	bugsting: {
@@ -7166,16 +7631,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Bug",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Defense by 1.",
 	},
 
 	irritant: {
@@ -7187,11 +7652,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 35,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 10
+		shortDesc: "10% chance to lower the target's Sp. Atk by 1.",
 	},
 
 	clackaclack: {
@@ -7203,10 +7673,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Bug",
-		contestType: "Tough",
-		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
 		secondary: {
 			chance: 100,
 			self: {
@@ -7215,6 +7681,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
 	},
 
 	signaloverload: {
@@ -7241,16 +7711,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Dark",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Sp.Def by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				spd: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Dark",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Sp.Def by 1.",
 	},
 
 	darkprism: {
@@ -7262,11 +7732,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 100
+		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
 	},
 
 	umbralwave: {
@@ -7278,11 +7753,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 10
+		shortDesc: "10% chance to make the target flinch.",
 	},
 
 	dracotempest: {
@@ -7294,11 +7772,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, pokemon, target) {
+			if (target.hp * 2 <= target.maxhp) {
+				return this.chainModify(2);
+			}
+		},
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfTargetHPLessThanHalf
+		shortDesc: "Power doubles if the target's HP is 50% or less.",
 	},
 
 	wyrmsrage: {
@@ -7310,11 +7792,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling Stomping Tantrum BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfUserLastMoveFailed
+		shortDesc: "Power doubles if the user's last move failed.",
 	},
 
 	draconicwave: {
@@ -7326,11 +7814,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	draconicmight: {
@@ -7342,11 +7833,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		boosts: {
+			atk: -2,
+		},
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetAttack2
+		shortDesc: "Lowers the target's Attack by 2.",
 	},
 
 	draconicmajesty: {
@@ -7358,11 +7851,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		boosts: {
+			spa: -2,
+		},
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk2
+		shortDesc: "Lowers the target's Sp. Atk by 2.",
 	},
 
 	dragonsoul: {
@@ -7373,15 +7868,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Dragon Soul",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		onHit(pokemon) {
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
+			pokemon.cureStatus();
+		},
 		target: "self",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: CureUserBurnPoisonParalysis
+		shortDesc: "User cures its burn, poison, or paralysis.",
 	},
 
-	stormshield: {
+	stormshield: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: true,
@@ -7389,12 +7887,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Storm Shield",
 		pp: 10,
 		priority: 4,
-		flags: {metronome: 1,  },
+		flags: { failinstruct: 1 },
+		stallingMove: true,
+		volatileStatus: 'obstruct',
 		target: "self",
 		type: "Electric",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ProtectUserFromDamagingMovesObstruct
+		shortDesc: "Protects from damaging attacks. Contact: -2 Def.",
 	},
 
 	enchantment: {
@@ -7406,10 +7905,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Fairy",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Speed by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -7418,6 +7913,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Speed by 1.",
 	},
 
 	pixiedust: {
@@ -7429,11 +7928,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 100
+		shortDesc: "100% chance to lower the foe(s) Sp. Atk by 1.",
 	},
 
 	fleetingblow: {
@@ -7444,12 +7948,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Fleeting Blow",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, minimize: 1  },
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ExtraPowerIfEvasion
+		shortDesc: "Damage doubles and no accuracy check is done if the target has used Minimize while active.",
 	},
 
 	gracefulstrike: {
@@ -7461,14 +7964,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Fairy",
-		contestType: "Tough",
-		shortDesc: "10% chance to paralyze target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'par',
 		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+		shortDesc: "10% chance to paralyze target",
 	},
 
 	unlockchi: {
@@ -7480,11 +7983,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: PowerHigherWithUserPositiveStatStages
+		shortDesc: " + 20 power for each of the user's stat boosts.",
 	},
 
 	chiwave: {
@@ -7496,10 +8003,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
 		secondary: {
 			chance: 100,
 			self: {
@@ -7508,6 +8011,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
 	},
 
 	rasengan: {
@@ -7519,13 +8026,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, defrost: 1 },
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
 		secondary: {
 			chance: 10,
 			status: 'par',
 		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
 		shortDesc: "10% chance to paralyze the target.",
 	},
 
@@ -7538,19 +8045,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Sp.Def by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				spd: -1,
 			},
 		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Sp.Def by 1.",
 	},
 
-	aurablock: {
+	aurablock: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: 100,
@@ -7559,14 +8066,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		volatileStatus: 'torment',
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DisableTargetUsingSameMoveConsecutively
+		shortDesc: "Target can't select the same move twice in a row.",
 	},
 
-	suppressaura: {
+	suppressaura: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: 100,
@@ -7575,11 +8082,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		volatileStatus: 'taunt',
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DisableTargetStatusMoves
+		shortDesc: "Target can't use status moves its next 3 turns.",
 	},
 
 	flamepillar: {
@@ -7598,7 +8105,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect.",
 	},
 
-	firewall: {
+	firewall: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: true,
@@ -7606,12 +8113,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Fire Wall",
 		pp: 10,
 		priority: 3,
-		flags: {metronome: 1,  },
+		flags: { snatch: 1 },
+		sideCondition: 'wideguard',
 		target: "allySide",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ProtectallySideFromMultiTargetDamagingMoves
+		shortDesc: "Protects allies from multi-target moves this turn.",
 	},
 
 	huntdown: {
@@ -7623,11 +8130,65 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the huntdown succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Hunt Down damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		beforeTurnCallback(pokemon) {
+			for (const target of pokemon.foes()) {
+				target.addVolatile('huntdown');
+				const data = target.volatiles['huntdown'];
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Hunt Down start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Hunt Down');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Hunt Down user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst || source.canTerastallize) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source) {
+								if (action.choice === 'megaEvo') {
+									this.actions.runMegaEvo(source);
+								} else if (action.choice === 'terastallize') {
+									// Also a "forme" change that happens before moves, though only possible in NatDex
+									this.actions.terastallize(source);
+								} else {
+									continue;
+								}
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('huntdown', source, source.getLocOf(pokemon));
+				}
+			},
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: PursueSwitchingFoe
+		shortDesc: "If a foe is switching out, hits it at 2x power.",
 	},
 
 	swoopattack: {
@@ -7639,11 +8200,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 2,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerUserDefense1
+		shortDesc: "Lowers the user's Defense by 1.",
 	},
 
 	divebomb: {
@@ -7655,11 +8220,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	quillvolley: {
@@ -7671,11 +8239,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			return 20 * move.hit;
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitThreeTimesPowersUpWithEachHit
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 	},
 
 	stalkprey: {
@@ -7687,11 +8257,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		boosts: {
+			def: -1,
+			spd: -1,
+		},
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetDefSpDef1
+		shortDesc: "Lowers the target's Def, Sp. Def by 1.",
 	},
 
 	encircle: {
@@ -7703,11 +8276,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onHit(target, source, move) {
+			return target.addVolatile('trapped', source, move, 'trapper');
+		},
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: TrapTargetInBattle
+		shortDesc: "Prevents the target from switching out.",
 	},
 
 	birdofprey: {
@@ -7718,12 +8293,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Bird of Prey",
 		pp: 15,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		boosts: {
+			atk: 1,
+			accuracy: 1,
+		},
 		target: "self",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserAtkAcc1
+		shortDesc: "Raises the user's Attack and accuracy by 1.",
 	},
 
 	soulrip: {
@@ -7735,11 +8313,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		overrideDefensiveStat: 'spd',
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
 
 	soulflay: {
@@ -7751,11 +8329,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		overrideDefensiveStat: 'spd',
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetSpDefInsteadOfTargetDefense
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
 
 	disturb: {
@@ -7767,11 +8345,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Disturb', `[of] ${source}`);
+			}
+		},
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveTargetItem
+		shortDesc: "Removes item.",
 	},
 
 	maleficact: {
@@ -7783,11 +8366,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
+		shortDesc: "Ignores the target's stat stage changes.",
 	},
 
 	seance: {
@@ -7799,11 +8383,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times.",
 	},
 
 	shiver: {
@@ -7815,16 +8399,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Ghost",
-		contestType: "Tough",
-		shortDesc: "100% chance to lower the target's Speed by 1.",
 		secondary: {
 			chance: 100,
 			boosts: {
 				spe: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		contestType: "Tough",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
 	},
 
 	spitefulchant: {
@@ -7836,11 +8420,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		selfSwitch: true,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SwitchOutTargetDamagingMove
+		shortDesc: "User switches out after damaging the target.",
 	},
 
 	ghastlyflood: {
@@ -7852,16 +8436,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Ghost",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				accuracy: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 	},
 
 	dirge: {
@@ -7873,11 +8457,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, sound: 1 },
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
 		target: "self",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtkAcc1
+		shortDesc: "Raises the user's Sp. Atk and accuracy by 1.",
 	},
 
 	spectrallash: {
@@ -7889,11 +8476,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, pokemon, target) {
+			if (target.hp * 2 <= target.maxhp) {
+				return this.chainModify(2);
+			}
+		},
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfTargetHPLessThanHalf
+		shortDesc: "Power doubles if the target's HP is 50% or less.",
 	},
 
 	essencearrow: {
@@ -7905,11 +8496,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 10
+		shortDesc: "10% chance to raise the user's Sp. Atk by 1.",
 	},
 
 	essencebloom: {
@@ -7921,16 +8519,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Grass",
-		contestType: "Tough",
-		shortDesc: "100% chance to lower the target's Speed by 1.",
 		secondary: {
 			chance: 100,
 			boosts: {
 				spe: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Grass",
+		contestType: "Tough",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
 	},
 
 	autumnblast: {
@@ -7942,11 +8540,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveScreens
+		shortDesc: "Destroys screens, unless the target is immune.",
 	},
 
 	primordialbeam: {
@@ -7958,11 +8561,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
+		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
 	},
 
 	petaltempest: {
@@ -7974,14 +8582,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Grass",
-		contestType: "Tough",
-		shortDesc: "10% chance to confuse target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'confusion',
 		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+		shortDesc: "10% chance to confuse target",
 	},
 
 	dustdevils: {
@@ -7993,11 +8601,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ConfuseTarget, CHANCE: 20
+		shortDesc: "10% chance to confuse the target.",
 	},
 
 	sandwave: {
@@ -8009,11 +8620,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 1,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times.",
 	},
 
 	sandspray: {
@@ -8025,11 +8636,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -2,
+			},
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpDef2, CHANCE: 100
+		shortDesc: "100% chance to lower the target's Sp. Def by 2.",
 	},
 
 	sandflurry: {
@@ -8041,14 +8657,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Ground",
-		contestType: "Tough",
-		shortDesc: "10% chance to burn the target.",
 		secondary: {
 			chance: 10,
 			status: 'brn',
 		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "10% chance to burn the target.",
 	},
 
 	sandpit: {
@@ -8059,12 +8675,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Sand Pit",
 		pp: 20,
 		priority: -6,
-		flags: {metronome: 1, mirror: 1 },
+		flags: { reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1, metronome: 1, noassist: 1, failcopycat: 1},
+		forceSwitch: true,
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: SwitchOutTargetStatusMove
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	sandshroud: {
@@ -8075,12 +8691,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Sand Shroud",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1 },
+		boosts: {
+			spd: 3,
+		},
 		target: "self",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpDef3
+		shortDesc: "Raises the user's Sp. Def by 3.",
 	},
 
 	snowball: {
@@ -8123,10 +8741,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Ice",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Speed by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -8135,6 +8749,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Speed by 1.",
 	},
 
 	polarpummel: {
@@ -8146,10 +8764,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, punch: 1 },
-		target: "normal",
-		type: "Ice",
-		contestType: "Tough",
-		shortDesc: "20% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 20,
 			self: {
@@ -8158,6 +8772,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 	},
 
 	icydeluge: {
@@ -8169,11 +8787,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Icy Deluge damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Icy Deluge NOT boosted');
+			return move.basePower;
+		},
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfTargetNotActed
+		shortDesc: "Power doubles if user moves before the target.",
 	},
 
 	chillingblast: {
@@ -8185,11 +8810,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({ spa: 2 }, pokemon, pokemon, move);
+		},
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtk2IfTargetFaints
+		shortDesc: "Raises user's Sp. Atk by 2 if this KOes the target.",
 	},
 
 	numbingwind: {
@@ -8201,11 +8828,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: TrapTargetInBattle, CHANCE: 100
+		shortDesc: "Prevents the target from switching out.",
 	},
 
 	coldsnap: {
@@ -8217,11 +8849,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
+		shortDesc: "30% chance to lower the target's Sp. Atk by 1.", 
 	},
 
 	winterwarning: {
@@ -8232,12 +8869,33 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Winter Warning",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'winterwarning',
+				source,
+				moveData: {
+					id: 'winterwarning',
+					name: "Winter Warning",
+					accuracy: 100,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Ice',
+				},
+			});
+			this.add('-start', source, 'move: Winter Warning');
+			return this.NOT_FAIL;
+		},
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: AttackTwoTurnsLater
+		shortDesc: "Hits two turns after being used.",
 	},
 
 	coldfront: {
@@ -8248,12 +8906,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Cold Front",
 		pp: 30,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
 		target: "self",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserAtkSpAtk1
+		shortDesc: "Raises the user's Attack and Sp. Atk by 1.",
 	},
 
 	wintersgrasp: {
@@ -8265,11 +8926,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		boosts: {
+			spe: -2,
+		},
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpeed2
+		shortDesc: "Lowers the target's Speed by 2.",
 	},
 
 	rapture: {
@@ -8281,14 +8944,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Light",
-		contestType: "Tough",
-		shortDesc: "20% chance to burn target",
 		secondary: {
 			chance: 20,
 			volatileStatus: 'brn',
 		},
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "20% chance to burn target",
 	},
 
 	blessedhammer: {
@@ -8300,11 +8963,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoTimes
+		shortDesc: "Hits 2-5 times in one turn.",
 	},
 
 	fanaticism: {
@@ -8316,11 +8979,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling Stomping Tantrum BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: DoublePowerIfUserLastMoveFailed
+		shortDesc: "Power doubles if the user's last move failed.",
 	},
 
 	blindingflash: {
@@ -8332,14 +9001,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Light",
-		contestType: "Tough",
-		shortDesc: "10% chance to paralyze target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'par',
 		},
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "10% chance to paralyze target",
 	},
 
 	willpower: {
@@ -8351,11 +9020,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 100
+		shortDesc: "100% chance to lower the foe(s) Sp. Atk by 1.",
 	},
 
 	kineticblast: {
@@ -8382,12 +9056,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Harness",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, protect: 1, mirror: 1, heal: 1 },
+		drain: [1,2],
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HealUserByHalfOfDamageDone
+		shortDesc: "User recovers 50% of the damage dealt.",
 	},
 
 	balancedbeam: {
@@ -8414,11 +9088,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 20,
+			volatileStatus: 'confusion',
+		},
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: ConfuseTarget, CHANCE: 20
+		shortDesc: "20% chance to confuse the target.",
 	},
 
 	manablast: {
@@ -8430,11 +9107,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetSpAtk1, CHANCE: 30
+		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
 	},
 
 	septicstrike: {
@@ -8446,16 +9128,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Poison",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Defense by 1.",
 	},
 
 	malady: {
@@ -8467,16 +9149,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Poison",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Speed by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				spe: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Speed by 1.",
 	},
 
 	virus: {
@@ -8488,11 +9170,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetAtkSpAtk1, CHANCE: 10
+		shortDesc: "10% chance to lower the target's Atk, Sp. Atk by 1.",
 	},
 
 	contagion: {
@@ -8504,11 +9192,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	miasma: {
@@ -8520,10 +9211,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Poison",
-		contestType: "Tough",
-		shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
 		secondary: {
 			chance: 50,
 			self: {
@@ -8532,6 +9219,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+		shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
 	},
 
 	blight: {
@@ -8543,11 +9234,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveScreens
+		shortDesc: "Destroys screens, unless the target is immune.",
 	},
 
 	causticacid: {
@@ -8559,30 +9255,35 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Poison",
-		contestType: "Tough",
-		shortDesc: "10% chance to paralyze target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'par',
 		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+		shortDesc: "10% chance to paralyze target",
 	},
 
 	mindcrush: {
 		num: 0,
-		basePower: 1,
+		basePower: 60,
 		accuracy: 100,
 		category: "Physical",
 		name: "Mind Crush",
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target) {
+			let power = 60 + 20 * target.positiveBoosts();
+			if (power > 200) power = 200;
+			this.debug(`BP: ${power}`);
+			return power;
+		},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: PowerHigherWithTargetPositiveStatStages
+		shortDesc: "60 power +20 for each of the target's stat boosts.",
 	},
 
 	mindmeld: {
@@ -8594,11 +9295,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onAfterHit(target, source) {
+			const item = target.takeItem();
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Mind Meld', `[of] ${source}`);
+			}
+		},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RemoveTargetItem
+		shortDesc: "Removes item.",
 	},
 
 	scramblemind: {
@@ -8610,14 +9316,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Psychic",
-		contestType: "Tough",
-		shortDesc: "10% chance to confuse target",
 		secondary: {
 			chance: 10,
 			volatileStatus: 'confusion',
 		},
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		contestType: "Tough",
+		shortDesc: "10% chance to confuse target",
 	},
 
 	arcaneblast: {
@@ -8629,11 +9335,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: LowerTargetAtkSpAtk1, CHANCE: 10
+		shortDesc: "10% chance to lower the target's Atk, Sp. Atk by 1.",
 	},
 
 	arcanebarrage: {
@@ -8645,11 +9357,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 1,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		multihit: [2,5],
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: HitTwoToFiveTimes
+		shortDesc: "Hits 2-5 times.",
 	},
 
 	hexbolt: {
@@ -8661,11 +9373,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: IgnoreTargetDefSpDefEvaStatStages
+		shortDesc: "Ignores the target's stat stage changes.",
 	},
 
 	psyblast: {
@@ -8677,11 +9390,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	fortify: {
@@ -8692,15 +9408,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Fortify",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1 },
+		boosts: {
+			def: 1,
+			spd: 1,
+		},
 		target: "self",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserDefSpDef1
+		shortDesc: "Raises the user's Defense and Sp. Def by 1.",
 	},
 
-	weardown: {
+	weardown: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: 100,
@@ -8709,11 +9428,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onTryImmunity(target) {
+			return this.dex.getImmunity('trapped', target);
+		},
+		volatileStatus: 'octolock',
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: TrapTargetInBattleLowerTargetDefSpDef1EachTurn
+		shortDesc: "Traps target, lowers Def and SpD by 1 each turn.",
 	},
 
 	vibrato: {
@@ -8741,10 +9463,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, sound: 1 },
-		target: "normal",
-		type: "Sound",
-		contestType: "Tough",
-		shortDesc: "20% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 20,
 			self: {
@@ -8753,6 +9471,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 	},
 
 	gutturalroar: {
@@ -8764,11 +9486,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, sound: 1 },
+		overrideDefensiveStat: 'def',
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: UseTargetDefenseInsteadOfTargetSpDef
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
 	},
 
 	glorioushymn: {
@@ -8815,10 +9537,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Speed by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -8827,6 +9545,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Speed by 1.",
 	},
 
 	chainsweep: {
@@ -8838,16 +9560,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "100% chance to lower the target's Speed by 1.",
 		secondary: {
 			chance: 100,
 			boosts: {
 				spe: -1,
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
 	},
 
 	spikedram: {
@@ -8859,19 +9581,19 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "100% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 100,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 
-	vanguard: {
+	vanguard: { //TEST
 		num: 0,
 		basePower: 0,
 		accuracy: true,
@@ -8879,12 +9601,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Vanguard",
 		pp: 20,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		volatileStatus: 'ingrain',
 		target: "self",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: StartHealUserEachTurnTrapUserInBattle
+		shortDesc: "Traps/grounds user; heals 1/16 max HP per turn.",
 	},
 
 	refurbish: {
@@ -8895,12 +9617,26 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Refurbish",
 		pp: 30,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1 },
+		onHit(pokemon) {
+			let badStat: StatIDExceptHP = 'atk';
+			let badStatVal = 0;
+			const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			for (const i of stats) {
+				if (pokemon.getStat(i, true, true) < badStatVal) {
+					badStat = i;
+					badStatVal = pokemon.getStat(i, true, true);
+				}
+			}
+
+			const goodStat = pokemon.getBestStat(true, true);
+			if (pokemon.boosts[goodStat] >= 6 && pokemon.boosts[badStat] <= -6) return false;
+			this.boost({ [goodStat]: 1, [badStat]: 1 }, pokemon);
+		},
 		target: "adjacentAllyOrSelf",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseMinMaxStat1
+		shortDesc: "Raises user's lowest and highest stats by 1 stage.",
 	},
 
 	weld: {
@@ -8912,11 +9648,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		status: 'brn',
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: BurnTarget
+		shortDesc: "Burns the target.",
 	},
 
 	drench: {
@@ -8928,11 +9664,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: FlinchTarget, CHANCE: 30
+		shortDesc: "30% chance to make the target flinch.",
 	},
 
 	crashingwave: {
@@ -8944,10 +9683,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Water",
-		contestType: "Tough",
-		shortDesc: "20% chance to raise the user's Attack by 1.",
 		secondary: {
 			chance: 20,
 			self: {
@@ -8956,6 +9691,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 	},
 
 	tidalshift: {
@@ -8966,12 +9705,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Tidal Shift",
 		pp: 30,
 		priority: 0,
-		flags: {metronome: 1,  },
+		flags: {metronome: 1, snatch: 1},
+		boosts: {
+			spe: 2,
+		},
 		target: "self",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpeed2
+		shortDesc: "Raises the user's Speed by 2.",
 	},
 
 	swarmattack: {
@@ -8983,11 +9724,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onHit(target, source, move) {
+			return target.addVolatile('trapped', source, move, 'trapper');
+		},
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: TrapTargetInBattle
+		shortDesc: "Prevents the target from switching out.",
 	},
 
 	dragonfear: {
@@ -8999,11 +9742,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
-		// FUNCTION CODE: RaiseUserSpAtk1, CHANCE: 10
+		shortDesc: "10% chance to raise the user's Sp. Atk by 1.",
 	},
 
 	arcingblow: {
@@ -9015,16 +9765,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Electric",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "allAdjacentFoes",
+		type: "Electric",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Defense by 1.",
 	},
 
 	overwhelm: {
@@ -9036,16 +9786,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Defense by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				def: -1,
 			},
 		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Defense by 1.",
 	},
 
 	cursedtouch: {
@@ -9073,16 +9823,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 40,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 		secondary: {
 			chance: 10,
 			boosts: {
 				accuracy: -1,
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Accuracy by 1.",
 	},
 
 	ironimpact: {
@@ -9094,10 +9844,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "30% chance to raise the user's Defense by 1.",
 		secondary: {
 			chance: 30,
 			self: {
@@ -9106,6 +9852,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				},
 			},
 		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Defense by 1.",
 	},
 	torrent: {
 		num: 0,
@@ -9131,16 +9881,36 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		target: "normal",
-		type: "Water",
-		contestType: "Tough",
-		shortDesc: "20% chance to lower the target's Attack by 1.",
 		secondary: {
 			chance: 20,
 			boosts: {
 				atk: -1,
 			},
 		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Attack by 1.",
+	},
+	mudslide: {
+		num: 0,
+		accuracy: 90,
+		basePower: 75,
+		category: "Special",
+		name: "Mudslide",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Accuracy by 1.",
 	},
 
 };

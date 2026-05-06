@@ -1500,7 +1500,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	finale: "G-Max Finale",
 	// fireball: "G-Max Fireball",
 	foamburst: "G-Max Foam Burst",
-	goldrush: "G-Max Gold Rush",
 	gravitas: "G-Max Gravitas",
 	hydrosnipe: "G-Max Hydrosnipe",
 	malodor: "G-Max Malodor",
