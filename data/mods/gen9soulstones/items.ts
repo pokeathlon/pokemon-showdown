@@ -4,7 +4,217 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Past items that are now legal
 	
 	// New items 
-		gengarites: {
+	
+	assaultvest: {
+		name: "Assault Vest",
+		spritenum: -3,
+		fling: {
+			basePower: 80,
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def) {
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.id);
+				if (move.category === 'Status' && move.id !== 'mefirst') {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Def is 1.5x, but it can only select damaging moves.",
+	},
+	paddedhelmet: {
+		name: "Padded Helmet",
+		spritenum: -3,
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.recoil) move.recoil = undefined;
+		},
+		num: 0,
+		desc: "Holder does not take recoil damage.",
+	},
+	cosmicgem: {
+		name: "Cosmic Gem",
+		spritenum: -3,
+		isGem: true,
+		onSourceTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			if (move.type === 'Cosmic' && source.useItem()) {
+				source.addVolatile('gem');
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's first successful Cosmic-type attack will have 1.3x power. Single use.",
+	},
+	soundgem: {
+		name: "Sound Gem",
+		spritenum: -3,
+		isGem: true,
+		onSourceTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			if (move.type === 'Sound' && source.useItem()) {
+				source.addVolatile('gem');
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's first successful Sound-type attack will have 1.3x power. Single use.",
+	},
+	lightgem: {
+		name: "Light Gem",
+		spritenum: -3,
+		isGem: true,
+		onSourceTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			if (move.type === 'Light' && source.useItem()) {
+				source.addVolatile('gem');
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's first successful Light-type attack will have 1.3x power. Single use.",
+	},
+	sharpcoral: { // ASK - item desc says it "boosts", is that x1.5 or x2
+		name: "Sharp Coral",
+		spritenum: -3,
+		fling: {
+			basePower: 90,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Cubone-Soulstones' || pokemon.baseSpecies.baseSpecies === 'Marowak-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Cubone-Soulstones", "Marowak-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Cubone-Soulstones or Marowak-Soulstones, its Attack is doubled.",
+	},
+	arcanespellbook: {
+		name: "Arcane Spellbook",
+		spritenum: -3,
+		fling: {
+			basePower: 90,
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Omanyte-Soulstones' || pokemon.baseSpecies.baseSpecies === 'Omastar-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Omanyte-Soulstones", "Omastar-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Omanyte-Soulstones or Omastar-Soulstones, its Sp. Atk is doubled.",
+	},
+	focusingorb: {
+		name: "Focusing Orb",
+		spritenum: -3,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Clamperl-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Clamperl-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Clamperl-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Clamperl-Soulstones, its Def and Sp. Def is doubled.",
+	},
+	voidheart: {
+		name: "Void Heart",
+		spritenum: -3,
+		fling: {
+			basePower: 30,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Volbeat-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Volbeat-Soulstones, its Atk and Def are 1.5x.",
+	},
+	radiantorb: {
+		name: "Radiant Orb",
+		spritenum: -3,
+		fling: {
+			basePower: 30,
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Soulstones') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Illumise-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Illumise-Soulstones, its Sp. Atk and Sp. Def are 1.5x.",
+	},
+	headphones: {
+		name: "Headphones",
+		spritenum: -3,
+		fling: {
+			basePower: 10,
+		},
+		onStart(target) {
+			if (!target.ignoringItem()) {
+				this.add('-item', target, 'Headphones');
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			this.add('-enditem', target, 'Headphones');
+			target.item = '';
+			this.clearEffectState(target.itemState);
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('headphones'));
+		},
+		onAfterSubDamage(damage, target, source, effect) {
+			this.debug('effect: ' + effect.id);
+			if (effect.effectType === 'Move') {
+				this.add('-enditem', target, 'Headphones');
+				target.item = '';
+				this.clearEffectState(target.itemState);
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('headphones'));
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder is immune to Sound-type attacks. Pops when holder is hit.",
+	},
+
+	// Mega stones
+	gengarites: {
     		name: "Gengarite-S",
     		spritenum: -3,
     		megaStone: { "Gengar-Soulstones": "Gengar-Soulstones-Mega" },
