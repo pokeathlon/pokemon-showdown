@@ -1386,7 +1386,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	clangorous: "Clangorous Soulblaze",
 	cs: "Clangorous Soulblaze",
 	ee: "Extreme Evoboost",
-	genesis: "Genesis Supernova",
 	goa: "Guardian of Alola",
 	gs: "Genesis Supernova",
 	guardian: "Guardian of Alola",
