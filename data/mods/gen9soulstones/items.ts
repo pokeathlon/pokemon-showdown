@@ -212,6 +212,192 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Holder is immune to Sound-type attacks. Pops when holder is hit.",
 	},
+	stellarplate: {
+		name: "Stellar Plate",
+		spritenum: -3,
+		onPlate: 'Cosmic',
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Cosmic') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 493) || pokemon.baseSpecies.num === 493) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Arceus-Cosmic",
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Cosmic-type attacks have 1.2x power. Judgment is Cosmic type.",
+	},
+	rhythmplate: {
+		name: "Rhythm Plate",
+		spritenum: -3,
+		onPlate: 'Sound',
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Sound') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 493) || pokemon.baseSpecies.num === 493) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Arceus-Sound",
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Sound-type attacks have 1.2x power. Judgment is Sound type.",
+	},
+	holyplate: {
+		name: "Holy Plate",
+		spritenum: -3,
+		onPlate: 'Light',
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Light') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 493) || pokemon.baseSpecies.num === 493) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Arceus-Light",
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Light-type attacks have 1.2x power. Judgment is Light type.",
+	},
+	oliberry: {
+		name: "Oli Berry",
+		spritenum: -3,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Cosmic",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Cosmic' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Cosmic-type attack. Single use.",
+	},
+	patotoberry: {
+		name: "Patoto Berry",
+		spritenum: -3,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Sound",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Sound' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Sound-type attack. Single use.",
+	},
+	avocaberry: {
+		name: "Avoca Berry",
+		spritenum: -3,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Light",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Light' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Light-type attack. Single use.",
+	},
+	cosmicdust: {
+		name: "Cosmic Dust",
+		spritenum: -3,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Cosmic') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Cosmic-type attacks have 1.2x power.",
+	},
+	musicbox: {
+		name: "Music Box",
+		spritenum: -3,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Sound') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Sound-type attacks have 1.2x power.",
+	},
+	clearmirror: {
+		name: "Clear Mirror",
+		spritenum: -3,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Light') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Light-type attacks have 1.2x power.",
+	},
 
 	// Mega stones
 	gengarites: {
