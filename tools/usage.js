@@ -21,6 +21,11 @@ const pad = (text, fill, count) => {
 	return text + fill.repeat(count - text.length);
 };
 
+const getSpeciesName = (dex, species) => {
+	const baseSpecies = dex.species.get(dex.species.get(species).baseSpecies);
+	return baseSpecies.cosmeticFormes && baseSpecies.cosmeticFormes.map(forme => toID(forme)).includes(toID(species)) ? baseSpecies.name : dex.species.get(species).name;
+};
+
 const formatinfo = {};
 
 {
@@ -43,6 +48,8 @@ if (process.argv[2] === 'full') {
 		for (const format of formats) {
 			if (formatinfo[format] && formatinfo[format].team) continue;
 			process.stdout.write(month + ' ' + format);
+
+			const dex = Dex.mod(formatinfo[format] ? formatinfo[format].mod : format.substring(0, 4));
 
 			usage[format] = {
 				total: {
@@ -83,7 +90,7 @@ if (process.argv[2] === 'full') {
 						usage[format].total.teams += 1;
 
 						for (const set of data[`p${i}team`]) {
-							const species = `${toID(set['species'])}${isFusions && set['fusion'] ? '+' + toID(set['fusion']) : ''}`;
+							const species = `${toID(getSpeciesName(dex, set['species']))}${isFusions && set['fusion'] ? '+' + toID(getSpeciesName(dex, set['fusion'])) : ''}`;
 							incrementObj(usage[format].species, species);
 
 							if (!usage[format].winrates[species]) usage[format].winrates[species] = {
