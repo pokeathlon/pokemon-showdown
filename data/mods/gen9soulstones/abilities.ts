@@ -422,26 +422,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed) return;
-			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Togedemaru-Soulstones-Reactive') {
-					pokemon.formeChange('Togedemaru-Soulstones');
+			if (pokemon.hp < pokemon.maxhp / 2) {
+				if (pokemon.species.id !== 'togedemarusoulstonesreactive') {
+					pokemon.formeChange('Togedemaru-Soulstones-Reactive');
 				}
 			} else {
-				if (pokemon.species.forme === 'Togedemaru-Soulstones-Reactive') {
-					pokemon.formeChange(pokemon.set.species);
+				if (pokemon.species.id === 'togedemarusoulstonesreactive') {
+					pokemon.formeChange('Togedemaru-Soulstones');
 				}
 			}
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Togedemaru-Soulstones-Reactive') {
-					pokemon.formeChange('Togedemaru-Soulstones');
+			if (pokemon.hp < pokemon.maxhp / 2) {
+				if (pokemon.species.id !== 'togedemarusoulstonesreactive') {
+					pokemon.formeChange('Togedemaru-Soulstones-Reactive');
 				}
 			} else {
-				if (pokemon.species.forme === 'Togedemaru-Soulstones-Reactive') {
-					pokemon.formeChange(pokemon.set.species);
+				if (pokemon.species.id === 'togedemarusoulstonesreactive') {
+					pokemon.formeChange('Togedemaru-Soulstones');
 				}
 			}
 		},
@@ -1088,12 +1088,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.baseSpecies.baseSpecies !== 'Unown-Soulstones' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'unownsoulstones') {
-					console.log("Transforming into Symphony onSTART")
 					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
 				if (pokemon.species.id === 'unownsoulstonessymphony') {
-					console.log("Transforming into base onSTART")
 					pokemon.formeChange('Unown-Soulstones');
 				}
 			}
@@ -1106,12 +1104,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'unownsoulstones') {
-					console.log("Transforming into Symphony onRES")
 					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
 				if (pokemon.species.id === 'unownsoulstonessymphony') {
-					console.log("Transforming into base onRES")
 					pokemon.formeChange('Unown-Soulstones');
 				}
 			}
