@@ -56,6 +56,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	geomancy: {
+		inherit: true,
+		isNonstandard: undefined,
+		flags: {nonsky: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1 },
+		volatileStatus: 'ingrain',
+		boosts: {
+			def: 1,
+			spd: 1,
+		},
+		shortDesc: "Raises the user's Defense and Sp. Def by 1. Ingrains User.",
+	},
+	
 	// Additions
 		tidalwave: {
 		num: 0,
@@ -2943,7 +2955,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "self",
 		type: "Grass",
 		contestType: "Tough",
-		shortDesc: "Raises the user's Defense and Sp. Def by 1.",
+		shortDesc: "Raises the user's Defense and Sp. Def by 1. Ingrains User.",
 	},
 
 	flytrap: {
