@@ -65,7 +65,480 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			def: 1,
 			spd: 1,
 		},
+		desc: "Raises the user's Defense and Sp. Def by 1. Ingrains User.",
 		shortDesc: "Raises the user's Defense and Sp. Def by 1. Ingrains User.",
+	},
+	purify: {
+		inherit: true,
+		type: "Light",
+	},
+	aurasphere: {
+		inherit: true,
+		basePower: 90,
+		type: "Light",
+	},
+	aurawheel: { // TEST - recheck move effects, there is no Morpeko
+		inherit: true,
+		basePower: 90,
+		onTry(source) {},
+		onModifyType(move, pokemon) {},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Dark', type);
+		},
+		type: "Light",
+		desc: "Combines Dark in its type effectiveness.",
+		shortDesc: "Combines Dark in its type effectiveness.",
+	},
+	aurorabeam: {
+		inherit: true,
+		basePower: 55,
+		type: "Light",
+	},
+	auroraveil: {
+		inherit: true,
+		type: "Light",
+	},
+	dazzlinggleam: {
+		inherit: true,
+		type: "Light",
+	},
+	extremespeed: {
+		inherit: true,
+		basePower: 70,
+		type: "Light",
+	},
+	flash: {
+		inherit: true,
+		basePower: 60,
+		category: "Special",
+		type: "Light",
+	},
+	flashcannon: {
+		inherit: true,
+		basePower: 90,
+		type: "Light",
+	},
+	mirrorshot: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 70,
+		isNonstandard: undefined,
+		selfSwitch: true,
+		secondary: undefined,
+		type: "Light",
+		desc: "User switches out after damaging the target.",
+		shortDesc: "User switches out after damaging the target.",
+	},
+	laserfocus: { //TEST
+		inherit: true,
+		isNonstandard: undefined,
+		name: "Laser Focus",
+		pp: 30,
+		priority: 0,
+		flags: { snatch: 1, metronome: 1 },
+		sideCondition: 'laserfocus',
+		condition: {
+			duration: 4,
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Laser Focus');
+			},
+			onModifyCritRatio(critRatio) {
+				return 5;
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Laser Focus');
+			},
+		},
+		target: "self",
+		type: "Light",
+		desc: "For 4 turns, allies have increased crit ratio.",
+		shortDesc: "For 4 turns, allies have increased crit ratio.",
+	},
+	morningsun: {
+		inherit: true,
+		type: "Light",
+	},
+	photongeyser: {
+		inherit: true,
+		type: "Light",
+	},
+	safeguard: {
+		inherit: true,
+		type: "Light",
+	},
+	signalbeam: {
+		inherit: true,
+		secondary: {
+			chance: 50,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Light",
+		desc: "50% chance to confuse the target.",
+		shortDesc: "50% chance to confuse the target.",
+	},
+	spotlight: {
+		inherit: true,
+		type: "Light",
+	},
+	tailglow: {
+		inherit: true,
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
+		type: "Light",
+		desc: "Raises the user's Sp. Atk and Accuracy by 1 stage.",
+		shortDesc: "Raises the user's Sp. Atk and Accuracy by 1 stage.",
+	},
+	lusterpurge: {
+		inherit: true,
+		basePower: 140,
+		secondary: undefined,
+		onTry(source) {
+			if (source.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
+			let hasLastResort = false; // User must actually have Last Resort for it to succeed
+			for (const moveSlot of source.moveSlots) {
+				if (moveSlot.id === 'lastresort') {
+					hasLastResort = true;
+					continue;
+				}
+				if (!moveSlot.used) return false;
+			}
+			return hasLastResort;
+		},
+		type: "Light",
+		desc: "Fails unless each known move has been used.",
+		shortDesc: "Fails unless each known move has been used.",
+	},
+	prismaticlaser: {
+		inherit: true,
+		basePower: 80,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		self: undefined,
+		secondary: {
+			chance: 20,
+			onHit(target, source) {
+				const status = this.sample(['brn', 'par', 'frz']);
+				target.trySetStatus(status, source);
+			},
+		},
+		target: "normal",
+		type: "Light",
+		desc: "20% chance to paralyze or burn or freeze target.",
+		shortDesc: "20% chance to paralyze or burn or freeze target.",
+	},
+	hyperspacehole: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	cometpunch: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	cosmicpower: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	gravity: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	lunardance: {
+		inherit: true,
+		flags: { snatch: 1, metronome: 1 },
+		boosts: {
+			spa: 1,
+			spd: 1,
+		},
+		onTryHit(source) {},
+		selfdestruct: undefined,
+		slotCondition: undefined,
+		condition: undefined,
+		type: "Cosmic",
+		desc: "Raises the user's Sp. Atk and Sp. Def by 1.",
+		shortDesc: "Raises the user's Sp. Atk and Sp. Def by 1.",
+	},
+	meteorassault: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 110,
+		isNonstandard: undefined,
+		flags: { protect: 1, mirror: 1, failinstruct: 1, gravity: 1 },
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
+		},
+		self: undefined,
+		type: "Cosmic",
+		desc: "User is hurt by 50% of its max HP if it misses.",
+		shortDesc: "User is hurt by 50% of its max HP if it misses.",
+	},
+	meteorbeam: {
+		inherit: true,
+		accuracy: 80,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		onTryMove(attacker, defender, move) {},
+		type: "Cosmic",
+		desc: "20% chance to burn the target.",
+		shortDesc: "20% chance to burn the target.",
+	},
+	swift: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 50,
+		pp: 30,
+		secondary: {
+			chance: 30,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Cosmic",
+		desc: "30% chance to raise the user's Sp. Atk by 1.",
+		shortDesc: "30% chance to raise the user's Sp. Atk by 1.",
+	},
+	wish: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	healingwish: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	meteormash: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	moonblast: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	moonlight: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	astralbarrage: {
+		inherit: true,
+		basePower: 70,
+		pp: 20,
+		ignoreEvasion: true,
+		ignoreDefensive: true,
+		target: "normal",
+		type: "Cosmic",
+		desc: "Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "Ignores the target's stat stage changes.",
+	},
+	bellydrum: {
+		inherit: true,
+		type: "Sound",
+	},
+	boomburst: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 110,
+		pp: 10,
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		type: "Sound",
+		desc: "Lowers the user's Sp. Atk by 1. Hits adjacent Pokemon.",
+		shortDesc: "Lowers the user's Sp. Atk by 1. Hits adjacent Pokemon.",
+	},
+	chatter: {
+		inherit: true,
+		basePower: 50,
+		category: "Special",
+		isNonstandard: undefined,
+		secondary: {
+			chance: 25,
+			volatileStatus: 'confusion',
+		},
+		type: "Sound",
+		desc: "Has a 25% chance to confuse the target.",
+		shortDesc: "25% chance to confuse the target.",
+	},
+	disarmingvoice: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 65,
+		pp: 20,
+		target: "normal",
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		type: "Sound",
+		desc: "Has a 100% chance to lower the target's Special Attack by 1 stage.",
+		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
+	},
+	drumbeating: {
+		inherit: true,
+		type: "Sound",
+	},
+	echoedvoice: {
+		inherit: true,
+		type: "Normal",
+	},
+	growl: {
+		inherit: true,
+		type: "Sound",
+	},
+	healbell: {
+		inherit: true,
+		type: "Sound",
+	},
+	hypervoice: {
+		inherit: true,
+		type: "Sound",
+	},
+	instruct: {
+		inherit: true,
+		type: "Sound",
+	},
+	metalsound: {
+		inherit: true,
+		type: "Sound",
+	},
+	nobleroar: {
+		inherit: true,
+		basePower: 65,
+		category: "Physical",
+		name: "Noble Roar",
+		pp: 20,
+		flags: { protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1 },
+		boosts: undefined,
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		type: "Sound",
+		desc: "Has a 100% chance to lower the target's Attack by 1 stage.",
+		shortDesc: "100% chance to lower the target's Attack by 1.",
+	},
+	overdrive: {
+		inherit: true,
+		pp: 15,
+		target: "normal",
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		type: "Sound",
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target flinch.",
+	},
+	perishsong: {
+		inherit: true,
+		type: "Sound",
+	},
+	relicsong: {
+		inherit: true,
+		basePower: 80,
+		secondary: undefined,
+		onAfterMoveSecondarySelf(pokemon) {},
+		target: "normal",
+		type: "Sound",
+		desc: "No additional effect.",	
+		shortDesc: "No additional effect.",
+	},
+	roar: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		pp: 30,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1 },
+		boosts: undefined,
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Sound",
+		desc: "Has a 10% chance to lower the target's Attack by 1 stage.",
+		shortDesc: "10% chance to lower the target's Attack by 1.",
+	},
+	round: {
+		inherit: true,
+		type: "Sound",
+	},
+	screech: {
+		inherit: true,
+		accuracy: 90,
+		pp: 25,
+		type: "Sound",
+	},
+	sing: {
+		inherit: true,
+		accuracy: 75,
+		type: "Sound",
+	},
+	sleeptalk: {
+		inherit: true,
+		type: "Sound",
+	},
+	sonicboom: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 40,
+		damage: undefined,
+		isNonstandard: undefined,
+		pp: 30,
+		flags: { protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1 },
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		type: "Sound",
+		desc: "Has a 10% chance to paralyze the target.",
+		shortDesc: "10% chance to paralyze the target.",
+	},
+	supersonic: {
+		inherit: true,
+		type: "Sound",
+	},
+	uproar: {
+		inherit: true,
+		basePower: 120,
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onTryHit(target) {},
+		condition: {},
+		type: "Sound",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
+	},
+	clangingscales: {
+		inherit: true,
+		basePower: 120,
+		type: "Sound",
+	},
+	clangoroussoul: {
+		inherit: true,
+		type: "Sound",
+	},
+	howl: {
+		inherit: true,
+		type: "Sound",
 	},
 	
 	// Additions
@@ -2880,12 +3353,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {metronome: 1, dance: 1 },
 		boosts: {
 			spa: 1,
-			spd: 1,
+			spe: 1,
 		},
 		target: "self",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "Raises the user's Sp. Atk and Sp. Def by 1.",
+		shortDesc: "Raises the user's Sp. Atk and Speed by 1.",
 	},
 
 	possession: {
@@ -9923,6 +10396,109 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ground",
 		contestType: "Tough",
 		shortDesc: "20% chance to lower the target's Accuracy by 1.",
+	},
+	gammaray: {
+		num: 0,
+		basePower: 70,
+		accuracy: 100,
+		category: "Special",
+		name: "Gamma Ray",
+		pp: 20,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		critRatio: 2,
+		target: "normal",
+		type: "Cosmic",
+		contestType: "Tough",
+		shortDesc: "High Crit ratio.",
+	},
+	heavensknuckle: {
+		num: 0,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Heaven's Knuckle",
+		pp: 25,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({ atk: 3 }, pokemon, pokemon, move);
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Cool",
+		shortDesc: "Raises user's Attack by 2 if this KOes the target.",
+	},
+	solarflare: {
+		num: 0,
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+		name: "Solar Flare",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, defrost: 1},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Cosmic",
+		contestType: "Cool",
+		shortDesc: "10% chance to burn per hit.",
+	},
+	deadsilence: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Dead Silence",
+		pp: 15,
+		priority: 0,
+		flags: {
+			protect: 1, mirror: 1, contact: 1
+		},
+		condition: {
+			duration: 2,
+			onStart(target) {
+				this.add('-start', target, 'Dead Silence', '[silent]');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['sound']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (!move.isZOrMaxPowered && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Dead Silence');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (!move.isZOrMaxPowered && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Dead Silence');
+					return false;
+				}
+			},
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Dead Silence', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('deadsilence');
+			},
+		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		desc: "For 2 turns, the target cannot use sound-based moves.",
+		shortDesc: "For 2 turns, the target cannot use sound moves.",
 	},
 
 };
