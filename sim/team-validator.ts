@@ -701,7 +701,7 @@ export class TeamValidator {
 		}
 		if (set.hpType) {
 			const type = dex.types.get(set.hpType);
-			if (!type.exists || ['normal', 'fairy', 'stellar', 'nuclear', 'crystal', 'cosmic'].includes(type.id)) {
+			if (!type.exists || ['normal', 'fairy', 'stellar', 'nuclear', 'crystal', 'cosmic', 'light', 'sound'].includes(type.id)) {
 				problems.push(`${name}'s Hidden Power type (${set.hpType}) is invalid.`);
 			} else {
 				set.hpType = type.name;
