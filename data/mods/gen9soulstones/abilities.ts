@@ -421,13 +421,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	destructivecore: { //TEST (ask if it also has the status immunity that minior has)
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Minior' || pokemon.transformed) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Togedemaru-Soulstones') {
-					pokemon.formeChange('Togedemaru-Soulstones-Reactive');
+				if (pokemon.species.forme !== 'Togedemaru-Soulstones-Reactive') {
+					pokemon.formeChange('Togedemaru-Soulstones');
 				}
 			} else {
-				if (pokemon.species.forme === 'Togedemaru-Soulstones') {
+				if (pokemon.species.forme === 'Togedemaru-Soulstones-Reactive') {
 					pokemon.formeChange(pokemon.set.species);
 				}
 			}
@@ -436,11 +436,11 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.hp > pokemon.maxhp / 2) {
-				if (pokemon.species.forme !== 'Togedemaru-Soulstones') {
-					pokemon.formeChange('Togedemaru-Soulstones-Reactive');
+				if (pokemon.species.forme !== 'Togedemaru-Soulstones-Reactive') {
+					pokemon.formeChange('Togedemaru-Soulstones');
 				}
 			} else {
-				if (pokemon.species.forme === 'Togedemaru-Soulstones') {
+				if (pokemon.species.forme === 'Togedemaru-Soulstones-Reactive') {
 					pokemon.formeChange(pokemon.set.species);
 				}
 			}
@@ -568,7 +568,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				if (this.randomChance(3, 10)) {
-					source.addVolatile('infestation');
+					console.log("INFEST")
+					source.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Infestation'));
 				}
 			}
 		},
@@ -982,7 +983,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			let i: BoostID;
 			for (i in target.boosts) {
 				if (target.boosts[i] < 0) {
-					target.boosts[i] += 1
+					this.boost({ [i]: 1 }, this.effectState.target);
 					negBoosts = true;
 				}
 			}
@@ -1088,10 +1089,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.baseSpecies.baseSpecies !== 'Unown-Soulstones' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'unownsoulstones') {
+					console.log("Transforming into Symphony onSTART")
 					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
 				if (pokemon.species.id === 'unownsoulstonessymphony') {
+					console.log("Transforming into base onSTART")
 					pokemon.formeChange('Unown-Soulstones');
 				}
 			}
@@ -1104,10 +1107,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'unownsoulstones') {
+					console.log("Transforming into Symphony onRES")
 					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
 				if (pokemon.species.id === 'unownsoulstonesymphony') {
+					console.log("Transforming into base onRES")
 					pokemon.formeChange('Unown-Soulstones');
 				}
 			}
@@ -1116,7 +1121,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Symphony",
 		rating: 3,
 		num: 0,
-		shortDesc: "If user is Unown-Soulstones, changes to Symphny Form if it has > 1/4 max HP.",
+		shortDesc: "If user is Unown-Soulstones, changes to Symphony Form if it has > 1/4 max HP.",
 	},
 	synthesize: {
 		onResidual(target, source, effect) {
@@ -1130,7 +1135,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1.5,
 		num: 0,
 	},
-	teleface: { //TEST
+	tvface: { //TEST
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
 			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuesoulstonesnotv') {
@@ -1186,7 +1191,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "TV Face",
 		rating: 3,
 		num: 0,
-		shortDesc: "If Eiscue-Soulstones, the first physical hit it takes deals 0 damage. Effect is restored in Snow.",
+		shortDesc: "If Eiscue-Soulstones, the first physical hit it takes deals 0 damage. Effect is restored in Electric Terrain.",
 	},
 	terminator: {
 		onDamage(damage, target, source, effect) {
