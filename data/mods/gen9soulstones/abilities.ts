@@ -568,7 +568,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				if (this.randomChance(3, 10)) {
-					console.log("INFEST")
 					source.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Infestation'));
 				}
 			}
@@ -1111,7 +1110,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					pokemon.formeChange('Unown-Soulstones-Symphony');
 				}
 			} else {
-				if (pokemon.species.id === 'unownsoulstonesymphony') {
+				if (pokemon.species.id === 'unownsoulstonessymphony') {
 					console.log("Transforming into base onRES")
 					pokemon.formeChange('Unown-Soulstones');
 				}
