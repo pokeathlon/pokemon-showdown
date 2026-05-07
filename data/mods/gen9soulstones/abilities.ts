@@ -44,6 +44,66 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	oblivious: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', `[of] ${target}`);
+			}
+			if (effect.name === 'Dishearten' && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Sp. Atk', '[from] ability: Oblivious', `[of] ${target}`);
+			}
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', `[of] ${target}`);
+			}
+			if (effect.name === 'Dishearten' && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Sp. Atk', '[from] ability: Oblivious', `[of] ${target}`);
+			}
+		},
+	},
+	rattled: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			if ((effect?.name === 'Intimidate' && boost.atk) || (effect?.name === 'Dishearten' && boost.spa)) {
+				this.boost({ spe: 1 });
+			}
+		},
+	},
+	scrappy: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', `[of] ${target}`);
+			}
+			if (effect.name === 'Dishearten' && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Sp. Atk', '[from] ability: Oblivious', `[of] ${target}`);
+			}
+		},
+	},
+	innerfocus: {
+		inherit: true,
+		onTryBoost(boost, target, source, effect) {
+			if (effect.name === 'Intimidate' && boost.atk) {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', `[of] ${target}`);
+			}
+			if (effect.name === 'Dishearten' && boost.spa) {
+				delete boost.spa;
+				this.add('-fail', target, 'unboost', 'Sp. Atk', '[from] ability: Oblivious', `[of] ${target}`);
+			}
+		},
+	},
 
 	// Additions
 	affection: {
