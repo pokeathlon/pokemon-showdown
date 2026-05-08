@@ -22,6 +22,74 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 			"Arceus-Cosmic", "Arceus-Sound", "Arceus-Light",
 		],
 	},
+	arceusbug: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusdark: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusdragon: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceuselectric: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusfairy: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusfighting: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusfire: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusflying: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusghost: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusgrass: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusground: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusice: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceuspoison: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceuspsychic: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceusrock: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceussteel: {
+		inherit: true,
+		tier: "Uber",
+	},
+	arceuswater: {
+		inherit: true,
+		tier: "Uber",
+	},
 	arceuscosmic: {
 		num: 493,
 		name: "Arceus-Cosmic",
@@ -37,6 +105,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Stellar Plate"],
 		changesFrom: "Arceus",
+		tier: "Uber",
 	},
 	arceussound: {
 		num: 493,
@@ -53,6 +122,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Rhythm Plate"],
 		changesFrom: "Arceus",
+		tier: "Uber",
 	},
 	arceuslight: {
 		num: 493,
@@ -69,6 +139,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Holy Plate"],
 		changesFrom: "Arceus",
+		tier: "Uber",
 	},
 	// NEW
 	koffingsoulstones: {
@@ -7579,7 +7650,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	regicesoulstones: {
 		num: 410,
@@ -7592,7 +7663,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Brown",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	registeelsoulstones: {
 		num: 411,
@@ -7605,7 +7676,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	spearowsoulstones: {
 		num: 412,
@@ -8092,7 +8163,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	darkraisoulstones: {
 		num: 440,
@@ -8105,7 +8176,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	cresseliasoulstones: {
 		num: 441,
@@ -8118,7 +8189,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	buizelsoulstones: {
 		num: 442,
@@ -10193,6 +10264,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		requiredAbility: "Zen Mode",
+		battleOnly: "Darmanitan-Soulstones",
 		tier: "OU",
 	},
 	tskitty: {
@@ -13749,7 +13822,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Yellow",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	tapulelesoulstones: {
 		num: 790,
@@ -13762,7 +13835,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Pink",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	tapubulusoulstones: {
 		num: 791,
@@ -13775,7 +13848,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Red",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	tapufinisoulstones: {
 		num: 792,
@@ -13788,7 +13861,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	eternatussoulstones: {
 		num: 793,
@@ -13801,7 +13874,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	tbronzor: {
 		num: 794,
@@ -16860,7 +16933,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Meltan-Soulstones-StrawberryVanilla", "Meltan-Soulstones-SaltedCaramel", "Meltan-Soulstones-BananaPeanutButter"],
-		tier: "LC",
+		tier: "Illegal",
 	},
 	melmetalsoulstones: {
 		num: 989,
@@ -16874,10 +16947,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Melmetal-Soulstones-StrawberryVanilla", "Melmetal-Soulstones-SaltedCaramel", "Melmetal-Soulstones-BananaPeanutButter"],
-		tier: "OU",
 		otherFormes: ["Melmetal-Soulstones-Mega"],
 		formeOrder: ["Melmetal-Soulstones", "Melmetal-Soulstones-Mega"],
 		prevo: "Meltan-Soulstones",
+		tier: "Illegal",
 	},
 	melmetalsoulstonesmega: {
 		num: 989,
@@ -16893,7 +16966,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		requiredItem: "Melmetalite",
-		tier: "OU",
+		tier: "Illegal",
 	},
 
 	unownsoulstones: {
@@ -17063,7 +17136,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	scorbunnysoulstones: {
 		num: 1001,
@@ -18007,7 +18080,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tier: "OU",
 		prevo: "Spoink-Soulstones",
 	},
-	spoinksoulstonestoxicorb: {
+	spoinksoulstonestoxic: {
 		num: 1062,
 		name: "Spoink-Soulstones-Toxic",
 		types: ['Poison'],
@@ -18021,7 +18094,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		tier: "LC",
 	},
-	grumpigsoulstonestoxicorb: {
+	grumpigsoulstonestoxic: {
 		num: 1063,
 		name: "Grumpig-Soulstones-Toxic",
 		types: ['Poison'],
