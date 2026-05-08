@@ -1,7 +1,7 @@
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 
-	disguise: { //TEST
+	disguise: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
 			if (effect?.effectType === 'Move' && ['mimikyu', 'mimikyutotem', 'mimikyusoulstones', 'tmimikyu'].includes(target.species.id)) {
@@ -382,7 +382,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon's Normal-type moves become Cosmic-type and have 1.2x power.",
 	},
-	darkswarm: { // TEST
+	darkswarm: {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi-Soulstones' || pokemon.level < 20 || pokemon.transformed) return;
@@ -418,7 +418,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "If user is Wishiwashi-Soulstones, changes to Symphny Form if it has > 1/4 max HP.",
 	},
-	destructivecore: { //TEST (ask if it also has the status immunity that minior has)
+	destructivecore: { //ASK - Minior status immunity?
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed) return;
@@ -481,7 +481,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		num: 0,
 	},
-	ethereal: { //TEST
+	ethereal: { 
 		onTryHit(target, source, move) {
 			if (!move.flags.contact) return;
 			if (target.abilityState.etherealLost) return;
@@ -563,7 +563,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Ghost-type attack.",
 	},
-	hivebody: { //TEST
+	hivebody: { 
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
@@ -752,7 +752,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon's Light power is 2x; Fire power against it is halved.",
 	},
-	maelstrom: { // TEST
+	maelstrom: {
 		onFoeTrapPokemon(pokemon) {
 			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.isGrounded()) {
@@ -770,7 +770,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
 				if (this.randomChance(3, 10)) {
-					source.addVolatile('whirlpool');
+					source.addVolatile('partiallytrapped', source, this.dex.getActiveMove('Whirlpool'));
 				}
 			}
 		},
@@ -858,7 +858,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		flags: { breakable: 1 },
 		name: "Nobility",
 		rating: 2.5,
-		num: 214,
+		num: 0,
+		shortDesc: "This Pokemon and its allies are protected from opposing priority moves.",
 	},
 	opaqueness: {
 		onTryHit(target, source, move) {
@@ -976,7 +977,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon is healed by 1/5 max HP if it attacks and KOes another Pokemon.",
 	},
-	regrowth: { //TEST
+	regrowth: {
 		onResidual(target, source, effect) {
 			let negBoosts = false;
 			let i: BoostID;
@@ -1082,7 +1083,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's offensive stat is 1.5x with Cosmic attacks.",
 	},
-	symphony: { //TEST
+	symphony: {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Unown-Soulstones' || pokemon.level < 20 || pokemon.transformed) return;
@@ -1130,7 +1131,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 1.5,
 		num: 0,
 	},
-	tvface: { //TEST
+	tvface: {
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
 			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuesoulstonesnotv') {
@@ -1166,7 +1167,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'eiscuesoulstones' && this.effectState.busted) {
-				pokemon.formeChange('Eiscue-Soulstones-Noice', this.effect, true);
+				pokemon.formeChange('Eiscue-Soulstones-NoTV', this.effect, true);
 			}
 		},
 		onTerrainChange(pokemon, source, sourceEffect) {
@@ -1174,7 +1175,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
 			if (this.field.isTerrain('electricterrain') && pokemon.species.id === 'eiscuesoulstonesnotv') {
-				this.add('-activate', pokemon, 'ability: TTVle Face');
+				this.add('-activate', pokemon, 'ability: TV Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue-Soulstones', this.effect, true);
 			}
@@ -1394,7 +1395,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon receives 1/2 damage from wind moves. Its own have 1.3x power.",
 	},
-	wintergift: { //TEST
+	wintergift: {
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);

@@ -799,7 +799,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9soulstones',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future'],
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause'],
 	},
 
 	{
