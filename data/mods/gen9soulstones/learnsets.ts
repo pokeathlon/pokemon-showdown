@@ -23548,7 +23548,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	galaxeonsoulstones: {
+	galaxeon: {
 		learnset: {
 			acrobatics: ["9M"],
 			antimatter: ["9L38"],
@@ -23666,7 +23666,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	prismeonsoulstones: {
+	prismeon: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -23767,7 +23767,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	octaveonsoulstones: {
+	octaveon: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],

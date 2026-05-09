@@ -24,70 +24,87 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	arceusbug: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusdark: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusdragon: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceuselectric: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusfairy: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusfighting: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusfire: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusflying: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusghost: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusgrass: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusground: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusice: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceuspoison: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceuspsychic: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceusrock: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceussteel: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceuswater: {
 		inherit: true,
+		num: 493,
 		tier: "Uber",
 	},
 	arceuscosmic: {
@@ -6871,6 +6888,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	tsareenasoulstonesmegax: {
 		num: 365,
 		name: "Tsareena-Soulstones-Mega-X",
+		baseSpecies: "Tsareena-Soulstones",
 		forme: "Mega-X",
 		types: ['Light', 'Dark'],
 		baseStats: { hp: 92, atk: 130, def: 118, spa: 45, spd: 112, spe: 113 },
@@ -6886,6 +6904,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	tsareenasoulstonesmegay: {
 		num: 365,
 		name: "Tsareena-Soulstones-Mega-Y",
+		baseSpecies: "Tsareena-Soulstones",
 		forme: "Mega-Y",
 		types: ['Dark'],
 		baseStats: { hp: 92, atk: 130, def: 118, spa: 45, spd: 112, spe: 113 },
@@ -18276,7 +18295,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	dialgasoulstones: {
 		num: 1091,
@@ -18289,7 +18308,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	palkiasoulstones: {
 		num: 1092,
@@ -18302,7 +18321,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	giratinasoulstones: {
 		num: 1093,
@@ -18315,7 +18334,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	arceussoulstones: {
 		num: 1094,
@@ -18328,7 +18347,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Uber",
 	},
 };
 

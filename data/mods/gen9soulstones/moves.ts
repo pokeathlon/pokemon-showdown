@@ -3237,6 +3237,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
@@ -3246,7 +3253,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "Removes item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 	burningofuda: {
@@ -5025,6 +5032,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
@@ -5034,7 +5048,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "Removes item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 	venomdrain: {
@@ -7701,6 +7715,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
@@ -7710,7 +7731,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "Removes item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 	energysurge: {
@@ -7956,6 +7977,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
@@ -7965,7 +7993,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "Removes item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 	throwingstar: {
@@ -8900,6 +8928,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
@@ -8909,7 +8944,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "Removes item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 	maleficact: {
@@ -9850,6 +9885,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
 		onAfterHit(target, source) {
 			const item = target.takeItem();
 			if (item) {
@@ -9859,7 +9901,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "Removes item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
 	},
 
 	scramblemind: {

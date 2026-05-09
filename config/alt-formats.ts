@@ -795,6 +795,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] Soulstones OU",
+
+		mod: 'gen9soulstones',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause'],
+		banlist: [
+			'Uber', 'AG',
+			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock',
+			'move:assist', 'move:batonpass', 'move:grabandgo', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
 		name: "[Gen 9] Soulstones AG",
 		searchShow: false,
 

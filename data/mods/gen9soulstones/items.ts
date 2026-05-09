@@ -79,7 +79,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Holder's first successful Light-type attack will have 1.3x power. Single use.",
 	},
-	sharpcoral: { // ASK - item desc says it "boosts", is that x1.5 or x2
+	sharpcoral: {
 		name: "Sharp Coral",
 		spritenum: -6,
 		fling: {
