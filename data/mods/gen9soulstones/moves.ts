@@ -24,6 +24,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	fly: {
 		inherit: true,
+		accuracy: 100,
 		condition: {
 			duration: 2,
 			onInvulnerability(target, source, move) {
@@ -579,6 +580,134 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	mistball: {
 		inherit: true,
 		type: "Fairy",
+	},
+	leechlife: {
+		inherit: true,
+		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1, bite: 1 },
+	},
+	fellstinger: {
+		inherit: true,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({ atk: 2 }, pokemon, pokemon, move);
+		},
+		desc: "Raises the user's Attack by 2 stages if this move knocks out the target.",
+		shortDesc: "Raises user's Attack by 2 if this KOes the target.",
+	},
+	skittersmack: {
+		inherit: true,
+		accuracy: 100,
+	},
+	nightdaze: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 85,
+	},
+	feintattack: {
+		inherit: true,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, minimize: 1 },
+	},
+	snarl: {
+		inherit: true,
+		accuracy: 100,
+	},
+	wickedblow: {
+		inherit: true,
+		basePower: 80,
+	},
+	spacialrend: {
+		inherit: true,
+		accuracy: 100,
+	},
+	dualchop: {
+		inherit: true,
+		accuracy: 100,
+	},
+	plasmafists: {
+		inherit: true,
+		pseudoWeather: undefined,
+		shortDesc: "No additional effect.",
+	},
+	thunderfang: {
+		inherit: true,
+		accuracy: 100,
+	},
+	electroweb: {
+		inherit: true,
+		accuracy: 100,
+	},
+	magneticflux: {
+		inherit: true,
+		onHitSide(side, source, move) {
+			const targets = side.allies().filter(ally => (
+				ally.hasType(['Steel', 'Electric']) &&
+				(!ally.volatiles['maxguard'] || this.runEvent('TryHit', ally, source, move))
+			));
+			if (!targets.length) return false;
+
+			let didSomething = false;
+			for (const target of targets) {
+				didSomething = this.boost({ def: 1, spd: 1 }, target, source, move, false, true) || didSomething;
+			}
+			return didSomething;
+		},
+		desc: "Raises the Defense and Special Defense of Steel and Electric-type Pokemon on the user's side by 1 stage.",
+		shortDesc: "Raises Def, Sp. Def of allies with Steel or Electric-type by 1.",
+	},
+	boltbeak: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
+		desc: "1.5x power if the user moves before the target.",
+		shortDesc: "1.5x power if user moves before the target.",
+	},
+	flyingpress: {
+		inherit: true,
+		accuracy: 100,
+	},
+	submission: {
+		inherit: true,
+		accuracy: 100,
+	},
+	vcreate: {
+		inherit: true,
+		accuracy: 100,
+	},
+	firefang: {
+		inherit: true,
+		accuracy: 100,
+	},
+	vitalthrow: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+		pp: 20,
+		priority: 0,
+		ignoreEvasion: true,
+		ignoreDefensive: true,
+		desc: "Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "Ignores the target's stat stage changes.",
+	},
+	dualwingbeat: {
+		inherit: true,
+		accuracy: 100,
+	},
+	leaftornado: {
+		inherit: true,
+		accuracy: 100,
+	},
+	grasswhistle: {
+		inherit: true,
+		accuracy: 75,
+	},
+	grassyglide: {
+		inherit: true,
+		basePower: 65,
 	},
 	
 	// Additions
