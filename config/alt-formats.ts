@@ -801,7 +801,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=800', 'Link EVs'],
 		banlist: [
 			'Uber', 'AG',
-			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
+			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag',
 			'item:kingsrock',
 			'move:assist', 'move:batonpass', 'move:grabandgo', 'move:lastrespects', 'move:shedtail',
 		],

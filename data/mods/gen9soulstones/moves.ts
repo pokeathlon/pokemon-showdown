@@ -42,6 +42,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	bounce: {
 		inherit: true,
+		accuracy: 100,
+		basePower: 80,
 		condition: {
 			duration: 2,
 			onInvulnerability(target, source, move) {
@@ -237,6 +239,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	cometpunch: {
 		inherit: true,
+		accuracy: 100,
 		type: "Cosmic",
 	},
 	cosmicpower: {
@@ -318,10 +321,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	meteormash: {
 		inherit: true,
+		accuracy: 100,
 		type: "Cosmic",
 	},
 	moonblast: {
 		inherit: true,
+		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
 		type: "Cosmic",
 	},
 	moonlight: {
@@ -708,6 +713,845 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	grassyglide: {
 		inherit: true,
 		basePower: 65,
+	},
+	drillrun: {
+		inherit: true,
+		accuracy: 100,
+	},
+	mudshot: {
+		inherit: true,
+		accuracy: 100,
+	},
+	sandtomb: {
+		inherit: true,
+		accuracy: 90,
+	},
+	icefang: {
+		inherit: true,
+		accuracy: 100,
+	},
+	icywind: {
+		inherit: true,
+		accuracy: 100,
+	},
+	magnitude: {
+		inherit: true,
+		isNonstandard: undefined,
+		onModifyMove(move, pokemon) {
+			move.basePower = pokemon.level;
+		},
+		onUseMoveMessage(pokemon, target, move) {},
+		desc: "Base Power equal to the user's level.",
+		shortDesc: "Base Power equal to the user's level.",
+	},
+	glaciate: {
+		inherit: true,
+		accuracy: 100,
+		secondary: {
+			chance: 20,
+			boosts: {
+				spd: -1,
+			},
+		},
+		desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
+	},
+	glaciallance: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 130,
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		desc: "Lowers the user's Attack by 2 stages.",
+		shortDesc: "Lowers the user's Attack by 2.",
+	},
+	multiattack: {
+		inherit: true,
+		basePower: 90,
+		isNonstandard: undefined,
+	},
+	takedown: {
+		inherit: true,
+		accuracy: 100,
+	},
+	razorwind: {
+		inherit: true,
+		basePower: 140,
+		isNonstandard: undefined,
+	},
+	triattack: {
+		inherit: true,
+		basePower: 140,
+		isNonstandard: undefined,
+	},
+	cut: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	furyswipes: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	barrage: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	doubleslap: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	furyattack: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	wrap: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	return: {
+		inherit: true,
+		basePower: 100,
+		basePowerCallback(pokemon, target, move) {return move.basePower},
+		isNonstandard: undefined,
+		shortDesc: "No additional effect."
+	},
+	frustration: {
+		inherit: true,
+		basePower: 100,
+		category: "Special",
+		basePowerCallback(pokemon, target, move) {return move.basePower},
+		isNonstandard: undefined,
+		shortDesc: "No additional effect."
+	},
+	recover: {
+		inherit: true,
+		pp: 10,
+	},
+	milkdrink: {
+		inherit: true,
+		pp: 10,
+	},
+	roost: {
+		inherit: true,
+		pp: 10,
+	},
+	slackoff: {
+		inherit: true,
+		pp: 10,
+	},
+	softboiled: {
+		inherit: true,
+		pp: 10,
+	},
+	belch: {
+		inherit: true,
+		basePower: 65,
+		onDisableMove(pokemon) {},
+		onTry(source) {},
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.ateBerry) {
+				this.debug('BP doubled from berry eaten');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		shortDesc: "Power doubles if the user ate a berry.",
+	},
+	smog: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 40,
+		isNonstandard: undefined,
+	},
+	dreameater: {
+		inherit: true,
+		basePower: 50,
+		flags: { protect: 1, mirror: 1, heal: 1, metronome: 1 },
+		onTryImmunity(target) {},
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			if (target.status === "slp") {
+				move.drain = [1,2];
+			}
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose')) {
+				this.debug('BP doubled from sleep');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		shortDesc: "If target asleep; 2x Power and recovers 50% of damage dealt."
+	},
+	zenheadbutt: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	rocktomb: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	smartstrike: {
+		inherit: true,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		isNonstandard: undefined,
+	},
+	geargrind: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	gearup: {
+		inherit: true,
+		onHitSide(side, source, move) {
+			const targets = side.allies().filter(ally => (
+				ally.hasType(['Steel', 'Electric']) &&
+				(!ally.volatiles['maxguard'] || this.runEvent('TryHit', ally, source, move))
+			));
+			if (!targets.length) return false;
+
+			let didSomething = false;
+			for (const target of targets) {
+				didSomething = this.boost({ atk: 1, spa: 1 }, target, source, move, false, true) || didSomething;
+			}
+			return didSomething;
+		},
+		desc: "Raises the Attack and Special Attack of Steel and Electric-type Pokemon on the user's side by 1 stage.",
+		shortDesc: "Raises Atk, Sp. Atk of allies with Steel or Electric-type by 1.",
+	},
+	steelbeam: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	steameruption: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	razorshell: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	octazooka: {
+		inherit: true,
+		accuracy: 100,
+		secondary: {
+			chance: 30,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 30% chance to lower the target's accuracy by 1 stage.",
+		shortDesc: "30% chance to lower the target's accuracy by 1.",
+	},
+	fishiousrend: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fish Rend damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Fish Rend NOT boosted');
+			return move.basePower;
+		},
+		desc: "1.5x power if the user moves before the target.",
+		shortDesc: "1.5x power if user moves before the target.",
+	},
+	surgingstrikes: {
+		inherit: true,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		isNonstandard: undefined,
+	},
+	attackorder: {
+		inherit: true,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
+		critRatio: undefined,
+		desc: "Power is equal to 20+(X*20), where X is the user's total stat stage changes that are greater than 0.",
+		shortDesc: " + 20 power for each of the user's stat boosts.",
+	},
+	firstimpression: {
+		inherit: true,
+		basePower: 40,
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("First Impression only works on your first turn out.");
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 100% chance to make the target flinch. Fails unless it is the user's first turn on the field.",
+		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
+	},
+	furycutter: {
+		inherit: true,
+		accuracy: 90,
+		isNonstandard: undefined,
+	},
+	infestation: {
+		inherit: true,
+		basePower: 35,
+		isNonstandard: undefined,
+	},
+	pinmissile: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	strugglebug: {
+		inherit: true,
+		basePower: 55,
+		isNonstandard: undefined,
+	},
+	twineedle: {
+		inherit: true,
+		basePower: 40,
+		isNonstandard: undefined,
+		secondary: undefined,
+		shortDesc: "Hits twice."
+	},
+	xscissor: {
+		inherit: true,
+		critRatio: 2,
+		isNonstandard: undefined,
+	},
+	fierywrath: {
+		inherit: true,
+		basePower: 70,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to burn the target.",
+		shortDesc: "10% chance to burn.",
+	},
+	breakingswipe: {
+		inherit: true,
+		basePower: 55,
+		isNonstandard: undefined,
+	},
+	twister: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 10% chance to make the target flinch. Power doubles if the target is using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop.",
+		shortDesc: "10% chance to make the foe(s) flinch.",
+	},
+	chargebeam: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 40,
+		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1 },
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		desc: "Has a 100% chance to raise the user's Special Attack by 1 stage.",
+		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
+	},
+	paraboliccharge: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 60,
+		drain: [3, 4],
+		desc: "The user recovers 3/4 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 75% of the damage dealt.",
+	},
+	shockwave: {
+		inherit: true,
+		flags: { protect: 1, mirror: 1, metronome: 1, minimize: 1 },
+		isNonstandard: undefined,
+	},
+	spark: {
+		inherit: true,
+		basePower: 60,
+		isNonstandard: undefined,
+	},
+	thundercage: {
+		inherit: true,
+		basePower: 35,
+		isNonstandard: undefined,
+	},
+	drainingkiss: {
+		inherit: true,
+		basePower: 60,
+		isNonstandard: undefined,
+	},
+	fairywind: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to raise the user's Special Attack by 1 stage.",
+		shortDesc: "10% chance to raise the user's Sp. Atk by 1.",
+	},
+	heartstamp: {
+		inherit: true,
+		type: "Fairy",
+	},
+	lovelykiss: {
+		inherit: true,
+		accuracy: 70,
+		type: "Fairy",
+	},
+	strangesteam: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 95,
+		flags: { protect: 1, mirror: 1, defrost: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
+		target: "allAdjacentFoes",
+		desc: "Has a 10% chance to confuse the foe(s).",
+		shortDesc: "10% chance to confuse the foe(s).",
+	},
+	sweetkiss: {
+		inherit: true,
+		accuracy: 90,
+		isNonstandard: undefined,
+	},
+	armthrust: {
+		inherit: true,
+		basePower: 20,
+		pp: 15,
+		isNonstandard: undefined,
+	},
+	block: {
+		inherit: true,
+		type: "Fighting",
+	},
+	doublekick: {
+		inherit: true,
+		basePower: 40,
+		pp: 20,
+		isNonstandard: undefined,
+	},
+	rollingkick: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 40,
+		pp: 20,
+		secondary: undefined,
+		isNonstandard: undefined,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			const rollingkickData = pokemon.volatiles['rollingkick'];
+			if (rollingkickData?.hitCount) {
+				bp *= 2 ** rollingkickData.contactHitCount;
+			}
+			if (rollingkickData && pokemon.status !== 'slp') {
+				rollingkickData.hitCount++;
+				rollingkickData.contactHitCount++;
+				if (rollingkickData.hitCount < 5) {
+					rollingkickData.duration = 2;
+				}
+			}
+			if (pokemon.volatiles['defensecurl']) {
+				bp *= 2;
+			}
+			this.debug(`BP: ${bp}`);
+			return bp;
+		},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, failinstruct: 1, noparentalbond: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.volatiles['rollingkick'] || pokemon.status === 'slp' || !target) return;
+			pokemon.addVolatile('rollingkick');
+			if (move.sourceEffect) pokemon.lastMoveTargetLoc = pokemon.getLocOf(target);
+		},
+		onAfterMove(source, target, move) {
+			const rollingkickData = source.volatiles["rollingkick"];
+			if (
+				rollingkickData &&
+				rollingkickData.hitCount === 5 &&
+				rollingkickData.contactHitCount < 5
+				// this conditions can only be met in gen7 and gen8dlc1
+				// see `disguise` and `iceface` abilities in the resp mod folders
+			) {
+				source.addVolatile("rolloutstorage");
+				source.volatiles["rolloutstorage"].contactHitCount =
+					rollingkickData.contactHitCount;
+			}
+		},
+		condition: {
+			duration: 1,
+			onLockMove: 'rollingkick',
+			onStart() {
+				this.effectState.hitCount = 0;
+				this.effectState.contactHitCount = 0;
+			},
+			onResidual(target) {
+				if (target.lastMove && target.lastMove.id === 'struggle') {
+					// don't lock
+					delete target.volatiles['rollingkick'];
+				}
+			},
+		},
+		desc: "If this move is successful, the user is locked into this move and cannot make another move until it misses, 5 turns have passed, or the attack cannot be used. Power doubles with each successful hit of this move and doubles again if Defense Curl was used previously by the user. If this move is called by Sleep Talk, the move is used for one turn.",
+		shortDesc: "Power doubles with each hit. Repeats for 5 turns.",
+	},
+	skyuppercut: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	thunderouskick: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'par',
+		},
+		desc: "Has a 30% chance to paralyze the target.",
+		shortDesc: "30% chance to paralyze the target.",
+	},
+	triplekick: {
+		inherit: true,
+		basePower: 20,
+		isNonstandard: undefined,
+	},
+	blazekick: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 90,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, defrost: 1 },
+		isNonstandard: undefined,
+	},
+	accuracy: {
+		inherit: true,
+		accuracy: 90,
+		isNonstandard: undefined,
+	},
+	flameburst: {
+		inherit: true,
+		accuracy: true,
+		isNonstandard: undefined,
+		name: "Flame Burst",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1, defrost: 1 },
+		onHit(target, source, move) {},
+		onAfterSubDamage(damage, target, source, move) {},
+		target: "allAdjacentFoes",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
+	},
+	sacredfire: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	willowisp: {
+		inherit: true,
+		accuracy: 90,
+		isNonstandard: undefined,
+	},
+	aircutter: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	airslash: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	aeroblast: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 80,
+		pp: 15,
+		flags: { protect: 1, mirror: 1, distance: 1, metronome: 1, wind: 1 },
+		condition: {
+			duration: 4,
+			onStart(target) {
+				this.add('-start', target, 'Aeroblast', '[silent]');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (this.dex.moves.get(moveSlot.id).flags['sound']) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (!move.isZOrMaxPowered && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Aeroblast');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (!move.isZOrMaxPowered && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Aeroblast');
+					return false;
+				}
+			},
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Aeroblast', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('aeroblast');
+			},
+		},
+		critRatio: undefined,
+		desc: "For 4 turns, the target cannot use sound-based moves.",
+		shortDesc: "For 4 turns, the target cannot use sound moves.",
+	},
+	drillpeck: {
+		inherit: true,
+		basePower: 90,
+		critRatio: 2,
+		isNonstandard: undefined,
+		desc: "Has a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio.",
+	},
+	peck: {
+		inherit: true,
+		basePower: 40,
+		pp: 25,
+		isNonstandard: undefined,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
+		desc: "Has a 10% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "10% chance to lower the target's Defense by 1.",
+	},
+	astonish: {
+		inherit: true,
+		basePower: 40,
+		pp: 20,
+		isNonstandard: undefined,
+		secondary: {
+			chance: 10,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 10% chance to make the target flinch.",
+		shortDesc: "10% chance to make the target flinch.",
+	},
+	confuseray: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	meanlook: {
+		inherit: true,
+		type: "Ghost",
+		isNonstandard: undefined,
+	},
+	memento: {
+		inherit: true,
+		type: "Ghost",
+		isNonstandard: undefined,
+	},
+	silverwind: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
+	ominouswind: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
+	ancientpower: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
+	shadowbone: {
+		inherit: true,
+		basePower: 90,
+		pp: 15,
+		isNonstandard: undefined,
+	},
+	shadowclaw: {
+		inherit: true,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		isNonstandard: undefined,
+	},
+	bulletseed: {
+		inherit: true,
+		pp: 15,
+		isNonstandard: undefined,
+	},
+	floralhealing: {
+		inherit: true,
+		type: "Grass",
+		isNonstandard: undefined,
+	},
+	flowershield: {
+		inherit: true,
+		type: "Grass",
+		isNonstandard: undefined,
+	},
+	growth: {
+		inherit: true,
+		type: "Grass",
+		isNonstandard: undefined,
+	},
+	sweetscent: {
+		inherit: true,
+		type: "Grass",
+		isNonstandard: undefined,
+	},
+	leafage: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "10% chance to lower the target's Def by 1.",
+	},
+	magicalleaf: {
+		inherit: true,
+		basePower: 70,
+		flags: { protect: 1, mirror: 1, metronome: 1, minimize: 1 },
+		isNonstandard: undefined,
+	},
+	razorleaf: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	sleeppowder: {
+		inherit: true,
+		accuracy: 70,
+		isNonstandard: undefined,
+	},
+	tropkick: {
+		inherit: true,
+		basePower: 80,
+		isNonstandard: undefined,
+	},
+	boneclub: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 70,
+		pp: 15,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		isNonstandard: undefined,
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target flinch.",
+	},
+	bonerush: {
+		inherit: true,
+		pp: 15,
+		isNonstandard: undefined,
+	},
+	highhorsepower: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("BP doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		desc: "Power doubles if the user has no held item.",
+		shortDesc: "Power doubles if the user has no held item.",
+	},
+	horndrill: {
+		inherit: true,
+		type: "Ground",
+		isNonstandard: undefined,
+	},
+	mudslap: {
+		inherit: true,
+		basePower: 40,
+		pp: 25,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "10% chance to lower the foe(s) Speed by 1.",
+	},
+	steamroller: {
+		inherit: true,
+		basePower: 60,
+		type: "Ground",
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+	},
+	iceball: {
+		inherit: true,
+		basePower: 40,
+		isNonstandard: undefined,
+	},
+	iciclecrash: {
+		inherit: true,
+		basePower: 80,
+		accuracy: 90,
+		pp: 15,
+		isNonstandard: undefined,
+	},
+	iciclespear: {
+		inherit: true,
+		pp: 15,
+		isNonstandard: undefined,
 	},
 	
 	// Additions

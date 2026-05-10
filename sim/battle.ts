@@ -2470,7 +2470,7 @@ export class Battle {
 		const selfLoc = pokemon.getLocOf(pokemon);
 		if (
 			['adjacentAlly', 'any', 'normal'].includes(move.target) && targetLoc === selfLoc &&
-			!pokemon.volatiles['twoturnmove'] && !pokemon.volatiles['iceball'] && !pokemon.volatiles['rollout']
+			!pokemon.volatiles['twoturnmove'] && !pokemon.volatiles['iceball'] && !pokemon.volatiles['rollout'] && !pokemon.volatiles['rollingkick']
 		) {
 			return move.flags['futuremove'] ? pokemon : null;
 		}

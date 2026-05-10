@@ -322,6 +322,95 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
 	},
+	serenegrace: {
+		inherit: true,
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+			if (move.self?.chance) move.self.chance *= 2;
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.secondaries) {
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) this.chainModify(1-secondary.chance/200); //chance has already been modified before this triggers.
+				}
+			}
+			if (move.self?.chance) this.chainModify(1-move.self.chance/200);
+		},
+		desc: "This Pokemon's moves have their secondary effect chance doubled. This effect stacks with the Rainbow effect, except for secondary effects that cause the target to flinch. The Power of moves is reduced by the original effect chance %.",
+		shortDesc: "Doubled effect chance, but BP reduced by original effect chance.",
+	},
+	moody: {
+		inherit: true,
+		onResidual(pokemon) {
+			let stats: BoostID[] = [];
+			const boost: SparseBoostsTable = {};
+			let statPlus: BoostID;
+			for (statPlus in pokemon.boosts) {
+				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+				if (pokemon.boosts[statPlus] < 6) {
+					stats.push(statPlus);
+				}
+			}
+			let randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
+			if (pokemon.abilityState.statPlus) boost[pokemon.abilityState.statPlus as BoostID] = -2
+			if (randomStat) {boost[randomStat] = 2; pokemon.abilityState.statPlus = randomStat}
+
+			this.boost(boost, pokemon, pokemon);
+		},
+		desc: "This Pokemon has a random stat, other than accuracy or evasiveness, raised by 2 stages at the end of each turn. The stat raised the previous turn will be lowered by 2 stages the next turn.",
+		shortDesc: "Boosts a random stat (except accuracy/evasion) +2 every turn. Drops boosted stat next turn.",
+	},
+	emergencyexit: {
+		inherit: true,
+		onEmergencyExit(target) {
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.abilityState.exit = true;
+		},
+		onResidualOrder: 1,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.abilityState.exit) {
+				pokemon.switchFlag = true;
+				this.add('-activate', pokemon, 'ability: Emergency Exit');
+			}
+		},
+		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it switches out to a chosen ally at the end of the turn. This effect applies after all hits from a multi-hit move. This effect is prevented if the move had a secondary effect removed by the Sheer Force Ability. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
+		shortDesc: "This Pokemon switches out at the end of the turn when it reaches 1/2 or less of its maximum HP.",
+	},
+	wimpout: {
+		inherit: true,
+		onEmergencyExit(target) {
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.abilityState.exit = true;
+		},
+		onResidualOrder: 1,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.abilityState.exit) {
+				pokemon.switchFlag = true;
+				this.add('-activate', pokemon, 'ability: Wimp Out');
+			}
+		},
+		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it switches out to a chosen ally at the end of the turn. This effect applies after all hits from a multi-hit move. This effect is prevented if the move had a secondary effect removed by the Sheer Force Ability. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
+		shortDesc: "This Pokemon switches out at the end of the turn when it reaches 1/2 or less of its maximum HP.",
+	},
 
 	// Additions
 	affection: {
