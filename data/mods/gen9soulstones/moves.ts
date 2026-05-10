@@ -95,6 +95,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	aurorabeam: {
 		inherit: true,
 		basePower: 55,
+		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1 },
 		type: "Light",
 	},
 	auroraveil: {
@@ -109,17 +110,41 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 70,
 		type: "Light",
+		self: {
+			boosts: {
+				def: -1,
+			},
+		},
+		shortDesc: "Lowers the user's Defense by 1 stage. Nearly always goes first.",
 	},
 	flash: {
 		inherit: true,
 		basePower: 60,
 		category: "Special",
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		boosts: undefined,
 		type: "Light",
+		desc: "Has a 20% chance to lower the target's accuracy by 1 stage.",
+		shortDesc: "20% chance to lower the target's accuracy by 1.",
 	},
 	flashcannon: {
 		inherit: true,
 		basePower: 90,
 		type: "Light",
+		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				spd: -1,
+			},
+		},
+		desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
 	},
 	mirrorshot: {
 		inherit: true,
@@ -1551,6 +1576,409 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	iciclespear: {
 		inherit: true,
 		pp: 15,
+		isNonstandard: undefined,
+	},
+	coil: {
+		inherit: true,
+		type: "Normal",
+		isNonstandard: undefined,
+	},
+	rest: {
+		inherit: true,
+		type: "Normal",
+		isNonstandard: undefined,
+	},
+	crushclaw: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 90,
+		secondary: {
+			chance: 40,
+			boosts: {
+				def: -1,
+			},
+		},
+		desc: "Has a 40% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "40% chance to lower the target's Defense by 1.",
+	},
+	doublehit: {
+		inherit: true,
+		basePower: 40,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	freezingglare: {
+		inherit: true,
+		basePower: 80,
+		secondary: {
+			chance: 20,
+			status: 'frz',
+		},
+		isNonstandard: undefined,
+		type: "Rock",
+		desc: "Has a 20% chance to freeze the target.",
+		shortDesc: "20% chance to freeze the target.",
+	},
+	hyperfang: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target flinch.",
+	},
+	megapunch: {
+		inherit: true,
+		basePower: 75,
+		accuracy: 100,
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to raise the user's Attack by 1 stage.",
+		shortDesc: "10% chance to raise the user's Attack by 1.",
+	},
+	pound: {
+		inherit: true,
+		isNonstandard: undefined,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1
+			}
+		},
+		desc: "Has a 10% chance to lower target's Defense by 1.",
+		shortDesc: "10% chance to lower target's Defense by 1.",
+	},
+	slash: {
+		inherit: true,
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 50% chance to raise the user's Attack by 1 stage.",
+		shortDesc: "50% chance to raise the user's Attack by 1.",
+	},
+	tailslap: {
+		inherit: true,
+		accuracy: 90,
+		isNonstandard: undefined,
+	},
+	crosspoison: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		isNonstandard: undefined,
+		desc: "Has a 30% chance to poison the target and a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio. 30% chance to poison.",
+	},
+	poisonsting: {
+		inherit: true,
+		basePower: 40,
+		isNonstandard: undefined,
+	},
+	poisonfang: {
+		inherit: true,
+		basePower: 65,
+		isNonstandard: undefined,
+	},
+	poisontail: {
+		inherit: true,
+		basePower: 60,
+		priority: -6,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		forceSwitch: true,
+		critRatio: undefined,
+		secondary: undefined,
+		desc: "If both the user and the target have not fainted, the target is forced to switch out and be replaced with a random unfainted ally. This effect fails if the target used Ingrain previously, has the Suction Cups Ability, or this move hit a substitute.",
+		shortDesc: "Forces the target to switch to a random ally.",
+	},
+	sludge: {
+		inherit: true,
+		basePower: 60,
+		isNonstandard: undefined,
+	},
+	smokescreen: {
+		inherit: true,
+		type: "Poison",
+		isNonstandard: undefined,
+	},
+	confusion: {
+		inherit: true,
+		basePower: 40,
+		isNonstandard: undefined,
+	},
+	hypnosis: {
+		inherit: true,
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1, sound: 1 },
+		isNonstandard: undefined,
+	},
+	diamondstorm: {
+		inherit: true,
+		basePower: 75,
+		accuracy: 100,
+		self: {
+			chance: 100,
+			boosts: {
+				def: 1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 100% chance to raise the user's Defense by 1 stages.",
+		shortDesc: "100% chance to raise user's Defense by 1.",
+	},
+	harden: {
+		inherit: true,
+		type: "Rock",
+		isNonstandard: undefined,
+	},
+	rockblast: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
+	rockclimb: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 80,
+		type: "Rock",
+		secondary: {
+			chance: 30,
+			volatileStatus: 'confusion',
+		},
+		isNonstandard: undefined,
+		desc: "Has a 30% chance to confuse the target.",
+		shortDesc: "30% chance to confuse the target.",
+	},
+	rockthrow: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 40,
+		self: {
+			chance: 10,
+			boosts: {
+				def: 1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to raise the user's Defense by 1 stages.",
+		shortDesc: "10% chance to raise user's Defense by 1.",
+	},
+	rollout: {
+		inherit: true,
+		basePower: 40,
+		isNonstandard: undefined,
+	},
+	guillotine: {
+		inherit: true,
+		type: "Steel",
+		isNonstandard: undefined,
+	},
+	magnetbomb: {
+		inherit: true,
+		basePower: 70,
+		isNonstandard: undefined,
+	},
+	metalclaw: {
+		inherit: true,
+		basePower: 40,
+		accuracy: 100,
+		self: {
+			chance: 30,
+			boosts: {
+				atk: 1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 30% chance to raise the user's Attack by 1 stages.",
+		shortDesc: "30% chance to raise user's Attack by 1.",
+	},
+	snaptrap: {
+		inherit: true,
+		basePower: 40,
+		isNonstandard: undefined,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		volatileStatus: undefined,
+		type: "Steel",
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Snap Trap damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		beforeTurnCallback(pokemon) {
+			for (const target of pokemon.foes()) {
+				target.addVolatile('snaptrap');
+				const data = target.volatiles['snaptrap'];
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Snap Trap start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Snap Trap');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst || source.canTerastallize) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source) {
+								if (action.choice === 'megaEvo') {
+									this.actions.runMegaEvo(source);
+								} else if (action.choice === 'terastallize') {
+									// Also a "forme" change that happens before moves, though only possible in NatDex
+									this.actions.terastallize(source);
+								} else {
+									continue;
+								}
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('snaptrap', source, source.getLocOf(pokemon));
+				}
+			},
+		},
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
+		shortDesc: "If a foe is switching out, hits it at 2x power.",
+	},
+	steelwing: {
+		inherit: true,
+		accuracy: 100,
+		self: {
+			chance: 20,
+			boosts: {
+				def: 1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 20% chance to raise the user's Defense by 1 stages.",
+		shortDesc: "20% chance to raise user's Defense by 1.",
+	},
+	swordsdance: {
+		inherit: true,
+		type: "Steel",
+		isNonstandard: undefined,
+	},
+	visegrip: {
+		inherit: true,
+		basePower: 60,
+		accuracy: 100,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'flinch',
+		},
+		type: "Steel",
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to make the target flinch.",
+		shortDesc: "10% chance to make the target flinch.",
+	},
+	clamp: {
+		inherit: true,
+		accuracy: 90,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1 },
+		isNonstandard: undefined,
+	},
+	flipturn: {
+		inherit: true,
+		basePower: 70,
+		isNonstandard: undefined,
+	},
+	hydropump: {
+		inherit: true,
+		accuracy: 85,
+		self: {
+			chance: 10,
+			boosts: {
+				spa: 1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to raise the user's Special Attack by 1 stages.",
+		shortDesc: "10% chance to raise user's Sp. Atk by 1.",
+	},
+	liquidation: {
+		inherit: true,
+		basePower: 90,
+		isNonstandard: undefined,
+	},
+	muddywater: {
+		inherit: true,
+		basePower: 95,
+		accuracy: 90,
+		secondary: {
+			chance: 10,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to lower the target's accuracy by 1 stage.",
+		shortDesc: "10% chance to lower the foe(s) accuracy by 1.",
+	},
+	octolock: {
+		inherit: true,
+		type: "Water",
+		isNonstandard: undefined,
+	},
+	spikecannon: {
+		inherit: true,
+		type: "Water",
+		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
+		isNonstandard: undefined,
+	},
+	teatime: {
+		inherit: true,
+		type: "Water",
+		isNonstandard: undefined,
+	},
+	watergun: {
+		inherit: true,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		isNonstandard: undefined,
+		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+	},
+	whirlpool: {
+		inherit: true,
+		accuracy: 90,
 		isNonstandard: undefined,
 	},
 	
