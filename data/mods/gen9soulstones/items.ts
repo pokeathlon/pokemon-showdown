@@ -1881,4 +1881,382 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
     		gen: 9,
 			shortDesc: "If held by a T.Charizard, this item allows it to Mega Evolve in battle.",
     	},
+	normalshield: {
+		name: "Normal Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Normal' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Normal-type attack.",
+	},
+	fireshield: {
+		name: "Fire Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fire' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Fire-type attack.",
+	},
+	watershield: {
+		name: "Water Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Water' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Water-type attack.",
+	},
+	grassshield: {
+		name: "Grass Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Grass' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Grass-type attack.",
+	},
+	electricshield: {
+		name: "Electric Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Electric' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Electric-type attack.",
+	},
+	iceshield: {
+		name: "Ice Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ice' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Ice-type attack.",
+	},
+	poisonshield: {
+		name: "Poison Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Poison' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Poison-type attack.",
+	},
+	fightingshield: {
+		name: "Fighting Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fighting' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Fighting-type attack.",
+	},
+	groundshield: {
+		name: "Ground Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ground' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Ground-type attack.",
+	},
+	flyingshield: {
+		name: "Flying Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Flying' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Flying-type attack.",
+	},
+	psychicshield: {
+		name: "Psychic Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Psychic' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Psychic-type attack.",
+	},
+	bugshield: {
+		name: "Bug Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Bug' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Bug-type attack.",
+	},
+	rockshield: {
+		name: "Rock Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Rock' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Rock-type attack.",
+	},
+	ghostshield: {
+		name: "Ghost Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ghost' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Ghost-type attack.",
+	},
+	dragonshield: {
+		name: "Dragon Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dragon' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Dragon-type attack.",
+	},
+	steelshield: {
+		name: "Steel Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Steel' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Steel-type attack.",
+	},
+	darkshield: {
+		name: "Dark",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dark' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Dark-type attack.",
+	},
+	fairyshield: {
+		name: "Fairy Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fairy' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Fairy-type attack.",
+	},
+	cosmicshield: {
+		name: "Cosmic Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Cosmic' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Cosmic-type attack.",
+	},
+	lightshield: {
+		name: "Light Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Light' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Light-type attack.",
+	},
+	soundshield: {
+		name: "Sound Shield",
+		spritenum: -6,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Sound' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Halves damage taken from a supereffective Sound-type attack.",
+	},
 };

@@ -13758,7 +13758,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 9.0,
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Illegal",
 	},
 	gimmighoulsoulstones: {
 		num: 784,
@@ -18295,7 +18295,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Blue",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "Uber",
+		tier: "Illegal",
 	},
 	dialgasoulstones: {
 		num: 1091,
@@ -18308,7 +18308,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "Uber",
+		tier: "Illegal",
 	},
 	palkiasoulstones: {
 		num: 1092,
@@ -18321,7 +18321,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "Uber",
+		tier: "Illegal",
 	},
 	giratinasoulstones: {
 		num: 1093,
@@ -18334,7 +18334,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Black",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "Uber",
+		tier: "Illegal",
 	},
 	arceussoulstones: {
 		num: 1094,
@@ -18347,7 +18347,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "Uber",
+		tier: "Illegal",
 	},
 };
 

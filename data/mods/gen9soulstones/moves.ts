@@ -886,7 +886,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "Has 33% recoil. 10% chance to paralyze target.",
+		shortDesc: "Has 1/3 recoil. 10% chance to paralyze target.",
 	},
 
 	antimatter: {
@@ -1986,7 +1986,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		shortDesc: "Has 33% recoil. 10% chance to paralyze target.",
+		shortDesc: "Has 1/3 recoil. 10% chance to paralyze target.",
 	},
 
 	dragonwing: {
@@ -3421,7 +3421,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "Has 33% recoil.",
+		shortDesc: "Has 1/3 recoil.",
 	},
 
 	shadowray: {

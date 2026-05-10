@@ -104,6 +104,224 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	windrider: {
+		inherit: true,
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['tailwind']) {
+				this.boost({ atk: 1, spa: 1 }, pokemon, pokemon);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['wind']) {
+				if (!this.boost({ atk: 1, spa: 1 }, target, target)) {
+					this.add('-immune', target, '[from] ability: Wind Rider');
+				}
+				return null;
+			}
+		},
+		onSideConditionStart(side, source, sideCondition) {
+			const pokemon = this.effectState.target;
+			if (sideCondition.id === 'tailwind') {
+				this.boost({ atk: 1, spa: 1 }, pokemon, pokemon);
+			}
+		},
+		shortDesc: "Atk and Sp. Atk raised by 1 if hit by a wind move or Tailwind begins. Wind move immunity.",
+	},
+	sandveil: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyAccuracyPriority: undefined,
+		onModifyAccuracy(accuracy) {},
+		onModifySpDPriority: -1,
+		onModifySpD(spd) {
+			if (this.field.isWeather('sandstorm')) {
+				this.debug('Sand Veil - SpD boost');
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "If Sandstorm is active, SpD is 1.5x. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, SpD is 1.5x. This Pokemon takes no damage from Sandstorm.",
+	},
+	snowcloak: {
+		inherit: true,
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		onModifyAccuracyPriority: undefined,
+		onModifyAccuracy(accuracy) {},
+		onModifyDefPriority: -1,
+		onModifyDef(def) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
+				this.debug('Snow Cloak - Def boost');
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "If Hail or Snow is active, Def is 1.5x. This Pokemon takes no damage from Hail.",
+		shortDesc: "If Hail or Snow is active, Def is 1.5x. This Pokemon takes no damage from Hail.",
+	},
+	icebody: {
+		inherit: true,
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snowscape') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		desc: "If Snow is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
+		shortDesc: "If Snow is active, this Pokemon heals 1/8 of its max HP each turn.",
+	},
+	immunity: {
+		inherit: true,
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Poison') {
+				this.add('-immune', target, '[from] ability: Immunity');
+				return null;
+			}
+		},
+		shortDesc: "Poison immunity. This Pokemon cannot be poisoned.",
+	},
+	runaway: {
+		inherit: true,
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = false;
+		},
+		onMaybeTrapPokemonPriority: -10,
+		onMaybeTrapPokemon(pokemon) {
+			pokemon.maybeTrapped = false;
+		},
+		shortDesc: "Holder cannot be prevented from choosing to switch out by any effect.",
+	},
+	toxicboost: {
+		inherit: true,
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				return false;
+			}
+		},
+		shortDesc: "While this Pokemon is poisoned, no HP loss and its physical attacks have 1.5x power.",
+	},
+	liquidvoice: {
+		inherit: true,
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.flags.sound) return this.chainModify([4915, 4096]);
+		},
+		shortDesc: "This Pokemon's sound-based moves become Water type. Sound-based moves have 1.2x power.",
+	},
+	corrosion: { //TEST
+		inherit: true,
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Poison' && ['Poison', 'Steel'].includes(type)) return 0
+		},
+		shortDesc: "User can poison a Pokemon regardless of typing. Poison moves are neutral on Poison and Steel.",
+	},
+	moxie: {
+		inherit: true,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (this.effectState.moxie) return;
+			if (effect && effect.effectType === 'Move') {
+				this.effectState.moxie = true;
+				this.boost({ atk: 1 }, source);
+			}
+		},
+		desc: "This Pokemon's Attack is raised by 1 stage if it attacks and knocks out another Pokemon. Once per switch-in.",
+		shortDesc: "+1 Attack on KO. Once per switch-in.",
+	},
+	illuminate: {
+		inherit: true,
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Light';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		onTryBoost(boost, target, source, effect) {},
+		onModifyMove(move) {},
+		desc: "This Pokemon's Normal-type moves become Light-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Light type and have 1.2x power.",
+	},
+	cloudnine: { //TEST
+		inherit: true,
+		onStart(pokemon) {
+			pokemon.abilityState.ending = false; // Clear the ending flag
+			this.eachEvent('WeatherChange', this.effect);
+			this.eachEvent('TerrainChange', this.effect);
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.ending = true;
+			this.eachEvent('WeatherChange', this.effect);
+			this.eachEvent('TerrainChange', this.effect);
+		},
+		suppressTerrain: true,
+		shortDesc: "While this Pokemon is active, the effects of weather and terrains are disabled.",
+	},
+	waterveil: {
+		inherit: true,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Veil');
+			}
+			return false;
+		},
+		shortDesc: "This Pokemon nor its alliess can be burned. Gaining this Ability while burned cures it.",
+	},
+	raindish: {
+		inherit: true,
+		onWeather(target, source, effect) {
+			if (target.effectiveWeather() !== effect.id) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		shortDesc: "If Rain Dance is active, this Pokemon heals 1/8 of its max HP each turn.",
+	},
+	snowwarning: {
+		inherit: true,
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		shortDesc: "On switch-in, this Pokemon summons Hail.",
+	},
+	protean: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		desc: "This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",
+		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use.",
+	},
+	honeygather: {
+		inherit: true,
+		onResidual(target, source, effect) {
+			this.heal(target.baseMaxhp / 16);
+		},
+		shortDesc: "Heals 1/16 HP every turn. 1/8 in sun.",
+	},
 
 	// Additions
 	affection: {
@@ -313,7 +531,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Charisma",
 		rating: 3,
 		num: 0,
-		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage if it attacks and KOes another Pokemon. Once per switch-in.",
+		shortDesc: "+1 Sp. Atk on KO. Once per switch-in.",
 	},
 	clayform: {
 		onWeather(target, source, effect) {

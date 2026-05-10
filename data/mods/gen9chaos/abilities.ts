@@ -956,7 +956,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		flags: { breakable: 1 },
 		name: "Spitting Fire",
-		shortDesc: "Fire-type moves are now sound-based. Sound-based moves have 1.2x power.",
+		shortDesc: "Fire-type moves become sound-based. Sound-based moves have 1.2x power.",
 		rating: 3,
 		num: 0,
 	},
