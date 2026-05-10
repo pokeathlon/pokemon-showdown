@@ -10561,9 +10561,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			crunch: ["9M"],
 			helpinghand: ["9M"],
 			shadowball: ["9M"],
-			gigaimpact: ["9M"],
 			hurricane: ["9M"],
-			hyperbeam: ["9M"],
 			terablast: ["9M"],
 			spite: ["9M"],
 			lunge: ["9M"],
@@ -10586,6 +10584,17 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			endure: ["9M"],
 			fellstinger: ["9M"],
 			poisonsting: ["9M"],
+			chillingwater: ["9M"],
+			waterpulse: ["9M"],
+			brine: ["9M"],
+			liquidation: ["9M"],
+			surf: ["9M"],
+			waterfall: ["9M"],
+			hydropump: ["9M"],
+			whirlpool: ["9M"],
+			aquatail: ["9M"],
+			cut: ["9M"],
+			aurorabeam: ["9M"],
 		}
 	},
 	celestray: {
@@ -10793,6 +10802,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			infestation: ["9M"],
 			skittersmack: ["9M"],
 			flamethrower: ["9M"],
+			speedswap: ["9M"],
 		}
 	},
 	zorblob: {
@@ -11861,6 +11871,11 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			terablast: ["9M"],
 			trickroom: ["9M"],
 			helpinghand: ["9M"],
+			shadowpunch: ["9M"],
+			hypnosis: ["9M"],
+			nightmare: ["9M"],
+			magicroom: ["9M"],
+			wonderroom: ["9M"],
 		}
 	},
 	varkacosm: {
@@ -12705,7 +12720,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			rocktomb: ["9M"],
 			meteorbeam: ["9M"],
 			solarbeam: ["9M"],
-			spikes: ["9M"],
+			branchpoke: ["9M"],
+			babydolleyes: ["9M"],
 		}
 	},
 	sauphozoa: {
@@ -13092,6 +13108,12 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			toxic: ["9M"],
 			hiddenpower: ["9M"],
 			terablast: ["9M"],
+			takeheart: ["9M"],
+			heartstamp: ["9M"],
+			heartswap: ["9M"],
+			stomp: ["9M"],
+			bounce: ["9M"],
+			splash: ["9M"],
 		}
 	},
 	lunura: {
@@ -13251,7 +13273,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			purify: ["9M"],
 			worryseed: ["9M"],
 			charge: ["9M"],
-			rototiller: ["9M"],
 			faketears: ["9M"],
 			protect: ["9M"],
 			substitute: ["9M"],
@@ -13263,6 +13284,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			toxic: ["9M"],
 			hiddenpower: ["9M"],
 			endure: ["9M"],
+			grassknot: ["9M"],
+			iondeluge: ["9M"],
 		}
 	},
 	slithereina: {
@@ -13392,6 +13415,11 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			solarblade: ["9M"],
+			solarbeam: ["9M"],
+			absorb: ["9M"],
+			megadrain: ["9M"],
+			suckerpunch: ["9M"],
 		}
 	},
 	ignimask: {
@@ -13705,7 +13733,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			acidspray: ["9M"],
 			aromaticmist: ["9M"],
 			attract: ["9M"],
-			burningjealousy: ["9M"],
 			captivate: ["9M"],
 			charm: ["9M"],
 			confuseray: ["9M"],
@@ -13757,6 +13784,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			toxic: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			faketears: ["9M"],
+			healingwish: ["9M"],
+			sandstorm: ["9M"],
 		}
 	},
 	sthencio: {
@@ -13827,6 +13857,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			armthrust: ["9M"],
+			meanlook: ["9M"],
 		}
 	},
 	patabyte: {
@@ -14015,7 +14047,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			sheercold: ["9M"],
 			signalbeam: ["9M"],
 			simplebeam: ["9M"],
-			skillswap: ["9M"],
 			snowscape: ["9M"],
 			solarbeam: ["9M"],
 			telekinesis: ["9M"],
@@ -14035,6 +14066,20 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			toxic: ["9M"],
 			hiddenpower: ["9M"],
 			terablast: ["9M"],
+			confusion: ["9M"],
+			dazzlinggleam: ["9M"],
+			healblock: ["9M"],
+			iceshard: ["9M"],
+			iciclespear: ["9M"],
+			imprison: ["9M"],
+			meditate: ["9M"],
+			psybeam: ["9M"],
+			seedbomb: ["9M"],
+			shadowball: ["9M"],
+			sludgebomb: ["9M"],
+			storedpower: ["9M"],
+			trailblaze: ["9M"],
+			grassyglide: ["9M"],
 		}
 	},
 	glaviathan: {
