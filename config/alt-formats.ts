@@ -798,7 +798,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Soulstones OU",
 
 		mod: 'gen9soulstones',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=800', 'Link EVs'],
 		banlist: [
 			'Uber', 'AG',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag',
@@ -811,7 +811,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9soulstones',
-		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause'],
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=800', 'Link EVs'],
 	},
 
 	{

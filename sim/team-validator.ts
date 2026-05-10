@@ -1131,6 +1131,7 @@ export class TeamValidator {
 		const allowAVs = !ruleTable.has('lgpenormalrules');
 		const useStatPoints = dex.currentMod === 'champions';
 		const evLimit = ruleTable.evLimit;
+		const linkEVs = ruleTable.has('linkevs');
 		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc'));
 
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, evLimit === null ? 252 : 0);
@@ -1315,7 +1316,7 @@ export class TeamValidator {
 		if (!this.format.debug) {
 			if (set.level > 1 && evLimit !== 0 && totalEV === 0) {
 				problems.push(`${name} has exactly 0 EVs - did you forget to EV it? (If this was intentional, add exactly 1 to one of your EVs, which won't change its stats but will tell us that it wasn't a mistake).`);
-			} else if (![508, 510].includes(evLimit!) && [508, 510].includes(totalEV)) {
+			} else if (![508, 510].includes(evLimit!) && [508, 510].includes(totalEV) && !linkEVs) {
 				problems.push(`${name} has exactly ${totalEV} EVs, but this format does not restrict you to 510 EVs (If this was intentional, add exactly 1 to one of your EVs, which won't change its stats but will tell us that it wasn't a mistake).`);
 			}
 			// Check for level import errors from user in VGC -> DOU, etc.
