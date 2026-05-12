@@ -10,7 +10,7 @@
  */
 import * as net from 'net';
 import { YouTube, Twitch } from '../chat-plugins/youtube';
-import { Net, Utils } from '../../lib';
+import { FS, Net, Utils } from '../../lib';
 import { RoomSections } from './room-settings';
 import { type Battle } from '../../sim/battle';
 
@@ -3073,6 +3073,101 @@ export const commands: Chat.ChatCommands = {
 		room = this.requireRoom();
 		return this.parse(`/join view-topics-${room}`);
 	},
+
+	searchreplay: 'replaysearch',
+	searchreplays: 'replaysearch',
+	replayssearch: 'replaysearch',
+	async replaysearch(target, room, user, connection) {
+		room = this.requireRoom();
+		if (room.battle) throw new Chat.ErrorMessage("This command cannot be used in battle rooms.");
+
+		const kwargs: {[k: string]: string} = {};
+		const problems = [];
+		if (toID(target)) target.split(',').forEach((arg) => {
+			const split = arg.split('=');
+			if (split.length !== 2) {
+				problems.push(`Unrecognized argument: "${arg}".`);
+				return;
+			}
+			kwargs[toID(split[0]) as string] = split[1];
+		});
+
+		let limit = 10;
+		let raw = false;
+		const search: {[k: string]: any[]} = {
+			format: [],
+			player: [],
+			pokemon: [],
+			minrating: [],
+			maxrating: [],
+			startdate: [],
+			enddate: [],
+		};
+		const replays = (await FS(`server/static/replays/replays.csv`).read()).split('\n').map(line => line.split(',')).reverse();
+		const results: any[][] = [];
+
+		for (const kw in kwargs) {
+			if (kw === 'results') {
+				limit = Math.min(100, parseInt(kwargs[kw]));
+				if (limit > 100) problems.push('The maximum number of results is 100.');
+				continue;
+			} else if (kw === 'raw') {
+				raw = !!kwargs[kw];
+			} else if (kw === 'minrating' || kw === 'maxrating') {
+				search[kw].push(parseInt(kwargs[kw]));
+			} else if (kw === 'startdate' || kw === 'enddate') {
+				const epoch = Date.parse(kwargs[kw]);
+				if (isNaN(epoch)) {
+					problems.push(`Unrecognized format of ${kw.replace('date', '')} date.`);
+					continue;
+				}
+				search[kw].push(epoch);
+			} else if (['format', 'player', 'pokemon'].includes(kw)) {
+				search[kw] = kwargs[kw].split('+').map(term => term.toLowerCase().replace(/[^a-z0-9\/]+/g, ''));
+			} else {
+				problems.push(`Unrecognized search term: "${kw}".`);
+			}
+		}
+
+		for (const replay of replays) {
+			if (results.length === limit) break;
+			if (
+				(!search.format.length || (search.format.length && replay[1].includes(search.format[0]))) &&
+				(!search.player.length || (search.player.length && search.player.some(player => replay.slice(4, 8).some(name => name.includes(player))))) &&
+				(!search.pokemon.length || (search.pokemon.length && search.pokemon.some(pokemon => replay.slice(8, 32).some(name => name.includes(pokemon))))) &&
+				(!search.minrating.length || (search.minrating.length && parseInt(replay[2]) >= search.minrating[0])) &&
+				(!search.maxrating.length || (search.maxrating.length && parseInt(replay[2]) <= search.maxrating[0])) &&
+				(!search.startdate.length || (search.startdate.length && parseInt(replay[3]) >= search.startdate[0])) &&
+				(!search.enddate.length || (search.enddate.length && parseInt(replay[3]) <= search.enddate[0]))
+			) results.push(replay);
+		}
+
+		if (!raw) {
+			let uhtml = 'uhtml';
+
+			if (!target) {
+				room.update();
+			} else {
+				void this.parse(`/${target}`);
+				uhtml = 'uhtmlchange';
+			}
+
+			let output = Utils.html`<div class="infobox">Found ${results.length} replays:<br />`;
+			output += results.map((result) => Utils.html`<button style="width:100%;background-color:rgba(0, 0, 0, 0.25);outline:rgba(0, 0, 0, 1);margin:2px;border-radius:3px" name="send" value="/join battle-${result[0]}"><div>${Dex.formats.get(result[1]).name} battle between ${result.slice(4, 8).filter(name => name).join(' and ')}</div><div>Uploaded on <time>${new Date(parseInt(result[3])).toISOString()}</time></div></button>`).join('<br />');
+			output += '</div>';
+			user.sendTo(room, `|${uhtml}|replayresults|${output}`);
+			if (problems.length) {
+				throw new Chat.ErrorMessage(problems.join('\n'));
+			}
+		} else {
+			this.sendReply('replayresults|' + results.map(result => result.join(',')).join('\n'));
+		}
+
+
+	},
+	replaysearchhelp: [
+		`/replaysearch - Search all Pokéathlon replays.`,
+	],
 };
 
 export const handlers: Chat.Handlers = {
