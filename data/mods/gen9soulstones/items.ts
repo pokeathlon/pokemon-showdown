@@ -1,10 +1,388 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Current items that do not exist
 
-	// Past items that are now legal
+	// Modded
+	
+	babiriberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Steel' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Steel-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Steel-type attack. Single use.",
+	},
+	chartiberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Rock' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Rock-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Rock-type attack. Single use.",
+	},
+	chilanberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Normal' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from a Normal-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from a Normal-type attack. Single use.",
+	},
+	chopleberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fighting' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Fighting-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Fighting-type attack. Single use.",
+	},
+	cobaberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Flying' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Flying-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Flying-type attack. Single use.",
+	},
+	colburberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dark' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Dark-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Dark-type attack. Single use.",
+	},
+	habanberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Dragon' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Dragon-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Dragon-type attack. Single use.",
+	},
+	kasibberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ghost' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Ghost-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Ghost-type attack. Single use.",
+	},
+	kebiaberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Poison' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Poison-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Poison-type attack. Single use.",
+	},
+	occaberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fire' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Fire-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Fire-type attack. Single use.",
+	},
+	passhoberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Water' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Water-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Water-type attack. Single use.",
+	},
+	payapaberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Psychic' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Psychic-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Psychic-type attack. Single use.",
+	},
+	rindoberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Grass' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Grass-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Grass-type attack. Single use.",
+	},
+	roseliberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Fairy' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Fairy-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Fairy-type attack. Single use.",
+	},
+	shucaberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ground' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Ground-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Ground-type attack. Single use.",
+	},
+	tangaberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Bug' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Bug-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Bug-type attack. Single use.",
+	},
+	wacanberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Electric' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Electric-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Electric-type attack. Single use.",
+	},
+	yacheberry: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Ice' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (target.ability === 'ripen') {
+						this.debug('95% reduction')
+						return this.chainModify(0.05);
+					}
+					this.debug('-75% reduction');
+					return this.chainModify(0.25);
+				}
+			}
+		},
+		desc: "1/4 damage taken from supereffective Ice-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
+		shortDesc: "1/4 damage taken from supereffective Ice-type attack. Single use.",
+	},
 	
 	// New items 
-	
 	assaultarmor: {
 		name: "Assault Armor",
 		spritenum: -6,
