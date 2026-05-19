@@ -1209,28 +1209,39 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'irondefense', 'justified', 'lansatberry', 'liechiberry', 'lightningrod', 'meditate', 'metalclaw', 'meteorbeam', 'meteormash', 'moody',
 				'motordrive', 'moxie', 'mysticalpower', 'nastyplot', 'noretreat', 'ominouswind', 'opportunist', 'orderup', 'poweruppunch', 'petayaberry',
 				'psyshieldbash', 'quiverdance', 'rage', 'rattled', 'rockpolish', 'salacberry', 'sapsipper', 'scaleshot', 'sharpen', 'shellsmash', 'shelter', 'shiftgear',
-				'silverwind', 'skullbash', 'steelwing', 'stockpile', 'stuffcheeks', 'soulheart', 'speedboost', 'stamina', 'starfberry', 'steadfast',
-				'steamengine', 'steelwing', 'stockpile', 'stormdrain', 'swordsdance', 'tailglow', 'takeheart', 'torchsong', 'thermalexchange', 'tidyup',
+				'silverwind', 'skullbash', 'steelwing', 'stockpile', 'stuffcheeks', 'soulheart', 'spectralthief', 'speedboost', 'stamina', 'starfberry', 'steadfast',
+				'steamengine', 'steelwing', 'stockpile', 'stormdrain', 'swordsdance', 'tailglow', 'takeheart', 'thermalexchange', 'tidyup', 'torchsong', 'trace',
 				'victorydance', 'watercompaction', 'weakarmor', 'weaknesspolicy', 'wellbakedbody', 'windrider', 'withdraw', 'workup',
 			];
 			for (const set of team) {
 				const moves = set.moves.map(this.toID);
 				if (!moves.includes('batonpass' as ID)) continue;
 				let passableBoosts = false;
+				let passableBoostsSource = "";
 				const item = this.toID(set.item);
 				const ability = this.toID(set.ability);
-				if (
-					moves.some(m => boostingEffects.includes(m)) || boostingEffects.includes(item) ||
-					boostingEffects.includes(ability)
-				) {
+				const boostingMove = set.moves.find(m => boostingEffects.includes(this.toID(m)));
+				if (boostingMove) {
 					passableBoosts = true;
+					passableBoostsSource = boostingMove;
 				}
-				if (hasBoosting(set, this.dex)) {
+				else if (boostingEffects.includes(item)) {
 					passableBoosts = true;
+					passableBoostsSource = set.item;
+				}
+				else if (boostingEffects.includes(ability)) {
+					passableBoosts = true;
+					passableBoostsSource = set.ability;
+				}
+				else if (hasBoosting(set, this.dex)) {
+					passableBoosts = true;
+					return [
+						`${set.name || set.species} has Baton Pass and a way to boost its stats, which is banned by Baton Pass Stat Clause.`,
+					];
 			  	}
 				if (passableBoosts) {
 					return [
-						`${set.name || set.species} has Baton Pass and a way to boost its stats, which is banned by Baton Pass Stat Clause.`,
+						`${set.name || set.species} has Baton Pass and a way to boost its stats (${passableBoostsSource}), which is banned by Baton Pass Stat Clause.`,
 					];
 				}
 			}
