@@ -791,8 +791,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Gengar-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	dodrinite: {
-    		name: "Dodrinite",
+	dodrinites: {
+    		name: "Dodrinite-S",
     		spritenum: -6,
     		megaStone: { "Dodrio-Soulstones": "Dodrio-Soulstones-Mega" },
     		itemUser: ["Dodrio-Soulstones"],
@@ -804,8 +804,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Dodrio-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	arbokinite: {
-    		name: "Arbokinite",
+	arbokinites: {
+    		name: "Arbokinite-S",
     		spritenum: -6,
     		megaStone: { "Arbok-Soulstones": "Arbok-Soulstones-Mega" },
     		itemUser: ["Arbok-Soulstones"],
@@ -817,8 +817,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Arbok-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	starmite: {
-    		name: "Starmite",
+	starmites: {
+    		name: "Starmite-S",
     		spritenum: -6,
     		megaStone: { "Starmie-Soulstones": "Starmie-Soulstones-Mega" },
     		itemUser: ["Starmie-Soulstones"],
@@ -843,8 +843,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Steelix-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	xatunite: {
-    		name: "Xatunite",
+	xatunites: {
+    		name: "Xatunite-S",
     		spritenum: -6,
     		megaStone: { "Xatu-Soulstones": "Xatu-Soulstones-Mega" },
     		itemUser: ["Xatu-Soulstones"],
@@ -856,8 +856,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Xatu-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	seismitoadite: {
-    		name: "Seismitoadite",
+	seismitoadites: {
+    		name: "Seismitoadite-S",
     		spritenum: -6,
     		megaStone: { "Seismitoad-Soulstones": "Seismitoad-Soulstones-Mega" },
     		itemUser: ["Seismitoad-Soulstones"],
@@ -869,8 +869,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Seismitoad-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	golite: {
-    		name: "Golite",
+	golites: {
+    		name: "Golite-S",
     		spritenum: -6,
     		megaStone: { "Golurk-Soulstones": "Golurk-Soulstones-Mega" },
     		itemUser: ["Golurk-Soulstones"],
@@ -895,8 +895,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Gyarados-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	avaluggite: {
-    		name: "Avaluggite",
+	avaluggites: {
+    		name: "Avaluggite-S",
     		spritenum: -6,
     		megaStone: { "Avalugg-Soulstones": "Avalugg-Soulstones-Mega" },
     		itemUser: ["Avalugg-Soulstones"],
@@ -908,8 +908,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Avalugg-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	rapidashinite: {
-    		name: "Rapidashinite",
+	rapidashinites: {
+    		name: "Rapidashinite-S",
     		spritenum: -6,
     		megaStone: { "Rapidash-Soulstones": "Rapidash-Soulstones-Mega" },
     		itemUser: ["Rapidash-Soulstones"],
@@ -934,8 +934,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Aerodactyl-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	giganite: {
-    		name: "Giganite",
+	giganites: {
+    		name: "Giganite-S",
     		spritenum: -6,
     		megaStone: { "Gigalith-Soulstones": "Gigalith-Soulstones-Mega" },
     		itemUser: ["Gigalith-Soulstones"],
@@ -947,8 +947,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Gigalith-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	gliscite: {
-    		name: "Gliscite",
+	gliscites: {
+    		name: "Gliscite-S",
     		spritenum: -6,
     		megaStone: { "Gliscor-Soulstones": "Gliscor-Soulstones-Mega" },
     		itemUser: ["Gliscor-Soulstones"],
@@ -960,10 +960,22 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Gliscor-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	sudowoodites: {
-    		name: "Sudowoodite-S",
+	sudowooditex: {
+    		name: "Sudowoodite-X",
     		spritenum: -6,
-    		megaStone: { "Sudowoodo-Soulstones": "Sudowoodo-Soulstones-Mega" },
+    		megaStone: { "Sudowoodo-Soulstones": "Sudowoodo-Soulstones-Mega-X" },
+    		itemUser: ["Sudowoodo-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Sudowoodo-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+	sudowooditey: {
+    		name: "Sudowoodite-Y",
+    		spritenum: -6,
+    		megaStone: { "Sudowoodo-Soulstones": "Sudowoodo-Soulstones-Mega-Y" },
     		itemUser: ["Sudowoodo-Soulstones"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
@@ -973,8 +985,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Sudowoodo-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	noctowlite: {
-    		name: "Noctowlite",
+	noctowlites: {
+    		name: "Noctowlite-S",
     		spritenum: -6,
     		megaStone: { "Noctowl-Soulstones": "Noctowl-Soulstones-Mega" },
     		itemUser: ["Noctowl-Soulstones"],
@@ -986,8 +998,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Noctowl-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	electronite: {
-    		name: "Electronite",
+	electronites: {
+    		name: "Electronite-S",
     		spritenum: -6,
     		megaStone: { "Electrode-Soulstones": "Electrode-Soulstones-Mega" },
     		itemUser: ["Electrode-Soulstones"],
@@ -1012,8 +1024,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Beedrill-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	machampite: {
-    		name: "Machampite",
+	machampites: {
+    		name: "Machampite-S",
     		spritenum: -6,
     		megaStone: { "Machamp-Soulstones": "Machamp-Soulstones-Mega" },
     		itemUser: ["Machamp-Soulstones"],
@@ -1051,8 +1063,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Sharpedo-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	chandelite: {
-    		name: "Chandelite",
+	chandelites: {
+    		name: "Chandelite-S",
     		spritenum: -6,
     		megaStone: { "Chandelure-Soulstones": "Chandelure-Soulstones-Mega" },
     		itemUser: ["Chandelure-Soulstones"],
@@ -1090,8 +1102,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Froslass-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	infernapinite: {
-    		name: "Infernapinite",
+	infernapinites: {
+    		name: "Infernapinite-S",
     		spritenum: -6,
     		megaStone: { "Infernape-Soulstones": "Infernape-Soulstones-Mega" },
     		itemUser: ["Infernape-Soulstones"],
@@ -1116,8 +1128,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Sableye-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	bearticite: {
-    		name: "Bearticite",
+	bearticites: {
+    		name: "Bearticite-S",
     		spritenum: -6,
     		megaStone: { "Beartic-Soulstones": "Beartic-Soulstones-Mega" },
     		itemUser: ["Beartic-Soulstones"],
@@ -1155,8 +1167,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Tyranitar-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	hippowdonite: {
-    		name: "Hippowdonite",
+	hippowdonites: {
+    		name: "Hippowdonite-S",
     		spritenum: -6,
     		megaStone: { "Hippowdon-Soulstones": "Hippowdon-Soulstones-Mega" },
     		itemUser: ["Hippowdon-Soulstones"],
@@ -1207,8 +1219,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Heracross-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	sawsbuckite: {
-    		name: "Sawsbuckite",
+	sawsbuckites: {
+    		name: "Sawsbuckite-S",
     		spritenum: -6,
     		megaStone: { "Sawsbuck-Soulstones": "Sawsbuck-Soulstones-Mega" },
     		itemUser: ["Sawsbuck-Soulstones"],
@@ -1233,8 +1245,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Aggron-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	slowkingite: {
-    		name: "Slowkingite",
+	slowkingites: {
+    		name: "Slowkingite-S",
     		spritenum: -6,
     		megaStone: { "Slowking-Soulstones": "Slowking-Soulstones-Mega" },
     		itemUser: ["Slowking-Soulstones"],
@@ -1246,8 +1258,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Slowking-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	corvinite: {
-    		name: "Corvinite",
+	corvinites: {
+    		name: "Corvinite-S",
     		spritenum: -6,
     		megaStone: { "Corviknight-Soulstones": "Corviknight-Soulstones-Mega" },
     		itemUser: ["Corviknight-Soulstones"],
@@ -1259,8 +1271,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Corviknight-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	kingdranite: {
-    		name: "Kingdranite",
+	kingdranites: {
+    		name: "Kingdranite-S",
     		spritenum: -6,
     		megaStone: { "Kingdra-Soulstones": "Kingdra-Soulstones-Mega" },
     		itemUser: ["Kingdra-Soulstones"],
@@ -1272,8 +1284,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Kingdra-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	butterfrite: {
-    		name: "Butterfrite",
+	butterfrites: {
+    		name: "Butterfrite-S",
     		spritenum: -6,
     		megaStone: { "Butterfree-Soulstones": "Butterfree-Soulstones-Mega" },
     		itemUser: ["Butterfree-Soulstones"],
@@ -1285,8 +1297,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Butterfree-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	furretite: {
-    		name: "Furretite",
+	furretites: {
+    		name: "Furretite-S",
     		spritenum: -6,
     		megaStone: { "Furret-Soulstones": "Furret-Soulstones-Mega" },
     		itemUser: ["Furret-Soulstones"],
@@ -1324,8 +1336,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Gallade-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	dugtrioite: {
-    		name: "Dugtrioite",
+	dugtrioites: {
+    		name: "Dugtrioite-S",
     		spritenum: -6,
     		megaStone: { "Dugtrio-Soulstones": "Dugtrio-Soulstones-Mega" },
     		itemUser: ["Dugtrio-Soulstones"],
@@ -1337,8 +1349,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Dugtrio-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	azumarillite: {
-    		name: "Azumarillite",
+	azumarillites: {
+    		name: "Azumarillite-S",
     		spritenum: -6,
     		megaStone: { "Azumarill-Soulstones": "Azumarill-Soulstones-Mega" },
     		itemUser: ["Azumarill-Soulstones"],
@@ -1350,8 +1362,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Azumarill-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	meloettite: {
-    		name: "Meloettite",
+	meloettites: {
+    		name: "Meloettite-S",
     		spritenum: -6,
     		megaStone: { "Meloetta-Soulstones": "Meloetta-Soulstones-Mega" },
     		itemUser: ["Meloetta-Soulstones"],
@@ -1415,8 +1427,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Pidgeot-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	blissite: {
-    		name: "Blissite",
+	blissites: {
+    		name: "Blissite-S",
     		spritenum: -6,
     		megaStone: { "Blissey-Soulstones": "Blissey-Soulstones-Mega" },
     		itemUser: ["Blissey-Soulstones"],
@@ -1428,8 +1440,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Blissey-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	tentacruelite: {
-    		name: "Tentacruelite",
+	tentacruelites: {
+    		name: "Tentacruelite-S",
     		spritenum: -6,
     		megaStone: { "Tentacruel-Soulstones": "Tentacruel-Soulstones-Mega" },
     		itemUser: ["Tentacruel-Soulstones"],
@@ -1467,8 +1479,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Tsareena-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	beheeyemite: {
-    		name: "Beheeyemite",
+	beheeyemites: {
+    		name: "Beheeyemite-S",
     		spritenum: -6,
     		megaStone: { "Beheeyem-Soulstones": "Beheeyem-Soulstones-Mega" },
     		itemUser: ["Beheeyem-Soulstones"],
@@ -1480,8 +1492,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Beheeyem-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	sandaconite: {
-    		name: "Sandaconite",
+	sandaconites: {
+    		name: "Sandaconite-S",
     		spritenum: -6,
     		megaStone: { "Sandaconda-Soulstones": "Sandaconda-Soulstones-Mega" },
     		itemUser: ["Sandaconda-Soulstones"],
@@ -1506,8 +1518,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Raichu-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	cofagrinite: {
-    		name: "Cofagrinite",
+	cofagrinites: {
+    		name: "Cofagrinite-S",
     		spritenum: -6,
     		megaStone: { "Cofagrigus-Soulstones": "Cofagrigus-Soulstones-Mega" },
     		itemUser: ["Cofagrigus-Soulstones"],
@@ -1532,8 +1544,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Swampert-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	gothitellite: {
-    		name: "Gothitellite",
+	gothitellites: {
+    		name: "Gothitellite-S",
     		spritenum: -6,
     		megaStone: { "Gothitelle-Soulstones": "Gothitelle-Soulstones-Mega" },
     		itemUser: ["Gothitelle-Soulstones"],
@@ -1558,8 +1570,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Charizard-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	wiggnite: {
-    		name: "Wiggnite",
+	wiggnites: {
+    		name: "Wiggnite-S",
     		spritenum: -6,
     		megaStone: { "Wigglytuff-Soulstones": "Wigglytuff-Soulstones-Mega" },
     		itemUser: ["Wigglytuff-Soulstones"],
@@ -1584,8 +1596,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Manectric-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	mamoswinite: {
-    		name: "Mamoswinite",
+	mamoswinites: {
+    		name: "Mamoswinite-S",
     		spritenum: -6,
     		megaStone: { "Mamoswine-Soulstones": "Mamoswine-Soulstones-Mega" },
     		itemUser: ["Mamoswine-Soulstones"],
@@ -1597,8 +1609,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Mamoswine-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	torterranite: {
-    		name: "Torterranite",
+	torterranites: {
+    		name: "Torterranite-S",
     		spritenum: -6,
     		megaStone: { "Torterra-Soulstones": "Torterra-Soulstones-Mega" },
     		itemUser: ["Torterra-Soulstones"],
@@ -1662,8 +1674,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Garchomp-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	ninetalite: {
-    		name: "Ninetalite",
+	ninetalites: {
+    		name: "Ninetalite-S",
     		spritenum: -6,
     		megaStone: { "Ninetales-Soulstones": "Ninetales-Soulstones-Mega" },
     		itemUser: ["Ninetales-Soulstones"],
@@ -1675,8 +1687,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Ninetales-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	toxtricite: {
-    		name: "Toxtricite",
+	toxtricites: {
+    		name: "Toxtricite-S",
     		spritenum: -6,
     		megaStone: { "Toxtricity-Soulstones": "Toxtricity-Soulstones-Mega" },
     		itemUser: ["Toxtricity-Soulstones"],
@@ -1701,8 +1713,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Dugtrio, this item allows it to Mega Evolve in battle.",
     	},
 
-	luvdiscite: {
-    		name: "Luvdiscite",
+	luvdiscites: {
+    		name: "Luvdiscite-S",
     		spritenum: -6,
     		megaStone: { "Luvdisc-Soulstones": "Luvdisc-Soulstones-Mega" },
     		itemUser: ["Luvdisc-Soulstones"],
@@ -1753,8 +1765,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Sableye, this item allows it to Mega Evolve in battle.",
     	},
 
-	garbodinite: {
-    		name: "Garbodinite",
+	garbodinites: {
+    		name: "Garbodinite-S",
     		spritenum: -6,
     		megaStone: { "Garbodor-Soulstones": "Garbodor-Soulstones-Mega" },
     		itemUser: ["Garbodor-Soulstones"],
@@ -1805,8 +1817,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Masquerain, this item allows it to Mega Evolve in battle.",
     	},
 
-	barbaraclite: {
-    		name: "Barbaraclite",
+	barbaraclites: {
+    		name: "Barbaraclite-S",
     		spritenum: -6,
     		megaStone: { "Barbaracle-Soulstones": "Barbaracle-Soulstones-Mega" },
     		itemUser: ["Barbaracle-Soulstones"],
@@ -1818,8 +1830,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Barbaracle-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	falinkite: {
-    		name: "Falinkite",
+	falinkites: {
+    		name: "Falinkite-S",
     		spritenum: -6,
     		megaStone: { "Falinks-Soulstones": "Falinks-Soulstones-Mega" },
     		itemUser: ["Falinks-Soulstones"],
@@ -1831,8 +1843,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Falinks-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	mismagite: {
-    		name: "Mismagite",
+	mismagites: {
+    		name: "Mismagite-S",
     		spritenum: -6,
     		megaStone: { "Mismagius-Soulstones": "Mismagius-Soulstones-Mega" },
     		itemUser: ["Mismagius-Soulstones"],
@@ -1857,8 +1869,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Scizor-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	coalossalite: {
-    		name: "Coalossalite",
+	coalossalites: {
+    		name: "Coalossalite-S",
     		spritenum: -6,
     		megaStone: { "Coalossal-Soulstones": "Coalossal-Soulstones-Mega" },
     		itemUser: ["Coalossal-Soulstones"],
@@ -1883,8 +1895,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Gigalith, this item allows it to Mega Evolve in battle.",
     	},
 
-	dragite: {
-    		name: "Dragite",
+	dragites: {
+    		name: "Dragite-S",
     		spritenum: -6,
     		megaStone: { "Dragonite-Soulstones": "Dragonite-Soulstones-Mega" },
     		itemUser: ["Dragonite-Soulstones"],
@@ -1896,8 +1908,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Dragonite-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	dragapultite: {
-    		name: "Dragapultite",
+	dragapultites: {
+    		name: "Dragapultite-S",
     		spritenum: -6,
     		megaStone: { "Dragapult-Soulstones": "Dragapult-Soulstones-Mega" },
     		itemUser: ["Dragapult-Soulstones"],
@@ -1935,8 +1947,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Houndoom-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	empoleonite: {
-    		name: "Empoleonite",
+	empoleonites: {
+    		name: "Empoleonite-S",
     		spritenum: -6,
     		megaStone: { "Empoleon-Soulstones": "Empoleon-Soulstones-Mega" },
     		itemUser: ["Empoleon-Soulstones"],
@@ -1961,8 +1973,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Jumpluff, this item allows it to Mega Evolve in battle.",
     	},
 
-	exploudinite: {
-    		name: "Exploudinite",
+	exploudinites: {
+    		name: "Exploudinite-S",
     		spritenum: -6,
     		megaStone: { "Exploud-Soulstones": "Exploud-Soulstones-Mega" },
     		itemUser: ["Exploud-Soulstones"],
@@ -1974,8 +1986,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Exploud-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	centiskorite: {
-    		name: "Centiskorite",
+	centiskorites: {
+    		name: "Centiskorite-S",
     		spritenum: -6,
     		megaStone: { "Centiskorch-Soulstones": "Centiskorch-Soulstones-Mega" },
     		itemUser: ["Centiskorch-Soulstones"],
@@ -2000,8 +2012,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Salamence-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	grapploctite: {
-    		name: "Grapploctite",
+	grapploctites: {
+    		name: "Grapploctite-S",
     		spritenum: -6,
     		megaStone: { "Grapploct-Soulstones": "Grapploct-Soulstones-Mega" },
     		itemUser: ["Grapploct-Soulstones"],
@@ -2013,8 +2025,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Grapploct-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	hatterenite: {
-    		name: "Hatterenite",
+	hatterenites: {
+    		name: "Hatterenite-S",
     		spritenum: -6,
     		megaStone: { "Hatterene-Soulstones": "Hatterene-Soulstones-Mega" },
     		itemUser: ["Hatterene-Soulstones"],
@@ -2065,8 +2077,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Wyrdeer, this item allows it to Mega Evolve in battle.",
     	},
 
-	ursalunite: {
-    		name: "Ursalunite",
+	ursalunites: {
+    		name: "Ursalunite-S",
     		spritenum: -6,
     		megaStone: { "Ursaluna-Soulstones": "Ursaluna-Soulstones-Mega" },
     		itemUser: ["Ursaluna-Soulstones"],
@@ -2078,8 +2090,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a URsaluna-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	emolgite: {
-    		name: "Emolgite",
+	emolgites: {
+    		name: "Emolgite-S",
     		spritenum: -6,
     		megaStone: { "Emolga-Soulstones": "Emolga-Soulstones-Mega" },
     		itemUser: ["Emolga-Soulstones"],
@@ -2091,8 +2103,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Emolga-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	vespiquenite: {
-    		name: "Vespiquenite",
+	vespiquenites: {
+    		name: "Vespiquenite-S",
     		spritenum: -6,
     		megaStone: { "Vespiquen-Soulstones": "Vespiquen-Soulstones-Mega" },
     		itemUser: ["Vespiquen-Soulstones"],
@@ -2117,8 +2129,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Blaziken-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	garganaclite: {
-    		name: "Garganaclite",
+	garganaclites: {
+    		name: "Garganaclite-S",
     		spritenum: -6,
     		megaStone: { "Garganacl-Soulstones": "Garganacl-Soulstones-Mega" },
     		itemUser: ["Garganacl-Soulstones"],
@@ -2130,8 +2142,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Garganacl-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	wobbnite: {
-    		name: "Wobbnite",
+	wobbnites: {
+    		name: "Wobbnite-S",
     		spritenum: -6,
     		megaStone: { "Wobbuffet-Soulstones": "Wobbuffet-Soulstones-Mega" },
     		itemUser: ["Wobbuffet-Soulstones"],
@@ -2143,8 +2155,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Wobbuffet-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	plusite: {
-    		name: "Plusite",
+	plusites: {
+    		name: "Plusite-S",
     		spritenum: -6,
     		megaStone: { "Plusle-Soulstones": "Plusle-Soulstones-Mega" },
     		itemUser: ["Plusle-Soulstones"],
@@ -2156,8 +2168,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Plusle-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	minunite: {
-    		name: "Minunite",
+	minunites: {
+    		name: "Minunite-S",
     		spritenum: -6,
     		megaStone: { "Minun-Soulstones": "Minun-Soulstones-Mega" },
     		itemUser: ["Minun-Soulstones"],
@@ -2208,8 +2220,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Ursaluna, this item allows it to Mega Evolve in battle.",
     	},
 
-	drednite: {
-    		name: "Drednite",
+	drednites: {
+    		name: "Drednite-S",
     		spritenum: -6,
     		megaStone: { "Drednaw-Soulstones": "Drednaw-Soulstones-Mega" },
     		itemUser: ["Drednaw-Soulstones"],
@@ -2221,8 +2233,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Drednaw-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 
-	melmetalite: {
-    		name: "Melmetalite",
+	melmetalites: {
+    		name: "Melmetalite-S",
     		spritenum: -6,
     		megaStone: { "Melmetal-Soulstones": "Melmetal-Soulstones-Mega" },
     		itemUser: ["Melmetal-Soulstones"],
@@ -2258,6 +2270,253 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
     		num: 0,
     		gen: 9,
 			shortDesc: "If held by a T.Charizard, this item allows it to Mega Evolve in battle.",
+    	},
+
+	victreebelites: {
+    		name: "Victreebelite-S",
+    		spritenum: -6,
+    		megaStone: { "Victreebel-Soulstones": "Victreebel-Soulstones-Mega" },
+    		itemUser: ["Victreebel-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Victreebel-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+
+	delibirdites: {
+    		name: "Delibirdite-S",
+    		spritenum: -6,
+    		megaStone: { "Delibird-Soulstones": "Delibird-Soulstones-Mega" },
+    		itemUser: ["Delibird-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Delibird-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tscizorite: {
+    		name: "T.Scizorite",
+    		spritenum: -6,
+    		megaStone: { "T.Scizor": "T.Scizor-Mega" },
+    		itemUser: ["T.Scizor"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Scizor, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tkleavorite: {
+    		name: "T.Kleavorite",
+    		spritenum: -6,
+    		megaStone: { "T.Kleavor": "T.Kleavor-Mega" },
+    		itemUser: ["T.Kleavor"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Kleavor, this item allows it to Mega Evolve in battle.",
+    	},
+
+	kangaskhanites: {
+    		name: "Kangaskhanite-S",
+    		spritenum: -6,
+    		megaStone: { "Kangaskhan-Soulstones": "Kangaskhan-Soulstones-Mega" },
+    		itemUser: ["Kangaskhan-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Kangaskhan-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+
+	pyukumites: {
+    		name: "Pyukumite-S",
+    		spritenum: -6,
+    		megaStone: { "Pyukumuku-Soulstones": "Pyukumuku-Soulstones-Mega" },
+    		itemUser: ["Pyukumuku-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Pyukumuku-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tvenusaurite: {
+    		name: "T.Venusaurite",
+    		spritenum: -6,
+    		megaStone: { "T.Venusaur": "T.Venusaur-Mega" },
+    		itemUser: ["T.Venusaur"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Venusaur, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	mawilites: {
+    		name: "Mawilite-S",
+    		spritenum: -6,
+    		megaStone: { "Mawile-Soulstones": "Mawile-Soulstones-Mega" },
+    		itemUser: ["Mawile-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Mawile-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tampharosite: {
+    		name: "T.Ampharosite",
+    		spritenum: -6,
+    		megaStone: { "T.Ampharos": "T.Ampharos-Mega" },
+    		itemUser: ["T.Ampharos"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Ampharos, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tsnorlaxite: {
+    		name: "T.Snorlaxite",
+    		spritenum: -6,
+    		megaStone: { "T.Snorlax": "T.Snorlax-Mega" },
+    		itemUser: ["T.Snorlax"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Snorlax, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tfurretite: {
+    		name: "T.Furretite",
+    		spritenum: -6,
+    		megaStone: { "T.Furret": "T.Furret-Mega" },
+    		itemUser: ["T.Furret"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Furret, this item allows it to Mega Evolve in battle.",
+    	},
+
+	tmagcargite: {
+    		name: "T.Magcargite",
+    		spritenum: -6,
+    		megaStone: { "T.Magcargo": "T.Magcargo-Mega" },
+    		itemUser: ["T.Magcargo"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Magcargo, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	reuniclites: {
+    		name: "Reuniclite-S",
+    		spritenum: -6,
+    		megaStone: { "Reuniclus-Soulstones": "Reuniclus-Soulstones-Mega" },
+    		itemUser: ["Reuniclus-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Reuniclus-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	meowsticites: {
+    		name: "Meowsticite-S",
+    		spritenum: -6,
+    		megaStone: { "Meowstic-Soulstones": "Meowstic-Soulstones-Mega" },
+    		itemUser: ["Meowstic-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Meowstic-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	staraptites: {
+    		name: "Staraptite-S",
+    		spritenum: -6,
+    		megaStone: { "Staraptor-Soulstones": "Staraptor-Soulstones-Mega" },
+    		itemUser: ["Staraptor-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Staraptor-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	raticatites: {
+    		name: "Raticatite-S",
+    		spritenum: -6,
+    		megaStone: { "Raticate-Soulstones": "Raticate-Soulstones-Mega" },
+    		itemUser: ["Raticate-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Raticate-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	baxcalibrites: {
+    		name: "Baxcalibrite-S",
+    		spritenum: -6,
+    		megaStone: { "Baxcalibur-Soulstones": "Baxcalibur-Soulstones-Mega" },
+    		itemUser: ["Baxcalibur-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Baxcalibur-Soulstones, this item allows it to Mega Evolve in battle.",
+    	},
+
+	twiggnite: {
+    		name: "T.Wiggnite",
+    		spritenum: -6,
+    		megaStone: { "T.Wigglytuff": "T.Wigglytuff-Mega" },
+    		itemUser: ["T.Wigglytuff"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a T.Wigglytuff, this item allows it to Mega Evolve in battle.",
+    	},
+		
+	eelektrossites: {
+    		name: "Eelektrossite-S",
+    		spritenum: -6,
+    		megaStone: { "Eelektross-Soulstones": "Eelektross-Soulstones-Mega" },
+    		itemUser: ["Eelektross-Soulstones"],
+    		onTakeItem(item, source) {
+    			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+    		},
+    		num: 0,
+    		gen: 9,
+			shortDesc: "If held by a Eelektross-Soulstones, this item allows it to Mega Evolve in battle.",
     	},
 	normalshield: {
 		name: "Normal Shield",
