@@ -2797,6 +2797,40 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Lowers the user's Sp. Def by 1.",
 	},
+	bloominggrace: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Blooming Grace",
+		pp: 5,
+		priority: 0,
+		flags: { charge: 1, nonsky: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1 },
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (attacker.hasType("Poison")) {
+				attacker.setType(attacker.getTypes(true).map(type => type === "Poison" ? "Grass" : type));
+				this.add('-start', attacker, 'typechange', attacker.getTypes().join('/'), '[from] move: Blooming Grace');
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		boosts: {
+			atk: 2,
+			spa: 2,
+		},
+		target: "self",
+		type: "Grass",
+		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
+		contestType: "Beautiful",
+		shortDesc: "Swaps user's Poison-type to Grass, then raises Atk, SpA by 2 turn 2.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
