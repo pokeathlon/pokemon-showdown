@@ -411,6 +411,175 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it switches out to a chosen ally at the end of the turn. This effect applies after all hits from a multi-hit move. This effect is prevented if the move had a secondary effect removed by the Sheer Force Ability. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
 		shortDesc: "This Pokemon switches out at the end of the turn when it reaches 1/2 or less of its maximum HP.",
 	},
+	rivalry: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.hasType(attacker.getTypes())) {
+				return this.chainModify(1.25);
+			}
+		},
+		desc: "1.25x against targets that share a type with user.",
+		shortDesc: "1.25x against targets that share a type with user."
+	},
+	stakeout: {
+		inherit: true,
+		onModifyAtk(atk, attacker, defender) {
+			if (defender.activeMoveActions == 0) {
+				this.debug('Stakeout boost');
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpA(atk, attacker, defender) {
+			if (defender.activeMoveActions == 0) {
+				this.debug('Stakeout boost');
+				return this.chainModify(1.3);
+			}
+		},
+		shortDesc: "1.3x power if it's foe's first turn on field.",
+	},
+	merciless: {
+		inherit: true,
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.status) return 5;
+		},
+		shortDesc: "This Pokemon's attacks are critical hits if the target has a status condition.",
+	},
+	justified: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark') {
+				this.boost({ atk: 1, spa: 1 });
+			}
+		},
+		shortDesc: "This Pokemon's Atk and SpA are raised by 1 stage after it is damaged by a Dark-type move.",
+	},
+	overcoat: {
+		inherit: true,
+		onModifySpD(spd, pokemon) {
+			if (this.field.isWeather(['sandstorm', 'hail', 'snow'])) {
+				return this.chainModify(1.1);
+			}
+		},
+		onModifyDef(def, pokemon) {
+			if (this.field.isWeather(['sandstorm', 'hail', 'snow'])) {
+				return this.chainModify(1.1);
+			}
+		},
+		desc: "This Pokemon is immune to powder moves, damage from Sandstorm, and the effects of Rage Powder and the Effect Spore Ability. 1.1x Defense and Special Defense during Sandstorm, Hail, or Snow.",
+		shortDesc: "This Pokemon is immune to powder moves, Sandstorm, and Effect Spore. 1.1x Def and SpDef in sand or hail",
+	},
+	battlearmor: {
+		inherit: true,
+		onModifySpDPriority: 6,
+		onModifySpD(spd, target, source, move) {
+			return this.chainModify(1.2)
+		},
+		shortDesc: "1.2x SpDef. This Pokemon cannot be struck by a critical hit.",
+	},
+	shellarmor: {
+		inherit: true,
+		onModifyDefPriority: 6,
+		onModifyDef(def, target, source, move) {
+			return this.chainModify(1.2)
+		},
+		shortDesc: "1.2x Def. This Pokemon cannot be struck by a critical hit.",
+	},
+	damp: {
+		inherit: true,
+		onStart(source) {
+			this.add('-activate', source, 'ability: Damp');
+			if (!this.field.pseudoWeather.watersport) {
+				this.field.addPseudoWeather('watersport');
+			}
+		},
+		desc: "While this Pokemon is active, Explosion, Mind Blown, Misty Explosion, Self-Destruct, and the Aftermath Ability are prevented from having an effect. Summons Water Sport on activation.",
+		shortDesc: "Prevents Explosion-like moves and Aftermath while active. Summons Water Sport on activation.",
+	},
+	thermalexchange: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (['Fire', 'Ice'].includes(move.type)) {
+				this.boost({ atk: 1, spa: 1 });
+			}
+		},
+		onUpdate(pokemon) {
+			if (['brn', 'frz'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Thermal Exchange');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if (status.id !== 'frz') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Thermal Exchange');
+			}
+			return false;
+		},
+		desc: "This Pokemon's Attack and Special Attack are raised 1 stage after it is damaged by a Fire-type or Ice-type move. This Pokemon cannot be burned or frostbitten. Gaining this Ability while burned or frostbitten cures it.",
+		shortDesc: "Atk and SpA raised by 1 when damaged by Fire/Ice moves; can't be burned or frostbitten.",
+	},
+	grasspelt: {
+		inherit: true,
+		onModifySpDPriority: 6,
+		onModifySpD(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		shortDesc: "If Grassy Terrain is active, this Pokemon's Def and SpDef are multiplied by 1.5.",
+	},
+	steadfast: {
+		inherit: true,
+		onFlinch(pokemon) {
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (pokemon.storedStats.spe < target.storedStats.spe) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Steadfast boost');
+				return this.chainModify(1.3);
+			}
+		},
+		shortDesc: "1.3x power against slower foes.",
+	},
+	flareboost: {
+		inherit: true,
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5. Takes half damage from burn.",
+		shortDesc: "While this Pokemon is burned, its special attacks have 1.5x power. Half damage from burn.",
+	},
+	flamebody: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		shortDesc: "30% to burn pokemon using physical moves against it.",
+	},
+	sandforce: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				this.debug('Sand Force boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		desc: "If Sandstorm is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "This Pokemon's attacks do 1.3x in Sandstorm; immunity to it.",
+	},
 
 	// Additions
 	affection: {
@@ -902,10 +1071,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather(['hail', 'snowscape'])) {
-				if (move.type === 'Water' || move.type === 'Ice') {
-					this.debug('Ivy Veins boost');
-					return this.chainModify(1.3);
-				}
+				this.debug('Ivy Veins boost');
+				return this.chainModify(1.3);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -915,7 +1082,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Ivy Veins",
 		rating: 2,
 		num: 0,
-		shortDesc: "This Pokemon's Water/Ice attacks do 1.3x in Hail or Snow; Hail immunity.",
+		shortDesc: "This Pokemon's attacks do 1.3x in Hail or Snow; Hail immunity.",
 	},
 	impenetrable: {
 		onTryBoost(boost, target, source, effect) {
