@@ -9749,7 +9749,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.moveLastTurnResult === false) {
-				this.debug('doubling Stomping Tantrum BP due to previous move failure');
+				this.debug('doubling BP due to previous move failure');
 				return move.basePower * 2;
 			}
 			return move.basePower;
@@ -10972,7 +10972,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.moveLastTurnResult === false) {
-				this.debug('doubling Stomping Tantrum BP due to previous move failure');
+				this.debug('doubling BP due to previous move failure');
 				return move.basePower * 2;
 			}
 			return move.basePower;
@@ -12067,6 +12067,172 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Dark",
 		contestType: "Cute",
 		shortDesc: "100% chance to lower the target's Attack by 1.",
+	},
+
+	wildfire: {
+		num: 0,
+		basePower: 95,
+		accuracy: 100,
+		category: "Physical",
+		name: "Wildfire",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Attack by 1.",
+	},
+
+	hellbrand: {
+		num: 0,
+		basePower: 85,
+		accuracy: 100,
+		category: "Physical",
+		name: "Hellbrand",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+		shortDesc: "Destroys screens, unless the target is immune.",
+	},
+
+	nebulastrike: {
+		num: 0,
+		basePower: 75,
+		accuracy: 100,
+		category: "Physical",
+		name: "Nebula Strike",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling BP due to previous move failure');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+		shortDesc: "Power doubles if the user's last move failed.",
+	},
+
+	earthenlance: {
+		num: 0,
+		basePower: 85,
+		accuracy: 100,
+		category: "Physical",
+		name: "Earthen Lance",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Defense by 1.",
+	},
+
+	cataclysm: {
+		num: 0,
+		basePower: 110,
+		accuracy: 90,
+		category: "Physical",
+		name: "Cataclysm",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "Lowers the user's Speed by 1.",
+	},
+
+	weakspot: {
+		num: 0,
+		basePower: 95,
+		accuracy: 100,
+		category: "Physical",
+		name: "Earthen Lance",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 20,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+		shortDesc: "20% chance to lower the target's Attack by 1.",
+	},
+
+	radiantburst: {
+		num: 0,
+		basePower: 85,
+		accuracy: 90,
+		category: "Physical",
+		name: "Radiant Burst",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		self: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the users's speed by 1.",
+	},
+
+	prismaticfury: {
+		num: 0,
+		basePower: 95,
+		accuracy: 90,
+		category: "Physical",
+		name: "Prismatic Fury",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "10% chance to burn.",
 	},
 
 };
