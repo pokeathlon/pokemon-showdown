@@ -1273,7 +1273,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Super Fly"],
 		tags: ["Mariomon"],
 		eggGroups: ["Mariomon"],
-		tier: "NFE",
+		tier: "LC",
 		natDexTier: "LC",
 		doublesTier: "LC",
 	},
@@ -2282,7 +2282,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 1.0,
 		tags: ["Mariomon", "Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 };
