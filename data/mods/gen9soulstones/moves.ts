@@ -12207,13 +12207,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			chance: 30,
 			boosts: {
-				def: -1,
+				spe: 1,
 			},
 		},
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "30% chance to raise the users's speed by 1.",
+		shortDesc: "30% chance to raise the users's Speed by 1.",
 	},
 
 	prismaticfury: {
@@ -12232,7 +12232,155 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "10% chance to burn.",
+		shortDesc: "10% chance to burn. Hits adjacent foes.",
+	},
+
+	neutralize: {
+		num: 0,
+		basePower: 40,
+		accuracy: 100,
+		category: "Special",
+		name: "Neutralize",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+		shortDesc: "Resets all of the target's stat stages to 0.",
+	},
+
+	savagery: {
+		num: 0,
+		basePower: 90,
+		accuracy: 100,
+		category: "Physical",
+		name: "Savagery",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		self: {
+			chance: 30,
+			boosts: {
+				def: 1,
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the users's Defense by 1.",
+	},
+
+	obsidianshards: {
+		num: 0,
+		basePower: 95,
+		accuracy: 100,
+		category: "Physical",
+		name: "Obsidian Shards",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "30% chance to lower the target's Sp. Attack by 1.",
+	},
+
+	ironcascade: {
+		num: 0,
+		basePower: 110,
+		accuracy: 100,
+		category: "Physical",
+		name: "Iron Cascade",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		target: "allAdjacent",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "Hits adjacent pokemon.",
+	},
+
+	eclipsenova: {
+		num: 0,
+		basePower: 95,
+		accuracy: 100,
+		category: "Special",
+		name: "Eclipse Nova",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1, bullet: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'psn',
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
+		contestType: "Tough",
+		shortDesc: "10% chance to poison target(s). Hits adjacent foes.",
+	},
+
+	scalestorm: {
+		num: 0,
+		basePower: 85,
+		accuracy: 100,
+		category: "Physical",
+		name: "Scale Storm",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1, slicing: 1 },
+		critRatio: 2,
+		target: "allAdjacentFoes",
+		type: "Dragon",
+		contestType: "Tough",
+		shortDesc: "High Crit ratio. Hits adjacent foes.",
+	},
+
+	wyrmbeam: {
+		num: 0,
+		basePower: 80,
+		accuracy: 100,
+		category: "Special",
+		name: "Wyrm Beam",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
+		target: "allAdjacentFoes",
+		type: "Dragon",
+		contestType: "Tough",
+		shortDesc: "Resets all of the target(s)'s stat stages to 0. Hits adjacent foes.",
+	},
+
+	seismicchant: {
+		num: 0,
+		basePower: 0,
+		accuracy: 100,
+		category: "Status",
+		name: "Seismic Chant",
+		pp: 20,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		boosts: {
+			spa: -2,
+		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "Lowers the target's Attack by 2. Hits adjacent foes.",
 	},
 
 };
