@@ -255,8 +255,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "normal",
 		type: "Light",
-		desc: "20% chance to paralyze or burn or freeze target.",
-		shortDesc: "20% chance to paralyze or burn or freeze target.",
+		desc: "20% chance to paralyze or burn or frostbite target.",
+		shortDesc: "20% chance to paralyze or burn or frostbite target.",
 	},
 	hyperspacehole: {
 		inherit: true,
@@ -1616,8 +1616,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		isNonstandard: undefined,
 		type: "Rock",
-		desc: "Has a 20% chance to freeze the target.",
-		shortDesc: "20% chance to freeze the target.",
+		desc: "Has a 20% chance to frostbite the target.",
+		shortDesc: "20% chance to frostbite the target.",
 	},
 	hyperfang: {
 		inherit: true,
@@ -2106,7 +2106,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "10% chance to freeze the target.",
+		shortDesc: "10% chance to frostbite the target.",
 	},
 
 	butterflykiss: {
@@ -2502,7 +2502,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "10% chance to freeze the target.",
+		shortDesc: "10% chance to frostbite the target.",
 	},
 
 	innervate: {
@@ -4439,7 +4439,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "10% chance to freeze target",
+		shortDesc: "10% chance to frostbite target",
 	},
 
 	deathvortex: {
@@ -5296,7 +5296,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "10% chance to freeze target",
+		shortDesc: "10% chance to frostbite target",
 	},
 
 	icevortex: {
@@ -5331,7 +5331,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "10% chance to freeze target",
+		shortDesc: "10% chance to frostbite target",
 	},
 
 	loveloop: {
@@ -5369,7 +5369,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "50% chance to freeze the target.",
+		shortDesc: "50% chance to frostbite the target.",
 	},
 
 	snowflakes: {
@@ -6538,7 +6538,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-				shortDesc: "Raises user's Sp. Attack by 2 if this KOes the target.",
+		shortDesc: "Raises user's Sp. Atk by 2 if this KOes the target.",
 	},
 
 	karmaspell: {
@@ -8838,7 +8838,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "10% chance to freeze target",
+		shortDesc: "10% chance to frostbite target",
 	},
 
 	refraction: {
@@ -12293,7 +12293,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "30% chance to lower the target's Sp. Attack by 1.",
+		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
 	},
 
 	ironcascade: {
@@ -12381,6 +12381,321 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Ground",
 		contestType: "Tough",
 		shortDesc: "Lowers the target's Attack by 2. Hits adjacent foes.",
+	},
+
+	blastfrostbite: {
+		num: 0,
+		basePower: 100,
+		accuracy: 100,
+		category: "Special",
+		name: "Blast frostbite",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		target: "allAdjacent",
+		type: "Ice",
+		contestType: "Tough",
+		shortDesc: "Hits adjacent pokemon.",
+	},
+
+	boltcrash: {
+		num: 0,
+		basePower: 100,
+		accuracy: 90,
+		category: "Special",
+		name: "Bolt Crash",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+		shortDesc: "Lowers the users's Speed by 1.",
+	},
+
+	balllightning: {
+		num: 0,
+		basePower: 85,
+		accuracy: 90,
+		category: "Physical",
+		name: "Ball Lightning",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		self: {
+			chance: 30,
+			boosts: {
+				spe: 1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+		shortDesc: "30% chance to raise the user's Speed by 1.",
+	},
+
+	divinejudgement: {
+		num: 0,
+		basePower: 90,
+		accuracy: 100,
+		category: "Special",
+		name: "Divine Judgement",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Sp. Defense by 1. Hits adjacent foes.",
+	},
+
+	holynova: {
+		num: 0,
+		basePower: 110,
+		accuracy: 90,
+		category: "Special",
+		name: "Holy Nova",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "allAdjacent",
+		type: "Light",
+		contestType: "Tough",
+		shortDesc: "Lowers the users's Sp. Atk by 1. Hits adjacent pokemon.",
+	},
+
+	crystalshower: {
+		num: 0,
+		basePower: 70,
+		accuracy: 100,
+		category: "Special",
+		name: "Crystal Shower",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "30% chance to lower the target's accuracy by 1.",
+	},
+
+	crystallinebeam: {
+		num: 0,
+		basePower: 95,
+		accuracy: 100,
+		category: "Special",
+		name: "Crystalline Beam",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			status: "frz",
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "10% chance to frostbite.",
+	},
+
+	beatdrop: {
+		num: 0,
+		basePower: 110,
+		accuracy: 90,
+		category: "Physical",
+		name: "Beat Drop",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1, gravity: 1},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Beat Drop'));
+		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "User is hurt by 50% of its max HP if it misses.",
+	},
+
+	tapdance: {
+		num: 0,
+		basePower: 90,
+		accuracy: 100,
+		category: "Physical",
+		name: "Tap Dance",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1, dance: 1 },
+		secondary: {
+			chance: 10,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Sound",
+		contestType: "Tough",
+		shortDesc: "10% chance to confuse target",
+	},
+
+	irontempest: {
+		num: 0,
+		basePower: 100,
+		accuracy: 90,
+		category: "Special",
+		name: "Iron Tempest",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		target: "allAdjacent",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "Hits adjacent pokemon.",
+	},
+
+	chillingtouch: {
+		num: 0,
+		basePower: 0,
+		accuracy: 90,
+		category: "Status",
+		name: "Chilling Touch",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
+		status: 'frz',
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+		shortDesc: "Frostbites the target.",
+	},
+
+	frostnip: {
+		num: 0,
+		basePower: 20,
+		accuracy: 100,
+		category: "Physical",
+		name: "Frostnip",
+		pp: 20,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+		shortDesc: "100% chance to frostbite",
+	},
+	bitterbastion: {
+		num: 908,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Bitter Bastion",
+		pp: 10,
+		priority: 4,
+		flags: { metronome: 1, noassist: 1, failcopycat: 1 },
+		stallingMove: true,
+		volatileStatus: 'bitterbastion',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (this.checkMoveBypassesProtect(move, source, target, false)) return;
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.category === 'Special') {
+					source.trySetStatus('frz', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.category === 'Special') {
+					source.trySetStatus('frz', target);
+				}
+			},
+		},
+		target: "self",
+		type: "Ice",
+		shortDesc: "Protects from damaging attacks. Special move: frostbite.",
+	},
+	powercycle: {
+		num: 0,
+		basePower: 90,
+		accuracy: 100,
+		category: "Special",
+		name: "Power Cycle",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		onTry(source) {
+			if (source.species.baseSpecies === 'Morpeko-Soulstones') {
+				return;
+			}
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Power Cycle');
+			this.hint("Only a Pokemon whose form is Morpeko-Soulstones or Morpeko-Soulstones-Unpowered can use this move.");
+			return null;
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Morpeko-Soulstones-Unpowered') {
+				move.type = 'Dark';
+			} else {
+				move.type = 'Light';
+			}
+		},
+		target: "normal",
+		type: "Light",
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage. If the user is a Morpeko-Soulstones in Powered Mode, this move is Light type. If the user is a Morpeko-Soulstones in Unpowered Mode, this move is Dark type. This move cannot be used successfully unless the user's current form, while considering Transform, is Powered or Unpowered Mode Morpeko-Soulstones.",
+		shortDesc: "Morpeko-Soulstones: Light; Unpowered: Dark; 100% +1 Spe.",
 	},
 
 };
