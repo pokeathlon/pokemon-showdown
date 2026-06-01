@@ -1920,4 +1920,208 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "If user is Cherrim-Soulstones-Soulstones and Hail or Snow is active, it and allies' Sp. Atk and Sp. Def are 1.5x.",
 	},
+	cartographer: {
+		onSwitchInPriority: -2,
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform-Soulstones' || pokemon.transformed) return;
+			let forme = null;
+			switch (this.field.terrain) {
+			case 'grassyterrain':
+				if (pokemon.species.id !== 'castformsoulstonesgrassy') forme = 'Castform-Soulstones-Grassy';
+				break;
+			case 'psychicterrain':
+				if (pokemon.species.id !== 'castformsoulstonespsychic') forme = 'Castform-Soulstones-Psychic';
+				break;
+			case 'mistyterrain':
+				if (pokemon.species.id !== 'castformsoulstonesmisty') forme = 'Castform-Soulstones-Misty';
+				break;
+			case 'electricterrain':
+				if (pokemon.species.id !== 'castformsoulstoneselectric') forme = 'Castform-Soulstones-Electric';
+				break;
+			default:
+				if (pokemon.species.id !== 'castformsoulstones') forme = 'Castform-Soulstones';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '0', '[msg]');
+			}
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
+		name: "Cartographer",
+		rating: 2,
+		num: 0,
+		shortDesc: "Castform-Soulstones's type and stats change respective to the current terrain's type.",
+	},
+	deepchill: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('frz', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Deep Chill",
+		rating: 2,
+		num: 0,
+		shortDesc: "30% to frostbite pokemon using physical moves against it.",
+	},
+	superconductive: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status === 'frz') {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Superconductive",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "If this Pokemon is frostbit, its Atk. is 1.5x; half damage from frostbite.",
+	},
+	forestking: {
+		onStart(source) {
+			if (!this.field.isTerrain('grassyterrain')) this.field.setTerrain('grassyterrain');
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (this.field.isTerrain('grassyterrain')) {
+				return this.chainModify(1.33);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.field.isTerrain('grassyterrain')) {
+				return this.chainModify(1.33);
+			}
+		},
+		flags: {},
+		name: "Forest King",
+		rating: 4,
+		num: 0,
+		shortDesc: "Sets Grassy Terrain on start. 1.33x Atk and SpA in Grassy Terrain."
+	},
+	orbit: {
+		onStart(source) {
+			if (this.field.pseudoWeather.gravity) {
+				this.add('-activate', source, 'ability: Orbit');
+				this.field.removePseudoWeather('gravity');
+			} 
+				
+		},
+		flags: {},
+		name: "Orbit",
+		rating: 4.5,
+		num: 0,
+		shortDesc: "On Switch-in, this Pokemon summons Gravity.",
+	},
+	lightswitch: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.species.baseSpecies !== 'Morpeko-Soulstones' || pokemon.terastallized) return;
+			const targetForme = pokemon.species.name === 'Morpeko-Soulstones' ? 'Morpeko-Soulstones-Unpowered' : 'Morpeko-Soulstones';
+			pokemon.formeChange(targetForme);
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1 },
+		name: "Light Switch",
+		rating: 1,
+		num: 0,
+		shortDesc: "If Morpeko-Soulstones, it changes between Powered and Unpowered Mode at the end of each turn.",
+	},
+	flexible: {
+		onBasePower(basePower, source, target, move) {
+			if (!source.hasType(move.type)) {
+				this.debug('Flexible boosts');
+				return this.chainModify(1.3)
+			}
+		},
+		flags: {},
+		name: "Flexible",
+		rating: 4.5,
+		num: 0,
+		shortDesc: "1.3x Power on non-STAB moves.",
+	},
+	rebellious: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				return;
+			}
+			if (source.abilityState.rebellious) return;
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				source.abilityState.rebellious = true;
+			}
+		},
+		onBasePower(basePower, source, target, move) {
+			if (source.abilityState.rebellious) {
+				this.debug('Rebellious boosts');
+				return this.chainModify(1.3)
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.abilityState.rebellious) pokemon.abilityState.rebellious = false;
+		},
+		flags: {},
+		name: "Rebellious",
+		rating: 3,
+		num: 0,
+		shortDesc: "If stats lowered by a foe, 1.3x damage until switch-out."
+	},
+	gorging: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.drain) {
+				return this.chainModify(1.3);
+			}
+		},
+		flags: {},
+		name: "Gorging",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "This Pokemon's draining attacks have 1.3x power.",
+	},
+	resonant: { //Implemented in scripts
+		flags: {},
+		name: "Resonant",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "Removes spread move's damage reduction.",
+	},
+	impulsive: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			return this.chainModify(1.4);
+		},
+		onAfterMove(source, target, move) {
+			if (move.category === 'Physical') source.boostBy({atk: -1})
+			if (move.category === 'Special') source.boostBy({spa: -1})
+		},
+		flags: {},
+		name: "Impulsive",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "1.4x power to attacks. -1 Atk/SpA after using a Physical/Special move.",
+	},
+	vandal: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender.getItem().id) {
+				return this.chainModify(1.3);
+			}
+		},
+		flags: {},
+		name: "Vandal",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "1.3x power against foes holding an item.",
+	},
 };
