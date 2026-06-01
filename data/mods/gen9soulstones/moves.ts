@@ -846,16 +846,22 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 100,
 		basePowerCallback(pokemon, target, move) {return move.basePower},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
+		},
 		isNonstandard: undefined,
-		shortDesc: "No additional effect."
+		shortDesc: "Physical if user's Atk > Sp. Atk.",
 	},
 	frustration: {
 		inherit: true,
 		basePower: 100,
 		category: "Special",
 		basePowerCallback(pokemon, target, move) {return move.basePower},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
 		isNonstandard: undefined,
-		shortDesc: "No additional effect."
+		shortDesc: "Physical if user's Atk > Sp. Atk.",
 	},
 	recover: {
 		inherit: true,
@@ -962,7 +968,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	steameruption: {
 		inherit: true,
-		accuracy: 100,
+		accuracy: 85,
 		isNonstandard: undefined,
 	},
 	razorshell: {
@@ -1041,7 +1047,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	pinmissile: {
 		inherit: true,
-		accuracy: 100,
+		accuracy: 95,
 		isNonstandard: undefined,
 	},
 	strugglebug: {
@@ -1592,6 +1598,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 90,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
 		secondary: {
 			chance: 40,
 			boosts: {
@@ -1749,7 +1756,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	rockblast: {
 		inherit: true,
-		accuracy: 100,
+		accuracy: 90,
 		isNonstandard: undefined,
 	},
 	rockclimb: {
@@ -1980,6 +1987,100 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 90,
 		isNonstandard: undefined,
+	},
+	dragonclaw: {
+		inherit: true,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+	},
+	mudbomb: {
+		inherit: true,
+		accuracy: 100,
+		secondary: {
+			chance: 20,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		desc: "Has a 20% chance to lower the target's accuracy by 1 stage.",
+		shortDesc: "20% chance to lower the target's accuracy by 1.",
+	},
+	eggbomb: {
+		inherit: true,
+		isNonstandard: undefined,
+		accuracy: 100,
+		basePower: 90,
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.infiltrates = true;
+			}
+		},
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
+					return this.NOT_FAIL;
+				}
+			}
+		},
+		desc: "If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.",
+		shortDesc: "If the target is an ally, heals 50% of its max HP.",
+	},
+	toxicthread: {
+		inherit: true,
+		isNonstandard: undefined,
+		boosts: {
+			spe: -2,
+		},
+		desc: "Lowers the target's Speed by 2 stages and poisons it.",
+		shortDesc: "Lowers the target's Speed by 2 and poisons it.",
+	},
+	dragonrush: {
+		inherit: true,
+		isNonstandard: undefined,
+		accuracy: 90,
+	},
+	irontail: {
+		inherit: true,
+		isNonstandard: undefined,
+		accuracy: 90,
+	},
+	slam: {
+		inherit: true,
+		isNonstandard: undefined,
+		accuracy: 90,
+	},
+	poltergeist: {
+		inherit: true,
+		isNonstandard: undefined,
+		onTry(source, target) {},
+		onTryHit(target, source, move) {},
+		onBasePower(basePower, source, target, move) {
+			if (!target.getItem().id) return this.chainModify(0.5)
+		},
+		shortDesc: "0.5x power if the target has no held item.",
+	},
+	steelroller: {
+		inherit: true,
+		isNonstandard: undefined,
+		onTry() {},
+		onHit() {
+			this.field.clearTerrain();
+		},
+		onAfterSubDamage() {
+			this.field.clearTerrain();
+		},
+		onBasePower(basePower, source, target, move) {
+			if (!!this.field.terrain) return this.chainModify(0.5)
+		},
+		desc: "Half power if there is no terrain active. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
+		shortDesc: "0.5x power if there is no terrain active. Ends the terrain.",
 	},
 	
 	// Additions
@@ -4338,7 +4439,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	flamevolley: {
 		num: 0,
 		basePower: 20,
-		accuracy: 90,
+		accuracy: 100,
 		category: "Physical",
 		name: "Flame Volley",
 		pp: 15,
@@ -4478,7 +4579,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	flock: {
 		num: 0,
 		basePower: 20,
-		accuracy: 90,
+		accuracy: 100,
 		category: "Physical",
 		name: "Flock",
 		pp: 15,
@@ -5069,14 +5170,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, pulse: 1 },
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
+		self: {
+			boosts: {
+				spa: -1
+			}
 		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "10% chance to make the target flinch.",
+		shortDesc: "Lowers user's Sp. Atk by 1.",
 	},
 
 	goldrush: {
@@ -5088,11 +5190,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		stealsBoosts: true,
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "Steals target's boosts before dealing damage.",
+		shortDesc: "Resets all of the target's stat stages to 0.",
 	},
 
 	mudshackles: {
@@ -5417,17 +5522,35 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		category: "Status",
 		name: "Cleanse",
-		pp: 20,
+		pp: 15,
 		priority: 0,
-		flags: {metronome: 1,  snatch: 1},
-		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
-			pokemon.cureStatus();
+		flags: { protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, metronome: 1 },
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ evasion: -1 });
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			const removeTarget = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', ...removeAll];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', `[of] ${source}`);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', `[of] ${source}`);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
 		},
-		target: "self",
+		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "User cures its burn, poison, or paralysis.",
+		desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness. If there is a terrain active and this move is successful, the terrain will be cleared.",
+		shortDesc: "-1 evasion; ends user and target hazards/terrain.",
 	},
 
 	consecrate: {
@@ -7946,11 +8069,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.category = 'Special';
 			}
 		},
-		ignoreAbility: true,
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		shortDesc: "Ignores the Abilities of other Pokemon. Special if would be stronger.",
+		shortDesc: "Special if would be stronger.",
 	},
 
 	cruelwhip: {
@@ -7996,11 +8118,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.category = 'Special';
 			}
 		},
-		ignoreAbility: true,
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "Ignores the Abilities of other Pokemon. Special if would be stronger.",
+		shortDesc: "Special if would be stronger.",
 	},
 
 	scentedshield: {
@@ -8262,7 +8383,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	meteorshower: {
 		num: 0,
 		basePower: 18,
-		accuracy: 90,
+		accuracy: 100,
 		category: "Special",
 		name: "Meteor Shower",
 		pp: 15,
@@ -9001,7 +9122,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	cobaltray: {
 		num: 0,
 		basePower: 80,
-		accuracy: 90,
+		accuracy: 100,
 		category: "Special",
 		name: "Cobalt Ray",
 		pp: 10,
@@ -9400,7 +9521,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	throwingstar: {
 		num: 0,
 		basePower: 25,
-		accuracy: 100,
+		accuracy: 90,
 		category: "Physical",
 		name: "Throwing Star",
 		pp: 15,
@@ -9708,14 +9829,15 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		secondary: {
-			chance: 10,
-			volatileStatus: 'flinch',
+		self: {
+			boosts: {
+				spa: -1
+			}
 		},
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "10% chance to make the target flinch.",
+		shortDesc: "Lowers user's Sp. Atk by 1.",
 	},
 
 	dracotempest: {
@@ -10034,14 +10156,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		category: "Status",
 		name: "Suppress Aura",
-		pp: 20,
+		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1 },
-		volatileStatus: 'taunt',
+		flags: { protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1 },
+		volatileStatus: 'gastroacid',
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		shortDesc: "Target can't use status moves its next 3 turns.",
+		shortDesc: "Nullifies the target's Ability.",
 	},
 
 	flamepillar: {
