@@ -894,7 +894,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "If user is Wishiwashi-Soulstones, changes to Symphny Form if it has > 1/4 max HP.",
 	},
-	destructivecore: { //ASK - Minior status immunity?
+	destructivecore: {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Togedemaru-Soulstones' || pokemon.transformed) return;
@@ -950,7 +950,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4.5,
 		num: 0,
 	},
-	dishearten: { //TODO - same abilities that are immune to intim drop are also immune to this.
+	dishearten: {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
