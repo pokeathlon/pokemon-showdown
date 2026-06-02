@@ -37,7 +37,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		name: "Long Club",
 		spritenum: -4,
 		fling: {
-			basePower: 90,
+			basePower: 150,
 		},
 		onModifyCritRatio(critRatio, user) {
 			if (user.baseSpecies.baseSpecies === 'Terathwack' || user.m.fusion === 'Terathwack') {

@@ -150,7 +150,7 @@ export const Items: ModdedItemDataTable = {
 		isNonstandard: null,
 		gen: 9,
 	},
-	drampite: {
+	drampanite: {
 		inherit: true,
 		isNonstandard: null,
 		gen: 9,

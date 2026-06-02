@@ -198,55 +198,6 @@ export const Moves: ModdedMoveDataTable = {
 			return !!this.boost({ atk: 1, spe: 1 }, pokemon, pokemon, null, false, true) || success;
 		},
 	},
-	gale: {
-		inherit: true,
-		onAfterHit(target, pokemon, move) {
-			if (!move.hasSheerForce) {
-				for (const volatile of removeVolatileUniversal) {
-					if (pokemon.hp && pokemon.removeVolatile(this.dex.toID(volatile))) {
-						this.add('-end', pokemon, volatile, '[from] move: Gale', `[of] ${pokemon}`);
-					}
-				}
-				const sideConditions = removeAllUniversal;
-				for (const condition of sideConditions) {
-					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
-					}
-				}
-				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
-					pokemon.removeVolatile('partiallytrapped');
-				}
-			}
-		},
-		onAfterSubDamage(damage, target, pokemon, move) {
-			if (!move.hasSheerForce) {
-				for (const volatile of removeVolatileUniversal) {
-					if (pokemon.hp && pokemon.removeVolatile(this.dex.toID(volatile))) {
-						this.add('-end', pokemon, volatile, '[from] move: Gale', `[of] ${pokemon}`);
-					}
-				}
-				const sideConditions = removeAllUniversal;
-				for (const condition of sideConditions) {
-					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
-					}
-				}
-				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
-					pokemon.removeVolatile('partiallytrapped');
-				}
-			}
-		},
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		name: "Gale",
-		pp: 10,
-		priority: 0,
-		flags: { protect: 1, mirror: 1 },
-		type: "Flying",
-		desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
-		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
-	},
 
 	// OTHER
 	darkvoid: {
@@ -1285,7 +1236,7 @@ export const Moves: ModdedMoveDataTable = {
 	rocketgrab: {
 		num: 0,
 		accuracy: 95,
-		basePower: 90,
+		basePower: 60,
 		category: "Physical",
 		name: "Rocket Grab",
 		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Switch is cancelled if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn. Can't be used twice in a row.",
@@ -1308,7 +1259,7 @@ export const Moves: ModdedMoveDataTable = {
 			target.side.removeSideCondition('rocketgrab');
 		},
 		onHit(target, source, move) {
-			if (target.volatiles['grabbed']) target.addVolatile('preventswitch');
+			if (target.volatiles['grabbed'] && target.getItem().id !== 'shedshell') target.addVolatile('preventswitch');
 		},
 		condition: {
 			duration: 1,
@@ -2845,6 +2796,57 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Dragon",
 		contestType: "Beautiful",
 		shortDesc: "Lowers the user's Sp. Def by 1.",
+	},
+	bloominggrace: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Blooming Grace",
+		pp: 5,
+		priority: 0,
+		flags: { charge: 1, nonsky: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1 },
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (attacker.hasType("Poison")) {
+				attacker.setType(attacker.getTypes(true).map(type => type === "Poison" ? "Grass" : type));
+				this.add('-start', attacker, 'typechange', attacker.getTypes().join('/'), '[from] move: Blooming Grace');
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		boosts: {
+			atk: 2,
+			spa: 2,
+		},
+		target: "self",
+		type: "Grass",
+		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
+		contestType: "Beautiful",
+		shortDesc: "Swaps user's Poison-type to Grass, then raises Atk, SpA by 2 turn 2.",
+	},
+	espressoshot: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Espresso Shot",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'brn') move.critRatio = 5;
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+		shortDesc: "100% crit chance if the target is burned.",
 	},
 };
 
