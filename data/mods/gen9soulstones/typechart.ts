@@ -119,6 +119,7 @@ export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
 		damageTaken: {
 			hail: 3,
 			frz: 3,
+			frb: 3,
 			Bug: 0,
 			Crystal: 0,
 			Cosmic: 0,
