@@ -1420,8 +1420,21 @@ export const Abilities: ModdedAbilityDataTable = {
 		flags: {},
 		name: "Sweet Collateral",
 		rating: 3.5,
-		num: 101,
+		num: 0,
 		shortDesc: "This Pokemon's moves of 65 power or less have 1.5x power, including Struggle.",
+	},
+	concentrate: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Concentrate boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Concentrate",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "If this Pokemon strikes with a critical hit, the damage is multiplied by 1.5.",
 	},
 };
 

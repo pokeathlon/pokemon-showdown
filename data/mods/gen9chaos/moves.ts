@@ -2831,6 +2831,23 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Swaps user's Poison-type to Grass, then raises Atk, SpA by 2 turn 2.",
 	},
+	espressoshot: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Espresso Shot",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'brn') move.critRatio = 5;
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+		shortDesc: "100% crit chance if the target is burned.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
