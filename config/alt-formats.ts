@@ -810,6 +810,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9soulstones',
 		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=800', 'Link EVs'],
 	},
+	{
+		name: "[Gen 9] Soulstones Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9soulstones',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=800', 'Link EVs'],
+	},
 
 	{
 		section: "Pokéathlon: Full Dex",
