@@ -14635,7 +14635,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			torment: ["9M"],
 			toxic: ["9M"],
 			waterpulse: ["9M"],
-			wilowisp: ["9M"],
+			willowisp: ["9M"],
 			zenheadbutt: ["9M"],
 			protect: ["9M"],
 			substitute: ["9M"],

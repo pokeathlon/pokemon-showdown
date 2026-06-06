@@ -392,6 +392,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['move:hiddenpower', 'move:swagger'],
 	},
 	{
+		name: "[Gen 9] Ins HBF LC Draft",
+		searchShow: false,
+
+		mod: 'gen9insurgence',
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Default Level = 5', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Little Cup'],
+		banlist: [],
+	},
+	{
 		name: "[Gen 9] Chaos Draft",
 		searchShow: false,
 
