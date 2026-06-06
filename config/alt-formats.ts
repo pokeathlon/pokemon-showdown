@@ -396,7 +396,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 
 		mod: 'gen9insurgence',
-		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Default Level = 5', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Little Cup'],
+		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Default Level = 5', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause', 'Little Cup', 'Item Clause = 2'],
 		banlist: [],
 	},
 	{
