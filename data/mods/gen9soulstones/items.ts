@@ -2896,4 +2896,20 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Halves damage taken from a supereffective Sound-type attack.",
 	},
+	frostorb: {
+		name: "Frost Orb",
+		spritenum: 145,
+		fling: {
+			basePower: 30,
+			status: 'frb',
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('frb', pokemon);
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "At the end of every turn, this item attempts to frostbite the holder.",
+	},
 };
