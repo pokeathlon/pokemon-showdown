@@ -786,9 +786,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
 	},
 	{
-		name: "[Gen 9] Inf Doubles CG",
+		name: "[Gen 6] Inf Doubles CG",
 
-		mod: 'gen9infinity',
+		mod: 'gen6infinity',
 		searchShow: false,
 		debug: true,
 		gameType: "doubles",
