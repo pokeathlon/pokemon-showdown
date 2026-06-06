@@ -3221,6 +3221,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	toumarrow: {
+		num: 3168,
+		name: "Toumarrow",
+		types: ["Ice", "Ghost"],
+		baseStats: { hp: 64, atk: 90, def: 124, spa: 114, spd: 134, spe: 74 },
+		abilities: { 0: "Snow Warning", H: "Forewarn" },
+		heightm: 2.3,
+		weightkg: 92.6,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
