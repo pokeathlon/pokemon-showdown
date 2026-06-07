@@ -26,6 +26,38 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		shortDesc: "30% chance to frostbite the target.",
 	},
+	ragingbull: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tauros-Paldea-Combat':
+			case "Chargin' Chuck":
+				move.type = 'Fighting';
+				break;
+			case 'Tauros-Paldea-Blaze':
+				move.type = 'Fire';
+				break;
+			case 'Tauros-Paldea-Aqua':
+				move.type = 'Water';
+				break;
+			}
+		},
+		target: "normal",
+		type: "Normal",
+	},
 
 	// Additions
 	hammerthrow: {
@@ -39,7 +71,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Normal",
 	},
