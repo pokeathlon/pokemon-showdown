@@ -1036,7 +1036,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod', 'Sleep Moves Clause',
 		],
 		banlist: [
-			'ND AG', 'ND Uber', 'Mega',
+			'ND AG', 'ND Uber',
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item:boomerang', 'item: trickrock', 'item:dragonfang', 'item:floettite',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer', 'ability:goodasgold', 'ability:noctem', 'ability:fairylaw','ability:quickcharge', 'ability:cannoneer',
 			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove', 'ability:simplyevil', 'ability:illusionist', 'ability:grandentrance',
@@ -1050,16 +1050,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
 		mod: 'gen9chaosfusion',
-		ruleset: ['Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod', 'Sleep Moves Clause'],
+		ruleset: ['[Gen 9] Chaos Fusions OU'],
 		banlist: [
-			'ND AG', 'ND Uber', 'Mega',
-			'ND OU', 'ND UUBL', 'ability:drizzle', 'ability:drought', 'ability:noctem', 'item:lightclay', 'move:lucky7s', 'move:boltbeak', 'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item:boomerang', 'item: trickrock', 'item:dragonfang',
-			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer',
-			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'ability:quickcharge',
-			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast', 'move:quiverdance', 'move:boomburst',
-			'Transform + Fairy Law',
+			'ND OU', 'ND UUBL',
 		],
 	},
 	{

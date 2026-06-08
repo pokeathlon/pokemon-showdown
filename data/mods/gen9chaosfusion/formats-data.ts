@@ -2443,4 +2443,124 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "LC",
 	},
+	meganiummega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	victreebelmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	starmiemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	dragonitemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	feraligatrmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	skarmorymega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	chimechomega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	froslassmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	emboarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	excadrillmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	chandeluremega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	golurkmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	chesnaughtmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	delphoxmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	greninjamega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	floettemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	meowsticmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	hawluchamega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	crabominablemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	drampamega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	scovillainmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	glimmoramega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	clefablemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
 };
