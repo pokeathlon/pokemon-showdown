@@ -3137,6 +3137,74 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	arceusbug: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusdark: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusdragon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuselectric: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusfairy: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusfighting: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusfire: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusflying: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusghost: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusgrass: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusground: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusice: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuspoison: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuspsychic: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceusrock: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceussteel: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arceuswater: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
 
 	// Doubles bans
 	arceus: {
