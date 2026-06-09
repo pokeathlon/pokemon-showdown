@@ -44,6 +44,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 80,
+		pp: 10,
 		condition: {
 			duration: 2,
 			onInvulnerability(target, source, move) {
@@ -104,6 +105,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	dazzlinggleam: {
 		inherit: true,
+		pp: 15,
 		type: "Light",
 	},
 	extremespeed: {
@@ -135,6 +137,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	flashcannon: {
 		inherit: true,
 		basePower: 90,
+		pp: 15,
 		type: "Light",
 		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1 },
 		secondary: {
@@ -150,6 +153,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 70,
+		pp: 20,
 		isNonstandard: undefined,
 		selfSwitch: true,
 		secondary: undefined,
@@ -161,7 +165,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: undefined,
 		name: "Laser Focus",
-		pp: 30,
+		pp: 20,
 		priority: 0,
 		flags: { snatch: 1, metronome: 1 },
 		sideCondition: 'laserfocus',
@@ -186,6 +190,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	morningsun: {
 		inherit: true,
+		pp: 10,
 		type: "Light",
 	},
 	photongeyser: {
@@ -198,6 +203,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	signalbeam: {
 		inherit: true,
+		pp: 20,
 		secondary: {
 			chance: 50,
 			volatileStatus: 'confusion',
@@ -273,6 +279,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	gravity: {
 		inherit: true,
+		pp: 10,
 		type: "Cosmic",
 	},
 	lunardance: {
@@ -294,6 +301,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 90,
 		basePower: 110,
+		pp: 10,
 		isNonstandard: undefined,
 		flags: { protect: 1, mirror: 1, failinstruct: 1, gravity: 1 },
 		hasCrashDamage: true,
@@ -342,6 +350,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	healingwish: {
 		inherit: true,
+		pp: 5,
 		type: "Cosmic",
 	},
 	meteormash: {
@@ -356,6 +365,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	moonlight: {
 		inherit: true,
+		pp: 10,
 		type: "Cosmic",
 	},
 	astralbarrage: {
@@ -422,6 +432,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	echoedvoice: {
 		inherit: true,
+		pp: 25,
 		type: "Normal",
 	},
 	growl: {
@@ -430,6 +441,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	healbell: {
 		inherit: true,
+		pp: 10,
 		type: "Sound",
 	},
 	hypervoice: {
@@ -442,6 +454,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	metalsound: {
 		inherit: true,
+		pp: 25,
 		type: "Sound",
 	},
 	nobleroar: {
@@ -510,6 +523,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	round: {
 		inherit: true,
+		pp: 20,
 		type: "Sound",
 	},
 	screech: {
@@ -545,6 +559,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	supersonic: {
 		inherit: true,
+		pp: 15,
 		type: "Sound",
 	},
 	uproar: {
@@ -609,6 +624,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	mistball: {
 		inherit: true,
+		pp: 15,
 		type: "Fairy",
 	},
 	leechlife: {
@@ -655,6 +671,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	plasmafists: {
 		inherit: true,
 		pseudoWeather: undefined,
+		pp: 10,
 		shortDesc: "No additional effect.",
 	},
 	thunderfang: {
@@ -761,6 +778,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	magnitude: {
 		inherit: true,
+		pp: 15,
 		isNonstandard: undefined,
 		onModifyMove(move, pokemon) {
 			move.basePower = pokemon.level;
@@ -845,6 +863,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	return: {
 		inherit: true,
 		basePower: 100,
+		pp: 10,
 		basePowerCallback(pokemon, target, move) {return move.basePower},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
@@ -855,6 +874,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	frustration: {
 		inherit: true,
 		basePower: 100,
+		pp: 10,
 		category: "Special",
 		basePowerCallback(pokemon, target, move) {return move.basePower},
 		onModifyMove(move, pokemon) {
@@ -979,6 +999,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	octazooka: {
 		inherit: true,
 		accuracy: 100,
+		pp: 15,
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -1010,6 +1031,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	attackorder: {
 		inherit: true,
 		basePower: 20,
+		pp: 10,
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower + 20 * pokemon.positiveBoosts();
 			this.debug(`BP: ${bp}`);
@@ -1043,11 +1065,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	infestation: {
 		inherit: true,
 		basePower: 35,
+		pp: 15,
 		isNonstandard: undefined,
 	},
 	pinmissile: {
 		inherit: true,
 		accuracy: 95,
+		pp: 15,
 		isNonstandard: undefined,
 	},
 	strugglebug: {
@@ -1058,6 +1082,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	twineedle: {
 		inherit: true,
 		basePower: 40,
+		pp: 10,
 		isNonstandard: undefined,
 		secondary: undefined,
 		shortDesc: "Hits twice."
@@ -1085,6 +1110,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	twister: {
 		inherit: true,
+		pp: 25,
 		secondary: {
 			chance: 10,
 			volatileStatus: 'flinch',
@@ -1096,6 +1122,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 40,
+		pp: 20,
 		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1 },
 		secondary: {
 			chance: 100,
@@ -1138,6 +1165,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	fairywind: {
 		inherit: true,
+		pp: 25,
 		secondary: {
 			chance: 10,
 			self: {
@@ -1185,6 +1213,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	block: {
 		inherit: true,
+		pp: 20,
 		type: "Fighting",
 	},
 	doublekick: {
@@ -1263,6 +1292,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	thunderouskick: {
 		inherit: true,
+		pp: 15,
 		secondary: {
 			chance: 30,
 			volatileStatus: 'par',
@@ -1279,6 +1309,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 90,
+		pp: 15,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, defrost: 1 },
 		isNonstandard: undefined,
 	},
@@ -1522,6 +1553,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 55,
+		pp: 15,
 		basePowerCallback(pokemon, target, move) {
 			if (!pokemon.item) {
 				this.debug("BP doubled for no item");
@@ -1591,6 +1623,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	rest: {
 		inherit: true,
+		pp: 10,
 		type: "Normal",
 		isNonstandard: undefined,
 	},
@@ -1598,6 +1631,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 90,
+		pp: 15,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
 		secondary: {
 			chance: 40,
@@ -1612,11 +1646,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 40,
 		accuracy: 100,
+		pp: 20,
 		isNonstandard: undefined,
 	},
 	freezingglare: {
 		inherit: true,
 		basePower: 80,
+		pp: 15,
 		secondary: {
 			chance: 20,
 			status: 'frz',
@@ -1641,6 +1677,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 75,
 		accuracy: 100,
+		pp: 15,
 		secondary: {
 			chance: 10,
 			self: {
@@ -1656,6 +1693,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	pound: {
 		inherit: true,
 		isNonstandard: undefined,
+		pp: 25,
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -1667,6 +1705,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	slash: {
 		inherit: true,
+		pp: 15,
 		secondary: {
 			chance: 50,
 			self: {
@@ -1682,10 +1721,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	tailslap: {
 		inherit: true,
 		accuracy: 90,
+		pp: 15,
 		isNonstandard: undefined,
 	},
 	crosspoison: {
 		inherit: true,
+		pp: 15,
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -1708,6 +1749,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 60,
 		priority: -6,
+		pp: 10,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		forceSwitch: true,
 		critRatio: undefined,
@@ -1739,6 +1781,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 75,
 		accuracy: 100,
+		pp: 15,
 		self: {
 			chance: 100,
 			boosts: {
@@ -1757,12 +1800,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	rockblast: {
 		inherit: true,
 		accuracy: 90,
+		pp: 15,
 		isNonstandard: undefined,
 	},
 	rockclimb: {
 		inherit: true,
 		accuracy: 100,
 		basePower: 80,
+		pp: 10,
 		type: "Rock",
 		secondary: {
 			chance: 30,
@@ -1776,6 +1821,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 40,
+		pp: 25,
 		self: {
 			chance: 10,
 			boosts: {
@@ -1805,6 +1851,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 40,
 		accuracy: 100,
+		pp: 20,
 		self: {
 			chance: 30,
 			boosts: {
@@ -1818,6 +1865,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	snaptrap: {
 		inherit: true,
 		basePower: 40,
+		pp: 20,
 		isNonstandard: undefined,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		volatileStatus: undefined,
@@ -1895,6 +1943,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	swordsdance: {
 		inherit: true,
+		pp: 10,
 		type: "Steel",
 		isNonstandard: undefined,
 	},
@@ -1902,6 +1951,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 60,
 		accuracy: 100,
+		pp: 25,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1 },
 		secondary: {
 			chance: 10,
@@ -1939,12 +1989,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	liquidation: {
 		inherit: true,
 		basePower: 90,
+		pp: 15,
 		isNonstandard: undefined,
 	},
 	muddywater: {
 		inherit: true,
 		basePower: 95,
 		accuracy: 90,
+		pp: 15,
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -2081,6 +2133,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		desc: "Half power if there is no terrain active. Ends the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain.",
 		shortDesc: "0.5x power if there is no terrain active. Ends the terrain.",
+	},
+	shoreup: {
+		inherit: true,
+		pp: 10,
+		isNonstandard: undefined,
+	},
+	scaleshot: {
+		inherit: true,
+		pp: 15,
+		isNonstandard: undefined,
+	},
+	burningjealousy: {
+		inherit: true,
+		pp: 10,
+		isNonstandard: undefined,
+	},
+	gust: {
+		inherit: true,
+		pp: 25,
+		isNonstandard: undefined,
+	},
+	psychocut: {
+		inherit: true,
+		pp: 15,
+		isNonstandard: undefined,
 	},
 	
 	// Additions
