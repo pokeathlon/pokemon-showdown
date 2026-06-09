@@ -2,7 +2,6 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Current items that do not exist
 
 	// Modded
-	
 	babiriberry: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
@@ -381,6 +380,142 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		desc: "1/4 damage taken from supereffective Ice-type attack. Single use. If user has the Ripen ability, damage reduced by 95%.",
 		shortDesc: "1/4 damage taken from supereffective Ice-type attack. Single use.",
 	},
+	buggem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Bug-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	darkgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Dark-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	dragongem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Dragon-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	electric: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Electric-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	fairygem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Fairy-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	fightinggem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Fighting-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	firegem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Fire-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	flyinggem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Flying-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	ghostgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Ghost-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	grassgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Grass-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	groundgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Ground-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	icegem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Ice-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	normalgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Normal-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	poisongem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Poison-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	psychicgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Psychic-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	rockgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Rock-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	steelgem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Steel-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	watergem: {
+		inherit: true,
+		isNonstandard: undefined,
+		shortDesc: "Holder's first successful Water-type attack will have 1.4x power. Single use.",
+		gen: 9,
+	},
+	adrenalineorb: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			// Adrenaline Orb activates if Intimidate is blocked by an ability like Hyper Cutter,
+			// which deletes boost.atk,
+			// but not if the holder's attack is already at -6 (or +6 if it has Contrary),
+			// which sets boost.atk to 0
+			if (target.boosts['spe'] === 6 || boost.atk === 0) {
+				return;
+			}
+			if (effect.name === 'Intimidate' || effect.name === 'Dishearten') {
+				target.useItem();
+			}
+		},
+		num: 0,
+		shortDesc: "Raises holder's Speed by 1 stage if it gets affected by Intimidate or Dishearten. Single use.",
+		gen: 9,
+	},
+	rockyhelmet: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		shortDesc: "If holder is hit by a Physical move, the attacker loses 1/8 of its max HP.",
+		gen: 9,
+	},
 	
 	// New items 
 	assaultarmor: {
@@ -427,7 +562,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 		gen: 9,
-		shortDesc: "Holder's first successful Cosmic-type attack will have 1.3x power. Single use.",
+		shortDesc: "Holder's first successful Cosmic-type attack will have 1.4x power. Single use.",
 	},
 	soundgem: {
 		name: "Sound Gem",
@@ -441,7 +576,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 		gen: 9,
-		shortDesc: "Holder's first successful Sound-type attack will have 1.3x power. Single use.",
+		shortDesc: "Holder's first successful Sound-type attack will have 1.4x power. Single use.",
 	},
 	lightgem: {
 		name: "Light Gem",
@@ -455,7 +590,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 		gen: 9,
-		shortDesc: "Holder's first successful Light-type attack will have 1.3x power. Single use.",
+		shortDesc: "Holder's first successful Light-type attack will have 1.4x power. Single use.",
 	},
 	sharpcoral: {
 		name: "Sharp Coral",
@@ -2898,7 +3033,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	frostorb: {
 		name: "Frost Orb",
-		spritenum: 145,
+		spritenum: -6,
 		fling: {
 			basePower: 30,
 			status: 'frb',
@@ -2911,5 +3046,21 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		num: 0,
 		gen: 9,
 		shortDesc: "At the end of every turn, this item attempts to frostbite the holder.",
+	},
+	hivisjacked: {
+		name: "Hi-Vis Jacket",
+		spritenum: -6,
+		fling: {
+			basePower: 60,
+		},
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "If holder is hit by a Special move, the attacker loses 1/8 of its max HP.",
 	},
 };

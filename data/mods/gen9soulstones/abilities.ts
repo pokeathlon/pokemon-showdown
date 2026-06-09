@@ -580,6 +580,38 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		desc: "If Sandstorm is active, this Pokemon's attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm.",
 		shortDesc: "This Pokemon's attacks do 1.3x in Sandstorm; immunity to it.",
 	},
+	cutecharm: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hasType(source.getTypes())) {
+				this.debug('Cute Charm neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {},
+		desc: "Takes 0.75x from targets that share a type with user.",
+		shortDesc: "Takes 0.75x from targets that share a type with user."
+	},
+	ironbarbs: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		desc: "Pokemon using Physical moves against this Pokemon lose 1/8 of their maximum HP, rounded down.",
+		shortDesc: "Pokemon using Physical moves against this Pokemon lose 1/8 of their max HP.",
+	},
+	roughskin: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		desc: "Pokemon using Physical moves against this Pokemon lose 1/8 of their maximum HP, rounded down.",
+		shortDesc: "Pokemon using Physical moves against this Pokemon lose 1/8 of their max HP.",
+	},
 
 	// Additions
 	affection: {
@@ -2123,5 +2155,44 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 3.5,
 		num: 0,
 		shortDesc: "1.3x power against foes holding an item.",
+	},
+	feedback: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Feedback",
+		rating: 4,
+		num: 0,
+		shortDesc: "Pokemon using a Special move against this Pokemon lose 1/8 of their max HP.",
+	},
+	retribution: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Retribution",
+		rating: 4,
+		num: 0,
+		shortDesc: "Pokemon using a Special move against this Pokemon lose 1/8 of their max HP.",
+	},
+	forcefield: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		flags: {},
+		name: "Forcefield",
+		rating: 4,
+		num: 0,
+		shortDesc: "Pokemon using a Special move against this Pokemon lose 1/8 of their max HP.",
 	},
 };

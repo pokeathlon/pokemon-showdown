@@ -15,5 +15,15 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			this.damage(pokemon.baseMaxhp / 16);
 		},
 	},
+	gem: {
+		name: 'gem',
+		duration: 1,
+		affectsFainted: true,
+		onBasePowerPriority: 14,
+		onBasePower(basePower, user, target, move) {
+			this.debug('Gem Boost');
+			return this.chainModify(1.4);
+		},
+	},
 	
 };

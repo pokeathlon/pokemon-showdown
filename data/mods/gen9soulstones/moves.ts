@@ -2159,6 +2159,64 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		isNonstandard: undefined,
 	},
+	burningbulwark: {
+		inherit: true,
+		pp: 5,
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (this.checkMoveBypassesProtect(move, source, target, false)) return;
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.category === 'Physical') {
+					source.trySetStatus('brn', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.category === 'Physical') {
+					source.trySetStatus('brn', target);
+				}
+			},
+		},
+		isNonstandard: undefined,
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon using physical moves against the user become burned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects from damaging attacks. Physical: burn.",
+	},
+	kingsshield: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
+	obstruct: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
+	spikyshield: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
+	banefulbunker: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: undefined,
+	},
 	
 	// Additions
 		tidalwave: {
@@ -2493,7 +2551,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		category: "Status",
 		name: "Asteroid Belt",
-		pp: 10,
+		pp: 5,
 		priority: 4,
 		flags: {metronome: 1,  },
 		stallingMove: true,
@@ -10039,7 +10097,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		category: "Status",
 		name: "Storm Shield",
-		pp: 10,
+		pp: 5,
 		priority: 4,
 		flags: { failinstruct: 1 },
 		stallingMove: true,
@@ -12340,7 +12398,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Earthen Lance",
 		pp: 15,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, protect: 1, mirror: 1, slicing: 1 },
 		secondary: {
 			chance: 20,
 			boosts: {
@@ -12812,7 +12870,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 0,
 		category: "Status",
 		name: "Bitter Bastion",
-		pp: 10,
+		pp: 5,
 		priority: 4,
 		flags: { metronome: 1, noassist: 1, failcopycat: 1 },
 		stallingMove: true,
