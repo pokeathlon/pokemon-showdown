@@ -864,11 +864,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 100,
 		pp: 10,
-		basePowerCallback(pokemon, target, move) {return move.basePower},
+		basePowerCallback(pokemon, target, move) {return 100},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
 		},
 		isNonstandard: undefined,
+		desc: "Physical if user's Atk > Sp. Atk.",
 		shortDesc: "Physical if user's Atk > Sp. Atk.",
 	},
 	frustration: {
@@ -876,11 +877,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 100,
 		pp: 10,
 		category: "Special",
-		basePowerCallback(pokemon, target, move) {return move.basePower},
+		basePowerCallback(pokemon, target, move) {return 100},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		isNonstandard: undefined,
+		desc: "Physical if user's Atk > Sp. Atk.",
 		shortDesc: "Physical if user's Atk > Sp. Atk.",
 	},
 	recover: {
