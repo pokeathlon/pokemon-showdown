@@ -10022,7 +10022,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			guardsplit: ["9M"],
 			healpulse: ["9M"],
 			protect: ["9M"],
-			substitute: ["9M"]
+			substitute: ["9M"],
+			growth: ["9M"],
+			synthesis: ["9M"],
         }
 	},
 	crenibex: {
@@ -10737,6 +10739,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			frustration: ["9M"],
 			toxic: ["9M"],
 			terablast: ["9M"],
+			earthpower: ["9M"],
 		}
 	},
 	nebulant: {
@@ -11072,6 +11075,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			rockpolish: ["9M"],
 			stealthrock: ["9M"],
 			shockbombs: ["9M"],
+			plasmafists: ["9M"],
 		}
 	},
 	alphbit: {
@@ -11403,6 +11407,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			leer: ["9M"],
 			attract: ["9M"],
 			cometstrike: ["9M"],
+			solarbeam: ["9M"],
 		}
 	},
 	ironchamber: {
@@ -12001,7 +12006,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			magiccoat: ["9M"],
 			metalburst: ["9M"],
 			muddywater: ["9M"],
-			rapidspin: ["9M"],
 			partingshot: ["9M"],
 			perishsong: ["9M"],
 			protect: ["9M"],
@@ -12056,6 +12060,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			frustration: ["9M"],
 			hiddenpower: ["9M"],
 			bodypress: ["9M"],
+			mortalspin: ["9M"],
 		}
 	},
 	potermit: {
@@ -12539,6 +12544,12 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			seismictoss: ["9M"],
 			eruption: ["9M"],
 			hyperbeam: ["9M"],
+			honeclaws: ["9M"],
+			sunnyday: ["9M"],
+			inferno: ["9M"],
+			snarl: ["9M"],
+			firefang: ["9M"],
+			workup: ["9M"],
 		}
 	},
 	nweet: {
@@ -12952,6 +12963,8 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			freezedry: ["9M"],
+			workup: ["9M"],
 		}
 	},
 	martiantis: {
@@ -13023,6 +13036,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			leechlife: ["9M"],
 		}
 	},
 	tenkibo: {
@@ -13286,6 +13300,9 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			endure: ["9M"],
 			grassknot: ["9M"],
 			iondeluge: ["9M"],
+			naturepower: ["9M"],
+			spore: ["9M"],
+			sleeppowder: ["9M"],
 		}
 	},
 	slithereina: {
@@ -13293,7 +13310,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			foolsgambit: ["9M"],
 			crunch: ["9M"],
 			suckerpunch: ["9M"],
-			jawlock: ["9M"],
 			foulplay: ["9M"],
 			lashout: ["9M"],
 			poisonjab: ["9M"],
@@ -13352,6 +13368,18 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			hiddenpower: ["9M"],
 			endure: ["9M"],
 			terablast: ["9M"],
+			gunkshot: ["9M"],
+			payback: ["9M"],
+			pursuit: ["9M"],
+			earthquake: ["9M"],
+			swordsdance: ["9M"],
+			curse: ["9M"],
+			nastyplot: ["9M"],
+			bite: ["9M"],
+			brutalswing: ["9M"],
+			leechlife: ["9M"],
+			scaleshot: ["9M"],
+			skittersmack: ["9M"],
 		}
 	},
 	regasunde: {

@@ -1335,14 +1335,23 @@ export const Abilities: ModdedAbilityDataTable = {
 	retribution: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				source.addVolatile('laserfocus');
+				source.abilityState.retribution = source.abilityState.retribution? source.abilityState.retribution + 1 : 1;
+				this.add('-activate', source, 'ability: Retribution');
+				this.add('-end', source, `retribution${source.abilityState.retribution-1}`, '[silent]');
+				this.add('-start', source, `retribution${source.abilityState.retribution}`, '[silent]');
 			}
+		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (source.abilityState.retribution) return critRatio + source.abilityState.retribution;
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `retribution${pokemon.abilityState.retribution}`, '[silent]');
 		},
 		flags: {},
 		name: "Retribution",
 		rating: 4,
 		num: 0,
-		shortDesc: "This Pokemon applies Laser Focus on itself if it attacks and KOes another Pokemon.",
+		shortDesc: "+1 crit ratio on KO.",
 	},
 	asabove: {
 		onAnyModifyBoost(boosts, pokemon) {
@@ -1384,15 +1393,25 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "This Pokemon's sound-based moves become Ghost type.",
 	},
 	caeciliandefense: {
-		onModifyMove(move, pokemon) {
-			if (move.category === "Status") return;
-			if (pokemon.attackedBy.some(p => p.damage > 0 && p.thisTurn)) move.overrideOffensiveStat = 'def';
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+				target.addVolatile('caeciliandefense')
+				this.add('-start', target, `caeciliandefense`, '[silent]');
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.volatiles['caeciliandefense']) move.overrideOffensiveStat = 'def';
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source.volatiles['caeciliandefense']) {
+				source.removeVolatile('caeciliandefense')
+				this.add('-end', source, `caeciliandefense`, '[silent]');
+			}
 		},
 		flags: {},
 		name: "Caecilian Defense",
 		rating: 4,
 		num: 0,
-		shortDesc: "Uses Def. stat as offensive stat if it has been attacked this turn.",
+		shortDesc: "When attacked, user uses Def. as offensive stat until the user's next move.",
 	},
 	naturalanomaly: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -1435,6 +1454,21 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 3.5,
 		num: 0,
 		shortDesc: "If this Pokemon strikes with a critical hit, the damage is multiplied by 1.5.",
+	},
+	moneyequalspower: {
+		onBasePower(basePower, source, target, move) {
+			if (source.side.sideConditions['scatteredcoins']) {
+				return this.chainModify(1.3);
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			source.side.removeSideCondition('scatteredcoins');
+		},
+		flags: {},
+		name: "Money Equals Power",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "If coins are scattered, 1.3x Power. Removes scattered coins after attacking.",
 	},
 };
 

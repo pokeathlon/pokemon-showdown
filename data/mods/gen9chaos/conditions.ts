@@ -85,19 +85,25 @@ export const Conditions: ModdedConditionDataTable = {
 	scatteredcoins: {
 		name: 'Scattered Coins',
 		noCopy: true,
-		onSideStart(target, source, sourceEffect) {
-			this.add('-sidestart', target, 'move: Scattered Coins');
+		onSideStart(side, source, sourceEffect) {
+			this.add('-sidestart', side, 'move: Scattered Coins');
+		},
+		onSideEnd(side) {
+			this.add('-sideend', side, 'move: Scattered Coins');
 		},
 	},
 	luckycharm: {
 		name: 'Lucky Charm',
 		noCopy: true,
-		onSideStart(target, source, sourceEffect) {
-			this.add('-sidestart', target, 'ability: Lucky Charm');
+		onSideStart(side, source, sourceEffect) {
+			this.add('-sidestart', side, 'ability: Lucky Charm');
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Lucky Charm prevent secondary');
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		onSideEnd(side) {
+			this.add('-sideend', side, 'ability: Lucky Charm');
 		},
 		onCriticalHit: false,
 	},

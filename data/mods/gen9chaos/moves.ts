@@ -2678,6 +2678,17 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1, bite: 1 },
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const userDef = pokemon.getStat('def', false, true);
+			const def = target.getStat('def', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const defense = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * userDef) / def) / 50);
+			if (defense > physical || (defense === physical && this.randomChance(1, 2))) {
+				move.overrideOffensiveStat = 'def';
+			}
+		},
 		self: {
 			boosts: {
 				def: -2,
@@ -2687,7 +2698,7 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Beautiful",
-		shortDesc: "Lowers the user's Def by 2.",
+		shortDesc: "Lowers the user's Def by 2. Uses Def. if it would be stronger.",
 	},
 	chitinsnare: {
 		num: 0,
