@@ -942,7 +942,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost', 'ability:furcoat', 'ability:vaporization', 'ability:lernean', 'ability:adaptability',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
-			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega', 'pokemon:florgesmega', 'pokemon:snorlaxfrostmega', 'pokemon:ockthane', 'pokemon:lunachi', 'pokemon:suicunesupra',
+			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega', 'pokemon:florgesmega', 'pokemon:snorlaxfrostmega', 'pokemon:suicunesupra',
 			'Comatose + Sleep Talk',
 		],
 	},
@@ -1040,7 +1040,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove', 'ability:simplyevil', 'ability:illusionist', 'ability:grandentrance',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:bittermalice',
 			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast',
-			'Transform + Fairy Law',
 		],
 	},
 	{
@@ -1193,8 +1192,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard NatDex', 'Terastal Clause', 'Nuclear Move Clause', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
 			'Overflow Stat Mod', 'LGPE Clause', 'Sleep Moves Clause', 'Species Reveal Clause', 'Restrict Ability = wonderguard', 'Z-Move Clause', '- all pokemon',
-			'+pokemon:noiverndelta', '+pokemon:conkeldurr', '+pokemon:bewitwing', '+pokemon:laissure', '+pokemon:blastoisedelta', '+pokemon:lunachi', '+pokemon:spiketop',
-			'+pokemon:sekrilon', '+pokemon:reneguana', '+pokemon:lilligantdeltawater', '+pokemon:chronobour', '+pokemon:mandibuzz', '+pokemon:escarphone', '+pokemon:flygon',
+			'+pokemon:noiverndelta', '+pokemon:conkeldurr', '+pokemon:bewitwing', '+pokemon:laissure', '+pokemon:blastoisedelta', '+pokemon:spiketop',
+			'+pokemon:sekrilon', '+pokemon:reneguana', '+pokemon:lilligantdeltawater', '+pokemon:mandibuzz', '+pokemon:escarphone', '+pokemon:flygon',
 			'+pokemon:regasunde', '+pokemon:drilgann', '+pokemon:mochimechi', '+pokemon:nebulant', '+pokemon:goodrahisui', '+pokemon:glavinug', '+pokemon:grimmsnarl',
 			'+pokemon:quagsire', '+pokemon:regalunith', '+pokemon:celestray', '+pokemon:tangrowthegho', '+pokemon:krilowatt', '+pokemon:ceruledge', '+pokemon:crobat',
 			'+pokemon:blubelrog', '+pokemon:togemon', '+pokemon:incandele', '+pokemon:wyrmplode', '+pokemon:empirilla', '+pokemon:saharaja', '+pokemon:gargryph'

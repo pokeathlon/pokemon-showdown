@@ -855,14 +855,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	carcharus: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	catzelwyrm: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	ceregal: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1671,10 +1663,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	lunachi: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	charizardegho: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1684,10 +1672,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	grandmirage: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	jovianshk: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1978,10 +1962,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	urayne: {
 		inherit: true,
 		natDexTier: "RU",
-	},
-	eidolburgh: {
-		inherit: true,
-		natDexTier: "UU",
 	},
 	shedinja: {
 		inherit: true,

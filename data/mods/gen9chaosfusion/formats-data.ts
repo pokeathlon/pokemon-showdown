@@ -615,10 +615,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	catzelwyrm: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	celemewchi: {
 		inherit: true,
 		natDexTier: "UU",
@@ -1387,10 +1383,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	lunachi: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	lunura: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1680,10 +1672,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	broozer: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	carcharus: {
 		inherit: true,
 		natDexTier: "RU",
 	},
