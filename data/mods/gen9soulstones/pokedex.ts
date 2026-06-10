@@ -18905,6 +18905,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		battleOnly: "Castform-Soulstones",
 		tier: "OU",
 	},
 	castformsoulstoneselectric: {
@@ -18919,6 +18920,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		battleOnly: "Castform-Soulstones",
 		tier: "OU",
 	},
 	castformsoulstonespsychic: {
@@ -18933,6 +18935,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		battleOnly: "Castform-Soulstones",
 		tier: "OU",
 	},
 	castformsoulstonesmisty: {
@@ -18947,6 +18950,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		battleOnly: "Castform-Soulstones",
 		tier: "OU",
 	},
 	claunchersoulstones: {
