@@ -541,17 +541,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 3.5,
 		num: 0,
 	},
-	fairylaw: {
-		onStart(target) {
-			this.add('-activate', target, 'ability: Fairy Law');
-			target.addVolatile('imprison');
-		},
-		flags: {},
-		name: "Fairy Law",
-		shortDesc: "The effect of Imprison begins when this Pokemon enters the field.",
-		rating: 4,
-		num: 0,
-	},
 	musclememory: {
 		onBeforeSwitchOut(pokemon) {
 			this.effectState.muscleStats = pokemon.boosts;
@@ -586,21 +575,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Bushido",
 		shortDesc: "When this Pokemon moves first, its attacks have 1.3x power.",
 		rating: 4,
-		num: 0,
-	},
-	slowlight: {
-		onStart(source) {
-			this.add('-activate', source, 'ability: Slow Light');
-			if (this.field.pseudoWeather.gravity) {
-				this.field.removePseudoWeather('gravity');
-			} else {
-				this.field.addPseudoWeather('gravity');
-			}
-		},
-		flags: {},
-		name: "Slow Light",
-		shortDesc: "On Switch-in, this Pokemon summons Gravity; if Gravity is active its effects are removed.",
-		rating: 4.5,
 		num: 0,
 	},
 	sandydefense: {
@@ -644,23 +618,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		flags: {},
 		name: "Multishot",
 		shortDesc: "This Pokemon's special moves become multihit with 0.3x power.",
-		rating: 4.5,
-		num: 0,
-	},
-	sacredtreasures: {
-		onUpdate(pokemon) {
-			const curItem = pokemon.getItem();
-			if (curItem.id in treasures && pokemon.species.id === 'lunachibestowed' && pokemon.baseAbility !== treasures[curItem.id] as ID) {
-				const ability = this.dex.abilities.get(treasures[curItem.id]);
-				pokemon.baseAbility = ability.id;
-				pokemon.ability = ability.id;
-				this.add('-item', pokemon, pokemon.getItem());
-				this.add('-ability', pokemon, ability);
-			}
-		},
-		flags: {},
-		name: "Sacred Treasures",
-		shortDesc: "This Pokemon's ability depends on its item.",
 		rating: 4.5,
 		num: 0,
 	},
@@ -714,17 +671,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Kablooey",
 		shortDesc: "This Pokemon attempts to Self-Destruct at the end of each turn.",
 		rating: 3,
-		num: 0,
-	},
-	sanctuary: {
-		onStart(pokemon) {
-			this.add('-activate', pokemon, 'ability: Sanctuary');
-			pokemon.side.addSideCondition('safeguard');
-		},
-		flags: {},
-		name: "Sanctuary",
-		shortDesc: "This Pokemon's summons Safeguard on switch-in.",
-		rating: 4.5,
 		num: 0,
 	},
 	counterclockwise: {
@@ -1003,34 +949,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 4,
 		num: 0,
 	},
-	fullplate: {
-		onTryBoost(boost, target, source, effect) {
-			if (this.effectState.fullplate) return;
-			let fullPlate = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! > 0) {
-					fullPlate = true;
-				}
-			}
-			if (fullPlate && !target.getVolatile('fullPlate')) {
-				target.addVolatile('fullPlate'); // to break recursion
-				this.effectState.fullplate = true; // once per switch
-				this.boost({ def: 1 }, target, target);
-			} else {
-				if (target.getVolatile('fullPlate')) target.removeVolatile('fullPlate'); // to reset for next move
-			}
-		},
-		onSwitchIn(pokemon) {
-			delete this.effectState.fullplate;
-		},
-		flags: {},
-		name: "Full Plate",
-		desc: "This Pokemon's Defense is raised by 1 stage for each of its stat stages that is raised.",
-		shortDesc: "This Pokemon's Defense is raised by 1 for each of its stats that is raised",
-		rating: 3,
-		num: 0,
-	},
 	aquaguard: {
 		onFoeBeforeMove(source, target, move) {
 			if (source !== target && move.category !== "Status") {
@@ -1098,24 +1016,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		flags: {},
 		name: "Crystal Mana",
 		shortDesc: "Raises Def and Sp.Def by 1 stage upon terrain change.",
-		rating: 2.5,
-		num: 0,
-	},
-	kleptomancy: {
-		onUpdate(pokemon) { // This method is stupid and awful, but onAllySideCondition only triggers when the foe uses Pay Day for some reason
-			if (!pokemon.side.sideConditions['scatteredcoins']) pokemon.abilityState.coins = false;
-			if (pokemon.side.sideConditions['scatteredcoins'] && !pokemon.abilityState.coins) {
-				pokemon.abilityState.coins = true;
-				if (pokemon.hasItem('amuletcoin')) {
-					this.heal(pokemon.maxhp * 2 / 3, pokemon, pokemon);
-				} else {
-					this.heal(pokemon.maxhp / 3, pokemon, pokemon);
-				}
-			}
-		},
-		flags: {},
-		name: "Kleptomancy",
-		shortDesc: "When coins are scattered, recovers 1/3 max HP. 2/3 if holding Amulet Coin.",
 		rating: 2.5,
 		num: 0,
 	},

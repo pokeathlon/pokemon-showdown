@@ -272,11 +272,6 @@ export const Moves: ModdedMoveDataTable = {
 	},
 	fling: {
 		inherit: true,
-		onModifyMove(move, source, target) {
-			if (source.item === 'boomerang') {
-				move.multihit = 2;
-			}
-		},
 		onPrepareHit(target, source, move) {
 			if (source.ignoringItem()) return false;
 			const item = source.getItem();
@@ -809,46 +804,6 @@ export const Moves: ModdedMoveDataTable = {
 		target: "self",
 		type: "Steel",
 		contestType: "Cute",
-	},
-	fibregraft: {
-		num: 0,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Fibre Graft",
-		desc: "The user faints, and the Pokemon brought out receives the Fighting type, a +1 atk boost, and the effect of Focus Energy. The replacement is sent out at the end of the turn, and the healing happens before hazards take effect.",
-		shortDesc: "User faints. Switch-in gains +1 Atk, +2 Crit ratio, + Fighting type.",
-		pp: 5,
-		priority: 0,
-		flags: { snatch: 1, metronome: 1 },
-		onTryHit(source) {
-			if (!this.canSwitch(source.side)) {
-				this.attrLastMove('[still]');
-				this.add('-fail', source);
-				return this.NOT_FAIL;
-			}
-		},
-		selfdestruct: "ifHit",
-		slotCondition: 'fibregraft',
-		condition: {
-			onSwitchIn(target) {
-				this.singleEvent('Swap', this.effect, this.effectState, target);
-			},
-			onSwap(target) {
-				if (!target.fainted) {
-					this.boost({ atk: 1 }, target, null, this.effect);
-					target.addVolatile('focusenergy');
-					target.addType('Fighting');
-					this.add('-start', target, 'typeadd', 'Fighting', '[from] move: Fibre Graft');
-					target.side.removeSlotCondition(target, 'fibregraft');
-				}
-			},
-		},
-		secondary: null,
-		target: "self",
-		type: "Fighting",
-		zMove: { effect: 'healreplacement' },
-		contestType: "Beautiful",
 	},
 	bloomsday: {
 		num: 0,
@@ -1581,27 +1536,6 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Grass",
 		contestType: "Beautiful",
 	},
-	gorgonfang: {
-		num: 0,
-		accuracy: 100,
-		basePower: 65,
-		category: "Physical",
-		name: "Gorgon Fang",
-		desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
-		shortDesc: "100% chance to lower the foe(s) Speed by 1.",
-		pp: 20,
-		priority: 0,
-		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1 },
-		secondary: {
-			chance: 100,
-			boosts: {
-				spe: -1,
-			},
-		},
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
-	},
 	quakingthrust: {
 		num: 0,
 		accuracy: 100,
@@ -2033,31 +1967,6 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Water",
 		shortDesc: "Raises highest stat by 2 stages.",
 		zMove: { effect: 'crit2' },
-		contestType: "Tough",
-	},
-	lucky7s: {
-		num: 0,
-		accuracy: 100,
-		basePower: 70,
-		category: "Special",
-		name: "Lucky 7s",
-		pp: 10,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
-		onBasePower(basePower, source, target, move) {
-			let sevens = 0;
-			sevens += (source.baseStoredStats.hp.toString().match(/7/g) || []).length;
-			sevens += (source.getStat('atk', true, true).toString().match(/7/g) || []).length;
-			sevens += (source.getStat('def', true, true).toString().match(/7/g) || []).length;
-			sevens += (source.getStat('spa', true, true).toString().match(/7/g) || []).length;
-			sevens += (source.getStat('spd', true, true).toString().match(/7/g) || []).length;
-			sevens += (source.getStat('spe', true, true).toString().match(/7/g) || []).length;
-			return basePower += sevens * 5;
-		},
-		target: "normal",
-		shortDesc: "+5 BP for each 7 in the user's stats.",
-		type: "Dark",
 		contestType: "Tough",
 	},
 	meltingaroma: {

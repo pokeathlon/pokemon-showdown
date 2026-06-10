@@ -253,20 +253,6 @@ export const Items: ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	boomerang: {
-		name: "Boomerang",
-		desc: "Fling hits twice. Cannot be lost.",
-		spritenum: -3,
-		onTakeItem(item, pokemon, source) {
-			if ((source && source !== pokemon) || (this.activeMove && this.activeMove.id === 'knockoff')) {
-				return false;
-			}
-		},
-		fling: {
-			basePower: 55,
-		},
-		num: 0,
-	},
 	vigorherb: {
 		name: "Vigor Herb",
 		desc: "Holder's recharge turn is skipped. Single use.",
