@@ -210,6 +210,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "normal",
 		type: "Light",
+		isNonstandard: undefined,
 		desc: "50% chance to confuse the target.",
 		shortDesc: "50% chance to confuse the target.",
 	},
@@ -9246,14 +9247,14 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		target: "allAdjacentFoes",
-		type: "Steel",
-		contestType: "Tough",
-		shortDesc: "10% chance to burn the target.",
 		secondary: {
 			chance: 10,
 			status: 'brn',
 		},
+		target: "allAdjacentFoes",
+		type: "Steel",
+		contestType: "Tough",
+		shortDesc: "10% chance to burn the foe(s).",
 	},
 
 	cobaltray: {
