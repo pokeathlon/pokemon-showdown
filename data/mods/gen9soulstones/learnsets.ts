@@ -1535,6 +1535,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			playrough: ["9M"],
 			powergem: ["9M"],
 			protect: ["9M"],
+			polarspear: ["9M"],
 			quicksand: ["9M"],
 			rest: ["9M"],
 			return: ["9M"],

@@ -540,8 +540,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Holder's Def is 1.5x, but it can only select damaging moves.",
 	},
-	paddedhelmet: {
-		name: "Padded Helmet",
+	bodyarmor: {
+		name: "Body Armor",
 		spritenum: -6,
 		onModifyMovePriority: 1,
 		onModifyMove(move) {

@@ -64,7 +64,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: undefined,
 		flags: {nonsky: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1 },
-		volatileStatus: 'ingrain',
+		onTryMove(attacker, defender, move) {},
+		volatileStatus: 'geomancy',
+		onTry(source, target, move) {
+			if (source.volatiles['geomancy']) return false;
+			if (source.volatiles['trapped']) {
+				delete move.volatileStatus;
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Geomancy');
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+			onResidualOrder: 7,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onDragOut(pokemon) {
+				this.add('-activate', pokemon, 'move: Geomancy');
+				return null;
+			},
+		},
 		boosts: {
 			def: 1,
 			spd: 1,
@@ -5107,7 +5131,30 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1,  snatch: 1},
-		volatileStatus: 'ingrain',
+		volatileStatus: 'edenfruit',
+		onTry(source, target, move) {
+			if (source.volatiles['edenfruit']) return false;
+			if (source.volatiles['trapped']) {
+				delete move.volatileStatus;
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Geomancy');
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+			onResidualOrder: 7,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+			onDragOut(pokemon) {
+				this.add('-activate', pokemon, 'move: Eden Fruit');
+				return null;
+			},
+		},
 		boosts: {
 			def: 1,
 			spd: 1,

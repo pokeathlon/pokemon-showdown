@@ -4080,10 +4080,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	multiplemega: {
 		effectType: 'Rule',
 		name: 'Multiple Mega',
-		desc: "Allows for any number of Pokémon to mega-evolve during battle.",
+		desc: "Allows for a given number of Pokémon to mega-evolve during battle.",
+		hasValue: 'positive-integer',
 		// hardcoded in sim/side.ts and sim/battle-actions.ts
 		onBegin() {
-			this.add('rule', 'Multiple Mega: Allows for any number of Pokémon to mega-evolve during battle.');
+			this.add('rule', 'Multiple Mega: Allows for a given number of Pokémon to mega-evolve during battle.');
+		},
+		onValidateRule(value) {
+			const num = Number(value);
+			if (num < 1 || num > this.ruleTable.maxTeamSize) {
+				throw new Error(`Multiple Mega clause must be between 1 and ${this.ruleTable.maxTeamSize}.`);
+			}
+			return value;
 		},
 	},
 	candynamax: {
