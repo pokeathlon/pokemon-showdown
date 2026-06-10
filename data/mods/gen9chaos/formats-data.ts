@@ -407,10 +407,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UUBL",
 	},
-	regimyo: {
-		inherit: true,
-		natDexTier: "UUBL",
-	},
 	sneasler: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -1007,10 +1003,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	growlsome: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	guardeon: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1199,10 +1191,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	ockthane: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	omecha: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1240,10 +1228,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	porcupuffer: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	porygonzrhinian: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1442,10 +1426,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	zygarde10: {
 		inherit: true,
 		natDexTier: "RU",
-	},
-	porygon2rhinian: {
-		inherit: true,
-		natDexTier: "NFE",
 	},
 	sneaselhisui: {
 		inherit: true,
@@ -1667,10 +1647,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	chronobour: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	grandmirage: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1835,10 +1811,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	mjochiin: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	mosster: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1988,10 +1960,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	regitrio: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	scalyterror: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -2275,14 +2243,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	slowbrorhinian: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	slowkingrhinian: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	snorlaxfrost: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2328,10 +2288,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	terlard: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	treatern: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -2431,10 +2387,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	wyvarice: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	incandele: {
 		inherit: true,
 		natDexTier: "RU",
@@ -2514,10 +2466,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	utensitile: {
 		inherit: true,
 		natDexTier: "RU",
-	},
-	gluttini: {
-		inherit: true,
-		natDexTier: "LC",
 	},
 	arcaspark: {
 		inherit: true,

@@ -42,11 +42,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 		isNonstandard: "Unobtainable",
 	},
-	chronobour: {
-		inherit: true,
-		natDexTier: "UU",
-		isNonstandard: "Unobtainable",
-	},
 	dangonna: {
 		inherit: true,
 		natDexTier: "LC",

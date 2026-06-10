@@ -735,10 +735,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	jovianshk: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	kingambit: {
 		inherit: true,
 		natDexTier: "OU",
@@ -812,10 +808,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	peteypiranha: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	porygonzrhinian: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -916,10 +908,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	wrighvern: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	wyvarice: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1104,10 +1092,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	weezingdelta: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	tinkatonrhinian: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1351,10 +1335,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	treatern: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	whacksteroid: {
 		inherit: true,
 		natDexTier: "UU",
@@ -1416,10 +1396,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	garudamon: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	growlsome: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1783,10 +1759,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	mjochiin: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	psysteed: {
 		inherit: true,
 		natDexTier: "UUBL",
@@ -2146,10 +2118,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	terrakion: {
 		inherit: true,
 		natDexTier: "RU",
-	},
-	porygon2rhinian: {
-		inherit: true,
-		natDexTier: "NFE",
 	},
 	coelamon: {
 		inherit: true,
