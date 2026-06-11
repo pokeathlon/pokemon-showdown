@@ -1,5 +1,5 @@
 export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
-	// 0 -> Weak, 0 -> Resisted, 0 -> Immune
+	// 1 -> Weak, 2 -> Resisted, 3 -> Immune
 	bug: {
 		inherit: true,
 		damageTaken: {
@@ -153,7 +153,7 @@ export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
-			Fairy: 2,
+			Fairy: 0,
 			Fighting: 0,
 			Fire: 2,
 			Flying: 0,

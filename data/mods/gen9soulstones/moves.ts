@@ -2244,6 +2244,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 		isNonstandard: undefined,
 	},
+	playrough: {
+		inherit: true,
+		accuracy: 100,
+		isNonstandard: undefined,
+	},
 	
 	// Additions
 		tidalwave: {
@@ -13003,6 +13008,26 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Light",
 		desc: "Has a 100% chance to raise the user's Speed by 1 stage. If the user is a Morpeko-Soulstones in Powered Mode, this move is Light type. If the user is a Morpeko-Soulstones in Unpowered Mode, this move is Dark type. This move cannot be used successfully unless the user's current form, while considering Transform, is Powered or Unpowered Mode Morpeko-Soulstones.",
 		shortDesc: "Morpeko-Soulstones: Light; Unpowered: Dark; 100% +1 Spe.",
+	},
+
+	bigbang: {
+		num: 0,
+		basePower: 130,
+		accuracy: 90,
+		category: "Special",
+		name: "Big Bang",
+		pp: 5,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		target: "normal",
+		type: "Cosmic",
+		contestType: "Tough",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
 	},
 
 };
