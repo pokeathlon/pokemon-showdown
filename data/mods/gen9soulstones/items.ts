@@ -3063,4 +3063,277 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "If holder is hit by a Special move, the attacker loses 1/8 of its max HP.",
 	},
+	normalsword: {
+		name: "Normal Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Normal' && type === 'Dragon') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Normal-type moves hit Dragon for supereffective.",
+	},
+	firesword: {
+		name: "Fire Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Fire' && type === 'Dark') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Fire-type moves hit Dark for supereffective.",
+	},
+	watersword: {
+		name: "Water Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Water' && type === 'Cosmic') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Water-type moves hit Cosmic for supereffective.",
+	},
+	grasssword: {
+		name: "Grass Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Grass' && type === 'Fairy') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Grass-type moves hit Fairy for supereffective.",
+	},
+	electricsword: {
+		name: "Electric Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Electric' && type === 'Psychic') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Electric-type moves hit Psychic for supereffective.",
+	},
+	icesword: {
+		name: "Ice Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Ice' && type === 'Bug') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Ice-type moves hit Bug for supereffective.",
+	},
+	poisonsword: {
+		name: "Poison Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Poison' && type === 'Fighting') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Poison-type moves hit Fighting for supereffective.",
+	},
+	fightingsword: {
+		name: "Fighting Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Fighting' && type === 'Fire') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Fighting-type moves hit Fire for supereffective.",
+	},
+	groundsword: {
+		name: "Ground Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Ground' && type === 'Sound') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Ground-type moves hit Sound for supereffective.",
+	},
+	flyingsword: {
+		name: "Flying Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Flying' && type === 'Ghost') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Flying-type moves hit Ghost for supereffective.",
+	},
+	psychicsword: {
+		name: "Psychic Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Psychic' && type === 'Normal') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Psychic-type moves hit Normal for supereffective.",
+	},
+	bugsword: {
+		name: "Bug Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Bug' && type === 'Electric') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Bug-type moves hit Electric for supereffective.",
+	},
+	rocksword: {
+		name: "Rock Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Rock' && type === 'Light') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Rock-type moves hit Light for supereffective.",
+	},
+	ghostsword: {
+		name: "Ghost Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Ghost' && type === 'Steel') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Ghost-type moves hit Steel for supereffective.",
+	},
+	dragonsword: {
+		name: "Dragon Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Dragon' && type === 'Flying') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Dragon-type moves hit Flying for supereffective.",
+	},
+	steelsword: {
+		name: "Steel Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Steel' && type === 'Poison') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Steel-type moves hit Poison for supereffective.",
+	},
+	darksword: {
+		name: "Dark Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Dark' && type === 'Grass') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Dark-type moves hit Grass for supereffective.",
+	},
+	fairysword: {
+		name: "Fairy Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Fairy' && type === 'Water') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's NoFairyrmal-type moves hit Water for supereffective.",
+	},
+	cosmicsword: {
+		name: "Cosmic Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Cosmic' && type === 'Ground') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Cosmic-type moves hit Ground for supereffective.",
+	},
+	lightsword: {
+		name: "Light Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Light' && type === 'Ice') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Light-type moves hit Ice for supereffective.",
+	},
+	soundsword: {
+		name: "Sound Sword",
+		spritenum: -6,
+		fling: {
+			basePower: 130,
+		},
+		onFoeEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Sound' && type === 'Rock') return 1;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "User's Sound-type moves hit Rock for supereffective.",
+	},
 };

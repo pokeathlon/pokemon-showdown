@@ -852,7 +852,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	triattack: {
 		inherit: true,
-		basePower: 140,
+		basePower: 90,
 		isNonstandard: undefined,
 	},
 	cut: {
