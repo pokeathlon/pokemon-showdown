@@ -459,14 +459,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	onixcrystal: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	bowser: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	verdicent: {
 		inherit: true,
 		natDexTier: "UU",
@@ -3672,5 +3664,29 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	missingnomega: {
 		inherit: true,
 		natDexTier: "Illegal",
+	},
+	pikachuash: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	arbokjessie: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	psyduckmisty: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	weezingjames: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	onixcrystal: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	bowser: {
+		inherit: true,
+		natDexTier: "Uber",
 	},
 };

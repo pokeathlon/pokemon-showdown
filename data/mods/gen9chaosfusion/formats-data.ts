@@ -2519,4 +2519,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: null,
 		natDexTier: "OU",
 	},
+	arbokjessie: {
+		inherit: true,
+		natDexTier: "OU",
+	},
 };
