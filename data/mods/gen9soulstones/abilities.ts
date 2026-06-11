@@ -1116,7 +1116,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather(['hail', 'snowscape'])) {
-				this.debug('Ivy Veins boost');
+				this.debug('Icy Veins boost');
 				return this.chainModify(1.3);
 			}
 		},
@@ -1124,7 +1124,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (type === 'hail') return false;
 		},
 		flags: {},
-		name: "Ivy Veins",
+		name: "Icy Veins",
 		rating: 2,
 		num: 0,
 		shortDesc: "This Pokemon's attacks do 1.3x in Hail or Snow; Hail immunity.",
@@ -1561,7 +1561,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "Burns any foe that uses priority attacks on it."
 	},
 	sharpshooter: {
-		onAccuracy(accuracy, target, source, move) {
+		onSourceAccuracy(accuracy, target, source, move) {
 			if (!move.flags.contact) {
 				return true;
 			}
