@@ -2208,4 +2208,15 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "Pokemon using a Special move against this Pokemon lose 1/8 of their max HP.",
 	},
+	funeralpyre: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (['Fire', 'Ghost'].includes(move.type)) return this.chainModify(2);
+		},
+		flags: {},
+		name: "Funeral Pyre",
+		rating: 5,
+		num: 0,
+		shortDesc: "Fire and Ghost moves have 2x power.",
+	},
 };

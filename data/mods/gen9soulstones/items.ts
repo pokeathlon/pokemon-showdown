@@ -3336,4 +3336,25 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "User's Sound-type moves hit Rock for supereffective.",
 	},
+	liquidoozerune: {
+		name: "Liquid Ooze Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.addVolatile('ability:liquidooze');
+				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get('liquidooze').name);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Liquid Ooze.",
+	},
 };

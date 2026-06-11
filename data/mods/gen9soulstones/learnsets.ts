@@ -39577,6 +39577,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			burningjealousy: ["9M"],
 			burningofuda: ["9M"],
 			calmmind: ["9M"],
+			checkmate: ["9E"],
 			confuseray: ["9M"],
 			cosmicpower: ["9M"],
 			covet: ["9L10", "9M"],
