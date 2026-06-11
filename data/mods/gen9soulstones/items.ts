@@ -3345,7 +3345,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) {
-				pokemon.addVolatile('ability:liquidooze');
+				pokemon.setAbility('liquidooze', pokemon);
 				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get('liquidooze').name);
 			}
 		},
