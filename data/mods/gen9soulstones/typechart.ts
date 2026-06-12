@@ -121,7 +121,7 @@ export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
 			Crystal: 0,
 			Cosmic: 0,
 			Dark: 2,
-			Dragon: 0,
+			Dragon: 3,
 			Electric: 0,
 			Fairy: 0,
 			Fighting: 2,

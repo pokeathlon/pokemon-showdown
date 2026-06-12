@@ -6267,6 +6267,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Shedinja-Soulstones",
 		types: ['Light', 'Bug'],
 		baseStats: { hp: 1, atk: 30, def: 45, spa: 100, spd: 30, spe: 80 },
+		maxHP: 1,
 		abilities: { 0: "Wonder Guard" },
 		heightm: 0.8,
 		weightkg: 1.2,
@@ -16991,7 +16992,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "White",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "Illegal",
+		tier: "OU",
 	},
 	scorbunnysoulstones: {
 		num: 1001,

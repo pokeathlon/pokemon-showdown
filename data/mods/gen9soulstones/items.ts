@@ -3255,4 +3255,62 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Changes user's ability to Liquid Ooze.",
 	},
+	dandelight: {
+		name: "Dandelight",
+		spritenum: -6,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
+				return this.chainModify(1.25);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
+				return this.chainModify(1.25);
+			}
+		},
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify(1.15);
+			}
+		},
+		itemUser: ["Delcatty-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Delcatty-Soulstones, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
+	},
+	wisevest: {
+		name: "Wise Vest",
+		spritenum: -6,
+		fling: {
+			basePower: 80,
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd) {
+			return this.chainModify(1.1);
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Sp. Def is 1.1x.",
+	},
+	musclearmor: {
+		name: "Muscle Armor",
+		spritenum: -6,
+		fling: {
+			basePower: 80,
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def) {
+			return this.chainModify(1.1);
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Def is 1.1x.",
+	},
 };

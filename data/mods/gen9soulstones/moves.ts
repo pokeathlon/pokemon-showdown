@@ -2249,6 +2249,47 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		isNonstandard: undefined,
 	},
+	grassyterrain: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+		},
+	},
+	electricterrain: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('electric terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+		},
+	},
+	psychicterrain: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('psychic terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+		},
+	},
 	
 	// Additions
 		tidalwave: {
@@ -4897,7 +4938,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect.",
 	},
 
-	turbulence: { //ASK - knock boost?
+	turbulence: {
 		num: 0,
 		basePower: 65,
 		accuracy: 100,
@@ -9768,17 +9809,18 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1, pulse: 1 },
-		onTry(source, target) {
-			const action = this.queue.willMove(target);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-				return false;
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('damage boost');
+				return move.basePower * 1.5;
 			}
+			this.debug('NOT boosted');
+			return move.basePower;
 		},
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "Usually goes first. Fails if target is not attacking.",
+		shortDesc: "1.5x power if user moves before the target.",
 	},
 
 	chitinousstrike: {
@@ -12370,7 +12412,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		secondary: {
-			chance: 100,
+			chance: 10,
 			boosts: {
 				atk: -1,
 			},
@@ -12378,7 +12420,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cute",
-		shortDesc: "100% chance to lower the target's Attack by 1.",
+		shortDesc: "10% chance to lower the target's Attack by 1.",
 	},
 
 	wildfire: {
@@ -12491,7 +12533,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 95,
 		accuracy: 100,
 		category: "Physical",
-		name: "Earthen Lance",
+		name: "Weak Spot",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
@@ -13030,13 +13072,34 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
 	},
 
+	typhoon: {
+		num: 0,
+		basePower: 80,
+		accuracy: 100,
+		category: "Special",
+		name: "Chain Lightning",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Tough",
+		shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
+	},
+
 };
 
 for (const key in Base) {
 	const id = key as keyof typeof Base;
 	if (Moves[id]) continue;
 
-	if (Base[id].isNonstandard && ["Past", "Unobtainable"].includes(Base[id].isNonstandard)) {
-		Moves[id] = { inherit: true, isNonstandard: null };
-	}
+	Moves[id] = { ...Base[id], gen: 6, isNonstandard: null };
 }
