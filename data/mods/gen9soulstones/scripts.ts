@@ -194,6 +194,34 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		}
 		return true;
+	},
+	/** false = immune, true = not immune */
+	runImmunity(source: ActiveMove | string, message?: string | boolean) {
+		if (!source) return true;
+		const type: string = typeof source !== 'string' ? source.type : source;
+		if (typeof source !== 'string') {
+			if (source.ignoreImmunity && (source.ignoreImmunity === true || source.ignoreImmunity[type])) {
+				return true;
+			}
+		}
+		if (!type || type === '???') return true;
+		if (!this.battle.dex.types.isName(type)) {
+			throw new Error("Use runStatusImmunity for " + type);
+		}
+
+		const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
+		const notImmune = (type === 'Ground' && !this.hasType('Cosmic')) ?
+			this.isGrounded(negateImmunity) :
+			negateImmunity || this.battle.dex.getImmunity(type, this);
+		
+		if (notImmune) return true;
+		if (!message) return false;
+		if (notImmune === null) {
+			this.battle.add('-immune', this, '[from] ability: Levitate');
+		} else {
+			this.battle.add('-immune', this);
+		}
+		return false;
 	}
 	}
 };
