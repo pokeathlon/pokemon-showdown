@@ -214,8 +214,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	corrosion: { //TEST
 		inherit: true,
-		onFoeEffectiveness(typeMod, target, type, move) {
-			if (move.type === 'Poison' && ['Poison', 'Steel'].includes(type)) return 0
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (move.type != 'Poison') return;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type === 'Poison' && type === 'Poison') return 0;
 		},
 		shortDesc: "User can poison a Pokemon regardless of typing. Poison moves are neutral on Poison and Steel.",
 	},
