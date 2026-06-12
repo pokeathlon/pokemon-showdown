@@ -2315,6 +2315,7 @@ export class Pokemon {
 		const notImmune = type === 'Ground' ?
 			this.isGrounded(negateImmunity) :
 			negateImmunity || this.battle.dex.getImmunity(type, this);
+		console.log(["notImmune?", notImmune])
 		if (notImmune) return true;
 		if (!message) return false;
 		if (notImmune === null) {

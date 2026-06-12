@@ -13471,7 +13471,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	flabebesoulstones: {
 		num: 776,
-		name: "Flabébé-Soulstones",
+		name: "Flabe\u0301be\u0301-Soulstones",
 		types: ['Fairy', 'Water'],
 		baseStats: { hp: 44, atk: 28, def: 58, spa: 61, spd: 70, spe: 42 },
 		abilities: { 0: "Rain Dish", 1: "Synthesize" , H: "Sweet Veil" },
@@ -13495,7 +13495,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		evos: ["Florges-Soulstones"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		prevo: "Flabébé-Soulstones",
+		prevo: "Flabe\u0301be\u0301-Soulstones",
 		tier: "NFE",
 	},
 	florgessoulstones: {
