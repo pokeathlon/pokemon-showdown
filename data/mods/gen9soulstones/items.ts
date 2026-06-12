@@ -911,6 +911,64 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Holder's Light-type attacks have 1.2x power.",
 	},
+	dandelight: {
+		name: "Dandelight",
+		spritenum: -6,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
+				return this.chainModify(1.25);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
+				return this.chainModify(1.25);
+			}
+		},
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify(1.15);
+			}
+		},
+		itemUser: ["Delcatty-Soulstones"],
+		num: 0,
+		gen: 9,
+		shortDesc: "If held by a Delcatty-Soulstones, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
+	},
+	wisevest: {
+		name: "Wise Vest",
+		spritenum: -6,
+		fling: {
+			basePower: 80,
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd) {
+			return this.chainModify(1.1);
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Sp. Def is 1.1x.",
+	},
+	musclearmor: {
+		name: "Muscle Armor",
+		spritenum: -6,
+		fling: {
+			basePower: 80,
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def) {
+			return this.chainModify(1.1);
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Holder's Def is 1.1x.",
+	},
 
 	// Mega stones
 	gengarites: {
@@ -3255,62 +3313,644 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "Changes user's ability to Liquid Ooze.",
 	},
-	dandelight: {
-		name: "Dandelight",
+	aftermathrune: {
+		name: "Aftermath Rune",
 		spritenum: -6,
 		fling: {
-			basePower: 30,
+			basePower: 10,
 		},
-		onModifyDefPriority: 1,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
-				return this.chainModify(1.25);
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('aftermath', pokemon);
 			}
 		},
-		onModifySpDPriority: 1,
-		onModifySpD(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
-				return this.chainModify(1.25);
-			}
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
 		},
-		onTryHealPriority: 1,
-		onTryHeal(damage, target, source, effect) {
-			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
-			if (heals.includes(effect.id)) {
-				return this.chainModify(1.15);
-			}
-		},
-		itemUser: ["Delcatty-Soulstones"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Delcatty-Soulstones, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
+		shortDesc: "Changes user's ability to Aftermath.",
 	},
-	wisevest: {
-		name: "Wise Vest",
+	sandveilrune: {
+		name: "Sand Veil Rune",
 		spritenum: -6,
 		fling: {
-			basePower: 80,
+			basePower: 10,
 		},
-		onModifySpDPriority: 1,
-		onModifySpD(spd) {
-			return this.chainModify(1.1);
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('sandveil', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
 		},
 		num: 0,
 		gen: 9,
-		shortDesc: "Holder's Sp. Def is 1.1x.",
+		shortDesc: "Changes user's ability to Sand Veil.",
 	},
-	musclearmor: {
-		name: "Muscle Armor",
+	snowcloakrune: {
+		name: "Snow Cloak Rune",
 		spritenum: -6,
 		fling: {
-			basePower: 80,
+			basePower: 10,
 		},
-		onModifyDefPriority: 1,
-		onModifyDef(def) {
-			return this.chainModify(1.1);
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('snowcloak', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
 		},
 		num: 0,
 		gen: 9,
-		shortDesc: "Holder's Def is 1.1x.",
+		shortDesc: "Changes user's ability to Snow Cloak.",
+	},
+	vitalspiritrune: {
+		name: "Vital Spirit Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('vitalspirit', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Vital Spirit.",
+	},
+	synchronizerune: {
+		name: "Synchronize Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('synchronize', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Synchronize.",
+	},
+	unnerverune: {
+		name: "Unnerve Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('unnerve', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Unnerve.",
+	},
+	poisonpointrune: {
+		name: "Poison Point Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('poisonpoint', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Poison Point.",
+	},
+	naturalcurerune: {
+		name: "Natural Cure Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('naturalcure', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Natural Cure.",
+	},
+	icebodyrune: {
+		name: "Ice Body Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('icebody', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Ice Body.",
+	},
+	clayformrune: {
+		name: "Clay Form Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('clayform', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Clay Form.",
+	},
+	synthesizerune: {
+		name: "Synthesize Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('synthesize', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Synthesize.",
+	},
+	raindishrune: {
+		name: "Rain Dish Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('raindish', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Rain Dish.",
+	},
+	battlearmorrune: {
+		name: "Battle Armor Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('battlearmor', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Battle Armor.",
+	},
+	healerrune: {
+		name: "Healer Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('healer', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Healer.",
+	},
+	flamebodyrune: {
+		name: "Flame Body Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('flamebody', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Flame Body.",
+	},
+	moldbreakerrune: {
+		name: "Mold Breaker Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('moldbreaker', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Mold Breaker.",
+	},
+	shielddustrune: {
+		name: "Shield Dust Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('shielddust', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Shield Dust.",
+	},
+	infiltratorrune: {
+		name: "Infiltrator Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('infiltrator', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Infiltrator.",
+	},
+	analyticrune: {
+		name: "Analytic Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('analytic', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Analytic.",
+	},
+	staticrune: {
+		name: "Static Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('static', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Static.",
+	},
+	compoundeyesrune: {
+		name: "Compound Eyes Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('compoundeyes', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Compound Eyes.",
+	},
+	toughclawsrune: {
+		name: "Tough Claws Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('toughclaws', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Tough Claws.",
+	},
+	rivalryrune: {
+		name: "Rivalry Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('rivalry', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Rivalry.",
+	},
+	sniperrune: {
+		name: "Sniper Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('sniper', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Sniper.",
+	},
+	impenetrablerune: {
+		name: "Impenetrable Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('impenetrable', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Impenetrable.",
+	},
+	telepathyrune: {
+		name: "Telepathy Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('telepathy', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Telepathy.",
+	},
+	gooeyrune: {
+		name: "Gooey Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('gooey', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Gooey.",
+	},
+	innerfocusrune: {
+		name: "Inner Focus Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('innerfocus', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Inner Focus.",
+	},
+	prismarmorrune: {
+		name: "Prism Armor Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('prismarmor', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Prism Armor.",
+	},
+	arenatraprune: {
+		name: "Arena Trap Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('arenatrap', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Arena Trap.",
+	},
+	clearbodyrune: {
+		name: "Clear Body Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('clearbody', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Clear Body.",
+	},
+	pastelveilrune: {
+		name: "Pastel Veil Rune",
+		spritenum: -6,
+		fling: {
+			basePower: 10,
+		},
+		onSwitchInPriority: -1,
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				pokemon.setAbility('pastelveil', pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (!this.activeMove) return false;
+			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+		},
+		num: 0,
+		gen: 9,
+		shortDesc: "Changes user's ability to Pastel Veil.",
 	},
 };

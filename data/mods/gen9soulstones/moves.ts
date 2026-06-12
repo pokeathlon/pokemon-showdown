@@ -727,6 +727,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	boltbeak: {
 		inherit: true,
+		basePower: 70,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Bolt Beak damage boost');
@@ -1039,6 +1040,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	fishiousrend: {
 		inherit: true,
+		basePower: 70,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Fish Rend damage boost');
@@ -1634,7 +1636,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	iciclecrash: {
 		inherit: true,
 		basePower: 80,
-		accuracy: 90,
+		accuracy: 100,
 		pp: 15,
 		isNonstandard: undefined,
 	},
@@ -3309,7 +3311,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Death Reap",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -5052,7 +5054,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Grim Reaper",
 		pp: 25,
 		priority: 0,
-		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) this.boost({ atk: 2 }, pokemon, pokemon, move);
 		},
