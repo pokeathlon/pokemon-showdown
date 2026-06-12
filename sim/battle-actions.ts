@@ -1906,7 +1906,16 @@ export class BattleActions {
 		if (!this.battle.ruleTable?.has('mixandmegamod'))
 			pokemon.formeChange(speciesid, pokemon.getItem(), true);
 		if (this.battle.ruleTable?.has('multiplemega')) {
-			pokemon.canMegaEvo = null;
+			const wasMega = pokemon.canMegaEvo; // true if it has mega evolved
+			const megaLimit = Number(this.battle.format.ruleTable?.valueRules.get('multiplemega') || 1);
+			let megaCount = 0;
+			for (const ally of pokemon.side.pokemon) {
+				if (ally.species.isMega) {
+					megaCount += 1;
+					ally.canMegaEvo = false;
+				}
+				if (megaCount >= megaLimit) ally.canMegaEvo = false;
+			}
 			return true;
 		} else {
 			// Limit one mega evolution
