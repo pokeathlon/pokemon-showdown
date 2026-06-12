@@ -2621,4 +2621,359 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	poochyena: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	mightyena: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	zigzagoon: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	linoone: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	wurmple: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	silcoon: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	beautifly: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	cascoon: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	dustox: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	seedot: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	nuzleaf: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	shiftry: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	taillow: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	swellow: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	wingull: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	pelipper: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	surskit: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	masquerain: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	whismur: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	loudred: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	exploud: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	makuhita: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	hariyama: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	skitty: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	delcatty: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	meditite: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	medicham: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	electrike: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	manectric: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	plusle: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	minun: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	volbeat: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	illumise: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	gulpin: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	swallot: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	numel: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	camerupt: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	spoink: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	grumpig: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	spinda: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	zangoose: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	seviper: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	lunatone: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	solrock: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	barboach: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	whiscash: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	corphish: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	crawdaunt: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	baltoy: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	claydol: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	castform: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	castformsunny: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	castformrainy: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	castformsnowy: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	tropius: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	chingling: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	chimecho: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	spheal: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	sealeo: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	walrein: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	clamperl: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	huntail: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	gorebyss: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	relicanth: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	woobat: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	swoobat: {
+		inherit: true,
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	tynamo: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	eelektrik: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	eelektross: {
+		inherit: true,
+		tier: "RUBL",
+		doublesTier: "DUU",
+	},
+	skrelp: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
+	dragalge: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DUU",
+	},
 };
