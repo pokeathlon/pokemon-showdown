@@ -584,7 +584,7 @@ const cutDex: { [k: string]: number } = {
 	"volbeat":	533,
 	"illumise":	534,
 	"gulpin":	535,
-	"swallot":	536,
+	"swalot":	536,
 	"numel":	537,
 	"camerupt":	538,
 	"spoink":	539,
@@ -621,8 +621,8 @@ const cutDex: { [k: string]: number } = {
 	"eelektross":	570,
 	"skrelp":	571,
 	"dragalge":	572,
-	"shellos":	573,
-	"gastrodon":	574,
+	"shellos":	575,
+	"gastrodon":	576,
 };
 
 for (const key in { ...Base, ...Pokedex }) {

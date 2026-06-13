@@ -2623,8 +2623,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	poochyena: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	mightyena: {
 		inherit: true,
@@ -2633,8 +2633,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zigzagoon: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	linoone: {
 		inherit: true,
@@ -2643,8 +2643,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	wurmple: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	silcoon: {
 		inherit: true,
@@ -2668,8 +2668,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	seedot: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	nuzleaf: {
 		inherit: true,
@@ -2683,8 +2683,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	taillow: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	swellow: {
 		inherit: true,
@@ -2693,8 +2693,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	wingull: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	pelipper: {
 		inherit: true,
@@ -2703,8 +2703,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	surskit: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	masquerain: {
 		inherit: true,
@@ -2713,8 +2713,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	whismur: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	loudred: {
 		inherit: true,
@@ -2728,8 +2728,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	makuhita: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	hariyama: {
 		inherit: true,
@@ -2738,8 +2738,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	skitty: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	delcatty: {
 		inherit: true,
@@ -2748,8 +2748,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	meditite: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	medicham: {
 		inherit: true,
@@ -2758,8 +2758,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	electrike: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	manectric: {
 		inherit: true,
@@ -2788,18 +2788,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	gulpin: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
-	swallot: {
+	swalot: {
 		inherit: true,
 		tier: "RUBL",
 		doublesTier: "DUU",
 	},
 	numel: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	camerupt: {
 		inherit: true,
@@ -2808,8 +2808,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	spoink: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	grumpig: {
 		inherit: true,
@@ -2843,8 +2843,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	barboach: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	whiscash: {
 		inherit: true,
@@ -2853,8 +2853,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	corphish: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	crawdaunt: {
 		inherit: true,
@@ -2863,8 +2863,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	baltoy: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	claydol: {
 		inherit: true,
@@ -2898,8 +2898,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chingling: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	chimecho: {
 		inherit: true,
@@ -2908,8 +2908,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	spheal: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	sealeo: {
 		inherit: true,
@@ -2943,8 +2943,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	woobat: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	swoobat: {
 		inherit: true,
@@ -2953,8 +2953,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tynamo: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	eelektrik: {
 		inherit: true,
@@ -2968,8 +2968,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	skrelp: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	dragalge: {
 		inherit: true,
@@ -2978,8 +2978,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	shellos: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	gastrodon: {
 		inherit: true,
