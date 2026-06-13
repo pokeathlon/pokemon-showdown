@@ -2976,6 +2976,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "UU",
 		doublesTier: "DUU",
 	},
+	shellos: {
+		inherit: true,
+		tier: "NFE",
+		doublesTier: "NFE",
+	},
 	gastrodon: {
 		inherit: true,
 		tier: "OU",
