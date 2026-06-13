@@ -621,6 +621,7 @@ const cutDex: { [k: string]: number } = {
 	"eelektross":	570,
 	"skrelp":	571,
 	"dragalge":	572,
+	"gastrodon":	572,
 };
 
 for (const key in { ...Base, ...Pokedex }) {
