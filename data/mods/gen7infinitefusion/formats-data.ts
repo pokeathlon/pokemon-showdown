@@ -2863,8 +2863,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	baltoy: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	claydol: {
 		inherit: true,
@@ -2908,8 +2908,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	spheal: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	sealeo: {
 		inherit: true,
@@ -2953,8 +2953,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tynamo: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	eelektrik: {
 		inherit: true,
@@ -2968,13 +2968,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	skrelp: {
 		inherit: true,
-		tier: "NFE",
-		doublesTier: "NFE",
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	dragalge: {
 		inherit: true,
 		tier: "UU",
 		doublesTier: "DUU",
+	},
+	shellos: {
+		inherit: true,
+		tier: "LC",
+		doublesTier: "LC",
 	},
 	gastrodon: {
 		inherit: true,
