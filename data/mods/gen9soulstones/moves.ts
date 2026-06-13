@@ -622,6 +622,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			status: 'slp',
 		},
 		onTry(source, target, move) {},
+		desc: "10% to sleep target.",
+		shortDesc: "10% to sleep target.",
 	},
 	fakeout: {
 		inherit: true,
@@ -13097,11 +13099,27 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "50% chance to raise the user's Sp. Atk by 1.",
 	},
 
+	excalibur: {
+		num: 0,
+		basePower: 90,
+		accuracy: 100,
+		category: "Physical",
+		name: "Excalibur",
+		pp: 2,
+		priority: 0,
+		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, slicing: 1 },
+		critRatio: 2,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Tough",
+		shortDesc: "High crit ratio.",
+	},
+
 };
 
 for (const key in Base) {
 	const id = key as keyof typeof Base;
 	if (Moves[id]) continue;
 
-	Moves[id] = { ...Base[id], gen: 6, isNonstandard: null };
+	Moves[id] = { ...Base[id], gen: 9, isNonstandard: null };
 }

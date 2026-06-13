@@ -2920,7 +2920,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		shortDesc: "Halves damage taken from a supereffective Steel-type attack.",
 	},
 	darkshield: {
-		name: "Dark Shieldd",
+		name: "Dark Shield",
 		spritenum: -6,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Dark' && target.getMoveHitData(move).typeMod > 0) {
