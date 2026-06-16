@@ -53,6 +53,22 @@ export const Conditions: ModdedConditionDataTable = {
 			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
+	onDisableMove(pokemon) {
+		if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectState.move)) {
+			pokemon.removeVolatile('choicelock');
+			return;
+		}
+		if (pokemon.ignoringItem() || pokemon.volatiles['dynamax']) {
+			return;
+		}
+		for (const moveSlot of pokemon.moveSlots) {
+			if (moveSlot.id === 'ringtrue') return;
+			console.log("disabling move:" + moveSlot.id)
+			if (moveSlot.id !== this.effectState.move) {
+				pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+			}
+		}
+	},
 
 	// POA
 	///////////////////////////////////////////////////////////////////

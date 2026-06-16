@@ -2785,6 +2785,60 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "100% crit chance if the target is burned.",
 	},
+	ringtrue: { // volatile ignoring in conditions.ts
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Ring True",
+		pp: 5,
+		priority: 0,
+		flags: { noassist: 1, failcopycat: 1, snatch: 1 },
+		stallingMove: true,
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+			let volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong'];
+			for (const volatile of volatiles) {
+				pokemon.removeVolatile(volatile);
+			}
+			if (pokemon.happiness >= 255 && pokemon.species.id === 'kinette') {
+				pokemon.formeChange('Kinette-Unwound', this.effect, false, '[msg]');
+			}
+		},
+		target: "self",
+		type: "Steel",
+		zMove: { effect: 'clearnegativeboost' },
+		contestType: "Cute",
+		desc: "Ignores and removes confusion, attract, taunt, encore, torment, disable, heal block, and perish song volatiles from user. If Kinette and 255+ happiness, turns into Kinette-Unwound. Fails with consecutive uses.",
+		shortDesc: "Ignores and removes some volatiles. 255 happiness Kinette: transforms into Kinette-Unwound."
+	},
+	flashbomb: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Flash Bomb",
+		pp: 10,
+		priority: 3,
+		flags: { bullet: 1, protect: 1, mirror: 1, metronome: 1 },
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Flash Bomb only works on your first turn out.");
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Cute",
+		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

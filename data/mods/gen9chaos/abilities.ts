@@ -1370,6 +1370,23 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "If coins are scattered, 1.3x Power. Removes scattered coins after attacking.",
 	},
+	dualmastery: {
+		onBasePower(basePower, source, target, move) {
+			if (move.category === source.abilityState.dualMastery) {
+				return this.chainModify(1.3);
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			this.add('-end', source, source.abilityState.dualMastery, '[silent]');
+			source.abilityState.dualMastery = move.category === "Physical" ? "Special" : "Physical";
+			this.add('-start', source, source.abilityState.dualMastery, '[silent]');
+		},
+		flags: {},
+		name: "Dual Mastery",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "x1.3 power to Special moves after using a Physical move, and vice versa.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
