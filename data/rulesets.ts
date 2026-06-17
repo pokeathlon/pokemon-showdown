@@ -1224,16 +1224,13 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				if (boostingMove) {
 					passableBoosts = true;
 					passableBoostsSource = boostingMove;
-				}
-				else if (boostingEffects.includes(item)) {
+				} else if (boostingEffects.includes(item)) {
 					passableBoosts = true;
 					passableBoostsSource = set.item;
-				}
-				else if (boostingEffects.includes(ability)) {
+				} else if (boostingEffects.includes(ability)) {
 					passableBoosts = true;
 					passableBoostsSource = set.ability;
-				}
-				else if (hasBoosting(set, this.dex)) {
+				} else if (hasBoosting(set, this.dex)) {
 					passableBoosts = true;
 					return [
 						`${set.name || set.species} has Baton Pass and a way to boost its stats, which is banned by Baton Pass Stat Clause.`,
