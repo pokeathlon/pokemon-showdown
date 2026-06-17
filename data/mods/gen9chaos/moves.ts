@@ -2785,7 +2785,7 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "100% crit chance if the target is burned.",
 	},
-	ringtrue: { // volatile ignoring in conditions.ts
+	ringtrue: { // volatile ignoring in sim/pokemon => disableMove
 		num: 0,
 		accuracy: true,
 		basePower: 0,

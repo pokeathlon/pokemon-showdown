@@ -2846,7 +2846,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	kinette: {
-		num: 3168,
+		num: 3169,
 		name: "Kinette",
 		types: ["Normal", "Steel"],
 		baseStats: { hp: 90, atk: 70, def: 84, spa: 53, spd: 75, spe: 98 },
@@ -2860,7 +2860,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	kinetteunwound: {
-		num: 3168,
+		num: 3169,
 		name: "Kinette-Unwound",
 		types: ["Ghost", "Steel"],
 		baseStats: { hp: 90, atk: 150, def: 53, spa: 88, spd: 84, spe: 105 },
@@ -2876,7 +2876,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "Illegal",
 	},
 	komoduel: {
-		num: 3170,
+		num: 3171,
 		name: "Komoduel",
 		types: ["Fire", "Fighting"],
 		baseStats: { hp: 86, atk: 100, def: 57, spa: 105, spd: 63, spe: 114 },

@@ -1701,6 +1701,7 @@ export class Pokemon {
 		moveid = toID(moveid);
 
 		for (const moveSlot of this.moveSlots) {
+			if (moveSlot.id === 'ringtrue') continue;
 			if (moveSlot.id === moveid && moveSlot.disabled !== true) {
 				moveSlot.disabled = isHidden ? 'hidden' : true;
 				moveSlot.disabledSource = sourceEffect?.name || moveSlot.move;
