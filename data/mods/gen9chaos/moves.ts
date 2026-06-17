@@ -711,6 +711,7 @@ export const Moves: ModdedMoveDataTable = {
 	taunt: {
 		inherit: true,
 		condition: {
+			inherit: true,
 			duration: 3,
 			durationCallback(target, source, effect) {
 				if (effect?.name === "Shrouded Blows") {
@@ -718,29 +719,53 @@ export const Moves: ModdedMoveDataTable = {
 				}
 				return 3;
 			},
-			onStart(target) {
-				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectState.duration!++;
-				}
-				this.add('-start', target, 'move: Taunt');
-			},
-			onResidualOrder: 15,
-			onEnd(target) {
-				this.add('-end', target, 'move: Taunt');
-			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.id);
-					if (move.category === 'Status' && move.id !== 'mefirst') {
+					if (move.category === 'Status' && !['mefirst', 'ringtrue'].includes(move.id)) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
 			},
 			onBeforeMovePriority: 5,
 			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && !['mefirst', 'ringtrue'].includes(move.id)) {
 					this.add('cant', attacker, 'move: Taunt', move);
 					return false;
+				}
+			},
+		},
+	},
+	attract: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'ringtrue') return;
+				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
+				if (this.randomChance(1, 2)) {
+					this.add('cant', pokemon, 'Attract');
+					return false;
+				}
+			},
+		},
+	},
+	disable: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onBeforeMovePriority: 7,
+			onBeforeMove(attacker, defender, move) {
+				if (!(move.isZ && move.isZOrMaxPowered) && move.id === this.effectState.move && move.id != 'ringtrue') {
+					this.add('cant', attacker, 'Disable', move);
+					return false;
+				}
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === this.effectState.move) {
+						if (moveSlot.id != 'ringtrue') pokemon.disableMove(moveSlot.id);
+					}
 				}
 			},
 		},
