@@ -2821,7 +2821,7 @@ export const Moves: ModdedMoveDataTable = {
 		flags: { noassist: 1, failcopycat: 1, snatch: 1 },
 		stallingMove: true,
 		onPrepareHit(pokemon) {
-			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			return this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
