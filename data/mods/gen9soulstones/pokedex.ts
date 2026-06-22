@@ -9250,7 +9250,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Absol-Temporal", "Absol-Temporal-Mega"],
 		tier: "OU",
 	},
-	absoltemportalmega: {
+	absoltemporalmega: {
 		num: 514,
 		name: "Absol-Temporal-Mega",
 		baseSpecies: "Absol-Temporal",
