@@ -2889,6 +2889,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	sciorocco: {
+		num: 3172,
+		name: "Sciorocco",
+		types: ["Ground"],
+		baseStats: { hp: 72, atk: 68, def: 54, spa: 120, spd: 89, spe: 117 },
+		abilities: { 0: "Infiltrator", 1: "Wind Rider", H: "Levitate" },
+		heightm: 1.4,
+		weightkg: 175.4,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
