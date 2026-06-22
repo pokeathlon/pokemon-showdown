@@ -600,14 +600,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Cubone-Soulstones' || pokemon.baseSpecies.baseSpecies === 'Marowak-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Cubone-Orion' || pokemon.baseSpecies.baseSpecies === 'Marowak-Orion') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Cubone-Soulstones", "Marowak-Soulstones"],
+		itemUser: ["Cubone-Orion", "Marowak-Orion"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Cubone-Soulstones or Marowak-Soulstones, its Attack is doubled.",
+		shortDesc: "If held by a Cubone-Orion or Marowak-Orion, its Attack is doubled.",
 	},
 	arcanespellbook: {
 		name: "Arcane Spellbook",
@@ -617,14 +617,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Omanyte-Soulstones' || pokemon.baseSpecies.baseSpecies === 'Omastar-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Omanyte-Orion' || pokemon.baseSpecies.baseSpecies === 'Omastar-Orion') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Omanyte-Soulstones", "Omastar-Soulstones"],
+		itemUser: ["Omanyte-Orion", "Omastar-Orion"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Omanyte-Soulstones or Omastar-Soulstones, its Sp. Atk is doubled.",
+		shortDesc: "If held by a Omanyte-Orion or Omastar-Orion, its Sp. Atk is doubled.",
 	},
 	focusingorb: {
 		name: "Focusing Orb",
@@ -634,20 +634,20 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Clamperl-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Clamperl-Orion') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Clamperl-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Clamperl-Orion') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Clamperl-Soulstones"],
+		itemUser: ["Clamperl-Orion"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Clamperl-Soulstones, its Def and Sp. Def is doubled.",
+		shortDesc: "If held by a Clamperl-Orion, its Def and Sp. Def is doubled.",
 	},
 	voidheart: {
 		name: "Void Heart",
@@ -657,20 +657,20 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Orion') {
 				return this.chainModify(2);
 			}
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Orion') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Volbeat-Soulstones"],
+		itemUser: ["Volbeat-Orion"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Volbeat-Soulstones, its Atk and Def are 1.5x.",
+		shortDesc: "If held by a Volbeat-Orion, its Atk and Def are 1.5x.",
 	},
 	radiantorb: {
 		name: "Radiant Orb",
@@ -680,20 +680,20 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Orion') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Orion') {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Illumise-Soulstones"],
+		itemUser: ["Illumise-Orion"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Illumise-Soulstones, its Sp. Atk and Sp. Def are 1.5x.",
+		shortDesc: "If held by a Illumise-Orion, its Sp. Atk and Sp. Def are 1.5x.",
 	},
 	headphones: {
 		name: "Headphones",
@@ -919,13 +919,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Orion') {
 				return this.chainModify(1.25);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Soulstones') {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Orion') {
 				return this.chainModify(1.25);
 			}
 		},
@@ -936,10 +936,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(1.15);
 			}
 		},
-		itemUser: ["Delcatty-Soulstones"],
+		itemUser: ["Delcatty-Orion"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Delcatty-Soulstones, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
+		shortDesc: "If held by a Delcatty-Orion, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
 	},
 	wisevest: {
 		name: "Wise Vest",
@@ -974,858 +974,858 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	gengarites: {
     		name: "Gengarite-S",
     		spritenum: -6,
-    		megaStone: { "Gengar-Soulstones": "Gengar-Soulstones-Mega" },
-    		itemUser: ["Gengar-Soulstones"],
+    		megaStone: { "Gengar-Orion": "Gengar-Orion-Mega" },
+    		itemUser: ["Gengar-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gengar-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gengar-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	dodrinites: {
     		name: "Dodrinite-S",
     		spritenum: -6,
-    		megaStone: { "Dodrio-Soulstones": "Dodrio-Soulstones-Mega" },
-    		itemUser: ["Dodrio-Soulstones"],
+    		megaStone: { "Dodrio-Orion": "Dodrio-Orion-Mega" },
+    		itemUser: ["Dodrio-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Dodrio-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Dodrio-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	arbokinites: {
     		name: "Arbokinite-S",
     		spritenum: -6,
-    		megaStone: { "Arbok-Soulstones": "Arbok-Soulstones-Mega" },
-    		itemUser: ["Arbok-Soulstones"],
+    		megaStone: { "Arbok-Orion": "Arbok-Orion-Mega" },
+    		itemUser: ["Arbok-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Arbok-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Arbok-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	starmites: {
     		name: "Starmite-S",
     		spritenum: -6,
-    		megaStone: { "Starmie-Soulstones": "Starmie-Soulstones-Mega" },
-    		itemUser: ["Starmie-Soulstones"],
+    		megaStone: { "Starmie-Orion": "Starmie-Orion-Mega" },
+    		itemUser: ["Starmie-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Starmie-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Starmie-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	steelixites: {
     		name: "Steelixite-S",
     		spritenum: -6,
-    		megaStone: { "Steelix-Soulstones": "Steelix-Soulstones-Mega" },
-    		itemUser: ["Steelix-Soulstones"],
+    		megaStone: { "Steelix-Orion": "Steelix-Orion-Mega" },
+    		itemUser: ["Steelix-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Steelix-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Steelix-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	xatunites: {
     		name: "Xatunite-S",
     		spritenum: -6,
-    		megaStone: { "Xatu-Soulstones": "Xatu-Soulstones-Mega" },
-    		itemUser: ["Xatu-Soulstones"],
+    		megaStone: { "Xatu-Orion": "Xatu-Orion-Mega" },
+    		itemUser: ["Xatu-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Xatu-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Xatu-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	seismitoadites: {
     		name: "Seismitoadite-S",
     		spritenum: -6,
-    		megaStone: { "Seismitoad-Soulstones": "Seismitoad-Soulstones-Mega" },
-    		itemUser: ["Seismitoad-Soulstones"],
+    		megaStone: { "Seismitoad-Orion": "Seismitoad-Orion-Mega" },
+    		itemUser: ["Seismitoad-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Seismitoad-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Seismitoad-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	golites: {
     		name: "Golite-S",
     		spritenum: -6,
-    		megaStone: { "Golurk-Soulstones": "Golurk-Soulstones-Mega" },
-    		itemUser: ["Golurk-Soulstones"],
+    		megaStone: { "Golurk-Orion": "Golurk-Orion-Mega" },
+    		itemUser: ["Golurk-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Golurk-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Golurk-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	gyaradosites: {
     		name: "Gyaradosite-S",
     		spritenum: -6,
-    		megaStone: { "Gyarados-Soulstones": "Gyarados-Soulstones-Mega" },
-    		itemUser: ["Gyarados-Soulstones"],
+    		megaStone: { "Gyarados-Orion": "Gyarados-Orion-Mega" },
+    		itemUser: ["Gyarados-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gyarados-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gyarados-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	avaluggites: {
     		name: "Avaluggite-S",
     		spritenum: -6,
-    		megaStone: { "Avalugg-Soulstones": "Avalugg-Soulstones-Mega" },
-    		itemUser: ["Avalugg-Soulstones"],
+    		megaStone: { "Avalugg-Orion": "Avalugg-Orion-Mega" },
+    		itemUser: ["Avalugg-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Avalugg-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Avalugg-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	rapidashinites: {
     		name: "Rapidashinite-S",
     		spritenum: -6,
-    		megaStone: { "Rapidash-Soulstones": "Rapidash-Soulstones-Mega" },
-    		itemUser: ["Rapidash-Soulstones"],
+    		megaStone: { "Rapidash-Orion": "Rapidash-Orion-Mega" },
+    		itemUser: ["Rapidash-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Rapidash-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Rapidash-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	aerodactylites: {
     		name: "Aerodactylite-S",
     		spritenum: -6,
-    		megaStone: { "Aerodactyl-Soulstones": "Aerodactyl-Soulstones-Mega" },
-    		itemUser: ["Aerodactyl-Soulstones"],
+    		megaStone: { "Aerodactyl-Orion": "Aerodactyl-Orion-Mega" },
+    		itemUser: ["Aerodactyl-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Aerodactyl-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Aerodactyl-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	giganites: {
     		name: "Giganite-S",
     		spritenum: -6,
-    		megaStone: { "Gigalith-Soulstones": "Gigalith-Soulstones-Mega" },
-    		itemUser: ["Gigalith-Soulstones"],
+    		megaStone: { "Gigalith-Orion": "Gigalith-Orion-Mega" },
+    		itemUser: ["Gigalith-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gigalith-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gigalith-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	gliscites: {
     		name: "Gliscite-S",
     		spritenum: -6,
-    		megaStone: { "Gliscor-Soulstones": "Gliscor-Soulstones-Mega" },
-    		itemUser: ["Gliscor-Soulstones"],
+    		megaStone: { "Gliscor-Orion": "Gliscor-Orion-Mega" },
+    		itemUser: ["Gliscor-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gliscor-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gliscor-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	sudowooditex: {
     		name: "Sudowoodite-X",
     		spritenum: -6,
-    		megaStone: { "Sudowoodo-Soulstones": "Sudowoodo-Soulstones-Mega-X" },
-    		itemUser: ["Sudowoodo-Soulstones"],
+    		megaStone: { "Sudowoodo-Orion": "Sudowoodo-Orion-Mega-X" },
+    		itemUser: ["Sudowoodo-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sudowoodo-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sudowoodo-Orion, this item allows it to Mega Evolve in battle.",
     	},
 	sudowooditey: {
     		name: "Sudowoodite-Y",
     		spritenum: -6,
-    		megaStone: { "Sudowoodo-Soulstones": "Sudowoodo-Soulstones-Mega-Y" },
-    		itemUser: ["Sudowoodo-Soulstones"],
+    		megaStone: { "Sudowoodo-Orion": "Sudowoodo-Orion-Mega-Y" },
+    		itemUser: ["Sudowoodo-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sudowoodo-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sudowoodo-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	noctowlites: {
     		name: "Noctowlite-S",
     		spritenum: -6,
-    		megaStone: { "Noctowl-Soulstones": "Noctowl-Soulstones-Mega" },
-    		itemUser: ["Noctowl-Soulstones"],
+    		megaStone: { "Noctowl-Orion": "Noctowl-Orion-Mega" },
+    		itemUser: ["Noctowl-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Noctowl-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Noctowl-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	electronites: {
     		name: "Electronite-S",
     		spritenum: -6,
-    		megaStone: { "Electrode-Soulstones": "Electrode-Soulstones-Mega" },
-    		itemUser: ["Electrode-Soulstones"],
+    		megaStone: { "Electrode-Orion": "Electrode-Orion-Mega" },
+    		itemUser: ["Electrode-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Electrode-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Electrode-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	beedrillites: {
     		name: "Beedrillite-S",
     		spritenum: -6,
-    		megaStone: { "Beedrill-Soulstones": "Beedrill-Soulstones-Mega" },
-    		itemUser: ["Beedrill-Soulstones"],
+    		megaStone: { "Beedrill-Orion": "Beedrill-Orion-Mega" },
+    		itemUser: ["Beedrill-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Beedrill-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Beedrill-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	machampites: {
     		name: "Machampite-S",
     		spritenum: -6,
-    		megaStone: { "Machamp-Soulstones": "Machamp-Soulstones-Mega" },
-    		itemUser: ["Machamp-Soulstones"],
+    		megaStone: { "Machamp-Orion": "Machamp-Orion-Mega" },
+    		itemUser: ["Machamp-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Machamp-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Machamp-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	venusaurites: {
     		name: "Venusaurite-S",
     		spritenum: -6,
-    		megaStone: { "Venusaur-Soulstones": "Venusaur-Soulstones-Mega" },
-    		itemUser: ["Venusaur-Soulstones"],
+    		megaStone: { "Venusaur-Orion": "Venusaur-Orion-Mega" },
+    		itemUser: ["Venusaur-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Venusaur-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Venusaur-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	sharpedonites: {
     		name: "Sharpedonite-S",
     		spritenum: -6,
-    		megaStone: { "Sharpedo-Soulstones": "Sharpedo-Soulstones-Mega" },
-    		itemUser: ["Sharpedo-Soulstones"],
+    		megaStone: { "Sharpedo-Orion": "Sharpedo-Orion-Mega" },
+    		itemUser: ["Sharpedo-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sharpedo-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sharpedo-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	chandelites: {
     		name: "Chandelite-S",
     		spritenum: -6,
-    		megaStone: { "Chandelure-Soulstones": "Chandelure-Soulstones-Mega" },
-    		itemUser: ["Chandelure-Soulstones"],
+    		megaStone: { "Chandelure-Orion": "Chandelure-Orion-Mega" },
+    		itemUser: ["Chandelure-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Chandelure-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Chandelure-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	glalitites: {
     		name: "Glalitite-S",
     		spritenum: -6,
-    		megaStone: { "Glalie-Soulstones": "Glalie-Soulstones-Mega" },
-    		itemUser: ["Glalie-Soulstones"],
+    		megaStone: { "Glalie-Orion": "Glalie-Orion-Mega" },
+    		itemUser: ["Glalie-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Glalie-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Glalie-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	froslassites: {
     		name: "Froslassite-S",
     		spritenum: -6,
-    		megaStone: { "Froslass-Soulstones": "Froslass-Soulstones-Mega" },
-    		itemUser: ["Froslass-Soulstones"],
+    		megaStone: { "Froslass-Orion": "Froslass-Orion-Mega" },
+    		itemUser: ["Froslass-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Froslass-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Froslass-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	infernapinites: {
     		name: "Infernapinite-S",
     		spritenum: -6,
-    		megaStone: { "Infernape-Soulstones": "Infernape-Soulstones-Mega" },
-    		itemUser: ["Infernape-Soulstones"],
+    		megaStone: { "Infernape-Orion": "Infernape-Orion-Mega" },
+    		itemUser: ["Infernape-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Infernape-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Infernape-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	sablenites: {
     		name: "Sablenite-S",
     		spritenum: -6,
-    		megaStone: { "Sableye-Soulstones": "Sableye-Soulstones-Mega" },
-    		itemUser: ["Sableye-Soulstones"],
+    		megaStone: { "Sableye-Orion": "Sableye-Orion-Mega" },
+    		itemUser: ["Sableye-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sableye-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sableye-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	bearticites: {
     		name: "Bearticite-S",
     		spritenum: -6,
-    		megaStone: { "Beartic-Soulstones": "Beartic-Soulstones-Mega" },
-    		itemUser: ["Beartic-Soulstones"],
+    		megaStone: { "Beartic-Orion": "Beartic-Orion-Mega" },
+    		itemUser: ["Beartic-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Beartic-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Beartic-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	sceptilites: {
     		name: "Sceptilite-S",
     		spritenum: -6,
-    		megaStone: { "Sceptile-Soulstones": "Sceptile-Soulstones-Mega" },
-    		itemUser: ["Sceptile-Soulstones"],
+    		megaStone: { "Sceptile-Orion": "Sceptile-Orion-Mega" },
+    		itemUser: ["Sceptile-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sceptile-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sceptile-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tyranitarites: {
     		name: "Tyranitarite-S",
     		spritenum: -6,
-    		megaStone: { "Tyranitar-Soulstones": "Tyranitar-Soulstones-Mega" },
-    		itemUser: ["Tyranitar-Soulstones"],
+    		megaStone: { "Tyranitar-Orion": "Tyranitar-Orion-Mega" },
+    		itemUser: ["Tyranitar-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Tyranitar-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Tyranitar-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	hippowdonites: {
     		name: "Hippowdonite-S",
     		spritenum: -6,
-    		megaStone: { "Hippowdon-Soulstones": "Hippowdon-Soulstones-Mega" },
-    		itemUser: ["Hippowdon-Soulstones"],
+    		megaStone: { "Hippowdon-Orion": "Hippowdon-Orion-Mega" },
+    		itemUser: ["Hippowdon-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Hippowdon-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Hippowdon-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	ampharosites: {
     		name: "Ampharosite-S",
     		spritenum: -6,
-    		megaStone: { "Ampharos-Soulstones": "Ampharos-Soulstones-Mega" },
-    		itemUser: ["Ampharos-Soulstones"],
+    		megaStone: { "Ampharos-Orion": "Ampharos-Orion-Mega" },
+    		itemUser: ["Ampharos-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Ampharos-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Ampharos-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	altarianites: {
     		name: "Altarianite-S",
     		spritenum: -6,
-    		megaStone: { "Altaria-Soulstones": "Altaria-Soulstones-Mega" },
-    		itemUser: ["Altaria-Soulstones"],
+    		megaStone: { "Altaria-Orion": "Altaria-Orion-Mega" },
+    		itemUser: ["Altaria-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Altaria-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Altaria-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	heracronites: {
     		name: "Heracronite-S",
     		spritenum: -6,
-    		megaStone: { "Heracross-Soulstones": "Heracross-Soulstones-Mega" },
-    		itemUser: ["Heracross-Soulstones"],
+    		megaStone: { "Heracross-Orion": "Heracross-Orion-Mega" },
+    		itemUser: ["Heracross-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Heracross-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Heracross-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	sawsbuckites: {
     		name: "Sawsbuckite-S",
     		spritenum: -6,
-    		megaStone: { "Sawsbuck-Soulstones": "Sawsbuck-Soulstones-Mega" },
-    		itemUser: ["Sawsbuck-Soulstones"],
+    		megaStone: { "Sawsbuck-Orion": "Sawsbuck-Orion-Mega" },
+    		itemUser: ["Sawsbuck-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sawsbuck-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sawsbuck-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	aggronites: {
     		name: "Aggronite-S",
     		spritenum: -6,
-    		megaStone: { "Aggron-Soulstones": "Aggron-Soulstones-Mega" },
-    		itemUser: ["Aggron-Soulstones"],
+    		megaStone: { "Aggron-Orion": "Aggron-Orion-Mega" },
+    		itemUser: ["Aggron-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Aggron-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Aggron-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	slowkingites: {
     		name: "Slowkingite-S",
     		spritenum: -6,
-    		megaStone: { "Slowking-Soulstones": "Slowking-Soulstones-Mega" },
-    		itemUser: ["Slowking-Soulstones"],
+    		megaStone: { "Slowking-Orion": "Slowking-Orion-Mega" },
+    		itemUser: ["Slowking-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Slowking-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Slowking-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	corvinites: {
     		name: "Corvinite-S",
     		spritenum: -6,
-    		megaStone: { "Corviknight-Soulstones": "Corviknight-Soulstones-Mega" },
-    		itemUser: ["Corviknight-Soulstones"],
+    		megaStone: { "Corviknight-Orion": "Corviknight-Orion-Mega" },
+    		itemUser: ["Corviknight-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Corviknight-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Corviknight-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	kingdranites: {
     		name: "Kingdranite-S",
     		spritenum: -6,
-    		megaStone: { "Kingdra-Soulstones": "Kingdra-Soulstones-Mega" },
-    		itemUser: ["Kingdra-Soulstones"],
+    		megaStone: { "Kingdra-Orion": "Kingdra-Orion-Mega" },
+    		itemUser: ["Kingdra-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Kingdra-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Kingdra-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	butterfrites: {
     		name: "Butterfrite-S",
     		spritenum: -6,
-    		megaStone: { "Butterfree-Soulstones": "Butterfree-Soulstones-Mega" },
-    		itemUser: ["Butterfree-Soulstones"],
+    		megaStone: { "Butterfree-Orion": "Butterfree-Orion-Mega" },
+    		itemUser: ["Butterfree-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Butterfree-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Butterfree-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	furretites: {
     		name: "Furretite-S",
     		spritenum: -6,
-    		megaStone: { "Furret-Soulstones": "Furret-Soulstones-Mega" },
-    		itemUser: ["Furret-Soulstones"],
+    		megaStone: { "Furret-Orion": "Furret-Orion-Mega" },
+    		itemUser: ["Furret-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Furret-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Furret-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	gardevoirites: {
     		name: "Gardevoirite-S",
     		spritenum: -6,
-    		megaStone: { "Gardevoir-Soulstones": "Gardevoir-Soulstones-Mega" },
-    		itemUser: ["Gardevoir-Soulstones"],
+    		megaStone: { "Gardevoir-Orion": "Gardevoir-Orion-Mega" },
+    		itemUser: ["Gardevoir-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gardevoir-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gardevoir-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	galladites: {
     		name: "Galladite-S",
     		spritenum: -6,
-    		megaStone: { "Gallade-Soulstones": "Gallade-Soulstones-Mega" },
-    		itemUser: ["Gallade-Soulstones"],
+    		megaStone: { "Gallade-Orion": "Gallade-Orion-Mega" },
+    		itemUser: ["Gallade-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gallade-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gallade-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	dugtrioites: {
     		name: "Dugtrioite-S",
     		spritenum: -6,
-    		megaStone: { "Dugtrio-Soulstones": "Dugtrio-Soulstones-Mega" },
-    		itemUser: ["Dugtrio-Soulstones"],
+    		megaStone: { "Dugtrio-Orion": "Dugtrio-Orion-Mega" },
+    		itemUser: ["Dugtrio-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Dugtrio-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Dugtrio-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	azumarillites: {
     		name: "Azumarillite-S",
     		spritenum: -6,
-    		megaStone: { "Azumarill-Soulstones": "Azumarill-Soulstones-Mega" },
-    		itemUser: ["Azumarill-Soulstones"],
+    		megaStone: { "Azumarill-Orion": "Azumarill-Orion-Mega" },
+    		itemUser: ["Azumarill-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Azumarill-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Azumarill-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	meloettites: {
     		name: "Meloettite-S",
     		spritenum: -6,
-    		megaStone: { "Meloetta-Soulstones": "Meloetta-Soulstones-Mega" },
-    		itemUser: ["Meloetta-Soulstones"],
+    		megaStone: { "Meloetta-Orion": "Meloetta-Orion-Mega" },
+    		itemUser: ["Meloetta-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Meloetta-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Meloetta-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	absolites: {
     		name: "Absolite-S",
     		spritenum: -6,
-    		megaStone: { "Absol-Soulstones": "Absol-Soulstones-Mega" },
-    		itemUser: ["Absol-Soulstones"],
+    		megaStone: { "Absol-Orion": "Absol-Orion-Mega" },
+    		itemUser: ["Absol-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Absol-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Absol-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	metagrossites: {
     		name: "Metagrossite-S",
     		spritenum: -6,
-    		megaStone: { "Metagross-Soulstones": "Metagross-Soulstones-Mega" },
-    		itemUser: ["Metagross-Soulstones"],
+    		megaStone: { "Metagross-Orion": "Metagross-Orion-Mega" },
+    		itemUser: ["Metagross-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Metagross-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Metagross-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	medichamites: {
     		name: "Medichamite-S",
     		spritenum: -6,
-    		megaStone: { "Medicham-Soulstones": "Medicham-Soulstones-Mega" },
-    		itemUser: ["Medicham-Soulstones"],
+    		megaStone: { "Medicham-Orion": "Medicham-Orion-Mega" },
+    		itemUser: ["Medicham-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Medicham-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Medicham-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	pidgeotites: {
     		name: "Pidgeotite-S",
     		spritenum: -6,
-    		megaStone: { "Pidgeot-Soulstones": "Pidgeot-Soulstones-Mega" },
-    		itemUser: ["Pidgeot-Soulstones"],
+    		megaStone: { "Pidgeot-Orion": "Pidgeot-Orion-Mega" },
+    		itemUser: ["Pidgeot-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Pidgeot-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Pidgeot-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	blissites: {
     		name: "Blissite-S",
     		spritenum: -6,
-    		megaStone: { "Blissey-Soulstones": "Blissey-Soulstones-Mega" },
-    		itemUser: ["Blissey-Soulstones"],
+    		megaStone: { "Blissey-Orion": "Blissey-Orion-Mega" },
+    		itemUser: ["Blissey-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Blissey-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Blissey-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tentacruelites: {
     		name: "Tentacruelite-S",
     		spritenum: -6,
-    		megaStone: { "Tentacruel-Soulstones": "Tentacruel-Soulstones-Mega" },
-    		itemUser: ["Tentacruel-Soulstones"],
+    		megaStone: { "Tentacruel-Orion": "Tentacruel-Orion-Mega" },
+    		itemUser: ["Tentacruel-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Tentacruel-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Tentacruel-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tsareenitex: {
     		name: "Tsareenite-X",
     		spritenum: -6,
-    		megaStone: { "Tsareena-Soulstones": "Tsareena-Soulstones-Mega-X" },
-    		itemUser: ["Tsareena-Soulstones"],
+    		megaStone: { "Tsareena-Orion": "Tsareena-Orion-Mega-X" },
+    		itemUser: ["Tsareena-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Tsareena-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Tsareena-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tsareenitey: {
     		name: "Tsareenite-Y",
     		spritenum: -6,
-    		megaStone: { "Tsareena-Soulstones": "Tsareena-Soulstones-Mega-Y" },
-    		itemUser: ["Tsareena-Soulstones"],
+    		megaStone: { "Tsareena-Orion": "Tsareena-Orion-Mega-Y" },
+    		itemUser: ["Tsareena-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Tsareena-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Tsareena-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	beheeyemites: {
     		name: "Beheeyemite-S",
     		spritenum: -6,
-    		megaStone: { "Beheeyem-Soulstones": "Beheeyem-Soulstones-Mega" },
-    		itemUser: ["Beheeyem-Soulstones"],
+    		megaStone: { "Beheeyem-Orion": "Beheeyem-Orion-Mega" },
+    		itemUser: ["Beheeyem-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Beheeyem-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Beheeyem-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	sandaconites: {
     		name: "Sandaconite-S",
     		spritenum: -6,
-    		megaStone: { "Sandaconda-Soulstones": "Sandaconda-Soulstones-Mega" },
-    		itemUser: ["Sandaconda-Soulstones"],
+    		megaStone: { "Sandaconda-Orion": "Sandaconda-Orion-Mega" },
+    		itemUser: ["Sandaconda-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Sandaconda-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Sandaconda-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	raichunites: {
     		name: "Raichunite-S",
     		spritenum: -6,
-    		megaStone: { "Raichu-Soulstones": "Raichu-Soulstones-Mega" },
-    		itemUser: ["Raichu-Soulstones"],
+    		megaStone: { "Raichu-Orion": "Raichu-Orion-Mega" },
+    		itemUser: ["Raichu-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Raichu-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Raichu-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	cofagrinites: {
     		name: "Cofagrinite-S",
     		spritenum: -6,
-    		megaStone: { "Cofagrigus-Soulstones": "Cofagrigus-Soulstones-Mega" },
-    		itemUser: ["Cofagrigus-Soulstones"],
+    		megaStone: { "Cofagrigus-Orion": "Cofagrigus-Orion-Mega" },
+    		itemUser: ["Cofagrigus-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Cofagrigus-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Cofagrigus-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	swampertites: {
     		name: "Swampertite-S",
     		spritenum: -6,
-    		megaStone: { "Swampert-Soulstones": "Swampert-Soulstones-Mega" },
-    		itemUser: ["Swampert-Soulstones"],
+    		megaStone: { "Swampert-Orion": "Swampert-Orion-Mega" },
+    		itemUser: ["Swampert-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Swampert-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Swampert-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	gothitellites: {
     		name: "Gothitellite-S",
     		spritenum: -6,
-    		megaStone: { "Gothitelle-Soulstones": "Gothitelle-Soulstones-Mega" },
-    		itemUser: ["Gothitelle-Soulstones"],
+    		megaStone: { "Gothitelle-Orion": "Gothitelle-Orion-Mega" },
+    		itemUser: ["Gothitelle-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Gothitelle-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Gothitelle-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	charizardites: {
     		name: "Charizardite-S",
     		spritenum: -6,
-    		megaStone: { "Charizard-Soulstones": "Charizard-Soulstones-Mega" },
-    		itemUser: ["Charizard-Soulstones"],
+    		megaStone: { "Charizard-Orion": "Charizard-Orion-Mega" },
+    		itemUser: ["Charizard-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Charizard-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Charizard-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	wiggnites: {
     		name: "Wiggnite-S",
     		spritenum: -6,
-    		megaStone: { "Wigglytuff-Soulstones": "Wigglytuff-Soulstones-Mega" },
-    		itemUser: ["Wigglytuff-Soulstones"],
+    		megaStone: { "Wigglytuff-Orion": "Wigglytuff-Orion-Mega" },
+    		itemUser: ["Wigglytuff-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Wigglytuff-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Wigglytuff-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	manectites: {
     		name: "Manectite-S",
     		spritenum: -6,
-    		megaStone: { "Manectric-Soulstones": "Manectric-Soulstones-Mega" },
-    		itemUser: ["Manectric-Soulstones"],
+    		megaStone: { "Manectric-Orion": "Manectric-Orion-Mega" },
+    		itemUser: ["Manectric-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Manectric-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Manectric-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	mamoswinites: {
     		name: "Mamoswinite-S",
     		spritenum: -6,
-    		megaStone: { "Mamoswine-Soulstones": "Mamoswine-Soulstones-Mega" },
-    		itemUser: ["Mamoswine-Soulstones"],
+    		megaStone: { "Mamoswine-Orion": "Mamoswine-Orion-Mega" },
+    		itemUser: ["Mamoswine-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Mamoswine-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Mamoswine-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	torterranites: {
     		name: "Torterranite-S",
     		spritenum: -6,
-    		megaStone: { "Torterra-Soulstones": "Torterra-Soulstones-Mega" },
-    		itemUser: ["Torterra-Soulstones"],
+    		megaStone: { "Torterra-Orion": "Torterra-Orion-Mega" },
+    		itemUser: ["Torterra-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Torterra-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Torterra-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	lopunnites: {
     		name: "Lopunnite-S",
     		spritenum: -6,
-    		megaStone: { "Lopunny-Soulstones": "Lopunny-Soulstones-Mega" },
-    		itemUser: ["Lopunny-Soulstones"],
+    		megaStone: { "Lopunny-Orion": "Lopunny-Orion-Mega" },
+    		itemUser: ["Lopunny-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Lopunny-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Lopunny-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tgothitellite: {
@@ -1844,53 +1844,53 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	donphanites: {
     		name: "Donphanite-S",
     		spritenum: -6,
-    		megaStone: { "Donphan-Soulstones": "Donphan-Soulstones-Mega" },
-    		itemUser: ["Donphan-Soulstones"],
+    		megaStone: { "Donphan-Orion": "Donphan-Orion-Mega" },
+    		itemUser: ["Donphan-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Donphan-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Donphan-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	garchompites: {
     		name: "Garchompite-S",
     		spritenum: -6,
-    		megaStone: { "Garchomp-Soulstones": "Garchomp-Soulstones-Mega" },
-    		itemUser: ["Garchomp-Soulstones"],
+    		megaStone: { "Garchomp-Orion": "Garchomp-Orion-Mega" },
+    		itemUser: ["Garchomp-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Garchomp-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Garchomp-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	ninetalites: {
     		name: "Ninetalite-S",
     		spritenum: -6,
-    		megaStone: { "Ninetales-Soulstones": "Ninetales-Soulstones-Mega" },
-    		itemUser: ["Ninetales-Soulstones"],
+    		megaStone: { "Ninetales-Orion": "Ninetales-Orion-Mega" },
+    		itemUser: ["Ninetales-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Ninetales-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Ninetales-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	toxtricites: {
     		name: "Toxtricite-S",
     		spritenum: -6,
-    		megaStone: { "Toxtricity-Soulstones": "Toxtricity-Soulstones-Mega" },
-    		itemUser: ["Toxtricity-Soulstones"],
+    		megaStone: { "Toxtricity-Orion": "Toxtricity-Orion-Mega" },
+    		itemUser: ["Toxtricity-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Toxtricity-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Toxtricity-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tdugtrioite: {
@@ -1909,14 +1909,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	luvdiscites: {
     		name: "Luvdiscite-S",
     		spritenum: -6,
-    		megaStone: { "Luvdisc-Soulstones": "Luvdisc-Soulstones-Mega" },
-    		itemUser: ["Luvdisc-Soulstones"],
+    		megaStone: { "Luvdisc-Orion": "Luvdisc-Orion-Mega" },
+    		itemUser: ["Luvdisc-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Luvdisc-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Luvdisc-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tabsolite: {
@@ -1935,14 +1935,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	abomasites: {
     		name: "Abomasite-S",
     		spritenum: -6,
-    		megaStone: { "Abomasnow-Soulstones": "Abomasnow-Soulstones-Mega" },
-    		itemUser: ["Abomasnow-Soulstones"],
+    		megaStone: { "Abomasnow-Orion": "Abomasnow-Orion-Mega" },
+    		itemUser: ["Abomasnow-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Abomasnow-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Abomasnow-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tsablenite: {
@@ -1961,14 +1961,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	garbodinites: {
     		name: "Garbodinite-S",
     		spritenum: -6,
-    		megaStone: { "Garbodor-Soulstones": "Garbodor-Soulstones-Mega" },
-    		itemUser: ["Garbodor-Soulstones"],
+    		megaStone: { "Garbodor-Orion": "Garbodor-Orion-Mega" },
+    		itemUser: ["Garbodor-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Garbodor-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Garbodor-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	taltarianite: {
@@ -2013,66 +2013,66 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	barbaraclites: {
     		name: "Barbaraclite-S",
     		spritenum: -6,
-    		megaStone: { "Barbaracle-Soulstones": "Barbaracle-Soulstones-Mega" },
-    		itemUser: ["Barbaracle-Soulstones"],
+    		megaStone: { "Barbaracle-Orion": "Barbaracle-Orion-Mega" },
+    		itemUser: ["Barbaracle-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Barbaracle-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Barbaracle-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	falinkites: {
     		name: "Falinkite-S",
     		spritenum: -6,
-    		megaStone: { "Falinks-Soulstones": "Falinks-Soulstones-Mega" },
-    		itemUser: ["Falinks-Soulstones"],
+    		megaStone: { "Falinks-Orion": "Falinks-Orion-Mega" },
+    		itemUser: ["Falinks-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Falinks-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Falinks-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	mismagites: {
     		name: "Mismagite-S",
     		spritenum: -6,
-    		megaStone: { "Mismagius-Soulstones": "Mismagius-Soulstones-Mega" },
-    		itemUser: ["Mismagius-Soulstones"],
+    		megaStone: { "Mismagius-Orion": "Mismagius-Orion-Mega" },
+    		itemUser: ["Mismagius-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Mismagius-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Mismagius-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	scizorites: {
     		name: "Scizorite-S",
     		spritenum: -6,
-    		megaStone: { "Scizor-Soulstones": "Scizor-Soulstones-Mega" },
-    		itemUser: ["Scizor-Soulstones"],
+    		megaStone: { "Scizor-Orion": "Scizor-Orion-Mega" },
+    		itemUser: ["Scizor-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Scizor-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Scizor-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	coalossalites: {
     		name: "Coalossalite-S",
     		spritenum: -6,
-    		megaStone: { "Coalossal-Soulstones": "Coalossal-Soulstones-Mega" },
-    		itemUser: ["Coalossal-Soulstones"],
+    		megaStone: { "Coalossal-Orion": "Coalossal-Orion-Mega" },
+    		itemUser: ["Coalossal-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Coalossal-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Coalossal-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tgiganite: {
@@ -2091,66 +2091,66 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	dragites: {
     		name: "Dragite-S",
     		spritenum: -6,
-    		megaStone: { "Dragonite-Soulstones": "Dragonite-Soulstones-Mega" },
-    		itemUser: ["Dragonite-Soulstones"],
+    		megaStone: { "Dragonite-Orion": "Dragonite-Orion-Mega" },
+    		itemUser: ["Dragonite-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Dragonite-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Dragonite-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	dragapultites: {
     		name: "Dragapultite-S",
     		spritenum: -6,
-    		megaStone: { "Dragapult-Soulstones": "Dragapult-Soulstones-Mega" },
-    		itemUser: ["Dragapult-Soulstones"],
+    		megaStone: { "Dragapult-Orion": "Dragapult-Orion-Mega" },
+    		itemUser: ["Dragapult-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Dragapult-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Dragapult-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	banettites: {
     		name: "Banettite-S",
     		spritenum: -6,
-    		megaStone: { "Banette-Soulstones": "Banette-Soulstones-Mega" },
-    		itemUser: ["Banette-Soulstones"],
+    		megaStone: { "Banette-Orion": "Banette-Orion-Mega" },
+    		itemUser: ["Banette-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Banette-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Banette-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	houndoominites: {
     		name: "Houndoominite-S",
     		spritenum: -6,
-    		megaStone: { "Houndoom-Soulstones": "Houndoom-Soulstones-Mega" },
-    		itemUser: ["Houndoom-Soulstones"],
+    		megaStone: { "Houndoom-Orion": "Houndoom-Orion-Mega" },
+    		itemUser: ["Houndoom-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Houndoom-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Houndoom-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	empoleonites: {
     		name: "Empoleonite-S",
     		spritenum: -6,
-    		megaStone: { "Empoleon-Soulstones": "Empoleon-Soulstones-Mega" },
-    		itemUser: ["Empoleon-Soulstones"],
+    		megaStone: { "Empoleon-Orion": "Empoleon-Orion-Mega" },
+    		itemUser: ["Empoleon-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Empoleon-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Empoleon-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tjumpinite: {
@@ -2169,79 +2169,79 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	exploudinites: {
     		name: "Exploudinite-S",
     		spritenum: -6,
-    		megaStone: { "Exploud-Soulstones": "Exploud-Soulstones-Mega" },
-    		itemUser: ["Exploud-Soulstones"],
+    		megaStone: { "Exploud-Orion": "Exploud-Orion-Mega" },
+    		itemUser: ["Exploud-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Exploud-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Exploud-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	centiskorites: {
     		name: "Centiskorite-S",
     		spritenum: -6,
-    		megaStone: { "Centiskorch-Soulstones": "Centiskorch-Soulstones-Mega" },
-    		itemUser: ["Centiskorch-Soulstones"],
+    		megaStone: { "Centiskorch-Orion": "Centiskorch-Orion-Mega" },
+    		itemUser: ["Centiskorch-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Centiskorch-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Centiskorch-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	salamencites: {
     		name: "Salamencite-S",
     		spritenum: -6,
-    		megaStone: { "Salamence-Soulstones": "Salamence-Soulstones-Mega" },
-    		itemUser: ["Salamence-Soulstones"],
+    		megaStone: { "Salamence-Orion": "Salamence-Orion-Mega" },
+    		itemUser: ["Salamence-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Salamence-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Salamence-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	grapploctites: {
     		name: "Grapploctite-S",
     		spritenum: -6,
-    		megaStone: { "Grapploct-Soulstones": "Grapploct-Soulstones-Mega" },
-    		itemUser: ["Grapploct-Soulstones"],
+    		megaStone: { "Grapploct-Orion": "Grapploct-Orion-Mega" },
+    		itemUser: ["Grapploct-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Grapploct-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Grapploct-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	hatterenites: {
     		name: "Hatterenite-S",
     		spritenum: -6,
-    		megaStone: { "Hatterene-Soulstones": "Hatterene-Soulstones-Mega" },
-    		itemUser: ["Hatterene-Soulstones"],
+    		megaStone: { "Hatterene-Orion": "Hatterene-Orion-Mega" },
+    		itemUser: ["Hatterene-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Hatterene-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Hatterene-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	chimechites: {
     		name: "Chimechite-S",
     		spritenum: -6,
-    		megaStone: { "Chimecho-Soulstones": "Chimecho-Soulstones-Mega" },
-    		itemUser: ["Chimecho-Soulstones"],
+    		megaStone: { "Chimecho-Orion": "Chimecho-Orion-Mega" },
+    		itemUser: ["Chimecho-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Chimecho-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Chimecho-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tgrimmsnarlite: {
@@ -2273,118 +2273,118 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	ursalunites: {
     		name: "Ursalunite-S",
     		spritenum: -6,
-    		megaStone: { "Ursaluna-Soulstones": "Ursaluna-Soulstones-Mega" },
-    		itemUser: ["Ursaluna-Soulstones"],
+    		megaStone: { "Ursaluna-Orion": "Ursaluna-Orion-Mega" },
+    		itemUser: ["Ursaluna-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a URsaluna-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a URsaluna-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	emolgites: {
     		name: "Emolgite-S",
     		spritenum: -6,
-    		megaStone: { "Emolga-Soulstones": "Emolga-Soulstones-Mega" },
-    		itemUser: ["Emolga-Soulstones"],
+    		megaStone: { "Emolga-Orion": "Emolga-Orion-Mega" },
+    		itemUser: ["Emolga-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Emolga-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Emolga-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	vespiquenites: {
     		name: "Vespiquenite-S",
     		spritenum: -6,
-    		megaStone: { "Vespiquen-Soulstones": "Vespiquen-Soulstones-Mega" },
-    		itemUser: ["Vespiquen-Soulstones"],
+    		megaStone: { "Vespiquen-Orion": "Vespiquen-Orion-Mega" },
+    		itemUser: ["Vespiquen-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Vespiquen-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Vespiquen-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	blazikenites: {
     		name: "Blazikenite-S",
     		spritenum: -6,
-    		megaStone: { "Blaziken-Soulstones": "Blaziken-Soulstones-Mega" },
-    		itemUser: ["Blaziken-Soulstones"],
+    		megaStone: { "Blaziken-Orion": "Blaziken-Orion-Mega" },
+    		itemUser: ["Blaziken-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Blaziken-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Blaziken-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	garganaclites: {
     		name: "Garganaclite-S",
     		spritenum: -6,
-    		megaStone: { "Garganacl-Soulstones": "Garganacl-Soulstones-Mega" },
-    		itemUser: ["Garganacl-Soulstones"],
+    		megaStone: { "Garganacl-Orion": "Garganacl-Orion-Mega" },
+    		itemUser: ["Garganacl-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Garganacl-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Garganacl-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	wobbnites: {
     		name: "Wobbnite-S",
     		spritenum: -6,
-    		megaStone: { "Wobbuffet-Soulstones": "Wobbuffet-Soulstones-Mega" },
-    		itemUser: ["Wobbuffet-Soulstones"],
+    		megaStone: { "Wobbuffet-Orion": "Wobbuffet-Orion-Mega" },
+    		itemUser: ["Wobbuffet-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Wobbuffet-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Wobbuffet-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	plusites: {
     		name: "Plusite-S",
     		spritenum: -6,
-    		megaStone: { "Plusle-Soulstones": "Plusle-Soulstones-Mega" },
-    		itemUser: ["Plusle-Soulstones"],
+    		megaStone: { "Plusle-Orion": "Plusle-Orion-Mega" },
+    		itemUser: ["Plusle-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Plusle-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Plusle-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	minunites: {
     		name: "Minunite-S",
     		spritenum: -6,
-    		megaStone: { "Minun-Soulstones": "Minun-Soulstones-Mega" },
-    		itemUser: ["Minun-Soulstones"],
+    		megaStone: { "Minun-Orion": "Minun-Orion-Mega" },
+    		itemUser: ["Minun-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Minun-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Minun-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	blastoisinites: {
     		name: "Blastoisinite-S",
     		spritenum: -6,
-    		megaStone: { "Blastoise-Soulstones": "Blastoise-Soulstones-Mega" },
-    		itemUser: ["Blastoise-Soulstones"],
+    		megaStone: { "Blastoise-Orion": "Blastoise-Orion-Mega" },
+    		itemUser: ["Blastoise-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Blastoise-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Blastoise-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tcacturnite: {
@@ -2397,7 +2397,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Cacturne-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Cacturne-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tursalunite: {
@@ -2416,27 +2416,27 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	drednites: {
     		name: "Drednite-S",
     		spritenum: -6,
-    		megaStone: { "Drednaw-Soulstones": "Drednaw-Soulstones-Mega" },
-    		itemUser: ["Drednaw-Soulstones"],
+    		megaStone: { "Drednaw-Orion": "Drednaw-Orion-Mega" },
+    		itemUser: ["Drednaw-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Drednaw-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Drednaw-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	melmetalites: {
     		name: "Melmetalite-S",
     		spritenum: -6,
-    		megaStone: { "Melmetal-Soulstones": "Melmetal-Soulstones-Mega" },
-    		itemUser: ["Melmetal-Soulstones"],
+    		megaStone: { "Melmetal-Orion": "Melmetal-Orion-Mega" },
+    		itemUser: ["Melmetal-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Melmetal-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Melmetal-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	twhimsicottite: {
@@ -2468,27 +2468,27 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	victreebelites: {
     		name: "Victreebelite-S",
     		spritenum: -6,
-    		megaStone: { "Victreebel-Soulstones": "Victreebel-Soulstones-Mega" },
-    		itemUser: ["Victreebel-Soulstones"],
+    		megaStone: { "Victreebel-Orion": "Victreebel-Orion-Mega" },
+    		itemUser: ["Victreebel-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Victreebel-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Victreebel-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	delibirdites: {
     		name: "Delibirdite-S",
     		spritenum: -6,
-    		megaStone: { "Delibird-Soulstones": "Delibird-Soulstones-Mega" },
-    		itemUser: ["Delibird-Soulstones"],
+    		megaStone: { "Delibird-Orion": "Delibird-Orion-Mega" },
+    		itemUser: ["Delibird-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Delibird-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Delibird-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tscizorite: {
@@ -2520,27 +2520,27 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	kangaskhanites: {
     		name: "Kangaskhanite-S",
     		spritenum: -6,
-    		megaStone: { "Kangaskhan-Soulstones": "Kangaskhan-Soulstones-Mega" },
-    		itemUser: ["Kangaskhan-Soulstones"],
+    		megaStone: { "Kangaskhan-Orion": "Kangaskhan-Orion-Mega" },
+    		itemUser: ["Kangaskhan-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Kangaskhan-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Kangaskhan-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	pyukumites: {
     		name: "Pyukumite-S",
     		spritenum: -6,
-    		megaStone: { "Pyukumuku-Soulstones": "Pyukumuku-Soulstones-Mega" },
-    		itemUser: ["Pyukumuku-Soulstones"],
+    		megaStone: { "Pyukumuku-Orion": "Pyukumuku-Orion-Mega" },
+    		itemUser: ["Pyukumuku-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Pyukumuku-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Pyukumuku-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tvenusaurite: {
@@ -2559,14 +2559,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	mawilites: {
     		name: "Mawilite-S",
     		spritenum: -6,
-    		megaStone: { "Mawile-Soulstones": "Mawile-Soulstones-Mega" },
-    		itemUser: ["Mawile-Soulstones"],
+    		megaStone: { "Mawile-Orion": "Mawile-Orion-Mega" },
+    		itemUser: ["Mawile-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Mawile-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Mawile-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	tampharosite: {
@@ -2624,66 +2624,66 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	reuniclites: {
     		name: "Reuniclite-S",
     		spritenum: -6,
-    		megaStone: { "Reuniclus-Soulstones": "Reuniclus-Soulstones-Mega" },
-    		itemUser: ["Reuniclus-Soulstones"],
+    		megaStone: { "Reuniclus-Orion": "Reuniclus-Orion-Mega" },
+    		itemUser: ["Reuniclus-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Reuniclus-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Reuniclus-Orion, this item allows it to Mega Evolve in battle.",
     	},
 		
 	meowsticites: {
     		name: "Meowsticite-S",
     		spritenum: -6,
-    		megaStone: { "Meowstic-Soulstones": "Meowstic-Soulstones-Mega" },
-    		itemUser: ["Meowstic-Soulstones"],
+    		megaStone: { "Meowstic-Orion": "Meowstic-Orion-Mega" },
+    		itemUser: ["Meowstic-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Meowstic-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Meowstic-Orion, this item allows it to Mega Evolve in battle.",
     	},
 		
 	staraptites: {
     		name: "Staraptite-S",
     		spritenum: -6,
-    		megaStone: { "Staraptor-Soulstones": "Staraptor-Soulstones-Mega" },
-    		itemUser: ["Staraptor-Soulstones"],
+    		megaStone: { "Staraptor-Orion": "Staraptor-Orion-Mega" },
+    		itemUser: ["Staraptor-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Staraptor-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Staraptor-Orion, this item allows it to Mega Evolve in battle.",
     	},
 		
 	raticatites: {
     		name: "Raticatite-S",
     		spritenum: -6,
-    		megaStone: { "Raticate-Soulstones": "Raticate-Soulstones-Mega" },
-    		itemUser: ["Raticate-Soulstones"],
+    		megaStone: { "Raticate-Orion": "Raticate-Orion-Mega" },
+    		itemUser: ["Raticate-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Raticate-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Raticate-Orion, this item allows it to Mega Evolve in battle.",
     	},
 		
 	baxcalibrites: {
     		name: "Baxcalibrite-S",
     		spritenum: -6,
-    		megaStone: { "Baxcalibur-Soulstones": "Baxcalibur-Soulstones-Mega" },
-    		itemUser: ["Baxcalibur-Soulstones"],
+    		megaStone: { "Baxcalibur-Orion": "Baxcalibur-Orion-Mega" },
+    		itemUser: ["Baxcalibur-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Baxcalibur-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Baxcalibur-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
 	twiggnite: {
@@ -2702,14 +2702,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	eelektrossites: {
     		name: "Eelektrossite-S",
     		spritenum: -6,
-    		megaStone: { "Eelektross-Soulstones": "Eelektross-Soulstones-Mega" },
-    		itemUser: ["Eelektross-Soulstones"],
+    		megaStone: { "Eelektross-Orion": "Eelektross-Orion-Mega" },
+    		itemUser: ["Eelektross-Orion"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
     		num: 0,
     		gen: 9,
-			shortDesc: "If held by a Eelektross-Soulstones, this item allows it to Mega Evolve in battle.",
+			shortDesc: "If held by a Eelektross-Orion, this item allows it to Mega Evolve in battle.",
     	},
 	normalshield: {
 		name: "Normal Shield",

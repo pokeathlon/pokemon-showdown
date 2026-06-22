@@ -1,5 +1,5 @@
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
-	koffingsoulstones: {
+	koffingorion: {
 		learnset: {
 			acidrain: ["9L50", "9M"],
 			acrobatics: ["9M"],
@@ -90,7 +90,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	weezingsoulstones: {
+	weezingorion: {
 		learnset: {
 			acidrain: ["9L50", "9M"],
 			acrobatics: ["9M"],
@@ -174,7 +174,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	solosissoulstones: {
+	solosisorion: {
 		learnset: {
 			acidarmor: ["9E"],
 			allergy: ["9M"],
@@ -283,7 +283,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	duosionsoulstones: {
+	duosionorion: {
 		learnset: {
 			allergy: ["9M"],
 			arcaneblast: ["9L13"],
@@ -382,7 +382,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	reuniclussoulstones: {
+	reuniclusorion: {
 		learnset: {
 			allergy: ["9M"],
 			arcaneblast: ["9L13"],
@@ -481,7 +481,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	gastlysoulstones: {
+	gastlyorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -570,7 +570,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	hauntersoulstones: {
+	haunterorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -652,7 +652,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	gengarsoulstones: {
+	gengarorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -735,7 +735,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	doduosoulstones: {
+	doduoorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L42", "9M"],
@@ -835,7 +835,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dodriosoulstones: {
+	dodrioorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L42", "9M"],
@@ -932,7 +932,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ekanssoulstones: {
+	ekansorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -1040,7 +1040,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	arboksoulstones: {
+	arbokorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -1142,7 +1142,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	staryusoulstones: {
+	staryuorion: {
 		learnset: {
 			ancientpower: ["9L21"],
 			antimatter: ["9M"],
@@ -1246,7 +1246,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	starmiesoulstones: {
+	starmieorion: {
 		learnset: {
 			ancientpower: ["9L21"],
 			antimatter: ["9M"],
@@ -1353,7 +1353,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	onixsoulstones: {
+	onixorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientpower: ["9E"],
@@ -1463,7 +1463,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	steelixsoulstones: {
+	steelixorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -1568,7 +1568,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	slugmasoulstones: {
+	slugmaorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9E"],
@@ -1664,7 +1664,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	magcargosoulstones: {
+	magcargoorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9M"],
@@ -1754,7 +1754,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wailmersoulstones: {
+	wailmerorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -1873,7 +1873,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	wailordsoulstones: {
+	wailordorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -1987,7 +1987,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	fletchlingsoulstones: {
+	fletchlingorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -2085,7 +2085,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	fletchindersoulstones: {
+	fletchinderorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -2175,7 +2175,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	talonflamesoulstones: {
+	talonflameorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -2266,7 +2266,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	natusoulstones: {
+	natuorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -2372,7 +2372,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L56"],
 		},
 	},
-	xatusoulstones: {
+	xatuorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -2470,7 +2470,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L56"],
 		},
 	},
-	ruffletsoulstones: {
+	ruffletorion: {
 		learnset: {
 			acrobatics: ["9L29", "9M"],
 			aerialace: ["9M"],
@@ -2561,7 +2561,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	braviarysoulstones: {
+	braviaryorion: {
 		learnset: {
 			acrobatics: ["9L29", "9M"],
 			aerialace: ["9M"],
@@ -2644,7 +2644,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	nosepasssoulstones: {
+	nosepassorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -2771,7 +2771,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	probopasssoulstones: {
+	probopassorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -2890,7 +2890,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	zubatsoulstones: {
+	zubatorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -2997,7 +2997,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	golbatsoulstones: {
+	golbatorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -3097,7 +3097,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	crobatsoulstones: {
+	crobatorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -3198,7 +3198,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tangelasoulstones: {
+	tangelaorion: {
 		learnset: {
 			acrobatics: ["9L27", "9M"],
 			amnesia: ["9E"],
@@ -3282,7 +3282,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tangrowthsoulstones: {
+	tangrowthorion: {
 		learnset: {
 			acrobatics: ["9L27", "9M"],
 			attract: ["9M"],
@@ -3357,7 +3357,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tympolesoulstones: {
+	tympoleorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L29"],
@@ -3441,7 +3441,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	palpitoadsoulstones: {
+	palpitoadorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L29"],
@@ -3517,7 +3517,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	seismitoadsoulstones: {
+	seismitoadorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L29"],
@@ -3593,7 +3593,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gulpinsoulstones: {
+	gulpinorion: {
 		learnset: {
 			amberwave: ["9L48"],
 			amnesia: ["9E"],
@@ -3684,7 +3684,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	swalotsoulstones: {
+	swalotorion: {
 		learnset: {
 			amberwave: ["9L48"],
 			attract: ["9M"],
@@ -3763,7 +3763,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spinaraksoulstones: {
+	spinarakorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allergy: ["9M"],
@@ -3863,7 +3863,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ariadossoulstones: {
+	ariadosorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allergy: ["9M"],
@@ -3955,7 +3955,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	baltoysoulstones: {
+	baltoyorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9L62", "9M"],
@@ -4047,7 +4047,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L52"],
 		},
 	},
-	claydolsoulstones: {
+	claydolorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9L62", "9M"],
@@ -4139,7 +4139,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L52"],
 		},
 	},
-	zoruasoulstones: {
+	zoruaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L42", "9M"],
@@ -4235,7 +4235,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	zoroarksoulstones: {
+	zoroarkorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L42", "9M"],
@@ -4324,7 +4324,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ducklettsoulstones: {
+	ducklettorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -4421,7 +4421,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	swannasoulstones: {
+	swannaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -4510,7 +4510,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	golettsoulstones: {
+	golettorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -4617,7 +4617,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L33", "9M"],
 		},
 	},
-	golurksoulstones: {
+	golurkorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -4724,7 +4724,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L33", "9M"],
 		},
 	},
-	morelullsoulstones: {
+	morelullorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9E", "9M"],
@@ -4823,7 +4823,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	shiinoticsoulstones: {
+	shiinoticorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -4913,7 +4913,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	larvestasoulstones: {
+	larvestaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -5011,7 +5011,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E"],
 		},
 	},
-	volcaronasoulstones: {
+	volcaronaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -5101,7 +5101,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	stantlersoulstones: {
+	stantlerorion: {
 		learnset: {
 			aromatherapy: ["9L15", "9M"],
 			attract: ["9M"],
@@ -5194,7 +5194,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L36", "9M"],
 		},
 	},
-	magikarpsoulstones: {
+	magikarporion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -5274,7 +5274,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	gyaradossoulstones: {
+	gyaradosorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -5365,7 +5365,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	bergmitesoulstones: {
+	bergmiteorion: {
 		learnset: {
 			accelerock: ["9L4"],
 			ambush: ["9M"],
@@ -5471,7 +5471,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	avaluggsoulstones: {
+	avaluggorion: {
 		learnset: {
 			accelerock: ["9L4"],
 			ambush: ["9M"],
@@ -5567,7 +5567,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ledybasoulstones: {
+	ledybaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -5681,7 +5681,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	lediansoulstones: {
+	ledianorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -5787,7 +5787,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ponytasoulstones: {
+	ponytaorion: {
 		learnset: {
 			agility: ["9L28"],
 			ambush: ["9M"],
@@ -5879,7 +5879,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rapidashsoulstones: {
+	rapidashorion: {
 		learnset: {
 			agility: ["9L28"],
 			ambush: ["9M"],
@@ -5962,7 +5962,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	amaurasoulstones: {
+	amauraorion: {
 		learnset: {
 			ancientglare: ["9E", "9M"],
 			ancientroar: ["9L23"],
@@ -6077,7 +6077,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	aurorussoulstones: {
+	aurorusorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientroar: ["9L23"],
@@ -6185,7 +6185,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	geodudesoulstones: {
+	geodudeorion: {
 		learnset: {
 			accelerock: ["9E"],
 			asteroidbelt: ["9M"],
@@ -6281,7 +6281,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gravelersoulstones: {
+	gravelerorion: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -6372,7 +6372,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	golemsoulstones: {
+	golemorion: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -6464,7 +6464,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	skrelpsoulstones: {
+	skrelporion: {
 		learnset: {
 			absorb: ["9L1"],
 			acidarmor: ["9E"],
@@ -6555,7 +6555,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			weatherball: ["9M"],
 		},
 	},
-	dragalgesoulstones: {
+	dragalgeorion: {
 		learnset: {
 			absorb: ["9L1"],
 			acidspray: ["9L8"],
@@ -6637,7 +6637,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			weatherball: ["9M"],
 		},
 	},
-	litleosoulstones: {
+	litleoorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -6727,7 +6727,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			yawn: ["9L26"],
 		},
 	},
-	pyroarsoulstones: {
+	pyroarorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -6807,7 +6807,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			yawn: ["9L26"],
 		},
 	},
-	lunatonesoulstones: {
+	lunatoneorion: {
 		learnset: {
 			airslash: ["9M"],
 			antimatter: ["9M"],
@@ -6913,7 +6913,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	solrocksoulstones: {
+	solrockorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -7028,7 +7028,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	drowzeesoulstones: {
+	drowzeeorion: {
 		learnset: {
 			ambush: ["9L44", "9M"],
 			attract: ["9M"],
@@ -7133,7 +7133,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hypnosoulstones: {
+	hypnoorion: {
 		learnset: {
 			ambush: ["9L44", "9M"],
 			attract: ["9M"],
@@ -7227,7 +7227,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	seelsoulstones: {
+	seelorion: {
 		learnset: {
 			attract: ["9M"],
 			bodypress: ["9L34", "9M"],
@@ -7330,7 +7330,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dewgongsoulstones: {
+	dewgongorion: {
 		learnset: {
 			amnesia: ["9L0", "9L1"],
 			attract: ["9M"],
@@ -7426,7 +7426,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	skiddosoulstones: {
+	skiddoorion: {
 		learnset: {
 			accelerock: ["9L7"],
 			aerialace: ["9M"],
@@ -7514,7 +7514,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L38", "9M"],
 		},
 	},
-	gogoatsoulstones: {
+	gogoatorion: {
 		learnset: {
 			accelerock: ["9L7"],
 			aerialace: ["9M"],
@@ -7594,7 +7594,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L38", "9M"],
 		},
 	},
-	kabutosoulstones: {
+	kabutoorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allergy: ["9M"],
@@ -7686,7 +7686,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9L34"],
 		},
 	},
-	kabutopssoulstones: {
+	kabutopsorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allergy: ["9M"],
@@ -7769,7 +7769,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9L34"],
 		},
 	},
-	shroomishsoulstones: {
+	shroomishorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -7873,7 +7873,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L31"],
 		},
 	},
-	breloomsoulstones: {
+	breloomorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -7971,7 +7971,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L31"],
 		},
 	},
-	aerodactylsoulstones: {
+	aerodactylorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -8064,7 +8064,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	roggenrolasoulstones: {
+	roggenrolaorion: {
 		learnset: {
 			aquaring: ["9L29"],
 			attract: ["9M"],
@@ -8148,7 +8148,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	boldoresoulstones: {
+	boldoreorion: {
 		learnset: {
 			aquaring: ["9L29"],
 			attract: ["9M"],
@@ -8226,7 +8226,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gigalithsoulstones: {
+	gigalithorion: {
 		learnset: {
 			aquaring: ["9L29"],
 			attract: ["9M"],
@@ -8304,7 +8304,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	finneonsoulstones: {
+	finneonorion: {
 		learnset: {
 			aquaring: ["9L28"],
 			astralwind: ["9M"],
@@ -8417,7 +8417,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	lumineonsoulstones: {
+	lumineonorion: {
 		learnset: {
 			aquaring: ["9L28"],
 			astralwind: ["9M"],
@@ -8524,7 +8524,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	gligarsoulstones: {
+	gligarorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -8668,7 +8668,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gliscorsoulstones: {
+	gliscororion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -8804,7 +8804,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lillipupsoulstones: {
+	lillipuporion: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -8891,7 +8891,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	herdiersoulstones: {
+	herdierorion: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -8972,7 +8972,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	stoutlandsoulstones: {
+	stoutlandorion: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -9053,7 +9053,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	drifloonsoulstones: {
+	drifloonorion: {
 		learnset: {
 			acrobatics: ["9L24", "9M"],
 			aerialace: ["9M"],
@@ -9146,7 +9146,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	drifblimsoulstones: {
+	drifblimorion: {
 		learnset: {
 			acrobatics: ["9L24", "9M"],
 			aerialace: ["9M"],
@@ -9231,7 +9231,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	minccinosoulstones: {
+	minccinoorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -9336,7 +9336,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	cinccinosoulstones: {
+	cinccinoorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -9438,7 +9438,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	bonslysoulstones: {
+	bonslyorion: {
 		learnset: {
 			absorb: ["9L1"],
 			attract: ["9M"],
@@ -9530,7 +9530,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sudowoodosoulstones: {
+	sudowoodoorion: {
 		learnset: {
 			absorb: ["9L1"],
 			attract: ["9M"],
@@ -9625,7 +9625,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	druddigonsoulstones: {
+	druddigonorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -9744,7 +9744,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	woobatsoulstones: {
+	woobatorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -9857,7 +9857,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	swoobatsoulstones: {
+	swoobatorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -9959,7 +9959,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	krabbysoulstones: {
+	krabbyorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -10068,7 +10068,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	kinglersoulstones: {
+	kinglerorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -10164,7 +10164,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	hoothootsoulstones: {
+	hoothootorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -10275,7 +10275,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	noctowlsoulstones: {
+	noctowlorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -10379,7 +10379,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	voltorbsoulstones: {
+	voltorborion: {
 		learnset: {
 			ambush: ["9M"],
 			asteroidbelt: ["9M"],
@@ -10452,7 +10452,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	electrodesoulstones: {
+	electrodeorion: {
 		learnset: {
 			ambush: ["9M"],
 			asteroidbelt: ["9M"],
@@ -10527,7 +10527,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sandygastsoulstones: {
+	sandygastorion: {
 		learnset: {
 			ambush: ["9M"],
 			amnesia: ["9E"],
@@ -10629,7 +10629,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	palossandsoulstones: {
+	palossandorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -10721,7 +10721,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	weedlesoulstones: {
+	weedleorion: {
 		learnset: {
 			irritant: ["9L1"],
 			metallicgleam: ["9L4"],
@@ -10730,7 +10730,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thundercage: ["9L1"],
 		},
 	},
-	kakunasoulstones: {
+	kakunaorion: {
 		learnset: {
 			harden: ["9L0", "9L1"],
 			irondefense: ["9M"],
@@ -10741,7 +10741,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			thundercage: ["9L1"],
 		},
 	},
-	beedrillsoulstones: {
+	beedrillorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L25"],
@@ -10833,7 +10833,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9M"],
 		},
 	},
-	machopsoulstones: {
+	machoporion: {
 		learnset: {
 			ancientglare: ["9M"],
 			armthrust: ["9L16"],
@@ -10937,7 +10937,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	machokesoulstones: {
+	machokeorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			armthrust: ["9L16"],
@@ -11034,7 +11034,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	machampsoulstones: {
+	machamporion: {
 		learnset: {
 			ancientglare: ["9M"],
 			armthrust: ["9L16"],
@@ -11131,7 +11131,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bulbasaursoulstones: {
+	bulbasaurorion: {
 		learnset: {
 			amnesia: ["9E"],
 			antimatter: ["9M"],
@@ -11260,7 +11260,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ivysaursoulstones: {
+	ivysaurorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -11385,7 +11385,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	venusaursoulstones: {
+	venusaurorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -11510,7 +11510,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	taurossoulstones: {
+	taurosorion: {
 		learnset: {
 			agility: ["9E"],
 			attract: ["9M"],
@@ -11604,7 +11604,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	carvanhasoulstones: {
+	carvanhaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L11", "9M"],
@@ -11718,7 +11718,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sharpedosoulstones: {
+	sharpedoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L11", "9M"],
@@ -11821,7 +11821,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	timburrsoulstones: {
+	timburrorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -11932,7 +11932,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gurdurrsoulstones: {
+	gurdurrorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -12036,7 +12036,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	conkeldurrsoulstones: {
+	conkeldurrorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -12140,7 +12140,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	litwicksoulstones: {
+	litwickorion: {
 		learnset: {
 			ancientfire: ["9E"],
 			arcaneenergy: ["9M"],
@@ -12237,7 +12237,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	lampentsoulstones: {
+	lampentorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -12328,7 +12328,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	chandeluresoulstones: {
+	chandelureorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -12419,7 +12419,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	vanillitesoulstones: {
+	vanilliteorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L38"],
@@ -12496,7 +12496,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9M"],
 		},
 	},
-	vanillishsoulstones: {
+	vanillishorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L38"],
@@ -12567,7 +12567,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9M"],
 		},
 	},
-	vanilluxesoulstones: {
+	vanilluxeorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L38"],
@@ -12639,7 +12639,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9M"],
 		},
 	},
-	elekidsoulstones: {
+	elekidorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -12750,7 +12750,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	electabuzzsoulstones: {
+	electabuzzorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -12852,7 +12852,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	electiviresoulstones: {
+	electivireorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -12955,7 +12955,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	poppliosoulstones: {
+	popplioorion: {
 		learnset: {
 			absorb: ["9L1"],
 			amnesia: ["9E"],
@@ -13049,7 +13049,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	brionnesoulstones: {
+	brionneorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aphroditesmirror: ["9L47"],
@@ -13136,7 +13136,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	primarinasoulstones: {
+	primarinaorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aphroditesmirror: ["9L47"],
@@ -13224,7 +13224,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	snoruntsoulstones: {
+	snoruntorion: {
 		learnset: {
 			ambush: ["9L48", "9M"],
 			ancientglare: ["9M"],
@@ -13328,7 +13328,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L30", "9M"],
 		},
 	},
-	glaliesoulstones: {
+	glalieorion: {
 		learnset: {
 			ambush: ["9L48", "9M"],
 			ancientglare: ["9M"],
@@ -13422,7 +13422,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L30", "9M"],
 		},
 	},
-	froslasssoulstones: {
+	froslassorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -13564,7 +13564,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	magbysoulstones: {
+	magbyorion: {
 		learnset: {
 			acidarmor: ["9L26"],
 			aquaring: ["9L1"],
@@ -13655,7 +13655,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	magmarsoulstones: {
+	magmarorion: {
 		learnset: {
 			acidarmor: ["9L26"],
 			aquaring: ["9L1"],
@@ -13739,7 +13739,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	magmortarsoulstones: {
+	magmortarorion: {
 		learnset: {
 			acidarmor: ["9L26"],
 			aquaring: ["9L1"],
@@ -13823,7 +13823,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	exeggcutesoulstones: {
+	exeggcuteorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L1"],
@@ -13914,7 +13914,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9M"],
 		},
 	},
-	exeggutorsoulstones: {
+	exeggutororion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L1"],
@@ -14000,7 +14000,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9M"],
 		},
 	},
-	joltiksoulstones: {
+	joltikorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			allergy: ["9M"],
@@ -14115,7 +14115,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	galvantulasoulstones: {
+	galvantulaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			allergy: ["9M"],
@@ -14223,7 +14223,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grimersoulstones: {
+	grimerorion: {
 		learnset: {
 			acidarmor: ["9L33"],
 			allergy: ["9M"],
@@ -14336,7 +14336,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	muksoulstones: {
+	mukorion: {
 		learnset: {
 			acidarmor: ["9L33"],
 			allergy: ["9M"],
@@ -14441,7 +14441,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chimcharsoulstones: {
+	chimcharorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -14550,7 +14550,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9E"],
 		},
 	},
-	monfernosoulstones: {
+	monfernoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -14650,7 +14650,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	infernapesoulstones: {
+	infernapeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -14751,7 +14751,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sableyesoulstones: {
+	sableyeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -14868,7 +14868,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cubchoosoulstones: {
+	cubchooorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -14983,7 +14983,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bearticsoulstones: {
+	bearticorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -15090,7 +15090,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	treeckosoulstones: {
+	treeckoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -15199,7 +15199,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9L31"],
 		},
 	},
-	grovylesoulstones: {
+	grovyleorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -15299,7 +15299,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9L31"],
 		},
 	},
-	sceptilesoulstones: {
+	sceptileorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -15399,7 +15399,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9L31"],
 		},
 	},
-	larvitarsoulstones: {
+	larvitarorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -15512,7 +15512,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pupitarsoulstones: {
+	pupitarorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -15612,7 +15612,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tyranitarsoulstones: {
+	tyranitarorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -15713,7 +15713,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hippopotassoulstones: {
+	hippopotasorion: {
 		learnset: {
 			aquafang: ["9L14"],
 			aquaring: ["9E"],
@@ -15809,7 +15809,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	hippowdonsoulstones: {
+	hippowdonorion: {
 		learnset: {
 			aquafang: ["9L14"],
 			aromatherapy: ["9M"],
@@ -15899,7 +15899,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bronzorsoulstones: {
+	bronzororion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientpower: ["9L13"],
@@ -16013,7 +16013,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bronzongsoulstones: {
+	bronzongorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientpower: ["9L13"],
@@ -16119,7 +16119,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	swirlixsoulstones: {
+	swirlixorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -16234,7 +16234,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	slurpuffsoulstones: {
+	slurpufforion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -16345,7 +16345,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mareepsoulstones: {
+	mareeporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -16464,7 +16464,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	flaaffysoulstones: {
+	flaaffyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -16573,7 +16573,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ampharossoulstones: {
+	ampharosorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -16683,7 +16683,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	swablusoulstones: {
+	swabluorion: {
 		learnset: {
 			acidarmor: ["9L41"],
 			acidrain: ["9L54", "9M"],
@@ -16806,7 +16806,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	altariasoulstones: {
+	altariaorion: {
 		learnset: {
 			acidarmor: ["9L41"],
 			acidrain: ["9L54", "9M"],
@@ -16926,7 +16926,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	abrasoulstones: {
+	abraorion: {
 		learnset: {
 			achillesheel: ["9L11"],
 			acrobatics: ["9M"],
@@ -17026,7 +17026,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	kadabrasoulstones: {
+	kadabraorion: {
 		learnset: {
 			achillesheel: ["9L11"],
 			acrobatics: ["9M"],
@@ -17118,7 +17118,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	alakazamsoulstones: {
+	alakazamorion: {
 		learnset: {
 			achillesheel: ["9L11"],
 			acrobatics: ["9M"],
@@ -17210,7 +17210,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	venipedesoulstones: {
+	venipedeorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -17322,7 +17322,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	whirlipedesoulstones: {
+	whirlipedeorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -17426,7 +17426,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	scolipedesoulstones: {
+	scolipedeorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -17531,7 +17531,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	heracrosssoulstones: {
+	heracrossorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -17636,7 +17636,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	teddiursasoulstones: {
+	teddiursaorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9L34", "9M"],
@@ -17779,7 +17779,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ursaringsoulstones: {
+	ursaringorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9L34", "9M"],
@@ -17918,7 +17918,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	psyducksoulstones: {
+	psyduckorion: {
 		learnset: {
 			allergy: ["9M"],
 			arcaneenergy: ["9M"],
@@ -18038,7 +18038,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	golducksoulstones: {
+	golduckorion: {
 		learnset: {
 			allergy: ["9M"],
 			arcaneenergy: ["9M"],
@@ -18150,7 +18150,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	duskullsoulstones: {
+	duskullorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -18256,7 +18256,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dusclopssoulstones: {
+	dusclopsorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -18350,7 +18350,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dusknoirsoulstones: {
+	dusknoirorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -18445,7 +18445,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	skittysoulstones: {
+	skittyorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			assurance: ["9E"],
@@ -18578,7 +18578,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	delcattysoulstones: {
+	delcattyorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -18698,7 +18698,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	teevee: {
+	eeveetemporal: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astonish: ["9L1"],
@@ -18792,7 +18792,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tvaporeon: {
+	vaporeontemporal: {
 		learnset: {
 			accelerock: ["9L20"],
 			acrobatics: ["9M"],
@@ -18922,7 +18922,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tjolteon: {
+	jolteontemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L45", "9M"],
@@ -19050,7 +19050,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tflareon: {
+	flareontemporal: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astonish: ["9L1"],
@@ -19209,7 +19209,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tespeon: {
+	espeontemporal: {
 		learnset: {
 			acidarmor: ["9L30"],
 			acidrain: ["9M"],
@@ -19332,7 +19332,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tumbreon: {
+	umbreontemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			arcaneenergy: ["9M"],
@@ -19452,7 +19452,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tleafeon: {
+	leafeontemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -19594,7 +19594,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tglaceon: {
+	glaceontemporal: {
 		learnset: {
 			accelerock: ["9L0", "9L1"],
 			ambush: ["9M"],
@@ -19753,7 +19753,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsylveon: {
+	sylveontemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -19897,7 +19897,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	deerlingsoulstones: {
+	deerlingorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -19982,7 +19982,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sawsbucksoulstones: {
+	sawsbuckorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -20058,7 +20058,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	aronsoulstones: {
+	aronorion: {
 		learnset: {
 			ambush: ["9M"],
 			attackorder: ["9L54"],
@@ -20161,7 +20161,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	laironsoulstones: {
+	laironorion: {
 		learnset: {
 			ambush: ["9M"],
 			attackorder: ["9L54"],
@@ -20260,7 +20260,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	aggronsoulstones: {
+	aggronorion: {
 		learnset: {
 			ambush: ["9M"],
 			armthrust: ["9L1"],
@@ -20361,7 +20361,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shellossoulstones: {
+	shellosorion: {
 		learnset: {
 			achillesheel: ["9L10"],
 			ancientglare: ["9M"],
@@ -22011,7 +22011,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gastrodonsoulstones: {
+	gastrodonorion: {
 		learnset: {
 			achillesheel: ["9L10"],
 			ancientglare: ["9M"],
@@ -23576,7 +23576,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meowthsoulstones: {
+	meowthorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -23698,7 +23698,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	persiansoulstones: {
+	persianorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -23809,7 +23809,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wurmplessoulstones: {
+	wurmplesorion: {
 		learnset: {
 			confusion: ["9L4"],
 			infestation: ["9L1"],
@@ -23818,7 +23818,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			strugglebug: ["9L10", "9M"],
 		},
 	},
-	silcoonsoulstones: {
+	silcoonorion: {
 		learnset: {
 			confusion: ["9L4"],
 			harden: ["9L0", "9L1"],
@@ -23829,7 +23829,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			strugglebug: ["9L10", "9M"],
 		},
 	},
-	beautiflysoulstones: {
+	beautiflyorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -23961,7 +23961,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	wurmplecsoulstones: {
+	wurmplecorion: {
 		learnset: {
 			bugbite: ["9L10"],
 			bugsting: ["9L1"],
@@ -23972,7 +23972,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			strugglebug: ["9M"],
 		},
 	},
-	cascoonsoulstones: {
+	cascoonorion: {
 		learnset: {
 			bugbite: ["9L10"],
 			bugsting: ["9L1"],
@@ -23985,7 +23985,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			strugglebug: ["9M"],
 		},
 	},
-	dustoxsoulstones: {
+	dustoxorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -24101,7 +24101,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	aipomsoulstones: {
+	aipomorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			arcaneblast: ["9L14"],
@@ -24234,7 +24234,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ambipomsoulstones: {
+	ambipomorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			arcaneblast: ["9L14"],
@@ -24355,7 +24355,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rattatasoulstones: {
+	rattataorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allyswitch: ["9L1"],
@@ -24477,7 +24477,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	raticatesoulstones: {
+	raticateorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allyswitch: ["9L1"],
@@ -24591,7 +24591,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	starlysoulstones: {
+	starlyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -24682,7 +24682,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zephyrpurge: ["9L60"],
 		},
 	},
-	staraviasoulstones: {
+	staraviaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -24773,7 +24773,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zephyrpurge: ["9L60"],
 		},
 	},
-	staraptorsoulstones: {
+	staraptororion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -24864,7 +24864,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zephyrpurge: ["9L60"],
 		},
 	},
-	kricketotsoulstones: {
+	kricketotorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -24976,7 +24976,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	kricketunesoulstones: {
+	kricketuneorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -25083,7 +25083,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	slowpokesoulstones: {
+	slowpokeorion: {
 		learnset: {
 			achillesheel: ["9E"],
 			amnesia: ["9E"],
@@ -25170,7 +25170,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	slowbrosoulstones: {
+	slowbroorion: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attackorder: ["9L1"],
@@ -25252,7 +25252,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	slowkingsoulstones: {
+	slowkingorion: {
 		learnset: {
 			aromatherapy: ["9L40", "9M"],
 			attackorder: ["9L1"],
@@ -25337,7 +25337,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rookideesoulstones: {
+	rookideeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -25434,7 +25434,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	corvisquiresoulstones: {
+	corvisquireorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -25525,7 +25525,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	corviknightsoulstones: {
+	corviknightorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -25617,7 +25617,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	oddishsoulstones: {
+	oddishorion: {
 		learnset: {
 			afteryou: ["9E"],
 			antimatter: ["9M"],
@@ -25736,7 +25736,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	gloomsoulstones: {
+	gloomorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -25846,7 +25846,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	vileplumesoulstones: {
+	vileplumeorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -25957,7 +25957,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	bellossomsoulstones: {
+	bellossomorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9L60", "9M"],
@@ -26071,7 +26071,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	sunkernsoulstones: {
+	sunkernorion: {
 		learnset: {
 			ancientfire: ["9E"],
 			aromatherapy: ["9L43", "9M"],
@@ -26153,7 +26153,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sunflorasoulstones: {
+	sunfloraorion: {
 		learnset: {
 			aromatherapy: ["9L43", "9M"],
 			attract: ["9M"],
@@ -26229,7 +26229,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	stunkysoulstones: {
+	stunkyorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -26332,7 +26332,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	skuntanksoulstones: {
+	skuntankorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -26429,7 +26429,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	feebassoulstones: {
+	feebasorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			aromatherapy: ["9M"],
@@ -26527,7 +26527,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	miloticsoulstones: {
+	miloticorion: {
 		learnset: {
 			aphroditesmirror: ["9L44"],
 			arcaneenergy: ["9M"],
@@ -26634,7 +26634,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	horseasoulstones: {
+	horseaorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -26745,7 +26745,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	seadrasoulstones: {
+	seadraorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -26849,7 +26849,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	kingdrasoulstones: {
+	kingdraorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -26953,7 +26953,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	yampersoulstones: {
+	yamperorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -27046,7 +27046,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	boltundsoulstones: {
+	boltundorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -27132,7 +27132,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	venonatsoulstones: {
+	venonatorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -27235,7 +27235,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	venomothsoulstones: {
+	venomothorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -27335,7 +27335,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	caterpiesoulstones: {
+	caterpieorion: {
 		learnset: {
 			essencearrow: ["9L1"],
 			infestation: ["9L1"],
@@ -27344,7 +27344,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			strugglebug: ["9L10", "9M"],
 		},
 	},
-	metapodsoulstones: {
+	metapodorion: {
 		learnset: {
 			essencearrow: ["9L1"],
 			harden: ["9L0", "9L1"],
@@ -27355,7 +27355,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			strugglebug: ["9L10", "9M"],
 		},
 	},
-	butterfreesoulstones: {
+	butterfreeorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -27473,7 +27473,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mankeysoulstones: {
+	mankeyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -27597,7 +27597,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	primeapesoulstones: {
+	primeapeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -27706,7 +27706,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tynamosoulstones: {
+	tynamoorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -27827,7 +27827,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	eelektriksoulstones: {
+	eelektrikorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -27940,7 +27940,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	eelektrosssoulstones: {
+	eelektrossorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -28054,7 +28054,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	eeveesoulstones: {
+	eeveeorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -28499,7 +28499,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	basculinsoulstones: {
+	basculinorion: {
 		learnset: {
 			agility: ["9E"],
 			ambush: ["9M"],
@@ -28597,7 +28597,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmsrage: ["9L17"],
 		},
 	},
-	basculinsoulstonesdragonfish: {
+	basculinoriondragonfish: {
 		learnset: {
 			agility: ["9E"],
 			ambush: ["9M"],
@@ -28695,7 +28695,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmsrage: ["9L17"],
 		},
 	},
-	chinchousoulstones: {
+	chinchouorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -28813,7 +28813,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lanturnsoulstones: {
+	lanturnorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -28922,7 +28922,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	noibatsoulstones: {
+	noibatorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -29052,7 +29052,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	noivernsoulstones: {
+	noivernorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -29174,7 +29174,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	parassoulstones: {
+	parasorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L5"],
@@ -29291,7 +29291,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			vitalitydrain: ["9M"],
 		},
 	},
-	parasectsoulstones: {
+	parasectorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L5"],
@@ -29396,7 +29396,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			vitalitydrain: ["9M"],
 		},
 	},
-	impidimpsoulstones: {
+	impidimporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -29519,7 +29519,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	morgremsoulstones: {
+	morgremorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -29637,7 +29637,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grimmsnarlsoulstones: {
+	grimmsnarlorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -29756,7 +29756,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pidovesoulstones: {
+	pidoveorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -29873,7 +29873,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tranquillsoulstones: {
+	tranquillorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -29985,7 +29985,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	unfezantsoulstones: {
+	unfezantorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30097,7 +30097,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	seedotsoulstones: {
+	seedotorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30193,7 +30193,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nuzleafsoulstones: {
+	nuzleaforion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30284,7 +30284,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shiftrysoulstones: {
+	shiftryorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30378,7 +30378,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hoppipsoulstones: {
+	hoppiporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30488,7 +30488,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	skiploomsoulstones: {
+	skiploomorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30590,7 +30590,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	jumpluffsoulstones: {
+	jumplufforion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -30693,7 +30693,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	dwebblesoulstones: {
+	dwebbleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			asteroidbelt: ["9M"],
@@ -30800,7 +30800,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	crustlesoulstones: {
+	crustleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			asteroidbelt: ["9M"],
@@ -30901,7 +30901,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sentretsoulstones: {
+	sentretorion: {
 		learnset: {
 			acidrain: ["9L51"],
 			acrobatics: ["9M"],
@@ -31016,7 +31016,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furretsoulstones: {
+	furretorion: {
 		learnset: {
 			acidrain: ["9L51"],
 			acrobatics: ["9M"],
@@ -31123,7 +31123,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chikoritasoulstones: {
+	chikoritaorion: {
 		learnset: {
 			allergy: ["9M"],
 			aromatherapy: ["9L9", "9M"],
@@ -31234,7 +31234,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bayleefsoulstones: {
+	bayleeforion: {
 		learnset: {
 			allergy: ["9M"],
 			aromatherapy: ["9L9", "9M"],
@@ -31338,7 +31338,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meganiumsoulstones: {
+	meganiumorion: {
 		learnset: {
 			allergy: ["9M"],
 			aromatherapy: ["9L9", "9M"],
@@ -31443,7 +31443,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cyndaquilsoulstones: {
+	cyndaquilorion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -31559,7 +31559,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	quilavasoulstones: {
+	quilavaorion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -31670,7 +31670,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	typhlosionsoulstones: {
+	typhlosionorion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -31782,7 +31782,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	raltssoulstones: {
+	raltsorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9E"],
@@ -31917,7 +31917,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	kirliasoulstones: {
+	kirliaorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L56", "9M"],
@@ -32042,7 +32042,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gardevoirsoulstones: {
+	gardevoirorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L56", "9M"],
@@ -32157,7 +32157,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	galladesoulstones: {
+	galladeorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -32276,7 +32276,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	numelsoulstones: {
+	numelorion: {
 		learnset: {
 			aquaring: ["9L12"],
 			attract: ["9M"],
@@ -32373,7 +32373,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cameruptsoulstones: {
+	cameruptorion: {
 		learnset: {
 			aquaring: ["9L12"],
 			attract: ["9M"],
@@ -32464,7 +32464,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	laprassoulstones: {
+	laprasorion: {
 		learnset: {
 			amberwave: ["9L43"],
 			asteroidbelt: ["9M"],
@@ -32582,7 +32582,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	totodilesoulstones: {
+	totodileorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -32705,7 +32705,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	croconawsoulstones: {
+	croconaworion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -32820,7 +32820,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	feraligatrsoulstones: {
+	feraligatrorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -32935,7 +32935,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	diglettsoulstones: {
+	diglettorion: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -33051,7 +33051,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	dugtriosoulstones: {
+	dugtrioorion: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -33159,7 +33159,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	croagunksoulstones: {
+	croagunkorion: {
 		learnset: {
 			achillesheel: ["9E"],
 			acidrain: ["9M"],
@@ -33299,7 +33299,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	toxicroaksoulstones: {
+	toxicroakorion: {
 		learnset: {
 			acidrain: ["9M"],
 			alkalinebomb: ["9L11"],
@@ -33429,7 +33429,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spritzeesoulstones: {
+	spritzeeorion: {
 		learnset: {
 			acidrain: ["9M"],
 			alkalinebomb: ["9L7"],
@@ -33542,7 +33542,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	aromatissesoulstones: {
+	aromatisseorion: {
 		learnset: {
 			acidrain: ["9M"],
 			alkalinebomb: ["9L7"],
@@ -33648,7 +33648,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	durantsoulstones: {
+	durantorion: {
 		learnset: {
 			agility: ["9E"],
 			attract: ["9M"],
@@ -33762,7 +33762,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	yanmasoulstones: {
+	yanmaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -33881,7 +33881,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	yanmegasoulstones: {
+	yanmegaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -33991,7 +33991,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	azurillsoulstones: {
+	azurillorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -34096,7 +34096,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	marillsoulstones: {
+	marillorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -34202,7 +34202,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	azumarillsoulstones: {
+	azumarillorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -34299,7 +34299,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	comfeysoulstones: {
+	comfeyorion: {
 		learnset: {
 			afteryou: ["9E"],
 			allyswitch: ["9E"],
@@ -34416,7 +34416,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	rowletsoulstones: {
+	rowletorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -34508,7 +34508,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	dartrixsoulstones: {
+	dartrixorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -34598,7 +34598,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	decidueyesoulstones: {
+	decidueyeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -34689,7 +34689,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	skorupisoulstones: {
+	skorupiorion: {
 		learnset: {
 			acupressure: ["9L48"],
 			allergy: ["9M"],
@@ -34803,7 +34803,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	drapionsoulstones: {
+	drapionorion: {
 		learnset: {
 			acupressure: ["9L48"],
 			allergy: ["9M"],
@@ -34909,7 +34909,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstones: {
+	furfrouorion: {
 		learnset: {
 			acrobatics: ["9L16", "9M"],
 			aerialace: ["9M"],
@@ -35007,7 +35007,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstonesash: {
+	furfrouorionash: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -35112,7 +35112,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstonesfog: {
+	furfrouorionfog: {
 		learnset: {
 			acidrain: ["9L52", "9M"],
 			acrobatics: ["9M"],
@@ -35239,7 +35239,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstoneschilling: {
+	furfrouorionchilling: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -35351,7 +35351,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstonesdust: {
+	furfrouoriondust: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -35470,7 +35470,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstonesstorm: {
+	furfrouorionstorm: {
 		learnset: {
 			acrobatics: ["9L16", "9M"],
 			aerialace: ["9M"],
@@ -35589,7 +35589,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	furfrousoulstonestornado: {
+	furfrouoriontornado: {
 		learnset: {
 			acrobatics: ["9L16", "9M"],
 			aerialace: ["9M"],
@@ -35709,7 +35709,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meloettasoulstones: {
+	meloettaorion: {
 		learnset: {
 			acrobatics: ["9L24", "9M"],
 			airslash: ["9M"],
@@ -35808,7 +35808,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	poochyenasoulstones: {
+	poochyenaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -35899,7 +35899,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mightyenasoulstones: {
+	mightyenaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -35981,7 +35981,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	littensoulstones: {
+	littenorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -36092,7 +36092,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	torracatsoulstones: {
+	torracatorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -36196,7 +36196,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	incineroarsoulstones: {
+	incineroarorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -36301,7 +36301,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spiritombsoulstones: {
+	spiritomborion: {
 		learnset: {
 			antimatter: ["9L32", "9M"],
 			asteroidbelt: ["9M"],
@@ -36396,7 +36396,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	absolsoulstones: {
+	absolorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -36497,7 +36497,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	honedgesoulstones: {
+	honedgeorion: {
 		learnset: {
 			arcaneenergy: ["9L54", "9M"],
 			astralwind: ["9M"],
@@ -36605,7 +36605,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	honedgesoulstonesbow: {
+	honedgeorionbow: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -36689,7 +36689,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	honedgesoulstonesaxe: {
+	honedgeorionaxe: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -36774,7 +36774,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	honedgesoulstoneshammer: {
+	honedgeorionhammer: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -36880,7 +36880,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	doubladesoulstones: {
+	doubladeorion: {
 		learnset: {
 			arcaneenergy: ["9L54", "9M"],
 			astralwind: ["9M"],
@@ -36982,7 +36982,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	doubladesoulstonesbow: {
+	doubladeorionbow: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -37062,7 +37062,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	doubladesoulstonesaxe: {
+	doubladeorionaxe: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -37142,7 +37142,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	doubladesoulstoneshammer: {
+	doubladeorionhammer: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -37241,7 +37241,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	aegislashsoulstones: {
+	aegislashorion: {
 		learnset: {
 			arcaneenergy: ["9L54", "9M"],
 			astralwind: ["9M"],
@@ -37343,7 +37343,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	aegislashsoulstonesbow: {
+	aegislashorionbow: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -37423,7 +37423,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	aegislashsoulstonesaxe: {
+	aegislashorionaxe: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -37504,7 +37504,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	aegislashsoulstoneshammer: {
+	aegislashorionhammer: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -37603,7 +37603,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	beldumsoulstones: {
+	beldumorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L15"],
@@ -37720,7 +37720,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	metangsoulstones: {
+	metangorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L15"],
@@ -37838,7 +37838,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	metagrosssoulstones: {
+	metagrossorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L15"],
@@ -37957,7 +37957,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dunsparcesoulstones: {
+	dunsparceorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -38046,7 +38046,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	medititesoulstones: {
+	medititeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -38145,7 +38145,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	medichamsoulstones: {
+	medichamorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -38233,7 +38233,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nincadasoulstones: {
+	nincadaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L25"],
@@ -38301,7 +38301,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ninjasksoulstones: {
+	ninjaskorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -38405,7 +38405,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	shedinjasoulstones: {
+	shedinjaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -38514,7 +38514,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	deinosoulstones: {
+	deinoorion: {
 		learnset: {
 			allyswitch: ["9L10"],
 			ancientglare: ["9M"],
@@ -38634,7 +38634,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	zweiloussoulstones: {
+	zweilousorion: {
 		learnset: {
 			allyswitch: ["9L10"],
 			ancientglare: ["9M"],
@@ -38744,7 +38744,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hydreigonsoulstones: {
+	hydreigonorion: {
 		learnset: {
 			allyswitch: ["9L10"],
 			ancientglare: ["9M"],
@@ -38854,7 +38854,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cherubisoulstones: {
+	cherubiorion: {
 		learnset: {
 			aromatherapy: ["9L20", "9M"],
 			attract: ["9M"],
@@ -38954,7 +38954,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cherrimsoulstones: {
+	cherrimorion: {
 		learnset: {
 			aromatherapy: ["9L20", "9M"],
 			attract: ["9M"],
@@ -39046,7 +39046,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cherrimsoulstoneshailing: {
+	cherrimorionhailing: {
 		learnset: {
 			aromatherapy: ["9L20", "9M"],
 			attract: ["9M"],
@@ -39138,7 +39138,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	gossifleursoulstones: {
+	gossifleurorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9L24", "9M"],
@@ -39247,7 +39247,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			worryseed: ["9L12"],
 		},
 	},
-	eldegosssoulstones: {
+	eldegossorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9L24", "9M"],
@@ -39342,7 +39342,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			worryseed: ["9L12"],
 		},
 	},
-	espurrsoulstones: {
+	espurrorion: {
 		learnset: {
 			aerialace: ["9M"],
 			allyswitch: ["9E"],
@@ -39458,7 +39458,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	espurrsoulstonesarsonist: {
+	espurrorionarsonist: {
 		learnset: {
 			ancientfire: ["9L46"],
 			antimatter: ["9M"],
@@ -39565,7 +39565,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meowsticsoulstones: {
+	meowsticorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -39668,7 +39668,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meowsticsoulstonesarsonist: {
+	meowsticorionarsonist: {
 		learnset: {
 			ancientfire: ["9L46"],
 			antimatter: ["9M"],
@@ -39770,7 +39770,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	corsolasoulstones: {
+	corsolaorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L38"],
@@ -39871,7 +39871,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cursolasoulstones: {
+	cursolaorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L38"],
@@ -39970,7 +39970,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pidgeysoulstones: {
+	pidgeyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -40066,7 +40066,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	pidgeottosoulstones: {
+	pidgeottoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -40155,7 +40155,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	pidgeotsoulstones: {
+	pidgeotorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -40245,7 +40245,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mantykesoulstones: {
+	mantykeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -40373,7 +40373,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mantinesoulstones: {
+	mantineorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -40502,7 +40502,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lileepsoulstones: {
+	lileeporion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L46", "9M"],
@@ -40606,7 +40606,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cradilysoulstones: {
+	cradilyorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L46", "9M"],
@@ -40704,7 +40704,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	murkrowsoulstones: {
+	murkroworion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -40810,7 +40810,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	honchkrowsoulstones: {
+	honchkroworion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -40909,7 +40909,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cacneasoulstones: {
+	cacneaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -41015,7 +41015,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cacturnesoulstones: {
+	cacturneorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -41110,7 +41110,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	happinysoulstones: {
+	happinyorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -41233,7 +41233,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chanseysoulstones: {
+	chanseyorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -41356,7 +41356,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	blisseysoulstones: {
+	blisseyorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -41471,7 +41471,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tentacoolsoulstones: {
+	tentacoolorion: {
 		learnset: {
 			antimatter: ["9M"],
 			aquaring: ["9L14"],
@@ -41590,7 +41590,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tentacruelsoulstones: {
+	tentacruelorion: {
 		learnset: {
 			antimatter: ["9M"],
 			aquaring: ["9L14"],
@@ -41702,7 +41702,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bounsweetsoulstones: {
+	bounsweetorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -41830,7 +41830,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	steeneesoulstones: {
+	steeneeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -41949,7 +41949,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tsareenasoulstones: {
+	tsareenaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -42068,7 +42068,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	growlithesoulstones: {
+	growlitheorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -42195,7 +42195,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	arcaninesoulstones: {
+	arcanineorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9L0", "9L1", "9M"],
@@ -42314,7 +42314,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	elgyemsoulstones: {
+	elgyemorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -42428,7 +42428,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	beheeyemsoulstones: {
+	beheeyemorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -42535,7 +42535,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	silicobrasoulstones: {
+	silicobraorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientglare: ["9M"],
@@ -42635,7 +42635,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	sandacondasoulstones: {
+	sandacondaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientglare: ["9M"],
@@ -42729,7 +42729,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pichusoulstones: {
+	pichuorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9L24"],
@@ -42841,7 +42841,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pikachusoulstones: {
+	pikachuorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9L24"],
@@ -42949,7 +42949,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	raichusoulstones: {
+	raichuorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9L24"],
@@ -43058,7 +43058,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	yamasksoulstones: {
+	yamaskorion: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9E"],
@@ -43166,7 +43166,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cofagrigussoulstones: {
+	cofagrigusorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -43265,7 +43265,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sinisteasoulstones: {
+	sinisteaorion: {
 		learnset: {
 			acid: ["9L4"],
 			aquaring: ["9L7"],
@@ -43366,7 +43366,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	polteageistsoulstones: {
+	polteageistorion: {
 		learnset: {
 			acid: ["9L4"],
 			aquaring: ["9L7"],
@@ -43467,7 +43467,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	throhsoulstones: {
+	throhorion: {
 		learnset: {
 			accelerock: ["9L7"],
 			airslash: ["9M"],
@@ -43590,7 +43590,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sawksoulstones: {
+	sawkorion: {
 		learnset: {
 			airslash: ["9M"],
 			asteroidbelt: ["9M"],
@@ -43715,7 +43715,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sandilesoulstones: {
+	sandileorion: {
 		learnset: {
 			aerialace: ["9M"],
 			alkalinebomb: ["9E"],
@@ -43838,7 +43838,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	krokoroksoulstones: {
+	krokorokorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -43949,7 +43949,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	krookodilesoulstones: {
+	krookodileorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -44061,7 +44061,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mudkipsoulstones: {
+	mudkiporion: {
 		learnset: {
 			amberwave: ["9L40"],
 			ancientglare: ["9M"],
@@ -44190,7 +44190,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	marshtompsoulstones: {
+	marshtomporion: {
 		learnset: {
 			amberwave: ["9L40"],
 			ancientglare: ["9M"],
@@ -44313,7 +44313,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	swampertsoulstones: {
+	swampertorion: {
 		learnset: {
 			amberwave: ["9L40"],
 			ancientglare: ["9M"],
@@ -44436,7 +44436,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	goldeensoulstones: {
+	goldeenorion: {
 		learnset: {
 			acid: ["9L4"],
 			acidarmor: ["9L40"],
@@ -44531,7 +44531,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wringout: ["9L31"],
 		},
 	},
-	seakingsoulstones: {
+	seakingorion: {
 		learnset: {
 			acid: ["9L4"],
 			acidarmor: ["9L40"],
@@ -44619,7 +44619,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wringout: ["9L31"],
 		},
 	},
-	taillowsoulstones: {
+	tailloworion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -44716,7 +44716,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	swellowsoulstones: {
+	swelloworion: {
 		learnset: {
 			aerialace: ["9L0", "9L1", "9M"],
 			aerialpulse: ["9M"],
@@ -44805,7 +44805,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	patratsoulstones: {
+	patratorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -44925,7 +44925,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	watchogsoulstones: {
+	watchogorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -45034,7 +45034,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gothitasoulstones: {
+	gothitaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -45154,7 +45154,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gothoritasoulstones: {
+	gothoritaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -45265,7 +45265,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gothitellesoulstones: {
+	gothitelleorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -45376,7 +45376,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sphealsoulstones: {
+	sphealorion: {
 		learnset: {
 			amnesia: ["9L39"],
 			aquafang: ["9L21"],
@@ -45479,7 +45479,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sealeosoulstones: {
+	sealeoorion: {
 		learnset: {
 			amnesia: ["9L39"],
 			aquafang: ["9L21"],
@@ -45572,7 +45572,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	walreinsoulstones: {
+	walreinorion: {
 		learnset: {
 			amnesia: ["9L39"],
 			aquafang: ["9L21"],
@@ -45666,7 +45666,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	surskitsoulstones: {
+	surskitorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -45796,7 +45796,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9E"],
 		},
 	},
-	masquerainsoulstones: {
+	masquerainorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -45913,7 +45913,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wingullsoulstones: {
+	wingullorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -46009,7 +46009,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	pelippersoulstones: {
+	pelipperorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -46100,7 +46100,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	charmandersoulstones: {
+	charmanderorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -46240,7 +46240,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	charmeleonsoulstones: {
+	charmeleonorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -46371,7 +46371,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	charizardsoulstones: {
+	charizardorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -46502,7 +46502,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	magnemitesoulstones: {
+	magnemiteorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -46605,7 +46605,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L54"],
 		},
 	},
-	magnetonsoulstones: {
+	magnetonorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -46708,7 +46708,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L54"],
 		},
 	},
-	magnezonesoulstones: {
+	magnezoneorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -46812,7 +46812,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L54"],
 		},
 	},
-	regirocksoulstones: {
+	regirockorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -46920,7 +46920,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	regicesoulstones: {
+	regiceorion: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -46996,7 +46996,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	registeelsoulstones: {
+	registeelorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -47092,7 +47092,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spearowsoulstones: {
+	spearoworion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -47189,7 +47189,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	fearowsoulstones: {
+	fearoworion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -47276,7 +47276,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	igglybuffsoulstones: {
+	igglybufforion: {
 		learnset: {
 			acidarmor: ["9E"],
 			airslash: ["9M"],
@@ -47382,7 +47382,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L20", "9M"],
 		},
 	},
-	jigglypuffsoulstones: {
+	jigglypufforion: {
 		learnset: {
 			airslash: ["9M"],
 			attract: ["9M"],
@@ -47478,7 +47478,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L20", "9M"],
 		},
 	},
-	wigglytuffsoulstones: {
+	wigglytufforion: {
 		learnset: {
 			airslash: ["9M"],
 			attract: ["9M"],
@@ -47574,7 +47574,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L20", "9M"],
 		},
 	},
-	vullabysoulstones: {
+	vullabyorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -47686,7 +47686,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mandibuzzsoulstones: {
+	mandibuzzorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -47791,7 +47791,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	shinxsoulstones: {
+	shinxorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -47924,7 +47924,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	luxiosoulstones: {
+	luxioorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -48047,7 +48047,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	luxraysoulstones: {
+	luxrayorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -48170,7 +48170,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	electrikesoulstones: {
+	electrikeorion: {
 		learnset: {
 			agility: ["9L47"],
 			ambush: ["9M"],
@@ -48288,7 +48288,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	manectricsoulstones: {
+	manectricorion: {
 		learnset: {
 			agility: ["9L47"],
 			ambush: ["9M"],
@@ -48400,7 +48400,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ferroseedsoulstones: {
+	ferroseedorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -48495,7 +48495,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ferrothornsoulstones: {
+	ferrothornorion: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -48580,7 +48580,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mareaniesoulstones: {
+	mareanieorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -48680,7 +48680,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	toxapexsoulstones: {
+	toxapexorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -48772,7 +48772,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	swinubsoulstones: {
+	swinuborion: {
 		learnset: {
 			amnesia: ["9L40"],
 			attract: ["9M"],
@@ -48871,7 +48871,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	piloswinesoulstones: {
+	piloswineorion: {
 		learnset: {
 			amnesia: ["9L40"],
 			attract: ["9M"],
@@ -48963,7 +48963,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mamoswinesoulstones: {
+	mamoswineorion: {
 		learnset: {
 			amnesia: ["9L40"],
 			attract: ["9M"],
@@ -49056,7 +49056,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	torkoalsoulstones: {
+	torkoalorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L44", "9M"],
@@ -49149,7 +49149,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	turtwigsoulstones: {
+	turtwigorion: {
 		learnset: {
 			amnesia: ["9E"],
 			ancientglare: ["9M"],
@@ -49277,7 +49277,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grotlesoulstones: {
+	grotleorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -49394,7 +49394,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	torterrasoulstones: {
+	torterraorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -49511,7 +49511,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bunearysoulstones: {
+	bunearyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -49626,7 +49626,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lopunnysoulstones: {
+	lopunnyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -49733,12 +49733,12 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dittosoulstones: {
+	dittoorion: {
 		learnset: {
 			transform: ["9L1"],
 		},
 	},
-	tphione: {
+	phionetemporal: {
 		learnset: {
 			aphroditesmirror: ["9L46"],
 			arcaneenergy: ["9M"],
@@ -49839,7 +49839,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tmanaphy: {
+	manaphytemporal: {
 		learnset: {
 			aphroditesmirror: ["9L46"],
 			arcaneenergy: ["9M"],
@@ -49940,7 +49940,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	darkraisoulstones: {
+	darkraiorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -50031,7 +50031,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cresseliasoulstones: {
+	cresseliaorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L53", "9M"],
@@ -50112,7 +50112,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	buizelsoulstones: {
+	buizelorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -50234,7 +50234,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	floatzelsoulstones: {
+	floatzelorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -50346,7 +50346,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	budewsoulstones: {
+	budeworion: {
 		learnset: {
 			aerialace: ["9M"],
 			aromatherapy: ["9M"],
@@ -50462,7 +50462,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zeal: ["9L16"],
 		},
 	},
-	roseliasoulstones: {
+	roseliaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aromatherapy: ["9M"],
@@ -50578,7 +50578,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zeal: ["9L16"],
 		},
 	},
-	roseradesoulstones: {
+	roseradeorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aromatherapy: ["9M"],
@@ -50689,7 +50689,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zeal: ["9L16"],
 		},
 	},
-	klefkisoulstones: {
+	klefkiorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			arcaneenergy: ["9M"],
@@ -50837,7 +50837,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	dewpidersoulstones: {
+	dewpiderorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcingblow: ["9E"],
@@ -50944,7 +50944,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9E"],
 		},
 	},
-	araquanidsoulstones: {
+	araquanidorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -51039,7 +51039,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgothita: {
+	gothitatemporal: {
 		learnset: {
 			acid: ["9L6"],
 			acidrain: ["9M"],
@@ -51168,7 +51168,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tgothorita: {
+	gothoritatemporal: {
 		learnset: {
 			acid: ["9L6"],
 			acidrain: ["9M"],
@@ -51289,7 +51289,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tgothitelle: {
+	gothitelletemporal: {
 		learnset: {
 			acid: ["9L6"],
 			acidrain: ["9M"],
@@ -51411,7 +51411,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tyruntsoulstones: {
+	tyruntorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -51535,7 +51535,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tyrantrumsoulstones: {
+	tyrantrumorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -51651,7 +51651,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cubonesoulstones: {
+	cuboneorion: {
 		learnset: {
 			accelerock: ["9E"],
 			aquajet: ["9L4"],
@@ -51757,7 +51757,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	marowaksoulstones: {
+	marowakorion: {
 		learnset: {
 			aquajet: ["9L4"],
 			aquaring: ["9L25"],
@@ -51854,7 +51854,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tspritzee: {
+	spritzeetemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			allyswitch: ["9E"],
@@ -51963,7 +51963,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	taromatisse: {
+	aromatissetemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L43", "9M"],
@@ -52063,7 +52063,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	thorsea: {
+	horseatemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -52181,7 +52181,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tseadra: {
+	seadratemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -52288,7 +52288,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tkingdra: {
+	kingdratemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -52395,7 +52395,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cutieflysoulstones: {
+	cutieflyorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -52516,7 +52516,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ribombeesoulstones: {
+	ribombeeorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -52628,7 +52628,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	omanytesoulstones: {
+	omanyteorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L16"],
@@ -52734,7 +52734,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	omastarsoulstones: {
+	omastarorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L16"],
@@ -52831,7 +52831,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	skwovetsoulstones: {
+	skwovetorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquafang: ["9E"],
@@ -52937,7 +52937,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	greedentsoulstones: {
+	greedentorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -53032,7 +53032,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgrimer: {
+	grimertemporal: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9M"],
@@ -53160,7 +53160,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmuk: {
+	muktemporal: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9M"],
@@ -53271,7 +53271,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	phanpysoulstones: {
+	phanpyorion: {
 		learnset: {
 			attract: ["9M"],
 			avalanche: ["9L14"],
@@ -53374,7 +53374,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L41", "9M"],
 		},
 	},
-	donphansoulstones: {
+	donphanorion: {
 		learnset: {
 			attract: ["9M"],
 			avalanche: ["9L14"],
@@ -53468,7 +53468,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L41", "9M"],
 		},
 	},
-	pikipeksoulstones: {
+	pikipekorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -53563,7 +53563,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	trumbeaksoulstones: {
+	trumbeakorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -53650,7 +53650,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	toucannonsoulstones: {
+	toucannonorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -53738,7 +53738,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	pinecosoulstones: {
+	pinecoorion: {
 		learnset: {
 			ancientpower: ["9E"],
 			arcaneenergy: ["9M"],
@@ -53855,7 +53855,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	forretresssoulstones: {
+	forretressorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			asteroidbelt: ["9M"],
@@ -53964,7 +53964,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	thoothoot: {
+	hoothoottemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -54062,7 +54062,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tnoctowl: {
+	noctowltemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -54152,7 +54152,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	stuffulsoulstones: {
+	stuffulorion: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -54268,7 +54268,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bewearsoulstones: {
+	bewearorion: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -54372,7 +54372,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	carbinksoulstones: {
+	carbinkorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9L26", "9M"],
@@ -54489,7 +54489,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	giblesoulstones: {
+	gibleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -54617,7 +54617,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gabitesoulstones: {
+	gabiteorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -54738,7 +54738,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	garchompsoulstones: {
+	garchomporion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -54859,7 +54859,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	vulpixsoulstones: {
+	vulpixorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -54982,7 +54982,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ninetalessoulstones: {
+	ninetalesorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -55096,7 +55096,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbounsweet: {
+	bounsweettemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acupressure: ["9L28"],
@@ -55231,7 +55231,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tsteenee: {
+	steeneetemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acupressure: ["9L28"],
@@ -55357,7 +55357,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ttsareena: {
+	tsareenatemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acupressure: ["9L28"],
@@ -55483,7 +55483,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	purrloinsoulstones: {
+	purrloinorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -55608,7 +55608,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	liepardsoulstones: {
+	liepardorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -55724,7 +55724,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	toxelsoulstones: {
+	toxelorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -55805,7 +55805,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	toxtricitysoulstones: {
+	toxtricityorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -55890,7 +55890,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tdewpider: {
+	dewpidertemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			ambush: ["9M"],
@@ -56008,7 +56008,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	taraquanid: {
+	araquanidtemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			ambush: ["9M"],
@@ -56116,7 +56116,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	goomysoulstones: {
+	goomyorion: {
 		learnset: {
 			attract: ["9M"],
 			babydolleyes: ["9L1"],
@@ -56208,7 +56208,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	sliggoosoulstones: {
+	sliggooorion: {
 		learnset: {
 			attract: ["9M"],
 			babydolleyes: ["9L1"],
@@ -56291,7 +56291,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	goodrasoulstones: {
+	goodraorion: {
 		learnset: {
 			attract: ["9M"],
 			babydolleyes: ["9L1"],
@@ -56374,7 +56374,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mimejrsoulstones: {
+	mimejrorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -56495,7 +56495,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mrmimesoulstones: {
+	mrmimeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -56617,7 +56617,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mrrimesoulstones: {
+	mrrimeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -56731,7 +56731,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tdiglett: {
+	digletttemporal: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -56841,7 +56841,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tdugtrio: {
+	dugtriotemporal: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -56945,7 +56945,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	luvdiscsoulstones: {
+	luvdiscorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -57067,7 +57067,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	smearglesoulstones: {
+	smeargleorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -57412,7 +57412,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shieldonsoulstones: {
+	shieldonorion: {
 		learnset: {
 			attract: ["9M"],
 			avalanche: ["9L16"],
@@ -57519,7 +57519,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	bastiodonsoulstones: {
+	bastiodonorion: {
 		learnset: {
 			attract: ["9M"],
 			avalanche: ["9L16"],
@@ -57617,7 +57617,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	applinsoulstones: {
+	applinorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -57753,7 +57753,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	flapplesoulstones: {
+	flappleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -57882,7 +57882,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	appletunsoulstones: {
+	appletunorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -58008,7 +58008,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mimikyusoulstones: {
+	mimikyuorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -58118,7 +58118,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L33"],
 		},
 	},
-	wooloosoulstones: {
+	woolooorion: {
 		learnset: {
 			accelerock: ["9E"],
 			amnesia: ["9E"],
@@ -58224,7 +58224,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	dubwoolsoulstones: {
+	dubwoolorion: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -58323,7 +58323,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	tabsol: {
+	absoltemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -58450,7 +58450,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	snivysoulstones: {
+	snivyorion: {
 		learnset: {
 			ancientfire: ["9L47"],
 			ancientglare: ["9M"],
@@ -58580,7 +58580,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	servinesoulstones: {
+	servineorion: {
 		learnset: {
 			ancientfire: ["9L47"],
 			ancientglare: ["9M"],
@@ -58701,7 +58701,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	serperiorsoulstones: {
+	serperiororion: {
 		learnset: {
 			ancientfire: ["9L47"],
 			ancientglare: ["9M"],
@@ -58822,7 +58822,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	fennekinsoulstones: {
+	fennekinorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9L53", "9M"],
@@ -58946,7 +58946,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	braixensoulstones: {
+	braixenorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9L53", "9M"],
@@ -59067,7 +59067,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	delphoxsoulstones: {
+	delphoxorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9L53", "9M"],
@@ -59188,7 +59188,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tvoltorb: {
+	voltorbtemporal: {
 		learnset: {
 			amberwave: ["9L38"],
 			antimatter: ["9M"],
@@ -59293,7 +59293,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	telectrode: {
+	electrodetemporal: {
 		learnset: {
 			amberwave: ["9L38"],
 			antimatter: ["9M"],
@@ -59398,7 +59398,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	snoversoulstones: {
+	snoverorion: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -59513,7 +59513,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	abomasnowsoulstones: {
+	abomasnoworion: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -59622,7 +59622,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	texeggcute: {
+	exeggcutetemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			attract: ["9M"],
@@ -59716,7 +59716,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	texeggutor: {
+	exeggutortemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			attract: ["9M"],
@@ -59805,7 +59805,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tsableye: {
+	sableyetemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -59925,7 +59925,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	trubbishsoulstones: {
+	trubbishorion: {
 		learnset: {
 			acidrain: ["9L54", "9M"],
 			allergy: ["9M"],
@@ -60041,7 +60041,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	garbodorsoulstones: {
+	garbodororion: {
 		learnset: {
 			acidrain: ["9L54", "9M"],
 			allergy: ["9M"],
@@ -60154,7 +60154,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tswablu: {
+	swablutemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -60272,7 +60272,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	taltaria: {
+	altariatemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -60385,7 +60385,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tslugma: {
+	slugmatemporal: {
 		learnset: {
 			acidarmor: ["9L21"],
 			amnesia: ["9L21"],
@@ -60507,7 +60507,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmagcargo: {
+	magcargotemporal: {
 		learnset: {
 			acidarmor: ["9L21"],
 			amnesia: ["9L21"],
@@ -60622,7 +60622,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmudkip: {
+	mudkiptemporal: {
 		learnset: {
 			ancientpower: ["9E"],
 			asteroidbelt: ["9M"],
@@ -60728,7 +60728,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmarshtomp: {
+	marshtomptemporal: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -60830,7 +60830,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tswampert: {
+	swamperttemporal: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -60932,7 +60932,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chespinsoulstones: {
+	chespinorion: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -61050,7 +61050,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L32", "9M"],
 		},
 	},
-	quilladinsoulstones: {
+	quilladinorion: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -61161,7 +61161,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L32", "9M"],
 		},
 	},
-	chesnaughtsoulstones: {
+	chesnaughtorion: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -61273,7 +61273,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L32", "9M"],
 		},
 	},
-	froakiesoulstones: {
+	froakieorion: {
 		learnset: {
 			acrobatics: ["9E"],
 			aerialace: ["9M"],
@@ -61399,7 +61399,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L48"],
 		},
 	},
-	frogadiersoulstones: {
+	frogadierorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -61516,7 +61516,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L48"],
 		},
 	},
-	greninjasoulstones: {
+	greninjaorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -61634,7 +61634,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L48"],
 		},
 	},
-	jangmoosoulstones: {
+	jangmooorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -61739,7 +61739,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hakamoosoulstones: {
+	hakamooorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -61836,7 +61836,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	kommoosoulstones: {
+	kommooorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -61933,7 +61933,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	scraggysoulstones: {
+	scraggyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -62043,7 +62043,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	scraftysoulstones: {
+	scraftyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -62141,7 +62141,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tchikorita: {
+	chikoritatemporal: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -62251,7 +62251,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbayleef: {
+	bayleeftemporal: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -62352,7 +62352,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmeganium: {
+	meganiumtemporal: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -62453,7 +62453,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcyndaquil: {
+	cyndaquiltemporal: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -62555,7 +62555,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tquilava: {
+	quilavatemporal: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -62648,7 +62648,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttyphlosion: {
+	typhlosiontemporal: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -62741,7 +62741,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttotodile: {
+	totodiletemporal: {
 		learnset: {
 			ambush: ["9L44", "9M"],
 			ancientglare: ["9M"],
@@ -62867,7 +62867,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcroconaw: {
+	croconawtemporal: {
 		learnset: {
 			ambush: ["9L44", "9M"],
 			ancientglare: ["9M"],
@@ -62980,7 +62980,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tferaligatr: {
+	feraligatrtemporal: {
 		learnset: {
 			ambush: ["9L44", "9M"],
 			ancientglare: ["9M"],
@@ -63094,7 +63094,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsurskit: {
+	surskittemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			acrobatics: ["9M"],
@@ -63196,7 +63196,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tmasquerain: {
+	masqueraintemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			acrobatics: ["9M"],
@@ -63292,7 +63292,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tstantler: {
+	stantlertemporal: {
 		learnset: {
 			agility: ["9L27"],
 			airslash: ["9M"],
@@ -63395,7 +63395,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	clamperlsoulstones: {
+	clamperlorion: {
 		learnset: {
 			antimatter: ["9M"],
 			aquaring: ["9E"],
@@ -63465,7 +63465,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	huntailsoulstones: {
+	huntailorion: {
 		learnset: {
 			ambush: ["9L41", "9M"],
 			antimatter: ["9M"],
@@ -63588,7 +63588,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	gorebysssoulstones: {
+	gorebyssorion: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneenergy: ["9M"],
@@ -63706,7 +63706,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	klinksoulstones: {
+	klinkorion: {
 		learnset: {
 			aurasphere: ["9M"],
 			balllightning: ["9L38", "9M"],
@@ -63808,7 +63808,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	klangsoulstones: {
+	klangorion: {
 		learnset: {
 			aurasphere: ["9M"],
 			autotomize: ["9L0", "9L1"],
@@ -63911,7 +63911,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	klinklangsoulstones: {
+	klinklangorion: {
 		learnset: {
 			aurasphere: ["9M"],
 			autotomize: ["9L1"],
@@ -64015,7 +64015,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	darumakasoulstones: {
+	darumakaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -64145,7 +64145,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	darmanitansoulstones: {
+	darmanitanorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -64268,7 +64268,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	darmanitansoulstoneszenmode: {
+	darmanitanorionzenmode: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -64391,7 +64391,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tskitty: {
+	skittytemporal: {
 		learnset: {
 			aromatherapy: ["9L28", "9M"],
 			aromaticmist: ["9E"],
@@ -64498,7 +64498,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdelcatty: {
+	delcattytemporal: {
 		learnset: {
 			aromatherapy: ["9L28", "9M"],
 			attract: ["9M"],
@@ -64595,7 +64595,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdoduo: {
+	doduotemporal: {
 		learnset: {
 			acrobatics: ["9L25", "9M"],
 			aerialace: ["9M"],
@@ -64706,7 +64706,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdodrio: {
+	dodriotemporal: {
 		learnset: {
 			acrobatics: ["9L25", "9M"],
 			aerialace: ["9M"],
@@ -64808,7 +64808,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tnumel: {
+	numeltemporal: {
 		learnset: {
 			amnesia: ["9L26"],
 			attract: ["9M"],
@@ -64924,7 +64924,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tcamerupt: {
+	camerupttemporal: {
 		learnset: {
 			amnesia: ["9L26"],
 			attract: ["9M"],
@@ -65027,7 +65027,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	binaclesoulstones: {
+	binacleorion: {
 		learnset: {
 			amberwave: ["9L45"],
 			ancientpower: ["9L14"],
@@ -65167,7 +65167,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	barbaraclesoulstones: {
+	barbaracleorion: {
 		learnset: {
 			amberwave: ["9L45"],
 			ancientpower: ["9L14"],
@@ -65300,7 +65300,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	arrokudasoulstones: {
+	arrokudaorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquafang: ["9L21"],
@@ -65391,7 +65391,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			whirlpool: ["9M"],
 		},
 	},
-	barraskewdasoulstones: {
+	barraskewdaorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquafang: ["9L21"],
@@ -65475,7 +65475,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			whirlpool: ["9M"],
 		},
 	},
-	tmachop: {
+	machoptemporal: {
 		learnset: {
 			arcaneblast: ["9L16"],
 			arcaneenergy: ["9M"],
@@ -65588,7 +65588,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmachoke: {
+	machoketemporal: {
 		learnset: {
 			arcaneblast: ["9L16"],
 			arcaneenergy: ["9M"],
@@ -65692,7 +65692,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmachamp: {
+	machamptemporal: {
 		learnset: {
 			arcaneblast: ["9L16"],
 			arcaneenergy: ["9M"],
@@ -65797,7 +65797,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	falinkssoulstones: {
+	falinksorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -65892,7 +65892,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	smoochumsoulstones: {
+	smoochumorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -66000,7 +66000,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	jynxsoulstones: {
+	jynxorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -66103,7 +66103,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	zigzagoonsoulstones: {
+	zigzagoonorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L43", "9M"],
@@ -66234,7 +66234,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	linoonesoulstones: {
+	linooneorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L43", "9M"],
@@ -66357,7 +66357,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	obstagoonsoulstones: {
+	obstagoonorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L43", "9M"],
@@ -66481,7 +66481,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	indeedeesoulstones: {
+	indeedeeorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L40"],
@@ -66594,7 +66594,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cranidossoulstones: {
+	cranidosorion: {
 		learnset: {
 			ambush: ["9L49", "9M"],
 			ancientglare: ["9M"],
@@ -66704,7 +66704,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	rampardossoulstones: {
+	rampardosorion: {
 		learnset: {
 			ambush: ["9L49", "9M"],
 			ancientglare: ["9M"],
@@ -66805,7 +66805,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgible: {
+	gibletemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -66922,7 +66922,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgabite: {
+	gabitetemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -67034,7 +67034,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgarchomp: {
+	garchomptemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -67146,7 +67146,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tyanma: {
+	yanmatemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -67269,7 +67269,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tyanmega: {
+	yanmegatemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -67384,7 +67384,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	remoraidsoulstones: {
+	remoraidorion: {
 		learnset: {
 			acidspray: ["9E"],
 			ambush: ["9M"],
@@ -67492,7 +67492,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L33"],
 		},
 	},
-	octillerysoulstones: {
+	octilleryorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquajet: ["9L6"],
@@ -67592,7 +67592,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L33"],
 		},
 	},
-	misdreavussoulstones: {
+	misdreavusorion: {
 		learnset: {
 			airslash: ["9M"],
 			arcaneenergy: ["9M"],
@@ -67724,7 +67724,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mismagiussoulstones: {
+	mismagiusorion: {
 		learnset: {
 			airslash: ["9M"],
 			arcaneenergy: ["9M"],
@@ -67848,7 +67848,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	poliwagsoulstones: {
+	poliwagorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -67979,7 +67979,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	poliwhirlsoulstones: {
+	poliwhirlorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -68104,7 +68104,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	poliwrathsoulstones: {
+	poliwrathorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -68230,7 +68230,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	politoedsoulstones: {
+	politoedorion: {
 		learnset: {
 			achillesheel: ["9L13"],
 			acrobatics: ["9M"],
@@ -68350,7 +68350,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	phantumpsoulstones: {
+	phantumporion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientfire: ["9E"],
@@ -68463,7 +68463,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	trevenantsoulstones: {
+	trevenantorion: {
 		learnset: {
 			ambush: ["9M"],
 			aromatherapy: ["9M"],
@@ -68566,7 +68566,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tyroguesoulstones: {
+	tyrogueorion: {
 		learnset: {
 			achillesheel: ["9E"],
 			acrobatics: ["9M"],
@@ -68647,7 +68647,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hitmonleesoulstones: {
+	hitmonleeorion: {
 		learnset: {
 			acrobatics: ["9L22", "9M"],
 			aerialace: ["9M"],
@@ -68759,7 +68759,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L31", "9M"],
 		},
 	},
-	hitmonchansoulstones: {
+	hitmonchanorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -68855,7 +68855,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hitmontopsoulstones: {
+	hitmontoporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -68980,7 +68980,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L0", "9L1"],
 		},
 	},
-	pincurchinsoulstones: {
+	pincurchinorion: {
 		learnset: {
 			achillesheel: ["9L11"],
 			attract: ["9M"],
@@ -69066,7 +69066,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	scythersoulstones: {
+	scytherorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -69199,7 +69199,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	scizorsoulstones: {
+	scizororion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -69318,7 +69318,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	pinsirsoulstones: {
+	pinsirorion: {
 		learnset: {
 			accelerock: ["9L8"],
 			acrobatics: ["9M"],
@@ -69447,7 +69447,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rolycolysoulstones: {
+	rolycolyorion: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -69536,7 +69536,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	carkolsoulstones: {
+	carkolorion: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -69620,7 +69620,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	coalossalsoulstones: {
+	coalossalorion: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -69704,7 +69704,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	riolusoulstones: {
+	rioluorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -69825,7 +69825,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lucariosoulstones: {
+	lucarioorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -69940,7 +69940,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	trapinchsoulstones: {
+	trapinchorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -70050,7 +70050,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	vibravasoulstones: {
+	vibravaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -70152,7 +70152,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	flygonsoulstones: {
+	flygonorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -70254,7 +70254,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dhelmisesoulstones: {
+	dhelmiseorion: {
 		learnset: {
 			acidrain: ["9M"],
 			airslash: ["9M"],
@@ -70356,7 +70356,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgeodude: {
+	geodudetemporal: {
 		learnset: {
 			accelerock: ["9E"],
 			arcaneenergy: ["9M"],
@@ -70503,7 +70503,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tgraveler: {
+	gravelertemporal: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			asteroidbelt: ["9M"],
@@ -70642,7 +70642,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgolem: {
+	golemtemporal: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			asteroidbelt: ["9M"],
@@ -70781,7 +70781,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	troggenrola: {
+	roggenrolatemporal: {
 		learnset: {
 			ancientpower: ["9E"],
 			asteroidbelt: ["9M"],
@@ -70907,7 +70907,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tboldore: {
+	boldoretemporal: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -71026,7 +71026,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgigalith: {
+	gigalithtemporal: {
 		learnset: {
 			asteroidbelt: ["9M"],
 			attract: ["9M"],
@@ -71145,7 +71145,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tvanillite: {
+	vanillitetemporal: {
 		learnset: {
 			acidrain: ["9E"],
 			amberwave: ["9L51"],
@@ -71254,7 +71254,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tvanillish: {
+	vanillishtemporal: {
 		learnset: {
 			amberwave: ["9L51"],
 			ancientpower: ["9L24"],
@@ -71357,7 +71357,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tvanilluxe: {
+	vanilluxetemporal: {
 		learnset: {
 			amberwave: ["9L51"],
 			ancientpower: ["9L24"],
@@ -71460,7 +71460,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dratinisoulstones: {
+	dratiniorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -71593,7 +71593,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dragonairsoulstones: {
+	dragonairorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -71719,7 +71719,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dragonitesoulstones: {
+	dragoniteorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -71845,7 +71845,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmurkrow: {
+	murkrowtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -71999,7 +71999,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	thonchkrow: {
+	honchkrowtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -72144,7 +72144,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cleffasoulstones: {
+	cleffaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -72282,7 +72282,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	clefairysoulstones: {
+	clefairyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -72421,7 +72421,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	clefablesoulstones: {
+	clefableorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -72554,7 +72554,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tkabuto: {
+	kabutotemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L27"],
@@ -72682,7 +72682,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L33"],
 		},
 	},
-	tkabutops: {
+	kabutopstemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L27"],
@@ -72802,7 +72802,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L33"],
 		},
 	},
-	archensoulstones: {
+	archenorion: {
 		learnset: {
 			acrobatics: ["9E", "9M"],
 			aerialace: ["9M"],
@@ -72931,7 +72931,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	archeopssoulstones: {
+	archeopsorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -73057,7 +73057,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tirtougasoulstones: {
+	tirtougaorion: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9M"],
@@ -73174,7 +73174,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	carracostasoulstones: {
+	carracostaorion: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9M"],
@@ -73281,7 +73281,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dreepysoulstones: {
+	dreepyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -73396,7 +73396,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	drakloaksoulstones: {
+	drakloakorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -73506,7 +73506,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dragapultsoulstones: {
+	dragapultorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -73616,7 +73616,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wimpodsoulstones: {
+	wimpodorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -73724,7 +73724,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	golisopodsoulstones: {
+	golisopodorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -73835,7 +73835,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	munnasoulstones: {
+	munnaorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -73940,7 +73940,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L48"],
 		},
 	},
-	musharnasoulstones: {
+	musharnaorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -74040,7 +74040,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L48"],
 		},
 	},
-	shuppetsoulstones: {
+	shuppetorion: {
 		learnset: {
 			ambush: ["9L46", "9M"],
 			arcaneenergy: ["9M"],
@@ -74154,7 +74154,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	banettesoulstones: {
+	banetteorion: {
 		learnset: {
 			ambush: ["9L46", "9M"],
 			arcaneenergy: ["9M"],
@@ -74261,7 +74261,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	stonjournersoulstones: {
+	stonjournerorion: {
 		learnset: {
 			arcingblow: ["9L24"],
 			attract: ["9M"],
@@ -74356,7 +74356,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tlapras: {
+	laprastemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientpower: ["9E"],
@@ -74466,7 +74466,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	twooloo: {
+	woolootemporal: {
 		learnset: {
 			ambush: ["9M"],
 			aromatherapy: ["9M"],
@@ -74564,7 +74564,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	tdubwool: {
+	dubwooltemporal: {
 		learnset: {
 			ambush: ["9M"],
 			aromatherapy: ["9M"],
@@ -74653,7 +74653,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	bidoofsoulstones: {
+	bidooforion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -74784,7 +74784,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bibarelsoulstones: {
+	bibarelorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -74903,7 +74903,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	drilbursoulstones: {
+	drilburorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -75017,7 +75017,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	excadrillsoulstones: {
+	excadrillorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -75129,7 +75129,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tdrilbur: {
+	drilburtemporal: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -75257,7 +75257,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	texcadrill: {
+	excadrilltemporal: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9M"],
@@ -75377,7 +75377,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	snomsoulstones: {
+	snomorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -75482,7 +75482,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	frosmothsoulstones: {
+	frosmothorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -75592,7 +75592,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	houndoursoulstones: {
+	houndourorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -75706,7 +75706,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	houndoomsoulstones: {
+	houndoomorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -75813,7 +75813,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	piplupsoulstones: {
+	pipluporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -75929,7 +75929,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	prinplupsoulstones: {
+	prinpluporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -76036,7 +76036,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	empoleonsoulstones: {
+	empoleonorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -76143,7 +76143,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsolosis: {
+	solosistemporal: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L55", "9M"],
@@ -76276,7 +76276,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tduosion: {
+	duosiontemporal: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L0", "9L1"],
@@ -76401,7 +76401,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	treuniclus: {
+	reuniclustemporal: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L1"],
@@ -76526,7 +76526,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mudbraysoulstones: {
+	mudbrayorion: {
 		learnset: {
 			attract: ["9M"],
 			battlecry: ["9E"],
@@ -76628,7 +76628,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mudsdalesoulstones: {
+	mudsdaleorion: {
 		learnset: {
 			attract: ["9M"],
 			battleofwits: ["9M"],
@@ -76726,7 +76726,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cramorantsoulstones: {
+	cramorantorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L11", "9M"],
@@ -76823,7 +76823,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	thoppip: {
+	hoppiptemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -76940,7 +76940,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tskiploom: {
+	skiploomtemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -77049,7 +77049,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tjumpluff: {
+	jumplufftemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -77158,7 +77158,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sewaddlesoulstones: {
+	sewaddleorion: {
 		learnset: {
 			extrasensory: ["9E"],
 			mindreader: ["9E"],
@@ -77169,7 +77169,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			transform: ["9L1"],
 		},
 	},
-	swadloonsoulstones: {
+	swadloonorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -77282,7 +77282,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	leavannysoulstones: {
+	leavannyorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L34"],
@@ -77398,7 +77398,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	whismursoulstones: {
+	whismurorion: {
 		learnset: {
 			allyswitch: ["9E"],
 			attract: ["9M"],
@@ -77517,7 +77517,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	loudredsoulstones: {
+	loudredorion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -77627,7 +77627,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	exploudsoulstones: {
+	exploudorion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -77737,7 +77737,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sizzlipedesoulstones: {
+	sizzlipedeorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -77831,7 +77831,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	centiskorchsoulstones: {
+	centiskorchorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -77920,7 +77920,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sobblesoulstones: {
+	sobbleorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -78027,7 +78027,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	drizzilesoulstones: {
+	drizzileorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -78130,7 +78130,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	inteleonsoulstones: {
+	inteleonorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -78233,7 +78233,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ttimburr: {
+	timburrtemporal: {
 		learnset: {
 			armthrust: ["9L12"],
 			aromatherapy: ["9M"],
@@ -78337,7 +78337,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	tgurdurr: {
+	gurdurrtemporal: {
 		learnset: {
 			armthrust: ["9L12"],
 			aromatherapy: ["9M"],
@@ -78434,7 +78434,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	tconkeldurr: {
+	conkeldurrtemporal: {
 		learnset: {
 			armthrust: ["9L12"],
 			aromatherapy: ["9M"],
@@ -78531,7 +78531,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	corphishsoulstones: {
+	corphishorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L43", "9M"],
@@ -78644,7 +78644,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	crawdauntsoulstones: {
+	crawdauntorion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9L43", "9M"],
@@ -78749,7 +78749,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	carnivinesoulstones: {
+	carnivineorion: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9L49", "9M"],
@@ -78854,7 +78854,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9E"],
 		},
 	},
-	anorithsoulstones: {
+	anorithorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -78975,7 +78975,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9E"],
 		},
 	},
-	armaldosoulstones: {
+	armaldoorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -79090,7 +79090,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	bagonsoulstones: {
+	bagonorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -79231,7 +79231,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shelgonsoulstones: {
+	shelgonorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -79365,7 +79365,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	salamencesoulstones: {
+	salamenceorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -79499,7 +79499,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	munchlaxsoulstones: {
+	munchlaxorion: {
 		learnset: {
 			afteryou: ["9E"],
 			amnesia: ["9L30"],
@@ -79622,7 +79622,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	snorlaxsoulstones: {
+	snorlaxorion: {
 		learnset: {
 			afteryou: ["9E"],
 			amnesia: ["9L30"],
@@ -79745,7 +79745,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tlarvesta: {
+	larvestatemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -79863,7 +79863,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tvolcarona: {
+	volcaronatemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -79974,7 +79974,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tepigsoulstones: {
+	tepigorion: {
 		learnset: {
 			attract: ["9M"],
 			battleofwits: ["9M"],
@@ -80083,7 +80083,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pignitesoulstones: {
+	pigniteorion: {
 		learnset: {
 			attract: ["9M"],
 			battleofwits: ["9M"],
@@ -80186,7 +80186,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	emboarsoulstones: {
+	emboarorion: {
 		learnset: {
 			attract: ["9M"],
 			battleofwits: ["9M"],
@@ -80289,7 +80289,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sneaselsoulstones: {
+	sneaselorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -80403,7 +80403,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	weavilesoulstones: {
+	weavileorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -80511,7 +80511,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	milcerysoulstones: {
+	milceryorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L36"],
@@ -80626,7 +80626,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	alcremiesoulstones: {
+	alcremieorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L36"],
@@ -80735,7 +80735,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	frillishsoulstones: {
+	frillishorion: {
 		learnset: {
 			absorb: ["9L1"],
 			acid: ["9L4"],
@@ -80825,7 +80825,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	jellicentsoulstones: {
+	jellicentorion: {
 		learnset: {
 			absorb: ["9L1"],
 			acid: ["9L4"],
@@ -80908,7 +80908,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	clobbopussoulstones: {
+	clobbopusorion: {
 		learnset: {
 			aquajet: ["9L7"],
 			armthrust: ["9L20"],
@@ -81013,7 +81013,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grapploctsoulstones: {
+	grapploctorion: {
 		learnset: {
 			aquajet: ["9L7"],
 			armthrust: ["9L20"],
@@ -81110,7 +81110,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tnosepass: {
+	nosepasstemporal: {
 		learnset: {
 			afteryou: ["9E"],
 			antimatter: ["9M"],
@@ -81208,7 +81208,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9E"],
 		},
 	},
-	tprobopass: {
+	probopasstemporal: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -81297,7 +81297,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L32"],
 		},
 	},
-	cufantsoulstones: {
+	cufantorion: {
 		learnset: {
 			amnesia: ["9L39"],
 			arcanebarrage: ["9L24"],
@@ -81429,7 +81429,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	copperajahsoulstones: {
+	copperajahorion: {
 		learnset: {
 			amnesia: ["9L39"],
 			arcanebarrage: ["9L24"],
@@ -81550,7 +81550,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	blitzlesoulstones: {
+	blitzleorion: {
 		learnset: {
 			agility: ["9L39"],
 			airslash: ["9M"],
@@ -81663,7 +81663,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	zebstrikasoulstones: {
+	zebstrikaorion: {
 		learnset: {
 			agility: ["9L39"],
 			airslash: ["9M"],
@@ -81768,7 +81768,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	slakothsoulstones: {
+	slakothorion: {
 		learnset: {
 			afteryou: ["9E"],
 			ambush: ["9M"],
@@ -81880,7 +81880,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	vigorothsoulstones: {
+	vigorothorion: {
 		learnset: {
 			ambush: ["9M"],
 			armthrust: ["9L12"],
@@ -81983,7 +81983,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	slakingsoulstones: {
+	slakingorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -82085,7 +82085,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	miltanksoulstones: {
+	miltankorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -82198,7 +82198,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	helioptilesoulstones: {
+	helioptileorion: {
 		learnset: {
 			accelerock: ["9E"],
 			acid: ["9L6"],
@@ -82339,7 +82339,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	heliolisksoulstones: {
+	helioliskorion: {
 		learnset: {
 			acid: ["9L6"],
 			acidrain: ["9L51", "9M"],
@@ -82472,7 +82472,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hatennasoulstones: {
+	hatennaorion: {
 		learnset: {
 			allyswitch: ["9E"],
 			arcaneenergy: ["9L54", "9M"],
@@ -82576,7 +82576,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	hattremsoulstones: {
+	hattremorion: {
 		learnset: {
 			arcaneenergy: ["9L54", "9M"],
 			attract: ["9M"],
@@ -82669,7 +82669,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	hatterenesoulstones: {
+	hattereneorion: {
 		learnset: {
 			arcaneenergy: ["9L54", "9M"],
 			attract: ["9M"],
@@ -82762,7 +82762,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wonderroom: ["9M"],
 		},
 	},
-	tswinub: {
+	swinubtemporal: {
 		learnset: {
 			amnesia: ["9L40"],
 			aromatherapy: ["9M"],
@@ -82875,7 +82875,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tpiloswine: {
+	piloswinetemporal: {
 		learnset: {
 			amnesia: ["9L40"],
 			aromatherapy: ["9M"],
@@ -82982,7 +82982,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmamoswine: {
+	mamoswinetemporal: {
 		learnset: {
 			amnesia: ["9L40"],
 			aromatherapy: ["9M"],
@@ -83090,7 +83090,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chinglingsoulstones: {
+	chinglingorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -83180,7 +83180,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	chimechosoulstones: {
+	chimechoorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -83264,7 +83264,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tmagnemite: {
+	magnemitetemporal: {
 		learnset: {
 			arcanebarrage: ["9L29"],
 			arcaneenergy: ["9L56", "9M"],
@@ -83367,7 +83367,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmagneton: {
+	magnetontemporal: {
 		learnset: {
 			arcanebarrage: ["9L29"],
 			arcaneenergy: ["9L56", "9M"],
@@ -83470,7 +83470,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmagnezone: {
+	magnezonetemporal: {
 		learnset: {
 			arcanebarrage: ["9L29"],
 			arcaneenergy: ["9L56", "9M"],
@@ -83574,7 +83574,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	timpidimp: {
+	impidimptemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -83692,7 +83692,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmorgrem: {
+	morgremtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -83801,7 +83801,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgrimmsnarl: {
+	grimmsnarltemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -83910,7 +83910,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dedennesoulstones: {
+	dedenneorion: {
 		learnset: {
 			aphroditesmirror: ["9L42"],
 			attract: ["9M"],
@@ -84009,7 +84009,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tbudew: {
+	budewtemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			allergy: ["9M"],
@@ -84124,7 +84124,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmbeam: ["9L37"],
 		},
 	},
-	troselia: {
+	roseliatemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			allergy: ["9M"],
@@ -84239,7 +84239,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmbeam: ["9L37"],
 		},
 	},
-	troserade: {
+	roseradetemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			allergy: ["9M"],
@@ -84345,7 +84345,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmbeam: ["9L37"],
 		},
 	},
-	lotadsoulstones: {
+	lotadorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9M"],
@@ -84452,7 +84452,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lombresoulstones: {
+	lombreorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9M"],
@@ -84552,7 +84552,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ludicolosoulstones: {
+	ludicoloorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9M"],
@@ -84652,7 +84652,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wattrelsoulstones: {
+	wattrelorion: {
 		learnset: {
 			accelerock: ["9L7"],
 			acrobatics: ["9E", "9M"],
@@ -84753,7 +84753,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9E", "9M"],
 		},
 	},
-	kilowattrelsoulstones: {
+	kilowattrelorion: {
 		learnset: {
 			accelerock: ["9L7"],
 			acrobatics: ["9M"],
@@ -84853,7 +84853,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wyrdeersoulstones: {
+	wyrdeerorion: {
 		learnset: {
 			aromatherapy: ["9L15", "9M"],
 			attract: ["9M"],
@@ -84938,7 +84938,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L36", "9M"],
 		},
 	},
-	twyrdeer: {
+	wyrdeertemporal: {
 		learnset: {
 			agility: ["9L27"],
 			airslash: ["9M"],
@@ -85036,7 +85036,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	annihilapesoulstones: {
+	annihilapeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -85146,7 +85146,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	finizensoulstones: {
+	finizenorion: {
 		learnset: {
 			aquajet: ["9E"],
 			attract: ["9M"],
@@ -85251,7 +85251,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	palafinsoulstones: {
+	palafinorion: {
 		learnset: {
 			attract: ["9M"],
 			battleofwits: ["9M"],
@@ -85349,7 +85349,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	porygonsoulstones: {
+	porygonorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -85467,7 +85467,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	porygon2soulstones: {
+	porygon2orion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -85585,7 +85585,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	porygonzsoulstones: {
+	porygonzorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -85703,7 +85703,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	ursalunasoulstones: {
+	ursalunaorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9L34", "9M"],
@@ -85842,7 +85842,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pawmisoulstones: {
+	pawmiorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L35"],
@@ -85954,7 +85954,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pawmosoulstones: {
+	pawmoorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L35"],
@@ -86055,7 +86055,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pawmotsoulstones: {
+	pawmotorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L35"],
@@ -86156,7 +86156,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	fuecocosoulstones: {
+	fuecocoorion: {
 		learnset: {
 			ambush: ["9M"],
 			aromatherapy: ["9M"],
@@ -86284,7 +86284,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	crocalorsoulstones: {
+	crocalororion: {
 		learnset: {
 			ambush: ["9M"],
 			aromatherapy: ["9M"],
@@ -86401,7 +86401,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	skeledirgesoulstones: {
+	skeledirgeorion: {
 		learnset: {
 			ambush: ["9M"],
 			aromatherapy: ["9M"],
@@ -86519,7 +86519,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tinkatinksoulstones: {
+	tinkatinkorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -86643,7 +86643,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tinkatuffsoulstones: {
+	tinkatufforion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -86761,7 +86761,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tinkatonsoulstones: {
+	tinkatonorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -86879,7 +86879,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tfeebas: {
+	feebastemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientfire: ["9E"],
@@ -86982,7 +86982,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmbeam: ["9E"],
 		},
 	},
-	tmilotic: {
+	milotictemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientglare: ["9M"],
@@ -87087,7 +87087,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sneaslersoulstones: {
+	sneaslerorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -87196,7 +87196,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	skarmorysoulstones: {
+	skarmoryorion: {
 		learnset: {
 			accelerock: ["9L4"],
 			aerialace: ["9M"],
@@ -87318,7 +87318,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	woopersoulstones: {
+	wooperorion: {
 		learnset: {
 			afteryou: ["9E"],
 			amnesia: ["9L28"],
@@ -87456,7 +87456,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	quagsiresoulstones: {
+	quagsireorion: {
 		learnset: {
 			amnesia: ["9L28"],
 			attract: ["9M"],
@@ -87586,7 +87586,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	flabebesoulstones: {
+	flabebeorion: {
 		learnset: {
 			aromatherapy: ["9L23", "9M"],
 			attract: ["9M"],
@@ -87698,7 +87698,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	floettesoulstones: {
+	floetteorion: {
 		learnset: {
 			aromatherapy: ["9L23", "9M"],
 			attract: ["9M"],
@@ -87804,7 +87804,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	florgessoulstones: {
+	florgesorion: {
 		learnset: {
 			aromatherapy: ["9L23", "9M"],
 			attract: ["9M"],
@@ -87910,7 +87910,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	emolgasoulstones: {
+	emolgaorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9L25", "9M"],
@@ -88027,7 +88027,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	salanditsoulstones: {
+	salanditorion: {
 		learnset: {
 			ambush: ["9L41", "9M"],
 			aquafang: ["9L17"],
@@ -88149,7 +88149,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L35"],
 		},
 	},
-	salazzlesoulstones: {
+	salazzleorion: {
 		learnset: {
 			ambush: ["9L41", "9M"],
 			aquafang: ["9L17"],
@@ -88264,7 +88264,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L35"],
 		},
 	},
-	dudunsparcesoulstones: {
+	dudunsparceorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -88344,7 +88344,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	hoopasoulstones: {
+	hoopaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -88483,7 +88483,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hoopasoulstoneslynel: {
+	hoopaorionlynel: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L46", "9M"],
@@ -88622,7 +88622,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gimmighoulsoulstones: {
+	gimmighoulorion: {
 		learnset: {
 			attackorder: ["9L50"],
 			bugbite: ["9L14"],
@@ -88647,7 +88647,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			uturn: ["9M"],
 		},
 	},
-	gholdengosoulstones: {
+	gholdengoorion: {
 		learnset: {
 			ambush: ["9M"],
 			attackorder: ["9L50"],
@@ -88721,7 +88721,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			uturn: ["9M"],
 		},
 	},
-	delibirdsoulstones: {
+	delibirdorion: {
 		learnset: {
 			acrobatics: ["9L37", "9M"],
 			aerialace: ["9M"],
@@ -88812,7 +88812,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			worryseed: ["9L1"],
 		},
 	},
-	dipplinsoulstones: {
+	dipplinorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L56", "9M"],
@@ -88958,7 +88958,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	basculegionsoulstones: {
+	basculegionorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -89049,7 +89049,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmsrage: ["9L17"],
 		},
 	},
-	basculegionsoulstonesdragonfish: {
+	basculegionoriondragonfish: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -89140,7 +89140,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wyrmsrage: ["9L17"],
 		},
 	},
-	tapukokosoulstones: {
+	tapukokoorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -89240,7 +89240,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9L34"],
 		},
 	},
-	tapulelesoulstones: {
+	tapuleleorion: {
 		learnset: {
 			achillesheel: ["9L14"],
 			airslash: ["9M"],
@@ -89329,7 +89329,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tapubulusoulstones: {
+	tapubuluorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -89417,7 +89417,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tapufinisoulstones: {
+	tapufiniorion: {
 		learnset: {
 			acid: ["9L7"],
 			acidrain: ["9M"],
@@ -89498,7 +89498,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	eternatussoulstones: {
+	eternatusorion: {
 		learnset: {
 			acidrain: ["9M"],
 			airslash: ["9M"],
@@ -89633,7 +89633,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbronzor: {
+	bronzortemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -89763,7 +89763,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbronzong: {
+	bronzongtemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -89884,7 +89884,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pumpkaboosoulstones: {
+	pumpkabooorion: {
 		learnset: {
 			accelerock: ["9L10"],
 			ambush: ["9M"],
@@ -89987,7 +89987,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gourgeistsoulstones: {
+	gourgeistorion: {
 		learnset: {
 			accelerock: ["9L10"],
 			ambush: ["9M"],
@@ -90081,7 +90081,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	fomantissoulstones: {
+	fomantisorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -90197,7 +90197,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			xscissor: ["9E"],
 		},
 	},
-	lurantissoulstones: {
+	lurantisorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -90303,7 +90303,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cottoneesoulstones: {
+	cottoneeorion: {
 		learnset: {
 			acrobatics: ["9E", "9M"],
 			aerialace: ["9M"],
@@ -90395,7 +90395,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zephyrpurge: ["9E"],
 		},
 	},
-	whimsicottsoulstones: {
+	whimsicottorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -90480,7 +90480,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tarountulasoulstones: {
+	tarountulaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9E"],
@@ -90584,7 +90584,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spidopssoulstones: {
+	spidopsorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -90679,7 +90679,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	combeesoulstones: {
+	combeeorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -90809,7 +90809,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	vespiquensoulstones: {
+	vespiquenorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -90933,7 +90933,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wishiwashisoulstones: {
+	wishiwashiorion: {
 		learnset: {
 			ambush: ["9L46", "9M"],
 			ancientglare: ["9M"],
@@ -91068,7 +91068,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wishiwashisoulstonesswarm: {
+	wishiwashiorionswarm: {
 		learnset: {
 			ambush: ["9L46", "9M"],
 			ancientglare: ["9M"],
@@ -91203,7 +91203,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tropiussoulstones: {
+	tropiusorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -91335,7 +91335,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	makuhitasoulstones: {
+	makuhitaorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -91461,7 +91461,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hariyamasoulstones: {
+	hariyamaorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -91582,7 +91582,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmimejr: {
+	mimejrtemporal: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneblast: ["9L18"],
@@ -91696,7 +91696,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmrmime: {
+	mrmimetemporal: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneblast: ["9L18"],
@@ -91810,7 +91810,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmrrime: {
+	mrrimetemporal: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneblast: ["9L18"],
@@ -91914,7 +91914,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tponyta: {
+	ponytatemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			aphroditesmirror: ["9L48"],
@@ -92009,7 +92009,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	trapidash: {
+	rapidashtemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			aphroditesmirror: ["9L48"],
@@ -92098,7 +92098,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgolett: {
+	goletttemporal: {
 		learnset: {
 			autotomize: ["9L25"],
 			battleofwits: ["9M"],
@@ -92209,7 +92209,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgolurk: {
+	golurktemporal: {
 		learnset: {
 			autotomize: ["9L25"],
 			battleofwits: ["9M"],
@@ -92321,7 +92321,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	karrablastsoulstones: {
+	karrablastorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -92426,7 +92426,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	escavaliersoulstones: {
+	escavalierorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -92526,7 +92526,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cryogonalsoulstones: {
+	cryogonalorion: {
 		learnset: {
 			amberwave: ["9L41"],
 			ancientfire: ["9L47"],
@@ -92640,7 +92640,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pawniardsoulstones: {
+	pawniardorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -92751,7 +92751,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bisharpsoulstones: {
+	bisharporion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -92855,7 +92855,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	kingambitsoulstones: {
+	kingambitorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -92959,7 +92959,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	smolivsoulstones: {
+	smolivorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L10"],
@@ -93086,7 +93086,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dollivsoulstones: {
+	dollivorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L10"],
@@ -93207,7 +93207,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	arbolivasoulstones: {
+	arbolivaorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9L10"],
@@ -93329,7 +93329,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nickitsoulstones: {
+	nickitorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -93461,7 +93461,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	thievulsoulstones: {
+	thievulorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -93588,7 +93588,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tspheal: {
+	sphealtemporal: {
 		learnset: {
 			amnesia: ["9L26"],
 			ancientglare: ["9M"],
@@ -93700,7 +93700,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsealeo: {
+	sealeotemporal: {
 		learnset: {
 			amnesia: ["9L26"],
 			ancientglare: ["9M"],
@@ -93804,7 +93804,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	twalrein: {
+	walreintemporal: {
 		learnset: {
 			amnesia: ["9L26"],
 			ancientglare: ["9M"],
@@ -93908,7 +93908,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	barboachsoulstones: {
+	barboachorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L40"],
@@ -94035,7 +94035,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	whiscashsoulstones: {
+	whiscashorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L40"],
@@ -94154,7 +94154,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	oricoriosoulstones: {
+	oricorioorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -94270,7 +94270,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	oricoriosoulstonesmetal: {
+	oricorioorionmetal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -94386,7 +94386,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	oricoriosoulstonesrave: {
+	oricorioorionrave: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -94522,7 +94522,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L39"],
 		},
 	},
-	oricoriosoulstonesworld: {
+	oricorioorionworld: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -94660,7 +94660,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	axewsoulstones: {
+	axeworion: {
 		learnset: {
 			accelerock: ["9L4"],
 			acrobatics: ["9M"],
@@ -94767,7 +94767,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	fraxuresoulstones: {
+	fraxureorion: {
 		learnset: {
 			accelerock: ["9L4"],
 			acrobatics: ["9M"],
@@ -94864,7 +94864,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	haxorussoulstones: {
+	haxorusorion: {
 		learnset: {
 			accelerock: ["9L4"],
 			acrobatics: ["9M"],
@@ -94961,7 +94961,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pachirisusoulstones: {
+	pachirisuorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9L40"],
@@ -95044,7 +95044,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	qwilfishsoulstones: {
+	qwilfishorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -95146,7 +95146,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	overqwilsoulstones: {
+	overqwilorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -95237,7 +95237,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	miniorsoulstones: {
+	miniororion: {
 		learnset: {
 			acrobatics: ["9M"],
 			antimatter: ["9M"],
@@ -95350,7 +95350,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	greavardsoulstones: {
+	greavardorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -95450,7 +95450,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	houndstonesoulstones: {
+	houndstoneorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -95540,7 +95540,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sandshrewsoulstones: {
+	sandshreworion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L12"],
@@ -95653,7 +95653,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sandslashsoulstones: {
+	sandslashorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L12"],
@@ -95754,7 +95754,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cetoddlesoulstones: {
+	cetoddleorion: {
 		learnset: {
 			aquafang: ["9E"],
 			aquajet: ["9E"],
@@ -95871,7 +95871,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cetitansoulstones: {
+	cetitanorion: {
 		learnset: {
 			aquaring: ["9L16"],
 			attract: ["9M"],
@@ -95980,7 +95980,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	torchicsoulstones: {
+	torchicorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L18", "9M"],
@@ -96100,7 +96100,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	combuskensoulstones: {
+	combuskenorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L18", "9M"],
@@ -96211,7 +96211,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	blazikensoulstones: {
+	blazikenorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L18", "9M"],
@@ -96322,7 +96322,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	naclisoulstones: {
+	nacliorion: {
 		learnset: {
 			aromaticmist: ["9L22"],
 			attract: ["9M"],
@@ -96426,7 +96426,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	naclstacksoulstones: {
+	naclstackorion: {
 		learnset: {
 			aromaticmist: ["9L22"],
 			attract: ["9M"],
@@ -96521,7 +96521,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	garganaclsoulstones: {
+	garganaclorion: {
 		learnset: {
 			aromaticmist: ["9L22"],
 			attract: ["9M"],
@@ -96616,7 +96616,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	frigibaxsoulstones: {
+	frigibaxorion: {
 		learnset: {
 			accelerock: ["9E"],
 			ancientglare: ["9M"],
@@ -96738,7 +96738,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	arctibaxsoulstones: {
+	arctibaxorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -96852,7 +96852,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	baxcalibursoulstones: {
+	baxcaliburorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -96966,7 +96966,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	wynautsoulstones: {
+	wynautorion: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -97086,7 +97086,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wobbuffetsoulstones: {
+	wobbuffetorion: {
 		learnset: {
 			airslash: ["9M"],
 			ambush: ["9M"],
@@ -97206,7 +97206,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bouffalantsoulstones: {
+	bouffalantorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9L33", "9M"],
@@ -97312,7 +97312,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spindasoulstones: {
+	spindaorion: {
 		learnset: {
 			ambush: ["9M"],
 			arcaneenergy: ["9M"],
@@ -97444,7 +97444,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mienfoosoulstones: {
+	mienfooorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -97567,7 +97567,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mienshaosoulstones: {
+	mienshaoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -97683,7 +97683,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	togepisoulstones: {
+	togepiorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -97811,7 +97811,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	togeticsoulstones: {
+	togeticorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -97929,7 +97929,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	togekisssoulstones: {
+	togekissorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -98047,7 +98047,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tzorua: {
+	zoruatemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientfire: ["9L42"],
@@ -98182,7 +98182,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tzoroark: {
+	zoroarktemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientfire: ["9L42"],
@@ -98311,7 +98311,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	clodsiresoulstones: {
+	clodsireorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L28"],
@@ -98472,7 +98472,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	panchamsoulstones: {
+	panchamorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -98602,7 +98602,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pangorosoulstones: {
+	pangoroorion: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -98722,7 +98722,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	oshawottsoulstones: {
+	oshawottorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -98830,7 +98830,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dewottsoulstones: {
+	dewottorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -98928,7 +98928,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	samurottsoulstones: {
+	samurottorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -99026,7 +99026,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbergmite: {
+	bergmitetemporal: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -99132,7 +99132,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tavalugg: {
+	avaluggtemporal: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -99230,7 +99230,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttyrunt: {
+	tyrunttemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			aromatherapy: ["9L19", "9M"],
@@ -99339,7 +99339,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttyrantrum: {
+	tyrantrumtemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			aromatherapy: ["9L19", "9M"],
@@ -99443,7 +99443,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wiglettsoulstones: {
+	wiglettorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -99568,7 +99568,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wugtriosoulstones: {
+	wugtrioorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -99685,7 +99685,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	pluslesoulstones: {
+	plusleorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -99806,7 +99806,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	minunsoulstones: {
+	minunorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -99933,7 +99933,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9E"],
 		},
 	},
-	tgrowlithe: {
+	growlithetemporal: {
 		learnset: {
 			acidrain: ["9L53", "9M"],
 			allergy: ["9L17", "9M"],
@@ -100058,7 +100058,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tarcanine: {
+	arcaninetemporal: {
 		learnset: {
 			acidrain: ["9L53", "9M"],
 			allergy: ["9L17", "9M"],
@@ -100177,7 +100177,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pansagesoulstones: {
+	pansageorion: {
 		learnset: {
 			acrobatics: ["9L31", "9M"],
 			airslash: ["9M"],
@@ -100284,7 +100284,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	simisagesoulstones: {
+	simisageorion: {
 		learnset: {
 			acrobatics: ["9L31", "9M"],
 			airslash: ["9M"],
@@ -100384,7 +100384,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pansearsoulstones: {
+	pansearorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -100502,7 +100502,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	simisearsoulstones: {
+	simisearorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -100615,7 +100615,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	panpoursoulstones: {
+	panpourorion: {
 		learnset: {
 			accelerock: ["9E"],
 			acrobatics: ["9M"],
@@ -100750,7 +100750,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	simipoursoulstones: {
+	simipourorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			amberwave: ["9L46"],
@@ -100881,7 +100881,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rhyhornsoulstones: {
+	rhyhornorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			aquajet: ["9E"],
@@ -101026,7 +101026,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rhydonsoulstones: {
+	rhydonorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			aquatail: ["9L45"],
@@ -101162,7 +101162,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rhyperiorsoulstones: {
+	rhyperiororion: {
 		learnset: {
 			ancientglare: ["9M"],
 			aquatail: ["9L45"],
@@ -101298,7 +101298,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tduskull: {
+	duskulltemporal: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -101425,7 +101425,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdusclops: {
+	dusclopstemporal: {
 		learnset: {
 			ambush: ["9M"],
 			astonish: ["9L1"],
@@ -101542,7 +101542,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdusknoir: {
+	dusknoirtemporal: {
 		learnset: {
 			ambush: ["9M"],
 			anchorshot: ["9L0", "9L1"],
@@ -101660,7 +101660,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	glameowsoulstones: {
+	glameoworion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -101766,7 +101766,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	puruglysoulstones: {
+	puruglyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -101863,7 +101863,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shelldersoulstones: {
+	shellderorion: {
 		learnset: {
 			acidrain: ["9M"],
 			ancientglare: ["9M"],
@@ -102008,7 +102008,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	cloystersoulstones: {
+	cloysterorion: {
 		learnset: {
 			acidrain: ["9M"],
 			ancientglare: ["9M"],
@@ -102143,7 +102143,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	inkaysoulstones: {
+	inkayorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -102290,7 +102290,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wrap: ["9L1"],
 		},
 	},
-	malamarsoulstones: {
+	malamarorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -102429,7 +102429,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wrap: ["9L1"],
 		},
 	},
-	dondozosoulstones: {
+	dondozoorion: {
 		learnset: {
 			anchorshot: ["9L32"],
 			aquajet: ["9L6"],
@@ -102535,7 +102535,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tatsugirisoulstones: {
+	tatsugiriorion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -102623,7 +102623,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	bunnelbysoulstones: {
+	bunnelbyorion: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9L42"],
@@ -102736,7 +102736,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	diggersbysoulstones: {
+	diggersbyorion: {
 		learnset: {
 			attract: ["9M"],
 			aurasphere: ["9L42"],
@@ -102844,7 +102844,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rockruffsoulstones: {
+	rockrufforion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -102946,7 +102946,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lycanrocsoulstones: {
+	lycanrocorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -103042,7 +103042,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	trowlet: {
+	rowlettemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -103137,7 +103137,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdartrix: {
+	dartrixtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -103228,7 +103228,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tdecidueye: {
+	decidueyetemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -103319,7 +103319,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	lickitungsoulstones: {
+	lickitungorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -103413,7 +103413,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lickilickysoulstones: {
+	lickilickyorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -103500,7 +103500,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	squirtlesoulstones: {
+	squirtleorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L28"],
@@ -103603,7 +103603,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	wartortlesoulstones: {
+	wartortleorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L28"],
@@ -103702,7 +103702,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	blastoisesoulstones: {
+	blastoiseorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidarmor: ["9L28"],
@@ -103801,7 +103801,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcacnea: {
+	cacneatemporal: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -103906,7 +103906,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcacturne: {
+	cacturnetemporal: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -104007,7 +104007,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bellsproutsoulstones: {
+	bellsproutorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9E"],
@@ -104121,7 +104121,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	weepinbellsoulstones: {
+	weepinbellorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -104228,7 +104228,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	victreebelsoulstones: {
+	victreebelorion: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -104335,7 +104335,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	petililsoulstones: {
+	petililorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -104449,7 +104449,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	lilligantsoulstones: {
+	lilligantorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -104555,7 +104555,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tphantump: {
+	phantumptemporal: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L11"],
@@ -104701,7 +104701,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttrevenant: {
+	trevenanttemporal: {
 		learnset: {
 			antimatter: ["9M"],
 			arcaneblast: ["9L11"],
@@ -104839,7 +104839,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tigglybuff: {
+	igglybufftemporal: {
 		learnset: {
 			accelerock: ["9E"],
 			acrobatics: ["9M"],
@@ -104946,7 +104946,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tjigglypuff: {
+	jigglypufftemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -105045,7 +105045,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	twigglytuff: {
+	wigglytufftemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -105144,7 +105144,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tandemaussoulstones: {
+	tandemausorion: {
 		learnset: {
 			afteryou: ["9E"],
 			amberwave: ["9L49"],
@@ -105247,7 +105247,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mausholdsoulstones: {
+	mausholdorion: {
 		learnset: {
 			amberwave: ["9L49"],
 			battleofwits: ["9M"],
@@ -105341,7 +105341,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tminior: {
+	miniortemporal: {
 		learnset: {
 			airslash: ["9M"],
 			ancientglare: ["9M"],
@@ -105442,7 +105442,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	perrserkersoulstones: {
+	perrserkerorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -105571,7 +105571,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L30"],
 		},
 	},
-	grubbinsoulstones: {
+	grubbinorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			antimatter: ["9M"],
@@ -105677,7 +105677,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L54"],
 		},
 	},
-	charjabugsoulstones: {
+	charjabugorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			antimatter: ["9M"],
@@ -105774,7 +105774,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L54"],
 		},
 	},
-	vikavoltsoulstones: {
+	vikavoltorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			antimatter: ["9M"],
@@ -105871,7 +105871,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L54"],
 		},
 	},
-	tteddiursa: {
+	teddiursatemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -105981,7 +105981,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tursaring: {
+	ursaringtemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -106086,7 +106086,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tursaluna: {
+	ursalunatemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			airslash: ["9M"],
@@ -106191,7 +106191,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	runerigussoulstones: {
+	runerigusorion: {
 		learnset: {
 			ambush: ["9L44", "9M"],
 			attract: ["9M"],
@@ -106290,7 +106290,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tsneasel: {
+	sneaseltemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -106418,7 +106418,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9L44", "9M"],
 		},
 	},
-	tweavile: {
+	weaviletemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -106537,7 +106537,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tsneasler: {
+	sneaslertemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -106658,7 +106658,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	heatmorsoulstones: {
+	heatmororion: {
 		learnset: {
 			attract: ["9M"],
 			balllightning: ["9M"],
@@ -106755,7 +106755,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shucklesoulstones: {
+	shuckleorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -106865,7 +106865,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttandemaus: {
+	tandemaustemporal: {
 		learnset: {
 			afteryou: ["9E"],
 			armthrust: ["9L16"],
@@ -106957,7 +106957,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmaushold: {
+	mausholdtemporal: {
 		learnset: {
 			armthrust: ["9L16"],
 			blizzard: ["9M"],
@@ -107037,7 +107037,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	orangurusoulstones: {
+	oranguruorion: {
 		learnset: {
 			antimatter: ["9M"],
 			asteroidbelt: ["9M"],
@@ -107141,7 +107141,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	passimiansoulstones: {
+	passimianorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -107255,7 +107255,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tcetoddle: {
+	cetoddletemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -107374,7 +107374,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcetitan: {
+	cetitantemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -107486,7 +107486,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tscyther: {
+	scythertemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L30"],
@@ -107588,7 +107588,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L33"],
 		},
 	},
-	tscizor: {
+	scizortemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L30"],
@@ -107681,7 +107681,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	shelmetsoulstones: {
+	shelmetorion: {
 		learnset: {
 			acid: ["9E"],
 			acidrain: ["9M"],
@@ -107796,7 +107796,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9E"],
 		},
 	},
-	accelgorsoulstones: {
+	accelgororion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -107902,7 +107902,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	snubbullsoulstones: {
+	snubbullorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquafang: ["9L22"],
@@ -108015,7 +108015,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	granbullsoulstones: {
+	granbullorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquafang: ["9L22"],
@@ -108117,7 +108117,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chewtlesoulstones: {
+	chewtleorion: {
 		learnset: {
 			accelerock: ["9L7"],
 			attract: ["9M"],
@@ -108221,7 +108221,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	drednawsoulstones: {
+	drednaworion: {
 		learnset: {
 			accelerock: ["9L7"],
 			attract: ["9M"],
@@ -108320,7 +108320,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tskiddo: {
+	skiddotemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L16", "9M"],
@@ -108414,7 +108414,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	tgogoat: {
+	gogoattemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L16", "9M"],
@@ -108499,7 +108499,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	sigilyphsoulstones: {
+	sigilyphorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -108616,7 +108616,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	orthwormsoulstones: {
+	orthwormorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -108723,7 +108723,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	burmysoulstones: {
+	burmyorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -108830,7 +108830,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	burmysoulstonesrock: {
+	burmyorionrock: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -108936,7 +108936,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	burmysoulstonessnow: {
+	burmyorionsnow: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -109042,7 +109042,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wormadamsoulstones: {
+	wormadamorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -109160,7 +109160,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wormadamsoulstonesrock: {
+	wormadamorionrock: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -109275,7 +109275,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	wormadamsoulstonessnow: {
+	wormadamorionsnow: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			arcticparasite: ["9L50"],
@@ -109392,7 +109392,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mothimsoulstones: {
+	mothimorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -109509,7 +109509,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mothimsoulstonesrock: {
+	mothimorionrock: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			astralwind: ["9M"],
@@ -109623,7 +109623,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mothimsoulstonessnow: {
+	mothimorionsnow: {
 		learnset: {
 			airslash: ["9L32"],
 			arcaneenergy: ["9M"],
@@ -109738,7 +109738,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sprigatitosoulstones: {
+	sprigatitoorion: {
 		learnset: {
 			aphroditesmirror: ["9L43"],
 			arcaneenergy: ["9L56", "9M"],
@@ -109846,7 +109846,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	floragatosoulstones: {
+	floragatoorion: {
 		learnset: {
 			aphroditesmirror: ["9L43"],
 			arcaneenergy: ["9L56", "9M"],
@@ -109948,7 +109948,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meowscaradasoulstones: {
+	meowscaradaorion: {
 		learnset: {
 			aphroditesmirror: ["9L43"],
 			arcaneenergy: ["9L56", "9M"],
@@ -110050,7 +110050,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	klawfsoulstones: {
+	klawforion: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9M"],
@@ -110172,7 +110172,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	glimmetsoulstones: {
+	glimmetorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9E"],
@@ -110293,7 +110293,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wrap: ["9L1"],
 		},
 	},
-	glimmorasoulstones: {
+	glimmoraorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -110405,7 +110405,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wrap: ["9L1"],
 		},
 	},
-	maractussoulstones: {
+	maractusorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -110510,7 +110510,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	cyclizarsoulstones: {
+	cyclizarorion: {
 		learnset: {
 			attract: ["9M"],
 			blizzard: ["9M"],
@@ -110611,7 +110611,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bramblinsoulstones: {
+	bramblinorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9M"],
@@ -110717,7 +110717,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	brambleghastsoulstones: {
+	brambleghastorion: {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9M"],
@@ -110816,7 +110816,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	toedscoolsoulstones: {
+	toedscoolorion: {
 		learnset: {
 			assist: ["9L1"],
 			attract: ["9M"],
@@ -110911,7 +110911,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	toedscruelsoulstones: {
+	toedscruelorion: {
 		learnset: {
 			assist: ["9L1"],
 			attract: ["9M"],
@@ -110997,7 +110997,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	stunfisksoulstones: {
+	stunfiskorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -111087,7 +111087,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			yawn: ["9E"],
 		},
 	},
-	capsakidsoulstones: {
+	capsakidorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acidspray: ["9E"],
@@ -111171,7 +111171,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L34"],
 		},
 	},
-	scovillainsoulstones: {
+	scovillainorion: {
 		learnset: {
 			acidrain: ["9M"],
 			alkalinebomb: ["9L7"],
@@ -111250,7 +111250,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L34"],
 		},
 	},
-	quaxlysoulstones: {
+	quaxlyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9E"],
@@ -111344,7 +111344,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	quaxwellsoulstones: {
+	quaxwellorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -111425,7 +111425,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	quaquavalsoulstones: {
+	quaquavalorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -111506,7 +111506,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	foongussoulstones: {
+	foongusorion: {
 		learnset: {
 			acidrain: ["9L52", "9M"],
 			allergy: ["9M"],
@@ -111595,7 +111595,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	amoongusssoulstones: {
+	amoongussorion: {
 		learnset: {
 			acidrain: ["9L52", "9M"],
 			allergy: ["9M"],
@@ -111677,7 +111677,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tparas: {
+	parastemporal: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L52", "9M"],
@@ -111780,7 +111780,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tparasect: {
+	parasecttemporal: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L52", "9M"],
@@ -111877,7 +111877,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tphanpy: {
+	phanpytemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -111968,7 +111968,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tdonphan: {
+	donphantemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -112055,7 +112055,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	meltansoulstones: {
+	meltanorion: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -112164,7 +112164,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	melmetalsoulstones: {
+	melmetalorion: {
 		learnset: {
 			aromatherapy: ["9M"],
 			attract: ["9M"],
@@ -112273,7 +112273,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	unownsoulstones: {
+	unownorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientpower: ["9L13"],
@@ -112382,7 +112382,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	unownsoulstonessymphony: {
+	unownorionsymphony: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientpower: ["9L13"],
@@ -112491,7 +112491,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	trookidee: {
+	rookideetemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L48", "9M"],
@@ -112586,7 +112586,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L51"],
 		},
 	},
-	tcorvisquire: {
+	corvisquiretemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L48", "9M"],
@@ -112676,7 +112676,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L51"],
 		},
 	},
-	tcorviknight: {
+	corviknighttemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9L48", "9M"],
@@ -112766,7 +112766,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L51"],
 		},
 	},
-	tlitleo: {
+	litleotemporal: {
 		learnset: {
 			aquafang: ["9L20"],
 			aquatail: ["9E"],
@@ -112891,7 +112891,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tpyroar: {
+	pyroartemporal: {
 		learnset: {
 			aquafang: ["9L20"],
 			attract: ["9M"],
@@ -113003,7 +113003,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttangela: {
+	tangelatemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -113099,7 +113099,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttangrowth: {
+	tangrowthtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -113188,7 +113188,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tadbulbsoulstones: {
+	tadbulborion: {
 		learnset: {
 			attract: ["9M"],
 			babydolleyes: ["9L4"],
@@ -113280,7 +113280,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	belliboltsoulstones: {
+	belliboltorion: {
 		learnset: {
 			attract: ["9M"],
 			babydolleyes: ["9L4"],
@@ -113365,7 +113365,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mewsoulstones: {
+	meworion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -113722,7 +113722,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	scorbunnysoulstones: {
+	scorbunnyorion: {
 		learnset: {
 			acrobatics: ["9L22", "9M"],
 			agility: ["9E"],
@@ -113834,7 +113834,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	rabootsoulstones: {
+	rabootorion: {
 		learnset: {
 			acrobatics: ["9L22", "9M"],
 			airslash: ["9M"],
@@ -113935,7 +113935,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	cinderacesoulstones: {
+	cinderaceorion: {
 		learnset: {
 			acrobatics: ["9L22", "9M"],
 			airslash: ["9M"],
@@ -114036,7 +114036,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L37", "9M"],
 		},
 	},
-	komalasoulstones: {
+	komalaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -114130,7 +114130,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hydrapplesoulstones: {
+	hydrappleorion: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9L56", "9M"],
@@ -114276,7 +114276,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	blipbugsoulstones: {
+	blipbugorion: {
 		learnset: {
 			bide: ["9L7"],
 			defensecurl: ["9E"],
@@ -114295,7 +114295,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wrap: ["9L1"],
 		},
 	},
-	dottlersoulstones: {
+	dottlerorion: {
 		learnset: {
 			bide: ["9L7"],
 			defensecurl: ["9L0", "9L1"],
@@ -114311,7 +114311,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wrap: ["9L1"],
 		},
 	},
-	orbeetlesoulstones: {
+	orbeetleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -114391,7 +114391,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	turtonatorsoulstones: {
+	turtonatororion: {
 		learnset: {
 			aquaring: ["9L17"],
 			aromatherapy: ["9M"],
@@ -114494,7 +114494,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmudbray: {
+	mudbraytemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -114606,7 +114606,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmudsdale: {
+	mudsdaletemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			attract: ["9M"],
@@ -114712,7 +114712,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	hawluchasoulstones: {
+	hawluchaorion: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -114835,7 +114835,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	flamigosoulstones: {
+	flamigoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -114935,7 +114935,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	relicanthsoulstones: {
+	relicanthorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -115041,7 +115041,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	farfetchdsoulstones: {
+	farfetchdorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L11", "9M"],
@@ -115153,7 +115153,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	sirfetchdsoulstones: {
+	sirfetchdorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L11", "9M"],
@@ -115255,7 +115255,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rotomsoulstones: {
+	rotomorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -115362,7 +115362,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	duraludonsoulstones: {
+	duraludonorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientpower: ["9L21"],
@@ -115506,7 +115506,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	archaludonsoulstones: {
+	archaludonorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			ancientpower: ["9L21"],
@@ -115644,7 +115644,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tpichu: {
+	pichutemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -115743,7 +115743,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tpikachu: {
+	pikachutemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -115834,7 +115834,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	traichu: {
+	raichutemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -115926,7 +115926,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	audinosoulstones: {
+	audinoorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -116031,7 +116031,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tralts: {
+	raltstemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -116181,7 +116181,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tkirlia: {
+	kirliatemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -116323,7 +116323,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgardevoir: {
+	gardevoirtemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -116466,7 +116466,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgallade: {
+	galladetemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -116606,7 +116606,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L34", "9M"],
 		},
 	},
-	drampasoulstones: {
+	drampaorion: {
 		learnset: {
 			aerialpulse: ["9M"],
 			airslash: ["9M"],
@@ -116741,7 +116741,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bombirdiersoulstones: {
+	bombirdierorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -116850,7 +116850,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	maschiffsoulstones: {
+	maschifforion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -116964,7 +116964,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	mabosstiffsoulstones: {
+	mabosstifforion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -117069,7 +117069,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nymblesoulstones: {
+	nymbleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L23"],
@@ -117176,7 +117176,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lokixsoulstones: {
+	lokixorion: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L23"],
@@ -117276,7 +117276,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	squawkabillysoulstones: {
+	squawkabillyorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -117375,7 +117375,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9E"],
 		},
 	},
-	ttreecko: {
+	treeckotemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientglare: ["9E", "9M"],
@@ -117505,7 +117505,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	tgrovyle: {
+	grovyletemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientglare: ["9M"],
@@ -117628,7 +117628,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	tsceptile: {
+	sceptiletemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ancientglare: ["9M"],
@@ -117752,7 +117752,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	tspiritomb: {
+	spiritombtemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -117859,7 +117859,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	eiscuesoulstones: {
+	eiscueorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -117968,7 +117968,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	eiscuesoulstonesnotv: {
+	eiscueorionnotv: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -118077,7 +118077,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tkomala: {
+	komalatemporal: {
 		learnset: {
 			ambush: ["9L46", "9M"],
 			attract: ["9M"],
@@ -118170,7 +118170,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tblitzle: {
+	blitzletemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -118284,7 +118284,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tzebstrika: {
+	zebstrikatemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -118392,7 +118392,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tturtwig: {
+	turtwigtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -118519,7 +118519,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgrotle: {
+	grotletemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -118638,7 +118638,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttorterra: {
+	torterratemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -118757,7 +118757,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	poltchageistsoulstones: {
+	poltchageistorion: {
 		learnset: {
 			acid: ["9L4"],
 			acidrain: ["9M"],
@@ -118866,7 +118866,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sinistchasoulstones: {
+	sinistchaorion: {
 		learnset: {
 			acid: ["9L4"],
 			acidrain: ["9M"],
@@ -118975,7 +118975,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tnacli: {
+	naclitemporal: {
 		learnset: {
 			accelerock: ["9L7"],
 			ancientglare: ["9M"],
@@ -119105,7 +119105,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tnaclstack: {
+	naclstacktemporal: {
 		learnset: {
 			accelerock: ["9L7"],
 			ancientglare: ["9M"],
@@ -119228,7 +119228,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgarganacl: {
+	garganacltemporal: {
 		learnset: {
 			accelerock: ["9L7"],
 			ancientglare: ["9M"],
@@ -119352,7 +119352,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcottonee: {
+	cottoneetemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			acrobatics: ["9M"],
@@ -119468,7 +119468,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	twhimsicott: {
+	whimsicotttemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			acrobatics: ["9M"],
@@ -119580,7 +119580,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	sevipersoulstones: {
+	seviperorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -119690,7 +119690,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmimikyu: {
+	mimikyutemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -119823,7 +119823,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	togedemarusoulstones: {
+	togedemaruorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			anchorshot: ["9L39"],
@@ -119922,7 +119922,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	togedemarusoulstonesreactive: {
+	togedemaruorionreactive: {
 		learnset: {
 			acrobatics: ["9M"],
 			anchorshot: ["9L39"],
@@ -120021,7 +120021,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grookeysoulstones: {
+	grookeyorion: {
 		learnset: {
 			ambush: ["9M"],
 			amnesia: ["9L38"],
@@ -120158,7 +120158,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L32", "9M"],
 		},
 	},
-	thwackeysoulstones: {
+	thwackeyorion: {
 		learnset: {
 			ambush: ["9M"],
 			amnesia: ["9L38"],
@@ -120287,7 +120287,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L32", "9M"],
 		},
 	},
-	rillaboomsoulstones: {
+	rillaboomorion: {
 		learnset: {
 			ambush: ["9M"],
 			amnesia: ["9L38"],
@@ -120416,7 +120416,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L32", "9M"],
 		},
 	},
-	charcadetsoulstones: {
+	charcadetorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			arcingblow: ["9L27"],
@@ -120525,7 +120525,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	armarougesoulstones: {
+	armarougeorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			attract: ["9M"],
@@ -120636,7 +120636,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ceruledgesoulstones: {
+	ceruledgeorion: {
 		learnset: {
 			arcaneenergy: ["9M"],
 			arcingblow: ["9L27"],
@@ -120752,7 +120752,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spoinksoulstones: {
+	spoinkorion: {
 		learnset: {
 			amnesia: ["9E"],
 			ancientglare: ["9M"],
@@ -120840,7 +120840,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	spoinksoulstonestoxic: {
+	spoinkoriontoxic: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9M"],
@@ -120931,7 +120931,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	spoinksoulstonesfrost: {
+	spoinkorionfrost: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -121015,7 +121015,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grumpigsoulstones: {
+	grumpigorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			attract: ["9M"],
@@ -121097,7 +121097,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L39", "9M"],
 		},
 	},
-	grumpigsoulstonestoxic: {
+	grumpigoriontoxic: {
 		learnset: {
 			acid: ["9L1"],
 			acidrain: ["9M"],
@@ -121182,7 +121182,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grumpigsoulstonesfrost: {
+	grumpigorionfrost: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -121260,7 +121260,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	bruxishsoulstones: {
+	bruxishorion: {
 		learnset: {
 			ambush: ["9M"],
 			aquafang: ["9L20"],
@@ -121354,7 +121354,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	volbeatsoulstones: {
+	volbeatorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -121494,7 +121494,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	illumisesoulstones: {
+	illumiseorion: {
 		learnset: {
 			acidrain: ["9M"],
 			aerialace: ["9M"],
@@ -121636,7 +121636,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tonix: {
+	onixtemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -121788,7 +121788,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9E", "9M"],
 		},
 	},
-	tsteelix: {
+	steelixtemporal: {
 		learnset: {
 			ancientglare: ["9M"],
 			antimatter: ["9M"],
@@ -121937,7 +121937,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcharmander: {
+	charmandertemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -122065,7 +122065,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcharmeleon: {
+	charmeleontemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -122187,7 +122187,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcharizard: {
+	charizardtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -122311,7 +122311,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tpoltchageist: {
+	poltchageisttemporal: {
 		learnset: {
 			acid: ["9L4"],
 			acidrain: ["9M"],
@@ -122433,7 +122433,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsinistcha: {
+	sinistchatemporal: {
 		learnset: {
 			acid: ["9L4"],
 			acidrain: ["9M"],
@@ -122555,7 +122555,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	kangaskhansoulstones: {
+	kangaskhanorion: {
 		learnset: {
 			airslash: ["9M"],
 			ancientglare: ["9M"],
@@ -122677,7 +122677,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tseviper: {
+	sevipertemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -122782,7 +122782,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zephyrpurge: ["9E"],
 		},
 	},
-	tthroh: {
+	throhtemporal: {
 		learnset: {
 			afteryou: ["9E"],
 			arcanebarrage: ["9E"],
@@ -122893,7 +122893,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsawk: {
+	sawktemporal: {
 		learnset: {
 			afteryou: ["9E"],
 			arcaneenergy: ["9L56", "9M"],
@@ -123003,7 +123003,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	ttarountula: {
+	tarountulatemporal: {
 		learnset: {
 			airslash: ["9M"],
 			aphroditesmirror: ["9L49"],
@@ -123100,7 +123100,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tspidops: {
+	spidopstemporal: {
 		learnset: {
 			airslash: ["9M"],
 			aphroditesmirror: ["9L49"],
@@ -123190,7 +123190,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	pyukumukusoulstones: {
+	pyukumukuorion: {
 		learnset: {
 			acidarmor: ["9L24"],
 			acrobatics: ["9M"],
@@ -123281,7 +123281,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	fidoughsoulstones: {
+	fidoughorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L19", "9M"],
@@ -123364,7 +123364,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	dachsbunsoulstones: {
+	dachsbunorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9L19", "9M"],
@@ -123440,7 +123440,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbulbasaur: {
+	bulbasaurtemporal: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9E", "9M"],
@@ -123542,7 +123542,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tivysaur: {
+	ivysaurtemporal: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9M"],
@@ -123636,7 +123636,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tvenusaur: {
+	venusaurtemporal: {
 		learnset: {
 			attract: ["9M"],
 			bejeweled: ["9M"],
@@ -123730,7 +123730,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	girafarigsoulstones: {
+	girafarigorion: {
 		learnset: {
 			allyswitch: ["9E"],
 			ambush: ["9L46", "9M"],
@@ -123841,7 +123841,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	farigirafsoulstones: {
+	farigiraforion: {
 		learnset: {
 			ambush: ["9L46", "9M"],
 			ancientglare: ["9M"],
@@ -123943,7 +123943,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcomfey: {
+	comfeytemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9L21", "9M"],
@@ -124048,7 +124048,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wildcharge: ["9M"],
 		},
 	},
-	tkleavor: {
+	kleavortemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9L30"],
@@ -124145,7 +124145,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zingzap: ["9L33"],
 		},
 	},
-	tsewaddle: {
+	sewaddletemporal: {
 		learnset: {
 			airslash: ["9M"],
 			allergy: ["9M"],
@@ -124266,7 +124266,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tswadloon: {
+	swadloontemporal: {
 		learnset: {
 			airslash: ["9M"],
 			allergy: ["9M"],
@@ -124382,7 +124382,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tleavanny: {
+	leavannytemporal: {
 		learnset: {
 			airslash: ["9M"],
 			allergy: ["9M"],
@@ -124498,7 +124498,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tsentret: {
+	sentrettemporal: {
 		learnset: {
 			airslash: ["9M"],
 			aquafang: ["9E"],
@@ -124602,7 +124602,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tfurret: {
+	furrettemporal: {
 		learnset: {
 			airslash: ["9M"],
 			aquajet: ["9L6"],
@@ -124697,7 +124697,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nidoranfsoulstones: {
+	nidoranforion: {
 		learnset: {
 			amberwave: ["9L48"],
 			ambush: ["9M"],
@@ -124801,7 +124801,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nidorinasoulstones: {
+	nidorinaorion: {
 		learnset: {
 			amberwave: ["9L48"],
 			ambush: ["9M"],
@@ -124898,7 +124898,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nidoqueensoulstones: {
+	nidoqueenorion: {
 		learnset: {
 			amberwave: ["9L48"],
 			ambush: ["9M"],
@@ -124995,7 +124995,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nidoranmsoulstones: {
+	nidoranmorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -125109,7 +125109,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nidorinosoulstones: {
+	nidorinoorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -125216,7 +125216,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	nidokingsoulstones: {
+	nidokingorion: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -125323,7 +125323,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgrookey: {
+	grookeytemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -125445,7 +125445,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tthwackey: {
+	thwackeytemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -125557,7 +125557,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	trillaboom: {
+	rillaboomtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -125669,7 +125669,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	chatotsoulstones: {
+	chatotorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -125759,7 +125759,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	kecleonsoulstones: {
+	kecleonorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9M"],
@@ -125866,7 +125866,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tpawniard: {
+	pawniardtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L48", "9M"],
@@ -125961,7 +125961,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tbisharp: {
+	bisharptemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L48", "9M"],
@@ -126051,7 +126051,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tkingambit: {
+	kingambittemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			ambush: ["9L48", "9M"],
@@ -126141,7 +126141,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	castformsoulstones: {
+	castformorion: {
 		learnset: {
 			amnesia: ["9E"],
 			arcaneenergy: ["9L62", "9M"],
@@ -126275,7 +126275,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	castformsoulstonesgrassy: {
+	castformoriongrassy: {
 		learnset: {
 			amnesia: ["9E"],
 			arcaneenergy: ["9L62", "9M"],
@@ -126409,7 +126409,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	castformsoulstoneselectric: {
+	castformorionelectric: {
 		learnset: {
 			amnesia: ["9E"],
 			arcaneenergy: ["9L62", "9M"],
@@ -126543,7 +126543,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	castformsoulstonespsychic: {
+	castformorionpsychic: {
 		learnset: {
 			amnesia: ["9E"],
 			arcaneenergy: ["9L62", "9M"],
@@ -126677,7 +126677,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	castformsoulstonesmisty: {
+	castformorionmisty: {
 		learnset: {
 			amnesia: ["9E"],
 			arcaneenergy: ["9L62", "9M"],
@@ -126811,7 +126811,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	claunchersoulstones: {
+	clauncherorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -126891,7 +126891,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L52"],
 		},
 	},
-	clawitzersoulstones: {
+	clawitzerorion: {
 		learnset: {
 			antimatter: ["9M"],
 			attract: ["9M"],
@@ -126963,7 +126963,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zapcannon: ["9L52"],
 		},
 	},
-	tshroomish: {
+	shroomishtemporal: {
 		learnset: {
 			acrobatics: ["9E", "9M"],
 			aerialace: ["9M"],
@@ -127048,7 +127048,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tbreloom: {
+	breloomtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -127126,7 +127126,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmunchlax: {
+	munchlaxtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -127228,7 +127228,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsnorlax: {
+	snorlaxtemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -127319,7 +127319,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	alomomolasoulstones: {
+	alomomolaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -127414,7 +127414,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zeal: ["9L10"],
 		},
 	},
-	varoomsoulstones: {
+	varoomorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -127546,7 +127546,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	revavroomsoulstones: {
+	revavroomorion: {
 		learnset: {
 			ambush: ["9M"],
 			antimatter: ["9M"],
@@ -127672,7 +127672,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	veluzasoulstones: {
+	veluzaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -127763,7 +127763,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tapplin: {
+	applintemporal: {
 		learnset: {
 			acidarmor: ["9E"],
 			acidrain: ["9M"],
@@ -127867,7 +127867,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tflapple: {
+	flappletemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -127968,7 +127968,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tappletun: {
+	appletuntemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -128067,7 +128067,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tdipplin: {
+	dipplintemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -128165,7 +128165,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	thydrapple: {
+	hydrappletemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			allergy: ["9M"],
@@ -128265,7 +128265,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	twimpod: {
+	wimpodtemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			allergy: ["9M"],
@@ -128353,7 +128353,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9M"],
 		},
 	},
-	tgolisopod: {
+	golisopodtemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			allergy: ["9M"],
@@ -128443,7 +128443,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9L22", "9M"],
 		},
 	},
-	flittlesoulstones: {
+	flittleorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -128536,7 +128536,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	espathrasoulstones: {
+	espathraorion: {
 		learnset: {
 			aerialace: ["9M"],
 			aerialpulse: ["9M"],
@@ -128622,7 +128622,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	tcarnivine: {
+	carnivinetemporal: {
 		learnset: {
 			aerialace: ["9M"],
 			ambush: ["9E", "9M"],
@@ -128727,7 +128727,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	yungoossoulstones: {
+	yungoosorion: {
 		learnset: {
 			ancientfire: ["9E"],
 			ancientglare: ["9M"],
@@ -128848,7 +128848,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	gumshoossoulstones: {
+	gumshoosorion: {
 		learnset: {
 			ancientglare: ["9M"],
 			arcaneenergy: ["9M"],
@@ -128951,7 +128951,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	zangoosesoulstones: {
+	zangooseorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -129042,7 +129042,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	morpekosoulstones: {
+	morpekoorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -129151,7 +129151,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	mawilesoulstones: {
+	mawileorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			airslash: ["9M"],
@@ -129256,7 +129256,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tskrelp: {
+	skrelptemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -129354,7 +129354,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	tdragalge: {
+	dragalgetemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -129445,7 +129445,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wish: ["9M"],
 		},
 	},
-	tmareep: {
+	mareeptemporal: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -129559,7 +129559,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tflaaffy: {
+	flaaffytemporal: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -129665,7 +129665,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tampharos: {
+	ampharostemporal: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -129771,7 +129771,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tdwebble: {
+	dwebbletemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -129885,7 +129885,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcrustle: {
+	crustletemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -129988,7 +129988,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	rellorsoulstones: {
+	rellororion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -130098,7 +130098,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zeal: ["9L7"],
 		},
 	},
-	rabscasoulstones: {
+	rabscaorion: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -130204,7 +130204,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zeal: ["9L7"],
 		},
 	},
-	tmawile: {
+	mawiletemporal: {
 		learnset: {
 			absorb: ["9L1"],
 			airslash: ["9M"],
@@ -130302,7 +130302,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			wraithpulse: ["9L51"],
 		},
 	},
-	scatterbugsoulstones: {
+	scatterbugorion: {
 		learnset: {
 			burnup: ["9E"],
 			ember: ["9L1"],
@@ -130318,7 +130318,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9M"],
 		},
 	},
-	spewpasoulstones: {
+	spewpaorion: {
 		learnset: {
 			ember: ["9L1"],
 			incinerate: ["9L10"],
@@ -130329,7 +130329,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			willowisp: ["9M"],
 		},
 	},
-	vivillonsoulstones: {
+	vivillonorion: {
 		learnset: {
 			aerialpulse: ["9M"],
 			antimatter: ["9M"],
@@ -130413,7 +130413,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	crabrawlersoulstones: {
+	crabrawlerorion: {
 		learnset: {
 			ambush: ["9M"],
 			anchorshot: ["9E"],
@@ -130518,7 +130518,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	crabominablesoulstones: {
+	crabominableorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -130617,7 +130617,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tmeowth: {
+	meowthtemporal: {
 		learnset: {
 			afteryou: ["9E"],
 			ambush: ["9M"],
@@ -130749,7 +130749,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tpersian: {
+	persiantemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -130871,7 +130871,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tperrserker: {
+	perrserkertemporal: {
 		learnset: {
 			ambush: ["9M"],
 			ancientglare: ["9M"],
@@ -130996,7 +130996,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	shroodlesoulstones: {
+	shroodleorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -131092,7 +131092,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	grafaiaisoulstones: {
+	grafaiaiorion: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -131181,7 +131181,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	kleavorsoulstones: {
+	kleavororion: {
 		learnset: {
 			aerialace: ["9L25", "9M"],
 			airslash: ["9M"],
@@ -131288,7 +131288,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tpincurchin: {
+	pincurchintemporal: {
 		learnset: {
 			ambush: ["9M"],
 			attract: ["9M"],
@@ -131367,7 +131367,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	lechonksoulstones: {
+	lechonkorion: {
 		learnset: {
 			ambush: ["9L43", "9M"],
 			aromatherapy: ["9M"],
@@ -131474,7 +131474,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	oinkolognesoulstones: {
+	oinkologneorion: {
 		learnset: {
 			ambush: ["9L43", "9M"],
 			aromatherapy: ["9M"],
@@ -131571,7 +131571,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9L40", "9M"],
 		},
 	},
-	kyuremsoulstones: {
+	kyuremorion: {
 		learnset: {
 			ancientfire: ["9L51"],
 			ancientglare: ["9M"],
@@ -131692,7 +131692,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	trockruff: {
+	rockrufftemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -131788,7 +131788,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tlycanroc: {
+	lycanroctemporal: {
 		learnset: {
 			acrobatics: ["9M"],
 			aerialace: ["9M"],
@@ -131878,7 +131878,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tstaryu: {
+	staryutemporal: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -131968,7 +131968,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tstarmie: {
+	starmietemporal: {
 		learnset: {
 			allergy: ["9M"],
 			ambush: ["9M"],
@@ -132058,7 +132058,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			workup: ["9M"],
 		},
 	},
-	tlitwick: {
+	litwicktemporal: {
 		learnset: {
 			allyswitch: ["9E"],
 			ancientfire: ["9L39"],
@@ -132180,7 +132180,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tlampent: {
+	lampenttemporal: {
 		learnset: {
 			ancientfire: ["9L39"],
 			arcaneenergy: ["9L52", "9M"],
@@ -132295,7 +132295,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tchandelure: {
+	chandeluretemporal: {
 		learnset: {
 			ancientfire: ["9L39"],
 			arcaneenergy: ["9L52", "9M"],
@@ -132411,7 +132411,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tcyclizar: {
+	cyclizartemporal: {
 		learnset: {
 			acidrain: ["9M"],
 			acrobatics: ["9M"],
@@ -132534,7 +132534,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgoomy: {
+	goomytemporal: {
 		learnset: {
 			amberwave: ["9L43"],
 			ancientglare: ["9M"],
@@ -132642,7 +132642,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsliggoo: {
+	sliggootemporal: {
 		learnset: {
 			amberwave: ["9L43"],
 			ancientglare: ["9M"],
@@ -132746,7 +132746,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tgoodra: {
+	goodratemporal: {
 		learnset: {
 			amberwave: ["9L43"],
 			ancientglare: ["9M"],
@@ -132850,7 +132850,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tsnover: {
+	snovertemporal: {
 		learnset: {
 			ancientfire: ["9L48"],
 			attract: ["9M"],
@@ -132996,7 +132996,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	tabomasnow: {
+	abomasnowtemporal: {
 		learnset: {
 			ancientfire: ["9L48"],
 			attract: ["9M"],
@@ -133136,7 +133136,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			zenheadbutt: ["9M"],
 		},
 	},
-	manaphysoulstones: {
+	manaphyorion: {
 		learnset: {
 			acidarmor: ["9L31"],
 			aquaring: ["9L54"],
@@ -133152,7 +133152,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			whirlpool: ["9L39"],
 		},
 	},
-	dialgasoulstones: {
+	dialgaorion: {
 		learnset: {
 			dragonpulse: ["9L1"],
 			icebeam: ["9L1"],
@@ -133160,7 +133160,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			powergem: ["9L1"],
 		},
 	},
-	palkiasoulstones: {
+	palkiaorion: {
 		learnset: {
 			flareblitz: ["9L1"],
 			polarspear: ["9L1"],
@@ -133168,7 +133168,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			trivega: ["9L1"],
 		},
 	},
-	giratinasoulstones: {
+	giratinaorion: {
 		learnset: {
 			blackhole: ["9L1"],
 			burningofuda: ["9L1"],
@@ -133176,7 +133176,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			oblivionwing: ["9L1"],
 		},
 	},
-	giratinasoulstonesorigin: {
+	giratinaorionorigin: {
 		learnset: {
 			blackhole: ["9L1"],
 			burningofuda: ["9L1"],
@@ -133184,7 +133184,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			dragonenergy: ["9L1"],
 		},
 	},
-	arceussoulstones: {
+	arceusorion: {
 		learnset: {
 			divinepunishment: ["9L1"],
 			dragonpulse: ["9L1"],

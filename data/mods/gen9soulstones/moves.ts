@@ -13035,16 +13035,16 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 		onTry(source) {
-			if (source.species.baseSpecies === 'Morpeko-Soulstones') {
+			if (source.species.baseSpecies === 'Morpeko-Orion') {
 				return;
 			}
 			this.attrLastMove('[still]');
 			this.add('-fail', source, 'move: Power Cycle');
-			this.hint("Only a Pokemon whose form is Morpeko-Soulstones or Morpeko-Soulstones-Unpowered can use this move.");
+			this.hint("Only a Pokemon whose form is Morpeko-Orion or Morpeko-Orion-Unpowered can use this move.");
 			return null;
 		},
 		onModifyType(move, pokemon) {
-			if (pokemon.species.name === 'Morpeko-Soulstones-Unpowered') {
+			if (pokemon.species.name === 'Morpeko-Orion-Unpowered') {
 				move.type = 'Dark';
 			} else {
 				move.type = 'Light';
@@ -13052,8 +13052,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		target: "normal",
 		type: "Light",
-		desc: "Has a 100% chance to raise the user's Speed by 1 stage. If the user is a Morpeko-Soulstones in Powered Mode, this move is Light type. If the user is a Morpeko-Soulstones in Unpowered Mode, this move is Dark type. This move cannot be used successfully unless the user's current form, while considering Transform, is Powered or Unpowered Mode Morpeko-Soulstones.",
-		shortDesc: "Morpeko-Soulstones: Light; Unpowered: Dark; 100% +1 Spe.",
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage. If the user is a Morpeko-Orion in Powered Mode, this move is Light type. If the user is a Morpeko-Orion in Unpowered Mode, this move is Dark type. This move cannot be used successfully unless the user's current form, while considering Transform, is Powered or Unpowered Mode Morpeko-Orion.",
+		shortDesc: "Morpeko-Orion: Light; Unpowered: Dark; 100% +1 Spe.",
 	},
 
 	bigbang: {
