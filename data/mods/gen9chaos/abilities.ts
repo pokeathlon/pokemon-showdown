@@ -1387,6 +1387,28 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "x1.3 power to Special moves after using a Physical move, and vice versa.",
 	},
+	zeitwinder: {
+		onAfterMove(source, target, move) {
+			if (!move.flags.futuremove) return;
+			if (target.side.slotConditions[target.position]?.['futuremove']) {
+				let moveData = target.side.slotConditions[target.position]['futuremove'].moveData
+				moveData = {
+					...moveData, 
+				onHit(target) {
+					if (target.getAbility().flags['cantsuppress']) return;
+					if (target.newlySwitched || this.queue.willMove(target)) return;
+					target.addVolatile('gastroacid');
+				},
+				};
+				target.side.slotConditions[target.position]['futuremove'].moveData = moveData;
+			}
+		},
+		flags: {},
+		name: "Zeitwinder",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "User's future moves suppress the target's ability when they hit.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

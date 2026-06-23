@@ -2921,6 +2921,41 @@ export const Moves: ModdedMoveDataTable = {
 		desc: "If this move is successful and the user has not fainted, the effects of Leech Seed and binding moves end for the user, and all hazards are removed from the user's side of the field. Has a 100% chance to lower the targets's Speed by 1 stage.",
 		shortDesc: "Free user from hazards/bind/Leech Seed. Foe: -1 Spe.",
 	},
+	flockshock: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Flock Shock",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, allyanim: 1, metronome: 1, futuremove: 1 },
+		onHit(target, source, move) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'flockshock',
+				source,
+				moveData: {
+					id: 'flockshock',
+					name: "Flock Shock",
+					accuracy: 100,
+					basePower: 70,
+					category: "Special",
+					priority: 0,
+					flags: { allyanim: 1, metronome: 1, futuremove: 1 },
+					effectType: 'Move',
+					type: 'Electric',
+				},
+			});
+			this.add('-start', target, 'move: Flock Shock');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+		shortDesc: "Electric version hits again two turns after being used.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

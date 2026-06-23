@@ -7645,5 +7645,11 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		start: "  [POKEMON] readied an attack!",
 		activate: "  [TARGET] got snared!",
 	},
+	flockshock: {
+		name: "Flock Shock",
+
+		start: "  [POKEMON] foresaw an attack!",
+		activate: "  [TARGET] got shocked!",
+	},
 
 };

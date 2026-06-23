@@ -2919,6 +2919,20 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	cerebaal: {
+		num: 3174,
+		name: "Cerebaal",
+		types: ["Psychic", "Electric"],
+		baseStats: { hp: 105, atk: 48, def: 83, spa: 117, spd: 103, spe: 72 },
+		abilities: { 0: "Neuroforce", 1: "Zeitwinder", H: "Zealous Flock" },
+		heightm: 1.4,
+		weightkg: 110,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
