@@ -1,4 +1,3 @@
-const {Dex} = require("../../../sim/dex");
 export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTable = {
 	abravintage: {learnset: {teleport: ["5L1"]}},
 	aegislashx: {

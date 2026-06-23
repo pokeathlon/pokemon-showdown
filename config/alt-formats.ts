@@ -816,6 +816,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 
 	{
+		section: "Xenoverse Formats",
+		column: 2,
+	},
+	{
+		name: "[Gen 9] Xenoverse AG",
+		searchShow: false,
+		mod: 'gen9xenoverse',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future'],
+	},
+
+	{
 		section: "Pokéathlon: Full Dex",
 		column: 3,
 	},
