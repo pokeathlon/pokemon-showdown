@@ -1,31 +1,9 @@
-const {Dex} = require('../../../sim/dex');
-
-const eeveelutions: {[k: string]: string} = {
-	"Water": "vaporeon",
-	"Fire": "flareon",
-	"Grass": "leafeon",
-	"Dark": "umbreon",
-	"Fairy": "sylveon",
-	"Psychic": "espeon",
-	"Ice": "glaceon",
-	"Electric": "jolteon",
-	"Normal": "eeveemega",
-};
-
-const eeveeabilities: {[k: string]: string} = {
-	"vaporeon": "waterabsorb",
-	"flareon": "flashfire",
-	"leafeon": "chlorophyll",
-	"umbreon": "synchronize",
-	"sylveon": "cutecharm",
-	"espeon": "magicbounce",
-	"glaceon": "snowcloak",
-	"jolteon": "voltabsorb",
-	"eeveemega": "proteanmaxima",
-};
+import { Utils } from '../../../lib';
+import { Abilities as Base } from '../../abilities';
+import { Abilities as Parent } from '../gen9insurgence/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Dex.deepClone(require('../gen9insurgence/abilities').ModAbilities),
+	...Utils.deepClone(Parent),
 	intoxicate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -53,7 +31,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
 			if (move.id === 'stealthrock') {
-				this.actions.useMove('hotcoals', pokemon, {target: target});
+				this.actions.useMove('hotcoals', pokemon, { target });
 				return null;
 			}
 		},

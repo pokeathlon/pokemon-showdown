@@ -1,9 +1,12 @@
+import { Learnsets as Base } from '../../learnsets';
+import { Learnsets as Child } from '../gen7infinitefusion/learnsets';
+
 import {ModdedLearnsetDataTable} from '../../../sim/dex-species';
 import {ModdedLearnsetData} from '../../../sim/dex-species';
 
 const baseLearnsets = require('../../learnsets').Learnsets;
 
-export function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
+function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 	let finalLearnset: ModdedLearnsetData = {learnset: {}, eventData: []};
 	for (const learnset of learnsets) {
 		if (!learnset.learnset || !finalLearnset.learnset) continue;
@@ -27,6 +30,10 @@ export function combineLearnsets(...learnsets: ModdedLearnsetData[]) {
 }
 
 export const Learnsets: ModdedLearnsetDataTable = {
+	// Modded
+	meloettapirouette: Base.meloetta,
+
+	// Additions
 	bulbmantle: combineLearnsets
 	(
 		baseLearnsets.bulbasaur,
@@ -135,6 +142,33 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		baseLearnsets.infernape,
 		baseLearnsets.empoleon,
 	),
+	chennekie: combineLearnsets
+	(
+		baseLearnsets.chespin,
+		baseLearnsets.fennekin,
+		baseLearnsets.froakie,
+	),
+	brailladier: combineLearnsets
+	(
+		baseLearnsets.chespin,
+		baseLearnsets.fennekin,
+		baseLearnsets.froakie,
+		baseLearnsets.quilladin,
+		baseLearnsets.braixen,
+		baseLearnsets.frogadier,
+	),
+	cheninphox: combineLearnsets
+	(
+		baseLearnsets.chespin,
+		baseLearnsets.fennekin,
+		baseLearnsets.froakie,
+		baseLearnsets.quilladin,
+		baseLearnsets.braixen,
+		baseLearnsets.frogadier,
+		baseLearnsets.chesnaught,
+		baseLearnsets.delphox,
+		baseLearnsets.greninja,
+	),
 	zapmolticuno: combineLearnsets
 	(
 		baseLearnsets.zapdos,
@@ -184,3 +218,20 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		baseLearnsets.mewtwo,
 	),
 };
+
+for (const key in Child) {
+	const id = key as keyof typeof Child;
+	if (Learnsets[id] || !Child[id].learnset) continue;
+
+	Learnsets[id] = Base[id] ? {inherit: true, learnset: {...Base[id].learnset}} : {inherit: true, learnset: {}};
+	if (!Learnsets[id].learnset) continue;
+
+	for (const movekey in Child[id].learnset) {
+		const moveid = movekey as IDEntry;
+
+		if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
+		// @ts-ignore splicing new gen onto a move
+		// if M, T or L copy as respective, else as 9M
+		Learnsets[id].learnset[moveid].push(...Child[id].learnset[moveid].map(method => ['M', 'T', 'L'].includes(method[1]) ? "9" + method.slice(1) : "9M"));
+	}
+}

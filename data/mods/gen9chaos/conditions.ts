@@ -1,132 +1,16 @@
-export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
-	// Uranium
-	slp: {
-		name: 'slp',
-		effectType: 'Status',
-		onStart(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
-			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
-				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
-			} else {
-				this.add('-status', target, 'slp');
-			}
-			// 1-3 turns
-			this.effectState.startTime = this.random(2, 5);
-			this.effectState.time = this.effectState.startTime;
+// @ts-nocheck
+import { Utils } from '../../../lib';
+import { Conditions as Base } from '../../conditions';
+import { type ModdedConditionDataTable } from '../../../sim/dex-conditions';
 
-			if (target.removeVolatile('nightmare')) {
-				this.add('-end', target, 'Nightmare', '[silent]');
-			}
-		},
-		onBeforeMovePriority: 10,
-		onBeforeMove(pokemon, target, move) {
-			let nightterror = false;
-			for (const foe of pokemon.foes()) {
-				if (foe.hasAbility('Night Terror')) nightterror = true;
-			}
+import { treasures } from './abilities';
 
-			if (pokemon.hasAbility('earlybird')) {
-				pokemon.statusState.time--;
-			}
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time <= 0) {
-				pokemon.cureStatus();
-				if (nightterror) {
-					pokemon.trySetStatus('par', null, this.dex.abilities.get('Night Terror'));
-				}
-				return;
-			}
-			this.add('cant', pokemon, 'slp');
-			if (move.sleepUsable) {
-				return;
-			}
-			return false;
-		},
-	},
-	
-	// Insurgence
-	wish: {
-		name: 'Wish',
-		duration: 2,
-		onStart(pokemon, source) {
-			this.effectState.hp = source.maxhp / 2;
-		},
-		onResidualOrder: 4,
-		onEnd(target) {
-			if (target && !target.fainted) {
-				const damage = this.heal(this.effectState.hp, target, target);
-				if (damage) {
-					this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
-				}
-			}
-		},
-	},
-	orbitalwish: {
-		name: 'Orbital Wish',
-		duration: 4,
-		onStart(pokemon, source) {
-			this.effectState.hp = source.maxhp / 2;
-		},
-		onResidualOrder: 4,
-		onEnd(target) {
-			if (target && !target.fainted) {
-				const damage = this.heal(this.effectState.hp, target, target, this.dex.getActiveMove('Wish'));
-				if (damage) {
-					this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
-				}
-			}
-		},
-	},
-	orbitalfuturemove: {
-		// this is a slot condition
-		name: 'orbitalfuturemove',
-		duration: 5,
-		onResidualOrder: 3,
-		onEnd(target) {
-			const data = this.effectState;
-			// time's up; time to hit! :D
-			const move = this.dex.moves.get(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(target.fainted ? 'fainted' : 'the user')}.`);
-				return;
-			}
-
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
-
-			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-				data.moveData.infiltrates = true;
-			}
-			if (data.source.hasAbility('normalize') && this.gen >= 6) {
-				data.moveData.type = 'Normal';
-			}
-			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-
-			this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
-			if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
-				this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
-			}
-			this.activeMove = null;
-
-			this.checkWin();
-		},
-	},
-	hail: {
-		inherit: true,
-		onWeather(target) {
-			let sleet = false;
-			for (const pokemon of this.getAllActive()) if (pokemon.hasAbility('Sleet')) sleet = true;
-			this.damage(target.baseMaxhp / (sleet ? 5 : 16));
-		},
-	},
-
-	// IF
+export const Conditions: ModdedConditionDataTable = {
+	frz: Base.frz,
 	arceus: {
 		inherit: true,
 		onType(types, pokemon) {
-			if (pokemon.transformed || pokemon.ability !== 'multitype') return types;
+			if (pokemon.m.fusion || pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'multitype') {
 				type = pokemon.getItem().onPlate;
@@ -137,18 +21,88 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 			return [type];
 		},
 	},
-	silvally: {
-		inherit: true,
-		onType(types, pokemon) {
-			if (pokemon.transformed || pokemon.ability !== 'rkssystem') return types;
-			let type: string | undefined = 'Normal';
-			if (pokemon.ability === 'rkssystem') {
-				type = pokemon.getItem().onMemory;
-				if (!type) {
-					type = 'Normal';
-				}
+	partiallytrapped: { // modified because of great bind
+		name: 'partiallytrapped',
+		duration: 5,
+		durationCallback(target, source) {
+			if (source?.lastMoveUsed?.id === 'greatbind') return source?.hasItem('gripclaw') ? 6 : 5; // always 4 turns, 5 if grip claw
+			if (source?.hasItem('gripclaw')) return 8;
+			return this.random(5, 7);
+		},
+		onStart(pokemon, source) {
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, `[of] ${source}`);
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+		},
+		onResidualOrder: 13,
+		onResidual(pokemon) {
+			const source = this.effectState.source;
+			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
+				delete pokemon.volatiles['partiallytrapped'];
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
+				return;
 			}
-			return [type];
+			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
+		},
+		onTrapPokemon(pokemon) {
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
+
+	// POA
+	///////////////////////////////////////////////////////////////////
+
+	// Additions
+	scatteredcoins: {
+		name: 'Scattered Coins',
+		noCopy: true,
+		onSideStart(side, source, sourceEffect) {
+			this.add('-sidestart', side, 'move: Scattered Coins');
+		},
+		onSideEnd(side) {
+			this.add('-sideend', side, 'move: Scattered Coins');
+		},
+	},
+	luckycharm: {
+		name: 'Lucky Charm',
+		noCopy: true,
+		onSideStart(side, source, sourceEffect) {
+			this.add('-sidestart', side, 'ability: Lucky Charm');
+		},
+		onModifySecondaries(secondaries) {
+			this.debug('Lucky Charm prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		onSideEnd(side) {
+			this.add('-sideend', side, 'ability: Lucky Charm');
+		},
+		onCriticalHit: false,
+	},
 };
+
+const Manual = Utils.deepClone(Conditions);
+const mods = require('./mods.json');
+for (const mod in mods) {
+	const ModConditions = require('../' + mod + '/conditions').Conditions as ModdedConditionDataTable;
+
+	for (const key in ModConditions) {
+		const id = key as keyof typeof ModConditions;
+
+		if (Manual[id] || (mods[mod]["Conditions"]?.includes(id))) continue;
+
+		if (!Conditions[id]) Conditions[id] = Base[id] ? { inherit: true } : {};
+
+		for (const attr in ModConditions[id]) {
+			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
+			if (Conditions[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			else {
+				Conditions[id][attr] = ModConditions[id][attr];
+			}
+		}
+	}
+}

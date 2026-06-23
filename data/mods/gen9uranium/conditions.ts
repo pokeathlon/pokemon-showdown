@@ -1,12 +1,11 @@
-const {Dex} = require('../../../sim/dex');
-export const ModConditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	// Modded
 	slp: {
 		name: 'slp',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
 			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
 				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
 			} else {
@@ -45,6 +44,14 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			return false;
 		},
 	},
+	gem: {
+		duration: 1,
+		affectsFainted: true,
+		onBasePower(basePower, user, target, move) {
+			this.debug('Gem Boost');
+			return this.chainModify(1.5);
+		},
+	},
 
 	// Additions
 	thunderstorm: {
@@ -53,7 +60,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		duration: 5,
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				this.add('-weather', 'Thunderstorm', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'Thunderstorm', '[from] ability: ' + effect.name, `[of] ${source}`);
 			} else {
 				this.add('-weather', 'Thunderstorm');
 			}
@@ -70,9 +77,9 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.field.isWeather('thunderstorm')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if (this.effectState.duration % 2 === 0) {
+			if (this.effectState.duration && this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('thunderstorm')), -6, 6);
-				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				if (target.runImmunity('Electric')) this.damage(target.maxhp * 2 ** typeMod / 8);
 			}
 		},
 		onFieldEnd() {
@@ -85,7 +92,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		duration: 5,
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				this.add('-weather', 'Fallout', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'Fallout', '[from] ability: ' + effect.name, `[of] ${source}`);
 			} else {
 				this.add('-weather', 'Fallout');
 			}
@@ -101,9 +108,9 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.field.isWeather('fallout')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if (this.effectState.duration % 2 === 0) {
+			if (this.effectState.duration && this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('fallout')), -6, 6);
-				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				this.damage(target.maxhp * 2 ** typeMod / 8);
 			}
 		},
 		onFieldEnd() {
@@ -111,4 +118,3 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		},
 	},
 };
-export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(ModConditions);

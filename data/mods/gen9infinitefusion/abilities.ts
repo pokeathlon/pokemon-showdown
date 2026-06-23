@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	disguise: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -72,11 +71,11 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onModifyMovePriority: 1,
 		onModifyMove(move, attacker, defender) {
 			if (attacker.transformed) return;
-			if (attacker.species.baseSpecies === 'Aegislash' && !attacker.fusion) {
+			if (attacker.species.baseSpecies === 'Aegislash' && !attacker.m.fusion) {
 				if (move.category === 'Status' && move.id !== 'kingsshield') return;
 				const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
 				if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
-			} else if (attacker.fusion) {
+			} else if (attacker.m.fusion) {
 				if (!this.effectState.forme) this.effectState.forme = 'shield';
 				if (move.category === 'Status' && (!move.stallingMove || ['endure', 'allyswitch'].includes(move.id))) return;
 
@@ -94,7 +93,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				}
 			}
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Stance Change",
 		rating: 4,
 		num: 176,
@@ -106,8 +105,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (pokemon.species.baseSpecies === 'Morpeko') {
 				const targetForme = pokemon.species.name === 'Morpeko' ? 'Morpeko-Hangry' : 'Morpeko';
 				pokemon.formeChange(targetForme);
-			} else if (pokemon.fusion?.includes('Morpeko')) {
-				const targetForme = pokemon.fusion === 'Morpeko' ? 'Morpeko-Hangry' : 'Morpeko';
+			} else if (pokemon.m.fusion?.includes('Morpeko')) {
+				const targetForme = pokemon.m.fusion === 'Morpeko' ? 'Morpeko-Hangry' : 'Morpeko';
 				pokemon.fusionChange(targetForme);
 			}
 		},
@@ -117,8 +116,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') return;
 			if (source.abilityState.battleBondTriggered) return;
-			if ((source.species.id === 'greninjabond' || source.fusion === 'Greninja-Bond') && source.hp && !source.transformed && source.side.foePokemonLeft()) {
-				this.boost({atk: 1, spa: 1, spe: 1}, source, source, this.effect);
+			if ((source.species.id.startsWith('greninja') || source.m.fusion.startsWith('Greninja')) && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.boost({ atk: 1, spa: 1, spe: 1 }, source, source, this.effect);
 				this.add('-activate', source, 'ability: Battle Bond');
 				source.abilityState.battleBondTriggered = true;
 			}
@@ -129,31 +128,31 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onWeatherChange(pokemon) {
 			if (!pokemon.isActive || pokemon.transformed) return;
 			if (!pokemon.hp) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
+			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.id !== 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
 					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
-				} else if (pokemon.fusion !== 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
+				} else if (pokemon.m.fusion !== 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
 				if (pokemon.species.id === 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
 					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
-				} else if (pokemon.fusion === 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
+				} else if (pokemon.m.fusion === 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
 					pokemon.fusionChange('Cherrim', this.effect);
 				}
 			}
 		},
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && !this.effectState.target.fusion?.includes('Cherrim')) return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && !this.effectState.target.m.fusion?.includes('Cherrim')) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && !this.effectState.target.fusion?.includes('Cherrim')) return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' && !this.effectState.target.m.fusion?.includes('Cherrim')) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
@@ -174,7 +173,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			default:
@@ -184,7 +183,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (pokemon.isActive && forme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Castform') {
 					pokemon.formeChange(forme, this.effect, false, '[msg]');
-				} else if (pokemon.fusion?.includes('Castform')) {
+				} else if (pokemon.m.fusion?.includes('Castform')) {
 					pokemon.fusionChange(forme, this.effect);
 				}
 			}
@@ -193,12 +192,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	iceface: {
 		inherit: true,
 		onStart(pokemon) {
-			if (this.field.isWeather(['hail', 'snow']) && !pokemon.transformed) {
+			if (this.field.isWeather(['hail', 'snowscape']) && !pokemon.transformed) {
 				if (pokemon.species.id === 'eiscuenoice') {
 					this.add('-activate', pokemon, 'ability: Ice Face');
 					this.effectState.busted = false;
 					pokemon.formeChange('Eiscue', this.effect, true);
-				} else if (pokemon.fusion === 'Eiscue-Noice') {
+				} else if (pokemon.m.fusion === 'Eiscue-Noice') {
 					this.effectState.busted = false;
 					pokemon.fusionChange('Eiscue', this.effect);
 				}
@@ -208,7 +207,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onDamage(damage, target, source, effect) {
 			if (
 				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
-				(target.species.id === 'eiscue' || this.dex.species.get(target.fusion).id === 'eiscue') && !target.transformed
+				(target.species.id === 'eiscue' || this.dex.species.get(target.m.fusion).id === 'eiscue') && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
 				this.effectState.busted = true;
@@ -217,14 +216,14 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && this.dex.species.get(target.fusion).id !== 'eiscue') || target.transformed) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && this.dex.species.get(target.m.fusion).id !== 'eiscue') || target.transformed) return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && this.dex.species.get(target.fusion).id !== 'eiscue') || target.transformed) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && this.dex.species.get(target.m.fusion).id !== 'eiscue') || target.transformed) return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
@@ -236,7 +235,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.effectState.busted) {
 				if (pokemon.species.id === 'eiscue') {
 					pokemon.formeChange('Eiscue-Noice', this.effect, true);
-				} else if (pokemon.fusion === 'Eiscue') {
+				} else if (pokemon.m.fusion === 'Eiscue') {
 					pokemon.fusionChange('Eiscue-Noice', this.effect);
 				}
 			}
@@ -245,12 +244,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow']) && !pokemon.transformed) {
+			if (this.field.isWeather(['hail', 'snowscape']) && !pokemon.transformed) {
 				if (pokemon.species.id === 'eiscuenoice') {
 					this.add('-activate', pokemon, 'ability: Ice Face');
 					this.effectState.busted = false;
 					pokemon.formeChange('Eiscue', this.effect, true);
-				} else if (pokemon.fusion === 'Eiscue-Noice') {
+				} else if (pokemon.m.fusion === 'Eiscue-Noice') {
 					this.effectState.busted = false;
 					pokemon.fusionChange('Eiscue', this.effect);
 				}
@@ -261,7 +260,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.species.id === 'zygardecomplete' || pokemon.fusion === 'Zygarde-Complete' || pokemon.hp > pokemon.maxhp / 2) return;
+			if (pokemon.species.id === 'zygardecomplete' || pokemon.m.fusion === 'Zygarde-Complete' || pokemon.hp > pokemon.maxhp / 2) return;
 
 			if (pokemon.baseSpecies.baseSpecies === 'Zygarde') {
 				this.add('-activate', pokemon, 'ability: Power Construct');
@@ -273,7 +272,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
 				pokemon.maxhp = newMaxHP;
 				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-			} else if (pokemon.fusion?.includes('Zygarde')) {
+			} else if (pokemon.m.fusion?.includes('Zygarde')) {
 				this.add('-activate', pokemon, 'ability: Power Construct');
 				pokemon.fusionChange('Zygarde-Complete', this.effect);
 				pokemon.baseMaxhp = Math.floor(Math.floor(
@@ -289,36 +288,36 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	schooling: {
 		inherit: true,
 		onStart(pokemon) {
-			if ((pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) || pokemon.level < 20 || pokemon.transformed) return;
+			if ((pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.m.fusion?.includes('Wishiwashi')) || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
-				} else if (pokemon.fusion === 'Wishiwashi') {
+				} else if (pokemon.m.fusion === 'Wishiwashi') {
 					pokemon.fusionChange('Wishiwashi-School');
 				}
 			} else {
 				if (pokemon.species.id === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
-				} else if (pokemon.fusion === 'Wishiwashi-School') {
+				} else if (pokemon.m.fusion === 'Wishiwashi-School') {
 					pokemon.fusionChange('Wishiwashi');
 				}
 			}
 		},
 		onResidual(pokemon) {
 			if (
-				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.fusion?.includes('Wishiwashi')) ||
+				(pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' && !pokemon.m.fusion?.includes('Wishiwashi')) ||
 				pokemon.level < 20 || pokemon.transformed || !pokemon.hp
 			) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
-				} else if (pokemon.fusion === 'Wishiwashi') {
+				} else if (pokemon.m.fusion === 'Wishiwashi') {
 					pokemon.fusionChange('Wishiwashi-School');
 				}
 			} else {
 				if (pokemon.species.id === 'wishiwashischool') {
 					pokemon.formeChange('Wishiwashi');
-				} else if (pokemon.fusion === 'Wishiwashi-School') {
+				} else if (pokemon.m.fusion === 'Wishiwashi-School') {
 					pokemon.fusionChange('Wishiwashi');
 				}
 			}
@@ -328,7 +327,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onStart(pokemon) {
 			if (pokemon.transformed) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
+			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (pokemon.hp > pokemon.maxhp / 2) {
 				if (pokemon.species.forme !== 'Meteor' && pokemon.baseSpecies.baseSpecies === 'Minior') {
 					pokemon.formeChange('Minior-Meteor');
@@ -346,7 +345,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onResidualOrder: 29,
 		onResidual(pokemon) {
 			if (pokemon.transformed || !pokemon.hp) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
+			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (pokemon.hp > pokemon.maxhp / 2) {
 				if (pokemon.species.forme !== 'Meteor' && pokemon.baseSpecies.baseSpecies === 'Minior') {
 					pokemon.formeChange('Minior-Meteor');
@@ -362,14 +361,14 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if ((target.species.id !== 'miniormeteor' && !target.fusion?.includes('Minior-Meteor')) || target.transformed) return;
+			if ((target.species.id !== 'miniormeteor' && !target.m.fusion?.includes('Minior-Meteor')) || target.transformed) return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Shields Down');
 			}
 			return false;
 		},
 		onTryAddVolatile(status, target) {
-			if ((target.species.id !== 'miniormeteor' && !target.fusion?.includes('Minior-Meteor')) || target.transformed) return;
+			if ((target.species.id !== 'miniormeteor' && !target.m.fusion?.includes('Minior-Meteor')) || target.transformed) return;
 			if (status.id !== 'yawn') return;
 			this.add('-immune', target, '[from] ability: Shields Down');
 			return null;
@@ -378,10 +377,10 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	zenmode: {
 		inherit: true,
 		onResidual(pokemon) {
-			if ((pokemon.baseSpecies.baseSpecies !== 'Darmanitan' && !pokemon.fusion?.includes('Darmanitan')) || pokemon.transformed) {
+			if ((pokemon.baseSpecies.baseSpecies !== 'Darmanitan' && !pokemon.m.fusion?.includes('Darmanitan')) || pokemon.transformed) {
 				return;
 			}
-			const fusionForme = this.dex.species.get(pokemon.fusion).forme;
+			const fusionForme = this.dex.species.get(pokemon.m.fusion).forme;
 			if (pokemon.hp <= pokemon.maxhp / 2 && (!['Zen', 'Galar-Zen'].includes(pokemon.species.forme) || !['Zen', 'Galar-Zen'].includes(fusionForme))) {
 				pokemon.addVolatile('zenmode');
 			} else if (pokemon.hp > pokemon.maxhp / 2 && (['Zen', 'Galar-Zen'].includes(pokemon.species.forme) || ['Zen', 'Galar-Zen'].includes(fusionForme))) {
@@ -394,7 +393,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			pokemon.transformed = false;
 			delete pokemon.volatiles['zenmode'];
 
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
+			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (pokemon.species.baseSpecies === 'Darmanitan' && pokemon.species.battleOnly) {
 				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
 			} else if (fusionSpecies.baseSpecies === 'Darmanitan' && fusionSpecies.battleOnly) {
@@ -409,16 +408,16 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 					} else {
 						if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
 					}
-				} else if (pokemon.fusion?.includes('Darmanitan')) {
-					if (!pokemon.fusion.includes('Galar')) {
-						if (pokemon.fusion !== 'Darmanitan-Zen') pokemon.fusionChange('Darmanitan-Zen');
+				} else if (pokemon.m.fusion?.includes('Darmanitan')) {
+					if (!pokemon.m.fusion.includes('Galar')) {
+						if (pokemon.m.fusion !== 'Darmanitan-Zen') pokemon.fusionChange('Darmanitan-Zen');
 					} else {
-						if (pokemon.fusion !== 'Darmanitan-Galar-Zen') pokemon.fusionChange('Darmanitan-Galar-Zen');
+						if (pokemon.m.fusion !== 'Darmanitan-Galar-Zen') pokemon.fusionChange('Darmanitan-Galar-Zen');
 					}
 				}
 			},
 			onEnd(pokemon) {
-				const fusionSpecies = this.dex.species.get(pokemon.fusion);
+				const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
 					pokemon.formeChange(pokemon.species.battleOnly as string);
 				} else if (['Zen', 'Galar-Zen'].includes(fusionSpecies.forme)) {
@@ -431,7 +430,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onSwitchOut(pokemon) {
 			if (pokemon.transformed) return;
-			const fusionSpecies = this.dex.species.get(pokemon.fusion);
+			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (pokemon.species.forme !== 'Hero' && pokemon.baseSpecies.baseSpecies === 'Palafin') {
 				pokemon.formeChange('Palafin-Hero', this.effect, true);
 			} else if (fusionSpecies.forme !== 'Hero' && fusionSpecies.baseSpecies === 'Palafin') {
@@ -454,8 +453,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.gameType !== 'doubles') return;
 			const ally = pokemon.allies()[0];
 			if (!ally || pokemon.transformed ||
-				(pokemon.baseSpecies.baseSpecies !== 'Tatsugiri' && !pokemon.fusion?.includes('Tatsugiri')) ||
-				(ally.baseSpecies.baseSpecies !== 'Dondozo') && !ally.fusion?.includes('Dondozo')) {
+				(pokemon.baseSpecies.baseSpecies !== 'Tatsugiri' && !pokemon.m.fusion?.includes('Tatsugiri')) ||
+				(ally.baseSpecies.baseSpecies !== 'Dondozo') && !ally.m.fusion?.includes('Dondozo')) {
 				// Handle any edge cases
 				if (pokemon.getVolatile('commanding')) pokemon.removeVolatile('commanding');
 				return;
@@ -483,15 +482,15 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
 				this.damage(source.baseMaxhp / 4, source, target);
 				if (target.species.id === 'cramorantgulping') {
-					this.boost({def: -1}, source, target, null, true);
+					this.boost({ def: -1 }, source, target, null, true);
 				} else {
 					source.trySetStatus('par', target, move);
 				}
 				target.formeChange('cramorant', move);
-			} else if (['cramorantgulping', 'cramorantgorging'].includes(this.dex.species.get(target.fusion).id)) {
+			} else if (['cramorantgulping', 'cramorantgorging'].includes(this.dex.species.get(target.m.fusion).id)) {
 				this.damage(source.baseMaxhp / 4, source, target);
-				if (this.dex.species.get(target.fusion).id === 'cramorantgulping') {
-					this.boost({def: -1}, source, target, null, true);
+				if (this.dex.species.get(target.m.fusion).id === 'cramorantgulping') {
+					this.boost({ def: -1 }, source, target, null, true);
 				} else {
 					source.trySetStatus('par', target, move);
 				}
@@ -506,12 +505,12 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				if (source.species.name === 'Cramorant') {
 					source.formeChange(forme, effect);
-				} else if (source.fusion === 'Cramorant') {
+				} else if (source.m.fusion === 'Cramorant') {
 					source.fusionChange(forme, effect);
 				}
 			}
 		},
-		flags: {cantsuppress: 1, notransform: 1},
+		flags: { cantsuppress: 1, notransform: 1 },
 		name: "Gulp Missile",
 		rating: 2.5,
 		num: 241,
@@ -548,7 +547,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	poisonpuppeteer: {
 		inherit: true,
 		onAnyAfterSetStatus(status, target, source, effect) {
-			if (source.baseSpecies.name !== "Pecharunt" && source.fusion !== "Pecharunt") return;
+			if (source.baseSpecies.name !== "Pecharunt" && source.m.fusion !== "Pecharunt") return;
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
 			if (status.id === 'psn' || status.id === 'tox') {
 				target.addVolatile('confusion');
@@ -556,4 +555,3 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		},
 	},
 };
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);

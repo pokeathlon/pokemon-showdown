@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	// Modded
 	aerilate: {
 		inherit: true,
@@ -87,7 +86,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
@@ -108,7 +107,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	bloodlust: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			this.heal(pokemon.lastDamage / 6, pokemon);
+			this.heal(pokemon.lastDamage / 6, pokemon, pokemon);
 		},
 		flags: {},
 		name: "Blood Lust",
@@ -147,7 +146,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Disenchant",
 		shortDesc: "This Pokemon is immune to Fairy-type moves.",
 		rating: 3.5,
@@ -167,7 +166,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse'
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'laserpulse',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
@@ -192,7 +191,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			for (const fieldPokemon of this.getAllPokemon()) {
 				if (fieldPokemon !== pokemon && fieldPokemon.hasType('Nuclear')) shouldBoost = true;
 			}
-			if (shouldBoost) this.boost({atk: 1, spa: 1}, pokemon);
+			if (shouldBoost) this.boost({ atk: 1, spa: 1 }, pokemon);
 		},
 		flags: {},
 		name: "Geiger Sense",
@@ -203,7 +202,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	infuriate: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
-				this.boost({atk: 1}, target);
+				this.boost({ atk: 1 }, target);
 			}
 		},
 		flags: {},
@@ -231,7 +230,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				return null;
 			}
 		},
-		flags: {breakable: 1},
+		flags: { breakable: 1 },
 		name: "Lead Skin",
 		shortDesc: "This Pokemon is immune to Nuclear-type moves.",
 		rating: 3.5,
@@ -255,7 +254,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({spe: -1}, target, pokemon, null, true);
+					this.boost({ spe: -1 }, target, pokemon, null, true);
 				}
 			}
 		},
@@ -342,4 +341,3 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		num: 0,
 	},
 };
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Dex.deepClone(ModAbilities);

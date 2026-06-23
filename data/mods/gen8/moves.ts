@@ -2,7 +2,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	allyswitch: {
 		inherit: true,
 		// Prevents setting the volatile used to check for Ally Switch failure
-		onPrepareHit() {},
+		onPrepareHit: undefined, // no inherit
 	},
 	anchorshot: {
 		inherit: true,
@@ -14,7 +14,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	assist: {
 		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	auroraveil: {
 		inherit: true,
@@ -32,7 +32,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	belch: {
 		inherit: true,
-		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	blizzard: {
 		inherit: true,
@@ -54,24 +54,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	celebrate: {
 		inherit: true,
-		flags: {nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	charge: {
 		inherit: true,
 		condition: {
-			onStart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Charge');
-			},
-			onRestart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Charge');
-			},
-			onBasePowerPriority: 9,
-			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Electric') {
-					this.debug('charge boost');
-					return this.chainModify(2);
-				}
-			},
+			inherit: true,
 			onMoveAborted(pokemon, target, move) {
 				if (move.id !== 'charge') {
 					pokemon.removeVolatile('charge');
@@ -81,9 +69,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if (move.id !== 'charge') {
 					pokemon.removeVolatile('charge');
 				}
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Charge', '[silent]');
 			},
 		},
 	},
@@ -96,7 +81,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	copycat: {
 		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	coreenforcer: {
 		inherit: true,
@@ -114,7 +99,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onModifyMove(move, source, target) {
 			if (!source.hasType('Ghost')) {
-				move.target = move.nonGhostTarget as MoveTarget;
+				move.target = move.nonGhostTarget!;
 			}
 		},
 		target: "randomNormal",
@@ -126,7 +111,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	darkvoid: {
 		inherit: true,
 		isNonstandard: "Past",
-		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
 	},
 	doubleironbash: {
 		inherit: true,
@@ -134,7 +119,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	dragonhammer: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 	},
 	dualchop: {
 		inherit: true,
@@ -146,7 +131,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	eternabeam: {
 		inherit: true,
-		flags: {recharge: 1, protect: 1, mirror: 1, failinstruct: 1},
+		flags: { recharge: 1, protect: 1, mirror: 1, failinstruct: 1 },
 		isNonstandard: null,
 	},
 	fishiousrend: {
@@ -169,7 +154,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 
 			// In SwSh, Fly's animation leaks the initial target through a camera focus
-			// The animation leak target itself isn't "accurate"; the target it reveals is as if Fly weren't a charge movee
+			// The animation leak target itself isn't "accurate"; the target it reveals is as if Fly weren't a charge move
 			// (Fly, like all other charge moves, will actually target slots on its charging turn, relevant for things like Follow Me)
 			// We use a generic single-target move to represent this
 			if (this.sides.length > 2) {
@@ -184,7 +169,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	futuresight: {
 		inherit: true,
-		flags: {metronome: 1, futuremove: 1},
+		flags: { metronome: 1, futuremove: 1 },
 	},
 	geargrind: {
 		inherit: true,
@@ -229,12 +214,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	holdhands: {
 		inherit: true,
 		isNonstandard: null,
-		flags: {bypasssub: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { bypasssub: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	hyperspacefury: {
 		inherit: true,
 		isNonstandard: "Past",
-		flags: {mirror: 1, bypasssub: 1},
+		flags: { mirror: 1, bypasssub: 1 },
 	},
 	hyperspacehole: {
 		inherit: true,
@@ -372,7 +357,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	metronome: {
 		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	milkdrink: {
 		inherit: true,
@@ -388,11 +373,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	mirrorcoat: {
 		inherit: true,
-		flags: {protect: 1, failmefirst: 1, noassist: 1, failcopycat: 1},
+		flags: { protect: 1, failmefirst: 1, noassist: 1, failcopycat: 1 },
 	},
 	mirrormove: {
 		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	mistball: {
 		inherit: true,
@@ -405,7 +390,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	naturepower: {
 		inherit: true,
 		isNonstandard: null,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	naturesmadness: {
 		inherit: true,
@@ -509,7 +494,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	sleeptalk: {
 		inherit: true,
-		flags: {failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		flags: { failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
 	},
 	snaptrap: {
 		inherit: true,
@@ -526,13 +511,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	stickyweb: {
 		inherit: true,
 		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'move: Sticky Web');
-			},
-			onEntryHazard(pokemon) {
+			inherit: true,
+			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+				this.boost({ spe: -1 }, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
 	},

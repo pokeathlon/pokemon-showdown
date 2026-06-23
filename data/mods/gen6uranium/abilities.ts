@@ -1,6 +1,9 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
+import { Abilities as Base } from '../../abilities';
+import { Abilities as Parent } from '../gen9uranium/abilities';
+
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	...Dex.deepClone(require('../gen9uranium/abilities').ModAbilities),
+	...Utils.deepClone(Parent),
 	atomizate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -46,5 +49,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's Normal-type moves become Electric type and have 1.3x power.",
 		rating: 4,
 		num: 0,
+	},
+
+	aftermath: {
+		// Aftermath deals damage even if the target doesn't faint
+		// This is a bug present in the game
+		inherit: true,
+		desc: "Pokemon making contact with this Pokemon lose 1/4 of their maximum HP, rounded down.",
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/4 of their max HP.",
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
 	},
 };

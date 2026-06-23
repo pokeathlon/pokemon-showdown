@@ -1,10 +1,9 @@
-const {Dex} = require('../../../sim/dex');
-export const ModConditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	arceus: {
 		name: 'Arceus',
 		onTypePriority: 1,
 		onType(types, pokemon) {
-			if (pokemon.fusion || pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
+			if (pokemon.m.fusion || pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'multitype') {
 				type = pokemon.getItem().onPlate;
@@ -19,7 +18,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		name: 'Silvally',
 		onTypePriority: 1,
 		onType(types, pokemon) {
-			if (pokemon.fusion || pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
+			if (pokemon.m.fusion || pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'rkssystem') {
 				type = pokemon.getItem().onMemory;
@@ -31,4 +30,3 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		},
 	},
 };
-export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(ModConditions);

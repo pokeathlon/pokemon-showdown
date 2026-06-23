@@ -1,6 +1,9 @@
-const {Dex} = require('../../../sim/dex');
+import { Utils } from '../../../lib';
+import { Moves as Base } from '../../moves';
+import { Moves as Parent } from '../gen9insurgence/moves';
+
 export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
-	...Dex.deepClone(require('../gen9insurgence/moves').ModMoves),
+	...Utils.deepClone(Parent),
 	sheercold: {
 		inherit: true,
 		ohko: 'Ice',

@@ -9,7 +9,7 @@ interface TagData {
 	genericNumCol?: (thing: Species | Move | Item | Ability) => number;
 }
 
-export const Tags: {[id: IDEntry]: TagData} = {
+export const Tags: { [id: IDEntry]: TagData } = {
 	// Categories
 	// ----------
 	physical: {
@@ -73,6 +73,14 @@ export const Tags: {[id: IDEntry]: TagData} = {
 	xenoverse: {
 		name: "Xenoverse",
 		speciesFilter: species => species.tags.includes("Xenoverse"),
+	},
+	infinity: {
+		name: "Infinity",
+		speciesFilter: species => species.tags.includes("Infinity"),
+	},
+	mariomon: {
+		name: "Mariomon",
+		speciesFilter: species => species.tags.includes("Mariomon"),
 	},
 
 	// Move tags

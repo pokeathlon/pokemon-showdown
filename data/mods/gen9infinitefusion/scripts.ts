@@ -1,13 +1,56 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
+	actions: {
+		inherit: true,
+		terastallize(pokemon) {
+			if (pokemon.species.baseSpecies === 'Ogerpon' && !['Fire', 'Grass', 'Rock', 'Water'].includes(pokemon.teraType) &&
+				(!pokemon.illusion || pokemon.illusion.species.baseSpecies === 'Ogerpon')) {
+				this.battle.hint("If Ogerpon Terastallizes into a type other than Fire, Grass, Rock, or Water, the game crashes.", false, pokemon.side);
+				return;
+			}
+
+			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+
+			const type = pokemon.teraType;
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				ally.canTerastallize = null;
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			if (pokemon.species.baseSpecies === 'Ogerpon') {
+				let ogerponSpecies = this.dex.toID(pokemon.species.battleOnly || pokemon.species.id);
+				ogerponSpecies += ogerponSpecies === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(ogerponSpecies, null, true);
+			}
+			if (pokemon.species.name === 'Terapagos-Terastal') {
+				pokemon.formeChange('Terapagos-Stellar', null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Morpeko' && !pokemon.transformed &&
+				pokemon.baseSpecies.id !== pokemon.species.id
+			) {
+				pokemon.formeRegression = true;
+				pokemon.baseSpecies = pokemon.species;
+				pokemon.details = pokemon.getUpdatedDetails();
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
+		},
+	},
 	pokemon: {
 		transformInto(pokemon, effect) {
 			const species = pokemon.species;
-			if (pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
+			if (
+				pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 				(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5) ||
-				species.name === 'Eternatus-Eternamax' || (['Ogerpon', 'Terapagos'].includes(species.baseSpecies) &&
-				(this.terastallized || pokemon.terastallized)) || this.terastallized === 'Stellar') {
+				species.name === 'Eternatus-Eternamax' ||
+				(['Ogerpon', 'Terapagos'].includes(species.baseSpecies) && (this.terastallized || pokemon.terastallized)) ||
+				this.terastallized === 'Stellar'
+			) {
 				return false;
 			}
 
@@ -30,7 +73,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.apparentType = pokemon.apparentType;
 
 			let statName: StatIDExceptHP;
-			const statTable = (pokemon.ability === 'Stance Change' && pokemon.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
+			const statTable = (pokemon.ability === 'Stance Change' && pokemon.m.fusion) ? pokemon.baseStoredStats : pokemon.storedStats;
 			for (statName in this.storedStats) {
 				this.storedStats[statName] = statTable[statName];
 				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.
@@ -39,16 +82,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
 			this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
 			this.timesAttacked = pokemon.timesAttacked;
-			for (const moveSlot of pokemon.moveSlots) {
+			for (const [i, moveSlot] of pokemon.moveSlots.entries()) {
 				let moveName = moveSlot.move;
 				if (moveSlot.id === 'hiddenpower') {
 					moveName = 'Hidden Power ' + this.hpType;
 				}
+				const move = this.battle.dex.moves.get(moveSlot.id);
+				const pp = Math.min(5, move.pp);
 				this.moveSlots.push({
 					move: moveName,
 					id: moveSlot.id,
-					pp: moveSlot.maxpp === 1 ? 1 : 5,
-					maxpp: this.battle.gen >= 5 ? (moveSlot.maxpp === 1 ? 1 : 5) : moveSlot.maxpp,
+					pp,
+					maxpp: this.battle.gen >= 5 ? pp : this.battle.calculatePP(move, this.ppUps[i] || 0),
 					target: moveSlot.target,
 					disabled: false,
 					used: false,
@@ -60,13 +105,14 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.boosts[boostName] = pokemon.boosts[boostName];
 			}
 			if (this.battle.gen >= 6) {
+				// we need to remove all of the overlapping crit volatiles before adding any of them
 				const volatilesToCopy = ['dragoncheer', 'focusenergy', 'gmaxchistrike', 'laserfocus'];
+				for (const volatile of volatilesToCopy) this.removeVolatile(volatile);
 				for (const volatile of volatilesToCopy) {
 					if (pokemon.volatiles[volatile]) {
 						this.addVolatile(volatile);
 						if (volatile === 'gmaxchistrike') this.volatiles[volatile].layers = pokemon.volatiles[volatile].layers;
-					} else {
-						this.removeVolatile(volatile);
+						if (volatile === 'dragoncheer') this.volatiles[volatile].hasDragonType = pokemon.volatiles[volatile].hasDragonType;
 					}
 				}
 			}
@@ -79,7 +125,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.knownType = true;
 				this.apparentType = this.terastallized;
 			}
-			if (this.battle.gen > 2) this.setAbility(pokemon.ability, this, true, true);
+			if (this.battle.gen > 2) this.setAbility(pokemon.ability, this, null, true, true);
 
 			// Change formes based on held items (for Transform)
 			// Only ever relevant in Generation 4 since Generation 3 didn't have item-based forme changes
@@ -104,8 +150,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// Pokemon transformed into Ogerpon cannot Terastallize
 			// restoring their ability to tera after they untransform is handled ELSEWHERE
-			if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
-			if (this.species.baseSpecies === 'Terapagos' && this.canTerastallize) this.canTerastallize = false;
+			if (['Ogerpon', 'Terapagos'].includes(this.species.baseSpecies) && this.canTerastallize) this.canTerastallize = false;
 
 			return true;
 		},

@@ -1,383 +1,1034 @@
+import { Pokedex as Base } from '../gen9chaos/pokedex';
+
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
-	syclar: {
+	aviotion: {
 		inherit: true,
-		tier: "LC",
+		natDexTier: "NFE",
+		isNonstandard: "Unobtainable",
 	},
-	syclant: {
-		inherit: true,
-		tier: "OU",
-	},
-	revenankh: {
-		inherit: true,
-		tier: "UU",
-	},
-	embirch: {
-		inherit: true,
-		tier: "LC",
-	},
-	flarelm: {
-		inherit: true,
-		tier: "NFE",
-	},
-	pyroak: {
-		inherit: true,
-		tier: "RU",
-	},
-	breezi: {
-		inherit: true,
-		tier: "LC",
-	},
-	fidgit: {
-		inherit: true,
-		tier: "OU",
-	},
-	rebble: {
-		inherit: true,
-		tier: "LC",
-	},
-	tactite: {
-		inherit: true,
-		tier: "NFE",
-	},
-	stratagem: {
-		inherit: true,
-		tier: "UU",
-	},
-	privatyke: {
-		inherit: true,
-		tier: "LC",
-	},
-	arghonaut: {
-		inherit: true,
-		tier: "OU",
-	},
-	nohface: {
-		inherit: true,
-		tier: "LC",
-	},
-	kitsunoh: {
-		inherit: true,
-		tier: "UU",
-	},
-	monohm: {
-		inherit: true,
-		tier: "LC",
-	},
-	duohm: {
-		inherit: true,
-		tier: "NFE",
-	},
-	cyclohm: {
-		inherit: true,
-		tier: "UU",
-	},
-	dorsoil: {
-		inherit: true,
-		tier: "LC",
-	},
-	colossoil: {
-		inherit: true,
-		tier: "UU",
-	},
-	protowatt: {
-		inherit: true,
-		tier: "LC",
-	},
-	krilowatt: {
-		inherit: true,
-		tier: "RU",
-	},
-	voodoll: {
-		inherit: true,
-		tier: "LC",
-	},
-	voodoom: {
-		inherit: true,
-		tier: "RU",
-	},
-	scratchet: {
-		inherit: true,
-		tier: "LC",
-	},
-	tomohawk: {
-		inherit: true,
-		tier: "RU",
-	},
-	necturine: {
-		inherit: true,
-		tier: "LC",
-	},
-	necturna: {
-		inherit: true,
-		tier: "OU",
-	},
-	mollux: {
-		inherit: true,
-		tier: "RU",
-	},
-	cupra: {
-		inherit: true,
-		tier: "LC",
-	},
-	argalis: {
-		inherit: true,
-		tier: "NFE",
-	},
-	aurumoth: {
-		inherit: true,
-		tier: "OU",
-	},
-	brattler: {
-		inherit: true,
-		tier: "LC",
-	},
-	malaconda: {
-		inherit: true,
-		tier: "UU",
-	},
-	cawdet: {
-		inherit: true,
-		tier: "LC",
-	},
-	cawmodore: {
-		inherit: true,
-		tier: "UU",
-	},
-	volkritter: {
-		inherit: true,
-		tier: "LC",
-	},
-	volkraken: {
-		inherit: true,
-		tier: "OU",
-	},
-	snugglow: {
-		inherit: true,
-		tier: "LC",
-	},
-	plasmanta: {
-		inherit: true,
-		tier: "UU",
-	},
-	floatoy: {
-		inherit: true,
-		tier: "LC",
-	},
-	caimanoe: {
-		inherit: true,
-		tier: "NFE",
-	},
-	naviathan: {
-		inherit: true,
-		tier: "UU",
-	},
-	crucibelle: {
-		inherit: true,
-		tier: "RU",
-	},
-	crucibellemega: {
-		inherit: true,
-		tier: "OU",
-	},
-	pluffle: {
-		inherit: true,
-		tier: "LC",
-	},
-	kerfluffle: {
-		inherit: true,
-		tier: "RU",
-	},
-	pajantom: {
-		inherit: true,
-		tier: "UU",
-	},
-	mumbao: {
-		inherit: true,
-		tier: "LC",
-	},
-	jumbao: {
-		inherit: true,
-		tier: "OU",
-	},
-	fawnifer: {
-		inherit: true,
-		tier: "LC",
-	},
-	electrelk: {
-		inherit: true,
-		tier: "NFE",
-	},
-	caribolt: {
-		inherit: true,
-		tier: "RU",
-	},
-	smogecko: {
-		inherit: true,
-		tier: "LC",
-	},
-	smoguana: {
-		inherit: true,
-		tier: "NFE",
-	},
-	smokomodo: {
-		inherit: true,
-		tier: "RU",
-	},
-	swirlpool: {
-		inherit: true,
-		tier: "LC",
-	},
-	coribalis: {
-		inherit: true,
-		tier: "NFE",
-	},
-	snaelstrom: {
-		inherit: true,
-		tier: "OU",
-	},
-	justyke: {
-		inherit: true,
-		tier: "LC",
-	},
-	equilibra: {
-		inherit: true,
-		tier: "OU",
-	},
-	solotl: {
-		inherit: true,
-		tier: "LC",
-	},
-	astrolotl: {
-		inherit: true,
-		tier: "UU",
-	},
-	miasmite: {
-		inherit: true,
-		tier: "LC",
-	},
-	miasmaw: {
-		inherit: true,
-		tier: "RU",
-	},
-	chromera: {
-		inherit: true,
-		tier: "RU",
-	},
-	venomicon: {
-		inherit: true,
-		tier: "OU",
-	},
-	venomiconepilogue: {
-		inherit: true,
-		tier: "OU",
-	},
-	saharascal: {
-		inherit: true,
-		tier: "LC",
-	},
-	saharaja: {
-		inherit: true,
-		tier: "UU",
-	},
-	ababo: {
-		inherit: true,
-		tier: "LC",
-	},
-	scattervein: {
-		inherit: true,
-		tier: "NFE",
-	},
-	hemogoblin: {
-		inherit: true,
-		tier: "UU",
-	},
-	cresceidon: {
-		inherit: true,
-		tier: "OU",
-	},
-	regieleki: {
+	barrimander: {
 		inherit: true,
 		natDexTier: "UU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	dragapult: {
-		inherit: true,
-		natDexTier: "OU",
-		doublesTier: "DOU",
-	},
-	kingambit: {
-		inherit: true,
-		natDexTier: "OU",
-		doublesTier: "DOU",
-	},
-	espathra: {
+	berserkergene: {
 		inherit: true,
 		natDexTier: "UU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	gholdengo: {
+	bewitwing: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	blazikendeltamega: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	braskeptic: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	bunnor: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	cetitanhisui: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	sneasler: {
+	dangonna: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	decidueyeolul: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	dracotion: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	drifbozu: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	drifloonkitakami: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	electrodemega: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	enchantobra: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	enteisupra: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	eyespy: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	feidan: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	felapstan: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	melmetal: {
+	florgesmega: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	gelazura: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	gilotherma: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	shedinja: {
+	golisopodshogun: {
 		inherit: true,
-		natDexTier: "RU",
-		doublesTier: "DUU",
+		tier: "Uber",
+		natDexTier: "UU",
+		isNonstandard: null,
 	},
-	deoxysspeed: {
-		inherit: true,
-		natDexTier: "OU",
-		doublesTier: "DOU",
-	},
-	zamazenta: {
+	grandmirage: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	annihilape: {
+	guarig: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	harportia: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	heatransupra: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	ogerponhearthflame: {
+	heracrosssubarctic: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	heracrosssubarcticmega: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	walkingwake: {
+	hydroupa: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	icyall: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	imitotion: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	incineroarolul: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	ironeverlasting: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	kaleidleon: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	terapagos: {
+	kleavordelta: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	larvitardelta: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	loxicant: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	roaringmoon: {
+	maggony: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	magnegauss: {
+		inherit: true,
+		tier: "Uber",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	manacra: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	manacraplated: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	meditao: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	mephistoxin: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	miasmiss: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	mochimechi: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	baxcalibur: {
+	monetoad: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	mosster: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	nestitan: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	niandertroll: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
 	},
-	ursalunabloodmoon: {
+	paldemaria: {
 		inherit: true,
 		natDexTier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Unobtainable",
+	},
+	pandiz: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	parashukado: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	penumbralith: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	pestri: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	premotee: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	primarinaolul: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	pupitardelta: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	rabbicicle: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	raikousupra: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	rotomhisui: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	rotomhisuiarmored: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	scaleslash: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	sceptiledeltamega: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	scorchingkiln: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	sekrilon: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	sekrilonmega: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	sinistersickle: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	sirentom: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	snorlaxfrost: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	snorlaxfrostmega: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	soulply: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	squice: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	staruhz: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	suenami: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	suicunesupra: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	sweepdol: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	tinkashank: {
+		inherit: true,
+		tier: "Uber",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	tinkaslice: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
+	tinkastab: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	toxice: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	tyranisacer: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	tyranitardelta: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	voliable: {
+		inherit: true,
+		natDexTier: "NFE",
+		isNonstandard: "Unobtainable",
+	},
+	wrighvern: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	crayzigater: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	tofagrif: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	tofagrifmega: {
+		inherit: true,
+		natDexTier: "OU",
+		isNonstandard: "Unobtainable",
+	},
+	caramitti: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	caramitticrazed: {
+		inherit: true,
+		natDexTier: "Illegal",
+		isNonstandard: "Unobtainable",
+	},
+	calobera: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	buntaki: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	ashenash: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	conductree: {
+		inherit: true,
+		natDexTier: "UU",
+		isNonstandard: "Unobtainable",
+	},
+	magnemiteterof: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	magnetonterof: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	magiliar: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	chickix: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	chocogrif: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	eggchell: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	electrikitty: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	snugglosis: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	fonspring: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	wallapillar: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	bulwarva: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
+	poltank: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	torterradeltacrystal: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	incandele: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	bahamist: {
+		inherit: true,
+		tier: "Uber",
+		natDexTier: "Uber",
+		isNonstandard: null,
+	},
+	omecha: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	furumo: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	snowiibay: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	snowlet: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	bohememoss: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	crenibex: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	twinova: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	fermiworm: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	anneliark: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	reneguana: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	pupprodigy: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	malamancer: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	stratosting: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	celestray: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	saturoceras: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	nebulant: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	zorblob: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	tanukief: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	alphbit: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	betech: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
+	othocket: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	whacksteroid: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	thatchling: {
+		inherit: true,
+		natDexTier: "LC",
+		isNonstandard: "Unobtainable",
+	},
+	matterpillar: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	tyranitardeltamega: {
+		inherit: true,
+		natDexTier: "Uber",
+		isNonstandard: "Unobtainable",
+	},
+	wyrmplode: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	ironchamber: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	hoppyre: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	cloudinyte: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	barreko: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	cactusplash: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	dryguaro: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	varkacosm: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	escarphone: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	potermit: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	ceraguard: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	pixsilt: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	silretro: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	utensitile: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	arcaspark: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	caskade: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	catastropede: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	nweet: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	jawladin: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	rakura: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	sauphozoa: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	keepurr: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "UU",
+		isNonstandard: null,
+	},
+	verdicent: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	martiantis: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	tenkibo: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	tenkibomagicalhero: {
+		inherit: true,
+		tier: "Illegal",
+		natDexTier: "Illegal",
+		isNonstandard: null,
+	},
+	lunura: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	funglow: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	slithereina: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	regasunde: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	ignimask: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	scavember: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
+	causticoon: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	regalunith: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	galathea: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	sthencio: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	patabyte: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	condorfeit: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	eversheen: {
+		inherit: true,
+		tier: "UU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	glaviathan: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	hyterra: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	grascylle: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	mallowhim: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	conchallenge: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	mochaselle: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	vervestra: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	toumarrow: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	kinette: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	kinetteunwound: {
+		inherit: true,
+		tier: "Illegal",
+		natDexTier: "Illegal",
+		isNonstandard: null,
+	},
+	komoduel: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	sciorocco: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	cerebaal: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
 	},
 };
+
+for (const pokemon in Base) {
+	const key = pokemon as keyof typeof FormatsData;
+	if (!FormatsData[key]) FormatsData[key] = { inherit: true, isNonstandard: "Custom", tier: "Illegal", natDexTier: "Illegal", doublesTier: "Illegal" };
+}

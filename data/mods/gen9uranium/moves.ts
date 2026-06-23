@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	// Modded
 	thunder: {
 		inherit: true,
@@ -17,7 +16,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 	},
-	
+
 	// Additions
 	atomicpunch: {
 		num: 0,
@@ -29,7 +28,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "15% chance to paralyze the target.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1 },
 		secondary: {
 			chance: 15,
 			status: 'par',
@@ -48,7 +47,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lowers the target's Def and Sp. Def by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -70,7 +69,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Damages target based on Defense, not Sp. Def.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -86,7 +85,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "User recovers 50% of the damage dealt.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1 },
 		drain: [1, 2],
 		secondary: null,
 		target: "normal",
@@ -103,7 +102,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Super effective on Nuclear. 100% acc in Fallout.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onModifyMove(move, pokemon, target) {
 			if (target?.effectiveWeather() === 'Fallout') move.accuracy = 100;
 		},
@@ -125,11 +124,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "For 5 turns, Fallout damages Pokemon.",
 		pp: 5,
 		priority: 0,
-		flags: {metronome: 1},
+		flags: { metronome: 1 },
 		weather: 'fallout',
 		secondary: null,
 		target: "all",
 		type: "Nuclear",
+		zMove: { boost: { spe: 1 } },
 		contestType: "Beautiful",
 	},
 	fissionburst: {
@@ -142,7 +142,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Hits adjacent Pokemon. The user faints.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1, noparentalbond: 1 },
 		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",
@@ -159,7 +159,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Nearly always goes first.",
 		pp: 15,
 		priority: 2,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -174,7 +174,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "No additional effect.",
 		pp: 30,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Nuclear",
@@ -186,15 +186,15 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 75,
 		category: "Special",
 		name: "Gemstone Glimmer",
-		desc: "Has a 25% chance to lower the target's Evasion by 1 stage.",
-		shortDesc: "25% chance to lower the target's Evasion by 1.",
+		desc: "Has a 25% chance to lower the target's Accuracy by 1 stage.",
+		shortDesc: "25% chance to lower the target's Accuracy by 1.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: {
 			chance: 25,
 			boosts: {
-				evasion: -1,
+				accuracy: -1,
 			},
 		},
 		target: "normal",
@@ -210,7 +210,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% chance to raise the user's crit ratio by 2.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		self: {
 			volatileStatus: 'focusenergy',
 		},
@@ -228,7 +228,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Scatters coins.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1 },
 		onHit(target, source, move) {
 			source.side.addSideCondition(this.dex.conditions.get('scatteredcoins'));
 		},
@@ -250,7 +250,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Does damage equal to 1/2 target's current HP.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Nuclear",
@@ -262,16 +262,20 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePower: 90,
 		category: "Physical",
 		name: "Infernal Blade",
-		desc: "This move's type effectiveness against a Pokemon with the Fairy type is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Super effective on Pokemon with the Fairy type.",
+		desc: "This move's type effectiveness against a Pokemon with the Fairy type is changed to be super effective no matter what this move's type is. Has a 10% chance to burn.",
+		shortDesc: "10% chance to burn. Always super effective on Fairy.",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
 		onEffectiveness(typeMod, target, type) {
 			if (target?.hasType('Fairy')) {
 				if (type === 'Fairy') return 1;
 				else return 0;
 			}
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
 		},
 		target: "normal",
 		type: "Fire",
@@ -287,7 +291,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Usually goes first.",
 		pp: 10,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -302,7 +306,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Type is random pick of Fire, Ice, and Electric",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, pulse: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1 },
 		onModifyMove(move, pokemon, target) {
 			const result = this.random(3);
 			if (result === 0) {
@@ -325,12 +329,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		name: "Metal Cruncher",
 		desc: "Has an 85% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "85% chance to lower the target's Defense by 1.",
+		shortDesc: "70% chance to lower the target's Defense by 1.",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, bite: 1 },
 		secondary: {
-			chance: 85,
+			chance: 70,
 			boosts: {
 				def: -1,
 			},
@@ -349,7 +353,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		volatileStatus: 'partiallytrapped',
 		secondary: null,
 		target: "normal",
@@ -366,7 +370,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -382,11 +386,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Badly poisons the target.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
 		status: 'tox',
 		secondary: null,
 		target: "normal",
 		type: "Nuclear",
+		zMove: { boost: { def: 2 } },
 		contestType: "Clever",
 	},
 	nuclearwind: {
@@ -401,7 +406,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onHit(source) {
 			if (this.randomChance(1, 20)) this.field.setWeather('fallout');
 		},
-		flags: {protect: 1, mirror: 1},
+		flags: { protect: 1, mirror: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Nuclear",
@@ -417,7 +422,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		volatileStatus: 'partiallytrapped',
 		secondary: null,
 		target: "normal",
@@ -434,7 +439,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		self: {
 			boosts: {
 				spa: -2,
@@ -455,7 +460,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Disappears turn 1. Hits turn 2. Breaks protection.",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1, metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1},
+		flags: { contact: 1, charge: 1, mirror: 1, metronome: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1 },
 		breaksProtect: true,
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
@@ -487,7 +492,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to burn the target.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: {
 			chance: 30,
 			status: 'brn',
@@ -506,7 +511,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to paralyse the target.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		secondary: {
 			chance: 30,
 			status: 'par',
@@ -515,6 +520,62 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Flying",
 		contestType: "Tough",
 	},
+	stickyterrain: {
+		// I didn't test if it affects ungrounded Pokemon, for now i assumed it does as that's how it's worded in the Wiki.
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sticky Terrain",
+		desc: "For 5 turns, the terrain becomes Sticky Terrain. During the effect, grounded Pokemon cannot be hit by moves with priority greater than 0, unless the target is an ally. Camouflage transforms the user into a Normal type. Fails if the current terrain is Sticky Terrain.",
+		shortDesc: "5 turns. Grounded: immune to priority.",
+		pp: 10,
+		priority: 0,
+		flags: { nonsky: 1, metronome: 1 },
+		terrain: 'stickyterrain',
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, effect) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+					return;
+				}
+				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
+				if (!target.isGrounded()) {
+					const baseMove = this.dex.moves.get(effect.id);
+					if (baseMove.priority > 0) {
+						this.hint("Sticky Terrain doesn't affect Pokémon immune to Ground.");
+					}
+					return;
+				}
+				this.add('-activate', target, 'move: Sticky Terrain');
+				return null;
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Sticky Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Sticky Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Sticky Terrain');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Poison",
+		contestType: "Clever",
+	},
 	subduction: {
 		num: 0,
 		accuracy: 90,
@@ -522,15 +583,16 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Physical",
 		name: "Subduction",
 		desc: "Confuses the user. 100% chance to lower the foes's speed by 2 stages.",
-		shortDesc: "Confuses user. 100% chance to lower foe's speed by 2 stages.",
+		shortDesc: "Confuses user. 100% to lower foe's speed by 2 stages.",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1},
+		flags: { protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1 },
 		onHit(target, source, move) {
 			source.addVolatile('confusion');
 		},
 		secondary: {
-			boosts: {spe: -2},
+			chance: 100,
+			boosts: { spe: -2 },
 		},
 		target: "normal",
 		type: "Ground",
@@ -546,7 +608,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Usually goes first.",
 		pp: 30,
 		priority: 1,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		secondary: null,
 		target: "normal",
 		type: "Dark",
@@ -562,12 +624,12 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "For 5 turns, a storm powers Electric moves.",
 		pp: 5,
 		priority: 0,
-		flags: {metronome: 1},
+		flags: { metronome: 1 },
 		weather: 'thunderstorm',
 		secondary: null,
 		target: "all",
 		type: "Electric",
+		zMove: { boost: { spe: 1 } },
 		contestType: "Beautiful",
 	},
 };
-export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Dex.deepClone(ModMoves);

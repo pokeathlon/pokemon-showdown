@@ -13,7 +13,7 @@
  * @license MIT
  */
 
-import {FS, Utils} from '../lib';
+import { FS, Utils } from '../lib';
 
 // ladderCaches = {formatid: ladder OR Promise(ladder)}
 // Use Ladders(formatid).ladder to guarantee a Promise(ladder).
@@ -53,13 +53,11 @@ export class LadderStore {
 		// ladderCaches[formatid]
 		const cachedLadder = ladderCaches.get(this.formatid);
 		if (cachedLadder) {
-			// @ts-ignore
-			if (cachedLadder.then) {
+			if ((cachedLadder as Promise<LadderRow[]>).then) {
 				const ladder = await cachedLadder;
 				return (this.ladder = ladder);
 			}
-			// @ts-ignore
-			return (this.ladder = cachedLadder);
+			return (this.ladder = cachedLadder as LadderRow[]);
 		}
 		try {
 			const data = await FS('config/ladders/' + this.formatid + '.tsv').readIfExists();
@@ -137,6 +135,7 @@ export class LadderStore {
 		buf += `<tr><th>` + ['', 'Username', '<abbr title="Elo rating">Elo</abbr>', 'W', 'L', 'T'].join(`</th><th>`) + `</th></tr>`;
 		for (const [i, row] of ladder.entries()) {
 			if (prefix && !row[0].startsWith(prefix)) continue;
+			if (row[3] < 1) continue; // Win threshold to show up on ladder
 			buf += `<tr><td>` + [
 				i + 1, row[2], `<strong>${Math.round(row[1])}</strong>`, row[3], row[4], row[5],
 			].join(`</td><td>`) + `</td></tr>`;
@@ -181,7 +180,7 @@ export class LadderStore {
 		} else {
 			row[5]++; // tie
 		}
-		row[6] = '' + new Date();
+		row[6] = `${new Date()}`;
 	}
 
 	/**
@@ -259,13 +258,13 @@ export class LadderStore {
 				return [p1score, null, null];
 			}
 
-			let reasons = '' + (Math.round(p1newElo) - Math.round(p1elo)) + ' for ' + (p1score > 0.9 ? 'winning' : (p1score < 0.1 ? 'losing' : 'tying'));
+			let reasons = `${Math.round(p1newElo) - Math.round(p1elo)} for ${p1score > 0.9 ? 'winning' : (p1score < 0.1 ? 'losing' : 'tying')}`;
 			if (!reasons.startsWith('-')) reasons = '+' + reasons;
 			room.addRaw(
 				Utils.html`${p1name}'s rating: ${Math.round(p1elo)} &rarr; <strong>${Math.round(p1newElo)}</strong><br />(${reasons})`
 			);
 
-			reasons = '' + (Math.round(p2newElo) - Math.round(p2elo)) + ' for ' + (p2score > 0.9 ? 'winning' : (p2score < 0.1 ? 'losing' : 'tying'));
+			reasons = `${Math.round(p2newElo) - Math.round(p2elo)} for ${p2score > 0.9 ? 'winning' : (p2score < 0.1 ? 'losing' : 'tying')}`;
 			if (!reasons.startsWith('-')) reasons = '+' + reasons;
 			room.addRaw(
 				Utils.html`${p2name}'s rating: ${Math.round(p2elo)} &rarr; <strong>${Math.round(p2newElo)}</strong><br />(${reasons})`
@@ -301,7 +300,7 @@ export class LadderStore {
 	/**
 	 * Calculates Elo based on a match result
 	 */
-	 calculateElo(oldElo: number, score: number, foeElo: number): number {
+	calculateElo(oldElo: number, score: number, foeElo: number): number {
 		// The K factor determines how much your Elo changes when you win or
 		// lose games. Larger K means more change.
 		// In the "original" Elo, K is constant, but it's common for K to
@@ -322,7 +321,7 @@ export class LadderStore {
 		}
 
 		// main Elo formula
-		const E = 1 / (1 + Math.pow(10, (foeElo - oldElo) / 400));
+		const E = 1 / (1 + 10 ** ((foeElo - oldElo) / 400));
 
 		const newElo = oldElo + K * (score - E);
 

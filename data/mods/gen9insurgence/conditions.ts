@@ -1,5 +1,4 @@
-const {Dex} = require('../../../sim/dex');
-export const ModConditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
+export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
 	wish: {
 		name: 'Wish',
 		duration: 2,
@@ -127,4 +126,3 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		},
 	},
 };
-export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = Dex.deepClone(ModConditions);

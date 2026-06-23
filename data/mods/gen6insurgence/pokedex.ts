@@ -1,8 +1,10 @@
-const {Dex} = require('../../../sim/dex');
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(require('../gen9insurgence/pokedex').ModPokedex);
+import { Utils } from '../../../lib';
+import { Pokedex as Base } from '../../pokedex';
+import { Pokedex as Parent } from '../gen9insurgence/pokedex';
 
-// Regional Dex Data
-const InsgDex: {[k: string]: number} = {
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
+
+const cutDex: { [k: string]: number } = {
 	"bulbasaur": 1,
 	"ivysaur": 2,
 	"venusaur": 3,
@@ -178,7 +180,7 @@ const InsgDex: {[k: string]: number} = {
 	"chikorita": 152,
 	"bayleef": 153,
 	"meganium": 154,
-	"meganiummega": 154,
+	"meganiummegai": 154,
 	"cyndaquil": 155,
 	"quilava": 156,
 	"typhlosion": 157,
@@ -186,7 +188,7 @@ const InsgDex: {[k: string]: number} = {
 	"totodile": 158,
 	"croconaw": 159,
 	"feraligatr": 160,
-	"feraligatrmega": 160,
+	"feraligatrmegai": 160,
 	"sentret": 161,
 	"furret": 162,
 	"hoothoot": 163,
@@ -235,6 +237,7 @@ const InsgDex: {[k: string]: number} = {
 	"unown": 201,
 	"wobbuffet": 202,
 	"girafarig": 203,
+	"girafarigmega": 203,
 	"pineco": 204,
 	"forretress": 205,
 	"dunsparce": 206,
@@ -559,7 +562,7 @@ const InsgDex: {[k: string]: number} = {
 	"probopass": 476,
 	"dusknoir": 477,
 	"froslass": 478,
-	"froslassmega": 478,
+	"froslassmegai": 478,
 	"rotom": 479,
 	"rotomwash": 479,
 	"rotomheat": 479,
@@ -751,6 +754,8 @@ const InsgDex: {[k: string]: number} = {
 	"landorus": 645,
 	"landorustherian": 645,
 	"kyurem": 646,
+	"kyuremblack": 646,
+	"kyuremwhite": 646,
 	"keldeo": 647,
 	"meloetta": 648,
 	"genesect": 649,
@@ -826,7 +831,7 @@ const InsgDex: {[k: string]: number} = {
 	"diancie": 719,
 	"dianciemega": 719,
 	"hoopa": 720,
-	"hoopadeltaunleashed": 720,
+	"hoopaunbound": 720,
 	"volcanion": 721,
 	"missingno": 722,
 	"bulbasaurdelta": 727,
@@ -1050,15 +1055,16 @@ const InsgDex: {[k: string]: number} = {
 	"regicedelta": 921,
 	"registeeldelta": 922,
 	"meloettadelta": 923,
-	"meloettadeltamagician": 924,
-	"hoopadelta": 925,
-	"ufi": 926,
+	"meloettadeltamagician": 9230,
+	"hoopadelta": 924,
+	"hoopadeltaunleashed": 924,
+	"ufi": 925,
 };
 
-for (var i of Dex.mod('gen9insurgence').species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	const isInsg = i.id in InsgDex;
-	Pokedex[i.id].isNonstandard = isInsg ? null : "Unobtainable";
-	Pokedex[i.id].num = isInsg ? InsgDex[i.id] : 0;
-	Pokedex[i.id].gen = isInsg ? 6 : undefined;
+for (const key in { ...Base, ...Pokedex }) {
+	const id = key as keyof typeof Base;
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
+
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

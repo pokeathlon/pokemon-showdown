@@ -1,0 +1,1969 @@
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
+	// Modded
+	rocksmash: {
+		inherit: true,
+		basePower: 65,
+	},
+	wildcharge: {
+		inherit: true,
+		recoil: [1, 4],
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 25% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 25% recoil. 10% chance to paralyze.",
+	},
+	strength: {
+		inherit: true,
+		basePower: 90,
+		secondary: {
+			chance: 30,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+		desc: "Has a 30% chance to raise the user's Attack by 1 stage.",
+		shortDesc: "30% chance to raise the user's Attack by 1.",
+	},
+	cut: {
+		inherit: true,
+		basePower: 60,
+		critRatio: 2,
+		desc: "Has a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio.",
+	},
+	dig: {
+		inherit: true,
+		condition: {
+			duration: 2,
+			onImmunity(type, pokemon) {
+				if (type === 'sandstorm' || type === 'hail') return false;
+			},
+			onInvulnerability(target, source, move) {
+				if (['earthquake', 'magnitude', 'terraforce', 'anvilsmash', 'webwrecker'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (['earthquake', 'magnitude', 'terraforce', 'anvilsmash', 'webwrecker'].includes(move.id)) {
+					return this.chainModify(2);
+				}
+			},
+		},
+	},
+	grassyterrain: {
+		inherit: true,
+		condition: {
+			effectType: 'Terrain',
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude', 'terraforce', 'anvilsmash', 'webwrecker'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([5325, 4096]);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect.name, `[of] ${source}`);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+	},
+	hail: {
+		inherit: true,
+		weather: 'snowscape',
+	},
+	diamondstorm: {
+		inherit: true,
+		self: {
+			chance: 50,
+			boosts: {
+				def: 2,
+			},
+		},
+		secondary: {
+			// Sheer Force negates the self even though it is not secondary
+		},
+		shortDesc: "50% chance to raise user's Defense by 2.",
+	},
+	quash: {
+		inherit: true,
+		onHit(target) {
+			if (this.gen <9 ) {
+				if (this.activePerHalf === 1) return false; // fails in singles
+				const action = this.queue.willMove(target);
+				if (!action) return false;
+
+				action.priority = -7.1;
+				this.queue.cancelMove(target);
+				for (let i = this.queue.list.length - 1; i >= 0; i--) {
+					if (this.queue.list[i].choice === 'residual') {
+						this.queue.list.splice(i, 0, action);
+						break;
+					}
+				}
+				this.add('-activate', target, 'move: Quash');
+			} else {
+				if (this.activePerHalf === 1) return false; // fails in singles
+				const action = this.queue.willMove(target);
+				if (!action) return false;
+
+				action.order = 201;
+				this.add('-activate', target, 'move: Quash');
+			}
+		},
+	},
+
+	// Additions
+	nailflick: {
+		num: 0,
+		accuracy: 90,
+		basePower: 50,
+		category: "Physical",
+		name: "Nail Flick",
+		desc: "The user charges up a powerful flick of a sharp claw or nail. Critical hits land more easily.",
+		shortDesc: "High critical hit ratio.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		critRatio: 2,
+		secondary: undefined,
+		target: "normal",
+		type: "Normal",
+	},
+	nostrilflare: {
+		num: 0,
+		accuracy: 90,
+		basePower: 55,
+		category: "Special",
+		name: "Nostril Flare",
+		desc: "Before the opponent attacks, the user unleashes a quick flame from its nostrils.",
+		shortDesc: "Usually goes first.",
+		pp: 20,
+		priority: 1,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Fire",
+	},
+	barbedtackle: {
+		num: 0,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Barbed Tackle",
+		desc: "The user rams into an opponent with the poisoned points on its body. This may also poison the target.",
+		shortDesc: "30% chance to poison the target.",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	thornwhip: {
+		num: 0,
+		accuracy: 95,
+		basePower: 50,
+		category: "Physical",
+		name: "Thorn Whip",
+		desc: "The target is struck with thick, spiked vines. High critical hit ratio.",
+		shortDesc: "High critical hit ratio.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		critRatio: 2,
+		secondary: undefined,
+		target: "normal",
+		type: "Grass",
+	},
+	nimbusfist: {
+		num: 0,
+		accuracy: 100,
+		basePower: 35,
+		category: "Physical",
+		name: "Nimbus Fist",
+		desc: "A strike of condensed mist strikes the foe, lowering its accuracy.",
+		shortDesc: "100% chance to lower the target's accuracy by 1.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, punch: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
+	},
+	foggystrike: {
+		num: 0,
+		accuracy: true,
+		basePower: 55,
+		category: "Physical",
+		name: "Foggy Strike",
+		desc: "A quick, concealed strike in a shroud of mist, which cannot be dodged.",
+		shortDesc: "This move does not check accuracy.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Water",
+	},
+	iceslash: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Ice Slash",
+		desc: "The target is slashed with a frozen claw or blade. Critical hits land more easily.",
+		shortDesc: "High critical hit ratio.",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+		critRatio: 2,
+		secondary: undefined,
+		target: "normal",
+		type: "Ice",
+	},
+	dryneedles: {
+		num: 0,
+		accuracy: 95,
+		basePower: 18,
+		category: "Physical",
+		name: "Dry Needles",
+		desc: "The target is struck with a series of 2 to 5 needles from a cactus plant.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		pp: 20,
+		priority: 0,
+		multihit: [2, 5],
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Grass",
+	},
+	focusedram: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Focused Ram",
+		desc: "The user centers their mind for a psy-charged headbutt. User takes recoil damage.",
+		shortDesc: "Has 25% recoil.",
+		pp: 10,
+		priority: 0,
+		recoil: [25, 100],
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Psychic",
+	},
+	searingslash: {
+		num: 0,
+		accuracy: 95,
+		basePower: 90,
+		category: "Physical",
+		name: "Searing Slash",
+		desc: "The user rips through the foe with a hot blade. It may hit critically, and leave a burn.",
+		shortDesc: "High critical hit ratio. 10% burn chance.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+		critRatio: 2,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	thunderslash: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thunder Slash",
+		desc: "The foe is slashed with an electrified blade. Critical hits land easier.",
+		shortDesc: "High critical hit ratio.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+		critRatio: 2,
+		secondary: undefined,
+		target: "normal",
+		type: "Electric",
+	},
+	typhoon: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Typhoon",
+		desc: "The target is whipped around by a strong typhoon. It may also lower the target's accuracy.",
+		shortDesc: "30% chance to lower the target's accuracy by 1.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	dracoblitz: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Draco Blitz",
+		desc: "The user crashes into the foe at a scorching speed. The user also takes damage and may burn the target.",
+		shortDesc: "Has 33% recoil. 10% chance to burn. Thaws user.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, defrost: 1 },
+		recoil: [33, 100],
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Dragon",
+	},
+	faengrush: {
+		num: 0,
+		accuracy: 95,
+		basePower: 80,
+		category: "Physical",
+		name: "Faeng Rush",
+		desc: "The user slams the target with a whimsical strike of the fangs. It may make the target flinch.",
+		shortDesc: "30% chance to make the target flinch.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, bite: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Fairy",
+	},
+	ambush: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Ambush",
+		desc: "An attack that hits first and makes the target flinch. It only works the first turn the user is in battle.",
+		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
+		pp: 10,
+		priority: 3,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Ambush only works on your first turn out.");
+				return false;
+			}
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Dark",
+	},
+	groomguard: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Groom Guard",
+		desc: "The user protects itself by grooming its thick fur, drastically raising its Sp. Def stat.",
+		shortDesc: "Raises the user's Sp. Def by 3.",
+		pp: 15,
+		priority: 0,
+		flags: { snatch: 1 },
+		boosts: {
+			spd: 3,
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Normal",
+		zMove: { effect: 'clearnegativeboost' },
+	},
+	astralshot: {
+		num: 0,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Astral Shot",
+		desc: "A shooting star is launched at the foe at an incredibly high speed.",
+		shortDesc: "Usually goes first.",
+		pp: 15,
+		priority: 1,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Cosmic",
+	},
+	cosmicray: {
+		num: 0,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Cosmic Ray",
+		desc: "A beam of concentrated cosmic energy is unleashed at the foe. It may cause the target to flinch.",
+		shortDesc: "15% chance to make the target flinch.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 15,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Cosmic",
+	},
+	cometshower: {
+		num: 0,
+		accuracy: 95,
+		basePower: 80,
+		category: "Physical",
+		name: "Comet Shower",
+		desc: "Comets raining down on the user's surroundings. It may also make the targets flinch.",
+		shortDesc: "25% chance to make the target flinch.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 25,
+			volatileStatus: 'flinch',
+		},
+		target: "allAdjacent",
+		type: "Cosmic",
+	},
+	decapattack: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Decap Attack",
+		desc: "The user removes its head and launches it at the foe. This also damages the user.",
+		shortDesc: "Has 33% recoil.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, bullet: 1 },
+		recoil: [33, 100],
+		secondary: undefined,
+		target: "normal",
+		type: "Bug",
+	},
+	tartantrum: {
+		num: 0,
+		accuracy: 95,
+		basePower: 115,
+		category: "Physical",
+		name: "Tar-Tantrum",
+		desc: "The user throws powerful tar-fists at his foe. It may also lower the foes' Speed stat.",
+		shortDesc: "30% chance to lower the target's speed by 1.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, defrost: 1, punch: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	bonesweep: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Bone Sweep",
+		desc: "A large club is swung at the foe in a sweeping motion. This move hits the entire enemy team.",
+		shortDesc: "No additional effect. Hits adjacent foes.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "allAdjacentFoes",
+		type: "Ground",
+	},
+	venomswipe: {
+		num: 0,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Venom Swipe",
+		desc: "The user swipes around its venomous tail aimlessly. This may poison struck targets.",
+		shortDesc: "30% chance to poison the target.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "allAdjacent",
+		type: "Poison",
+	},
+	pressurize: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Pressurize",
+		desc: "The user pressurizes its crystalline body parts, sharply raising its Sp. Def stat.",
+		shortDesc: "Raises the user's Sp. Def by 2.",
+		pp: 20,
+		priority: 0,
+		flags: { snatch: 1 },
+		boosts: {
+			spd: 2,
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Rock",
+		zMove: { effect: 'crit2' },
+	},
+	vanish: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Vanish",
+		desc: "The user becomes nigh invisible using its ghostly body. This sharply raises its evasiveness.",
+		shortDesc: "Raises the user's evasiveness by 2.",
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1 },
+		boosts: {
+			evasion: 2,
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Ghost",
+		zMove: { effect: 'clearnegativeboost' },
+	},
+	cactussmash: {
+		num: 0,
+		accuracy: 100,
+		basePower: 115,
+		category: "Physical",
+		name: "Cactus Smash",
+		desc: "The user slams its spiky cactus into the target to attack. The user also sustains serious damage.",
+		shortDesc: "Has 33% recoil. 35% chance to poison.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		recoil: [33, 100],
+		secondary: {
+			chance: 35,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Grass",
+	},
+	eevoboost: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Eevoboost",
+		desc: "The user slowly gathers its inner potential, uncovering a power that raises all stats.",
+		shortDesc: "Raises all stats by 1 (not acc/eva).",
+		pp: 3,
+		noPPBoosts: true,
+		priority: -2,
+		flags: { snatch: 1 },
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Normal",
+		zMove: { effect: 'clearnegativeboost' },
+	},
+	dejavu: {
+		num: 0,
+		accuracy: true,
+		basePower: 105,
+		category: "Special",
+		name: "Deja-vu",
+		desc: "The user disrupts space-time to discombobulate the foe. This move can't miss.",
+		shortDesc: "This move does not check accuracy.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Psychic",
+	},
+	bigbang: {
+		num: 0,
+		accuracy: 100,
+		basePower: 105,
+		category: "Physical",
+		name: "Big Bang",
+		desc: "The Pokémon unleashes a burst of cosmic energy that hits all in battle, and may leave a status condition.",
+		shortDesc: "50% chance to burn, freeze, or paralyze target.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 50,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else if (result === 1) {
+					target.trySetStatus('frz', source);
+				} else {
+					target.trySetStatus('par', source);
+				}
+			},
+		},
+		target: "allAdjacent",
+		type: "Cosmic",
+	},
+	boombubble: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Boom Bubble",
+		desc: "The user unleashes a powerful burst that may make the foe flinch.",
+		shortDesc: "30% chance to make the target flinch.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Normal",
+	},
+	pepperbreath: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Pepper Breath",
+		desc: "A small blast of fire that may leave the foe with a burn.",
+		shortDesc: "30% chance to burn the target.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	cinderbreath: {
+		num: 0,
+		accuracy: 100,
+		basePower: 55,
+		category: "Special",
+		name: "Cinder Breath",
+		desc: "The foe is blasted with a cloud of hot ash to inflict damage and lower accuracy.",
+		shortDesc: "100% chance to lower the target's accuracy by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	novablast: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Nova Blast",
+		desc: "The user unleashes a massive pulse of fire to damage the opponent.",
+		shortDesc: "15% chance to burn the target.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 15,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	gigadestroyer: {
+		num: 0,
+		accuracy: 90,
+		basePower: 55,
+		category: "Special",
+		name: "Giga Destroyer",
+		desc: "The user unleashes two organic missiles to destroy the foe.",
+		shortDesc: "Hits 2 times in one turn.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		multihit: 2,
+		secondary: undefined,
+		target: "normal",
+		type: "Fire",
+	},
+	terraforce: {
+		num: 0,
+		accuracy: 100,
+		basePower: 115,
+		category: "Special",
+		name: "Terra Force",
+		desc: "The user hurls a scorching ball of energy that strikes every Pokémon around it.",
+		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Fire",
+	},
+	flashflood: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Flash Flood",
+		desc: "The user causes a quick surge of flowing water to drown out the foe. This move always goes first.",
+		shortDesc: "Usually goes first.",
+		pp: 15,
+		priority: 1,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Water",
+	},
+	brainfreeze: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Brain Freeze",
+		desc: "The user employs cryokinesis against the foe, potentially freezing it.",
+		shortDesc: "10% chance to freeze the target.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	brainstorm: {
+		num: 0,
+		accuracy: 90,
+		basePower: 70,
+		category: "Special",
+		name: "Brain Storm",
+		desc: "The user attacks using psychic force whilst brainstorming. This may raise the user's Sp. Atk stat.",
+		shortDesc: "70% chance to raise the user's Sp. Atk by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 70,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	dinokick: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Dino Kick",
+		desc: "The user kicks the opponent, destroying their item. Does less damage if opponent has no item.",
+		shortDesc: "1.5x damage if foe holds an item. Removes item.",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Dino Kick', '[of] ' + source);
+				}
+			}
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "Fighting",
+	},
+	darkshot: {
+		num: 0,
+		accuracy: true,
+		basePower: 80,
+		category: "Special",
+		name: "Dark Shot",
+		desc: "The user launches a dark organic missile from its spine that always hits the foe.",
+		shortDesc: "This move does not check accuracy.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1, bullet: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Ghost",
+	},
+	deathnail: {
+		num: 0,
+		accuracy: 95,
+		basePower: 85,
+		category: "Physical",
+		name: "Death Nail",
+		desc: "The user slashes at its foe with dark matter. This move obliterates any barrier such as Light Screen and Reflect.",
+		shortDesc: "Destroys screens, unless the target is immune.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "Ghost",
+	},
+	hyperstinkshot: {
+		num: 0,
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+		name: "Hyper-Stink-Shot",
+		desc: "The user shoots a bullet, made out of compressed gas. This move is unblockable.",
+		shortDesc: "Breaks the target's protection for this turn.",
+		pp: 5,
+		priority: 0,
+		flags: { mirror: 1, bypasssub: 1 },
+		breaksProtect: true,
+		secondary: undefined,
+		target: "normal",
+		type: "Poison",
+	},
+	yuckytongue: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Yucky Tongue",
+		desc: "The target is licked with a long tongue. It may paralyze the foe.",
+		shortDesc: "45% chance to paralyze the target.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 45,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Dark",
+	},
+	iceblast: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Ice Blast",
+		desc: "The target is hit with a sudden blast of freezing energy. This move is strong against Water types.",
+		shortDesc: "10% chance to freeze. Super effective on Water.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+	},
+	fincutter: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Fin Cutter",
+		desc: "The user cuts the foe with a sharpened fin. This move is more likely to crit.",
+		shortDesc: "High critical hit ratio.",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+		critRatio: 2,
+		secondary: undefined,
+		target: "normal",
+		type: "Water",
+	},
+	tm24: {
+		num: 0,
+		accuracy: 31,
+		basePower: 90,
+		category: "Physical",
+		name: "TM24",
+		desc: "h POKé0.33333e ParALyz",
+		shortDesc: "30% chance to paralyze the target.",
+		pp: 0,
+		noPPBoosts: true,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "???",
+	},
+	hm05: {
+		num: 0,
+		accuracy: 38,
+		basePower: 102,
+		category: "Special",
+		name: "HM05",
+		desc: "ゥ $ A (F3)",
+		shortDesc: "No additional effect.",
+		pp: 9,
+		noPPBoosts: true,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "???",
+	},
+	hm04: {
+		num: 0,
+		accuracy: 50,
+		basePower: 58,
+		category: "Physical",
+		name: "HM04",
+		desc: "?????  Hex 00",
+		shortDesc: "User cannot move next turn.",
+		pp: 19,
+		noPPBoosts: true,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "???",
+	},
+	tm53: {
+		num: 0,
+		accuracy: 53,
+		basePower: 160,
+		category: "Special",
+		name: "TM53",
+		desc: "/6!2?2 A",
+		shortDesc: "No additional effect.",
+		pp: 30,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "???",
+	},
+	charmingtweety: {
+		num: 0,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Charming Tweety",
+		desc: "An earsplitting screech harshly reduces the target's Defense stat.",
+		shortDesc: "Lowers the target's Defense by 2.",
+		pp: 40,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, sound: 1 },
+		boosts: {
+			def: -2,
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "Normal",
+		zMove: { boost: { atk: 1 } },
+	},
+	hornbuster: {
+		num: 0,
+		accuracy: 90,
+		basePower: 90,
+		category: "Physical",
+		name: "Horn Buster",
+		desc: "Using its thruster, the user charges into the target. Raises the user's Speed stat.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Bug",
+	},
+	mugencannon: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Mugen Cannon",
+		desc: "The user blasts devastating energy waves from its cannons. It may lower the target's accuracy.",
+		shortDesc: "30% chance to lower the target's accuracy by 1.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 30,
+			boosts: {
+				accuracy: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+	},
+	blueblaster: {
+		num: 0,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Blue Blaster",
+		desc: "Releases a stream of blue ice-like flames from its mouth, reducing the targets' Speed stat.",
+		shortDesc: "100% chance to lower the target's speed by 1.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ice",
+	},
+	lionsword: {
+		num: 0,
+		accuracy: true,
+		basePower: 75,
+		category: "Physical",
+		name: "Lion Sword",
+		desc: "The user slashes at the target with a magical sword. This attack never misses.",
+		shortDesc: "This move does not check accuracy.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, slicing: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Steel",
+	},
+	infinityarrow: {
+		num: 0,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		name: "Infinity Arrow",
+		desc: "Lightning, in the shape of arrows, shoots from the user's fur, leaving the foe paralyzed.",
+		shortDesc: "100% chance to paralyze the target.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	nailcrusher: {
+		num: 0,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Nail Crusher",
+		desc: "The user crushes the target with its ginormous claws. It may lower the target's Defense.",
+		shortDesc: "50% chance to lower the target's defense by 1.",
+		pp: 5,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 50,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+	},
+	excalibur: {
+		num: 0,
+		accuracy: true,
+		basePower: 105,
+		category: "Physical",
+		name: "Excalibur",
+		desc: "The user slashes the enemy using the holy sword, Excalibur. This attack never misses.",
+		shortDesc: "This move does not check accuracy.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, slicing: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Fairy",
+	},
+	beamshield: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Beam Shield",
+		desc: "The user protects itself. This move also damages attackers who make direct contact.",
+		shortDesc: "Protects from moves. Contact: loses 1/8 max HP.",
+		pp: 10,
+		priority: 4,
+		flags: { snatch: 1, noassist: 1, failcopycat: 1 },
+		stallingMove: true,
+		volatileStatus: 'beamshield',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Fairy",
+		zMove: { boost: { def: 1 } },
+	},
+	icewolfclaw: {
+		num: 0,
+		accuracy: 100,
+		basePower: 30,
+		category: "Special",
+		name: "Ice Wolf Claw",
+		desc: "The user launches ice-missiles in all directions. It hits two to five times in a row.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		pp: 5,
+		priority: 0,
+		multihit: [2, 5],
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Ice",
+	},
+	omniblast: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Omni Blast",
+		desc: "The user unleashes a bolt of digital energy. Struck foes may get paralyzed, burned, or frozen.",
+		shortDesc: "50% chance to burn, freeze, or paralyze target.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 20,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else if (result === 1) {
+					target.trySetStatus('frz', source);
+				} else {
+					target.trySetStatus('par', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	vulcanshammer: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Vulcan's Hammer",
+		desc: "The foe is struck with a spark generating Hammer. It may leave the target with a burn.",
+		shortDesc: "30% chance to burn the target.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Rock",
+	},
+	anvilsmash: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Anvil Smash",
+		desc: "The user slams a hammer into the ground, creating a shockwave that hits every Pokémon.",
+		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Ground",
+	},
+	compostbomber: {
+		num: 0,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Compost Bomber",
+		desc: "Poisonous clumps are scattered aimlessly. It's likely to poison those hit.",
+		shortDesc: "50% chance to poison the target.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 50,
+			status: 'psn',
+		},
+		target: "allAdjacent",
+		type: "Poison",
+	},
+	heavensknuckle: {
+		num: 0,
+		accuracy: 85,
+		basePower: 90,
+		category: "Physical",
+		name: "Heaven's Knuckle",
+		desc: "The user blasts a beam of holy energy from their fist. It does not make contact.",
+		shortDesc: "No additional effect.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, punch: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Fairy",
+	},
+	airslam: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Air Slam",
+		desc: "The user spins towards the foe swinging its Holy Rod. It may leave the target with paralysis.",
+		shortDesc: "30% chance to paralyze the target.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	duoscissorclaw: {
+		num: 0,
+		accuracy: 90,
+		basePower: 105,
+		category: "Physical",
+		name: "Duo Scissor Claw",
+		desc: "A scissor-armed attack that can tear through diamond. It may lower the target's Defense.",
+		shortDesc: "50% chance to lower the target's defense by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 50,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+	},
+	nuclearpunch: {
+		num: 0,
+		accuracy: 90,
+		basePower: 105,
+		category: "Physical",
+		name: "Nuclear Punch",
+		desc: "The target is hit with a Chrome Digizoid hardened fist. It may raise the user's Attack.",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, punch: 1 },
+		secondary: {
+			chance: 20,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Steel",
+	},
+	devilsdeed: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Devil's Deed",
+		desc: "The user performs a dark ritual that boosts its Attack and Speed stats.",
+		shortDesc: "Raises the user's Attack and Speed by 1.",
+		pp: 20,
+		priority: 0,
+		flags: { snatch: 1 },
+		boosts: {
+			atk: 1,
+			spe: 1,
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Dark",
+		zMove: { effect: 'clearnegativeboost' },
+	},
+	evilwing: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Evil Wing",
+		desc: "The user slashes the opponent with its wings at incredible speed. May leave the target paralyzed.",
+		shortDesc: "30% chance to paralyze the target.",
+		pp: 15,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	concertcrush: {
+		num: 0,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Concert Crush",
+		desc: "The user attempts to sing. Those hearing it feel heartbroken and their fighting spirit vanishes.",
+		shortDesc: "Lowers adjacent pokemon's Attack and Sp. Atk by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, sound: 1 },
+		boosts: {
+			atk: -1,
+			spa: -1,
+		},
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Dark",
+		zMove: { boost: { def: 1 } },
+	},
+	bugblaster: {
+		num: 0,
+		accuracy: 90,
+		basePower: 70,
+		category: "Special",
+		name: "Bug Blaster",
+		desc: "The user spews out a destructive bullet of glowing data. It may lower the target's Attack stat.",
+		shortDesc: "10% chance to lower the target's attack by 1.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	poisonbubbles: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Poison Bubbles",
+		desc: "The user spews bubbles that are covered in a poisonous substance that may poison the foe.",
+		shortDesc: "30% chance to poison the target.",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	garurukick: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Garuru-Kick",
+		desc: "After kicking with an ice-covered paw, the user backflips to switch places with a party Pokémon.",
+		shortDesc: "User switches out after damaging the target.",
+		pp: 20,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		selfSwitch: true,
+		secondary: undefined,
+		target: "normal",
+		type: "Ice",
+	},
+	virusskater: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Virus Skater",
+		desc: "The user skates through digital data, hitting the foe with a nasty blow. Raises the user's Speed.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	pagefault: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Page Fault",
+		desc: "The user somersaults, striking with its blades for several turns. The user ends up confused.",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, failinstruct: 1 },
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		target: "randomNormal",
+		type: "Poison",
+	},
+	cablecrusher: {
+		num: 0,
+		accuracy: true,
+		basePower: 70,
+		category: "Physical",
+		name: "Cable Crusher",
+		desc: "The foe is strangled by the user and held in place 4 to 5 turns. There is no escape.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		volatileStatus: 'partiallytrapped',
+		secondary: undefined,
+		target: "normal",
+		type: "Poison",
+	},
+	webwrecker: {
+		num: 0,
+		accuracy: 100,
+		basePower: 115,
+		category: "Special",
+		name: "Web Wrecker",
+		desc: "The user recklessly fires a powerful shot of destructive energy. Hits the entire field.",
+		shortDesc: "Hits adjacent Pokemon. Double damage on Dig.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Dark",
+	},
+	transcendentsword: {
+		num: 0,
+		accuracy: 100,
+		basePower: 240,
+		category: "Physical",
+		name: "Transcendent Sword",
+		desc: "The user unleashes a mighty thrust with their legendary Transcendent Sword, clearing all hazards.",
+		shortDesc: "-1 evasion; clears terrain and hazards on both sides.",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+		onHit(target, source, move) {
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({ evasion: -1 });
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'hotcoals', 'stickyweb', 'permafrost', 'livewire', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Trancendent Sword', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Trancendent Sword', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "Steel",
+	},
+	omnihowl: {
+		num: 0,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Omni Howl",
+		desc: "The user hits everything around it with the destructive power of a prideful, explosive howl.",
+		shortDesc: "No additional effect. Hits adjacent Pokemon.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, sound: 1 },
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Normal",
+	},
+	darknetwork: {
+		num: 0,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Dark Network",
+		desc: "A frenzy of virus-infested cables ravage the foe. The user's Sp. Atk harshly drops.",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: undefined,
+		target: "normal",
+		type: "Poison",
+	},
+	supremecannon: {
+		num: 0,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Supreme Cannon",
+		desc: "A powerful energy blast from the Garuru Cannon that hits all foes with a chance of freezing.",
+		shortDesc: "25% chance to freeze. Hits adjacent foes.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 25,
+			status: 'frz',
+		},
+		target: "allAdjacentFoes",
+		type: "Ice",
+	},
+	sizzleslam: {
+		num: 0,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Sizzle Slam",
+		desc: "The user headbutts the opponent with an open flame stove atop its head. Leaves the foe burning.",
+		shortDesc: "100% chance to burn the target. Destroys foe's Berry/Gem.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onHit(pokemon, source) {
+			const item = pokemon.getItem();
+			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
+				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
+			}
+		},
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	necromagic: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Necro Magic",
+		desc: "The user saps HP from the foe with a cursed grasp, restoring HP equal to half the damage dealt.",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		drain: [1, 2],
+		secondary: undefined,
+		target: "normal",
+		type: "Psychic",
+	},
+	kablow: {
+		num: 0,
+		accuracy: 100,
+		basePower: 170,
+		category: "Physical",
+		name: "Kablow!",
+		desc: "The user detonates to inflict damage on those around it. Rusty shrapnel is launched at the opponent.",
+		shortDesc: "The user faints. Sets Spikes and Toxic Spikes layer.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, noparentalbond: 1 },
+		onHit(target, source, move) {
+			for (const side of source.side.foeSidesWithConditions()) {
+				side.addSideCondition('spikes');
+				side.addSideCondition('toxicspikes');
+			}
+		},
+		selfdestruct: "always",
+		secondary: undefined,
+		target: "allAdjacent",
+		type: "Steel",
+	},
+	granite: {
+		num: 0,
+		accuracy: 0,
+		basePower: 0,
+		category: "Status",
+		name: "Granite",
+		desc: "The user sets up a protective reinforcement for their side of the field. Lasts for 3 turns.",
+		shortDesc: "Sets Reflect and Light Screen on user's side for 3 turns.",
+		pp: 5,
+		priority: 0,
+		flags: { snatch: 1 },
+		onHit(source) {
+			if (source.side.addSideCondition('reflect')) source.side.sideConditions['reflect'].duration = source.item === 'lightclay' ? 7 : 4;
+			if (source.side.addSideCondition('lightscreen')) source.side.sideConditions['lightscreen'].duration = source.item === 'lightclay' ? 7 : 4;
+		},
+		secondary: undefined,
+		target: "self",
+		type: "Rock",
+	},
+	core: {
+		num: 0,
+		accuracy: 70,
+		basePower: 90,
+		category: "Physical",
+		name: "Core",
+		desc: "Bro heats up and burns everything. This also lowers the afflicted targets' Defense stat.",
+		shortDesc: "Lowers the target(s) Defense by 1",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "allAdjacent",
+		type: "Fire",
+	},
+	tonic: {
+		num: 0,
+		accuracy: 100,
+		basePower: 0,
+		damage: 'level',
+		category: "Special",
+		name: "Tonic",
+		desc: "The user drains life-force and shares it among your active mons. The power scales with the user's level.",
+		shortDesc: "Does damage equal to the user's level. User recovers 50% of the damage dealt, split among alies.",
+		onDamage(damage, target, source, effect) {
+			if (damage) {
+				const modifier = source.side.active.length;
+				const healAmount = damage * 0.75;
+				for (const pokemon of source.alliesAndSelf()) {
+					this.heal(healAmount / modifier, pokemon, source, "drain");
+				}
+			}
+		},
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1 },
+		secondary: undefined,
+		target: "normal",
+		type: "Water",
+	},
+	gale: {
+		num: 0,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Gale",
+		desc: "The user creates a shockwave eliminating traps and hazards. Raises the user's Speed stat.",
+		shortDesc: "Free user from hazards/bind/Leech Seed; +1 Spe.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		onAfterHit(target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				for (const volatile of ['Leech Seed', 'Zealous Flock']) {
+					if (pokemon.hp && pokemon.removeVolatile(this.dex.toID(volatile))) {
+						this.add('-end', pokemon, volatile, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon, move) {
+			if (!move.hasSheerForce) {
+				for (const volatile of ['Leech Seed', 'Zealous Flock']) {
+					if (pokemon.hp && pokemon.removeVolatile(this.dex.toID(volatile))) {
+						this.add('-end', pokemon, volatile, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
+				for (const condition of sideConditions) {
+					if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+						this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Gale', `[of] ${pokemon}`);
+					}
+				}
+				if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+					pokemon.removeVolatile('partiallytrapped');
+				}
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	cherryblast: {
+		num: 0,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Cherry Blast",
+		desc: "Forbidden fruit is shot at the opponent. Likely puts a curse on those hit.",
+		shortDesc: "25% chance to Curse target.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, pulse: 1 },
+		secondary: {
+			chance: 25,
+			volatileStatus: 'curse',
+		},
+		target: "normal",
+		type: "Poison",
+	},
+	bullethammer: {
+		num: 0,
+		accuracy: 100,
+		basePower: 150,
+		category: "Physical",
+		name: "Bullet Hammer",
+		desc: "The user bats the opponent with a super-charged hammer. The recoil forces the user to rest.",
+		shortDesc: "Forces the target to switch to a random ally. User cannot move next turn.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, recharge: 1 },
+		secondary: undefined,
+		forceSwitch: true,
+		self: {
+			volatileStatus: 'mustrecharge',
+		},
+		target: "normal",
+		type: "Steel",
+	},
+	soulchopper: {
+		num: 0,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Soul Chopper",
+		desc: "The user annihilates the foe's soul with mighty cleaves. Always lands a critical hit.",
+		shortDesc: "Always results in a critical hit.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1 },
+		willCrit: true,
+		secondary: undefined,
+		target: "normal",
+		type: "Ghost",
+	},
+	trumpsword: {
+		num: 0,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Trump Sword",
+		desc: "In a flash the user summons sharp swords at the target. It strikes one to four times in a row.",
+		shortDesc: "Hits 1-4 times in one turn.",
+		pp: 10,
+		priority: 1,
+		flags: { protect: 1, mirror: 1 },
+		multihit: [1, 4],
+		secondary: undefined,
+		target: "normal",
+		type: "Steel",
+	},
+	greatbind: {
+		num: 0,
+		accuracy: 80,
+		basePower: 120,
+		category: "Physical",
+		name: "Great Bind",
+		pp: 5,
+		priority: 0,
+		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
+		volatileStatus: 'partiallytrapped',
+		secondary: undefined,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	},
+};

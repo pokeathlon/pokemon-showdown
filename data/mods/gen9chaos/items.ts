@@ -1,89 +1,36 @@
-export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
-	//Other
-	berserkgene: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	// IF
-	deepseascale: {
-		inherit: true,
-		isNonstandard: null,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.fusion && (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name) || ['Clamperl', 'Clamperl-Delta'].includes(pokemon.fusion))) {
-				return this.chainModify(2);
-			}
-		},
-		itemUser: ["Clamperl", "Clamperl-Delta"],
-	},
-	deepseatooth: {
-		inherit: true,
-		isNonstandard: null,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.fusion && (['Clamperl', 'Clamperl-Delta'].includes(pokemon.baseSpecies.name) || ['Clamperl', 'Clamperl-Delta'].includes(pokemon.fusion))) {
-				return this.chainModify(2);
-			}
-		},
-		itemUser: ["Clamperl", "Clamperl-Delta"],
-	},
-	eviolite: {
-		inherit: true,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || this.dex.species.get(pokemon.fusion).nfe || pokemon.baseSpecies.id === 'dipplin') {
-				return this.chainModify(1.5);
-			}
-		},
-	},
-	leek: {
-		inherit: true,
-		isNonstandard: null,
-		onModifyCritRatio(critRatio, user) {
-			if (["farfetchd", "sirfetchd"].includes(this.toID(user.baseSpecies.baseSpecies)) ||
-				["farfetchd", "sirfetchd", "farfetchdgalar"].includes(this.toID(user.fusion))) {
-				return critRatio + 2;
-			}
-		},
-	},
-	stick: {
-		inherit: true,
-		onModifyCritRatio(critRatio, user) {
-			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(this.dex.species.get(user.fusion).baseSpecies) === 'farfetchd') {
-				return critRatio + 2;
-			}
-		},
-	},
+// @ts-nocheck
+import { Utils } from '../../../lib';
+import { Items as Base } from '../../items';
+import { type ModdedItemDataTable } from '../../../sim/dex-items';
+
+export const Items: ModdedItemDataTable = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (['Pikachu', 'Pikachu-Delta'].includes(pokemon.baseSpecies.baseSpecies) || ['Pikachu', 'Pikachu-Delta'].includes(Dex.species.get(pokemon.fusion).baseSpecies)) {
+			if ((pokemon.species.name.includes('Pikachu') || pokemon.m.fusion?.includes('Pikachu'))) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (['Pikachu', 'Pikachu-Delta'].includes(pokemon.baseSpecies.baseSpecies) || ['Pikachu', 'Pikachu-Delta'].includes(Dex.species.get(pokemon.fusion).baseSpecies)) {
+			if ((pokemon.species.name.includes('Pikachu') || pokemon.m.fusion?.includes('Pikachu'))) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Delta"],
+		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Delta", "Pikachu-Ash"],
 	},
 	luckypunch: {
 		inherit: true,
-		isNonstandard: null,
 		onModifyCritRatio(critRatio, user) {
-			if (user.baseSpecies.name === 'Chansey' || user.fusion === 'Chansey') {
+			if (user.species.name.includes('Chansey') || user.m.fusion?.includes('Chansey')) {
 				return critRatio + 2;
 			}
 		},
+		itemUser: ["Chansey", "Chansey-Egho"],
 	},
 	metalpowder: {
 		inherit: true,
-		isNonstandard: null,
 		onModifyDef(def, pokemon) {
-			if (pokemon.fusion && (['Ditto', 'Ditto-Delta'].includes(pokemon.species.name) || ['Ditto', 'Ditto-Delta'].includes(pokemon.fusion)) && !pokemon.transformed) {
+			if ((pokemon.species.name.includes('Ditto') || pokemon.m.fusion?.includes('Ditto')) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
@@ -91,26 +38,457 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	quickpowder: {
 		inherit: true,
-		isNonstandard: null,
 		onModifySpe(spe, pokemon) {
-			if (pokemon.fusion && (['Ditto', 'Ditto-Delta'].includes(pokemon.species.name) || ['Ditto', 'Ditto-Delta'].includes(pokemon.fusion)) && !pokemon.transformed) {
+			if ((pokemon.species.name.includes('Ditto') || pokemon.m.fusion?.includes('Ditto')) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
 		itemUser: ["Ditto", "Ditto-Delta"],
 	},
-	thickclub: {
+	stick: {
 		inherit: true,
-		isNonstandard: null,
-		onModifyAtk(atk, pokemon) {
-			if (
-				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
-				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
-				Dex.species.get(pokemon.fusion).baseSpecies === 'Cubone' ||
-				Dex.species.get(pokemon.fusion).baseSpecies === 'Marowak'
-			) {
-				return this.chainModify(2);
+		onModifyCritRatio(critRatio, user) {
+			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd' || this.toID(user.baseSpecies.baseSpecies) === 'barand' || this.toID(user.baseSpecies.baseSpecies) === 'barandnuclear') {
+				return critRatio + 2;
 			}
 		},
+		itemUser: ["Farfetch\u2019d", "Barand", "Barand-Nuclear"],
+		shortDesc: "If held by a Farfetch’d or Barand, its critical hit ratio is raised by 2 stages.",
+	},
+	meganiumite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	clefablite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	victreebelite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	starminite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	dragoninite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	feraligite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	skarmorite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	chimechite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	froslassite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	emboarite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	excadrite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	chandelurite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	golurkite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	delphoxite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	greninjite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	floettite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	meowsticite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	hawluchanite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	crabominite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	drampanite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	scovillainite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	glimmoranite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+
+	// POA
+	///////////////////////////////////////////////////////////////////
+
+	fullincense: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+
+	// Additions
+	electrodite: {
+		name: "Electrodite",
+		desc: "If held by a Electrode, this item allows it to Mega Evolve in battle.",
+		spritenum: 596,
+		megaStone: { "Electrode": "Electrode-Mega" },
+		itemUser: ["Electrode"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	florgesite: {
+		name: "Florgesite",
+		desc: "If held by a Florges, this item allows it to Mega Evolve in battle.",
+		spritenum: 615,
+		megaStone: { "Florges": "Florges-Mega" },
+		itemUser: ["Florges"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	frostysnorlaxite: {
+		name: "Frosty Snorlaxite",
+		desc: "If held by a Snorlax-Frost, this item allows it to Mega Evolve in battle.",
+		spritenum: 623,
+		megaStone: { "Snorlax-Frost": "Snorlax-Frost-Mega" },
+		itemUser: ["Snorlax-Frost"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	deltablazikenite: {
+		name: "Delta Blazikenite",
+		desc: "If held by a Blaziken-Delta, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Blaziken-Delta": "Blaziken-Delta-Mega" },
+		itemUser: ["Blaziken-Delta"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	deltasceptilite: {
+		name: "Delta Sceptilite",
+		desc: "If held by a Sceptile-Delta, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Sceptile-Delta": "Sceptile-Delta-Mega" },
+		itemUser: ["Sceptile-Delta"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	sekrilite: {
+		name: "Sekrilite",
+		desc: "If held by a Sekrilon, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Sekrilon": "Sekrilon-Mega" },
+		itemUser: ["Sekrilon"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	deltatyranitarite: {
+		name: "Delta Tyranitarite",
+		desc: "If held by a Tyranitar-Delta, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Tyranitar-Delta": "Tyranitar-Delta-Mega" },
+		itemUser: ["Tyranitar-Delta"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	vigorherb: {
+		name: "Vigor Herb",
+		desc: "Holder's recharge turn is skipped. Single use.",
+		onUpdate(pokemon) {
+			if (pokemon.volatiles["mustrecharge"] && pokemon.useItem()) {
+				pokemon.removeVolatile("mustrecharge");
+				this.add("cant", pokemon, "recharge");
+				return;
+			}
+		},
+		spritenum: -3,
+		num: 0,
+	},
+	paddedhelmet: {
+		name: "Padded Helmet",
+		desc: "Holder takes half the recoil damage.",
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.recoil) move.recoil[1] = move.recoil[1] * 2;
+		},
+		num: 0,
+		spritenum: -3,
+	},
+	ejectbandage: {
+		name: "Eject Bandage",
+		shortDesc: "Holder heals 33% on switch out. Single use.",
+		spritenum: -3,
+		onSwitchOut(source) {
+			if (source.hp < source.maxhp) {
+				source.heal(source.maxhp / 3);
+				source.useItem();
+			}
+		},
+		num: 0,
+	},
+	energydrink: {
+		name: "Energy Drink",
+		desc: "The holder was very tired and thus downed 17 cans of Red Bull, preventing it from falling asleep for the next 9 days.",
+		shortDesc: "This Pokemon cannot fall asleep.",
+		spritenum: -3,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'item: Energy Drink');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if ((effect as Move)?.status) {
+				this.add('-activate', target, 'item: Energy Drink');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-activate', target, 'item: Energy Drink');
+				return null;
+			}
+		},
+		num: 0,
+	},
+	managel: { // Can't figure out how to make it not clearBoosts(), so modifying moves instead
+		name: "Mana Gel",
+		shortDesc: "The holder cannot have its stat changes cleared or stolen. Psych Up will fail when used against the holder.",
+		spritenum: -3,
+		onFoeModifyMove(move, source, target) {
+			if (move.stealsBoosts) move.stealsBoosts = false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'psychup') return false;
+		},
+		num: 0,
+	},
+	buddylantern: {
+		name: "Buddy Lantern",
+		shortDesc: "Holder deals 0.125x damage to allies.",
+		spritenum: -3,
+		onModifyDamage(damage, source, target, move) {
+			if (target.isAlly(source)) {
+				this.debug('Buddy Lantern neutralize');
+				return this.chainModify(0.125);
+			}
+		},
+		num: 0,
+	},
+	doubledip: { // Effect immplemented in scripts under hitStepAccuracy
+		name: "Double Dip",
+		shortDesc: "If move misses, use move again with perfect accuracy. Single use.",
+		spritenum: -3,
+		fling: {
+			basePower: 60,
+			effect(target, source) {
+				if (!target.lastMove || target.volatiles['dynamax']) return false;
+				const lastMove = target.lastMove;
+				const moveSlot = target.getMoveData(lastMove.id);
+				if (
+					lastMove.flags['failinstruct'] || lastMove.isZ || lastMove.isMax ||
+					lastMove.flags['charge'] || lastMove.flags['recharge'] ||
+					target.volatiles['beakblast'] || target.volatiles['focuspunch'] || target.volatiles['shelltrap'] ||
+					(moveSlot && moveSlot.pp <= 0)
+				) {
+					return false;
+				}
+				this.add('-singleturn', target, 'move: Instruct', `[of] ${source}`);
+				this.queue.prioritizeAction(this.queue.resolveAction({
+					choice: 'move',
+					pokemon: target,
+					moveid: target.lastMove.id,
+					targetLoc: target.lastMoveTargetLoc!,
+				})[0] as MoveAction);
+			}
+		},
+		num: 0,
+	},
+	brokenhourglass: {
+		name: "Broken Hourglass",
+		shortDesc: "Future moves land instantly at 1.3x power. Single use.",
+		spritenum: -3,
+		onModifyMovePriority: 1,
+		onModifyMove(move, pokemon, target) {
+			if (move.flags.futuremove) {
+				move.ignoreImmunity = false;
+				move.onTry = undefined;
+			}
+			if (move.id === 'wish') {
+				move.slotCondition = undefined;
+				move.condition = {};
+			}
+		},
+		onTryMovePriority: -1,
+		onTryMove(source, target, move) {
+			if (move.id === 'wish' && source.hp != source.baseMaxhp && source.useItem()) {
+				this.heal(source.baseMaxhp * 1.3 / 2, source, source);
+			}
+			if (move.id === 'wish' && source.hp === source.baseMaxhp) {
+				this.add('-fail', source, 'move: Wish');
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		onBasePower(basePower, source, target, move) {
+			if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
+				return this.chainModify(1.3);
+			}
+		},
+		fling: {
+			basePower: 30,
+			effect(pokemon) {
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+					activate = true;
+					boosts[i] = 0;
+				}
+				if (activate && !pokemon.item('managel')) {
+					pokemon.setBoost(boosts);
+					this.add('-clearboost', pokemon, '[silent]');
+				}
+			},
+		},
+		num: 0,
+	},
+	anchor: {
+		name: "Anchor",
+		spritenum: -3,
+		shortDesc: "Holder's Spe is 0.5x, cannot be forced to switched out. Dhelmise: 1.5x Atk.",
+		fling: {
+			basePower: 130,
+		},
+		onFoeModifyMove(move, pokemon, target) {
+			if (move.forceSwitch) move.forceSwitch = false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Dhelmise' || pokemon.m.fusion === 'Dhelmise') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
+		},
+		num: 0,
+		itemUser: ['Dhelmise'],
+	},
+	fieldcleats: { // Effect coded into terrains
+		name: "Field Cleats",
+		spritenum: -3,
+		shortDesc: "Holder's moves are unaffected by terrains.",
+		fling: {
+			basePower: 80,
+		},
+		num: 0,
+	},
+	tofagrifite: {
+		name: "Tofagrifite",
+		desc: "If held by a Tofagrif, this item allows it to Mega Evolve in battle.",
+		spritenum: 596,
+		megaStone: { "Tofagrif": "Tofagrif-Mega" },
+		itemUser: ["Tofagrif"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	subarcticheracronite: {
+		name: "Subarctic Heracronite",
+		desc: "If held by a Heracross-Subarctic, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Heracross-Subarctic": "Heracross-Subarctic-Mega" },
+		itemUser: ["Heracross-Subarctic"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
 	},
 };
+
+const Manual = Utils.deepClone(Items);
+const mods = require('./mods.json');
+for (const mod in mods) {
+	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
+
+	for (const key in ModItems) {
+		const id = key as keyof typeof ModItems;
+
+		if (Manual[id] || (mods[mod]["Items"]?.includes(id))) continue;
+
+		if (!Items[id]) Items[id] = Base[id] ? { inherit: true } : {};
+
+		for (const attr in ModItems[id]) {
+			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
+			if (Items[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			else {
+				Items[id][attr] = ModItems[id][attr];
+			}
+		}
+	}
+}

@@ -1,7 +1,7 @@
 import RandomGen6Teams from '../gen6/teams';
-import {PRNG} from '../../../sim';
-import {MoveCounter} from '../gen8/teams';
-import {toID} from '../../../sim/dex';
+import type { PRNG } from '../../../sim';
+import type { MoveCounter } from '../gen8/teams';
+import { toID } from '../../../sim/dex';
 
 // Moves that restore HP:
 const RECOVERY_MOVES = [
@@ -51,7 +51,7 @@ const PRIORITY_POKEMON = [
 ];
 
 export class RandomGen5Teams extends RandomGen6Teams {
-	randomSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./sets.json');
+	override randomSets: { [species: string]: RandomTeamsTypes.RandomSpeciesData } = require('./sets.json');
 
 	constructor(format: string | Format, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
@@ -89,9 +89,13 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			),
 			Water: (movePool, moves, abilities, types, counter) => !counter.get('Water'),
 		};
+		// Nature Power is Earthquake this gen
+		this.cachedStatusMoves = this.dex.moves.all()
+			.filter(move => move.category === 'Status' && move.id !== 'naturepower')
+			.map(move => move.id);
 	}
 
-	cullMovePool(
+	override cullMovePool(
 		types: string[],
 		moves: Set<string>,
 		abilities: string[],
@@ -177,10 +181,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 		// Develop additional move lists
 		const badWithSetup = ['healbell', 'pursuit', 'toxic'];
-		// Nature Power is Earthquake this gen
-		const statusMoves = this.dex.moves.all()
-			.filter(move => move.category === 'Status' && move.id !== 'naturepower')
-			.map(move => move.id);
+		const statusMoves = this.cachedStatusMoves;
 
 		// General incompatibilities
 		const incompatiblePairs = [
@@ -221,8 +222,6 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			['switcheroo', 'suckerpunch'],
 			// Jirachi
 			['bodyslam', 'healingwish'],
-			// Shuckle
-			['knockoff', 'protect'],
 		];
 
 		for (const pair of incompatiblePairs) this.incompatibleMoves(moves, movePool, pair[0], pair[1]);
@@ -237,20 +236,13 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (abilities.includes('Guts')) this.incompatibleMoves(moves, movePool, 'protect', 'swordsdance');
 
 		// Cull filler moves for otherwise fixed set Stealth Rock users
-		if (!teamDetails.stealthRock) {
-			if (species.id === 'registeel' && role === 'Staller') {
-				if (movePool.includes('thunderwave')) this.fastPop(movePool, movePool.indexOf('thunderwave'));
-				if (moves.size + movePool.length <= this.maxMoveCount) return;
-			}
-			if (species.baseSpecies === 'Wormadam' && role === 'Staller') {
-				if (movePool.includes('suckerpunch')) this.fastPop(movePool, movePool.indexOf('suckerpunch'));
-				if (moves.size + movePool.length <= this.maxMoveCount) return;
-			}
+		if (species.id === 'mamoswine') {
+			this.incompatibleMoves(moves, movePool, ['stealthrock', 'stoneedge'], ['stoneedge', 'superpower']);
 		}
 	}
 
 	// Generate random moveset for a given species, role, preferred type.
-	randomMoveset(
+	override randomMoveset(
 		types: string[],
 		abilities: string[],
 		teamDetails: RandomTeamsTypes.TeamDetails,
@@ -309,6 +301,12 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		// Enforce Thunder Wave on Prankster users
 		if (movePool.includes('thunderwave') && abilities.includes('Prankster')) {
 			counter = this.addMove('thunderwave', moves, types, abilities, teamDetails, species, isLead,
+				movePool, preferredType, role);
+		}
+
+		// Enforce Stealth Rock if the team doesn't already have it
+		if (movePool.includes('stealthrock') && !teamDetails.stealthRock) {
+			counter = this.addMove('stealthrock', moves, types, abilities, teamDetails, species, isLead,
 				movePool, preferredType, role);
 		}
 
@@ -455,7 +453,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (['Fast Attacker', 'Setup Sweeper', 'Bulky Attacker', 'Wallbreaker'].includes(role)) {
 			if (counter.damagingMoves.size === 1) {
 				// Find the type of the current attacking move
-				const currentAttackType = counter.damagingMoves.values().next().value.type;
+				const currentAttackType = counter.damagingMoves.values().next().value!.type;
 				// Choose an attacking move that is of different type to the current single attack
 				const coverageMoves = [];
 				for (const moveid of movePool) {
@@ -492,7 +490,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		return moves;
 	}
 
-	shouldCullAbility(
+	override shouldCullAbility(
 		ability: string,
 		types: Set<string>,
 		moves: Set<string>,
@@ -522,8 +520,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		return false;
 	}
 
-
-	getAbility(
+	override getAbility(
 		types: Set<string>,
 		moves: Set<string>,
 		abilities: string[],
@@ -566,7 +563,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		return this.sample(abilities);
 	}
 
-	getPriorityItem(
+	override getPriorityItem(
 		ability: string,
 		types: string[],
 		moves: Set<string>,
@@ -587,8 +584,9 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (species.id === 'wobbuffet') return 'Custap Berry';
 		if (ability === 'Harvest') return 'Sitrus Berry';
 		if (species.id === 'ditto') return 'Choice Scarf';
+		if (species.id === 'honchkrow') return 'Life Orb';
 		if (species.id === 'exploud' && role === 'Bulky Attacker') return 'Choice Band';
-		if (ability === 'Poison Heal' || moves.has('facade')) return 'Toxic Orb';
+		if (ability === 'Poison Heal' || (moves.has('facade') && species.id !== 'stoutland')) return 'Toxic Orb';
 		if (ability === 'Speed Boost' && species.id !== 'ninjask') return 'Life Orb';
 		if (species.nfe) return 'Eviolite';
 		if (['healingwish', 'memento', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -616,7 +614,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (role === 'Staller') return 'Leftovers';
 	}
 
-	getItem(
+	override getItem(
 		ability: string,
 		types: string[],
 		moves: Set<string>,
@@ -660,7 +658,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (moves.has('outrage') && counter.get('setup')) return 'Lum Berry';
 		if (
 			(ability === 'Rough Skin') || (species.id !== 'hooh' && role !== 'Wallbreaker' &&
-			ability === 'Regenerator' && species.baseStats.hp + species.baseStats.def >= 180 && this.randomChance(1, 2))
+				ability === 'Regenerator' && species.baseStats.hp + species.baseStats.def >= 180 && this.randomChance(1, 2))
 		) return 'Rocky Helmet';
 		if (['protect', 'substitute'].some(m => moves.has(m))) return 'Leftovers';
 		if (
@@ -701,11 +699,13 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		return 'Leftovers';
 	}
 
-	randomSet(
+	override randomSet(
 		species: string | Species,
 		teamDetails: RandomTeamsTypes.TeamDetails = {},
 		isLead = false
 	): RandomTeamsTypes.RandomSet {
+		const ruleTable = this.dex.formats.getRuleTable(this.format);
+
 		species = this.dex.species.get(species);
 		const forme = this.getForme(species);
 		const sets = this.randomSets[species.id]["sets"];
@@ -731,8 +731,8 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		let ability = '';
 		let item = undefined;
 
-		const evs = {hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85};
-		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
+		const evs = { hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85 };
+		const ivs = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
 
 		const types = species.types;
 		const abilities = set.abilities!;
@@ -810,7 +810,10 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		}
 
 		// Minimize confusion damage, including if Foul Play is its only physical attack
-		if ((!counter.get('Physical') || (counter.get('Physical') <= 1 && moves.has('foulplay'))) && !moves.has('transform')) {
+		if (
+			(!counter.get('Physical') || (counter.get('Physical') <= 1 && (moves.has('foulplay') || moves.has('rapidspin')))) &&
+			!moves.has('transform') && !ruleTable.has('forceofthefallenmod')
+		) {
 			evs.atk = 0;
 			ivs.atk = hasHiddenPower ? (ivs.atk || 31) - 28 : 0;
 		}
@@ -827,6 +830,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		return {
 			name: species.baseSpecies,
 			species: forme,
+			speciesId: species.id,
 			gender: species.gender,
 			shiny: this.randomChance(1, 1024),
 			level,
@@ -839,10 +843,43 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		};
 	}
 
-	randomTeam() {
+	/**
+	 * Checks if the new species is compatible with the other mons currently on the team.
+	 */
+	override getPokemonCompatibility(
+		species: Species,
+		pokemon: RandomTeamsTypes.RandomSet[],
+	): boolean {
+		const incompatibilityList = [
+			// These Pokemon with support roles are considered too similar to each other.
+			['blissey', 'chansey'],
+			['illumise', 'volbeat'],
+
+			// These Pokemon are incompatible because the presence of one actively harms the other.
+			// Prevent Dry Skin + sun setting ability
+			[['parasect', 'jynx', 'toxicroak'], ['ninetales', 'groudon']],
+			// Prevent Shedinja + sand/hail setting ability
+			['shedinja', ['tyranitar', 'hippowdon', 'abomasnow']],
+		];
+
+		for (const pair of incompatibilityList) {
+			const monsArrayA = (Array.isArray(pair[0])) ? pair[0] : [pair[0]];
+			const monsArrayB = (Array.isArray(pair[1])) ? pair[1] : [pair[1]];
+			if (monsArrayB.includes(species.id)) {
+				if (pokemon.some(m => monsArrayA.includes(m.speciesId!))) return false;
+			}
+			if (monsArrayA.includes(species.id)) {
+				if (pokemon.some(m => monsArrayB.includes(m.speciesId!))) return false;
+			}
+		}
+
+		return true;
+	}
+
+	override randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
 
-		const seed = this.prng.seed;
+		const seed = this.prng.getSeed();
 		const ruleTable = this.dex.formats.getRuleTable(this.format);
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
 
@@ -851,10 +888,10 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		const typePool = this.dex.types.names();
 		const type = this.forceMonotype || this.sample(typePool);
 
-		const baseFormes: {[k: string]: number} = {};
-		const typeCount: {[k: string]: number} = {};
-		const typeWeaknesses: {[k: string]: number} = {};
-		const typeDoubleWeaknesses: {[k: string]: number} = {};
+		const baseFormes: { [k: string]: number } = {};
+		const typeCount: { [k: string]: number } = {};
+		const typeWeaknesses: { [k: string]: number } = {};
+		const typeDoubleWeaknesses: { [k: string]: number } = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 		let numMaxLevelPokemon = 0;
 
@@ -870,9 +907,6 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 			// Illusion shouldn't be in the last slot
 			if (species.name === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
-
-			// Prevent Shedinja from generating after Sandstorm/Hail setters
-			if (species.name === 'Shedinja' && (teamDetails.sand || teamDetails.hail)) continue;
 
 			// Dynamically scale limits for different team sizes. The default and minimum value is 1.
 			const limitFactor = Math.round(this.maxTeamSize / 6) || 1;
@@ -903,7 +937,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 					}
 					if (this.dex.getEffectiveness(typeName, species) > 1) {
 						if (!typeDoubleWeaknesses[typeName]) typeDoubleWeaknesses[typeName] = 0;
-						if (typeDoubleWeaknesses[typeName] >= 1 * limitFactor) {
+						if (typeDoubleWeaknesses[typeName] >= limitFactor) {
 							skip = true;
 							break;
 						}
@@ -921,6 +955,9 @@ export class RandomGen5Teams extends RandomGen6Teams {
 				if (!this.adjustLevel && (this.getLevel(species) === 100) && numMaxLevelPokemon >= limitFactor) {
 					continue;
 				}
+
+				// Check compatibility with team
+				if (!this.getPokemonCompatibility(species, pokemon)) continue;
 			}
 
 			const set = this.randomSet(species, teamDetails, pokemon.length === 0);
