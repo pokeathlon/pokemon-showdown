@@ -67,21 +67,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onPrepareHit(target, source, move) {
 			if (source.hasItem('Necrozium')) {
-				if (source.species.name === 'Necrozma') {
+				if (source.species.name === 'Necrozma' || (source.m.fusion && source.m.fusion === 'Necrozma')) {
 					const abil = source.getAbility();
-					source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
-					if (abil && abil.id !== 'prismarmor') {
-						source.setAbility(abil, null, null, true);
-						source.baseAbility = abil.id;
+					if (source.species.name === 'Necrozma') {
+						source.formeChange('Necrozma-Ultra', this.effect, true, '[msg]');
+					} else {
+						source.fusionChange('Necrozma-Ultra', this.effect);
 					}
-				} if (source.m.fusion && source.m.fusion === 'Necrozma') {
-					const abil = source.getAbility();
-					source.fusionChange('Necrozma-Ultra', this.effect);
-					source.formeChange(source.species.name, this.effect, false, '[msg]');
-					source.fusionChange('Necrozma-Ultra', this.effect);
 					if (abil && abil.id !== 'prismarmor') {
-						source.setAbility(abil, null, null, true);
+						source.ability = abil.id;
 						source.baseAbility = abil.id;
+						source.battle.add('-displayabilities', source, [source.ability, ...(source.m.activeInnates || [])], [source.baseAbility, ...(source.m.innates || [])]);
 					}
 				}
 			}
