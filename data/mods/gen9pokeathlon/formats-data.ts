@@ -804,6 +804,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
+	caskade: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
 	catastropede: {
 		inherit: true,
 		tier: "UU",
