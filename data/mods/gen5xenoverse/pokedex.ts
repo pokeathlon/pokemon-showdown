@@ -1,8 +1,11 @@
-const {Dex} = require('../../../sim/dex');
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Dex.deepClone(require('../gen9xenoverse/pokedex').Pokedex);
+import { Utils } from '../../../lib';
+import { Pokedex as Base } from '../../pokedex';
+import { Pokedex as Parent } from '../gen9xenoverse/pokedex';
+
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
-const XDex: {[k: string]: number} = {
+const cutDex: {[k: string]: number} = {
 	"shyleon": 1,
 	"shyleonterrestrial": 1,
 	"shyleonxenoversal": 1,
@@ -944,10 +947,12 @@ const XDex: {[k: string]: number} = {
 	"magcargovintage": 7207,
 };
 
-for (var i of Dex.mod('gen9xenoverse').species.all()) {
-	if (!Pokedex[i.id]) Pokedex[i.id] = {inherit: true};
-	const isX = i.id in XDex;
-	Pokedex[i.id].isNonstandard = isX ? null : "Unobtainable";
-	Pokedex[i.id].num = isX ? XDex[i.id] : 0;
-	Pokedex[i.id].gen = isX ? 5 : undefined;
+
+
+for (const key in { ...Base, ...Pokedex }) {
+	const id = key as keyof typeof Base;
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
+
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }
