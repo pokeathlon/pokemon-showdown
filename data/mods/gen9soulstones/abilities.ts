@@ -1072,7 +1072,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fortification",
 		rating: 2,
 		num: 0,
-		shortDesc: "This Pokemon's Sp. Atk is raised by 1 when it reaches 1/2 or less of its max HP.",
+		shortDesc: "This Pokemon's Def and Sp.Def is raised by 1 when it reaches 1/2 or less of its max HP.",
 	},
 	genius: {
 		onModifySpAPriority: 5,
