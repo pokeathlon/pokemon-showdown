@@ -735,6 +735,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 		infinity: 'Infinity',
 		digimon: 'Digimon',
 		mariomon: 'Mariomon',
+		soulstones: 'Soulstones',
 		mysterygift: 'Mystery Gift',
 	});
 	const allFormes = ['alola', 'galar', 'hisui', 'paldea', 'primal', 'therian', 'totem'];
@@ -1186,7 +1187,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 			if (target === 'pivot') {
 				for (const move in mod.data.Moves) {
 					const moveData = mod.moves.get(move);
-					if (moveData.selfSwitch && moveData.id !== 'revivalblessing' && moveData.id !== 'batonpass') {
+					if (moveData.selfSwitch && moveData.id !== 'revivalblessing' && ['batonpass', 'grabandgo'].includes(moveData.id)) {
 						const invalid = validParameter("moves", move, isNotSearch, target);
 						if (invalid) return { error: invalid };
 						if (isNotSearch) {
@@ -2316,7 +2317,7 @@ function runMovesearch(target: string, cmd: string, message: string, isTest: boo
 			}
 			if (matched) continue;
 			if (alts.other.pivot !== undefined) {
-				const pivot = move.selfSwitch && move.id !== 'revivalblessing' && move.id !== 'batonpass';
+				const pivot = move.selfSwitch && move.id !== 'revivalblessing' && ['batonpass', 'grabandgo'].includes(move.id);
 				if (pivot && alts.other.pivot || !(pivot || alts.other.pivot)) matched = true;
 			}
 			if (matched) continue;

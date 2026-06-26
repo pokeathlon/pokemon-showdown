@@ -2213,6 +2213,7 @@ export class Pokemon {
 	isGrounded(negateImmunity = false) {
 		if ('gravity' in this.battle.field.pseudoWeather) return true;
 		if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+		if ('vanguard' in this.volatiles && this.battle.gen >= 4) return true;
 		if ('smackdown' in this.volatiles) return true;
 		if ('groundingstomp' in this.volatiles) return true;
 		const item = (this.ignoringItem() ? '' : this.item);
@@ -2315,6 +2316,7 @@ export class Pokemon {
 		const notImmune = type === 'Ground' ?
 			this.isGrounded(negateImmunity) :
 			negateImmunity || this.battle.dex.getImmunity(type, this);
+		
 		if (notImmune) return true;
 		if (!message) return false;
 		if (notImmune === null) {

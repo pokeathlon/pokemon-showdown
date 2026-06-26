@@ -1,0 +1,227 @@
+export const Scripts: ModdedBattleScriptsData = {
+	gen: 9,
+	inherit: 'gen9',
+	actions: {
+		modifyDamage(
+		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+	) {
+		const tr = this.battle.trunc;
+		if (!move.type) move.type = '???';
+		const type = move.type;
+
+		baseDamage += 2;
+
+		if (move.spreadHit && !pokemon.hasAbility('resonant')) {
+			// multi-target modifier (doubles only)
+			const spreadModifier = this.battle.gameType === 'freeforall' ? 0.5 : 0.75;
+			this.battle.debug(`Spread modifier: ${spreadModifier}`);
+			baseDamage = this.battle.modify(baseDamage, spreadModifier);
+		} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
+			// Parental Bond modifier
+			const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;
+			this.battle.debug(`Parental Bond modifier: ${bondModifier}`);
+			baseDamage = this.battle.modify(baseDamage, bondModifier);
+		}
+
+		// weather modifier
+		baseDamage = this.battle.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+
+		// crit - not a modifier
+		const isCrit = target.getMoveHitData(move).crit;
+		if (isCrit) {
+			baseDamage = tr(baseDamage * (move.critModifier || (this.battle.gen >= 6 ? 1.5 : 2)));
+		}
+
+		// random factor - also not a modifier
+		baseDamage = this.battle.randomizer(baseDamage);
+
+		// STAB
+		// The "???" type never gets STAB
+		// Not even if you Roost in Gen 4 and somehow manage to use
+		// Struggle in the same turn.
+		// (On second thought, it might be easier to get a MissingNo.)
+		if (type !== '???') {
+			let stab: number | [number, number] = 1;
+
+			const isSTAB = move.forceSTAB || pokemon.hasType(type) || pokemon.getTypes(false, true).includes(type);
+			if (isSTAB) {
+				stab = 1.5;
+			}
+
+			// The Stellar tera type makes this incredibly confusing
+			// If the move's type does not match one of the user's base types,
+			// the Stellar tera type applies a one-time 1.2x damage boost for that type.
+			//
+			// If the move's type does match one of the user's base types,
+			// then the Stellar tera type applies a one-time 2x STAB boost for that type,
+			// and then goes back to using the regular 1.5x STAB boost for those types.
+			if (pokemon.terastallized === 'Stellar') {
+				if (!pokemon.stellarBoostedTypes.includes(type) || move.stellarBoosted) {
+					stab = isSTAB ? 2 : [4915, 4096];
+					move.stellarBoosted = true;
+					if (pokemon.species.name !== 'Terapagos-Stellar') {
+						pokemon.stellarBoostedTypes.push(type);
+					}
+				}
+			} else {
+				if (pokemon.terastallized === type && pokemon.getTypes(false, true).includes(type)) {
+					stab = 2;
+				}
+				stab = this.battle.runEvent('ModifySTAB', pokemon, target, move, stab);
+			}
+
+			baseDamage = this.battle.modify(baseDamage, stab);
+		}
+
+		// types
+		let typeMod = target.runEffectiveness(move);
+		typeMod = this.battle.clampIntRange(typeMod, -6, 6);
+		target.getMoveHitData(move).typeMod = typeMod;
+		if (typeMod > 0) {
+			if (!suppressMessages) this.battle.add('-supereffective', target);
+
+			for (let i = 0; i < typeMod; i++) {
+				baseDamage *= 2;
+			}
+		}
+		if (typeMod < 0) {
+			if (!suppressMessages) this.battle.add('-resisted', target);
+
+			for (let i = 0; i > typeMod; i--) {
+				baseDamage = tr(baseDamage / 2);
+			}
+		}
+
+		if (isCrit && !suppressMessages) this.battle.add('-crit', target);
+
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+			if (this.battle.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.battle.modify(baseDamage, 0.5);
+			}
+		}
+		if (pokemon.status === 'frb' && move.category === 'Special' && !pokemon.hasAbility('guts')) {
+			if (this.battle.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.battle.modify(baseDamage, 0.5);
+			}
+		}
+
+		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
+		if (this.battle.gen === 5 && !baseDamage) baseDamage = 1;
+
+		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+		baseDamage = this.battle.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		const bypassProtect = target.getMoveHitData(move).bypassProtect;
+		if (bypassProtect) {
+			baseDamage = this.battle.modify(baseDamage, 0.25);
+			if (bypassProtect !== true && bypassProtect.effectType === 'Ability') {
+				this.battle.add('-ability', pokemon, bypassProtect.name);
+			}
+			this.battle.add('-zbroken', target);
+		}
+
+		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
+		if (this.battle.gen !== 5 && !baseDamage) return 1;
+
+		// ...but 16-bit truncation happens even later, and can truncate to 0
+		return tr(baseDamage, 16);
+		}
+	},
+	pokemon: {
+		setStatus(
+		status: string | Condition,
+		source: Pokemon | null = null,
+		sourceEffect: Effect | null = null,
+		ignoreImmunities = false
+	) {
+		if (status === 'frz') status = 'frb'; //Swap freeze for frostbite?
+		if (!this.hp) return false;
+		status = this.battle.dex.conditions.get(status);
+		if (this.battle.event) {
+			if (!source) source = this.battle.event.source;
+			if (!sourceEffect) sourceEffect = this.battle.effect;
+		}
+		if (!source) source = this;
+
+		if (this.status === status.id) {
+			if ((sourceEffect as Move)?.status === this.status) {
+				this.battle.add('-fail', this, this.status);
+			} else if ((sourceEffect as Move)?.status) {
+				this.battle.add('-fail', source);
+				this.battle.attrLastMove('[still]');
+			}
+			return false;
+		}
+
+		if (
+			!ignoreImmunities && status.id && !(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))
+		) {
+			// the game currently never ignores immunities
+			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				this.battle.debug('immune to status');
+				if ((sourceEffect as Move)?.status) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+		}
+		const prevStatus = this.status;
+		const prevStatusState = this.statusState;
+		if (status.id) {
+			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (!result) {
+				this.battle.debug('set status [' + status.id + '] interrupted');
+				return result;
+			}
+		}
+
+		this.status = status.id;
+		this.statusState = this.battle.initEffectState({ id: status.id, target: this });
+		if (source) this.statusState.source = source;
+		if (status.duration) this.statusState.duration = status.duration;
+		if (status.durationCallback) {
+			this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+		}
+
+		if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+			this.battle.debug('status start [' + status.id + '] interrupted');
+			// cancel the setstatus
+			this.status = prevStatus;
+			this.statusState = prevStatusState;
+			return false;
+		}
+		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			return false;
+		}
+		return true;
+	},
+	/** false = immune, true = not immune */
+	runImmunity(source: ActiveMove | string, message?: string | boolean) {
+		if (!source) return true;
+		const type: string = typeof source !== 'string' ? source.type : source;
+		if (typeof source !== 'string') {
+			if (source.ignoreImmunity && (source.ignoreImmunity === true || source.ignoreImmunity[type])) {
+				return true;
+			}
+		}
+		if (!type || type === '???') return true;
+		if (!this.battle.dex.types.isName(type)) {
+			throw new Error("Use runStatusImmunity for " + type);
+		}
+
+		const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
+		const notImmune = (type === 'Ground' && !this.hasType('Cosmic')) ?
+			this.isGrounded(negateImmunity) :
+			negateImmunity || this.battle.dex.getImmunity(type, this);
+		
+		if (notImmune) return true;
+		if (!message) return false;
+		if (notImmune === null) {
+			this.battle.add('-immune', this, '[from] ability: Levitate');
+		} else {
+			this.battle.add('-immune', this);
+		}
+		return false;
+	}
+	}
+};

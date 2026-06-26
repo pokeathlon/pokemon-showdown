@@ -814,6 +814,37 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
 	},
+	{
+		section: "Soulstones 2 Formats",
+		column: 2,
+	},
+	{
+		name: "[Gen 9] Soulstones OU",
+
+		mod: 'gen9soulstones',
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=804', 'Link EVs', 'Multiple Mega = 2'],
+		banlist: [
+			'Uber', 'AG',
+			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag',
+			'item:kingsrock',
+			'move:assist', 'move:batonpass', 'move:grabandgo', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
+		name: "[Gen 9] Soulstones AG",
+		searchShow: false,
+
+		mod: 'gen9soulstones',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=804', 'Link EVs', 'Multiple Mega = 2'],
+	},
+	{
+		name: "[Gen 9] Soulstones Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9soulstones',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=804', 'Link EVs', 'Multiple Mega = 2'],
+	},
 
 	{
 		section: "Pokéathlon: Full Dex",
