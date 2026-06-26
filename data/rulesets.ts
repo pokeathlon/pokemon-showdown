@@ -4107,7 +4107,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const spaEV = set.evs['spa'];
 
 			if (atkEV !== spaEV) problems.push(`${set.name || set.species}'s Attack and Special Attack EVs must be the same.`)
-			if (set.evs['hp'] + set.evs['atk'] + set.evs['def'] + set.evs['spd'] + set.evs['spe'] > 508) problems.push(`${set.name || set.species}'s is over the EV limit.`)
+			if (set.evs['hp'] + set.evs['atk'] + set.evs['def'] + set.evs['spd'] + set.evs['spe'] > 512) problems.push(`${set.name || set.species}'s is over the EV limit.`)
 			return problems;
 		},
 	}
