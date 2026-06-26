@@ -13980,7 +13980,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		heightm: 0.6,
 		weightkg: 13.0,
 		color: "Black",
-		evos: ["Mr-Temporal. Mime"],
+		evos: ["Mr. Mime-Temporal"],
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",

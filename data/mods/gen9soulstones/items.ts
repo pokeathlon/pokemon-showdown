@@ -3252,7 +3252,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 		gen: 9,
-		shortDesc: "User's NoFairyrmal-type moves hit Water for supereffective.",
+		shortDesc: "User's Fairy-type moves hit Water for supereffective.",
 	},
 	cosmicsword: {
 		name: "Cosmic Sword",

@@ -623,7 +623,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 
 	// Past Paradox Pokemon --- 1st ordered alphabetically by species, 2nd by alias
 	bonnet: "Brute Bonnet",
-	flutter: "Flutter Mane",
 	fmane: "Flutter Mane",
 	gfire: "Gouging Fire",
 	goug: "Gouging Fire",

@@ -1022,6 +1022,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Dishearten",
 		rating: 3.5,
 		num: 0,
+		shortDesc: "On switch-in, this Pokemon lowers the Sp. Atk of opponents by 1 stage.",
 	},
 	ethereal: { 
 		onTryHit(target, source, move) {

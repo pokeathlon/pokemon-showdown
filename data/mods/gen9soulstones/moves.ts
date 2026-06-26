@@ -12797,12 +12797,12 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "30% chance to raise the user's Speed by 1.",
 	},
 
-	divinejudgement: {
+	divinejudgment: {
 		num: 0,
 		basePower: 90,
 		accuracy: 100,
 		category: "Special",
-		name: "Divine Judgement",
+		name: "Divine Judgment",
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
@@ -13113,6 +13113,28 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Fairy",
 		contestType: "Tough",
 		shortDesc: "High crit ratio.",
+	},
+
+	achillesheel: {
+		num: 0,
+		basePower: 60,
+		accuracy: 100,
+		category: "Physical",
+		name: "Achilles Heel",
+		pp: 20,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+		shortDesc: "10% chance to lower the target's Atk and Sp. Atk by 1.",
 	},
 
 };
