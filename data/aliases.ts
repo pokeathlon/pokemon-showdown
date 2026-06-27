@@ -1510,7 +1510,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	smite: "G-Max Smite",
 	snooze: "G-Max Snooze",
 	steelsurge: "G-Max Steelsurge",
-	stonesurge: "G-Max Stonesurge",
 	stunshock: "G-Max Stun Shock",
 	sweetness: "G-Max Sweetness",
 	tartness: "G-Max Tartness",
