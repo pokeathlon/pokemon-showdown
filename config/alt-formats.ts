@@ -822,10 +822,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Soulstones OU",
 
 		mod: 'gen9soulstones',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=764', 'Link EVs', 'Multiple Mega = 2'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=764', 'Link EVs', 'Multiple Mega = 2', 'Rune Clause'],
 		banlist: [
 			'Uber', 'AG',
-			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:disarray',
+			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:disarray', 'ability:maelstrom',
 			'item:kingsrock', 'item:arenatraprune',
 			'move:assist', 'move:batonpass', 'move:grabandgo', 'move:lastrespects', 'move:shedtail',
 		],

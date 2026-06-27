@@ -4041,6 +4041,21 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		},
 		banlist: ['Disguise', 'Imposter', 'Moody', 'Wonder Guard'],
 	},
+	runeclause: {
+		effectType: 'ValidatorRule',
+		name: 'Rune Clause',
+		desc: "Limit one rune per team.",
+		onValidateTeam(team) {
+			const runes = [];
+			for (const set of team) {
+				const item = this.dex.items.get(set.item);
+				if (item.name.includes(" Rune")) runes.push(item.name);
+			}
+			if (runes.length > 1) {
+				return [`You can only use one rune (you have: ${runes.join(', ')})`];
+			}
+		},
+	},
 
 	// Unused rulesets
 	forcefusion: {

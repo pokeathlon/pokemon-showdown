@@ -3307,7 +3307,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3327,7 +3327,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3347,7 +3347,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3367,7 +3367,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3387,7 +3387,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3407,7 +3407,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3427,7 +3427,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3447,7 +3447,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3467,7 +3467,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3487,7 +3487,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3507,7 +3507,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3527,7 +3527,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3547,7 +3547,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3567,7 +3567,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3587,7 +3587,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3607,7 +3607,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3627,7 +3627,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3647,7 +3647,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3667,7 +3667,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3687,7 +3687,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3707,7 +3707,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3727,7 +3727,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3747,7 +3747,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3767,7 +3767,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3787,7 +3787,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3807,7 +3807,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3827,7 +3827,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3847,7 +3847,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3867,7 +3867,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3887,7 +3887,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3907,7 +3907,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3927,7 +3927,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,
@@ -3947,7 +3947,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onTakeItem(item, source) {
 			if (!this.activeMove) return false;
-			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
+			if (!['knockoff', 'thief', 'covet', 'turbulence', 'spoil', 'powerwash', 'quakeslam', 'disturb', 'mindmeld'].includes(this.activeMove.id)) return false;
 		},
 		num: 0,
 		gen: 9,

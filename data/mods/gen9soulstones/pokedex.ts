@@ -19567,7 +19567,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	rockrufftemporal: {
 		num: 1160,
