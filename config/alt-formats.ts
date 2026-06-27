@@ -825,8 +825,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=764', 'Link EVs', 'Multiple Mega = 2'],
 		banlist: [
 			'Uber', 'AG',
-			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag',
-			'item:kingsrock',
+			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:disarray',
+			'item:kingsrock', 'item:arenatraprune',
 			'move:assist', 'move:batonpass', 'move:grabandgo', 'move:lastrespects', 'move:shedtail',
 		],
 	},
