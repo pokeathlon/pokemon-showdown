@@ -1405,7 +1405,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	opaqueness: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Light') {
-				this.add('-immune', target, '[from] ability: Water Absorb');
+				this.add('-immune', target, '[from] ability: Opaqueness');
 				return null;
 			}
 		},
@@ -2060,7 +2060,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	orbit: {
 		onStart(source) {
-			if (this.field.pseudoWeather.gravity) {
+			if (!this.field.pseudoWeather.gravity) {
 				this.add('-activate', source, 'ability: Orbit');
 				this.field.addPseudoWeather('gravity');
 			} 

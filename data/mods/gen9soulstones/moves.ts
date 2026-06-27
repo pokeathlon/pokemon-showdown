@@ -2580,7 +2580,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	swarmoverload: {
@@ -3015,7 +3015,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Cosmic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	stardust: {
@@ -3210,7 +3210,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	blackout: {
@@ -3924,7 +3924,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	staticshock: {
@@ -4011,7 +4011,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	etherealburst: {
@@ -4860,7 +4860,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	skydive: {
@@ -5468,7 +5468,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	seismicshift: {
@@ -5987,7 +5987,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	holyfire: {
@@ -6014,7 +6014,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Lightsaber",
 		pp: 15,
 		priority: 0,
-		flags: {metronome: 1, protect: 1, mirror: 1, defrost: 1 },
+		flags: {metronome: 1, protect: 1, mirror: 1, defrost: 1, slicing: 1 },
 		secondary: {
 			chance: 10,
 			status: 'brn',
@@ -7054,7 +7054,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	amberwave: {
@@ -7194,7 +7194,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	gemstorm: {
@@ -7728,7 +7728,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Sound",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	staccato: {
@@ -7920,7 +7920,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 	},
 
 	shieldbash: {
@@ -8084,7 +8084,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "High crit ratio.",
 	},
 
 	surgingblow: {
@@ -10973,7 +10973,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		shortDesc: "Hits 2-5 times.",
+		shortDesc: "Hits 2-5 times. Usually moves first.",
 	},
 
 	sandspray: {
@@ -11717,7 +11717,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "Hits 2-5 times.",
+		shortDesc: "Hits 2-5 times. Usually moves first.",
 	},
 
 	hexbolt: {
@@ -13105,7 +13105,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		category: "Physical",
 		name: "Excalibur",
-		pp: 2,
+		pp: 20,
 		priority: 0,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1, slicing: 1 },
 		critRatio: 2,
@@ -13135,6 +13135,89 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Normal",
 		contestType: "Tough",
 		shortDesc: "10% chance to lower the target's Atk and Sp. Atk by 1.",
+	},
+
+	blastfreeze: {
+		num: 0,
+		basePower: 100,
+		accuracy: 100,
+		category: "Special",
+		name: "Blast Freeze",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		target: "allAdjacent",
+		type: "Ice",
+		contestType: "Tough",
+		shortDesc: "Hits adjacent pokemon.",
+	},
+
+	permafrost: {
+		num: 0,
+		basePower: 100,
+		accuracy: 100,
+		category: "Physical",
+		name: "Permafrost",
+		pp: 15,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "allAdjacent",
+		type: "Ice",
+		contestType: "Tough",
+		shortDesc: "30% chance to paralyze the target.",
+	},
+	infernalblade: {
+		num: 0,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Infernal Blade",
+		pp: 10,
+		priority: 0,
+		flags: { contact: 1, charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1, slicing: 1 },
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather(true))) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+		shortDesc: "Charges turn 1. Hits turn 2. No charge in sunlight.",
+	},
+	corrode: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Corrode",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		ignoreImmunity: { 'Poison': true },
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Beautiful",
+		desc: "This move's type effectiveness against Steel is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Super effective on Steel.",
 	},
 
 };

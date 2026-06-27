@@ -1347,7 +1347,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Sceptile-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tyranitarites: {
+	yranitaritestemporal: {
     		name: "Tyranitarite-S",
     		spritenum: -6,
     		megaStone: { "Tyranitar-Orion": "Tyranitar-Orion-Mega" },
@@ -1633,7 +1633,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Blissey-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tentacruelites: {
+	entacruelitestemporal: {
     		name: "Tentacruelite-S",
     		spritenum: -6,
     		megaStone: { "Tentacruel-Orion": "Tentacruel-Orion-Mega" },
@@ -1646,7 +1646,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Tentacruel-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tsareenitex: {
+	sareenitextemporal: {
     		name: "Tsareenite-X",
     		spritenum: -6,
     		megaStone: { "Tsareena-Orion": "Tsareena-Orion-Mega-X" },
@@ -1659,7 +1659,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Tsareena-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tsareenitey: {
+	sareeniteytemporal: {
     		name: "Tsareenite-Y",
     		spritenum: -6,
     		megaStone: { "Tsareena-Orion": "Tsareena-Orion-Mega-Y" },
@@ -1802,7 +1802,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Mamoswine-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	torterranites: {
+	orterranitestemporal: {
     		name: "Torterranite-S",
     		spritenum: -6,
     		megaStone: { "Torterra-Orion": "Torterra-Orion-Mega" },
@@ -1828,11 +1828,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Lopunny-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tgothitellite: {
-    		name: "T.Gothitellite",
+	gothitellitetemporal: {
+    		name: "Gothitellite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Gothitelle": "T.Gothitelle-Mega" },
-    		itemUser: ["T.Gothitelle"],
+    		megaStone: { "Gothitelle-Temporal": "Gothitelle-Temporal-Mega" },
+    		itemUser: ["Gothitelle-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -1880,7 +1880,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Ninetales-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	toxtricites: {
+	oxtricitestemporal: {
     		name: "Toxtricite-S",
     		spritenum: -6,
     		megaStone: { "Toxtricity-Orion": "Toxtricity-Orion-Mega" },
@@ -1893,11 +1893,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Toxtricity-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tdugtrioite: {
-    		name: "T.Dugtrioite",
+	dugtrioitetemporal: {
+    		name: "Dugtrioite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Dugtrio": "T.Dugtrio-Mega" },
-    		itemUser: ["T.Dugtrio"],
+    		megaStone: { "Dugtrio-Temporal": "Dugtrio-Temporal-Mega" },
+    		itemUser: ["Dugtrio-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -1919,11 +1919,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Luvdisc-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tabsolite: {
-    		name: "T.Absolite",
+	absolitetemporal: {
+    		name: "Absolite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Absol": "T.Absol-Mega" },
-    		itemUser: ["T.Absol"],
+    		megaStone: { "Absol-Temporal": "Absol-Temporal-Mega" },
+    		itemUser: ["Absol-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -1945,11 +1945,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Abomasnow-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tsablenite: {
-    		name: "T.Sablenite",
+	sablenitetemporal: {
+    		name: "Sablenite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Sableye": "T.Sableye-Mega" },
-    		itemUser: ["T.Sableye"],
+    		megaStone: { "Sableye-Temporal": "Sableye-Temporal-Mega" },
+    		itemUser: ["Sableye-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -1971,11 +1971,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Garbodor-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	taltarianite: {
-    		name: "T.Altarianite",
+	altarianitetemporal: {
+    		name: "Altarianite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Altaria": "T.Altaria-Mega" },
-    		itemUser: ["T.Altaria"],
+    		megaStone: { "Altaria-Temporal": "Altaria-Temporal-Mega" },
+    		itemUser: ["Altaria-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -1984,11 +1984,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Altaria, this item allows it to Mega Evolve in battle.",
     	},
 
-	tswampertite: {
-    		name: "T.Swampertite",
+	swampertitetemporal: {
+    		name: "Swampertite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Swampert": "T.Swampert-Mega" },
-    		itemUser: ["T.Swampert"],
+    		megaStone: { "Swampert-Temporal": "Swampert-Temporal-Mega" },
+    		itemUser: ["Swampert-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -1997,11 +1997,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Swampert, this item allows it to Mega Evolve in battle.",
     	},
 
-	tmasquerite: {
-    		name: "T.Masquerite",
+	masqueritetemporal: {
+    		name: "Masquerite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Masquerain": "T.Masquerain-Mega" },
-    		itemUser: ["T.Masquerain"],
+    		megaStone: { "Masquerain-Temporal": "Masquerain-Temporal-Mega" },
+    		itemUser: ["Masquerain-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2075,11 +2075,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Coalossal-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tgiganite: {
-    		name: "T.Giganite",
+	giganitetemporal: {
+    		name: "Giganite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Gigalith": "T.Gigalith-Mega" },
-    		itemUser: ["T.Gigalith"],
+    		megaStone: { "Gigalith-Temporal": "Gigalith-Temporal-Mega" },
+    		itemUser: ["Gigalith-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2153,11 +2153,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Empoleon-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tjumpinite: {
-    		name: "T.Jumpinite",
+	jumpinitetemporal: {
+    		name: "Jumpinite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Jumpluff": "T.Jumpluff-Mega" },
-    		itemUser: ["T.Jumpluff"],
+    		megaStone: { "Jumpluff-Temporal": "Jumpluff-Temporal-Mega" },
+    		itemUser: ["Jumpluff-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2244,11 +2244,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Chimecho-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tgrimmsnarlite: {
-    		name: "T.Grimmsnarlite",
+	grimmsnarlitetemporal: {
+    		name: "Grimmsnarlite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Grimmsnarl": "T.Grimmsnarl-Mega" },
-    		itemUser: ["T.Grimmsnarl"],
+    		megaStone: { "Grimmsnarl-Temporal": "Grimmsnarl-Temporal-Mega" },
+    		itemUser: ["Grimmsnarl-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2257,11 +2257,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Grimmsnarl, this item allows it to Mega Evolve in battle.",
     	},
 
-	twyrdeerite: {
-    		name: "T.Wyrdeerite",
+	wyrdeeritetemporal: {
+    		name: "Wyrdeerite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Wyrdeer": "T.Wyrdeer-Mega" },
-    		itemUser: ["T.Wyrdeer"],
+    		megaStone: { "Wyrdeer-Temporal": "Wyrdeer-Temporal-Mega" },
+    		itemUser: ["Wyrdeer-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2387,11 +2387,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Blastoise-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tcacturnite: {
-    		name: "T.Cacturnite",
+	cacturnitetemporal: {
+    		name: "Cacturnite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Cacturne": "T.Cacturne-Mega" },
-    		itemUser: ["T.Cacturne"],
+    		megaStone: { "Cacturne-Temporal": "Cacturne-Temporal-Mega" },
+    		itemUser: ["Cacturne-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2400,11 +2400,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Cacturne-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tursalunite: {
-    		name: "T.Ursalunite",
+	ursalunitetemporal: {
+    		name: "Ursalunite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Ursaluna": "T.Ursaluna-Mega" },
-    		itemUser: ["T.Ursaluna"],
+    		megaStone: { "Ursaluna-Temporal": "Ursaluna-Temporal-Mega" },
+    		itemUser: ["Ursaluna-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2439,11 +2439,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Melmetal-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	twhimsicottite: {
-    		name: "T.Whimsicottite",
+	whimsicottitetemporal: {
+    		name: "Whimsicottite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Whimsicott": "T.Whimsicott-Mega" },
-    		itemUser: ["T.Whimsicott"],
+    		megaStone: { "Whimsicott-Temporal": "Whimsicott-Temporal-Mega" },
+    		itemUser: ["Whimsicott-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2452,11 +2452,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Whimsicott, this item allows it to Mega Evolve in battle.",
     	},
 
-	tcharizardite: {
-    		name: "T.Charizardite",
+	charizarditetemporal: {
+    		name: "Charizardite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Charizard": "T.Charizard-Mega" },
-    		itemUser: ["T.Charizard"],
+    		megaStone: { "Charizard-Temporal": "Charizard-Temporal-Mega" },
+    		itemUser: ["Charizard-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2491,11 +2491,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Delibird-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tscizorite: {
-    		name: "T.Scizorite",
+	scizoritetemporal: {
+    		name: "Scizorite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Scizor": "T.Scizor-Mega" },
-    		itemUser: ["T.Scizor"],
+    		megaStone: { "Scizor-Temporal": "Scizor-Temporal-Mega" },
+    		itemUser: ["Scizor-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2504,11 +2504,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Scizor, this item allows it to Mega Evolve in battle.",
     	},
 
-	tkleavorite: {
-    		name: "T.Kleavorite",
+	kleavoritetemporal: {
+    		name: "Kleavorite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Kleavor": "T.Kleavor-Mega" },
-    		itemUser: ["T.Kleavor"],
+    		megaStone: { "Kleavor-Temporal": "Kleavor-Temporal-Mega" },
+    		itemUser: ["Kleavor-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2543,11 +2543,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Pyukumuku-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tvenusaurite: {
-    		name: "T.Venusaurite",
+	venusauritetemporal: {
+    		name: "Venusaurite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Venusaur": "T.Venusaur-Mega" },
-    		itemUser: ["T.Venusaur"],
+    		megaStone: { "Venusaur-Temporal": "Venusaur-Temporal-Mega" },
+    		itemUser: ["Venusaur-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2569,11 +2569,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Mawile-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	tampharosite: {
-    		name: "T.Ampharosite",
+	ampharositetemporal: {
+    		name: "Ampharosite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Ampharos": "T.Ampharos-Mega" },
-    		itemUser: ["T.Ampharos"],
+    		megaStone: { "Ampharos-Temporal": "Ampharos-Temporal-Mega" },
+    		itemUser: ["Ampharos-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2582,11 +2582,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Ampharos, this item allows it to Mega Evolve in battle.",
     	},
 
-	tsnorlaxite: {
-    		name: "T.Snorlaxite",
+	snorlaxitetemporal: {
+    		name: "Snorlaxite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Snorlax": "T.Snorlax-Mega" },
-    		itemUser: ["T.Snorlax"],
+    		megaStone: { "Snorlax-Temporal": "Snorlax-Temporal-Mega" },
+    		itemUser: ["Snorlax-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2595,11 +2595,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Snorlax, this item allows it to Mega Evolve in battle.",
     	},
 
-	tfurretite: {
-    		name: "T.Furretite",
+	furretitetemporal: {
+    		name: "Furretite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Furret": "T.Furret-Mega" },
-    		itemUser: ["T.Furret"],
+    		megaStone: { "Furret-Temporal": "Furret-Temporal-Mega" },
+    		itemUser: ["Furret-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2608,11 +2608,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a T.Furret, this item allows it to Mega Evolve in battle.",
     	},
 
-	tmagcargite: {
-    		name: "T.Magcargite",
+	magcargitetemporal: {
+    		name: "Magcargite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Magcargo": "T.Magcargo-Mega" },
-    		itemUser: ["T.Magcargo"],
+    		megaStone: { "Magcargo-Temporal": "Magcargo-Temporal-Mega" },
+    		itemUser: ["Magcargo-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
@@ -2686,11 +2686,11 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Baxcalibur-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	twiggnite: {
-    		name: "T.Wiggnite",
+	wiggnitetemporal: {
+    		name: "Wiggnite-Temporal",
     		spritenum: -6,
-    		megaStone: { "T.Wigglytuff": "T.Wigglytuff-Mega" },
-    		itemUser: ["T.Wigglytuff"],
+    		megaStone: { "Wigglytuff-Temporal": "Wigglytuff-Temporal-Mega" },
+    		itemUser: ["Wigglytuff-Temporal"],
     		onTakeItem(item, source) {
     			return !item.megaStone?.[source.baseSpecies.baseSpecies];
     		},
