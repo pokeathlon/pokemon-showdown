@@ -1347,7 +1347,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Sceptile-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	yranitaritestemporal: {
+	tyranitarites: {
     		name: "Tyranitarite-S",
     		spritenum: -6,
     		megaStone: { "Tyranitar-Orion": "Tyranitar-Orion-Mega" },
@@ -1633,7 +1633,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Blissey-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	entacruelitestemporal: {
+	tentacruelites: {
     		name: "Tentacruelite-S",
     		spritenum: -6,
     		megaStone: { "Tentacruel-Orion": "Tentacruel-Orion-Mega" },
@@ -1646,7 +1646,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Tentacruel-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	sareenitextemporal: {
+	tsareenitex: {
     		name: "Tsareenite-X",
     		spritenum: -6,
     		megaStone: { "Tsareena-Orion": "Tsareena-Orion-Mega-X" },
@@ -1659,7 +1659,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Tsareena-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	sareeniteytemporal: {
+	tsareenitey: {
     		name: "Tsareenite-Y",
     		spritenum: -6,
     		megaStone: { "Tsareena-Orion": "Tsareena-Orion-Mega-Y" },
@@ -1802,7 +1802,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Mamoswine-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	orterranitestemporal: {
+	torterranites: {
     		name: "Torterranite-S",
     		spritenum: -6,
     		megaStone: { "Torterra-Orion": "Torterra-Orion-Mega" },
@@ -1880,7 +1880,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			shortDesc: "If held by a Ninetales-Orion, this item allows it to Mega Evolve in battle.",
     	},
 
-	oxtricitestemporal: {
+	toxtricites: {
     		name: "Toxtricite-S",
     		spritenum: -6,
     		megaStone: { "Toxtricity-Orion": "Toxtricity-Orion-Mega" },
