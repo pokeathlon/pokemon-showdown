@@ -13222,8 +13222,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 
 };
 
-for (const key in Base) {
+for (const key in { ...Base, ...Moves }) {
 	const id = key as keyof typeof Base;
+	if (Moves[id]) Moves[id] = {...Moves[id], gen: 9, isNonstandard: null};
 	if (Moves[id]) continue;
 
 	Moves[id] = { ...Base[id], gen: 9, isNonstandard: null };
