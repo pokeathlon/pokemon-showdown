@@ -919,13 +919,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Orion') {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Temporal') {
 				return this.chainModify(1.25);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(def, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Orion') {
+			if (pokemon.baseSpecies.baseSpecies === 'Delcatty-Temporal') {
 				return this.chainModify(1.25);
 			}
 		},
@@ -936,10 +936,10 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(1.15);
 			}
 		},
-		itemUser: ["Delcatty-Orion"],
+		itemUser: ["Delcatty-Temporal"],
 		num: 0,
 		gen: 9,
-		shortDesc: "If held by a Delcatty-Orion, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
+		shortDesc: "If held by a Delcatty-Temporal, 1.25x Def. and Sp.Def, 15% increased healing from draining.",
 	},
 	wisevest: {
 		name: "Wise Vest",
