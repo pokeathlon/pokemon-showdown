@@ -3556,7 +3556,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shew: {
 		num: 204,
@@ -3570,7 +3570,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sheino: {
 		num: 204,
@@ -3584,7 +3584,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shommoo: {
 		num: 204,
@@ -3598,7 +3598,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	swallos: {
 		num: 204,
@@ -3612,7 +3612,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shapinch: {
 		num: 204,
@@ -3626,7 +3626,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shible: {
 		num: 204,
@@ -3640,7 +3640,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shapplin: {
 		num: 204,
@@ -3654,7 +3654,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	sheepy: {
 		num: 204,
@@ -3668,7 +3668,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shrelp: {
 		num: 204,
@@ -3682,7 +3682,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shyrunt: {
 		num: 204,
@@ -3696,7 +3696,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shagon: {
 		num: 204,
@@ -3710,7 +3710,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	shibax: {
 		num: 204,
@@ -3724,7 +3724,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
-		tier: "OU",
+		tier: "LC",
 	},
 	gastrodonorion: {
 		num: 205,
@@ -18075,7 +18075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Sinistcha-Temporal",
 		types: ['Psychic', 'Steel'],
 		baseStats: { hp: 80, atk: 55, def: 80, spa: 104, spd: 94, spe: 95 },
-		abilities: { 0: "Liquid Ooze", 1: "Power of Alchemy" , H: "Psychic surge" },
+		abilities: { 0: "Liquid Ooze", 1: "Power of Alchemy" , H: "Psychic Surge" },
 		heightm: 0.2,
 		weightkg: 0.4,
 		color: "Purple",

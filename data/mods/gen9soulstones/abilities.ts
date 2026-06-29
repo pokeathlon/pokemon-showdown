@@ -1558,7 +1558,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Dark-type attack.",
 	},
 	scorchscale: {
-		onFoeTryMove(target, source, move) {
+		onHit(target, source, move) {
 			if (move.priority > 0.1 && move.category != 'Status') {
 				source.trySetStatus('brn', target);
 			}

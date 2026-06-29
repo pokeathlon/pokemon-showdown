@@ -3004,7 +3004,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		shortDesc: "At the end of every turn, this item attempts to frostbite the holder.",
 	},
-	hivisjacked: {
+	hivisjacket: {
 		name: "Hi-Vis Jacket",
 		spritenum: -6,
 		fling: {

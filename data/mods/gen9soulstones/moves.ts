@@ -2451,7 +2451,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		shortDesc: "Has 1/4 recoil.",
+		shortDesc: "Has 1/4 recoil. +2 priority.",
 	},
 
 	flutter: {
@@ -4046,7 +4046,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		shortDesc: "Lowers the user's Defense by 1.",
+		shortDesc: "Lowers the user's Defense by 1. +2 priority.",
 	},
 
 	faesblessing: {
@@ -5648,11 +5648,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		selfSwitch: true,
+		forceSwitch: true,
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "User switches out after damaging the target.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	liquidnitrogen: {
@@ -5860,7 +5860,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				move: 'futuresight',
+				move: 'divinevision',
 				source,
 				moveData: {
 					id: 'divinevision',
@@ -6625,7 +6625,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
+		shortDesc: "+2 priority.",
 	},
 
 	shutdown: {
@@ -6739,7 +6739,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
 		secondary: {
 			chance: 100,
-			volatileStatus: 'psn',
+			status: 'psn',
 		},
 		critRatio: 2,
 		target: "normal",
@@ -10550,7 +10550,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		shortDesc: "Lowers the user's Defense by 1.",
+		shortDesc: "Lowers the user's Defense by 1. +2 priority.",
 	},
 
 	divebomb: {
@@ -11139,7 +11139,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Icy Deluge damage boost');
-				return move.basePower * 2;
+				return move.basePower * 1.5;
 			}
 			this.debug('Icy Deluge NOT boosted');
 			return move.basePower;
@@ -11147,7 +11147,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		shortDesc: "Power doubles if user moves before the target.",
+		shortDesc: "1.5x if user moves before the target.",
 	},
 
 	chillingblast: {
@@ -11312,11 +11312,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		multihit: [2,5],
+		multihit: 2,
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "Hits 2-5 times in one turn.",
+		shortDesc: "Hits two times in one turn.",
 	},
 
 	fanaticism: {
