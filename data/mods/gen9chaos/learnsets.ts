@@ -13551,6 +13551,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			energyball: ["9M"],
 			extrasensory: ["9M"],
 			firespin: ["9M"],
+			firstimpression: ["9M"],
 			fissure: ["9M"],
 			fling: ["9M"],
 			gigadrain: ["9M"],
@@ -13613,6 +13614,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 		learnset: {
 			flockshock: ["9M"],
 			barrier: ["9M"],
+			calmmind: ["9M"],
 			charge: ["9M"],
 			chargebeam: ["9M"],
 			copycat: ["9M"],
