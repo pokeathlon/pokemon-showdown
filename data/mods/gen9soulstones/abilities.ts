@@ -1027,13 +1027,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	ethereal: { 
 		onTryHit(target, source, move) {
 			if (!move.flags.contact) return;
-			if (target.abilityState.etherealLost) return;
+			if (target.etherealLost) return;
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
 					this.add('-immune', target, '[from] ability: Ethereal');
 				}
-				target.abilityState.etherealLost = true;
+				target.etherealLost = true;
 				return null;
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1 },
