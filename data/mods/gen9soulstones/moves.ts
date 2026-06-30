@@ -6954,11 +6954,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		selfSwitch: true,
+		forceSwitch: true,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
-		shortDesc: "User switches out after damaging the target.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	manicoverload: {
@@ -8094,11 +8094,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		selfSwitch: true,
+		forceSwitch: true,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "User switches out after damaging the target.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	oceanblast: {
@@ -8180,11 +8180,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, contact: 1, protect: 1, mirror: 1 },
-		selfSwitch: true,
+		forceSwitch: true,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "User switches out after damaging the target.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	quicksand: {
@@ -8602,11 +8602,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		selfSwitch: true,
+		forceSwitch: true,
 		target: "normal",
 		type: "Light",
 		contestType: "Tough",
-		shortDesc: "User switches out after damaging the target.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	stargaze: {
@@ -10815,11 +10815,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: -6,
 		flags: {metronome: 1, protect: 1, mirror: 1 },
-		selfSwitch: true,
+		forceSwitch: true,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		shortDesc: "User switches out after damaging the target.",
+		shortDesc: "Forces the target to switch to a random ally.",
 	},
 
 	ghastlyflood: {
