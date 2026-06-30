@@ -808,12 +808,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		pp: 15,
 		isNonstandard: undefined,
-		onModifyMove(move, pokemon) {
-			move.basePower = pokemon.level;
-		},
+		damage: 'level',
+		onModifyMove(move, pokemon) {},
 		onUseMoveMessage(pokemon, target, move) {},
-		desc: "Base Power equal to the user's level.",
-		shortDesc: "Base Power equal to the user's level.",
+		desc: "Damage equal to the user's level.",
+		shortDesc: "Damage equal to the user's level.",
 	},
 	glaciate: {
 		inherit: true,
@@ -892,6 +891,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		basePower: 100,
 		pp: 10,
+		category: "Special",
 		basePowerCallback(pokemon, target, move) {return 100},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true)) move.category = 'Special';
@@ -1616,7 +1616,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	steamroller: {
 		inherit: true,
-		basePower: 60,
+		basePower: 50,
 		type: "Ground",
 		secondary: {
 			chance: 100,
@@ -1774,7 +1774,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	poisonfang: {
 		inherit: true,
 		basePower: 65,
+		secondary: {
+			chance: 100,
+			status: 'psn',
+		},
 		isNonstandard: undefined,
+		desc: "Has a 100% chance to poison the target.",
+		shortDesc: "100% chance to poison the target.",
 	},
 	poisontail: {
 		inherit: true,
@@ -2173,7 +2179,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	scaleshot: {
 		inherit: true,
 		pp: 15,
+		selfBoost: {},
 		isNonstandard: undefined,
+		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times. If the user is holding Loaded Dice, this move will hit 4-5 times.",
+		shortDesc: "Hits 2-5 times.",
 	},
 	burningjealousy: {
 		inherit: true,
@@ -2293,6 +2302,43 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			},
 		},
+	},
+	risingvoltage: {
+		inherit: true,
+		basePowerCallback(source, target, move) {
+			if (this.field.isTerrain('electricterrain') && target.isGrounded()) {
+				if (!source.isAlly(target)) this.hint(`${move.name}'s BP doubled on grounded target.`);
+				return move.basePower * 1.6;
+			}
+			return move.basePower;
+		},
+		desc: "If the current terrain is Electric Terrain and the target is grounded, this move's power is 1.6x.",
+		shortDesc: "1.6x power if target is grounded in Electric Terrain.",
+	},
+	expandingforce: {
+		inherit: true,
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.3);
+			}
+		},
+		desc: "If the current terrain is Psychic Terrain and the user is grounded, this move hits all opposing Pokemon and has its power multiplied by 1.3.",
+		shortDesc: "User on Psychic Terrain: 1.3x power, hits foes.",
+	},
+	mistyexplosion: {
+		inherit: true,
+		basePower: 150,
+	},
+	facade: {
+		inherit: true,
+		desc: "Power doubles if the user is burned, paralyzed, poisoned, or frostbit. The physical damage halving effect from the user's burn is ignored.",
+		shortDesc: "Power doubles if user is burn/poison/paralyzed/frostbit.",
+	},
+	refresh: {
+		inherit: true,
+		desc: "The user cures its burn, poison, paralysis, or frostbite. Fails if the user is not burned, poisoned, paralyzed, or frostbit.",
+		shortDesc: "User cures its burn, poison, paralysis, or frostbite.",
 	},
 	
 	// Additions
