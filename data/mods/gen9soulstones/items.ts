@@ -3299,8 +3299,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('liquidooze', pokemon);
 			}
@@ -3319,8 +3319,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('aftermath', pokemon);
 			}
@@ -3339,8 +3339,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('sandveil', pokemon);
 			}
@@ -3359,8 +3359,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('snowcloak', pokemon);
 			}
@@ -3379,8 +3379,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('vitalspirit', pokemon);
 			}
@@ -3399,8 +3399,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('synchronize', pokemon);
 			}
@@ -3419,8 +3419,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('unnerve', pokemon);
 			}
@@ -3439,8 +3439,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('poisonpoint', pokemon);
 			}
@@ -3459,8 +3459,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('naturalcure', pokemon);
 			}
@@ -3479,8 +3479,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('icebody', pokemon);
 			}
@@ -3499,8 +3499,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('clayform', pokemon);
 			}
@@ -3519,8 +3519,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('synthesize', pokemon);
 			}
@@ -3539,8 +3539,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('raindish', pokemon);
 			}
@@ -3559,8 +3559,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('battlearmor', pokemon);
 			}
@@ -3579,8 +3579,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('healer', pokemon);
 			}
@@ -3599,8 +3599,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('flamebody', pokemon);
 			}
@@ -3619,8 +3619,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('moldbreaker', pokemon);
 			}
@@ -3639,8 +3639,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('shielddust', pokemon);
 			}
@@ -3659,8 +3659,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('infiltrator', pokemon);
 			}
@@ -3679,8 +3679,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('analytic', pokemon);
 			}
@@ -3699,8 +3699,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('static', pokemon);
 			}
@@ -3719,8 +3719,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('compoundeyes', pokemon);
 			}
@@ -3739,8 +3739,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('toughclaws', pokemon);
 			}
@@ -3759,8 +3759,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('rivalry', pokemon);
 			}
@@ -3779,8 +3779,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('sniper', pokemon);
 			}
@@ -3799,8 +3799,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('impenetrable', pokemon);
 			}
@@ -3819,8 +3819,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('telepathy', pokemon);
 			}
@@ -3839,8 +3839,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('gooey', pokemon);
 			}
@@ -3859,8 +3859,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('innerfocus', pokemon);
 			}
@@ -3879,8 +3879,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('prismarmor', pokemon);
 			}
@@ -3899,8 +3899,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('arenatrap', pokemon);
 			}
@@ -3919,8 +3919,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('clearbody', pokemon);
 			}
@@ -3939,8 +3939,8 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		onSwitchInPriority: -1,
-		onStart(pokemon) {
+		onSwitchInPriority: 101,
+		onSwitchIn(pokemon) {
 			if (!pokemon.ignoringItem()) {
 				pokemon.setAbility('pastelveil', pokemon);
 			}
