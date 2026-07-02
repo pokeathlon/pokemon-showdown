@@ -13266,6 +13266,25 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Super effective on Steel.",
 	},
 
+	ancientroar: {
+		num: 0,
+		basePower: 75,
+		accuracy: 100,
+		category: "Special",
+		name: "Ancient Roar",
+		pp: 10,
+		priority: 0,
+		flags: {metronome: 1, protect: 1, mirror: 1 },
+		secondary: {
+			chance: 10,
+			status: "frz",
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+		shortDesc: "10% chance to frostbite.",
+	},
+
 };
 
 for (const key in { ...Base, ...Moves }) {

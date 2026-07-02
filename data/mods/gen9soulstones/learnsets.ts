@@ -121424,6 +121424,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			leer: ["9L1"],
 			lightscreen: ["9M"],
 			malady: ["9L4"],
+			megahorn: ["9L56, 9M"],
 			meteorbeam: ["9M"],
 			meteordrive: ["9M"],
 			metronome: ["9M"],

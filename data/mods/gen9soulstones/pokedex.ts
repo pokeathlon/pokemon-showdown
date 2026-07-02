@@ -16,6 +16,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	weezingorion: {
 		num: 2,
@@ -30,6 +31,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Koffing-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	solosisorion: {
 		num: 3,
@@ -44,6 +46,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	duosionorion: {
 		num: 4,
@@ -75,6 +78,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Reuniclus-Orion", "Reuniclus-Orion-Mega"],
 		prevo: "Duosion-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	reuniclusorionmega: {
 		num: 5,
@@ -91,6 +95,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Reuniclite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastlyorion: {
 		num: 6,
@@ -105,6 +110,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	haunterorion: {
 		num: 7,
@@ -136,6 +142,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gengar-Orion", "Gengar-Orion-Mega"],
 		prevo: "Haunter-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gengarorionmega: {
 		num: 8,
@@ -152,6 +159,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Gengarite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	doduoorion: {
 		num: 9,
@@ -166,6 +174,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dodrioorion: {
 		num: 10,
@@ -182,6 +191,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Dodrio-Orion", "Dodrio-Orion-Mega"],
 		prevo: "Doduo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dodrioorionmega: {
 		num: 10,
@@ -198,6 +208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Dodrinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ekansorion: {
 		num: 11,
@@ -212,6 +223,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	arbokorion: {
 		num: 12,
@@ -228,6 +240,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Arbok-Orion", "Arbok-Orion-Mega"],
 		prevo: "Ekans-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	arbokorionmega: {
 		num: 12,
@@ -244,6 +257,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Arbokinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	staryuorion: {
 		num: 13,
@@ -258,6 +272,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	starmieorion: {
 		num: 14,
@@ -274,6 +289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Starmie-Orion", "Starmie-Orion-Mega"],
 		prevo: "Staryu-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	starmieorionmega: {
 		num: 14,
@@ -290,6 +306,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Starmite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	onixorion: {
 		num: 15,
@@ -304,6 +321,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	steelixorion: {
 		num: 16,
@@ -320,6 +338,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Steelix-Orion", "Steelix-Orion-Mega"],
 		prevo: "Onix-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	steelixorionmega: {
 		num: 16,
@@ -336,6 +355,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Steelixite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	slugmaorion: {
 		num: 17,
@@ -350,6 +370,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	magcargoorion: {
 		num: 18,
@@ -364,6 +385,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Slugma-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wailmerorion: {
 		num: 19,
@@ -378,6 +400,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	wailordorion: {
 		num: 20,
@@ -392,6 +415,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wailmer-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	fletchlingorion: {
 		num: 21,
@@ -406,6 +430,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	fletchinderorion: {
 		num: 22,
@@ -435,6 +460,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Fletchinder-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	natuorion: {
 		num: 24,
@@ -449,6 +475,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	xatuorion: {
 		num: 25,
@@ -465,6 +492,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Xatu-Orion", "Xatu-Orion-Mega"],
 		prevo: "Natu-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	xatuorionmega: {
 		num: 25,
@@ -481,6 +509,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Xatunite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ruffletorion: {
 		num: 26,
@@ -495,6 +524,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	braviaryorion: {
 		num: 27,
@@ -509,6 +539,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Rufflet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nosepassorion: {
 		num: 28,
@@ -523,6 +554,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	probopassorion: {
 		num: 29,
@@ -537,6 +569,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nosepass-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	zubatorion: {
 		num: 30,
@@ -551,6 +584,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	golbatorion: {
 		num: 31,
@@ -580,6 +614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Golbat-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tangelaorion: {
 		num: 33,
@@ -594,6 +629,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tangrowthorion: {
 		num: 34,
@@ -608,6 +644,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tangela-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tympoleorion: {
 		num: 35,
@@ -622,6 +659,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	palpitoadorion: {
 		num: 36,
@@ -653,6 +691,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Seismitoad-Orion", "Seismitoad-Orion-Mega"],
 		prevo: "Palpitoad-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	seismitoadorionmega: {
 		num: 37,
@@ -669,6 +708,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Seismitoadite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gulpinorion: {
 		num: 38,
@@ -683,6 +723,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swalotorion: {
 		num: 39,
@@ -697,6 +738,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gulpin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spinarakorion: {
 		num: 40,
@@ -711,6 +753,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ariadosorion: {
 		num: 41,
@@ -725,6 +768,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Spinarak-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	baltoyorion: {
 		num: 42,
@@ -739,6 +783,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	claydolorion: {
 		num: 43,
@@ -753,6 +798,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Baltoy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	zoruaorion: {
 		num: 44,
@@ -767,6 +813,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	zoroarkorion: {
 		num: 45,
@@ -781,6 +828,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Zorua-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ducklettorion: {
 		num: 46,
@@ -795,6 +843,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swannaorion: {
 		num: 47,
@@ -809,6 +858,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Ducklett-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	golettorion: {
 		num: 48,
@@ -823,6 +873,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	golurkorion: {
 		num: 49,
@@ -839,6 +890,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Golurk-Orion", "Golurk-Orion-Mega"],
 		prevo: "Golett-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	golurkorionmega: {
 		num: 49,
@@ -855,6 +907,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Golite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	morelullorion: {
 		num: 50,
@@ -869,6 +922,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shiinoticorion: {
 		num: 51,
@@ -883,6 +937,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Morelull-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	larvestaorion: {
 		num: 52,
@@ -897,6 +952,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	volcaronaorion: {
 		num: 53,
@@ -911,6 +967,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Larvesta-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	stantlerorion: {
 		num: 54,
@@ -925,6 +982,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	magikarporion: {
 		num: 55,
@@ -939,6 +997,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gyaradosorion: {
 		num: 56,
@@ -955,6 +1014,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gyarados-Orion", "Gyarados-Orion-Mega"],
 		prevo: "Magikarp-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gyaradosorionmega: {
 		num: 56,
@@ -971,6 +1031,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Gyaradosite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bergmiteorion: {
 		num: 57,
@@ -985,6 +1046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	avaluggorion: {
 		num: 58,
@@ -1001,6 +1063,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Avalugg-Orion", "Avalugg-Orion-Mega"],
 		prevo: "Bergmite-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	avaluggorionmega: {
 		num: 58,
@@ -1017,6 +1080,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Avaluggite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ledybaorion: {
 		num: 59,
@@ -1032,6 +1096,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Ledyba-Orion-Sixth", "Ledyba-Orion-Pink", "Ledyba-Orion-Green", "Ledyba-Orion-Blue", "Ledyba-Orion-Gold"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ledianorion: {
 		num: 60,
@@ -1047,6 +1112,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Ledyba-Orion",
 		cosmeticFormes: ["Ledian-Orion-Sixth", "Ledian-Orion-Pink", "Ledian-Orion-Green", "Ledian-Orion-Blue", "Ledian-Orion-Gold"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ponytaorion: {
 		num: 61,
@@ -1061,6 +1127,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	rapidashorion: {
 		num: 62,
@@ -1077,6 +1144,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Rapidash-Orion", "Rapidash-Orion-Mega"],
 		prevo: "Ponyta-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rapidashorionmega: {
 		num: 62,
@@ -1093,6 +1161,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Rapidashinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	amauraorion: {
 		num: 63,
@@ -1107,6 +1176,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	aurorusorion: {
 		num: 64,
@@ -1121,6 +1191,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Amaura-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	geodudeorion: {
 		num: 65,
@@ -1135,6 +1206,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gravelerorion: {
 		num: 66,
@@ -1164,6 +1236,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Graveler-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skrelporion: {
 		num: 68,
@@ -1178,6 +1251,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dragalgeorion: {
 		num: 69,
@@ -1192,6 +1266,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skrelp-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	litleoorion: {
 		num: 70,
@@ -1206,6 +1281,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pyroarorion: {
 		num: 71,
@@ -1220,6 +1296,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Litleo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lunatoneorion: {
 		num: 72,
@@ -1233,6 +1310,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	solrockorion: {
 		num: 73,
@@ -1246,6 +1324,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	drowzeeorion: {
 		num: 74,
@@ -1260,6 +1339,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	hypnoorion: {
 		num: 75,
@@ -1274,6 +1354,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Drowzee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	seelorion: {
 		num: 76,
@@ -1288,6 +1369,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dewgongorion: {
 		num: 77,
@@ -1302,6 +1384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Seel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skiddoorion: {
 		num: 78,
@@ -1316,6 +1399,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gogoatorion: {
 		num: 79,
@@ -1330,6 +1414,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skiddo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kabutoorion: {
 		num: 80,
@@ -1344,6 +1429,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kabutopsorion: {
 		num: 81,
@@ -1358,6 +1444,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Kabuto-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shroomishorion: {
 		num: 82,
@@ -1372,6 +1459,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	breloomorion: {
 		num: 83,
@@ -1386,6 +1474,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shroomish-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aerodactylorion: {
 		num: 84,
@@ -1401,6 +1490,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Aerodactyl-Orion-Mega"],
 		formeOrder: ["Aerodactyl-Orion", "Aerodactyl-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aerodactylorionmega: {
 		num: 84,
@@ -1417,6 +1507,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Aerodactylite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	roggenrolaorion: {
 		num: 85,
@@ -1431,6 +1522,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	boldoreorion: {
 		num: 86,
@@ -1462,6 +1554,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gigalith-Orion", "Gigalith-Orion-Mega"],
 		prevo: "Boldore-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gigalithorionmega: {
 		num: 87,
@@ -1478,6 +1571,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Giganite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	finneonorion: {
 		num: 88,
@@ -1492,6 +1586,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lumineonorion: {
 		num: 89,
@@ -1506,6 +1601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Finneon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gligarorion: {
 		num: 90,
@@ -1520,6 +1616,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gliscororion: {
 		num: 91,
@@ -1536,6 +1633,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gliscor-Orion", "Gliscor-Orion-Mega"],
 		prevo: "Gligar-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gliscororionmega: {
 		num: 91,
@@ -1552,6 +1650,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Gliscite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lillipuporion: {
 		num: 92,
@@ -1566,6 +1665,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	herdierorion: {
 		num: 93,
@@ -1595,6 +1695,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Herdier-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	drifloonorion: {
 		num: 95,
@@ -1609,6 +1710,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	drifblimorion: {
 		num: 96,
@@ -1623,6 +1725,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Drifloon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	minccinoorion: {
 		num: 97,
@@ -1637,6 +1740,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cinccinoorion: {
 		num: 98,
@@ -1651,6 +1755,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Minccino-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bonslyorion: {
 		num: 99,
@@ -1665,6 +1770,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sudowoodoorion: {
 		num: 100,
@@ -1681,6 +1787,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Sudowoodo-Orion", "Sudowoodo-Orion-Mega-X", "Sudowoodo-Orion-Mega-Y"],
 		prevo: "Bonsly-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sudowoodoorionmegax: {
 		num: 100,
@@ -1697,6 +1804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sudowoodite-X",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sudowoodoorionmegay: {
 		num: 100,
@@ -1713,6 +1821,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sudowoodite-Y",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	druddigonorion: {
 		num: 101,
@@ -1726,6 +1835,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	woobatorion: {
 		num: 102,
@@ -1740,6 +1850,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swoobatorion: {
 		num: 103,
@@ -1754,6 +1865,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Woobat-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	krabbyorion: {
 		num: 104,
@@ -1768,6 +1880,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kinglerorion: {
 		num: 105,
@@ -1782,6 +1895,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Krabby-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hoothootorion: {
 		num: 106,
@@ -1796,6 +1910,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	noctowlorion: {
 		num: 107,
@@ -1812,6 +1927,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Noctowl-Orion", "Noctowl-Orion-Mega"],
 		prevo: "Hoothoot-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	noctowlorionmega: {
 		num: 107,
@@ -1828,6 +1944,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Noctowlite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	voltorborion: {
 		num: 108,
@@ -1842,6 +1959,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	electrodeorion: {
 		num: 109,
@@ -1858,6 +1976,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Electrode-Orion", "Electrode-Orion-Mega"],
 		prevo: "Voltorb-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	electrodeorionmega: {
 		num: 109,
@@ -1874,6 +1993,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Electronite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sandygastorion: {
 		num: 110,
@@ -1888,6 +2008,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	palossandorion: {
 		num: 111,
@@ -1902,6 +2023,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sandygast-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	weedleorion: {
 		num: 112,
@@ -1916,6 +2038,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kakunaorion: {
 		num: 113,
@@ -1947,6 +2070,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Beedrill-Orion", "Beedrill-Orion-Mega"],
 		prevo: "Kakuna-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	beedrillorionmega: {
 		num: 114,
@@ -1963,13 +2087,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Beedrillite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	machoporion: {
 		num: 115,
 		name: "Machop-Orion",
 		types: ['Ground', 'Fighting'],
 		baseStats: { hp: 75, atk: 85, def: 50, spa: 35, spd: 35, spe: 35 },
-		abilities: { 0: "Sand Force", 1: "No Guard" , H: "Aurabreak" },
+		abilities: { 0: "Sand Force", 1: "No Guard" , H: "Aura Break" },
 		heightm: 0.8,
 		weightkg: 19.5,
 		color: "Yellow",
@@ -1977,13 +2102,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	machokeorion: {
 		num: 116,
 		name: "Machoke-Orion",
 		types: ['Ground', 'Fighting'],
 		baseStats: { hp: 90, atk: 100, def: 80, spa: 40, spd: 50, spe: 65 },
-		abilities: { 0: "Sand Force", 1: "No Guard" , H: "Aurabreak" },
+		abilities: { 0: "Sand Force", 1: "No Guard" , H: "Aura Break" },
 		heightm: 1.5,
 		weightkg: 70.5,
 		color: "Yellow",
@@ -1998,7 +2124,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Machamp-Orion",
 		types: ['Ground', 'Fighting'],
 		baseStats: { hp: 110, atk: 130, def: 80, spa: 55, spd: 75, spe: 55 },
-		abilities: { 0: "Sand Force", 1: "No Guard" , H: "Aurabreak" },
+		abilities: { 0: "Sand Force", 1: "No Guard" , H: "Aura Break" },
 		heightm: 1.6,
 		weightkg: 130.0,
 		color: "Yellow",
@@ -2008,6 +2134,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Machamp-Orion", "Machamp-Orion-Mega"],
 		prevo: "Machoke-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	machamporionmega: {
 		num: 117,
@@ -2024,6 +2151,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Machampite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bulbasaurorion: {
 		num: 118,
@@ -2038,6 +2166,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ivysaurorion: {
 		num: 119,
@@ -2069,6 +2198,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Venusaur-Orion", "Venusaur-Orion-Mega"],
 		prevo: "Ivysaur-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	venusaurorionmega: {
 		num: 120,
@@ -2085,6 +2215,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Venusaurite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	taurosorion: {
 		num: 121,
@@ -2098,6 +2229,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	carvanhaorion: {
 		num: 122,
@@ -2112,6 +2244,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sharpedoorion: {
 		num: 123,
@@ -2128,6 +2261,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Sharpedo-Orion", "Sharpedo-Orion-Mega"],
 		prevo: "Carvanha-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sharpedoorionmega: {
 		num: 123,
@@ -2144,6 +2278,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sharpedonite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	timburrorion: {
 		num: 124,
@@ -2158,6 +2293,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gurdurrorion: {
 		num: 125,
@@ -2187,6 +2323,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gurdurr-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	litwickorion: {
 		num: 127,
@@ -2201,6 +2338,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lampentorion: {
 		num: 128,
@@ -2232,6 +2370,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Chandelure-Orion", "Chandelure-Orion-Mega"],
 		prevo: "Lampent-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chandelureorionmega: {
 		num: 129,
@@ -2248,6 +2387,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Chandelite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	vanilliteorion: {
 		num: 130,
@@ -2262,6 +2402,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	vanillishorion: {
 		num: 131,
@@ -2291,6 +2432,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Vanillish-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	elekidorion: {
 		num: 133,
@@ -2305,6 +2447,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	electabuzzorion: {
 		num: 134,
@@ -2334,6 +2477,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Electabuzz-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	popplioorion: {
 		num: 136,
@@ -2348,6 +2492,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	brionneorion: {
 		num: 137,
@@ -2377,6 +2522,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Brionne-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snoruntorion: {
 		num: 139,
@@ -2391,6 +2537,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	glalieorion: {
 		num: 140,
@@ -2407,6 +2554,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Glalie-Orion", "Glalie-Orion-Mega"],
 		prevo: "Snorunt-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	glalieorionmega: {
 		num: 140,
@@ -2423,6 +2571,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Glalitite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	froslassorion: {
 		num: 141,
@@ -2439,6 +2588,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Froslass-Orion", "Froslass-Orion-Mega"],
 		prevo: "Snorunt-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	froslassorionmega: {
 		num: 141,
@@ -2454,7 +2604,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		requiredItem: "Froslassite-S",
-		tier: "OU",
+		tier: "Uber",
+		natDexTier: "Uber",
 	},
 	magbyorion: {
 		num: 142,
@@ -2469,6 +2620,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	magmarorion: {
 		num: 143,
@@ -2498,6 +2650,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Magmar-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	exeggcuteorion: {
 		num: 145,
@@ -2512,6 +2665,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	exeggutororion: {
 		num: 146,
@@ -2526,6 +2680,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Exeggcute-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	joltikorion: {
 		num: 147,
@@ -2540,6 +2695,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	galvantulaorion: {
 		num: 148,
@@ -2554,6 +2710,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Joltik-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grimerorion: {
 		num: 149,
@@ -2568,6 +2725,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mukorion: {
 		num: 150,
@@ -2582,6 +2740,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Grimer-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chimcharorion: {
 		num: 151,
@@ -2596,6 +2755,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	monfernoorion: {
 		num: 152,
@@ -2627,6 +2787,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Infernape-Orion", "Infernape-Orion-Mega"],
 		prevo: "Monferno-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	infernapeorionmega: {
 		num: 153,
@@ -2643,6 +2804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Infernapinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sableyeorion: {
 		num: 154,
@@ -2658,6 +2820,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Sableye-Orion-Mega"],
 		formeOrder: ["Sableye-Orion", "Sableye-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sableyeorionmega: {
 		num: 154,
@@ -2674,6 +2837,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sablenite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cubchooorion: {
 		num: 155,
@@ -2688,6 +2852,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bearticorion: {
 		num: 156,
@@ -2704,6 +2869,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Beartic-Orion", "Beartic-Orion-Mega"],
 		prevo: "Cubchoo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bearticorionmega: {
 		num: 156,
@@ -2720,6 +2886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Bearticite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	treeckoorion: {
 		num: 157,
@@ -2734,6 +2901,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grovyleorion: {
 		num: 158,
@@ -2765,6 +2933,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Sceptile-Orion", "Sceptile-Orion-Mega"],
 		prevo: "Grovyle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sceptileorionmega: {
 		num: 159,
@@ -2781,6 +2950,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sceptilite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	larvitarorion: {
 		num: 160,
@@ -2795,6 +2965,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pupitarorion: {
 		num: 161,
@@ -2826,6 +2997,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Tyranitar-Orion", "Tyranitar-Orion-Mega"],
 		prevo: "Pupitar-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tyranitarorionmega: {
 		num: 162,
@@ -2842,6 +3014,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Tyranitarite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hippopotasorion: {
 		num: 163,
@@ -2856,6 +3029,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	hippowdonorion: {
 		num: 164,
@@ -2872,6 +3046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Hippowdon-Orion", "Hippowdon-Orion-Mega"],
 		prevo: "Hippopotas-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hippowdonorionmega: {
 		num: 164,
@@ -2888,6 +3063,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Hippowdonite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bronzororion: {
 		num: 165,
@@ -2902,6 +3078,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bronzongorion: {
 		num: 166,
@@ -2916,6 +3093,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bronzor-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swirlixorion: {
 		num: 167,
@@ -2930,6 +3108,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	slurpufforion: {
 		num: 168,
@@ -2944,6 +3123,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Swirlix-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mareeporion: {
 		num: 169,
@@ -2958,6 +3138,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	flaaffyorion: {
 		num: 170,
@@ -2989,6 +3170,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Ampharos-Orion", "Ampharos-Orion-Mega"],
 		prevo: "Flaaffy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ampharosorionmega: {
 		num: 171,
@@ -3005,6 +3187,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Ampharosite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swabluorion: {
 		num: 172,
@@ -3019,6 +3202,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	altariaorion: {
 		num: 173,
@@ -3035,6 +3219,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Altaria-Orion", "Altaria-Orion-Mega"],
 		prevo: "Swablu-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	altariaorionmega: {
 		num: 173,
@@ -3051,6 +3236,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Altarianite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	abraorion: {
 		num: 174,
@@ -3065,6 +3251,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kadabraorion: {
 		num: 175,
@@ -3094,6 +3281,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Kadabra-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	venipedeorion: {
 		num: 177,
@@ -3108,6 +3296,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	whirlipedeorion: {
 		num: 178,
@@ -3137,6 +3326,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Whirlipede-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	heracrossorion: {
 		num: 180,
@@ -3152,6 +3342,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Heracross-Orion-Mega"],
 		formeOrder: ["Heracross-Orion", "Heracross-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	heracrossorionmega: {
 		num: 180,
@@ -3168,6 +3359,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Heracronite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	teddiursaorion: {
 		num: 181,
@@ -3182,6 +3374,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ursaringorion: {
 		num: 182,
@@ -3211,6 +3404,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	golduckorion: {
 		num: 184,
@@ -3225,6 +3419,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Psyduck-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	duskullorion: {
 		num: 185,
@@ -3239,6 +3434,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dusclopsorion: {
 		num: 186,
@@ -3268,6 +3464,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dusclops-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skittyorion: {
 		num: 188,
@@ -3282,6 +3479,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	delcattyorion: {
 		num: 189,
@@ -3296,6 +3494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skitty-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	eeveetemporal: {
 		num: 190,
@@ -3310,6 +3509,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	vaporeontemporal: {
 		num: 191,
@@ -3324,6 +3524,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	jolteontemporal: {
 		num: 192,
@@ -3338,6 +3539,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	flareontemporal: {
 		num: 193,
@@ -3352,6 +3554,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	espeontemporal: {
 		num: 194,
@@ -3366,6 +3569,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	umbreontemporal: {
 		num: 195,
@@ -3380,6 +3584,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	leafeontemporal: {
 		num: 196,
@@ -3394,6 +3599,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	glaceontemporal: {
 		num: 197,
@@ -3408,6 +3614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sylveontemporal: {
 		num: 198,
@@ -3422,6 +3629,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	deerlingorion: {
 		num: 199,
@@ -3436,6 +3644,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sawsbuckorion: {
 		num: 200,
@@ -3452,6 +3661,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Sawsbuck-Orion", "Sawsbuck-Orion-Mega"],
 		prevo: "Deerling-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sawsbuckorionmega: {
 		num: 200,
@@ -3468,6 +3678,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sawsbuckite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aronorion: {
 		num: 201,
@@ -3482,6 +3693,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	laironorion: {
 		num: 202,
@@ -3513,6 +3725,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Aggron-Orion", "Aggron-Orion-Mega"],
 		prevo: "Lairon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aggronorionmega: {
 		num: 203,
@@ -3529,6 +3742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Aggronite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shellosorion: {
 		num: 204,
@@ -3543,6 +3757,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shellnite: {
 		num: 204,
@@ -3557,6 +3772,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shew: {
 		num: 204,
@@ -3571,6 +3787,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sheino: {
 		num: 204,
@@ -3585,6 +3802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shommoo: {
 		num: 204,
@@ -3599,6 +3817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swallos: {
 		num: 204,
@@ -3613,6 +3832,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shapinch: {
 		num: 204,
@@ -3627,6 +3847,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shible: {
 		num: 204,
@@ -3641,6 +3862,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shapplin: {
 		num: 204,
@@ -3655,6 +3877,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sheepy: {
 		num: 204,
@@ -3669,6 +3892,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shrelp: {
 		num: 204,
@@ -3683,6 +3907,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shyrunt: {
 		num: 204,
@@ -3697,6 +3922,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shagon: {
 		num: 204,
@@ -3711,6 +3937,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shibax: {
 		num: 204,
@@ -3725,6 +3952,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gastrodonorion: {
 		num: 205,
@@ -3739,6 +3967,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shellos-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastronair: {
 		num: 205,
@@ -3753,6 +3982,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gaxorus: {
 		num: 205,
@@ -3767,6 +3997,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastreigon: {
 		num: 205,
@@ -3781,6 +4012,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastroo: {
 		num: 205,
@@ -3795,6 +4027,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastaria: {
 		num: 205,
@@ -3809,6 +4042,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastrogon: {
 		num: 205,
@@ -3823,6 +4057,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastrochomp: {
 		num: 205,
@@ -3837,6 +4072,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastrapple: {
 		num: 205,
@@ -3851,6 +4087,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastrapult: {
 		num: 205,
@@ -3865,6 +4102,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastralge: {
 		num: 205,
@@ -3879,6 +4117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastrantrum: {
 		num: 205,
@@ -3893,6 +4132,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gastramence: {
 		num: 205,
@@ -3907,6 +4147,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gascalibur: {
 		num: 205,
@@ -3921,6 +4162,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	meowthorion: {
 		num: 206,
@@ -3935,6 +4177,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	persianorion: {
 		num: 207,
@@ -3949,6 +4192,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Meowth-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wurmplesorion: {
 		num: 208,
@@ -3963,6 +4207,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	silcoonorion: {
 		num: 209,
@@ -3992,6 +4237,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Silcoon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wurmplecorion: {
 		num: 211,
@@ -4006,6 +4252,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cascoonorion: {
 		num: 212,
@@ -4035,6 +4282,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cascoon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aipomorion: {
 		num: 214,
@@ -4049,6 +4297,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ambipomorion: {
 		num: 215,
@@ -4063,6 +4312,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Aipom-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rattataorion: {
 		num: 216,
@@ -4077,6 +4327,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	raticateorion: {
 		num: 217,
@@ -4093,6 +4344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Raticate-Orion", "Raticate-Orion-Mega"],
 		prevo: "Rattata-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	raticateorionmega: {
 		num: 217,
@@ -4109,6 +4361,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Raticatite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	starlyorion: {
 		num: 218,
@@ -4123,6 +4376,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	staraviaorion: {
 		num: 219,
@@ -4154,6 +4408,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Staraptor-Orion", "Staraptor-Orion-Mega"],
 		prevo: "Staravia-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	staraptororionmega: {
 		num: 220,
@@ -4170,6 +4425,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Staraptite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kricketotorion: {
 		num: 221,
@@ -4184,6 +4440,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kricketuneorion: {
 		num: 222,
@@ -4198,6 +4455,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Kricketot-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	slowpokeorion: {
 		num: 223,
@@ -4212,6 +4470,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	slowbroorion: {
 		num: 224,
@@ -4226,6 +4485,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Slowpoke-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	slowkingorion: {
 		num: 225,
@@ -4242,6 +4502,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Slowking-Orion", "Slowking-Orion-Mega"],
 		prevo: "Slowpoke-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	slowkingorionmega: {
 		num: 225,
@@ -4258,6 +4519,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Slowkingite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rookideeorion: {
 		num: 226,
@@ -4272,6 +4534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	corvisquireorion: {
 		num: 227,
@@ -4303,6 +4566,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Corviknight-Orion", "Corviknight-Orion-Mega"],
 		prevo: "Corvisquire-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	corviknightorionmega: {
 		num: 228,
@@ -4319,6 +4583,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Corvinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oddishorion: {
 		num: 229,
@@ -4333,6 +4598,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gloomorion: {
 		num: 230,
@@ -4362,6 +4628,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gloom-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bellossomorion: {
 		num: 232,
@@ -4376,6 +4643,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gloom-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sunkernorion: {
 		num: 233,
@@ -4390,6 +4658,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sunfloraorion: {
 		num: 234,
@@ -4404,6 +4673,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sunkern-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	stunkyorion: {
 		num: 235,
@@ -4418,6 +4688,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	skuntankorion: {
 		num: 236,
@@ -4432,6 +4703,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Stunky-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	feebasorion: {
 		num: 237,
@@ -4446,6 +4718,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	miloticorion: {
 		num: 238,
@@ -4460,6 +4733,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Feebas-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	horseaorion: {
 		num: 239,
@@ -4474,6 +4748,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	seadraorion: {
 		num: 240,
@@ -4505,6 +4780,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Kingdra-Orion", "Kingdra-Orion-Mega"],
 		prevo: "Seadra-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kingdraorionmega: {
 		num: 241,
@@ -4521,6 +4797,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Kingdranite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	yamperorion: {
 		num: 242,
@@ -4535,6 +4812,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	boltundorion: {
 		num: 243,
@@ -4549,6 +4827,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Yamper-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	venonatorion: {
 		num: 244,
@@ -4563,6 +4842,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	venomothorion: {
 		num: 245,
@@ -4577,6 +4857,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Venonat-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	caterpieorion: {
 		num: 246,
@@ -4591,6 +4872,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	metapodorion: {
 		num: 247,
@@ -4622,6 +4904,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Butterfree-Orion", "Butterfree-Orion-Mega"],
 		prevo: "Metapod-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	butterfreeorionmega: {
 		num: 248,
@@ -4638,6 +4921,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Butterfrite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mankeyorion: {
 		num: 249,
@@ -4652,6 +4936,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	primeapeorion: {
 		num: 250,
@@ -4681,6 +4966,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	eelektrikorion: {
 		num: 252,
@@ -4712,6 +4998,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Eelektross-Orion", "Eelektross-Orion-Mega"],
 		prevo: "Eelektrik-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	eelektrossorionmega: {
 		num: 253,
@@ -4728,6 +5015,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Eelektrossite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	eeveeorion: {
 		num: 254,
@@ -4742,6 +5030,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	galaxeon: {
 		num: 255,
@@ -4756,6 +5045,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	prismeon: {
 		num: 256,
@@ -4770,6 +5060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	octaveon: {
 		num: 257,
@@ -4784,6 +5075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Eevee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	basculinorion: {
 		num: 258,
@@ -4798,6 +5090,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	basculinoriondragonfish: {
 		num: 258,
@@ -4813,6 +5106,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	chinchouorion: {
 		num: 259,
@@ -4827,6 +5121,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lanturnorion: {
 		num: 260,
@@ -4841,6 +5136,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Chinchou-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	noibatorion: {
 		num: 261,
@@ -4855,6 +5151,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	noivernorion: {
 		num: 262,
@@ -4869,6 +5166,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Noibat-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	parasorion: {
 		num: 263,
@@ -4883,6 +5181,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	parasectorion: {
 		num: 264,
@@ -4897,6 +5196,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Paras-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	impidimporion: {
 		num: 265,
@@ -4911,6 +5211,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	morgremorion: {
 		num: 266,
@@ -4940,6 +5241,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Morgrem-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pidoveorion: {
 		num: 268,
@@ -4954,6 +5256,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tranquillorion: {
 		num: 269,
@@ -4983,6 +5286,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tranquill-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	seedotorion: {
 		num: 271,
@@ -4997,6 +5301,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	nuzleaforion: {
 		num: 272,
@@ -5026,6 +5331,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nuzleaf-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hoppiporion: {
 		num: 274,
@@ -5040,6 +5346,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	skiploomorion: {
 		num: 275,
@@ -5069,6 +5376,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skiploom-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dwebbleorion: {
 		num: 277,
@@ -5083,6 +5391,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	crustleorion: {
 		num: 278,
@@ -5097,6 +5406,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dwebble-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sentretorion: {
 		num: 279,
@@ -5111,6 +5421,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	furretorion: {
 		num: 280,
@@ -5127,6 +5438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Furret-Orion", "Furret-Orion-Mega"],
 		prevo: "Sentret-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furretorionmega: {
 		num: 280,
@@ -5143,6 +5455,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Furretite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chikoritaorion: {
 		num: 281,
@@ -5157,6 +5470,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bayleeforion: {
 		num: 282,
@@ -5186,6 +5500,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bayleef-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cyndaquilorion: {
 		num: 284,
@@ -5200,6 +5515,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	quilavaorion: {
 		num: 285,
@@ -5229,6 +5545,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Quilava-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	raltsorion: {
 		num: 287,
@@ -5243,6 +5560,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kirliaorion: {
 		num: 288,
@@ -5274,6 +5592,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gardevoir-Orion", "Gardevoir-Orion-Mega"],
 		prevo: "Kirlia-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gardevoirorionmega: {
 		num: 289,
@@ -5290,6 +5609,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Gardevoirite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	galladeorion: {
 		num: 290,
@@ -5306,6 +5626,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gallade-Orion", "Gallade-Orion-Mega"],
 		prevo: "Kirlia-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	galladeorionmega: {
 		num: 290,
@@ -5322,6 +5643,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Galladite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	numelorion: {
 		num: 291,
@@ -5336,6 +5658,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cameruptorion: {
 		num: 292,
@@ -5350,6 +5673,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Numel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	laprasorion: {
 		num: 293,
@@ -5363,6 +5687,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	totodileorion: {
 		num: 294,
@@ -5377,6 +5702,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	croconaworion: {
 		num: 295,
@@ -5406,6 +5732,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Croconaw-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	diglettorion: {
 		num: 297,
@@ -5420,6 +5747,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dugtrioorion: {
 		num: 298,
@@ -5436,6 +5764,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Dugtrio-Orion", "Dugtrio-Orion-Mega"],
 		prevo: "Diglett-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dugtrioorionmega: {
 		num: 298,
@@ -5452,6 +5781,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Dugtrioite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	croagunkorion: {
 		num: 299,
@@ -5466,6 +5796,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	toxicroakorion: {
 		num: 300,
@@ -5480,6 +5811,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Croagunk-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spritzeeorion: {
 		num: 301,
@@ -5494,6 +5826,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	aromatisseorion: {
 		num: 302,
@@ -5508,6 +5841,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Spritzee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	durantorion: {
 		num: 303,
@@ -5521,6 +5855,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	yanmaorion: {
 		num: 304,
@@ -5535,6 +5870,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	yanmegaorion: {
 		num: 305,
@@ -5549,6 +5885,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Yanma-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	azurillorion: {
 		num: 306,
@@ -5563,6 +5900,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	marillorion: {
 		num: 307,
@@ -5594,6 +5932,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Azumarill-Orion", "Azumarill-Orion-Mega"],
 		prevo: "Marill-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	azumarillorionmega: {
 		num: 308,
@@ -5610,6 +5949,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Azumarillite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	comfeyorion: {
 		num: 309,
@@ -5623,6 +5963,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rowletorion: {
 		num: 310,
@@ -5637,6 +5978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dartrixorion: {
 		num: 311,
@@ -5666,6 +6008,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dartrix-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skorupiorion: {
 		num: 313,
@@ -5680,6 +6023,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	drapionorion: {
 		num: 314,
@@ -5694,6 +6038,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skorupi-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouorion: {
 		num: 315,
@@ -5707,6 +6052,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouorionash: {
 		num: 315,
@@ -5721,6 +6067,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouorionfog: {
 		num: 315,
@@ -5735,6 +6082,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouorionchilling: {
 		num: 315,
@@ -5749,6 +6097,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouoriondust: {
 		num: 315,
@@ -5763,6 +6112,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouorionstorm: {
 		num: 315,
@@ -5777,6 +6127,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furfrouoriontornado: {
 		num: 315,
@@ -5791,6 +6142,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	meloettaorion: {
 		num: 316,
@@ -5806,6 +6158,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Meloetta-Orion-Mega"],
 		formeOrder: ["Meloetta-Orion", "Meloetta-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	meloettaorionmega: {
 		num: 316,
@@ -5822,6 +6175,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Meloettite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	poochyenaorion: {
 		num: 317,
@@ -5836,6 +6190,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mightyenaorion: {
 		num: 318,
@@ -5850,6 +6205,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Poochyena-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	littenorion: {
 		num: 319,
@@ -5864,6 +6220,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	torracatorion: {
 		num: 320,
@@ -5893,6 +6250,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Torracat-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spiritomborion: {
 		num: 322,
@@ -5906,6 +6264,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	absolorion: {
 		num: 323,
@@ -5921,6 +6280,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Absol-Orion-Mega"],
 		formeOrder: ["Absol-Orion", "Absol-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	absolorionmega: {
 		num: 323,
@@ -5937,6 +6297,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Absolite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	honedgeorion: {
 		num: 324,
@@ -5951,6 +6312,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	honedgeorionbow: {
 		num: 324,
@@ -5966,6 +6328,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	honedgeorionaxe: {
 		num: 324,
@@ -5981,6 +6344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	honedgeorionhammer: {
 		num: 324,
@@ -5996,6 +6360,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	doubladeorion: {
 		num: 325,
@@ -6026,6 +6391,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	doubladeorionaxe: {
 		num: 325,
@@ -6041,6 +6407,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	doubladeorionhammer: {
 		num: 325,
@@ -6056,6 +6423,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	aegislashorion: {
 		num: 326,
@@ -6070,6 +6438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Doublade-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aegislashorionbow: {
 		num: 326,
@@ -6084,6 +6453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aegislashorionaxe: {
 		num: 326,
@@ -6098,6 +6468,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	aegislashorionhammer: {
 		num: 326,
@@ -6112,6 +6483,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	beldumorion: {
 		num: 327,
@@ -6126,6 +6498,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	metangorion: {
 		num: 328,
@@ -6157,6 +6530,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Metagross-Orion", "Metagross-Orion-Mega"],
 		prevo: "Metang-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	metagrossorionmega: {
 		num: 329,
@@ -6173,6 +6547,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Metagrossite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dunsparceorion: {
 		num: 330,
@@ -6187,6 +6562,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	medititeorion: {
 		num: 331,
@@ -6201,6 +6577,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	medichamorion: {
 		num: 332,
@@ -6217,6 +6594,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Medicham-Orion", "Medicham-Orion-Mega"],
 		prevo: "Meditite-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	medichamorionmega: {
 		num: 332,
@@ -6233,6 +6611,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Medichamite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nincadaorion: {
 		num: 333,
@@ -6247,6 +6626,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ninjaskorion: {
 		num: 334,
@@ -6261,6 +6641,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nincada-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shedinjaorion: {
 		num: 335,
@@ -6276,6 +6657,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nincada-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	deinoorion: {
 		num: 336,
@@ -6290,6 +6672,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	zweilousorion: {
 		num: 337,
@@ -6319,6 +6702,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Zweilous-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cherubiorion: {
 		num: 339,
@@ -6333,6 +6717,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cherrimorion: {
 		num: 340,
@@ -6347,6 +6732,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cherubi-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cherrimorionhailing: {
 		num: 340,
@@ -6361,6 +6747,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gossifleurorion: {
 		num: 341,
@@ -6375,6 +6762,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	eldegossorion: {
 		num: 342,
@@ -6389,6 +6777,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gossifleur-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	espurrorion: {
 		num: 343,
@@ -6403,6 +6792,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	meowsticorion: {
 		num: 344,
@@ -6419,6 +6809,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Meowstic-Orion", "Meowstic-Orion-Mega"],
 		prevo: "Espurr-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	meowsticorionmega: {
 		num: 344,
@@ -6435,6 +6826,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Meowsticite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	espurrorionarsonist: {
 		num: 343,
@@ -6449,6 +6841,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	meowsticorionarsonist: {
 		num: 344,
@@ -6463,6 +6856,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Espurr-Orion-Arsonist",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	corsolaorion: {
 		num: 345,
@@ -6477,6 +6871,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cursolaorion: {
 		num: 346,
@@ -6491,6 +6886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Corsola-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pidgeyorion: {
 		num: 347,
@@ -6505,6 +6901,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pidgeottoorion: {
 		num: 348,
@@ -6536,6 +6933,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Pidgeot-Orion", "Pidgeot-Orion-Mega"],
 		prevo: "Pidgeotto-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pidgeotorionmega: {
 		num: 349,
@@ -6552,6 +6950,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Pidgeotite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mantykeorion: {
 		num: 350,
@@ -6566,6 +6965,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mantineorion: {
 		num: 351,
@@ -6580,6 +6980,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mantyke-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lileeporion: {
 		num: 352,
@@ -6594,6 +6995,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cradilyorion: {
 		num: 353,
@@ -6608,6 +7010,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Lileep-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	murkroworion: {
 		num: 354,
@@ -6622,6 +7025,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	honchkroworion: {
 		num: 355,
@@ -6636,6 +7040,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Murkrow-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cacneaorion: {
 		num: 356,
@@ -6650,6 +7055,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cacturneorion: {
 		num: 357,
@@ -6664,6 +7070,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cacnea-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	happinyorion: {
 		num: 358,
@@ -6678,6 +7085,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	chanseyorion: {
 		num: 359,
@@ -6709,6 +7117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Blissey-Orion", "Blissey-Orion-Mega"],
 		prevo: "Chansey-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	blisseyorionmega: {
 		num: 360,
@@ -6725,6 +7134,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Blissite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tentacoolorion: {
 		num: 361,
@@ -6739,6 +7149,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tentacruelorion: {
 		num: 362,
@@ -6755,6 +7166,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Tentacruel-Orion", "Tentacruel-Orion-Mega"],
 		prevo: "Tentacool-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tentacruelorionmega: {
 		num: 362,
@@ -6771,6 +7183,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Tentacruelite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bounsweetorion: {
 		num: 363,
@@ -6785,6 +7198,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	steeneeorion: {
 		num: 364,
@@ -6816,6 +7230,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Tsareena-Orion", "Tsareena-Orion-Mega-X", "Tsareena-Orion-Mega-Y"],
 		prevo: "Steenee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tsareenaorionmegax: {
 		num: 365,
@@ -6832,6 +7247,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Tsareenite-X",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tsareenaorionmegay: {
 		num: 365,
@@ -6848,6 +7264,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Tsareenite-Y",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	growlitheorion: {
 		num: 366,
@@ -6862,6 +7279,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	arcanineorion: {
 		num: 367,
@@ -6876,6 +7294,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Growlithe-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	elgyemorion: {
 		num: 368,
@@ -6890,6 +7309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	beheeyemorion: {
 		num: 369,
@@ -6906,6 +7326,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Beheeyem-Orion", "Beheeyem-Orion-Mega"],
 		prevo: "Elgyem-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	beheeyemorionmega: {
 		num: 369,
@@ -6922,6 +7343,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Beheeyemite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	silicobraorion: {
 		num: 370,
@@ -6936,6 +7358,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sandacondaorion: {
 		num: 371,
@@ -6952,6 +7375,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Sandaconda-Orion", "Sandaconda-Orion-Mega"],
 		prevo: "Silicobra-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sandacondaorionmega: {
 		num: 371,
@@ -6967,7 +7391,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		requiredItem: "Sandaconite-S",
-		tier: "OU",
+		tier: "Uber",
+		natDexTier: "Uber",
 	},
 	pichuorion: {
 		num: 372,
@@ -6982,6 +7407,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pikachuorion: {
 		num: 373,
@@ -7013,6 +7439,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Raichu-Orion", "Raichu-Orion-Mega"],
 		prevo: "Pikachu-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	raichuorionmega: {
 		num: 374,
@@ -7029,6 +7456,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Raichunite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	yamaskorion: {
 		num: 375,
@@ -7043,6 +7471,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cofagrigusorion: {
 		num: 376,
@@ -7059,6 +7488,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Cofagrigus-Orion", "Cofagrigus-Orion-Mega"],
 		prevo: "Yamask-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cofagrigusorionmega: {
 		num: 376,
@@ -7075,6 +7505,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Cofagrinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sinisteaorion: {
 		num: 377,
@@ -7089,6 +7520,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	polteageistorion: {
 		num: 378,
@@ -7103,6 +7535,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sinistea-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	throhorion: {
 		num: 379,
@@ -7116,6 +7549,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sawkorion: {
 		num: 380,
@@ -7129,6 +7563,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sandileorion: {
 		num: 381,
@@ -7143,6 +7578,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	krokorokorion: {
 		num: 382,
@@ -7172,6 +7608,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Krokorok-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mudkiporion: {
 		num: 384,
@@ -7186,6 +7623,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	marshtomporion: {
 		num: 385,
@@ -7217,6 +7655,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Swampert-Orion", "Swampert-Orion-Mega"],
 		prevo: "Marshtomp-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swampertorionmega: {
 		num: 386,
@@ -7233,6 +7672,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Swampertite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	goldeenorion: {
 		num: 387,
@@ -7247,6 +7687,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	seakingorion: {
 		num: 388,
@@ -7261,6 +7702,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Goldeen-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tailloworion: {
 		num: 389,
@@ -7275,6 +7717,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swelloworion: {
 		num: 390,
@@ -7289,6 +7732,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Taillow-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	patratorion: {
 		num: 391,
@@ -7303,6 +7747,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	watchogorion: {
 		num: 392,
@@ -7317,6 +7762,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Patrat-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gothitaorion: {
 		num: 393,
@@ -7331,6 +7777,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gothoritaorion: {
 		num: 394,
@@ -7362,6 +7809,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gothitelle-Orion", "Gothitelle-Orion-Mega"],
 		prevo: "Gothorita-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gothitelleorionmega: {
 		num: 395,
@@ -7378,6 +7826,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Gothitellite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sphealorion: {
 		num: 396,
@@ -7392,6 +7841,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sealeoorion: {
 		num: 397,
@@ -7421,6 +7871,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sealeo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	surskitorion: {
 		num: 399,
@@ -7435,6 +7886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	masquerainorion: {
 		num: 400,
@@ -7449,6 +7901,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Surskit-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wingullorion: {
 		num: 401,
@@ -7463,6 +7916,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pelipperorion: {
 		num: 402,
@@ -7477,6 +7931,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wingull-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	charmanderorion: {
 		num: 403,
@@ -7491,6 +7946,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	charmeleonorion: {
 		num: 404,
@@ -7522,6 +7978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Charizard-Orion", "Charizard-Orion-Mega"],
 		prevo: "Charmeleon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	charizardorionmega: {
 		num: 405,
@@ -7538,6 +7995,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Charizardite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	magnemiteorion: {
 		num: 406,
@@ -7552,6 +8010,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	magnetonorion: {
 		num: 407,
@@ -7581,6 +8040,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Magneton-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spearoworion: {
 		num: 412,
@@ -7595,6 +8055,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	fearoworion: {
 		num: 413,
@@ -7609,6 +8070,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Spearow-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	igglybufforion: {
 		num: 414,
@@ -7623,6 +8085,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	jigglypufforion: {
 		num: 415,
@@ -7654,6 +8117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Wigglytuff-Orion", "Wigglytuff-Orion-Mega"],
 		prevo: "Jigglypuff-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wigglytufforionmega: {
 		num: 416,
@@ -7670,6 +8134,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Wiggnite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	vullabyorion: {
 		num: 417,
@@ -7684,6 +8149,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mandibuzzorion: {
 		num: 418,
@@ -7698,6 +8164,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Vullaby-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shinxorion: {
 		num: 419,
@@ -7712,6 +8179,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	luxioorion: {
 		num: 420,
@@ -7741,6 +8209,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Luxio-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	electrikeorion: {
 		num: 422,
@@ -7755,6 +8224,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	manectricorion: {
 		num: 423,
@@ -7771,6 +8241,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Manectric-Orion", "Manectric-Orion-Mega"],
 		prevo: "Electrike-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	manectricorionmega: {
 		num: 423,
@@ -7787,6 +8258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Manectite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ferroseedorion: {
 		num: 424,
@@ -7801,6 +8273,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ferrothornorion: {
 		num: 425,
@@ -7815,6 +8288,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Ferroseed-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mareanieorion: {
 		num: 426,
@@ -7829,6 +8303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	toxapexorion: {
 		num: 427,
@@ -7843,6 +8318,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mareanie-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swinuborion: {
 		num: 428,
@@ -7857,6 +8333,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	piloswineorion: {
 		num: 429,
@@ -7888,6 +8365,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Mamoswine-Orion", "Mamoswine-Orion-Mega"],
 		prevo: "Piloswine-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mamoswineorionmega: {
 		num: 430,
@@ -7904,6 +8382,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Mamoswinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	torkoalorion: {
 		num: 431,
@@ -7917,6 +8396,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	turtwigorion: {
 		num: 432,
@@ -7931,6 +8411,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grotleorion: {
 		num: 433,
@@ -7962,6 +8443,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Torterra-Orion", "Torterra-Orion-Mega"],
 		prevo: "Grotle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	torterraorionmega: {
 		num: 434,
@@ -7978,6 +8460,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Torterrite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bunearyorion: {
 		num: 435,
@@ -7992,6 +8475,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lopunnyorion: {
 		num: 436,
@@ -8008,6 +8492,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Lopunny-Orion", "Lopunny-Orion-Mega"],
 		prevo: "Buneary-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lopunnyorionmega: {
 		num: 436,
@@ -8024,6 +8509,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Lopunnite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dittoorion: {
 		num: 437,
@@ -8037,6 +8523,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	buizelorion: {
 		num: 442,
@@ -8051,6 +8538,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	floatzelorion: {
 		num: 443,
@@ -8065,6 +8553,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Buizel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	budeworion: {
 		num: 444,
@@ -8079,6 +8568,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	roseliaorion: {
 		num: 445,
@@ -8108,6 +8598,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Roselia-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	klefkiorion: {
 		num: 447,
@@ -8121,6 +8612,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dewpiderorion: {
 		num: 448,
@@ -8135,6 +8627,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	araquanidorion: {
 		num: 449,
@@ -8149,6 +8642,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dewpider-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gothitatemporal: {
 		num: 450,
@@ -8163,6 +8657,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gothoritatemporal: {
 		num: 451,
@@ -8194,6 +8689,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gothitelle-Temporal", "Gothitelle-Temporal-Mega"],
 		prevo: "Gothorita-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gothitelletemporalmega: {
 		num: 452,
@@ -8210,6 +8706,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Gothitellite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tyruntorion: {
 		num: 453,
@@ -8224,6 +8721,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tyrantrumorion: {
 		num: 454,
@@ -8238,6 +8736,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tyrunt-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cuboneorion: {
 		num: 455,
@@ -8252,6 +8751,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	marowakorion: {
 		num: 456,
@@ -8266,6 +8766,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cubone-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spritzeetemporal: {
 		num: 457,
@@ -8280,6 +8781,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	aromatissetemporal: {
 		num: 458,
@@ -8294,6 +8796,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Spritzee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	horseatemporal: {
 		num: 459,
@@ -8308,6 +8811,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	seadratemporal: {
 		num: 460,
@@ -8337,6 +8841,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Seadra-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cutieflyorion: {
 		num: 462,
@@ -8351,6 +8856,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ribombeeorion: {
 		num: 463,
@@ -8365,6 +8871,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cutiefly-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	omanyteorion: {
 		num: 464,
@@ -8379,6 +8886,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	omastarorion: {
 		num: 465,
@@ -8393,6 +8901,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Omanyte-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skwovetorion: {
 		num: 466,
@@ -8407,6 +8916,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	greedentorion: {
 		num: 467,
@@ -8421,6 +8931,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skwovet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grimertemporal: {
 		num: 468,
@@ -8435,6 +8946,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	muktemporal: {
 		num: 469,
@@ -8449,6 +8961,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Grimer-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	phanpyorion: {
 		num: 470,
@@ -8463,6 +8976,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	donphanorion: {
 		num: 471,
@@ -8479,6 +8993,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Donphan-Orion", "Donphan-Orion-Mega"],
 		prevo: "Phanpy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	donphanorionmega: {
 		num: 471,
@@ -8495,6 +9010,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Donphanite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pikipekorion: {
 		num: 472,
@@ -8509,6 +9025,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	trumbeakorion: {
 		num: 473,
@@ -8538,6 +9055,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Trumbeak-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pinecoorion: {
 		num: 475,
@@ -8552,6 +9070,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	forretressorion: {
 		num: 476,
@@ -8566,6 +9085,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pineco-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hoothoottemporal: {
 		num: 477,
@@ -8580,6 +9100,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	noctowltemporal: {
 		num: 478,
@@ -8594,6 +9115,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Hoothoot-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	stuffulorion: {
 		num: 479,
@@ -8608,6 +9130,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bewearorion: {
 		num: 480,
@@ -8622,6 +9145,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Stufful-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	carbinkorion: {
 		num: 481,
@@ -8635,6 +9159,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gibleorion: {
 		num: 482,
@@ -8649,6 +9174,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gabiteorion: {
 		num: 483,
@@ -8680,6 +9206,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Garchomp-Orion", "Garchomp-Orion-Mega"],
 		prevo: "Gabite-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	garchomporionmega: {
 		num: 484,
@@ -8696,6 +9223,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Garchompite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	vulpixorion: {
 		num: 485,
@@ -8710,6 +9238,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ninetalesorion: {
 		num: 486,
@@ -8726,6 +9255,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Ninetales-Orion", "Ninetales-Orion-Mega"],
 		prevo: "Vulpix-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ninetalesorionmega: {
 		num: 486,
@@ -8742,6 +9272,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Ninetalite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bounsweettemporal: {
 		num: 487,
@@ -8756,6 +9287,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	steeneetemporal: {
 		num: 488,
@@ -8785,6 +9317,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Steenee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	purrloinorion: {
 		num: 490,
@@ -8799,6 +9332,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	liepardorion: {
 		num: 491,
@@ -8813,6 +9347,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Purrloin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	toxelorion: {
 		num: 492,
@@ -8827,6 +9362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	toxtricityorion: {
 		num: 493,
@@ -8843,6 +9379,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Toxtricity-Orion", "Toxtricity-Orion-Mega"],
 		prevo: "Toxel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	toxtricityorionmega: {
 		num: 493,
@@ -8859,6 +9396,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Toxtricite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dewpidertemporal: {
 		num: 494,
@@ -8873,6 +9411,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	araquanidtemporal: {
 		num: 495,
@@ -8887,6 +9426,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dewpider-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	goomyorion: {
 		num: 496,
@@ -8902,6 +9442,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Goomy-Orion-Cherry", "Goomy-Orion-BlueRazz", "Goomy-Orion-Lemon", "Goomy-Orion-Orange", "Goomy-Orion-Grape"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sliggooorion: {
 		num: 497,
@@ -8933,6 +9474,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		prevo: "Sliggoo-Orion",
 		cosmeticFormes: ["Goodra-Orion-Cherry", "Goodra-Orion-BlueRazz", "Goodra-Orion-Lemon", "Goodra-Orion-Orange", "Goodra-Orion-Grape"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mimejrorion: {
 		num: 499,
@@ -8947,6 +9489,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mrmimeorion: {
 		num: 500,
@@ -8976,6 +9519,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mr. Mime-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	digletttemporal: {
 		num: 502,
@@ -8990,6 +9534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dugtriotemporal: {
 		num: 503,
@@ -9006,6 +9551,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Dugtrio-Temporal", "Dugtrio-Temporal-Mega"],
 		prevo: "Diglett-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dugtriotemporalmega: {
 		num: 503,
@@ -9022,6 +9568,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Dugtrioite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	luvdiscorion: {
 		num: 504,
@@ -9037,6 +9584,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Luvdisc-Orion-Mega"],
 		formeOrder: ["Luvdisc-Orion", "Luvdisc-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	luvdiscorionmega: {
 		num: 504,
@@ -9053,6 +9601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Luvdiscite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	smeargleorion: {
 		num: 505,
@@ -9066,6 +9615,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shieldonorion: {
 		num: 506,
@@ -9080,6 +9630,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bastiodonorion: {
 		num: 507,
@@ -9094,6 +9645,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shieldon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	applinorion: {
 		num: 508,
@@ -9108,6 +9660,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	flappleorion: {
 		num: 509,
@@ -9122,6 +9675,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Applin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	appletunorion: {
 		num: 510,
@@ -9136,6 +9690,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Applin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mimikyuorion: {
 		num: 511,
@@ -9151,6 +9706,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Mimikyu-Orion-Busted"],
 		formeOrder: ["Mimikyu-Orion", "Mimikyu-Orion-Busted"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mimikyuorionbusted: {
 		num: 511,
@@ -9181,6 +9737,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dubwoolorion: {
 		num: 513,
@@ -9195,6 +9752,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wooloo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	absoltemporal: {
 		num: 514,
@@ -9210,6 +9768,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Absol-Temporal-Mega"],
 		formeOrder: ["Absol-Temporal", "Absol-Temporal-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	absoltemporalmega: {
 		num: 514,
@@ -9226,6 +9785,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Absolite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snivyorion: {
 		num: 515,
@@ -9240,6 +9800,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	servineorion: {
 		num: 516,
@@ -9269,6 +9830,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Servine-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	fennekinorion: {
 		num: 518,
@@ -9283,6 +9845,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	braixenorion: {
 		num: 519,
@@ -9312,6 +9875,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Braixen-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	voltorbtemporal: {
 		num: 521,
@@ -9326,6 +9890,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	electrodetemporal: {
 		num: 522,
@@ -9340,6 +9905,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Voltorb-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snoverorion: {
 		num: 523,
@@ -9354,6 +9920,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	abomasnoworion: {
 		num: 524,
@@ -9370,6 +9937,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Abomasnow-Orion", "Abomasnow-Orion-Mega"],
 		prevo: "Snover-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	abomasnoworionmega: {
 		num: 524,
@@ -9386,6 +9954,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Abomasite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	exeggcutetemporal: {
 		num: 525,
@@ -9400,6 +9969,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	exeggutortemporal: {
 		num: 526,
@@ -9414,6 +9984,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Exeggcute-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sableyetemporal: {
 		num: 527,
@@ -9429,6 +10000,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Sableye-Temporal-Mega"],
 		formeOrder: ["Sableye-Temporal", "Sableye-Temporal-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sableyetemporalmega: {
 		num: 527,
@@ -9445,6 +10017,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Sablenite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	trubbishorion: {
 		num: 528,
@@ -9459,6 +10032,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	garbodororion: {
 		num: 529,
@@ -9475,6 +10049,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Garbodor-Orion", "Garbodor-Orion-Mega"],
 		prevo: "Trubbish-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	garbodororionmega: {
 		num: 529,
@@ -9491,6 +10066,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Garbodinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swablutemporal: {
 		num: 530,
@@ -9505,6 +10081,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	altariatemporal: {
 		num: 531,
@@ -9521,6 +10098,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Altaria-Temporal", "Altaria-Temporal-Mega"],
 		prevo: "Swablu-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	altariatemporalmega: {
 		num: 531,
@@ -9537,6 +10115,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Altarianite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	slugmatemporal: {
 		num: 532,
@@ -9551,6 +10130,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	magcargotemporal: {
 		num: 533,
@@ -9567,6 +10147,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Magcargo-Temporal", "Magcargo-Temporal-Mega"],
 		prevo: "Slugma-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	magcargotemporalmega: {
 		num: 533,
@@ -9583,6 +10164,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Magcargite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mudkiptemporal: {
 		num: 534,
@@ -9597,6 +10179,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	marshtomptemporal: {
 		num: 535,
@@ -9628,6 +10211,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Swampert-Temporal", "Swampert-Temporal-Mega"],
 		prevo: "Marshtomp-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swamperttemporalmega: {
 		num: 536,
@@ -9644,6 +10228,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Swampertite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chespinorion: {
 		num: 537,
@@ -9658,6 +10243,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	quilladinorion: {
 		num: 538,
@@ -9687,6 +10273,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Quilladin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	froakieorion: {
 		num: 540,
@@ -9701,6 +10288,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	frogadierorion: {
 		num: 541,
@@ -9730,6 +10318,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Frogadier-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	jangmooorion: {
 		num: 543,
@@ -9744,6 +10333,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	hakamooorion: {
 		num: 544,
@@ -9773,6 +10363,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Hakamo-O-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scraggyorion: {
 		num: 546,
@@ -9787,6 +10378,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	scraftyorion: {
 		num: 547,
@@ -9801,6 +10393,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Scraggy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chikoritatemporal: {
 		num: 548,
@@ -9815,6 +10408,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bayleeftemporal: {
 		num: 549,
@@ -9844,6 +10438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bayleef-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cyndaquiltemporal: {
 		num: 551,
@@ -9858,6 +10453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	quilavatemporal: {
 		num: 552,
@@ -9887,6 +10483,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Quilava-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	totodiletemporal: {
 		num: 554,
@@ -9901,6 +10498,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	croconawtemporal: {
 		num: 555,
@@ -9930,6 +10528,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Croconaw-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	surskittemporal: {
 		num: 557,
@@ -9944,6 +10543,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	masqueraintemporal: {
 		num: 558,
@@ -9960,6 +10560,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Masquerain-Temporal", "Masquerain-Temporal-Mega"],
 		prevo: "Surskit-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	masqueraintemporalmega: {
 		num: 558,
@@ -9976,6 +10577,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Masquerite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	stantlertemporal: {
 		num: 559,
@@ -9990,6 +10592,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	clamperlorion: {
 		num: 560,
@@ -10004,6 +10607,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	huntailorion: {
 		num: 561,
@@ -10018,6 +10622,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Clamperl-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gorebyssorion: {
 		num: 562,
@@ -10032,6 +10637,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Clamperl-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	klinkorion: {
 		num: 563,
@@ -10046,6 +10652,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	klangorion: {
 		num: 564,
@@ -10075,6 +10682,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Klang-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	darumakaorion: {
 		num: 566,
@@ -10089,6 +10697,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	darmanitanorion: {
 		num: 567,
@@ -10103,6 +10712,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Darumaka-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	darmanitanorionzenmode: {
 		num: 567,
@@ -10119,6 +10729,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		requiredAbility: "Zen Mode",
 		battleOnly: "Darmanitan-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skittytemporal: {
 		num: 568,
@@ -10133,6 +10744,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	delcattytemporal: {
 		num: 569,
@@ -10147,6 +10759,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skitty-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	doduotemporal: {
 		num: 570,
@@ -10161,6 +10774,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dodriotemporal: {
 		num: 571,
@@ -10175,6 +10789,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Doduo-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	numeltemporal: {
 		num: 572,
@@ -10189,6 +10804,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	camerupttemporal: {
 		num: 573,
@@ -10203,6 +10819,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Numel-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	binacleorion: {
 		num: 574,
@@ -10217,6 +10834,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	barbaracleorion: {
 		num: 575,
@@ -10233,6 +10851,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Barbaracle-Orion", "Barbaracle-Orion-Mega"],
 		prevo: "Binacle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	barbaracleorionmega: {
 		num: 575,
@@ -10249,6 +10868,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Barbaraclite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	arrokudaorion: {
 		num: 576,
@@ -10263,6 +10883,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	barraskewdaorion: {
 		num: 577,
@@ -10277,6 +10898,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Arrokuda-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	machoptemporal: {
 		num: 578,
@@ -10291,6 +10913,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	machoketemporal: {
 		num: 579,
@@ -10320,6 +10943,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Machoke-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	falinksorion: {
 		num: 581,
@@ -10335,6 +10959,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Falinks-Orion-Mega"],
 		formeOrder: ["Falinks-Orion", "Falinks-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	falinksorionmega: {
 		num: 581,
@@ -10351,6 +10976,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Falinkite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	smoochumorion: {
 		num: 582,
@@ -10365,6 +10991,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	jynxorion: {
 		num: 583,
@@ -10379,6 +11006,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Smoochum-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	zigzagoonorion: {
 		num: 584,
@@ -10393,6 +11021,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	linooneorion: {
 		num: 585,
@@ -10422,6 +11051,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Linoone-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	indeedeeorion: {
 		num: 587,
@@ -10435,6 +11065,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cranidosorion: {
 		num: 588,
@@ -10449,6 +11080,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	rampardosorion: {
 		num: 589,
@@ -10463,6 +11095,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cranidos-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gibletemporal: {
 		num: 590,
@@ -10477,6 +11110,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gabitetemporal: {
 		num: 591,
@@ -10506,6 +11140,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gabite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	yanmatemporal: {
 		num: 593,
@@ -10520,6 +11155,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	yanmegatemporal: {
 		num: 594,
@@ -10534,6 +11170,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Yanma-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	remoraidorion: {
 		num: 595,
@@ -10548,6 +11185,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	octilleryorion: {
 		num: 596,
@@ -10562,6 +11200,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Remoraid-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	misdreavusorion: {
 		num: 597,
@@ -10576,6 +11215,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mismagiusorion: {
 		num: 598,
@@ -10592,6 +11232,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Mismagius-Orion", "Mismagius-Orion-Mega"],
 		prevo: "Misdreavus-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mismagiusorionmega: {
 		num: 598,
@@ -10608,6 +11249,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Mismagite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	poliwagorion: {
 		num: 599,
@@ -10622,6 +11264,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	poliwhirlorion: {
 		num: 600,
@@ -10651,6 +11294,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Poliwhirl-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	politoedorion: {
 		num: 602,
@@ -10665,6 +11309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Poliwhirl-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	phantumporion: {
 		num: 603,
@@ -10679,6 +11324,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	trevenantorion: {
 		num: 604,
@@ -10693,6 +11339,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Phantump-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tyrogueorion: {
 		num: 605,
@@ -10707,6 +11354,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	hitmonleeorion: {
 		num: 606,
@@ -10721,6 +11369,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tyrogue-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hitmonchanorion: {
 		num: 607,
@@ -10735,6 +11384,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tyrogue-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hitmontoporion: {
 		num: 608,
@@ -10749,6 +11399,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tyrogue-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pincurchinorion: {
 		num: 609,
@@ -10762,6 +11413,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scytherorion: {
 		num: 610,
@@ -10776,6 +11428,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	scizororion: {
 		num: 611,
@@ -10792,6 +11445,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Scizor-Orion", "Scizor-Orion-Mega"],
 		prevo: "Scyther-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scizororionmega: {
 		num: 611,
@@ -10808,6 +11462,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Scizorite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pinsirorion: {
 		num: 612,
@@ -10821,6 +11476,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rolycolyorion: {
 		num: 613,
@@ -10835,6 +11491,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	carkolorion: {
 		num: 614,
@@ -10866,6 +11523,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Coalossal-Orion", "Coalossal-Orion-Mega"],
 		prevo: "Carkol-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	coalossalorionmega: {
 		num: 615,
@@ -10882,6 +11540,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Coalossalite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rioluorion: {
 		num: 616,
@@ -10896,6 +11555,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lucarioorion: {
 		num: 617,
@@ -10910,6 +11570,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Riolu-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	trapinchorion: {
 		num: 618,
@@ -10924,6 +11585,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	vibravaorion: {
 		num: 619,
@@ -10953,6 +11615,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Vibrava-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dhelmiseorion: {
 		num: 621,
@@ -10966,6 +11629,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	geodudetemporal: {
 		num: 622,
@@ -10980,6 +11644,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gravelertemporal: {
 		num: 623,
@@ -11009,6 +11674,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Graveler-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	roggenrolatemporal: {
 		num: 625,
@@ -11023,6 +11689,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	boldoretemporal: {
 		num: 626,
@@ -11054,6 +11721,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Gigalith-Temporal", "Gigalith-Temporal-Mega"],
 		prevo: "Boldore-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gigalithtemporalmega: {
 		num: 627,
@@ -11070,6 +11738,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Giganite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	vanillitetemporal: {
 		num: 628,
@@ -11084,6 +11753,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	vanillishtemporal: {
 		num: 629,
@@ -11113,6 +11783,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Vanillish-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dratiniorion: {
 		num: 631,
@@ -11127,6 +11798,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dragonairorion: {
 		num: 632,
@@ -11158,6 +11830,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Dragonite-Orion", "Dragonite-Orion-Mega"],
 		prevo: "Dragonair-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dragoniteorionmega: {
 		num: 633,
@@ -11174,6 +11847,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Dragite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	murkrowtemporal: {
 		num: 634,
@@ -11188,6 +11862,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	honchkrowtemporal: {
 		num: 635,
@@ -11202,6 +11877,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Murkrow-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cleffaorion: {
 		num: 636,
@@ -11216,6 +11892,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	clefairyorion: {
 		num: 637,
@@ -11245,6 +11922,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Clefairy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kabutotemporal: {
 		num: 639,
@@ -11259,6 +11937,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kabutopstemporal: {
 		num: 640,
@@ -11273,6 +11952,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Kabuto-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	archenorion: {
 		num: 641,
@@ -11287,6 +11967,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	archeopsorion: {
 		num: 642,
@@ -11301,6 +11982,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Archen-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tirtougaorion: {
 		num: 643,
@@ -11315,6 +11997,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	carracostaorion: {
 		num: 644,
@@ -11329,6 +12012,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tirtouga-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dreepyorion: {
 		num: 645,
@@ -11343,6 +12027,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	drakloakorion: {
 		num: 646,
@@ -11374,6 +12059,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Dragapult-Orion", "Dragapult-Orion-Mega"],
 		prevo: "Drakloak-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dragapultorionmega: {
 		num: 647,
@@ -11390,6 +12076,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Dragapultite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wimpodorion: {
 		num: 648,
@@ -11404,6 +12091,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	golisopodorion: {
 		num: 649,
@@ -11418,6 +12106,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wimpod-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	munnaorion: {
 		num: 650,
@@ -11432,6 +12121,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	musharnaorion: {
 		num: 651,
@@ -11446,6 +12136,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Munna-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shuppetorion: {
 		num: 652,
@@ -11460,6 +12151,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	banetteorion: {
 		num: 653,
@@ -11476,6 +12168,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Banette-Orion", "Banette-Orion-Mega"],
 		prevo: "Shuppet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	banetteorionmega: {
 		num: 653,
@@ -11492,6 +12185,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Banettite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	stonjournerorion: {
 		num: 654,
@@ -11505,6 +12199,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	laprastemporal: {
 		num: 655,
@@ -11518,6 +12213,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	woolootemporal: {
 		num: 656,
@@ -11532,6 +12228,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dubwooltemporal: {
 		num: 657,
@@ -11546,6 +12243,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wooloo-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bidooforion: {
 		num: 658,
@@ -11560,6 +12258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bibarelorion: {
 		num: 659,
@@ -11574,6 +12273,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bidoof-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	drilburorion: {
 		num: 660,
@@ -11588,6 +12288,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	excadrillorion: {
 		num: 661,
@@ -11602,6 +12303,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Drilbur-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	drilburtemporal: {
 		num: 662,
@@ -11616,6 +12318,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	excadrilltemporal: {
 		num: 663,
@@ -11630,6 +12333,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Drilbur-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snomorion: {
 		num: 664,
@@ -11644,6 +12348,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	frosmothorion: {
 		num: 665,
@@ -11658,6 +12363,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Snom-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	houndourorion: {
 		num: 666,
@@ -11672,6 +12378,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	houndoomorion: {
 		num: 667,
@@ -11688,6 +12395,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Houndoom-Orion", "Houndoom-Orion-Mega"],
 		prevo: "Houndour-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	houndoomorionmega: {
 		num: 667,
@@ -11704,6 +12412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Houndoominite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pipluporion: {
 		num: 668,
@@ -11718,6 +12427,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	prinpluporion: {
 		num: 669,
@@ -11749,6 +12459,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Empoleon-Orion", "Empoleon-Orion-Mega"],
 		prevo: "Prinplup-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	empoleonorionmega: {
 		num: 670,
@@ -11765,6 +12476,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Empoleonite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	solosistemporal: {
 		num: 671,
@@ -11779,6 +12491,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	duosiontemporal: {
 		num: 672,
@@ -11808,6 +12521,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Duosion-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mudbrayorion: {
 		num: 674,
@@ -11822,6 +12536,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mudsdaleorion: {
 		num: 675,
@@ -11836,6 +12551,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mudbray-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cramorantorion: {
 		num: 676,
@@ -11849,6 +12565,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hoppiptemporal: {
 		num: 677,
@@ -11863,6 +12580,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	skiploomtemporal: {
 		num: 678,
@@ -11894,6 +12612,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Jumpluff-Temporal", "Jumpluff-Temporal-Mega"],
 		prevo: "Skiploom-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	jumplufftemporalmega: {
 		num: 679,
@@ -11910,6 +12629,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Jumpinite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sewaddleorion: {
 		num: 680,
@@ -11924,6 +12644,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swadloonorion: {
 		num: 681,
@@ -11953,6 +12674,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Swadloon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	whismurorion: {
 		num: 683,
@@ -11967,6 +12689,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	loudredorion: {
 		num: 684,
@@ -11998,6 +12721,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Exploud-Orion", "Exploud-Orion-Mega"],
 		prevo: "Loudred-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	exploudorionmega: {
 		num: 685,
@@ -12014,6 +12738,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Exploudinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sizzlipedeorion: {
 		num: 686,
@@ -12028,6 +12753,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	centiskorchorion: {
 		num: 687,
@@ -12044,6 +12770,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Centiskorch-Orion", "Centiskorch-Orion-Mega"],
 		prevo: "Sizzlipede-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	centiskorchorionmega: {
 		num: 687,
@@ -12060,6 +12787,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Centiskorite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sobbleorion: {
 		num: 688,
@@ -12074,6 +12802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	drizzileorion: {
 		num: 689,
@@ -12103,6 +12832,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Drizzile-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	timburrtemporal: {
 		num: 691,
@@ -12117,6 +12847,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gurdurrtemporal: {
 		num: 692,
@@ -12146,6 +12877,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gurdurr-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	corphishorion: {
 		num: 694,
@@ -12160,6 +12892,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	crawdauntorion: {
 		num: 695,
@@ -12174,6 +12907,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Corphish-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	carnivineorion: {
 		num: 696,
@@ -12187,6 +12921,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	anorithorion: {
 		num: 697,
@@ -12201,6 +12936,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	armaldoorion: {
 		num: 698,
@@ -12215,6 +12951,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Anorith-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bagonorion: {
 		num: 699,
@@ -12229,6 +12966,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	shelgonorion: {
 		num: 700,
@@ -12260,6 +12998,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Salamence-Orion", "Salamence-Orion-Mega"],
 		prevo: "Shelgon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	salamenceorionmega: {
 		num: 701,
@@ -12276,6 +13015,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Salamencite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	munchlaxorion: {
 		num: 702,
@@ -12290,6 +13030,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	snorlaxorion: {
 		num: 703,
@@ -12304,6 +13045,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Munchlax-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	larvestatemporal: {
 		num: 704,
@@ -12318,6 +13060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	volcaronatemporal: {
 		num: 705,
@@ -12332,6 +13075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Larvesta-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tepigorion: {
 		num: 706,
@@ -12346,6 +13090,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pigniteorion: {
 		num: 707,
@@ -12375,6 +13120,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pignite-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sneaselorion: {
 		num: 709,
@@ -12389,6 +13135,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	weavileorion: {
 		num: 710,
@@ -12403,6 +13150,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sneasel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	milceryorion: {
 		num: 711,
@@ -12417,6 +13165,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	alcremieorion: {
 		num: 712,
@@ -12431,6 +13180,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Milcery-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	frillishorion: {
 		num: 713,
@@ -12445,6 +13195,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	jellicentorion: {
 		num: 714,
@@ -12459,6 +13210,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Frillish-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	clobbopusorion: {
 		num: 715,
@@ -12473,6 +13225,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grapploctorion: {
 		num: 716,
@@ -12489,6 +13242,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Grapploct-Orion", "Grapploct-Orion-Mega"],
 		prevo: "Clobbopus-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grapploctorionmega: {
 		num: 716,
@@ -12504,7 +13258,8 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		requiredItem: "Grapploctite-S",
-		tier: "OU",
+		tier: "Uber",
+		natDexTier: "Uber",
 	},
 	nosepasstemporal: {
 		num: 717,
@@ -12519,6 +13274,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	probopasstemporal: {
 		num: 718,
@@ -12533,6 +13289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nosepass-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cufantorion: {
 		num: 719,
@@ -12547,6 +13304,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	copperajahorion: {
 		num: 720,
@@ -12561,6 +13319,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cufant-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	blitzleorion: {
 		num: 721,
@@ -12575,6 +13334,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	zebstrikaorion: {
 		num: 722,
@@ -12589,6 +13349,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Blitzle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	slakothorion: {
 		num: 723,
@@ -12603,6 +13364,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	vigorothorion: {
 		num: 724,
@@ -12632,6 +13394,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Vigoroth-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	miltankorion: {
 		num: 726,
@@ -12645,6 +13408,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	helioptileorion: {
 		num: 727,
@@ -12659,6 +13423,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	helioliskorion: {
 		num: 728,
@@ -12673,6 +13438,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Helioptile-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hatennaorion: {
 		num: 729,
@@ -12687,6 +13453,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	hattremorion: {
 		num: 730,
@@ -12718,6 +13485,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Hatterene-Orion", "Hatterene-Orion-Mega"],
 		prevo: "Hattrem-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hattereneorionmega: {
 		num: 731,
@@ -12734,6 +13502,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Hatterenite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	swinubtemporal: {
 		num: 732,
@@ -12748,6 +13517,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	piloswinetemporal: {
 		num: 733,
@@ -12777,6 +13547,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Piloswine-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chinglingorion: {
 		num: 735,
@@ -12791,6 +13562,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	chimechoorion: {
 		num: 736,
@@ -12807,6 +13579,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Chimecho-Orion", "Chimecho-Orion-Mega"],
 		prevo: "Chingling-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chimechoorionmega: {
 		num: 736,
@@ -12823,6 +13596,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Chimechite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	magnemitetemporal: {
 		num: 737,
@@ -12837,6 +13611,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	magnetontemporal: {
 		num: 738,
@@ -12866,6 +13641,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Magneton-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	impidimptemporal: {
 		num: 740,
@@ -12880,6 +13656,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	morgremtemporal: {
 		num: 741,
@@ -12911,6 +13688,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Grimmsnarl-Temporal", "Grimmsnarl-Temporal-Mega"],
 		prevo: "Morgrem-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grimmsnarltemporalmega: {
 		num: 742,
@@ -12927,6 +13705,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Grimmsnarlite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dedenneorion: {
 		num: 743,
@@ -12940,6 +13719,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	budewtemporal: {
 		num: 744,
@@ -12954,6 +13734,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	roseliatemporal: {
 		num: 745,
@@ -12983,6 +13764,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Roselia-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lotadorion: {
 		num: 747,
@@ -12997,6 +13779,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lombreorion: {
 		num: 748,
@@ -13026,6 +13809,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Lombre-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wattrelorion: {
 		num: 750,
@@ -13040,6 +13824,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kilowattrelorion: {
 		num: 751,
@@ -13054,6 +13839,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wattrel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wyrdeerorion: {
 		num: 752,
@@ -13068,6 +13854,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Stantler-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wyrdeertemporal: {
 		num: 753,
@@ -13084,6 +13871,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Wyrdeer-Temporal", "Wyrdeer-Temporal-Mega"],
 		prevo: "Stantler-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wyrdeertemporalmega: {
 		num: 753,
@@ -13100,6 +13888,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Wyrdeerite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	annihilapeorion: {
 		num: 754,
@@ -13114,6 +13903,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Primeape-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	finizenorion: {
 		num: 755,
@@ -13128,6 +13918,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	palafinorion: {
 		num: 756,
@@ -13142,6 +13933,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Finizen-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	porygonorion: {
 		num: 757,
@@ -13156,6 +13948,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	porygon2orion: {
 		num: 758,
@@ -13185,6 +13978,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Porygon2-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ursalunaorion: {
 		num: 760,
@@ -13201,6 +13995,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Ursaluna-Orion", "Ursaluna-Orion-Mega"],
 		prevo: "Ursaring-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ursalunaorionmega: {
 		num: 760,
@@ -13217,6 +14012,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Ursalunite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pawmiorion: {
 		num: 761,
@@ -13231,6 +14027,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pawmoorion: {
 		num: 762,
@@ -13260,6 +14057,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pawmo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	fuecocoorion: {
 		num: 764,
@@ -13274,6 +14072,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	crocalororion: {
 		num: 765,
@@ -13303,6 +14102,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Crocalor-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tinkatinkorion: {
 		num: 767,
@@ -13317,6 +14117,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tinkatufforion: {
 		num: 768,
@@ -13346,6 +14147,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tinkatuff-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	feebastemporal: {
 		num: 770,
@@ -13360,6 +14162,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	milotictemporal: {
 		num: 771,
@@ -13374,6 +14177,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Feebas-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sneaslerorion: {
 		num: 772,
@@ -13388,6 +14192,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sneasel-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skarmoryorion: {
 		num: 773,
@@ -13401,6 +14206,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wooperorion: {
 		num: 774,
@@ -13415,6 +14221,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	quagsireorion: {
 		num: 775,
@@ -13429,6 +14236,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wooper-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	flabebeorion: {
 		num: 776,
@@ -13443,6 +14251,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	floetteorion: {
 		num: 777,
@@ -13472,6 +14281,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Floette-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	emolgaorion: {
 		num: 779,
@@ -13487,6 +14297,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Emolga-Orion-Mega"],
 		formeOrder: ["Emolga-Orion", "Emolga-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	emolgaorionmega: {
 		num: 779,
@@ -13503,6 +14314,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Emolgite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	salanditorion: {
 		num: 780,
@@ -13517,6 +14329,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	salazzleorion: {
 		num: 781,
@@ -13531,6 +14344,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Salandit-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dudunsparceorion: {
 		num: 782,
@@ -13545,6 +14359,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dunsparce-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hoopaorion: {
 		num: 783,
@@ -13558,6 +14373,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	gimmighoulorion: {
 		num: 784,
@@ -13572,6 +14388,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gholdengoorion: {
 		num: 785,
@@ -13586,6 +14403,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Gimmighoul-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	delibirdorion: {
 		num: 786,
@@ -13601,6 +14419,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Delibird-Orion-Mega"],
 		formeOrder: ["Delibird-Orion", "Delibird-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	delibirdorionmega: {
 		num: 786,
@@ -13617,6 +14436,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Delibirdite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dipplinorion: {
 		num: 787,
@@ -13646,6 +14466,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Basculin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bronzortemporal: {
 		num: 794,
@@ -13660,6 +14481,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bronzongtemporal: {
 		num: 795,
@@ -13674,6 +14496,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bronzor-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pumpkabooorion: {
 		num: 796,
@@ -13688,6 +14511,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gourgeistorion: {
 		num: 797,
@@ -13702,6 +14526,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pumpkaboo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	fomantisorion: {
 		num: 798,
@@ -13716,6 +14541,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lurantisorion: {
 		num: 799,
@@ -13730,6 +14556,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Fomantis-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cottoneeorion: {
 		num: 800,
@@ -13744,6 +14571,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	whimsicottorion: {
 		num: 801,
@@ -13758,6 +14586,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cottonee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tarountulaorion: {
 		num: 802,
@@ -13772,6 +14601,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	spidopsorion: {
 		num: 803,
@@ -13786,6 +14616,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tarountula-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	combeeorion: {
 		num: 804,
@@ -13800,6 +14631,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	vespiquenorion: {
 		num: 805,
@@ -13816,6 +14648,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Vespiquen-Orion", "Vespiquen-Orion-Mega"],
 		prevo: "Combee-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	vespiquenorionmega: {
 		num: 805,
@@ -13832,6 +14665,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Vespiquenite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wishiwashiorion: {
 		num: 806,
@@ -13847,6 +14681,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Wishiwashi-Orion-Swarm"],
 		formeOrder: ["Wishiwashi-Orion", "Wishiwashi-Orion-Swarm"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wishiwashiorionswarm: {
 		num: 806,
@@ -13863,6 +14698,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		battleOnly: "Wishiwashi-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tropiusorion: {
 		num: 807,
@@ -13876,6 +14712,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	makuhitaorion: {
 		num: 808,
@@ -13890,6 +14727,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	hariyamaorion: {
 		num: 809,
@@ -13904,6 +14742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Makuhita-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mimejrtemporal: {
 		num: 810,
@@ -13918,6 +14757,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mrmimetemporal: {
 		num: 811,
@@ -13947,6 +14787,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mr-Temporal. Mime",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ponytatemporal: {
 		num: 813,
@@ -13961,6 +14802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	rapidashtemporal: {
 		num: 814,
@@ -13975,6 +14817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Ponyta-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	goletttemporal: {
 		num: 815,
@@ -13989,6 +14832,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	golurktemporal: {
 		num: 816,
@@ -14003,6 +14847,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Golett-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	karrablastorion: {
 		num: 817,
@@ -14017,6 +14862,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	escavalierorion: {
 		num: 818,
@@ -14031,6 +14877,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Karrablast-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cryogonalorion: {
 		num: 819,
@@ -14044,6 +14891,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pawniardorion: {
 		num: 820,
@@ -14058,6 +14906,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bisharporion: {
 		num: 821,
@@ -14087,6 +14936,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bisharp-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	smolivorion: {
 		num: 823,
@@ -14101,6 +14951,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dollivorion: {
 		num: 824,
@@ -14130,6 +14981,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dolliv-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nickitorion: {
 		num: 826,
@@ -14144,6 +14996,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	thievulorion: {
 		num: 827,
@@ -14158,6 +15011,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nickit-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sphealtemporal: {
 		num: 828,
@@ -14172,6 +15026,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sealeotemporal: {
 		num: 829,
@@ -14201,6 +15056,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sealeo-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	barboachorion: {
 		num: 831,
@@ -14215,6 +15071,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	whiscashorion: {
 		num: 832,
@@ -14229,6 +15086,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Barboach-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oricorioorion: {
 		num: 833,
@@ -14242,6 +15100,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oricorioorionmetal: {
 		num: 833,
@@ -14256,6 +15115,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oricorioorionrave: {
 		num: 833,
@@ -14270,6 +15130,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oricorioorionworld: {
 		num: 833,
@@ -14284,6 +15145,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	axeworion: {
 		num: 834,
@@ -14298,6 +15160,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	fraxureorion: {
 		num: 835,
@@ -14327,6 +15190,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Fraxure-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pachirisuorion: {
 		num: 837,
@@ -14340,6 +15204,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	qwilfishorion: {
 		num: 838,
@@ -14354,6 +15219,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	overqwilorion: {
 		num: 839,
@@ -14368,6 +15234,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Qwilfish-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	miniororion: {
 		num: 840,
@@ -14381,6 +15248,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	greavardorion: {
 		num: 841,
@@ -14395,6 +15263,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	houndstoneorion: {
 		num: 842,
@@ -14409,6 +15278,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Greavard-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sandshreworion: {
 		num: 843,
@@ -14423,6 +15293,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sandslashorion: {
 		num: 844,
@@ -14437,6 +15308,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sandshrew-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cetoddleorion: {
 		num: 845,
@@ -14451,6 +15323,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cetitanorion: {
 		num: 846,
@@ -14465,6 +15338,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cetoddle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	torchicorion: {
 		num: 847,
@@ -14479,6 +15353,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	combuskenorion: {
 		num: 848,
@@ -14510,6 +15385,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Blaziken-Orion", "Blaziken-Orion-Mega"],
 		prevo: "Combusken-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	blazikenorionmega: {
 		num: 849,
@@ -14526,6 +15402,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Blazikenite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nacliorion: {
 		num: 850,
@@ -14540,6 +15417,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	naclstackorion: {
 		num: 851,
@@ -14571,6 +15449,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Garganacl-Orion", "Garganacl-Orion-Mega"],
 		prevo: "Naclstack-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	garganaclorionmega: {
 		num: 852,
@@ -14587,6 +15466,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Garganaclite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	frigibaxorion: {
 		num: 853,
@@ -14601,6 +15481,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	arctibaxorion: {
 		num: 854,
@@ -14632,6 +15513,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Baxcalibur-Orion", "Baxcalibur-Orion-Mega"],
 		prevo: "Arctibax-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	baxcaliburorionmega: {
 		num: 855,
@@ -14648,6 +15530,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Baxcalibrite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wynautorion: {
 		num: 856,
@@ -14662,6 +15545,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	wobbuffetorion: {
 		num: 857,
@@ -14678,6 +15562,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Wobbuffet-Orion", "Wobbuffet-Orion-Mega"],
 		prevo: "Wynaut-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wobbuffetorionmega: {
 		num: 857,
@@ -14694,6 +15579,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Wobbnite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bouffalantorion: {
 		num: 858,
@@ -14707,6 +15593,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spindaorion: {
 		num: 859,
@@ -14720,6 +15607,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mienfooorion: {
 		num: 860,
@@ -14734,6 +15622,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mienshaoorion: {
 		num: 861,
@@ -14748,6 +15637,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mienfoo-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	togepiorion: {
 		num: 862,
@@ -14762,6 +15652,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	togeticorion: {
 		num: 863,
@@ -14791,6 +15682,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Togetic-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	zoruatemporal: {
 		num: 865,
@@ -14805,6 +15697,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	zoroarktemporal: {
 		num: 866,
@@ -14819,6 +15712,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Zorua-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	clodsireorion: {
 		num: 867,
@@ -14833,6 +15727,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wooper-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	panchamorion: {
 		num: 868,
@@ -14847,6 +15742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pangoroorion: {
 		num: 869,
@@ -14861,6 +15757,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pancham-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oshawottorion: {
 		num: 870,
@@ -14875,6 +15772,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dewottorion: {
 		num: 871,
@@ -14904,6 +15802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dewott-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bergmitetemporal: {
 		num: 873,
@@ -14918,6 +15817,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	avaluggtemporal: {
 		num: 874,
@@ -14932,6 +15832,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bergmite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tyrunttemporal: {
 		num: 875,
@@ -14946,6 +15847,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tyrantrumtemporal: {
 		num: 876,
@@ -14960,6 +15862,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tyrunt-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wiglettorion: {
 		num: 877,
@@ -14974,6 +15877,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	wugtrioorion: {
 		num: 878,
@@ -14988,6 +15892,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wiglett-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	plusleorion: {
 		num: 879,
@@ -15003,6 +15908,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Plusle-Orion-Mega"],
 		formeOrder: ["Plusle-Orion", "Plusle-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	plusleorionmega: {
 		num: 879,
@@ -15019,6 +15925,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Plusite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	minunorion: {
 		num: 880,
@@ -15034,6 +15941,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Minun-Orion-Mega"],
 		formeOrder: ["Minun-Orion", "Minun-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	minunorionmega: {
 		num: 880,
@@ -15050,6 +15958,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Minunite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	growlithetemporal: {
 		num: 881,
@@ -15064,6 +15973,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	arcaninetemporal: {
 		num: 882,
@@ -15078,6 +15988,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Growlithe-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pansageorion: {
 		num: 883,
@@ -15092,6 +16003,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	simisageorion: {
 		num: 884,
@@ -15106,6 +16018,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pansage-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pansearorion: {
 		num: 885,
@@ -15120,6 +16033,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	simisearorion: {
 		num: 886,
@@ -15134,6 +16048,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pansear-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	panpourorion: {
 		num: 887,
@@ -15148,6 +16063,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	simipourorion: {
 		num: 888,
@@ -15162,6 +16078,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Panpour-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rhyhornorion: {
 		num: 889,
@@ -15176,6 +16093,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	rhydonorion: {
 		num: 890,
@@ -15205,6 +16123,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Rhydon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	duskulltemporal: {
 		num: 892,
@@ -15219,6 +16138,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dusclopstemporal: {
 		num: 893,
@@ -15248,6 +16168,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dusclops-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	glameoworion: {
 		num: 895,
@@ -15262,6 +16183,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	puruglyorion: {
 		num: 896,
@@ -15276,6 +16198,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Glameow-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shellderorion: {
 		num: 897,
@@ -15290,6 +16213,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cloysterorion: {
 		num: 898,
@@ -15304,6 +16228,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shellder-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	inkayorion: {
 		num: 899,
@@ -15318,6 +16243,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	malamarorion: {
 		num: 900,
@@ -15332,6 +16258,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Inkay-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dondozoorion: {
 		num: 901,
@@ -15345,6 +16272,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tatsugiriorion: {
 		num: 902,
@@ -15359,6 +16287,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Tatsugiri-Orion-Pink", "Tatsugiri-Orion-Blue"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bunnelbyorion: {
 		num: 903,
@@ -15373,6 +16302,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	diggersbyorion: {
 		num: 904,
@@ -15387,6 +16317,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bunnelby-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rockrufforion: {
 		num: 905,
@@ -15401,6 +16332,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lycanrocorion: {
 		num: 906,
@@ -15415,6 +16347,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Rockruff-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rowlettemporal: {
 		num: 907,
@@ -15429,6 +16362,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dartrixtemporal: {
 		num: 908,
@@ -15458,6 +16392,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dartrix-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lickitungorion: {
 		num: 910,
@@ -15472,6 +16407,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lickilickyorion: {
 		num: 911,
@@ -15486,6 +16422,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Lickitung-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	squirtleorion: {
 		num: 912,
@@ -15500,6 +16437,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	wartortleorion: {
 		num: 913,
@@ -15531,6 +16469,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Blastoise-Orion", "Blastoise-Orion-Mega"],
 		prevo: "Wartortle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	blastoiseorionmega: {
 		num: 914,
@@ -15547,6 +16486,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Blastoisinite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cacneatemporal: {
 		num: 915,
@@ -15561,6 +16501,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cacturnetemporal: {
 		num: 916,
@@ -15577,6 +16518,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Cacturne-Temporal", "Cacturne-Temporal-Mega"],
 		prevo: "Cacnea-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cacturnetemporalmega: {
 		num: 916,
@@ -15593,6 +16535,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Cacturnite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bellsproutorion: {
 		num: 917,
@@ -15607,6 +16550,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	weepinbellorion: {
 		num: 918,
@@ -15638,6 +16582,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Victreebel-Orion", "Victreebel-Orion-Mega"],
 		prevo: "Weepinbell-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	victreebelorionmega: {
 		num: 919,
@@ -15654,6 +16599,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Victreebelite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	petililorion: {
 		num: 920,
@@ -15668,6 +16614,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lilligantorion: {
 		num: 921,
@@ -15682,6 +16629,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Petilil-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	phantumptemporal: {
 		num: 922,
@@ -15696,6 +16644,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	trevenanttemporal: {
 		num: 923,
@@ -15710,6 +16659,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Phantump-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	igglybufftemporal: {
 		num: 924,
@@ -15724,6 +16674,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	jigglypufftemporal: {
 		num: 925,
@@ -15755,6 +16706,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Wigglytuff-Temporal", "Wigglytuff-Temporal-Mega"],
 		prevo: "Jigglypuff-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wigglytufftemporalmega: {
 		num: 926,
@@ -15771,6 +16723,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Wiggnite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tandemausorion: {
 		num: 927,
@@ -15785,6 +16738,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mausholdorion: {
 		num: 928,
@@ -15799,6 +16753,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tandemaus-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	miniortemporal: {
 		num: 929,
@@ -15812,6 +16767,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	perrserkerorion: {
 		num: 930,
@@ -15826,6 +16782,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Meowth-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grubbinorion: {
 		num: 931,
@@ -15840,6 +16797,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	charjabugorion: {
 		num: 932,
@@ -15869,6 +16827,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Charjabug-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	teddiursatemporal: {
 		num: 934,
@@ -15883,6 +16842,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ursaringtemporal: {
 		num: 935,
@@ -15914,6 +16874,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Ursaluna-Temporal", "Ursaluna-Temporal-Mega"],
 		prevo: "Ursaring-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ursalunatemporalmega: {
 		num: 936,
@@ -15930,6 +16891,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Ursalunite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	runerigusorion: {
 		num: 937,
@@ -15944,6 +16906,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Yamask-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sneaseltemporal: {
 		num: 938,
@@ -15958,6 +16921,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	weaviletemporal: {
 		num: 939,
@@ -15972,6 +16936,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sneasel-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sneaslertemporal: {
 		num: 940,
@@ -15986,6 +16951,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sneasel-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	heatmororion: {
 		num: 941,
@@ -15999,6 +16965,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shuckleorion: {
 		num: 942,
@@ -16012,6 +16979,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tandemaustemporal: {
 		num: 943,
@@ -16026,6 +16994,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mausholdtemporal: {
 		num: 944,
@@ -16040,6 +17009,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tandemaus-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	oranguruorion: {
 		num: 945,
@@ -16053,6 +17023,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	passimianorion: {
 		num: 946,
@@ -16066,6 +17037,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cetoddletemporal: {
 		num: 947,
@@ -16080,6 +17052,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	cetitantemporal: {
 		num: 948,
@@ -16094,6 +17067,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Cetoddle-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scythertemporal: {
 		num: 949,
@@ -16108,6 +17082,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	scizortemporal: {
 		num: 950,
@@ -16124,6 +17099,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Scizor-Temporal", "Scizor-Temporal-Mega"],
 		prevo: "Scyther-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scizortemporalmega: {
 		num: 950,
@@ -16140,6 +17116,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Scizorite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shelmetorion: {
 		num: 951,
@@ -16154,6 +17131,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	accelgororion: {
 		num: 952,
@@ -16168,6 +17146,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shelmet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snubbullorion: {
 		num: 953,
@@ -16182,6 +17161,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	granbullorion: {
 		num: 954,
@@ -16196,6 +17176,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Snubbull-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chewtleorion: {
 		num: 955,
@@ -16210,6 +17191,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	drednaworion: {
 		num: 956,
@@ -16226,6 +17208,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Drednaw-Orion", "Drednaw-Orion-Mega"],
 		prevo: "Chewtle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	drednaworionmega: {
 		num: 956,
@@ -16242,6 +17225,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Drednite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skiddotemporal: {
 		num: 957,
@@ -16256,6 +17240,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gogoattemporal: {
 		num: 958,
@@ -16270,6 +17255,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skiddo-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sigilyphorion: {
 		num: 959,
@@ -16283,6 +17269,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	orthwormorion: {
 		num: 960,
@@ -16296,6 +17283,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	burmyorion: {
 		num: 961,
@@ -16310,6 +17298,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	burmyorionrock: {
 		num: 961,
@@ -16325,6 +17314,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	burmyorionsnow: {
 		num: 961,
@@ -16340,6 +17330,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	wormadamorion: {
 		num: 962,
@@ -16354,6 +17345,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Burmy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wormadamorionrock: {
 		num: 962,
@@ -16368,6 +17360,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wormadamorionsnow: {
 		num: 962,
@@ -16382,6 +17375,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mothimorion: {
 		num: 963,
@@ -16396,6 +17390,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Burmy-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mothimorionrock: {
 		num: 963,
@@ -16410,6 +17405,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mothimorionsnow: {
 		num: 963,
@@ -16424,6 +17420,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sprigatitoorion: {
 		num: 964,
@@ -16438,6 +17435,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	floragatoorion: {
 		num: 965,
@@ -16467,6 +17465,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Floragato-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	klawforion: {
 		num: 967,
@@ -16480,6 +17479,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	glimmetorion: {
 		num: 968,
@@ -16494,6 +17494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	glimmoraorion: {
 		num: 969,
@@ -16508,6 +17509,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Glimmet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	maractusorion: {
 		num: 970,
@@ -16521,6 +17523,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cyclizarorion: {
 		num: 971,
@@ -16534,6 +17537,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bramblinorion: {
 		num: 972,
@@ -16548,6 +17552,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	brambleghastorion: {
 		num: 973,
@@ -16562,6 +17567,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bramblin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	toedscoolorion: {
 		num: 974,
@@ -16576,6 +17582,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	toedscruelorion: {
 		num: 975,
@@ -16590,6 +17597,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Toedscool-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	stunfiskorion: {
 		num: 976,
@@ -16603,6 +17611,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	capsakidorion: {
 		num: 977,
@@ -16617,6 +17626,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	scovillainorion: {
 		num: 978,
@@ -16631,6 +17641,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Capsakid-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	quaxlyorion: {
 		num: 979,
@@ -16645,6 +17656,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	quaxwellorion: {
 		num: 980,
@@ -16674,6 +17686,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Quaxwell-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	foongusorion: {
 		num: 982,
@@ -16688,6 +17701,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	amoongussorion: {
 		num: 983,
@@ -16702,6 +17716,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Foongus-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	parastemporal: {
 		num: 984,
@@ -16716,6 +17731,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	parasecttemporal: {
 		num: 985,
@@ -16730,6 +17746,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Paras-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	phanpytemporal: {
 		num: 986,
@@ -16744,6 +17761,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	donphantemporal: {
 		num: 987,
@@ -16758,6 +17776,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Phanpy-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	unownorion: {
 		num: 990,
@@ -16771,6 +17790,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	unownorionsymphony: {
 		num: 990,
@@ -16787,6 +17807,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		battleOnly: "Unown-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rookideetemporal: {
 		num: 991,
@@ -16801,6 +17822,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	corvisquiretemporal: {
 		num: 992,
@@ -16830,6 +17852,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Corvisquire-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	litleotemporal: {
 		num: 994,
@@ -16844,6 +17867,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pyroartemporal: {
 		num: 995,
@@ -16858,6 +17882,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Litleo-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tangelatemporal: {
 		num: 996,
@@ -16872,6 +17897,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	tangrowthtemporal: {
 		num: 997,
@@ -16886,6 +17912,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tangela-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tadbulborion: {
 		num: 998,
@@ -16900,6 +17927,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	belliboltorion: {
 		num: 999,
@@ -16914,6 +17942,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tadbulb-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	meworion: {
 		num: 1000,
@@ -16927,6 +17956,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scorbunnyorion: {
 		num: 1001,
@@ -16941,6 +17971,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	rabootorion: {
 		num: 1002,
@@ -16970,6 +18001,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Raboot-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	komalaorion: {
 		num: 1004,
@@ -16983,6 +18015,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hydrappleorion: {
 		num: 1005,
@@ -16997,6 +18030,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dipplin-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	blipbugorion: {
 		num: 1006,
@@ -17011,6 +18045,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dottlerorion: {
 		num: 1007,
@@ -17040,6 +18075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dottler-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	turtonatororion: {
 		num: 1009,
@@ -17053,6 +18089,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mudbraytemporal: {
 		num: 1010,
@@ -17067,6 +18104,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mudsdaletemporal: {
 		num: 1011,
@@ -17081,6 +18119,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Mudbray-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	hawluchaorion: {
 		num: 1012,
@@ -17094,6 +18133,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	flamigoorion: {
 		num: 1013,
@@ -17107,6 +18147,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	relicanthorion: {
 		num: 1014,
@@ -17120,6 +18161,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	farfetchdorion: {
 		num: 1015,
@@ -17134,6 +18176,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sirfetchdorion: {
 		num: 1016,
@@ -17148,6 +18191,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Farfetch'd-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rotomorion: {
 		num: 1017,
@@ -17161,6 +18205,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	duraludonorion: {
 		num: 1018,
@@ -17175,6 +18220,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	archaludonorion: {
 		num: 1019,
@@ -17189,6 +18235,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Duraludon-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pichutemporal: {
 		num: 1020,
@@ -17203,6 +18250,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	pikachutemporal: {
 		num: 1021,
@@ -17232,6 +18280,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Pikachu-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	audinoorion: {
 		num: 1023,
@@ -17245,6 +18294,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	raltstemporal: {
 		num: 1024,
@@ -17259,6 +18309,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	kirliatemporal: {
 		num: 1025,
@@ -17288,6 +18339,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Kirlia-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	galladetemporal: {
 		num: 1027,
@@ -17302,6 +18354,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Kirlia-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	drampaorion: {
 		num: 1028,
@@ -17315,6 +18368,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bombirdierorion: {
 		num: 1029,
@@ -17328,6 +18382,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	maschifforion: {
 		num: 1030,
@@ -17342,6 +18397,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	mabosstifforion: {
 		num: 1031,
@@ -17356,6 +18412,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Maschiff-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nymbleorion: {
 		num: 1032,
@@ -17370,6 +18427,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lokixorion: {
 		num: 1033,
@@ -17384,6 +18442,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nymble-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	squawkabillyorion: {
 		num: 1034,
@@ -17398,6 +18457,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		cosmeticFormes: ["Squawkabilly-Orion-Green", "Squawkabilly-Orion-Blue"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	treeckotemporal: {
 		num: 1035,
@@ -17412,6 +18472,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grovyletemporal: {
 		num: 1036,
@@ -17441,6 +18502,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Grovyle-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spiritombtemporal: {
 		num: 1038,
@@ -17454,6 +18516,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	eiscueorion: {
 		num: 1039,
@@ -17467,6 +18530,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	eiscueorionnotv: {
 		num: 1039,
@@ -17482,6 +18546,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		battleOnly: "Eiscue-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	komalatemporal: {
 		num: 1040,
@@ -17495,6 +18560,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	blitzletemporal: {
 		num: 1041,
@@ -17509,6 +18575,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	zebstrikatemporal: {
 		num: 1042,
@@ -17523,6 +18590,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Blitzle-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	turtwigtemporal: {
 		num: 1043,
@@ -17537,6 +18605,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grotletemporal: {
 		num: 1044,
@@ -17566,6 +18635,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Grotle-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	poltchageistorion: {
 		num: 1046,
@@ -17580,6 +18650,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sinistchaorion: {
 		num: 1047,
@@ -17594,6 +18665,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Poltchageist-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	naclitemporal: {
 		num: 1048,
@@ -17608,6 +18680,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	naclstacktemporal: {
 		num: 1049,
@@ -17637,6 +18710,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Naclstack-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cottoneetemporal: {
 		num: 1051,
@@ -17651,6 +18725,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	whimsicotttemporal: {
 		num: 1052,
@@ -17667,6 +18742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Whimsicott-Temporal", "Whimsicott-Temporal-Mega"],
 		prevo: "Cottonee-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	whimsicotttemporalmega: {
 		num: 1052,
@@ -17683,6 +18759,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Whimsicottite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	seviperorion: {
 		num: 1053,
@@ -17696,6 +18773,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mimikyutemporal: {
 		num: 1054,
@@ -17711,6 +18789,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Mimikyu-Temporal-Busted"],
 		formeOrder: ["Mimikyu-Temporal", "Mimikyu-Temporal-Busted"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mimikyutemporalbusted: {
 		num: 1054,
@@ -17740,6 +18819,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	togedemaruorionreactive: {
 		num: 1055,
@@ -17756,6 +18836,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		battleOnly: "Togedemaru-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grookeyorion: {
 		num: 1056,
@@ -17770,6 +18851,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	thwackeyorion: {
 		num: 1057,
@@ -17799,6 +18881,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Thwackey-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	charcadetorion: {
 		num: 1059,
@@ -17813,6 +18896,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	armarougeorion: {
 		num: 1060,
@@ -17827,6 +18911,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Charcadet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ceruledgeorion: {
 		num: 1061,
@@ -17841,6 +18926,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Charcadet-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	spoinkorion: {
 		num: 1062,
@@ -17855,6 +18941,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	spoinkoriontoxic: {
 		num: 1062,
@@ -17870,6 +18957,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	spoinkorionfrost: {
 		num: 1062,
@@ -17885,6 +18973,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grumpigorion: {
 		num: 1063,
@@ -17899,6 +18988,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Spoink-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grumpigoriontoxic: {
 		num: 1063,
@@ -17913,6 +19003,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grumpigorionfrost: {
 		num: 1063,
@@ -17927,6 +19018,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bruxishorion: {
 		num: 1064,
@@ -17940,6 +19032,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	volbeatorion: {
 		num: 1065,
@@ -17953,6 +19046,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	illumiseorion: {
 		num: 1066,
@@ -17966,6 +19060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	onixtemporal: {
 		num: 1067,
@@ -17980,6 +19075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	steelixtemporal: {
 		num: 1068,
@@ -17994,6 +19090,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Onix-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	charmandertemporal: {
 		num: 1069,
@@ -18008,6 +19105,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	charmeleontemporal: {
 		num: 1070,
@@ -18039,6 +19137,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Charizard-Temporal", "Charizard-Temporal-Mega"],
 		prevo: "Charmeleon-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	charizardtemporalmega: {
 		num: 1071,
@@ -18055,6 +19154,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Charizardite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	poltchageisttemporal: {
 		num: 1072,
@@ -18069,6 +19169,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sinistchatemporal: {
 		num: 1073,
@@ -18083,6 +19184,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Poltchageist-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kangaskhanorion: {
 		num: 1074,
@@ -18098,6 +19200,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Kangaskhan-Orion-Mega"],
 		formeOrder: ["Kangaskhan-Orion", "Kangaskhan-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kangaskhanorionmega: {
 		num: 1074,
@@ -18114,6 +19217,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Kangaskhanite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sevipertemporal: {
 		num: 1075,
@@ -18127,6 +19231,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	throhtemporal: {
 		num: 1076,
@@ -18140,6 +19245,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sawktemporal: {
 		num: 1077,
@@ -18153,6 +19259,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	tarountulatemporal: {
 		num: 1078,
@@ -18167,6 +19274,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	spidopstemporal: {
 		num: 1079,
@@ -18181,6 +19289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Tarountula-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pyukumukuorion: {
 		num: 1080,
@@ -18196,6 +19305,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Pyukumuku-Orion-Mega"],
 		formeOrder: ["Pyukumuku-Orion", "Pyukumuku-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pyukumukuorionmega: {
 		num: 1080,
@@ -18212,6 +19322,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Pyukumite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	fidoughorion: {
 		num: 1081,
@@ -18226,6 +19337,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dachsbunorion: {
 		num: 1082,
@@ -18240,6 +19352,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Fidough-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	bulbasaurtemporal: {
 		num: 1083,
@@ -18254,6 +19367,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	ivysaurtemporal: {
 		num: 1084,
@@ -18285,6 +19399,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Venusaur-Temporal", "Venusaur-Temporal-Mega"],
 		prevo: "Ivysaur-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	venusaurtemporalmega: {
 		num: 1085,
@@ -18301,6 +19416,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Venusaurite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	girafarigorion: {
 		num: 1086,
@@ -18315,6 +19431,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	farigiraforion: {
 		num: 1087,
@@ -18329,6 +19446,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Girafarig-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	comfeytemporal: {
 		num: 1088,
@@ -18342,6 +19460,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kleavortemporal: {
 		num: 1089,
@@ -18358,6 +19477,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Kleavor-Temporal", "Kleavor-Temporal-Mega"],
 		prevo: "Scyther-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kleavortemporalmega: {
 		num: 1089,
@@ -18374,6 +19494,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Kleavorite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sewaddletemporal: {
 		num: 1090,
@@ -18388,6 +19509,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	swadloontemporal: {
 		num: 1091,
@@ -18417,6 +19539,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Swadloon-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	sentrettemporal: {
 		num: 1093,
@@ -18431,6 +19554,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	furrettemporal: {
 		num: 1094,
@@ -18447,6 +19571,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Furret-Temporal", "Furret-Temporal-Mega"],
 		prevo: "Sentret-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	furrettemporalmega: {
 		num: 1094,
@@ -18463,6 +19588,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Furretite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nidoranforion: {
 		num: 1095,
@@ -18477,6 +19603,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	nidorinaorion: {
 		num: 1096,
@@ -18506,6 +19633,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nidorina-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	nidoranmorion: {
 		num: 1098,
@@ -18520,6 +19648,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	nidorinoorion: {
 		num: 1099,
@@ -18549,6 +19678,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Nidorino-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	grookeytemporal: {
 		num: 1101,
@@ -18563,6 +19693,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	thwackeytemporal: {
 		num: 1102,
@@ -18592,6 +19723,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Thwackey-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	chatotorion: {
 		num: 1104,
@@ -18605,6 +19737,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kecleonorion: {
 		num: 1105,
@@ -18618,6 +19751,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pawniardtemporal: {
 		num: 1106,
@@ -18632,6 +19766,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	bisharptemporal: {
 		num: 1107,
@@ -18661,6 +19796,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Bisharp-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	castformorion: {
 		num: 1109,
@@ -18674,6 +19810,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	castformoriongrassy: {
 		num: 1109,
@@ -18687,8 +19824,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		requiredAbility: "Cartographer",
 		battleOnly: "Castform-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	castformorionelectric: {
 		num: 1109,
@@ -18702,8 +19841,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		requiredAbility: "Cartographer",
 		battleOnly: "Castform-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	castformorionpsychic: {
 		num: 1109,
@@ -18717,8 +19858,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		requiredAbility: "Cartographer",
 		battleOnly: "Castform-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	castformorionmisty: {
 		num: 1109,
@@ -18732,8 +19875,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		color: "Gray",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
+		requiredAbility: "Cartographer",
 		battleOnly: "Castform-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	clauncherorion: {
 		num: 1110,
@@ -18748,6 +19893,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	clawitzerorion: {
 		num: 1111,
@@ -18762,6 +19908,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Clauncher-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shroomishtemporal: {
 		num: 1112,
@@ -18776,6 +19923,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	breloomtemporal: {
 		num: 1113,
@@ -18790,6 +19938,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shroomish-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	munchlaxtemporal: {
 		num: 1114,
@@ -18804,6 +19953,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	snorlaxtemporal: {
 		num: 1115,
@@ -18820,6 +19970,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Snorlax-Temporal", "Snorlax-Temporal-Mega"],
 		prevo: "Munchlax-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snorlaxtemporalmega: {
 		num: 1115,
@@ -18836,6 +19987,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Snorlaxite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	alomomolaorion: {
 		num: 1116,
@@ -18849,6 +20001,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	varoomorion: {
 		num: 1117,
@@ -18863,6 +20016,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	revavroomorion: {
 		num: 1118,
@@ -18877,6 +20031,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Varoom-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	veluzaorion: {
 		num: 1119,
@@ -18890,6 +20045,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	applintemporal: {
 		num: 1120,
@@ -18904,6 +20060,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	flappletemporal: {
 		num: 1121,
@@ -18918,6 +20075,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Applin-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	appletuntemporal: {
 		num: 1122,
@@ -18932,6 +20090,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Applin-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dipplintemporal: {
 		num: 1123,
@@ -18961,6 +20120,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dipplin-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	wimpodtemporal: {
 		num: 1125,
@@ -18975,6 +20135,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	golisopodtemporal: {
 		num: 1126,
@@ -18989,6 +20150,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Wimpod-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	flittleorion: {
 		num: 1127,
@@ -19003,6 +20165,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	espathraorion: {
 		num: 1128,
@@ -19017,6 +20180,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Flittle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	carnivinetemporal: {
 		num: 1129,
@@ -19030,6 +20194,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	yungoosorion: {
 		num: 1130,
@@ -19044,6 +20209,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	gumshoosorion: {
 		num: 1131,
@@ -19058,6 +20224,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Yungoos-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	zangooseorion: {
 		num: 1132,
@@ -19071,6 +20238,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	morpekoorion: {
 		num: 1133,
@@ -19087,6 +20255,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Morpeko-Orion-Unpowered"],
 		formeOrder: ["Morpeko-Orion", "Morpeko-Orion-Unpowered"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	morpekoorionunpowered: {
 		num: 1133,
@@ -19104,6 +20273,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		requiredAbility: "Light Switch",
 		battleOnly: "Morpeko-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mawileorion: {
 		num: 1134,
@@ -19119,6 +20289,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		otherFormes: ["Mawile-Orion-Mega"],
 		formeOrder: ["Mawile-Orion", "Mawile-Orion-Mega"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mawileorionmega: {
 		num: 1134,
@@ -19135,6 +20306,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Mawileite-S",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	skrelptemporal: {
 		num: 1135,
@@ -19149,6 +20321,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	dragalgetemporal: {
 		num: 1136,
@@ -19163,6 +20336,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Skrelp-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mareeptemporal: {
 		num: 1137,
@@ -19177,6 +20351,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	flaaffytemporal: {
 		num: 1138,
@@ -19208,6 +20383,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		formeOrder: ["Ampharos-Temporal", "Ampharos-Temporal-Mega"],
 		prevo: "Flaaffy-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	ampharostemporalmega: {
 		num: 1139,
@@ -19224,6 +20400,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		requiredItem: "Ampharosite-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	dwebbletemporal: {
 		num: 1140,
@@ -19238,6 +20415,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	crustletemporal: {
 		num: 1141,
@@ -19252,6 +20430,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Dwebble-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	rellororion: {
 		num: 1142,
@@ -19266,6 +20445,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	rabscaorion: {
 		num: 1143,
@@ -19280,6 +20460,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Rellor-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	mawiletemporal: {
 		num: 1144,
@@ -19293,6 +20474,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	scatterbugorion: {
 		num: 1145,
@@ -19307,6 +20489,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	spewpaorion: {
 		num: 1146,
@@ -19336,6 +20519,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Spewpa-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	crabrawlerorion: {
 		num: 1148,
@@ -19350,6 +20534,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	crabominableorion: {
 		num: 1149,
@@ -19364,6 +20549,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Crabrawler-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	meowthtemporal: {
 		num: 1150,
@@ -19378,6 +20564,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	persiantemporal: {
 		num: 1151,
@@ -19392,6 +20579,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Meowth-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	perrserkertemporal: {
 		num: 1152,
@@ -19406,6 +20594,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Meowth-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	shroodleorion: {
 		num: 1153,
@@ -19420,6 +20609,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	grafaiaiorion: {
 		num: 1154,
@@ -19434,6 +20624,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Shroodle-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kleavororion: {
 		num: 1155,
@@ -19448,6 +20639,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Scyther-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	pincurchintemporal: {
 		num: 1156,
@@ -19461,6 +20653,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	lechonkorion: {
 		num: 1157,
@@ -19475,6 +20668,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	oinkologneorion: {
 		num: 1158,
@@ -19489,6 +20683,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Lechonk-Orion",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	kyuremorion: {
 		num: 1159,
@@ -19502,6 +20697,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "Uber",
+		natDexTier: "Uber",
 	},
 	rockrufftemporal: {
 		num: 1160,
@@ -19516,6 +20712,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lycanroctemporal: {
 		num: 1161,
@@ -19530,6 +20727,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Rockruff-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	staryutemporal: {
 		num: 1162,
@@ -19544,6 +20742,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	starmietemporal: {
 		num: 1163,
@@ -19558,6 +20757,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Staryu-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	litwicktemporal: {
 		num: 1164,
@@ -19572,6 +20772,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	lampenttemporal: {
 		num: 1165,
@@ -19601,6 +20802,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Lampent-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	cyclizartemporal: {
 		num: 1167,
@@ -19614,6 +20816,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	goomytemporal: {
 		num: 1168,
@@ -19628,6 +20831,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	sliggootemporal: {
 		num: 1169,
@@ -19657,6 +20861,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Sliggoo-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
 	},
 	snovertemporal: {
 		num: 1171,
@@ -19671,6 +20876,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "LC",
+		natDexTier: "LC",
 	},
 	abomasnowtemporal: {
 		num: 1172,
@@ -19685,6 +20891,35 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		tags: ["Soulstones"],
 		prevo: "Snover-Temporal",
 		tier: "OU",
+		natDexTier: "OU",
+	},
+	phionetemporal: {
+		num: 438,
+		name: "Phione-Temporal",
+		types: ['Fairy'],
+		baseStats: { hp: 80, atk: 80, def: 80, spa: 100, spd: 80, spe: 100 },
+		abilities: { 0: "Intuition", 1: "Attunement" , H: "Wonder Skin" },
+		heightm: 0.4,
+		weightkg: 3.1,
+		color: "Pink",
+		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
+		tier: "OU",
+		natDexTier: "OU",
+	},
+	eternatusorion: {
+		num: 793,
+		name: "Eternatus-Orion",
+		types: ['Ghost', 'Dragon'],
+		baseStats: { hp: 150, atk: 80, def: 95, spa: 150, spd: 95, spe: 120 },
+		abilities: { 0: "Dark Aura", 1: "Psychic Surge" , H: "Wandering Spirit" },
+		heightm: 20.0,
+		weightkg: 950.0,
+		color: "Purple",
+		eggGroups: ["Soulstones"],
+		tags: ["Soulstones"],
+		tier: "Uber",
+		natDexTier: "Uber",
 	},
 
 	//Unreleased
@@ -19724,19 +20959,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Dazzling", 1: "Screen Cleaner" , H: "Spellcaster" },
 		heightm: 1.9,
 		weightkg: 205.0,
-		color: "Purple",
-		eggGroups: ["Soulstones"],
-		tags: ["Soulstones"],
-		tier: "Illegal",
-	},
-	eternatusorion: {
-		num: 793,
-		name: "Eternatus-Orion",
-		types: ['Ghost', 'Dragon'],
-		baseStats: { hp: 150, atk: 80, def: 95, spa: 150, spd: 95, spe: 120 },
-		abilities: { 0: "Dark Aura", 1: "Psychic Surge" , H: "Wandering Spirit" },
-		heightm: 20.0,
-		weightkg: 950.0,
 		color: "Purple",
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
@@ -19834,19 +21056,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		eggGroups: ["Soulstones"],
 		tags: ["Soulstones"],
 		tier: "Illegal",
-	},
-	phionetemporal: {
-		num: 438,
-		name: "Phione-Temporal",
-		types: ['Fairy'],
-		baseStats: { hp: 80, atk: 80, def: 80, spa: 100, spd: 80, spe: 100 },
-		abilities: { 0: "Intuition", 1: "Attunement" , H: "Wonder Skin" },
-		heightm: 0.4,
-		weightkg: 3.1,
-		color: "Pink",
-		eggGroups: ["Soulstones"],
-		tags: ["Soulstones"],
-		tier: "OU",
 	},
 	manaphytemporal: {
 		num: 439,

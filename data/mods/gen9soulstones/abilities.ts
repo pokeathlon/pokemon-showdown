@@ -880,7 +880,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				move.ignoreImmunity['Electric'] = true;
 			}
 			move.onEffectiveness = function (typeMod, t, type, m) { //I sure hope this works!
-				if (type === 'Electric') return 1;
+				if (type === 'Electric') return 0;
 			};
 		},
 		flags: { breakable: 1 },
@@ -1359,7 +1359,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
-			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
+			if (target.hasType('Cosmic') && source && target !== source && effect && effect.id !== 'yawn') {
 				this.debug('interrupting setStatus with Nebula Cloud');
 				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
@@ -1369,7 +1369,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onAllyTryAddVolatile(status, target) {
-			if (target.hasType('Grass') && status.id === 'yawn') {
+			if (target.hasType('Cosmic') && status.id === 'yawn') {
 				this.debug('Nebula Cloud blocking yawn');
 				const effectHolder = this.effectState.target;
 				this.add('-block', target, 'ability: Nebula Cloud', `[of] ${effectHolder}`);
