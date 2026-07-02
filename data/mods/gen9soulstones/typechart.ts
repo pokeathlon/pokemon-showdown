@@ -31,6 +31,7 @@ export const TypeChart: import('../../../sim/dex-data').ModdedTypeDataTable = {
 	},
 	cosmic: {
 		inherit: true,
+		isNonstandard: null,
 		damageTaken: {
 			Bug: 0,
 			Cosmic: 2,
