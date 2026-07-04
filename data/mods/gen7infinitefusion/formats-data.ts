@@ -421,7 +421,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	alakazam: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	machop: {
@@ -851,7 +851,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mew: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	chikorita: {
@@ -1741,7 +1741,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	aegislash: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	pawniard: {
@@ -1991,7 +1991,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	latios: {
 		inherit: true,
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	deoxys: {
@@ -2516,7 +2516,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	greninja: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	greninjaash: {
@@ -2618,7 +2618,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	diancie: {
 		inherit: true,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	poochyena: {
@@ -2923,7 +2923,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	clamperl: {
 		inherit: true,
-		tier: "UU",
+		tier: "LC",
 		doublesTier: "DUU",
 	},
 	huntail: {
