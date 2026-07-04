@@ -3414,7 +3414,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const fusion = this.dex.species.get(set.fusion);
 			const baseCanLearn = this.checkCanLearn(move, species, this.allSources(species), set);
 			const tutorMoves = (this.format.mod.includes("pokeathlon") || this.format.mod.includes("chaos")) ? { ...fusionMoves, ...PoAfusionMoves } : fusionMoves;
-
+			const mgMoves = (this.format.mod.includes("pokeathlon") || this.format.mod.includes("chaos")) ? {} : mysteryGiftMoves;
+			if (move.id in mgMoves) {
+				const data = mgMoves[move.id];
+				for (const possibleSource of data) {
+					if ("mysteryGift" in possibleSource) {
+						if (species.exists && possibleSource["mysteryGift"].includes(species.id)) return null;
+						if (fusion.exists && possibleSource["mysteryGift"].includes(fusion.id)) return null;
+					}
+				}
+			}
 			if (fusion.exists && species.exists) {
 				if (!this.checkCanLearn(move, fusion, this.allSources(fusion), set) || !baseCanLearn) return null;
 
@@ -4128,6 +4137,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	}
 };
 
+const mysteryGiftMoves: { [key: string]: { [key: string]: string[] }[] } = {
+	"rapidspin": [{ "mysteryGift": ["carbink"] }],
+};
 const fusionMoves: { [key: string]: { [key: string]: string[] }[] } = {
 	"attackorder": [{ "fusion": ["beedrill"] }],
 	"pollenpuff": [{ "fusion": ["butterfree", "celebi", "parasect", "vileplume", "breloom"] }],
