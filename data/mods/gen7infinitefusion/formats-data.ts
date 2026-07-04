@@ -1071,7 +1071,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	quagsire: {
 		inherit: true,
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DUU",
 	},
 	espeon: {
