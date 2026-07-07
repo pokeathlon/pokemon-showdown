@@ -2933,6 +2933,22 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	gourgeistsento: {
+		num: 711,
+		name: "Gourgeist-Sento",
+		types: ["Ghost", "Fighting"],
+		baseStats: { hp: 65, atk: 90, def: 122, spa: 58, spd: 75, spe: 84 },
+		abilities: { 0: "Sturdy", 1: "Tangling Hair", H: "Stamina" },
+		heightm: 0.9,
+		weightkg: 12.5,
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		baseSpecies: "Gourgeist",
+		forme: "Sento",
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
