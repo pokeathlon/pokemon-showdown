@@ -1040,7 +1040,6 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	darm: "Darmanitan",
 	decid: "Decidueye",
 	dengo: "Gholdengo",
-	dirge: "Skeledirge",
 	dnite: "Dragonite",
 	dogars: "Koffing",
 	dogi: "Okidogi",

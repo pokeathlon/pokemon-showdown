@@ -20262,7 +20262,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Morpeko-Orion-Unpowered",
 		baseSpecies: "Morpeko-Orion",
 		forme: "Unpowered",
-		types: ['Light'],
+		types: ['Dark'],
 		baseStats: { hp: 68, atk: 43, def: 68, spa: 93, spd: 68, spe: 96 },
 		abilities: { 0: "Lightswitch" },
 		heightm: 0.3,

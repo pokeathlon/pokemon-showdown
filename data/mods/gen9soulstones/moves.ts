@@ -4779,7 +4779,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		shortDesc: "10% chance to burn the target.",
+		shortDesc: "100% chance to burn the target.",
 	},
 
 	boreasbreath: {
