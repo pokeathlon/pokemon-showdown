@@ -633,6 +633,22 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		desc: "50% chance this Pokemon's ally has its non-volatile status condition cured at the end of each turn.",
 		shortDesc: "50% chance this Pokemon's ally has its status cured at the end of each turn.",
 	},
+	transistor: {
+		inherit: true,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using an Electric-type attack.",
+	},
 
 	// Additions
 	affection: {

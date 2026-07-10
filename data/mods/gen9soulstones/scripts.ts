@@ -99,7 +99,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				baseDamage = this.battle.modify(baseDamage, 0.5);
 			}
 		}
-		if (pokemon.status === 'frb' && move.category === 'Special' && !pokemon.hasAbility('guts')) {
+		if (pokemon.status === 'frb' && move.category === 'Special' && !pokemon.hasAbility('attunement')) {
 			if (this.battle.gen < 6 || move.id !== 'facade') {
 				baseDamage = this.battle.modify(baseDamage, 0.5);
 			}

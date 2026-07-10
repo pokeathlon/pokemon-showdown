@@ -12532,7 +12532,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			return move.basePower;
 		},
 		target: "normal",
-		type: "Dragon",
+		type: "Cosmic",
 		contestType: "Tough",
 		shortDesc: "Power doubles if the user's last move failed.",
 	},
