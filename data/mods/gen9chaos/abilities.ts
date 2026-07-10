@@ -1396,12 +1396,14 @@ export const Abilities: ModdedAbilityDataTable = {
 					...moveData, 
 				onHit(target) {
 					if (target.getAbility().flags['cantsuppress']) return;
-					if (target.newlySwitched || this.queue.willMove(target)) return;
 					target.addVolatile('gastroacid');
 				},
 				};
 				target.side.slotConditions[target.position]['futuremove'].moveData = moveData;
 			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['futuremove'] && !target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
 		},
 		flags: {},
 		name: "Zeitwinder",
