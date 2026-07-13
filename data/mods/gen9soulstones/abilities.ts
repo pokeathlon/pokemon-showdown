@@ -649,6 +649,21 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using an Electric-type attack.",
 	},
+	hadronengine: {
+		inherit: true,
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(1.33);
+			}
+		},
+		onModifySpA(spa, pokemon) {
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(1.33);
+			}
+		},
+		shortDesc: "Sets Electric Terrain on start. 1.33x Atk and SpA in Electric Terrain."
+	},
 
 	// Additions
 	affection: {
