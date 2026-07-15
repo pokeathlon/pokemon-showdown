@@ -2347,6 +2347,17 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		desc: "The user cures its burn, poison, paralysis, or frostbite. Fails if the user is not burned, poisoned, paralyzed, or frostbit.",
 		shortDesc: "User cures its burn, poison, paralysis, or frostbite.",
 	},
+	thousandarrows: {
+		inherit: true,
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground') && !target.hasType('Cosmic')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+	},
 	
 	// Additions
 		tidalwave: {
