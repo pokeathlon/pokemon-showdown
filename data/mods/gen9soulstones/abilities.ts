@@ -432,13 +432,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	stakeout: {
 		inherit: true,
 		onModifyAtk(atk, attacker, defender) {
-			if (defender.activeMoveActions == 0) {
+			if (!defender.activeTurns) {
 				this.debug('Stakeout boost');
 				return this.chainModify(1.3);
 			}
 		},
 		onModifySpA(atk, attacker, defender) {
-			if (defender.activeMoveActions == 0) {
+			if (!defender.activeTurns) {
 				this.debug('Stakeout boost');
 				return this.chainModify(1.3);
 			}
@@ -2187,8 +2187,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			return this.chainModify(1.4);
 		},
 		onAfterMove(source, target, move) {
-			if (move.category === 'Physical') source.boostBy({atk: -1})
-			if (move.category === 'Special') source.boostBy({spa: -1})
+			if (move.category === 'Physical') this.boost({ atk: -1 }, source, source);
+			if (move.category === 'Special') this.boost({ spa: -1 }, source, source);
 		},
 		flags: {},
 		name: "Impulsive",
