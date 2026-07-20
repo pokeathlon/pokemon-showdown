@@ -2386,7 +2386,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		num: 3136,
 		name: "Arcaspark",
 		types: ["Water", "Electric"],
-		baseStats: { hp: 100, atk: 95, def: 72, spa: 87, spd: 86, spe: 55 },
+		baseStats: { hp: 100, atk: 95, def: 72, spa: 87, spd: 81, spe: 60 },
 		abilities: { 0: "Volt Absorb", H: "Regenerator" },
 		heightm: 1.2,
 		weightkg: 38.6,

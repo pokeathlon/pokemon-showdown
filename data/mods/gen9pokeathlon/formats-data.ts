@@ -568,7 +568,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	omecha: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
