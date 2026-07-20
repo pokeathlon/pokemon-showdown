@@ -450,7 +450,7 @@ export const Items: ModdedItemDataTable = {
 	tofagrifite: {
 		name: "Tofagrifite",
 		desc: "If held by a Tofagrif, this item allows it to Mega Evolve in battle.",
-		spritenum: 596,
+		spritenum: -3,
 		megaStone: { "Tofagrif": "Tofagrif-Mega" },
 		itemUser: ["Tofagrif"],
 		onTakeItem(item, source) {
@@ -464,6 +464,17 @@ export const Items: ModdedItemDataTable = {
 		spritenum: -3,
 		megaStone: { "Heracross-Subarctic": "Heracross-Subarctic-Mega" },
 		itemUser: ["Heracross-Subarctic"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	dryguaronite: {
+		name: "Dryguaronite",
+		desc: "If held by a Dryguaro, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Dryguaro": "Dryguaro-Mega" },
+		itemUser: ["Dryguaro"],
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
