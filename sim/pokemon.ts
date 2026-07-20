@@ -262,7 +262,6 @@ export class Pokemon {
 	shieldBoost: boolean;
 	syrupTriggered: boolean;
 	stellarBoostedTypes: string[];
-	etherealLost: boolean;
 
 	/** Have this pokemon's Start events run yet? (Start events run every switch-in) */
 	isStarted: boolean;
@@ -497,7 +496,6 @@ export class Pokemon {
 		this.stellarBoostedTypes = [];
 		this.isStarted = false;
 		this.duringMove = false;
-		this.etherealLost = false;
 
 		this.weighthg = 1;
 		this.speed = 0;

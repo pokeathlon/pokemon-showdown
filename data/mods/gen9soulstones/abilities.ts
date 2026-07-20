@@ -544,8 +544,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			let boosted = true;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
-				if (pokemon.storedStats.spe < target.storedStats.spe) {
-					boosted = false;
+				if (target.newlySwitched || this.queue.willMove(target)) {
+					boosted = true;
 					break;
 				}
 			}
@@ -554,7 +554,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.3);
 			}
 		},
-		shortDesc: "1.3x power against slower foes.",
+		shortDesc: "1.3x power if user moves before target.",
 	},
 	flareboost: {
 		inherit: true,
@@ -1058,20 +1058,20 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	ethereal: { 
 		onTryHit(target, source, move) {
 			if (!move.flags.contact) return;
-			if (target.etherealLost) return;
+			if (target.abilityState.etherealLost) return;
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
 					this.add('-immune', target, '[from] ability: Ethereal');
 				}
-				target.etherealLost = true;
+				target.abilityState.etherealLost = true;
 				return null;
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1 },
 		name: "Ethereal",
 		rating: 5,
 		num: 0,
-		shortDesc: "User is immune to one contact move per battle."
+		shortDesc: "User is immune to one contact move per switch-in."
 	},
 	fortification: {
 		onDamage(damage, target, source, effect) {
