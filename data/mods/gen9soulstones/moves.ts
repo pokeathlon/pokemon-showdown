@@ -6551,6 +6551,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ghost') return 1;
 		},
+		ignoreImmunity: { 'Normal': true },
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
