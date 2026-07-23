@@ -2353,7 +2353,8 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (move.type !== 'Ground') return;
 			if (!target) return; // avoid crashing when called from a chat plugin
 			// ignore effectiveness if the target is Flying type and immune to Ground
-			if (!target.runImmunity('Ground') && !target.hasType('Cosmic')) {
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Cosmic')) return 3;
 				if (target.hasType('Flying')) return 0;
 			}
 		},
