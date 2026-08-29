@@ -558,7 +558,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9mariomon',
 		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Sleep Moves Clause',
+			'Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Sleep Moves Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause',
 			'+Uber', '-Lubba', '-Sonic', '-Tiptron',
 		],
