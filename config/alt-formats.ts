@@ -560,13 +560,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: [
 			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Sleep Moves Clause',
 			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause',
+			'+Uber', '-Lubba', '-Sonic', '-Tiptron',
 		],
 		banlist: [
-			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:imposter', 'ability:wonderguard', 'ability:hugepower',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist',
-			'pokemon:lubba',
+			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist', 'move:electrify',
 		],
 	},
 	{
@@ -1300,7 +1299,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'+pokemon:sekrilon', '+pokemon:reneguana', '+pokemon:lilligantdeltawater', '+pokemon:mandibuzz', '+pokemon:escarphone', '+pokemon:flygon',
 			'+pokemon:regasunde', '+pokemon:drilgann', '+pokemon:mochimechi', '+pokemon:nebulant', '+pokemon:goodrahisui', '+pokemon:glavinug', '+pokemon:grimmsnarl',
 			'+pokemon:quagsire', '+pokemon:regalunith', '+pokemon:celestray', '+pokemon:tangrowthegho', '+pokemon:krilowatt', '+pokemon:ceruledge', '+pokemon:crobat',
-			'+pokemon:blubelrog', '+pokemon:togemon', '+pokemon:incandele', '+pokemon:wyrmplode', '+pokemon:empirilla', '+pokemon:saharaja', '+pokemon:gargryph'
+			'+pokemon:blubelrog', '+pokemon:togemon', '+pokemon:incandele', '+pokemon:wyrmplode', '+pokemon:empirilla', '+pokemon:saharaja', '+pokemon:gargryph',
 		],
 		banlist: [
 			'ND Uber', 'ND AG',
