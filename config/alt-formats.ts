@@ -379,7 +379,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinitefusion',
 		ruleset: [
 			'Standard NatDex',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 			'+ Future', 'Direct Sleep Moves Clause', 'Z-Move Clause',
 			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite',
 			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite',
@@ -392,8 +392,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:arenatrap', 'ability:comatose', 'ability:contrary', 'ability:disguise', 'ability:gorillatactics', 'ability:hugepower', 'ability:illusion', 'ability:imposter', 'ability:innardsout',
 			'ability:moody', 'ability:normalize', 'ability:powerconstruct', 'ability:purepower', 'ability:serenegrace', 'ability:shadowtag', 'ability:simple', 'ability:speedboost', 'ability:stakeout', 'ability:stench', 'ability:swordofruin', 'ability:wonderguard', 'ability:zerotohero',
 			'move:bellydrum', 'move:boltbeak', 'move:clangoroussoul', 'move:copycat', 'move:doubleironbash', 'move:electrify', 'move:extremespeed', 'move:filletaway', 'move:fishiousrend', 'move:geomancy', 'move:hiddenpower',
-			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:pursuit', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate', 'move:hail'
-		]
+			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:pursuit', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate', 'move:hail',
+		],
 	},
 	{
 		name: "[Gen 9] IF SGBL Draft",
@@ -402,7 +402,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9infinitefusion',
 		ruleset: [
 			'Standard NatDex', '!Species Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause', 
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 			'+ Future', 'Direct Sleep Moves Clause', 'Z-Move Clause',
 			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite',
 			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite',
@@ -415,8 +415,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:arenatrap', 'ability:comatose', 'ability:contrary', 'ability:disguise', 'ability:gorillatactics', 'ability:hugepower', 'ability:illusion', 'ability:imposter', 'ability:innardsout',
 			'ability:moody', 'ability:normalize', 'ability:powerconstruct', 'ability:purepower', 'ability:serenegrace', 'ability:shadowtag', 'ability:simple', 'ability:speedboost', 'ability:stakeout', 'ability:stench', 'ability:swordofruin', 'ability:wonderguard', 'ability:zerotohero',
 			'move:bellydrum', 'move:boltbeak', 'move:clangoroussoul', 'move:copycat', 'move:doubleironbash', 'move:electrify', 'move:extremespeed', 'move:filletaway', 'move:fishiousrend', 'move:geomancy', 'move:hiddenpower',
-			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate'
-		]
+			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate',
+		],
 	},
 	{
 		name: "[Gen 9] Ins NDL Draft",
@@ -521,7 +521,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'AG', 'Uber',
 			'ability:arenatrap', 'ability:shadowtag',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock', 'item:lightclay',
-			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst'
+			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst',
 		],
 	},
 	{
@@ -552,6 +552,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9mariomon',
 		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause', 'Baton Pass Stat Trap Clause'],
 		banlist: ['pokemon:gushen', 'pokemon:fighterfly', 'move:electrify', 'item:kingsrock'],
+	},
+	{
+		name: "[Gen 9] Mariomon Fusions",
+
+		mod: 'gen9mariomon',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Sleep Moves Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause',
+		],
+		banlist: [
+			'AG', 'Uber',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:imposter', 'ability:wonderguard', 'ability:hugepower',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
+			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist',
+			'pokemon:lubba',
+		],
 	},
 	{
 		name: "[Gen 9] Mariomon Monotype",
