@@ -3015,6 +3015,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	yazeon: {
+		num: 3176,
+		name: "Yazeon",
+		types: ["Poison", "Ghost"],
+		baseStats: { hp: 85, atk: 35, def: 75, spa: 125, spd: 135, spe: 35 },
+		abilities: { 0: "Forewarn", 1: "Natural Cure", H: "Innards Out" },
+		heightm: 1.2,
+		weightkg: 16.1,
+		color: "Purple",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
