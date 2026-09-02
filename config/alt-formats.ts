@@ -563,9 +563,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'+Uber', '-Lubba', '-Sonic', '-Tiptron',
 		],
 		banlist: [
-			'ability:arenatrap', 'ability:shadowtag', 'ability:imposter', 'ability:wonderguard', 'ability:hugepower',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:imposter', 'ability:wonderguard', 'ability:hugepower', 'ability:waterbubble', 'ability:comatose', 'ability:disguise',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist', 'move:electrify',
+			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist', 'move:electrify', 'move:assist', 'move:dynamicpunch'
 		],
 	},
 	{
@@ -964,7 +964,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:sandveil', 'ability:snowcloak', 'ability:asabove',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:trickrock',
-			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium',
+			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:lightclay'
 		],
 	},
 	{
