@@ -114,7 +114,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	golisopodshogun: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
