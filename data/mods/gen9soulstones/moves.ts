@@ -1350,11 +1350,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, defrost: 1 },
 		isNonstandard: undefined,
 	},
-	accuracy: {
-		inherit: true,
-		accuracy: 90,
-		isNonstandard: undefined,
-	},
 	flameburst: {
 		inherit: true,
 		accuracy: true,
@@ -13373,5 +13368,5 @@ for (const key in { ...Base, ...Moves }) {
 	if (Moves[id]) Moves[id] = {...Moves[id], gen: 9, isNonstandard: null};
 	if (Moves[id]) continue;
 
-	Moves[id] = { ...Base[id], gen: 9, isNonstandard: null };
+	Moves[id] = { inherit: true, gen: 9, isNonstandard: null};
 }
