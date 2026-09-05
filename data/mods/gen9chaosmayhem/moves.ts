@@ -3015,4 +3015,4 @@ for (const mod in mods) {
 		}
 	}
 }
-console.log(newMoves);
+//console.log(newMoves);
