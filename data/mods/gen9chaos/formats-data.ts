@@ -129,7 +129,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	birdo: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	exor: {
 		inherit: true,
@@ -193,7 +193,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	superfly: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	spiritombmega: {
 		inherit: true,
@@ -3193,6 +3193,10 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	obliteryx: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	arceusbug: {
 		inherit: true,
 		natDexTier: "Uber",
@@ -3705,9 +3709,14 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
+	raticateblue: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
 	bowser: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	cerebaal: {
 		inherit: true,
@@ -3756,5 +3765,78 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	thundurus: {
 		inherit: true,
 		natDexTier: "RU",
+	},
+	primarina: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	polteageist: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	scolipedemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	scraftymega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	eelektrossmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	pyroarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	malamarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	barbaraclemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	dragalgemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	falinksmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	raichumegax: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	raichumegay: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	staraptormega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	meowsticmmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	meowsticfmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
 	},
 };

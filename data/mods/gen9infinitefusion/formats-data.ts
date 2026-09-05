@@ -762,4 +762,185 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		doublesTier: "DUber",
 	},
+	
+	meganiummega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	victreebelmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	starmiemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	dragonitemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	feraligatrmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	skarmorymega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	chimechomega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	froslassmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	emboarmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	excadrillmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	chandeluremega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	golurkmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	chesnaughtmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	delphoxmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	greninjamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	floettemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	hawluchamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	crabominablemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	drampamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	scovillainmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	glimmoramega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	clefablemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	scolipedemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	scraftymega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	eelektrossmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	pyroarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	malamarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	barbaraclemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	dragalgemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	falinksmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	raichumegax: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	raichumegay: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	staraptormega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	meowsticmmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	meowsticfmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
 };
