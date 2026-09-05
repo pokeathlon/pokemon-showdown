@@ -1394,6 +1394,25 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Chaos Mayhem CG",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		debug: true,
+		battle: { trunc: Math.trunc },
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
+	},
+	{
+		name: "[Gen 9] Chaos Mayhem Doubles CG",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		gameType: 'doubles',
+		debug: true,
+		battle: { trunc: Math.trunc },
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
+	},
+	{
 		name: "[Gen 9] Chaos Fusion Custom Game",
 		searchShow: false,
 
