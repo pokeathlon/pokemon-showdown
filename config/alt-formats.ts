@@ -1385,6 +1385,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
 	},
 	{
+		name: "[Gen 9] Chaos Mayhem AG",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		ruleset: [
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause',
+		],
+	},
+	{
 		name: "[Gen 9] Chaos Fusion Custom Game",
 		searchShow: false,
 
