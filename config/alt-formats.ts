@@ -115,7 +115,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'ND AG', 'ND Uber',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:starminite', 'item:staraptite', 'item:scovillainite', 'item:raichunitey',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
 		],
