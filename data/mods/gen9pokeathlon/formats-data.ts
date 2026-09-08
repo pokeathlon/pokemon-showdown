@@ -882,10 +882,16 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Illegal",
 		isNonstandard: null,
 	},
+	tadpuff: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
 	soaribbit: {
 		inherit: true,
-		tier: "OU",
-		natDexTier: "OU",
+		tier: "NFE",
+		natDexTier: "NFE",
 		isNonstandard: null,
 	},
 	lunura: {
@@ -1026,6 +1032,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Illegal",
 		isNonstandard: null,
 	},
+	komodraw: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
 	komoduel: {
 		inherit: true,
 		tier: "OU",
@@ -1069,6 +1081,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: null,
 	},
 	hederlix: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	karajolt: {
 		inherit: true,
 		tier: "OU",
 		natDexTier: "OU",
