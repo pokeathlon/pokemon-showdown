@@ -349,7 +349,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	dianciemega: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 	},
 	fafninter: {
 		inherit: true,
@@ -361,7 +361,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	champeon: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 	},
 	palafin: {
 		inherit: true,
@@ -373,7 +373,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	volcarona: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 	},
 	lopunnymega: {
 		inherit: true,
@@ -381,7 +381,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	medichamdeltamega: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 	},
 	zamazenta: {
 		inherit: true,
@@ -401,11 +401,11 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 	},
 	mawilemega: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 	},
 	baxcalibur: {
 		inherit: true,
-		natDexTier: "UUBL",
+		natDexTier: "UU",
 	},
 	stunfiskmega: {
 		inherit: true,
@@ -448,6 +448,14 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "UUBL",
 	},
 	metalgreymon: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	porygonx: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	s51amega: {
 		inherit: true,
 		natDexTier: "UUBL",
 	},
@@ -532,10 +540,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	heatran: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	porygonx: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -668,10 +672,6 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	s51aostara: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	s51amega: {
 		inherit: true,
 		natDexTier: "UU",
 	},
