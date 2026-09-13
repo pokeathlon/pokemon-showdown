@@ -2958,7 +2958,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "Illegal",
 	},
 	komodraw: {
-		num: 1380,
+		num: 3180,
 		name: "Komodraw",
 		types: ["Fire"],
 		baseStats: { hp: 68, atk: 61, def: 45, spa: 71, spd: 53, spe: 62 },
@@ -3079,7 +3079,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	hederlix: {
-		num: 1379,
+		num: 3179,
 		name: "Hederlix",
 		types: ["Grass", "Ground"],
 		baseStats: { hp: 92, atk: 117, def: 110, spa: 59, spd: 77, spe: 69 },
@@ -3094,7 +3094,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		doublesTier: "DOU",
 	},
 	karajolt: {
-		num: 1381,
+		num: 3181,
 		name: "Karajolt",
 		types: ["Fairy", "Electric"],
 		baseStats: { hp: 87, atk: 75, def: 107, spa: 126, spd: 64, spe: 71 },
