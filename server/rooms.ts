@@ -2072,7 +2072,26 @@ export class GameRoom extends BasicRoom {
 		let hideDetails = !format.id.includes('customgame');
 		if (format.team && battle.ended) hideDetails = false;
 
-		const data = this.getLog(hideDetails ? 0 : -1);
+		const log = this.getLog(hideDetails ? 0 : -1);
+		let rating: number | undefined;
+		if (battle.ended && this.rated) rating = this.rated;
+		let { id, password } = this.getReplayData();
+		if (password) password = (battle.password ||= password);
+		const silent = options === 'forpunishment' || options === 'silent' || options === 'auto';
+		if (silent) connection = undefined;
+		const isPrivate = this.settings.isPrivate || this.hideReplay;
+		const hidden = options === 'auto' ? 10 :
+			options === 'forpunishment' || (this as any).unlistReplay ? 2 :
+			isPrivate ? 1 :
+			0;
+		if (isPrivate && hidden !== 2) {
+			password = (battle.password ||= Replays.generatePassword());
+		}
+		if (battle.replaySaved !== true && hidden === 10) {
+			battle.replaySaved = 'auto';
+		} else {
+			battle.replaySaved = true;
+		}
 
 		let buf = '<!DOCTYPE html>\n';
 		buf += '<meta charset="utf-8" />\n';
@@ -2080,7 +2099,7 @@ export class GameRoom extends BasicRoom {
 		buf += `<title>${Utils.escapeHTML(format.name)} replay: ${Utils.escapeHTML(battle.p1.name)} vs. ${Utils.escapeHTML(battle.p2.name)}</title>\n`;
 		buf += '<div class="wrapper replay-wrapper" style="max-width:1000px;margin:0 auto">\n';
 		buf += '<div class="battle" style="top: -9px; left: -9px;"></div><div class="battle-log" style="top: -9px; right: -9px;"></div><div class="replay-controls"></div><div class="replay-controls-2"></div><div class="replay-controls-3"></div>\n';
-		buf += '<script type="text/plain" class="battle-log-data">' + data.replace(/\//g, '\\/') + '</script>\n';
+		buf += '<script type="text/plain" class="battle-log-data">' + log.replace(/\//g, '\\/') + '</script>\n';
 		buf += '</div>\n';
 		buf += '</div>\n';
 		buf += '<script>\n';
@@ -2090,10 +2109,10 @@ export class GameRoom extends BasicRoom {
 		const replayName = battle.roomid.slice(7);
 
 		await FS(`server/static/replays/${replayName}.html`).write(buf);
-		await FS(`server/static/replays/${replayName}.log`).write(data);
+		await FS(`server/static/replays/${replayName}.log`).write(log);
 		await FS(`server/static/replays/${replayName}.json`).write(JSON.stringify({
 			id: replayName,
-			log: data,
+			log: log,
 			players: battle.players.map(p => p.name),
 			format: format.name,
 			formatid: format.id,
