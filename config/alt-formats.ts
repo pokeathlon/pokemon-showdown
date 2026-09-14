@@ -1171,7 +1171,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
 		mod: 'gen9chaosfusion',
-		ruleset: ['[Gen 9] Chaos Fusions OU'],
+		ruleset: [
+			'Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod', 'Sleep Moves Clause',
+		],
 		banlist: [
 			'ND OU', 'ND UUBL',
 		],
