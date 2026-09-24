@@ -91,7 +91,7 @@ export class ParsedCatalog {
 	constructor(source: string, filename = '<ui>') {
 		this.filename = filename;
 		this.source = source;
-		this.lines = source.split('\n');
+		this.lines = source.split(/\r?\n/);
 		const values = ParsedCatalog.evaluate(source, filename);
 		let objectStart = -1;
 		let objectEnd = -1;
