@@ -496,6 +496,24 @@ export const Items: ModdedItemDataTable = {
 		},
 		num: 0,
 	},
+	bubbleclef: {
+		name: "Bubble Clef",
+		desc: "If held by an Odinalto, transforms into Odinalto-Coda. 1.2x power to Bug/Water.",
+		spritenum: -3,
+		itemUser: ["Odinalto", "Odinalto-Coda"],
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Odinalto') && ["Water", "Bug"].includes(move.type)) {
+				return this.chainModify(1.2);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Odinalto') return false;
+			return true;
+		},
+		forcedForme: "Odinalto-Coda",
+		num: 0,
+	},
 };
 
 const Manual = Utils.deepClone(Items);

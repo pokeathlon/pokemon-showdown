@@ -787,6 +787,32 @@ export const Moves: ModdedMoveDataTable = {
 			}
 		},
 	},
+	charge: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onStart(pokemon, source, effect) {
+				if (effect && ['Electromorphosis', 'Wind Power', 'Voltaic Siphon'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+			},
+			onRestart(pokemon, source, effect) {
+				if (effect && ['Electromorphosis', 'Wind Power', 'Voltaic Siphon'].includes(effect.name)) {
+					this.add('-start', pokemon, 'Charge', this.activeMove!.name, '[from] ability: ' + effect.name);
+				} else {
+					this.add('-start', pokemon, 'Charge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (pokemon.ability === 'voltaicsiphon' && move.drain && pokemon.moveThisTurnResult) return; //"reapply" charge
+				if (move.type === 'Electric' && move.id !== 'charge') {
+					pokemon.removeVolatile('charge');
+				}
+			},
+		},
+	},
 
 	// Additions
 	boxin: {
@@ -2968,13 +2994,147 @@ export const Moves: ModdedMoveDataTable = {
 		onHit(pokemon, source) {
 			const item = pokemon.getItem();
 			if (pokemon.takeItem(source) && !pokemon.hasType('Fire')) {
-				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
+				this.add('-enditem', pokemon, item.name, '[from] move: Ashen Pirouette');
 			}
 		},
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Tough",
 		shortDesc: "Hits adjacent Pokemon. Destroys the foe(s) item.",
+	},
+	crescendo: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Crescendo",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, sound: 1 },
+		beforeMoveCallback(pokemon) {
+			if (pokemon.lastMove?.flags.sound) pokemon.addVolatile("crescendo")
+			if (!pokemon.lastMove?.flags.sound && pokemon.volatiles["crescendo"]) pokemon.removeVolatile("crescendo")
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.volatiles['crescendo']) {
+				this.debug('doubling Crescendo due to last used move being a sound move');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+		shortDesc: "1.5x power if last move was sound move.",
+	},
+	rhythmicrattle: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Rhythmic Rattle",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, reflectable: 1, heal: 1, metronome: 1 },
+		onHit(target, source) {
+			let heal = false;
+			for (const pokemon of this.getAllActive()) {
+				if (source === pokemon) continue;
+				let activate = false;
+				const boosts: SparseBoostsTable = {};
+				let i: BoostID;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						activate = true;
+						boosts[i] = 0;
+					}
+				}
+				if (activate) {
+					heal = true;
+					pokemon.setBoost(boosts);
+					this.add('-clearnegativeboost', pokemon, '[silent]');
+				}
+			}
+			if (heal) {
+				this.heal(Math.ceil(source.maxhp * 0.5), source);
+			}
+		},
+		target: "self",
+		type: "Fairy",
+		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
+		contestType: "Beautiful",
+		shortDesc: "Heals 50% Max HP if any adjacent pokemon has lowere stat stage. Restores all lowered stats to 0."
+	},
+	restlesssting: {
+		num: 0,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Restless Sting",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
+		multihit: 3,
+		onModifyMove(move, pokemon, target) {
+			if (target.status === 'psn') move.willCrit = true;
+		},
+		secondary: {
+			chance: 20,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Beautiful",
+		shortDesc: "Hits 3 times. 20% to poison. Crits poisoned foes."
+	},
+	ancientvisage: {
+		num: 0,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Ancient Visage",
+		pp: 10,
+		priority: -3,
+		flags: { protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1 },
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('ancientvisage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Ancient Visage');
+			},
+			onHit(target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target, true)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('beakblast')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('ancientvisage');
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+		shortDesc: "Deals 1/8 Max HP on contact with the user before it moves.",
+	},
+	dropin: {
+		num: 0,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Drop In",
+		pp: 20,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onHit(target, source, move) {
+			this.field.setTerrain('psychicterrain');
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+		shortDesc: "Sets Psychic Terrain on hit.",
 	},
 };
 

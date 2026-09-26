@@ -1403,6 +1403,34 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "User's future moves suppress the target's ability when they hit.",
 	},
+	cadenza: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags.sound) {
+				if (!this.boost({ spa: 1 })) {
+					this.add('-immune', target, '[from] ability: Cadenza');
+				}
+				return null;
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Cadenza",
+		rating: 3,
+		num: 0,
+		shortDesc: "This Pokemon is immune to Sound moves; +1 Sp.Atk when hit by one.",
+	},
+	voltaicsiphon: {
+		onDamagingHitOrder: 1,
+		onSourceDamagingHit(damage, target, source, move) { //charge is used up after this, bad work around implemented in moves.ts charge
+			if (move.drain) {
+				source.addVolatile('charge');
+			}
+		},
+		flags: {},
+		name: "Voltaic Siphon",
+		rating: 1,
+		num: 0,
+		shortDesc: "This Pokemon gains the Charge effect when it succesfully uses a draining move.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);
