@@ -14829,7 +14829,7 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			protect: ["9M"],
 			raindance: ["9M"],
 			razorshell: ["9M"],
-			restlesssting: ["9M"],
+			relentlesssting: ["9M"],
 			rest: ["9M"],
 			revenge: ["9M"],
 			rocksmash: ["9M"],

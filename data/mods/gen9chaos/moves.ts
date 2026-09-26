@@ -3065,18 +3065,19 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Heals 50% Max HP if any adjacent pokemon has lowere stat stage. Restores all lowered stats to 0."
 	},
-	restlesssting: {
+	relentlesssting: {
 		num: 0,
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
-		name: "Restless Sting",
+		name: "Relentless Sting",
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
 		multihit: 3,
-		onModifyMove(move, pokemon, target) {
+		basePowerCallback(pokemon, target, move) { // trick to get it to dynamically crit if the move's hits poison
 			if (target.status === 'psn') move.willCrit = true;
+			return move.basePower
 		},
 		secondary: {
 			chance: 20,
