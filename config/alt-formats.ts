@@ -390,7 +390,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'item:deepseatooth', 'item:leek', 'item:stick', 'item:lightball', 'item:kingsrock', 'item:quickpowder', 'item:razorfang', 'item:thickclub',
 			'ability:arenatrap', 'ability:comatose', 'ability:contrary', 'ability:disguise', 'ability:hadronengine', 'ability:hugepower', 'ability:illusion', 'ability:imposter', 'ability:innardsout',
-			'ability:moody', 'ability:normalize', 'ability:oricalchumpulse', 'ability:powerconstruct', 'ability:purepower', 'ability:serenegrace', 'ability:shadowtag', 'ability:simple', 'ability:speedboost', 'ability:stakeout', 'ability:stench', 'ability:wonderguard',
+			'ability:moody', 'ability:normalize', 'ability:orichalcumpulse', 'ability:powerconstruct', 'ability:purepower', 'ability:serenegrace', 'ability:shadowtag', 'ability:simple', 'ability:speedboost', 'ability:stakeout', 'ability:stench', 'ability:wonderguard',
 			'move:bellydrum', 'move:boltbeak', 'move:clangoroussoul', 'move:copycat', 'move:doubleironbash', 'move:electrify', 'move:extremespeed', 'move:electroshot', 'move:filletaway', 'move:fishiousrend', 'move:geomancy', 'move:hiddenpower',
 			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:pursuit', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate', 'move:hail',
 		],
