@@ -503,7 +503,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	regitrio: {
 		num: 2022,
-		name: "Regiregi",
+		name: "Regitrio",
 		types: ["Ice", "Rock", "Steel"],
 		gender: "N",
 		baseStats: { hp: 80, atk: 100, def: 200, spa: 100, spd: 200, spe: 50 },
