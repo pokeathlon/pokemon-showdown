@@ -1,7 +1,7 @@
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
 	gengar: {
 		inherit: true,
-		abilities: { 0: "Levitate" },
+		abilities: { 0: "Cursed Body", H: "Levitate" },
 	},
 	delibird: {
 		inherit: true,
@@ -13,43 +13,43 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	zapdos: {
 		inherit: true,
-		abilities: { 0: "Pressure", H: "Lightning Rod" },
+		abilities: { 0: "Pressure", H: "Static" },
 	},
 	raikou: {
 		inherit: true,
-		abilities: { 0: "Pressure", H: "Volt Absorb" },
+		abilities: { 0: "Pressure", H: "Inner Focus" },
 	},
 	entei: {
 		inherit: true,
-		abilities: { 0: "Pressure", H: "Flash Fire" },
+		abilities: { 0: "Pressure", H: "Inner Focus" },
 	},
 	suicune: {
 		inherit: true,
-		abilities: { 0: "Pressure", H: "Water Absorb" },
+		abilities: { 0: "Pressure", H: "Inner Focus" },
 	},
 	litwick: {
 		inherit: true,
-		abilities: { 0: "Flash Fire", 1: "Flame Body", H: "Shadow Tag" },
+		abilities: { 0: "Flash Fire", 1: "Flame Body", H: "Infiltrator" },
 	},
 	lampent: {
 		inherit: true,
-		abilities: { 0: "Flash Fire", 1: "Flame Body", H: "Shadow Tag" },
+		abilities: { 0: "Flash Fire", 1: "Flame Body", H: "Infiltrator" },
 	},
 	chandelure: {
 		inherit: true,
-		abilities: { 0: "Flash Fire", 1: "Flame Body", H: "Shadow Tag" },
+		abilities: { 0: "Flash Fire", 1: "Flame Body", H: "Infiltrator" },
 	},
 	wigglytuff: {
 		inherit: true,
-		abilities: { 0: "Cute Charm", H: "Frisk" },
+		abilities: { 0: "Cute Charm", 1: "Competitive", H: "Frisk" },
 	},
 	feebas: {
 		inherit: true,
-		abilities: { 0: "Swift Swim", H: "Adaptability" },
+		abilities: { 0: "Swift Swim", 1: "Oblivious", H: "Adaptability" },
 	},
 	milotic: {
 		inherit: true,
-		abilities: { 0: "Marvel Scale", H: "Cute Charm" },
+		abilities: { 0: "Marvel Scale", 1: "Competitive", H: "Cute Charm" },
 	},
 	unown: {
 		inherit: true,
@@ -65,15 +65,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	flygon: {
 		inherit: true,
-		abilities: { 0: "Levitate", H: "Dry Skin" },
+		abilities: { 0: "Levitate" },
 	},
 	talonflame: {
 		inherit: true,
-		abilities: { 0: "Big Pecks", H: "Gale Wings" },
+		abilities: { 0: "Flame Body", H: "Gale Wings" },
 	},
 	mewtwo: {
 		inherit: true,
-		abilities: { 0: "Pressure", H: "Immunity" },
+		abilities: { 0: "Pressure", H: "Unnerve" },
 	},
 	darkrai: {
 		inherit: true,
@@ -109,7 +109,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	ferrothorn: {
 		inherit: true,
-		abilities: { 0: "Iron Barbs" },
+		abilities: { 0: "Iron Barbs", 1: "Anticipation" },
 		types: ["Steel", "Grass"],
 	},
 	magnemite: {
@@ -394,7 +394,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		types: ["Fire", "Water", "Grass"],
 		gender: "N",
 		baseStats: { hp: 88, atk: 107, def: 122, spa: 114, spd: 100, spe: 122 },
-		abilities: { 0: "Overgrow", 1: "Solar Power", H: "Rain Dish" },
+		abilities: { 0: "Bulletproof", 1: "Magician", H: "Protean" },
 		heightm: 1.7,
 		weightkg: 55.4,
 		prevo: "Brailladier",
@@ -503,7 +503,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	regitrio: {
 		num: 2022,
-		name: "Regitrio",
+		name: "Regiregi",
 		types: ["Ice", "Rock", "Steel"],
 		gender: "N",
 		baseStats: { hp: 80, atk: 100, def: 200, spa: 100, spd: 200, spe: 50 },
@@ -532,5 +532,53 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		natDexTier: "Uber",
 		tier: "Uber",
 		doublesTier: "DUber",
+	},
+	luvbrufisk: {
+		num: 2024,
+		name: "Luvbrufisk",
+		types: ["Water", "Ground", "Electric", "Psychic"],
+		gender: "N",
+		baseStats: { hp: 109, atk: 105, def: 84, spa: 81, spd: 99, spe: 97 },
+		abilities: { 0: "Static", 1: "Dazzling", H: "Swift Swim" },
+		heightm: 0.7,
+		weightkg: 12.9,
+		color: "Pink",
+		eggGroups: ["Infinite Fusion", "IF", "Water 1", "Water 2", "Amorphous"],
+		tags: ["Infinite Fusion"],
+		tier: "RU",
+		natDexTier: "RU",
+		doublesTier: "(DUU)",
+	},
+	solminiatonecore: {
+		num: 2025,
+		name: "Solminiatone-Core",
+		types: ["Rock", "Psychic", "Flying"],
+		gender: "N",
+		baseStats: { hp: 60, atk: 100, def: 60, spa: 100, spd: 60, spe: 120 },
+		abilities: { 0: "Shields Down" },
+		heightm: 0.8,
+		weightkg: 120.6,
+		color: "Yellow",
+		eggGroups: ["Infinite Fusion", "IF", "Mineral"],
+		tags: ["Infinite Fusion"],
+		tier: "RU",
+		natDexTier: "RU",
+		doublesTier: "(DUU)",
+	},
+	solminiatonemeteor: {
+		num: 2025,
+		name: "Solminiatone-Meteor",
+		types: ["Rock", "Psychic", "Flying"],
+		gender: "N",
+		baseStats: { hp: 90, atk: 95, def: 100, spa: 95, spd: 100, spe: 70 },
+		abilities: { 0: "Shields Down" },
+		heightm: 0.8,
+		weightkg: 107.4,
+		color: "Yellow",
+		eggGroups: ["Infinite Fusion", "IF", "Mineral"],
+		tags: ["Infinite Fusion"],
+		tier: "RU",
+		natDexTier: "RU",
+		doublesTier: "(DUU)",
 	},
 };
