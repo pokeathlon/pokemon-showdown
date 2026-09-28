@@ -3150,6 +3150,7 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Beautiful",
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
 };
 
