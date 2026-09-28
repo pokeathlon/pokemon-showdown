@@ -3310,6 +3310,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	knitschief: {
+		num: 3194,
+		name: "Knitschief",
+		types: ["Ghost", "Dark"],
+		baseStats: { hp: 62, atk: 93, def: 60, spa: 68, spd: 84, spe: 113 },
+		abilities: { 0: "Cotton Down", H: "Sharpness" },
+		heightm: 1.3,
+		weightkg: 12.2,
+		color: "Purple",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);

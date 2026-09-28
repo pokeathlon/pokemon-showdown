@@ -3137,6 +3137,20 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Tough",
 		shortDesc: "Sets Psychic Terrain on hit.",
 	},
+	vespercleave: {
+		num: 0,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Vesper Cleave",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1, slicing: 1 },
+		overrideDefensiveStat: 'spd',
+		target: "normal",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
