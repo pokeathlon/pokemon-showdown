@@ -445,7 +445,7 @@ export const namefilter: Chat.NameFilter = (name, user) => {
 		return '';
 	}
 	if (id === toID(user.trackRename)) return '';
-	let lcName = name
+	const lcName = name
 		.replace(/\u039d/g, 'N').toLowerCase()
 		.replace(/[\u200b\u007F\u00AD]/g, '')
 		.replace(/\u03bf/g, 'o')
@@ -551,7 +551,7 @@ export const statusfilter: Chat.StatusFilter = (status, user) => {
 	// Remove false positives.
 	lcStatus = lcStatus.replace('herapist', '').replace('grape', '').replace('scrape', '');
 	// Check for blatant staff impersonation attempts. Ideally this could be completely generated from Config.grouplist
-	// for better support for side servers, but not all ranks are staff ranks or should necessarily be filted.
+	// for better support for side servers, but not all ranks are staff ranks or should necessarily be filtered.
 	const impersonationRegex = /\b(?:global|room|upper|senior)?\s*(?:staff|admin|administrator|leader|owner|founder|mod|moderator|driver|voice|operator|sysop|creator)\b/gi;
 	if (!user.can('lock') && impersonationRegex.test(lcStatus)) return '';
 
@@ -774,6 +774,6 @@ export const commands: Chat.ChatCommands = {
 	},
 };
 
-process.nextTick(() => {
+export function start() {
 	Chat.multiLinePattern.register('/filter (add|remove) ');
-});
+}

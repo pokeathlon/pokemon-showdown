@@ -10,6 +10,12 @@
 import { Dex, toID } from './dex';
 import type { PRNG, PRNGSeed } from './prng';
 
+interface ExportOptions {
+	hideStats?: boolean;
+	removeNicknames?: boolean | ((nickname: string) => string | null);
+	useStatPoints?: boolean;
+}
+
 export interface PokemonSet {
 	/**
 	 * Nickname. Should be identical to its base species if not specified
@@ -48,7 +54,7 @@ export interface PokemonSet {
 	 * Effort Values, used in stat calculation.
 	 * These must be between 0 and 255, inclusive.
 	 *
-	 * Also used to store AVs for Let's Go
+	 * Also used to store AVs for Let's Go and Stat Points for Champions
 	 */
 	evs: StatsTable;
 	/**
@@ -113,6 +119,7 @@ export interface PokemonSet {
 	 */
 	fusion?: string;
 	altsprite?: string;
+	ability2?: string;
 }
 
 export const Teams = new class Teams {
@@ -199,7 +206,8 @@ export const Teams = new class Teams {
 			}
 
 			if (set.pokeball || set.hpType || set.gigantamax ||
-				(set.dynamaxLevel !== undefined && set.dynamaxLevel !== 10) || set.teraType || set.fusion || set.altsprite) {
+				(set.dynamaxLevel !== undefined && set.dynamaxLevel !== 10) || set.teraType ||
+				set.fusion || set.altsprite || set.ability2) {
 				buf += `,${set.hpType || ''}`;
 				buf += `,${this.packName(set.pokeball || '')}`;
 				buf += `,${set.gigantamax ? 'G' : ''}`;
@@ -207,6 +215,7 @@ export const Teams = new class Teams {
 				buf += `,${set.teraType || ''}`;
 				buf += `,${set.fusion || ''}`;
 				buf += `,${toID(set.altsprite) || ''}`;
+				buf += `,${this.packName(set.ability2) || ''}`;
 			}
 		}
 
@@ -327,9 +336,9 @@ export const Teams = new class Teams {
 			j = buf.indexOf(']', i);
 			let misc;
 			if (j < 0) {
-				if (i < buf.length) misc = buf.substring(i).split(',', 8);
+				if (i < buf.length) misc = buf.substring(i).split(',', 9);
 			} else {
-				if (i !== j) misc = buf.substring(i, j).split(',', 8);
+				if (i !== j) misc = buf.substring(i, j).split(',', 9);
 			}
 			if (misc) {
 				set.happiness = (misc[0] ? Number(misc[0]) : 255);
@@ -340,6 +349,7 @@ export const Teams = new class Teams {
 				set.teraType = misc[5];
 				set.fusion = misc[6];
 				set.altsprite = toID(misc[7]);
+				set.ability2 = this.unpackName(misc[8], Dex.abilities);
 			}
 			if (j < 0) break;
 			i = j + 1;
@@ -367,7 +377,7 @@ export const Teams = new class Teams {
 	/**
 	 * Exports a team in human-readable PS export format
 	 */
-	export(team: PokemonSet[], options?: { hideStats?: boolean }) {
+	export(team: PokemonSet[], options?: ExportOptions) {
 		let output = '';
 		for (const set of team) {
 			output += this.exportSet(set, options) + `\n`;
@@ -375,11 +385,14 @@ export const Teams = new class Teams {
 		return output;
 	}
 
-	exportSet(set: PokemonSet, { hideStats }: { hideStats?: boolean } = {}) {
+	exportSet(set: PokemonSet, { hideStats, removeNicknames, useStatPoints }: ExportOptions = {}) {
 		let out = ``;
 
 		// core
-		if (set.name && set.name !== set.species) {
+		if (typeof removeNicknames === 'function' && set.name && set.name !== set.species) {
+			set.name = removeNicknames(set.name) || set.species;
+		}
+		if (set.name && set.name !== set.species && removeNicknames !== true) {
 			out += `${set.name} (${set.species})`;
 		} else {
 			out += set.species;
@@ -390,7 +403,7 @@ export const Teams = new class Teams {
 		out += `  \n`;
 
 		if (set.ability) {
-			out += `Ability: ${set.ability}  \n`;
+			out += `Ability: ${set.ability}${set.ability2 ? ' / ' + set.ability2 : ''}  \n`;
 		}
 
 		// details
@@ -415,7 +428,7 @@ export const Teams = new class Teams {
 		if (set.gigantamax) {
 			out += `Gigantamax: Yes  \n`;
 		}
-		if (set.teraType) {
+		if (set.teraType && !useStatPoints) {
 			out += `Tera Type: ${set.teraType}  \n`;
 		}
 		if (set.fusion) {
@@ -487,10 +500,22 @@ export const Teams = new class Teams {
 			}
 		} else if (line.startsWith('Trait: ')) {
 			line = line.slice(7);
-			set.ability = aggressive ? toID(line) : line;
+			if (line.includes(' / ')) {
+				const split = line.split(' / ');
+				set.ability = aggressive ? toID(split[0]) : split[0];
+				set.ability2 = aggressive ? toID(split[1]) : split[1];
+			} else {
+				set.ability = aggressive ? toID(line) : line;
+			}
 		} else if (line.startsWith('Ability: ')) {
 			line = line.slice(9);
-			set.ability = aggressive ? toID(line) : line;
+			if (line.includes(' / ')) {
+				const split = line.split(' / ');
+				set.ability = aggressive ? toID(split[0]) : split[0];
+				set.ability2 = aggressive ? toID(split[1]) : split[1];
+			} else {
+				set.ability = aggressive ? toID(line) : line;
+			}
 		} else if (line === 'Shiny: Yes') {
 			set.shiny = true;
 		} else if (line.startsWith('Level: ')) {
@@ -643,18 +668,16 @@ export const Teams = new class Teams {
 		let mod = format.mod;
 		if (format.mod === 'monkeyspaw') mod = 'gen9';
 		const formatID = toID(format);
-		if (formatID.includes('gen9computergeneratedteams')) {
-			TeamGenerator = require(Dex.forFormat(format).dataDir + '/cg-teams').default;
-		} else if (mod === 'gen9ssb') {
+		if (mod === 'gen9ssb') {
 			TeamGenerator = require(`../data/mods/gen9ssb/random-teams`).default;
-		} else if (mod === 'ccapm2024') {
-			TeamGenerator = require(`../data/mods/ccapm2024/random-teams`).default;
-		} else if (mod === 'vaporemons') {
-			TeamGenerator = require(`../data/mods/vaporemons/random-teams`).default;
+		} else if (mod === 'afd') {
+			TeamGenerator = require(`../data/mods/afd/random-teams`).default;
 		} else if (formatID.includes('gen9babyrandombattle')) {
 			TeamGenerator = require(`../data/random-battles/gen9baby/teams`).default;
-		} else if (formatID.includes('gen9randombattle') && format.ruleTable?.has('+pokemontag:cap')) {
+		} else if (formatID.includes('gen9randombattle') && format.ruleTable?.has('+tag:cap')) {
 			TeamGenerator = require(`../data/random-battles/gen9cap/teams`).default;
+		} else if (formatID.includes('gen9freeforallrandombattle')) {
+			TeamGenerator = require(`../data/random-battles/gen9ffa/teams`).default;
 		} else {
 			TeamGenerator = require(`../data/random-battles/${mod}/teams`).default;
 		}

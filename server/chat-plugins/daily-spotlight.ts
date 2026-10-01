@@ -279,7 +279,7 @@ export const commands: Chat.ChatCommands = {
 	daily(target, room, user) {
 		room = this.requireRoom();
 		if (!room.persist) throw new Chat.ErrorMessage("This command is unavailable in temporary rooms.");
-		const key = toID(target);
+		const key = toID(this.splitOne(target)[0]);
 		if (!key) return this.parse('/help daily');
 
 		if (!spotlights[room.roomid]?.[key]) {
@@ -294,7 +294,7 @@ export const commands: Chat.ChatCommands = {
 		this.sendReplyBox(html);
 		if (!this.broadcasting && user.can('ban', null, room, 'setdaily')) {
 			const code = Utils.escapeHTML(description).replace(/\n/g, '<br />');
-			this.sendReplyBox(`<details><summary>Source</summary><code style="white-space: pre-wrap; display: table; tab-size: 3">/setdaily ${key},${image ? `${image},` : ''}${code}</code></details>`);
+			this.sendReplyBox(`<details><summary>Source</summary><code style="white-space: pre-wrap; display: table; tab-size: 3">/setdaily ${key},${image ? `${typeof image === 'string' ? image : image[0]},` : ''}${code}</code></details>`);
 		}
 		room.update();
 	},
@@ -336,6 +336,6 @@ export const handlers: Chat.Handlers = {
 	},
 };
 
-process.nextTick(() => {
+export function start() {
 	Chat.multiLinePattern.register('/(queue|set|replace)daily(at | )');
-});
+}

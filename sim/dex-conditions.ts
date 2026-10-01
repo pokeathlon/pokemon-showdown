@@ -1,5 +1,5 @@
 import { Utils } from '../lib/utils';
-import { assignMissingFields, BasicEffect, toID } from './dex-data';
+import { assignMissingFields, BasicEffect, toID, type ModdedEffectText } from './dex-data';
 import type { SecondaryEffect, MoveEventMethods } from './dex-moves';
 
 /**
@@ -48,15 +48,16 @@ export interface EventMethods {
 	onDeductPP?: (this: Battle, target: Pokemon, source: Pokemon) => number | void;
 	onDisableMove?: (this: Battle, pokemon: Pokemon) => void;
 	onDragOut?: (this: Battle, pokemon: Pokemon, source?: Pokemon, move?: ActiveMove) => void;
-	onEatItem?: (this: Battle, item: Item, pokemon: Pokemon) => void;
+	onEatItem?: (this: Battle, item: Item, pokemon: Pokemon, source?: Pokemon, effect?: Effect) => void;
 	onEffectiveness?: MoveEventMethods['onEffectiveness'];
 	onEntryHazard?: (this: Battle, pokemon: Pokemon) => void;
 	onFaint?: CommonHandlers['VoidEffect'];
 	onFlinch?: ((this: Battle, pokemon: Pokemon) => boolean | void) | boolean;
-	onFractionalPriority?: CommonHandlers['ModifierSourceMove'] | -0.1;
+	onFractionalPriority?: CommonHandlers['ModifierSourceMove'] | -0.1 | -0.2;
 	onHit?: MoveEventMethods['onHit'];
 	onImmunity?: (this: Battle, type: string, pokemon: Pokemon) => void;
 	onLockMove?: string | ((this: Battle, pokemon: Pokemon) => void | string);
+	onSemiLockMove?: string | ((this: Battle, pokemon: Pokemon) => void | string);
 	onMaybeTrapPokemon?: (this: Battle, pokemon: Pokemon) => void;
 	onModifyAccuracy?: CommonHandlers['ModifierMove'];
 	onModifyAtk?: CommonHandlers['ModifierSourceMove'];
@@ -86,8 +87,8 @@ export interface EventMethods {
 	) => Pokemon | void;
 	onResidual?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect) => void;
 	onSetAbility?: (
-		this: Battle, ability: string, target: Pokemon, source: Pokemon, effect: Effect
-	) => null | void;
+		(this: Battle, ability: string, target: Pokemon, source: Pokemon, effect: Effect) => null | void
+	) | boolean;
 	onSetStatus?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, effect: Effect
 	) => boolean | null | void;
@@ -106,6 +107,7 @@ export interface EventMethods {
 	onTryAddVolatile?: (
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, sourceEffect: Effect
 	) => boolean | null | void;
+	onHitProtect?: MoveEventMethods['onTryHit'];
 	onTryEatItem?: boolean | ((this: Battle, item: Item, pokemon: Pokemon) => boolean | void);
 	onTryHeal?: (
 		((this: Battle, relayVar: number, target: Pokemon, source: Pokemon, effect: Effect) => number | boolean | null | void)
@@ -456,6 +458,7 @@ export interface EventMethods {
 	onChangeBoostPriority?: number;
 	onDamagePriority?: number;
 	onDragOutPriority?: number;
+	onDisableMovePriority?: number;
 	onEffectivenessPriority?: number;
 	onFoeBasePowerPriority?: number;
 	onFoeBeforeMovePriority?: number;
@@ -466,6 +469,7 @@ export interface EventMethods {
 	onFractionalPriorityPriority?: number;
 	onHitPriority?: number;
 	onInvulnerabilityPriority?: number;
+	onMaybeTrapPokemonPriority?: number;
 	onModifyAccuracyPriority?: number;
 	onModifyAtkPriority?: number;
 	onModifyCritRatioPriority?: number;
@@ -498,6 +502,7 @@ export interface EventMethods {
 	onTryMovePriority?: number;
 	onTryPrimaryHitPriority?: number;
 	onTypePriority?: number;
+	onWeatherModifyDamagePriority?: number;
 }
 
 export interface PokemonEventMethods extends EventMethods {
@@ -626,7 +631,7 @@ export interface FieldConditionData extends
 
 export type ConditionData = PokemonConditionData | SideConditionData | FieldConditionData;
 
-export type ModdedConditionData = ConditionData & { inherit?: true };
+export type ModdedConditionData = ConditionData & ModdedEffectText & { inherit?: true };
 export interface ConditionDataTable { [id: IDEntry]: ConditionData }
 export interface ModdedConditionDataTable { [id: IDEntry]: ModdedConditionData }
 
@@ -645,6 +650,7 @@ export class Condition extends BasicEffect implements
 	declare readonly onStart?: (
 		this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect
 	) => boolean | null | void;
+	declare readonly onBattleStart?: (this: Battle, pokemon: Pokemon) => void;
 
 	constructor(data: AnyObject) {
 		super(data);
@@ -671,7 +677,7 @@ export class DexConditions {
 	}
 
 	getByID(id: ID): Condition {
-		if (id === '') return EMPTY_CONDITION;
+		if (id === '' || id === 'constructor') return EMPTY_CONDITION;
 
 		let condition = this.conditionCache.get(id);
 		if (condition) return condition;

@@ -27,12 +27,12 @@ export class RandomUraTeams extends RandomTeams {
 		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomUraSets);
 
 		while (pokemon.length < this.maxTeamSize) {
-			const candidate = {...this.sampleNoReplace(pool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
+			const candidate = { ...this.sampleNoReplace(pool), evs: { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 } };
 			const species = this.dex.species.get(candidate.species);
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
-			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({ ...candidate, level: 100 } as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);

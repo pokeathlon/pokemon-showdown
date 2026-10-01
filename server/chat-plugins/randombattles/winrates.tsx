@@ -47,7 +47,13 @@ function getDefaultStats(): Stats {
 			gen9randombattle: { mons: {} },
 			gen9randomdoublesbattle: { mons: {} },
 			gen9babyrandombattle: { mons: {} },
+			gen9chatbats: { mons: {} },
+			gen9ccapm2025randombattle: { mons: {} },
+			gen9mixandmegalimitedsupplyrandombattle: { mons: {} },
+			gen9deltamonrandombattle: { mons: {} },
 			gen9superstaffbrosultimate: { mons: {} },
+			gen9championsrandombattle: { mons: {} },
+			gen9championsrandomdoublesbattle: { mons: {} },
 			gen8randombattle: { mons: {} },
 			gen7randombattle: { mons: {} },
 			gen6randombattle: { mons: {} },
@@ -132,8 +138,8 @@ export function getSpeciesName(set: PokemonSet, format: Format) {
 		return "Kyogre-Primal";
 	} else if (species === "Groudon" && item.name === "Red Orb") {
 		return "Groudon-Primal";
-	} else if (item.megaStone) {
-		return item.megaStone;
+	} else if (item.megaStone?.[species]) {
+		return item.megaStone[species];
 	} else if (species === "Rayquaza" && moves.includes('Dragon Ascent') && !item.zMove && megaRayquazaPossible) {
 		return "Rayquaza-Mega";
 	} else if (species === "Poltchageist-Artisan") { // Babymons from here on out
@@ -173,16 +179,24 @@ async function collectStats(battle: RoomBattle, winner: ID, players: ID[]) {
 	const formatData = stats.formats[battle.format];
 	let eloFloor = stats.elo;
 	const format = Dex.formats.get(battle.format);
-	if (format.mod === 'gen2' || format.team === 'randomBaby') {
-		// ladders are inactive, so use a lower threshold
+	if (format.mod.startsWith('champions')) {
+		// ladder is inactive, so use a lower threshold
+		eloFloor = (format.gameType === 'doubles') ? 1150 : 1250;
+	} else if (format.mod === 'gen2') {
 		eloFloor = 1150;
+	} else if (format.team === 'randomBaby') {
+		// ladder is even more inactive, so an even lower threshold
+		eloFloor = 1000;
 	} else if (format.mod !== `gen${Dex.gen}`) {
 		eloFloor = 1300;
 	} else if (format.gameType === 'doubles') {
 		// may need to be raised again if ladder takes off further
 		eloFloor = 1400;
 	}
-	if (!formatData || (format.mod !== 'gen9ssb' && battle.rated < eloFloor) || !winner) return;
+	if (!formatData || ((format.mod !== 'gen9ssb' && format.mod !== 'chatbats' &&
+		format.mod !== 'gen9mnmlimitedsupply' && format.mod !== 'gen9deltamon') &&
+		battle.rated < eloFloor) || !winner)
+		return;
 	checkRollover();
 	for (const p of battle.players) {
 		const team = await battle.getPlayerTeam(p);

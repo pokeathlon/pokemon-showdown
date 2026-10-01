@@ -1,9 +1,5 @@
 export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Current items that do not exist
-	loadeddice: {
-		inherit: true,
-		isNonstandard: "Future",
-	},
 	boosterenergy: {
 		inherit: true,
 		isNonstandard: "Future",
@@ -106,26 +102,6 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 
 	// Past items that are now legal
-	fightinggem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	flyinggem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	groundgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	watergem: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	normalgem: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	berryjuice: {
 		inherit: true,
 		isNonstandard: null,
@@ -148,17 +124,17 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	},
 	sturdyshell: {
 		name: "Sturdy Shell",
-		shortDesc: "If held by a Koopa Troopa/Paratroopa/Dry Bones, its Defense is doubled.",
+		shortDesc: "If held by Koopa Troopa/Paratroopa/Dry Bones/Hammer Bro, its Defense is doubled.",
 		spritenum: -5,
 		fling: {
 			basePower: 10,
 		},
 		onModifyDef(def, pokemon) {
-			if (["Koopa Troopa", "Paratroopa", "Dry Bones"].includes(pokemon.species.name) && !pokemon.transformed) {
+			if (["Koopa Troopa", "Paratroopa", "Dry Bones", "Hammer Bro"].includes(pokemon.species.name) && !pokemon.transformed) {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Koopa Troopa", "Paratroopa", "Dry Bones"],
+		itemUser: ["Koopa Troopa", "Paratroopa", "Dry Bones", "Hammer Bro"],
 		num: 0,
 	},
 };

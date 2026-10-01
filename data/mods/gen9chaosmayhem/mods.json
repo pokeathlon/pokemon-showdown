@@ -1,0 +1,12 @@
+{
+		"gen9insurgence": {},
+		"gen9uranium": {},
+		"gen9infinity": {},
+		"gen9mariomon": {
+			"Conditions": ["frz"]
+		},
+		"gen9infinitefusion": {},
+		"gen9soulstones": {
+			"Conditions": ["gem"]
+		}
+}

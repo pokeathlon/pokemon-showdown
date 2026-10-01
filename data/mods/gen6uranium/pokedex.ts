@@ -1,11 +1,11 @@
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
-import { Pokedex as Parent} from '../gen9uranium/pokedex';
+import { Pokedex as Parent } from '../gen9uranium/pokedex';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
-const cutDex: {[k: string]: number} = {
+const cutDex: { [k: string]: number } = {
 	"orchynx": 1,
 	"metalynx": 2,
 	"metalynxmega": 2,
@@ -182,7 +182,9 @@ const cutDex: {[k: string]: number} = {
 	"whimsicott": 91,
 	"whimsicottmega": 91,
 	"misdreavus": 92,
+	"misdreavuscanopus": 92,
 	"mismagius": 93,
+	"mismagiuscanopus": 93,
 	"barand": 94,
 	"barandnuclear": 94,
 	"glaslug": 95,
@@ -365,10 +367,10 @@ const cutDex: {[k: string]: number} = {
 	"uraynebeta": 197,
 };
 
-for (const key in {...Base, ...Pokedex}) {
+for (const key in { ...Base, ...Pokedex }) {
 	const id = key as keyof typeof Base;
-	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
 
-	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
-	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

@@ -1,12 +1,12 @@
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
-import { Pokedex as Parent} from '../gen9infinitefusion/pokedex';
+import { Pokedex as Parent } from '../gen9infinitefusion/pokedex';
 import { FormatsData } from './formats-data';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
-const cutDex: {[k: string]: number} = {
+const cutDex: { [k: string]: number } = {
 	"bulbmantle": 1001,
 	"ivymelortle": 1002,
 	"venustoizard": 1003,
@@ -30,6 +30,9 @@ const cutDex: {[k: string]: number} = {
 	"celemewchi": 1021,
 	"regitrio": 1022,
 	"deosectwo": 1023,
+	"luvbrufisk": 1024,
+	"solminiatonecore": 1025,
+	"solminiatonemeteor": 1026,
 	"bulbasaur": 1,
 	"ivysaur": 2,
 	"venusaur": 3,
@@ -553,11 +556,11 @@ const cutDex: {[k: string]: number} = {
 	"luvdisc": 501,
 };
 
-for (const key in {...Base, ...Pokedex}) {
+for (const key in { ...Base, ...Pokedex }) {
 	const id = key as keyof typeof Base;
 	let exists = false; // For New Lands format
-	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
-	if (cutDex[id]) {Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 7}; exists = true;}
-	if (Base[id] && Base[id].num && (386 >= Base[id].num && Base[id].num >= 252) && !Base[id].baseSpecies) {Pokedex[id] = {...Pokedex[id], isNonstandard: null, gen: 7}; exists = true;} // New Lands format
-	if (!exists) Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
+	if (cutDex[id]) { Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 7 }; exists = true; }
+	if (Base[id]?.num && (386 >= Base[id].num && Base[id].num >= 252) && !Base[id].baseSpecies) { Pokedex[id] = { ...Pokedex[id], isNonstandard: null, gen: 7 }; exists = true; } // New Lands format
+	if (!exists) Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

@@ -12,9 +12,10 @@
  */
 
 import { execSync } from "child_process";
-import { Repl, ProcessManager, type Streams } from '../lib';
+import { ProcessManager, type Streams } from '../lib';
 import { BattleStream } from "../sim/battle-stream";
 import { RoomGamePlayer, RoomGame } from "./room-game";
+import * as ConfigLoader from './config-loader';
 import type { Tournament } from './tournaments/index';
 import type { RoomSettings } from './rooms';
 import type { BestOfGame } from './room-battle-bestof';
@@ -520,6 +521,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 	override readonly timer: RoomBattleTimer;
 	started = false;
 	active = false;
+	password = "";
 	replaySaved: boolean | 'auto' = false;
 	forcedSettings: { modchat?: string | null, privacy?: string | null } = {};
 	p1: RoomBattlePlayer = null!;
@@ -652,6 +654,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 			return;
 		}
 		request.isWait = false;
+		request.choice = '';
 
 		void this.stream.write(`>${player.slot} undo`);
 	}
@@ -854,7 +857,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 		// If the room's replay was hidden, don't let users join after the game is over
 		if (this.room.hideReplay) {
 			this.room.settings.modjoin = '%';
-			this.room.setPrivate('hidden');
+			this.room.setPrivate('hidden', this.password);
 		}
 		this.room.update();
 
@@ -877,11 +880,13 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 		if (winner && !winner.registered) {
 			this.room.sendUser(winner, '|askreg|' + winner.id);
 		}
+		const p1 = this.p1.name;
+		const p2 = this.p2.name;
 		const [score, p1rating, p2rating] = await Ladders(this.ladder).updateRating(
-			this.p1.name, this.p2.name, p1score, this.room
+			p1, p2, p1score, this.room
 		);
 		void this.logBattle(score, p1rating, p2rating);
-		Chat.runHandlers('onBattleRanked', this, winnerid, [p1rating, p2rating], [this.p1.id, this.p2.id]);
+		Chat.runHandlers('onBattleRanked', this, winnerid, [p1rating, p2rating], [p1, p2].map(toID));
 	}
 	async logBattle(
 		p1score: number, p1rating: AnyObject | null = null, p2rating: AnyObject | null = null,
@@ -1229,9 +1234,9 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 			player.id ? (
 				`<form><label>Player ${player.num}: <strong>${player.name}</strong></label></form>`
 			) : player.invite ? (
-				`<form data-submitsend="/msgroom ${this.roomid},/uninvitebattle ${player.invite}"><label>Player ${player.num}: <strong>${player.invite}</strong> (invited) <button>Uninvite</button></label></form>`
+				`<form data-submitsend="/msgroom ${this.roomid},/uninvitebattle ${player.invite}"><label>Player ${player.num}: <strong>${player.invite}</strong> (invited) <button type="submit">Uninvite</button></label></form>`
 			) : (
-				`<form data-submitsend="/msgroom ${this.roomid},/invitebattle {username}, p${player.num}"><label>Player ${player.num}: <input name="username" class="textbox" placeholder="Username" /></label> <button class="button">Add Player</button></form>`
+				`<form data-submitsend="/msgroom ${this.roomid},/invitebattle {username}, p${player.num}"><label>Player ${player.num}: <input name="username" class="textbox" placeholder="Username" /></label> <button class="button" type="submit">Add Player</button></form>`
 			)
 		));
 		if (this.gameType === 'multi') {
@@ -1297,7 +1302,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 			void this.stream.write(`>chat-inputlogonly ${user.getIdentity(this.room)}|${line}`);
 		}
 	}
-	async getLog(): Promise<string[] | void> {
+	async getInputLog(): Promise<string[] | void> {
 		if (!this.logData) this.logData = {};
 		void this.stream.write('>requestlog');
 		const logPromise = new Promise<string[]>((resolve, reject) => {
@@ -1354,18 +1359,21 @@ export class RoomBattleStream extends BattleStream {
  * Process manager
  *********************************************************/
 
-export const PM = new ProcessManager.StreamProcessManager(module, () => new RoomBattleStream(), message => {
+export const PM = new ProcessManager.StreamProcessManager('sim', module, () => new RoomBattleStream(), message => {
 	if (message.startsWith(`SLOW\n`)) {
 		Monitor.slow(message.slice(5));
 	}
 });
 
+export function start(processCount: ConfigLoader.SubProcessesConfig) {
+	PM.spawn(processCount['simulator'] ?? 1);
+}
+
 if (!PM.isParentProcess) {
-	// This is a child process!
+	ConfigLoader.ensureLoaded();
 	try {
 		require('source-map-support').install();
 	} catch {}
-	global.Config = require('./config-loader').Config;
 	global.Dex = require('../sim/dex').Dex;
 	global.Monitor = {
 		crashlog(error: Error, source = 'A simulator process', details: AnyObject | null = null) {
@@ -1375,7 +1383,7 @@ if (!PM.isParentProcess) {
 		slow(text: string) {
 			process.send!(`CALLBACK\nSLOW\n${text}`);
 		},
-	};
+	} as typeof Monitor;
 	global.__version = { head: '' };
 	try {
 		const head = execSync('git rev-parse HEAD', {
@@ -1400,7 +1408,5 @@ if (!PM.isParentProcess) {
 	}
 
 	// eslint-disable-next-line no-eval
-	Repl.start(`sim-${process.pid}`, cmd => eval(cmd));
-} else {
-	PM.spawn(global.Config ? Config.simulatorprocesses : 1);
+	PM.startRepl(cmd => eval(cmd));
 }

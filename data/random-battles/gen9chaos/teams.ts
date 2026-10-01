@@ -4,6 +4,7 @@ import { TeamValidator } from '../../../sim';
 
 export class RandomChaosTeams extends RandomTeams {
 	randomChaosSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
+	randomChaosDoublesSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaosdoubles'];
 	validator = new TeamValidator('gen9chaosag');
 	levels: AnyObject = {
 		"AG": 75,
@@ -24,23 +25,24 @@ export class RandomChaosTeams extends RandomTeams {
 
 		const seed = this.prng.getSeed();
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomChaosSets);
+
+		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.format.gameType === 'singles' ? this.randomChaosSets : this.randomChaosDoublesSets);
 
 		while (pokemon.length < this.maxTeamSize) {
-			const candidate = {...this.sampleNoReplace(pool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
+			const candidate = { ...this.sampleNoReplace(pool), evs: { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 } };
 			const species = this.dex.species.get(candidate.species);
 
 			if (candidate.level) candidate.level = parseInt(candidate.level);
 			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
-			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({ ...candidate, level: 100 } as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);
 
-			if (this.dex.items.get(candidate.item).megaEvolves) {
-				pool = pool.filter(set => !this.dex.items.get(set.item).megaEvolves);
+			if (this.dex.items.get(candidate.item).megaStone) {
+				pool = pool.filter(set => !this.dex.items.get(set.item).megaStone);
 			}
-			
+
 			if (this.dex.mod('gen9').species.get(candidate.species).exists) {
 				pool = pool.filter(set => !this.dex.mod('gen9').species.get(set.species).exists);
 			}

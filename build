@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 
-try {
-	// technically this was introduced in Node 17, but we'll ask for the most recent LTS with it to be safe
-	structuredClone({});
-} catch (e) {
-	console.log("We require Node.js version 18 or later; you're using " + process.version);
+if (!Set.prototype.intersection) {
+	// Set#intersection was introduced in Node 22, which is currently in maintenance
+	// Might as well ask for the most recent "Active LTS" to be safe
+	// https://nodejs.org/en/about/previous-releases
+	console.error("We require Node.js version 22 (and recommend 24) or later; you're using " + process.version);
 	process.exit(1);
 }
 
@@ -16,19 +16,23 @@ var force = decl || ['--force', 'force', '--full', 'full'].includes(process.argv
 
 process.chdir(__dirname);
 
+if (process.argv[2] === 'translations') {
+	const result = child_process.spawnSync(
+		process.execPath, ['./tools/build-translations.mts', ...process.argv.slice(3)], {stdio: 'inherit'}
+	);
+	process.exit(result.status === null ? 1 : result.status);
+}
+
 function shell(cmd) {
 	child_process.execSync(cmd, {stdio: 'inherit'});
 }
 
 // Check to make sure the most recently added or updated dependency is installed at the correct version
 try {
-	var version = require('esbuild').version.split('.');
-	if (parseInt(version[1]) < 16) {
-		throw new Error("esbuild version too old");
-	}
+	require.resolve('ts-chacha20');
 } catch (e) {
 	console.log('Installing dependencies...');
-	shell('npm install');
+	shell('npm ci');
 }
 
 // Make sure config.js exists. If not, copy it over synchronously from
@@ -45,15 +49,16 @@ try {
 	);
 }
 
-pullAndBuild();
-
-async function pullAndBuild() {
+(async () => {
 	await require('./tools/sheets').update();
+	
 	// for some reason, esbuild won't be requirable until a tick has passed
 	// see https://stackoverflow.com/questions/53270058/node-cant-find-certain-modules-after-synchronous-install
 	setImmediate(() => {
-		// npm package, don't rebuild
-		if (process.argv[2] === 'postinstall' && fs.existsSync('dist')) return;
 		require('./tools/build-utils').transpile(force, decl);
+		const {Dex} = require('./dist/sim/dex');
+		for (const entry of fs.readdirSync('data/text', {withFileTypes: true})) {
+			if (entry.isDirectory()) Dex.loadTextData(entry.name);
+		}
 	});
-}
+})();

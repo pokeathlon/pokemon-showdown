@@ -452,6 +452,47 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "OU",
 	},
+	ludicoloeghomega: {
+		inherit: true,
+		tier: "OU",
+	},
+	onixbrock: {
+		inherit: true,
+		tier: "OU",
+	},
+	onixcrystal: {
+		inherit: true,
+		tier: "OU",
+	},
+	psyduckmisty: {
+		inherit: true,
+		tier: "OU",
+	},
+	pikachuash: {
+		inherit: true,
+		tier: "OU",
+	},
+	raticateblue: {
+		inherit: true,
+		tier: "OU",
+	},
+	zoroarkn: {
+		inherit: true,
+		tier: "OU",
+	},
+	missingnomega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	arbokjessie: {
+		inherit: true,
+		tier: "OU",
+	},
+	weezingjames: {
+		inherit: true,
+		tier: "OU",
+	},
 
 	// UU
 	bakemon: {
@@ -946,6 +987,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	missingno: {
 		inherit: true,
+		isNonstandard: null,
 		tier: "RU",
 	},
 	obsideon: {

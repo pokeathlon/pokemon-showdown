@@ -1,10 +1,10 @@
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
-import { Pokedex as Parent} from '../gen9insurgence/pokedex';
+import { Pokedex as Parent } from '../gen9insurgence/pokedex';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
-const cutDex: {[k: string]: number} = {
+const cutDex: { [k: string]: number } = {
 	"bulbasaur": 1,
 	"ivysaur": 2,
 	"venusaur": 3,
@@ -180,7 +180,7 @@ const cutDex: {[k: string]: number} = {
 	"chikorita": 152,
 	"bayleef": 153,
 	"meganium": 154,
-	"meganiummega": 154,
+	"meganiummegai": 154,
 	"cyndaquil": 155,
 	"quilava": 156,
 	"typhlosion": 157,
@@ -188,7 +188,7 @@ const cutDex: {[k: string]: number} = {
 	"totodile": 158,
 	"croconaw": 159,
 	"feraligatr": 160,
-	"feraligatrmega": 160,
+	"feraligatrmegai": 160,
 	"sentret": 161,
 	"furret": 162,
 	"hoothoot": 163,
@@ -562,7 +562,7 @@ const cutDex: {[k: string]: number} = {
 	"probopass": 476,
 	"dusknoir": 477,
 	"froslass": 478,
-	"froslassmega": 478,
+	"froslassmegai": 478,
 	"rotom": 479,
 	"rotomwash": 479,
 	"rotomheat": 479,
@@ -1061,10 +1061,10 @@ const cutDex: {[k: string]: number} = {
 	"ufi": 925,
 };
 
-for (const key in {...Base, ...Pokedex}) {
+for (const key in { ...Base, ...Pokedex }) {
 	const id = key as keyof typeof Base;
-	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
 
-	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
-	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

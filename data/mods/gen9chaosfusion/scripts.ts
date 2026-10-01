@@ -1,4 +1,4 @@
-import {Scripts as Chaos} from '../gen9chaos/scripts';
+import { Scripts as Chaos } from '../gen9chaos/scripts';
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,

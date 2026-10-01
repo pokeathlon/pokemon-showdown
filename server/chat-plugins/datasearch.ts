@@ -8,10 +8,9 @@
  * @license MIT
  */
 
+import * as ConfigLoader from '../config-loader';
 import { ProcessManager, Utils } from '../../lib';
 import type { FormatData } from '../../sim/dex-formats';
-import { TeamValidator } from '../../sim/team-validator';
-import { Chat } from '../chat';
 
 interface DexOrGroup {
 	abilities: { [k: string]: boolean };
@@ -50,7 +49,6 @@ interface MoveOrGroup {
 
 type Direction = 'less' | 'greater' | 'equal';
 
-const MAX_PROCESSES = 1;
 const RESULTS_MAX_LENGTH = 10;
 const MAX_RANDOM_RESULTS = 30;
 const dexesHelpMods = Object.keys((global.Dex?.dexes || {})).filter(x => x !== 'sourceMaps').join('</code>, <code>');
@@ -125,11 +123,11 @@ export const commands: Chat.ChatCommands = {
 		}
 	},
 	dexsearchhelp() {
-		this.sendReply(
-			`|html| <details class="readmore"><summary><code>/dexsearch [parameter], [parameter], [parameter], ...</code>: searches for Pok\u00e9mon that fulfill the selected criteria<br/>` +
-			`Search categories are: type, tier, color, moves, ability, gen, resists, weak, recovery, zrecovery, priority, stat, weight, height, egg group, pivot.<br/>` +
+		this.sendReplyBox(
+			`<details class="readmore"><summary><code>/dexsearch [parameter], [parameter], [parameter], ...</code>: searches for Pok\u00e9mon that fulfill the selected criteria.<br/>` +
+			`Search categories are: type, tier, color, moves, ability, gen, resists, weak, recovery, zrecovery, priority, stat, weight, height, egg group, pivot and restricted.<br/>` +
 			`Valid colors are: green, red, blue, white, brown, yellow, purple, pink, gray and black.<br/>` +
-			`Valid tiers are: Uber/OU/UUBL/UU/RUBL/RU/NUBL/NU/PUBL/PU/ZUBL/ZU/NFE/LC/CAP/CAP NFE/CAP LC.<br/>` +
+			`Valid tiers are: AG/Uber/OU/UUBL/UU/RUBL/RU/NUBL/NU/PUBL/PU/ZUBL/ZU/NFE/LC/CAP/CAP NFE/CAP LC.<br/>` +
 			`Valid doubles tiers are: DUber/DOU/DBL/DUU/DNU.</summary>` +
 			`Types can be searched for by either having the type precede <code>type</code> or just using the type itself as a parameter; e.g., both <code>fire type</code> and <code>fire</code> show all Fire types; however, using <code>psychic</code> as a parameter will show all Pok\u00e9mon that learn the move Psychic and not Psychic types.<br/>` +
 			`<code>resists</code> followed by a type or move will show Pok\u00e9mon that resist that typing or move (e.g. <code>resists normal</code>).<br/>` +
@@ -141,10 +139,10 @@ export const commands: Chat.ChatCommands = {
 			`<code>Alola</code>, <code>Galar</code>, <code>Therian</code>, <code>Totem</code>, or <code>Primal</code> can be used as parameters to search for those formes.<br/>` +
 			`Parameters separated with <code>|</code> will be searched as alternatives for each other; e.g., <code>trick | switcheroo</code> searches for all Pok\u00e9mon that learn either Trick or Switcheroo.<br/>` +
 			`You can search for info in a specific generation by appending the generation to ds or by using the <code>maxgen</code> keyword; e.g. <code>/ds1 normal</code> or <code>/ds normal, maxgen1</code> searches for all Pok\u00e9mon that were Normal type in Generation I.<br/>` +
-			`You can search for info in a specific mod by using <code>mod=[mod name]</code>; e.g. <code>/nds mod=ssb, protean</code>. All valid mod names are: <code>${dexesHelpMods}</code><br/>` +
+			`You can search for info in a specific mod by using <code>mod=[mod name]</code>; e.g. <code>/nds mod=gen9ssb, wonder guard</code>. All valid mod names are: <code>${dexesHelpMods}</code><br/>` +
 			`You can search for info in a specific rule defined metagame by using <code>rule=[rule name]</code>; e.g. <code>/nds rule=alphabetcupmovelegality, v-create</code>. All supported rule names are: <code>${dexsearchHelpRules}</code><br/>` +
 			`By default, <code>/dexsearch</code> will search only Pok\u00e9mon obtainable in the current generation. Add the parameter <code>unreleased</code> to include unreleased Pok\u00e9mon. Add the parameter <code>natdex</code> (or use the command <code>/nds</code>) to include all past Pok\u00e9mon.<br/>` +
-			`Searching for a Pok\u00e9mon with both egg group and type parameters can be differentiated by adding the suffix <code>group</code> onto the egg group parameter; e.g., seaching for <code>grass, grass group</code> will show all Grass types in the Grass egg group.<br/>` +
+			`Searching for a Pok\u00e9mon with both egg group and type parameters can be differentiated by adding the suffix <code>group</code> onto the egg group parameter; e.g., searching for <code>grass, grass group</code> will show all Grass types in the Grass egg group.<br/>` +
 			`The parameter <code>monotype</code> will only show Pok\u00e9mon that are single-typed.<br/>` +
 			`The order of the parameters does not matter.<br/>`
 		);
@@ -344,7 +342,7 @@ export const commands: Chat.ChatCommands = {
 	movesearchhelp() {
 		this.sendReplyBox(
 			`<code>/movesearch [parameter], [parameter], [parameter], ...</code>: searches for moves that fulfill the selected criteria.<br/><br/>` +
-			`Search categories are: type, category, gen, contest condition, flag, status inflicted, type boosted, Pok\u00e9mon targeted, and numeric range for base power, pp, priority, and accuracy.<br/><br/>` +
+			`Search categories are: type, category, gen, contest condition, flag, status inflicted, stat boosted, Pok\u00e9mon targeted, and numeric range for base power, pp, priority, and accuracy.<br/><br/>` +
 			`<details class="readmore"><summary>Parameter Options</summary>` +
 			`- Types can be followed by <code> type</code> for clarity; e.g. <code>dragon type</code>.<br/>` +
 			`- Stat boosts must be preceded with <code>boosts </code>, and stat-lowering moves with <code>lowers </code>; e.g., <code>boosts attack</code> searches for moves that boost the Attack stat of either Pok\u00e9mon.<br/>` +
@@ -352,7 +350,7 @@ export const commands: Chat.ChatCommands = {
 			`- <code>zmove</code>, <code>max</code>, or <code>gmax</code> as parameters will search for Z-Moves, Max Moves, and G-Max Moves respectively.<br/>` +
 			`- Move targets must be preceded with <code>targets </code>; e.g. <code>targets user</code> searches for moves that target the user.<br/>` +
 			`- Valid move targets are: one ally, user or ally, one adjacent opponent, all Pokemon, all adjacent Pokemon, all adjacent opponents, user and allies, user's side, user's team, any Pokemon, opponent's side, one adjacent Pokemon, random adjacent Pokemon, scripted, and user.<br/>` +
-			`- Valid flags are: allyanim, bypasssub (bypasses Substitute), bite, bullet, cantusetwice, charge, contact, dance, defrost, distance (can target any Pokemon in Triples), failcopycat, failencore, failinstruct, failmefirst, failmimic, futuremove, gravity, heal, highcrit, instruct, metronome, mimic, mirror (reflected by Mirror Move), mustpressure, multihit, noassist, nonsky, noparentalbond, nosketch, nosleeptalk, ohko, pivot, pledgecombo, powder, priority, protect, pulse, punch, recharge, recovery, reflectable, secondary, slicing, snatch, sound, and wind.<br/>` +
+			`- Valid flags are: allyanim, bypasssub (bypasses Substitute), bite, bullet, cantusetwice, charge, contact, dance, defrost, distance (can target any Pokemon in Triples), failcopycat, failencore, failinstruct, failmefirst, failmimic, futuremove, gravity, heal, highcrit, metronome, mirror (reflected by Mirror Move), mustpressure, multihit, noassist, nonsky, noparentalbond, nosketch, nosleeptalk, ohko, pivot, pledgecombo, powder, priority, protect, pulse, punch, recharge, recovery, reflectable, secondary, slicing, snatch, sound, and wind.<br/>` +
 			`- <code>protection</code> as a parameter will search protection moves like Protect, Detect, etc.<br/>` +
 			`- A search that includes <code>!protect</code> will show all moves that bypass protection.<br/>` +
 			`</details><br/>` +
@@ -363,7 +361,7 @@ export const commands: Chat.ChatCommands = {
 			`- Parameters separated with <code>|</code> will be searched as alternatives for each other; e.g. <code>fire | water</code> searches for all moves that are either Fire type or Water type.<br/>` +
 			`- If a Pok\u00e9mon is included as a parameter, only moves from its movepool will be included in the search.<br/>` +
 			`- You can search for info in a specific generation by appending the generation to ms; e.g. <code>/ms1 normal</code> searches for all moves that were Normal type in Generation I.<br/>` +
-			`- You can search for info in a specific mod by using <code>mod=[mod name]</code>; e.g. <code>/nms mod=ssb, dark, bp=100</code>. All valid mod names are: <code>${dexesHelpMods}</code><br/>` +
+			`- You can search for info in a specific mod by using <code>mod=[mod name]</code>; e.g. <code>/nms mod=gen9ssb, lowers defense, ghost</code>. All valid mod names are: <code>${dexesHelpMods}</code><br/>` +
 			`- <code>/ms</code> will search all non-dexited moves (clickable in that game); you can include dexited moves by using <code>/nms</code> or by adding <code>natdex</code> as a parameter.<br/>` +
 			`- The order of the parameters does not matter.` +
 			`</details>`
@@ -735,6 +733,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 		infinity: 'Infinity',
 		digimon: 'Digimon',
 		mariomon: 'Mariomon',
+		soulstones: 'Soulstones',
 		rejuvenation: 'Rejuvenation',
 		mysterygift: 'Mystery Gift',
 	});
@@ -869,7 +868,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 				if (isNotSearch) return { error: "You cannot use the negation symbol '!' with inequality tier searches." };
 				target = target.substr(4).trim();
 				if (!target.startsWith('>') && !target.startsWith('<')) {
-					return { error: "You must use an inequality operator '>' or '<' with performing tier inequality searchs." };
+					return { error: "You must use an inequality operator '>' or '<' with performing tier inequality searches." };
 				}
 				isTierInequalityParam = true;
 				tierInequalitySearch = true;
@@ -1187,7 +1186,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 			if (target === 'pivot') {
 				for (const move in mod.data.Moves) {
 					const moveData = mod.moves.get(move);
-					if (moveData.selfSwitch && moveData.id !== 'revivalblessing' && moveData.id !== 'batonpass') {
+					if (moveData.selfSwitch && moveData.id !== 'revivalblessing' && ['batonpass', 'grabandgo'].includes(moveData.id)) {
 						const invalid = validParameter("moves", move, isNotSearch, target);
 						if (invalid) return { error: invalid };
 						if (isNotSearch) {
@@ -1574,7 +1573,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 			mon.battleOnly! : null : null;
 		if (teraFormeChangesFrom && results.includes(mod.species.get(teraFormeChangesFrom)) &&
 			getSortValue(mon) === getSortValue(mod.species.get(teraFormeChangesFrom))) continue;
-		if (mon.isNonstandard === 'Gigantamax' && !allowGmax) continue;
+		if (mon.forme.endsWith('Gmax') && !allowGmax) continue;
 		results.push(mon);
 	}
 
@@ -2084,8 +2083,8 @@ function runMovesearch(target: string, cmd: string, message: string, isTest: boo
 		const move = mod.moves.get(moveid);
 		if (move.gen <= mod.gen) {
 			if (
-				(!nationalSearch && move.isNonstandard && move.isNonstandard !== "Gigantamax") ||
-				(nationalSearch && move.isNonstandard && !["Gigantamax", "Past", "Unobtainable"].includes(move.isNonstandard)) ||
+				(!nationalSearch && move.isNonstandard && move.isNonstandard !== "Gmax") ||
+				(nationalSearch && move.isNonstandard && !["Gmax", "Past", "Unobtainable"].includes(move.isNonstandard)) ||
 				(move.isMax && mod.gen !== 8)
 			) {
 				continue;
@@ -2127,7 +2126,7 @@ function runMovesearch(target: string, cmd: string, message: string, isTest: boo
 
 			for (const flag in alts.flags) {
 				if (flag === 'secondary') {
-					if (!(move.secondary || move.secondaries || move.hasSheerForce) === !alts.flags[flag]) {
+					if (!(move.secondary || move.secondaries || move.hasSheerForceBoost) === !alts.flags[flag]) {
 						matched = true;
 						break;
 					}
@@ -2317,7 +2316,7 @@ function runMovesearch(target: string, cmd: string, message: string, isTest: boo
 			}
 			if (matched) continue;
 			if (alts.other.pivot !== undefined) {
-				const pivot = move.selfSwitch && move.id !== 'revivalblessing' && move.id !== 'batonpass';
+				const pivot = move.selfSwitch && move.id !== 'revivalblessing' && ['batonpass', 'grabandgo'].includes(move.id);
 				if (pivot && alts.other.pivot || !(pivot || alts.other.pivot)) matched = true;
 			}
 			if (matched) continue;
@@ -2468,6 +2467,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 		case 'atk':
 		case 'attack':
 			if (['sp', 'special'].includes(rawSearch[i - 1])) {
+				newWord = '';
 				break;
 			} else {
 				newWord = 'attack';
@@ -2480,6 +2480,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 		case 'def':
 		case 'defense':
 			if (['sp', 'special'].includes(rawSearch[i - 1])) {
+				newWord = '';
 				break;
 			} else {
 				newWord = 'defense';
@@ -2582,7 +2583,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 		for (const item of dex.items.all()) {
 			let matched = 0;
 			// splits words in the description into a toID()-esk format except retaining / and . in numbers
-			let descWords = item.desc || '';
+			let descWords = dex.text.get(item).desc || '';
 			// add more general quantifier words to descriptions
 			if (/[1-9.]+x/.test(descWords)) descWords += ' increases';
 			if (item.isBerry) descWords += ' berry';
@@ -2766,11 +2767,11 @@ function runAbilitysearch(target: string, cmd: string, message: string) {
 	for (const ability of dex.abilities.all()) {
 		let matched = 0;
 		// splits words in the description into a toID()-esque format except retaining / and . in numbers
-		let descWords = ability.desc || ability.shortDesc || '';
+		let descWords = dex.text.get(ability).desc;
 		// add more general quantifier words to descriptions
 		if (/[1-9.]+x/.test(descWords)) descWords += ' increases';
 		descWords = descWords.replace(/super[-\s]effective/g, 'supereffective');
-		const descWordsArray = Chat.normalize(descWords).split(' ');
+		const descWordsArray = Utils.normalize(descWords).split(' ');
 
 		for (const word of searchedWords) {
 			switch (word) {
@@ -3071,7 +3072,7 @@ function runRandtype(target: string, cmd: string, message: string) {
  * Process manager
  *********************************************************/
 
-export const PM = new ProcessManager.QueryProcessManager<AnyObject, AnyObject>(module, query => {
+export const PM = new ProcessManager.QueryProcessManager<AnyObject, AnyObject>('dexsearch', module, query => {
 	try {
 		if (Config.debugdexsearchprocesses && process.send) {
 			process.send('DEBUG\n' + JSON.stringify(query));
@@ -3105,8 +3106,7 @@ export const PM = new ProcessManager.QueryProcessManager<AnyObject, AnyObject>(m
 });
 
 if (!PM.isParentProcess) {
-	// This is a child process!
-	global.Config = require('../config-loader').Config;
+	ConfigLoader.ensureLoaded();
 	global.Monitor = {
 		crashlog(error: Error, source = 'A datasearch process', details: AnyObject | null = null) {
 			const repr = JSON.stringify([error.name, error.message, source, details]);
@@ -3120,13 +3120,12 @@ if (!PM.isParentProcess) {
 	}
 
 	global.Dex = require('../../sim/dex').Dex;
+	global.TeamValidator = require('../../sim/team-validator').TeamValidator;
 	global.toID = Dex.toID;
 	Dex.includeData();
 
 	// eslint-disable-next-line no-eval
-	require('../../lib/repl').Repl.start('dexsearch', (cmd: string) => eval(cmd));
-} else {
-	PM.spawn(MAX_PROCESSES);
+	PM.startRepl((cmd: string) => eval(cmd));
 }
 
 export const testables = {
@@ -3137,3 +3136,11 @@ export const testables = {
 	runMovesearch: (target: string, cmd: string, message: string) =>
 		runMovesearch(target, cmd, message, true),
 };
+
+export function start(processCount: ConfigLoader.SubProcessesConfig) {
+	PM.spawn(processCount['datasearch'] ?? 1);
+}
+
+export function destroy() {
+	void PM.destroy();
+}

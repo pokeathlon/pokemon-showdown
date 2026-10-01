@@ -35,6 +35,7 @@ import { type ScavengerGameTemplate } from './chat-plugins/scavenger-games';
 import { type RepeatedPhrase } from './chat-plugins/repeats';
 import {
 	PM as RoomBattlePM, RoomBattle, RoomBattlePlayer, RoomBattleTimer, type RoomBattleOptions,
+	start as startBattleProcesses,
 } from "./room-battle";
 import { BestOfGame } from './room-battle-bestof';
 import { RoomGame, SimpleRoomGame, RoomGamePlayer } from './room-game';
@@ -44,6 +45,7 @@ import { RoomAuth } from './user-groups';
 import { type PartialModlogEntry, mainModlog } from './modlog';
 import { Replays } from './replays';
 import * as crypto from 'crypto';
+import type { SubProcessesConfig } from './config-loader';
 
 /*********************************************************
  * the Room object.
@@ -123,6 +125,8 @@ export interface RoomSettings {
 	minorActivityQueue?: MinorActivityData[];
 	repeats?: RepeatedPhrase[];
 	topics?: string[];
+	// auto start thing of the day
+	autoStartOtd?: boolean;
 	autoModchat?: {
 		rank: GroupSymbol,
 		time: number,
@@ -297,7 +301,7 @@ export abstract class BasicRoom {
 		if (!options.isPersonal) this.persist = true;
 
 		this.minorActivity = null;
-		this.minorActivityQueue = null;
+		this.minorActivityQueue = this.settings.minorActivityQueue || null;
 		if (options.parentid) {
 			this.setParent(Rooms.get(options.parentid) || null);
 		}
@@ -528,6 +532,7 @@ export abstract class BasicRoom {
 		if (!this.minorActivityQueue) this.minorActivityQueue = [];
 		this.minorActivityQueue.push(activity);
 		this.settings.minorActivityQueue = this.minorActivityQueue;
+		this.saveSettings();
 	}
 	clearMinorActivityQueue(slot?: number, depth = 1) {
 		if (!this.minorActivityQueue) return;
@@ -820,7 +825,7 @@ export abstract class BasicRoom {
 		// this doesn't update parentid or subroom user symbols because it's
 		// intended to be used for cleanup only
 	}
-	setPrivate(privacy: PrivacySetting) {
+	setPrivate(privacy: PrivacySetting, password?: string) {
 		this.settings.isPrivate = privacy;
 		this.saveSettings();
 
@@ -837,10 +842,12 @@ export abstract class BasicRoom {
 			if (privacy) {
 				if (this.roomid.endsWith('pw')) return true;
 
-				// This is the same password generation approach as genPassword in the client replays.lib.php
-				// but obviously will not match given mt_rand there uses a different RNG and seed.
-				let password = '';
-				for (let i = 0; i < 31; i++) password += ALPHABET[crypto.randomInt(0, ALPHABET.length - 1)];
+				if (!password) {
+					// This is the same password generation approach as genPassword in the client replays.lib.php
+					// but obviously will not match given mt_rand there uses a different RNG and seed.
+					password = '';
+					for (let i = 0; i < 31; i++) password += ALPHABET[crypto.randomInt(0, ALPHABET.length - 1)];
+				}
 
 				this.rename(this.title, `${this.roomid}-${password}pw` as RoomID, true);
 			} else {
@@ -1178,8 +1185,8 @@ export abstract class BasicRoom {
 		Rooms.rooms.delete(this.roomid);
 		if (this.roomid === 'lobby') Rooms.lobby = null;
 	}
-	tr(strings: string | TemplateStringsArray, ...keys: any[]) {
-		return Chat.tr(this.settings.language || 'english' as ID, strings, ...keys);
+	TL(strings: string | TemplateStringsArray, ...keys: any[]) {
+		return Chat.TLto(this.settings.language || 'english' as ID, strings, ...keys);
 	}
 }
 
@@ -1245,7 +1252,7 @@ export class GlobalRoomState {
 				if (settings.isPrivate === true) settings.isPrivate = 'hidden';
 			}
 
-			// We're okay with assinging type `ID` to `RoomID` here
+			// We're okay with assigning type `ID` to `RoomID` here
 			// because the hyphens in chatrooms don't have any special
 			// meaning, unlike in helptickets, groupchats, battles etc
 			// where they are used for shared modlogs and the like
@@ -1299,19 +1306,24 @@ export class GlobalRoomState {
 		} catch {}
 		this.lastBattle = Number(lastBattle) || 0;
 		this.lastWrittenBattle = this.lastBattle;
+	}
+
+	start(processCount: SubProcessesConfig) {
 		void this.loadBattles();
+		startBattleProcesses(processCount);
 	}
 
 	async serializeBattleRoom(room: Room) {
 		if (!room.battle || room.battle.ended) return null;
+		if (room.battle.gameid === 'bestof') return null;
 		room.battle.frozen = true;
-		const log = await room.battle.getLog();
+		const inputLog = await room.battle.getInputLog();
 		const players = room.battle.players.map(p => p.id).filter(Boolean);
-		if (!players.length || !log?.length) return null; // shouldn't happen???
+		if (!players.length || !inputLog?.length) return null; // shouldn't happen???
 		// players can be empty right after `/importinputlog`
 		return {
 			roomid: room.roomid,
-			inputLog: log.join('\n'),
+			inputLog: inputLog.join('\n'),
 			players,
 			title: room.title,
 			rated: room.battle.rated,
@@ -1332,6 +1344,7 @@ export class GlobalRoomState {
 			rated: Number(rated),
 			players: [],
 			delayedTimer: timer.active,
+			isBestOfSubBattle: true, // not technically true but prevents a crash
 		});
 		if (!room?.battle) return false; // shouldn't happen???
 		if (timer) { // json blob of settings
@@ -1370,12 +1383,15 @@ export class GlobalRoomState {
 	battlesLoading = false;
 	async loadBattles() {
 		this.battlesLoading = true;
+		// FIXME: There's nobody to receive this message yet.
+		/*
 		for (const u of Users.users.values()) {
 			u.send(
 				`|pm|~|${u.getIdentity()}|/uhtml restartmsg,` +
 				`<div class="broadcast-red"><b>Your battles are currently being restored.<br />Please be patient as they load.</div>`
 			);
 		}
+		*/
 		const startTime = Date.now();
 		let count = 0;
 		let input;
@@ -1482,6 +1498,7 @@ export class GlobalRoomState {
 			// 32 was previously used for Multi Battles
 			if (format.bestOfDefault) displayCode |= 64;
 			if (format.teraPreviewDefault) displayCode |= 128;
+			if (format.itemClauseDefault) displayCode |= 256;
 			this.formatList += ',' + displayCode.toString(16);
 		}
 		return this.formatList;
@@ -1806,7 +1823,7 @@ export class GlobalRoomState {
 				} else {
 					this.notifyRooms(
 						notifyPlaces,
-						`|html|<div class="broadcsat-red"><b>Automatic server lockdown kill canceled.</b><br /><br />In the last final seconds, the automatic lockdown was manually disabled.</div>`
+						`|html|<div class="broadcast-red"><b>Automatic server lockdown kill canceled.</b><br /><br />In the last final seconds, the automatic lockdown was manually disabled.</div>`
 					);
 				}
 			}, 10 * 1000);
@@ -2036,6 +2053,16 @@ export class GameRoom extends BasicRoom {
 		const battle = this.battle;
 		if (!battle) return;
 
+		if (!user?.registered) {
+			connection?.popup(`Your account must be registered to upload replays.`);
+			return;
+		}
+
+		if (battle.turn <= 1 && battle.inputLog?.slice(-1)[0].includes('>forcelose')) {
+			connection?.popup(`There was an error uploading your replay.`);
+			return;
+		}
+
 		// retrieve spectator log (0) if there are privacy concerns
 		const format = Dex.formats.get(this.format, true);
 
@@ -2045,37 +2072,47 @@ export class GameRoom extends BasicRoom {
 		let hideDetails = !format.id.includes('customgame');
 		if (format.team && battle.ended) hideDetails = false;
 
-		const data = this.getLog(hideDetails ? 0 : -1);
-
-		let rating = 0;
+		const log = this.getLog(hideDetails ? 0 : -1);
+		let rating: number | undefined;
 		if (battle.ended && this.rated) rating = this.rated;
-
-		if (battle.replaySaved) {
-			connection?.popup(`The replay for this battle was already saved. You can find it at https://replay.pokeathlon.com/`);
-			return;
+		let { id, password } = this.getReplayData();
+		if (password) password = (battle.password ||= password);
+		const silent = options === 'forpunishment' || options === 'silent' || options === 'auto';
+		if (silent) connection = undefined;
+		const isPrivate = this.settings.isPrivate || this.hideReplay;
+		const hidden = options === 'auto' ? 10 :
+			options === 'forpunishment' || (this as any).unlistReplay ? 2 :
+			isPrivate ? 1 :
+			0;
+		if (isPrivate && hidden !== 2) {
+			password = (battle.password ||= Replays.generatePassword());
 		}
-		battle.replaySaved = true;
+		if (battle.replaySaved !== true && hidden === 10) {
+			battle.replaySaved = 'auto';
+		} else {
+			battle.replaySaved = true;
+		}
 
 		let buf = '<!DOCTYPE html>\n';
 		buf += '<meta charset="utf-8" />\n';
 		buf += '<!-- version 1 -->\n';
 		buf += `<title>${Utils.escapeHTML(format.name)} replay: ${Utils.escapeHTML(battle.p1.name)} vs. ${Utils.escapeHTML(battle.p2.name)}</title>\n`;
 		buf += '<div class="wrapper replay-wrapper" style="max-width:1000px;margin:0 auto">\n';
-		buf += '<div class="battle" style="top: -9px; left: -9px;"></div><div class="battle-log" style="top: -9px; right: -9px;"></div><div class="replay-controls"></div><div class="replay-controls-2"></div>\n';
-		buf += '<script type="text/plain" class="battle-log-data">' + data.replace(/\//g, '\\/') + '</script>\n';
+		buf += '<div class="battle" style="top: -9px; left: -9px;"></div><div class="battle-log" style="top: -9px; right: -9px;"></div><div class="replay-controls"></div><div class="replay-controls-2"></div><div class="replay-controls-3"></div>\n';
+		buf += '<script type="text/plain" class="battle-log-data">' + log.replace(/\//g, '\\/') + '</script>\n';
 		buf += '</div>\n';
 		buf += '</div>\n';
 		buf += '<script>\n';
 		buf += `let daily = Math.floor(Date.now()/1000/60/60/24);document.write('<script src="https://play.pokeathlon.com/js/replay-embed.js?version'+daily+'"></'+'script>');\n`;
 		buf += '</script>\n';
 
-		const replayName = `${toID(battle.p1.name)}-${toID(battle.p2.name)}${battle.p3 ? '-' + toID(battle.p3.name) : ''}${battle.p4 ? '-' + toID(battle.p4.name) : ''}-${Date.now()}`;
+		const replayName = battle.roomid.slice(7);
 
-		FS(`server/static/replays/${replayName}.html`).writeSync(buf);
-		FS(`server/static/replays/${replayName}.log`).writeSync(data);
-		FS(`server/static/replays/${replayName}.json`).writeSync(JSON.stringify({
+		await FS(`server/static/replays/${replayName}.html`).write(buf);
+		await FS(`server/static/replays/${replayName}.log`).write(log);
+		await FS(`server/static/replays/${replayName}.json`).write(JSON.stringify({
 			id: replayName,
-			log: data,
+			log: log,
 			players: battle.players.map(p => p.name),
 			format: format.name,
 			formatid: format.id,
@@ -2085,7 +2122,8 @@ export class GameRoom extends BasicRoom {
 			uploadtime: Math.trunc(Date.now() / 1000),
 		}));
 
-		FS('server/static/replays/replays.csv').appendSync(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
+		if (!battle.replaySaved) await FS('server/static/replays/replays.csv').append(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
+		battle.replaySaved = true;
 
 		connection?.popup(
 			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +

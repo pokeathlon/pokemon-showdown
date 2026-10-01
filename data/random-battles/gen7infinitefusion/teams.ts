@@ -27,7 +27,7 @@ export class RandomIFTeams extends RandomTeams {
 		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.randomIFSets);
 
 		while (pokemon.length < this.maxTeamSize) {
-			const candidate = {...this.sampleNoReplace(pool), evs: {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84}};
+			const candidate = { ...this.sampleNoReplace(pool), evs: { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 } };
 			const species = this.dex.species.get(candidate.species);
 			const fusion = this.dex.species.get(candidate.fusion);
 
@@ -37,7 +37,7 @@ export class RandomIFTeams extends RandomTeams {
 				candidate.level += this.levels[fusion.tier] ? this.levels[fusion.tier] : 95;
 				candidate.level = Math.floor(candidate.level / 2);
 			}
-			if (this.validator.validateSet({...candidate, level: 100} as PokemonSet, {})) continue;
+			if (this.validator.validateSet({ ...candidate, level: 100 } as PokemonSet, {})) continue;
 			pokemon.push(candidate);
 
 			pool = pool.filter(set => set.species !== candidate.species);

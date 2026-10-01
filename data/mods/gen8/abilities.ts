@@ -283,9 +283,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
-		onFaint(target) {
-			delete this.effectState.busted;
-		},
 		rating: 3.5,
 	},
 	download: {
@@ -431,8 +428,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	heatproof: {
 		inherit: true,
-		onSourceModifyAtk() {},
-		onSourceModifySpA() {},
+		onSourceModifyAtk: undefined, // no inherit
+		onSourceModifySpA: undefined, // no inherit
 		onSourceBasePowerPriority: 18,
 		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fire') {
@@ -484,8 +481,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	illuminate: {
 		inherit: true,
-		onTryBoost() {},
-		onModifyMove() {},
+		onTryBoost: undefined, // no inherit
+		onModifyMove: undefined, // no inherit
 		flags: {},
 		rating: 0,
 	},

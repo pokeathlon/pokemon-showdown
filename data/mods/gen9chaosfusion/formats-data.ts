@@ -9,11 +9,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	yatagaryu: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	yatagaryugossamir: {
 		inherit: true,
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	seikamater: {
 		inherit: true,
@@ -24,6 +24,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "Uber",
 	},
 	inflagetah: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	inflagetahfenestra: {
 		inherit: true,
 		natDexTier: "Uber",
 	},
@@ -87,7 +91,87 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "Uber",
 	},
-	berserkergene: {
+	cherrymon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	piedmon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	woodmon: {
+		inherit: true,
+		natDexTier: "NFE",
+	},
+	puppetmon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	metalseadramon: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	froslassmegai: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	medichammega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	mawilemega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	starmiemega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	medichamdeltamega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	stunfiskmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	missingnomega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	scovillainmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	marowakmega: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	slithereina: {
+		inherit: true,
+		natDexTier: "Uber",
+	},
+	myotismon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	phantomon: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	venus: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	mars: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	mercury: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	jupiter: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -95,9 +179,21 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	regalunith: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	sthencio: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	patabyte: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	paldiatina: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UUBL",
 	},
 	dragapult: {
 		inherit: true,
@@ -107,39 +203,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
-	garudamon: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	genesect: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	genesectburn: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	genesectchill: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	genesectdouse: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	genesectshock: {
-		inherit: true,
-		natDexTier: "OU",
-	},
 	gougingfire: {
 		inherit: true,
 		natDexTier: "OU",
 	},
-	growlsome: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	naganadel: {
+	meloettapirouette: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -157,19 +225,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	zekyushiram: {
 		inherit: true,
-		natDexTier: "OU",
-	},
-	zygarde: {
-		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UUBL",
 	},
 	avaluggdelta: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	cetitanhisui: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	ironmoth: {
 		inherit: true,
@@ -177,17 +241,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	monzaemon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	numemon: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	raikousupra: {
-		inherit: true,
-		natDexTier: "OU",
-	},
-	treatern: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -237,7 +293,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	fidgit: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	fluttermane: {
 		inherit: true,
@@ -249,11 +305,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	lukagon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	dondozo: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	alakazam: {
 		inherit: true,
@@ -279,17 +335,93 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	psyduckmisty: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	onixcrystal: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	martiantis: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	varkacosm: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	spiritomb: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	drifblimdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	kecleodon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	silretro: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	sinistchamasterpiece: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	polteageistantique: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	mausholdfour: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	zarudedada: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	monetoad: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	soulply: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	rampardos: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	verdicent: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	haxorus: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	glastrier: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	actannuclear: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	archeops: {
+		inherit: true,
+		natDexTier: "UU",
+	},
 	leomon: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	ludicoloegho: {
 		inherit: true,
-		natDexTier: "OU",
-	},
-	lunachi: {
-		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	snorlaxdelta: {
 		inherit: true,
@@ -297,11 +429,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sorcerice: {
 		inherit: true,
-		natDexTier: "OU",
-	},
-	drifblimdelta: {
-		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "Uber",
 	},
 	ogerponhearthflame: {
 		inherit: true,
@@ -312,6 +440,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "OU",
 	},
 	hoopaunbound: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	charizarddeltamega: {
 		inherit: true,
 		natDexTier: "OU",
 	},
@@ -335,6 +467,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
+	gargryph: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gargryphtenebris: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	glacieros: {
 		inherit: true,
 		natDexTier: "OU",
@@ -349,7 +489,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sweepdol: {
 		inherit: true,
-		natDexTier: "OU",
+		natDexTier: "UU",
 	},
 	ursaluna: {
 		inherit: true,
@@ -363,7 +503,31 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "OU",
 	},
-	astrolotl: {
+	nidorook: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	porygonx: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	dramsamanucleardarkmega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	sunfloradeltamega: {
+		inherit: true,
+		natDexTier: "UUBL",
+	},
+	penumbralith: {
+		inherit: true,
+		natDexTier: "OU",
+	},
+	weezingjames: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	lokix: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -391,15 +555,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	crucibelle: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	crucibellemega: {
 		inherit: true,
 		natDexTier: "UU",
 	},
 	cyclohm: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	cloudinyte: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -441,7 +605,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pyroak: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	revenankh: {
 		inherit: true,
@@ -489,7 +653,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	bahamist: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 	},
 	baxcalibur: {
 		inherit: true,
@@ -501,13 +665,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	blargg: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	bonetail: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	catzelwyrm: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -521,7 +681,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	corviknight: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	crayzigater: {
 		inherit: true,
@@ -547,6 +707,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	escarphone: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	hoppyre: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	faeralynx: {
 		inherit: true,
 		natDexTier: "UU",
@@ -557,13 +725,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	flymon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	frigimon: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	garchomp: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -575,6 +739,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	gellin: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gellinincandesci: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	gloomtail: {
 		inherit: true,
 		natDexTier: "UU",
@@ -585,7 +757,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	grandmirage: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	grasquatch: {
 		inherit: true,
@@ -597,7 +769,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	greymon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "NFE",
 	},
 	hatterene: {
 		inherit: true,
@@ -605,7 +777,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	herolune: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	incineroarolul: {
 		inherit: true,
@@ -615,17 +787,21 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	jovianshk: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	kingambit: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	kingboo: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	klepto: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	uproot: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	kleavordelta: {
 		inherit: true,
@@ -647,17 +823,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	metalynx: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	mochimechi: {
 		inherit: true,
 		natDexTier: "UU",
 	},
 	moltres: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	monochromon: {
 		inherit: true,
@@ -691,10 +863,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	porygonzrhinian: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	reaptide: {
 		inherit: true,
 		natDexTier: "UU",
@@ -702,6 +870,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	redvegiemon: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	redyoshi: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	roaringmoon: {
 		inherit: true,
@@ -737,7 +909,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	slowkinggalar: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	snugglosis: {
 		inherit: true,
@@ -769,7 +941,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tyrannomon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 	},
 	ursalunabloodmoon: {
 		inherit: true,
@@ -791,9 +963,13 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	wyvarice: {
+	vareon: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	zorblob: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	zapdos: {
 		inherit: true,
@@ -805,7 +981,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	majorburrows: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	arctozolt: {
 		inherit: true,
@@ -837,13 +1013,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	alpicochristmas: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 	},
 	deoxysspeed: {
 		inherit: true,
 		natDexTier: "UU",
 	},
 	dragonitedelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	dragonite: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -883,10 +1063,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	porygonx: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	registeeldelta: {
 		inherit: true,
 		natDexTier: "UU",
@@ -917,15 +1093,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	annihilape: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	crustledeltacake: {
 		inherit: true,
-		natDexTier: "UU",
-	},
-	dracovish: {
-		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	goodradelta: {
 		inherit: true,
@@ -938,6 +1110,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	nimbeon: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	quezsparce: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	sunflorid: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	regidrago: {
 		inherit: true,
@@ -967,13 +1147,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	tinkatonrhinian: {
-		inherit: true,
-		natDexTier: "UU",
-	},
 	alpico: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	angemon: {
 		inherit: true,
@@ -981,11 +1157,11 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	angrysun: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	anneliark: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	arcaninedelta: {
 		inherit: true,
@@ -1001,7 +1177,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	birdramon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "NFE",
 	},
 	cheninphox: {
 		inherit: true,
@@ -1012,6 +1188,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 	},
 	etemon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	palafin: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1029,7 +1209,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	kyodonquaza: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "OU",
 	},
 	madpiano: {
 		inherit: true,
@@ -1057,13 +1237,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	nebulant: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "RU",
 	},
 	piximon: {
-		inherit: true,
-		natDexTier: "UU",
-	},
-	regitrio: {
 		inherit: true,
 		natDexTier: "UU",
 	},
@@ -1089,7 +1265,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	unimon: {
 		inherit: true,
-		natDexTier: "UU",
+		natDexTier: "NFE",
 	},
 	yoob: {
 		inherit: true,
@@ -1103,9 +1279,57 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
-	cinderace: {
+	cereebal: {
 		inherit: true,
 		natDexTier: "UU",
+	},
+	conchallenge: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	hyterra: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	komoduel: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	wistyxi: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	vervestra: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	roseradegigas: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	clefablemega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	toumarrow: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	utensitilemega: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	mochaselle: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	feraligatrmegai: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	cinderace: {
+		inherit: true,
+		natDexTier: "RU",
 	},
 	greninja: {
 		inherit: true,
@@ -1163,6 +1387,422 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "UU",
 	},
+	amoongussdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	charizarddelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	darmanitan: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	feraligatr: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	nidoqueen: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	nidoking: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	orthworm: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	wochien: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	doublade: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	volcanion: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	berserkergene: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	monetoed: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	whacksteroid: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	clodsire: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	venusaurdelta: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	slowking: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	champeon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	ironchamber: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	ironcleft: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	lunura: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	naganadel: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	raikousupra: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	toxapex: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	zygarde: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	tapubulu: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	nestitan: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	pestri: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	garudamon: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	utensitile: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	rakura: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	dryguaro: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	bowser: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	rillaboom: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	condorfeit: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	funglow: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	eversheen: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	galathea: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	keepurr: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	pikachuash: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	arcaspark: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	tenkibo: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	zoroarkn: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	meowsticf: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	squawkabilly: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	dudunsparce: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	jawladin: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	kokismash: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	krilvolver: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	majungold: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	majungoldvelocikull: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	ludicoloeghomega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	okidogi: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	poliwrathmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	excadrillmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hawluchamega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	gourgeistmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	chesnaughtmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	feraligatrmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	kinette: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	garchomp: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	garchompmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	chimechomega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	victreebelmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	crabominablemega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mallowhim: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	skarmorymega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	emboarmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	twirler: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	regasunde: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	froslassmega: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	anderind: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	anderindchristmas: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mawmaw: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	metalynx: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	sauphozoa: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	cactusplash: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	ceraguard: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	genesect: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	genesectchill: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	genesectdouse: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	genesectshock: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	genesectburn: {
+		inherit: true,
+		natDexTier: "UU",
+	},
+	guardeon: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	lakitu: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	regitrio: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	meditao: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	wyrmplode: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	astrolotl: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	dracovish: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	garlikid: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	paraboomambroise: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	bossbrolder: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	sableyegrinch: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	terlardmalus: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	vilucardhalloween: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	astronitelaveau: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	yux: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	crucibelle: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	mienshao: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	raffitiratthew: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hydroupa: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	s51aostara: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	flygonarmor: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	ukiki: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	jerboltanuclear: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1177,7 +1817,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	uraynebeta: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UU",
 	},
 	aurorusdelta: {
 		inherit: true,
@@ -1188,10 +1828,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	broozer: {
-		inherit: true,
-		natDexTier: "RU",
-	},
-	carcharus: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1275,6 +1911,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	buzzswole: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	calobera: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1299,13 +1939,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	mjochiin: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	psysteed: {
 		inherit: true,
-		natDexTier: "RU",
+		natDexTier: "UUBL",
 	},
 	quaquaval: {
 		inherit: true,
@@ -1332,6 +1968,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	celestray: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	celesteela: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1376,6 +2016,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "RU",
 	},
 	phanto: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	primarina: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1471,11 +2115,27 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
+	chimaconda: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	chimacondaatumra: {
+		inherit: true,
+		natDexTier: "RU",
+	},
 	clefable: {
 		inherit: true,
 		natDexTier: "RU",
 	},
 	coatlith: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	coatlithilex: {
+		inherit: true,
+		natDexTier: "RU",
+	},
+	hippowdon: {
 		inherit: true,
 		natDexTier: "RU",
 	},
@@ -1623,10 +2283,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	haxorus: {
-		inherit: true,
-		natDexTier: "RU",
-	},
 	ironleaves: {
 		inherit: true,
 		natDexTier: "RU",
@@ -1643,7 +2299,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "RU",
 	},
-	porygon2rhinian: {
+	coelamon: {
 		inherit: true,
 		natDexTier: "NFE",
 	},
@@ -1651,27 +2307,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		natDexTier: "NFE",
 	},
-	corsolanuclear: {
-		inherit: true,
-		natDexTier: "NFE",
-	},
-	gligarnuclear: {
-		inherit: true,
-		natDexTier: "NFE",
-	},
-	hagoopnuclear: {
-		inherit: true,
-		natDexTier: "NFE",
-	},
-	maskingnuclear: {
-		inherit: true,
-		natDexTier: "NFE",
-	},
 	palijnuclear: {
-		inherit: true,
-		natDexTier: "NFE",
-	},
-	tubjawnuclear: {
 		inherit: true,
 		natDexTier: "NFE",
 	},
@@ -1720,6 +2356,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "NFE",
 	},
 	draggalong: {
+		inherit: true,
+		natDexTier: "NFE",
+	},
+	parasect: {
 		inherit: true,
 		natDexTier: "NFE",
 	},
@@ -1846,5 +2486,156 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	chuggon: {
 		inherit: true,
 		natDexTier: "LC",
+	},
+	chyinmunknuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	ekansnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	owtennuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	costrawnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	paraudionuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	baashaunnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	tancoonnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	nupinnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	paharnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	tonemynuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	maskingnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	chupachonuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	hagoopnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	tubjawnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	corsolanuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	gligarnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	cutiefly: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	woobat: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	grozardmalus: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	misdreavuscanopus: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	poltchageistartisan: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	magikarpnuclear: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	vulpixalola: {
+		inherit: true,
+		natDexTier: "LC",
+	},
+	meganiummega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	dragonitemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "UU",
+	},
+	chandeluremega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	golurkmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	delphoxmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	greninjamega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	floettemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "Uber",
+	},
+	meowsticmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	drampamega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	glimmoramega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	arbokjessie: {
+		inherit: true,
+		natDexTier: "OU",
 	},
 };

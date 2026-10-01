@@ -5,7 +5,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'slp', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
 			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
 				this.add('-status', target, 'slp', '[from] move: ' + sourceEffect.name);
 			} else {
@@ -60,7 +60,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		duration: 5,
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				this.add('-weather', 'Thunderstorm', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'Thunderstorm', '[from] ability: ' + effect.name, `[of] ${source}`);
 			} else {
 				this.add('-weather', 'Thunderstorm');
 			}
@@ -79,7 +79,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onWeather(target) {
 			if (this.effectState.duration && this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('thunderstorm')), -6, 6);
-				if (target.runImmunity('Electric')) this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				if (target.runImmunity('Electric')) this.damage(target.maxhp * 2 ** typeMod / 8);
 			}
 		},
 		onFieldEnd() {
@@ -92,7 +92,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		duration: 5,
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				this.add('-weather', 'Fallout', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'Fallout', '[from] ability: ' + effect.name, `[of] ${source}`);
 			} else {
 				this.add('-weather', 'Fallout');
 			}
@@ -110,7 +110,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 		onWeather(target) {
 			if (this.effectState.duration && this.effectState.duration % 2 === 0) {
 				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('fallout')), -6, 6);
-				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				this.damage(target.maxhp * 2 ** typeMod / 8);
 			}
 		},
 		onFieldEnd() {

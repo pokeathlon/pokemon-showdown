@@ -1,4 +1,4 @@
-const prevos: {[k: string]: string[]} = {
+const prevos: { [k: string]: string[] } = {
 	"seikamater": ["Sponee", "Smore", "Tricwe"],
 };
 
@@ -51,9 +51,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
 				this.baseSpecies = rawSpecies;
-				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level.toString()) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
-						(this.fusion ? ', fusion: ' + this.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
+					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
 				if (this.terastallized) details += `, tera:${this.terastallized}`;
 				if (!this.illusion) this.battle.add('detailschange', this, details);
@@ -78,12 +78,13 @@ export const Scripts: ModdedBattleScriptsData = {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
 							for (const item of allowedItems) {
-								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
+								const megaFormeName = item.megaStone?.[this.illusion.species.name];
+								if (megaFormeName) megaForme = this.battle.dex.species.get(megaFormeName);
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
-									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
-										(this.illusion.fusion ? ', fusion: ' + this.illusion.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
+									(this.level === 100 ? '' : ', L' + this.level.toString()) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
+									(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);
 								this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
@@ -113,7 +114,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				const ability = species.abilities[abilitySlot] || species.abilities['0'];
 				// Ogerpon's forme change doesn't override permanent abilities
-				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
+				if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, null, true);
 				// However, its ability does reset upon switching out
 				this.baseAbility = this.battle.dex.toID(ability);
 			}
@@ -129,7 +130,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!action) throw new Error(`Action not passed to resolveAction`);
 			if (action.choice === 'pass') return [];
 			const actions = [action];
-	
+
 			if (!action.side && action.pokemon) action.side = action.pokemon.side;
 			if (!action.move && action.moveid) action.move = this.battle.dex.getActiveMove(action.moveid);
 			if (!action.order) {
@@ -140,7 +141,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					beforeTurn: 4,
 					beforeTurnMove: 5,
 					revivalblessing: 6,
-	
+
 					megaEvo: 101,
 					megaEvoX: 101,
 					megaEvoY: 101,
@@ -151,10 +152,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					runDynamax: 105,
 					terastallize: 106,
 					priorityChargeMove: 107,
-	
+
 					shift: 200,
 					// default is 200 (for moves)
-	
+
 					residual: 300,
 				};
 				if (action.choice in orders) {
@@ -218,12 +219,12 @@ export const Scripts: ModdedBattleScriptsData = {
 					action.pokemon.switchFlag = false;
 				}
 			}
-	
+
 			const deferPriority = this.battle.gen === 7 && action.mega && action.mega !== 'done';
 			if (action.move) {
 				let target = null;
 				action.move = this.battle.dex.getActiveMove(action.move);
-	
+
 				if (!action.targetLoc) {
 					target = this.battle.getRandomTarget(action.pokemon, action.move);
 					// TODO: what actually happens here?

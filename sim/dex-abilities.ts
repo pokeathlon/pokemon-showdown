@@ -1,5 +1,5 @@
-import type { PokemonEventMethods, ConditionData } from './dex-conditions';
-import { assignMissingFields, BasicEffect, toID } from './dex-data';
+import type { PokemonEventMethods, ConditionData, ModdedConditionData } from './dex-conditions';
+import { assignMissingFields, BasicEffect, toID, type ModdedEffectText } from './dex-data';
 import { Utils } from '../lib/utils';
 
 interface AbilityEventMethods {
@@ -24,7 +24,10 @@ export interface AbilityData extends Partial<Ability>, AbilityEventMethods, Poke
 	name: string;
 }
 
-export type ModdedAbilityData = AbilityData | Partial<AbilityData> & { inherit: true };
+export type ModdedAbilityData = (AbilityData | Partial<AbilityData> & {
+	inherit: true,
+	condition?: ModdedConditionData,
+}) & ModdedEffectText;
 export interface AbilityDataTable { [abilityid: IDEntry]: AbilityData }
 export interface ModdedAbilityDataTable { [abilityid: IDEntry]: ModdedAbilityData }
 
@@ -34,6 +37,7 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 	/** Rating from -1 Detrimental to +5 Essential; see `data/abilities.ts` for details. */
 	readonly rating: number;
 	readonly suppressWeather: boolean;
+	readonly suppressTerrain: boolean;
 	readonly flags: AbilityFlags;
 	declare readonly condition?: ConditionData;
 
@@ -43,6 +47,7 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 		this.fullname = `ability: ${this.name}`;
 		this.effectType = 'Ability';
 		this.suppressWeather = !!data.suppressWeather;
+		this.suppressTerrain = !!data.suppressTerrain;
 		this.flags = data.flags || {};
 		this.rating = data.rating || 0;
 
@@ -85,7 +90,7 @@ export class DexAbilities {
 	}
 
 	getByID(id: ID): Ability {
-		if (id === '') return EMPTY_ABILITY;
+		if (id === '' || id === 'constructor') return EMPTY_ABILITY;
 		let ability = this.abilityCache.get(id);
 		if (ability) return ability;
 
@@ -93,11 +98,9 @@ export class DexAbilities {
 			ability = this.get(this.dex.getAlias(id));
 		} else if (id && this.dex.data.Abilities.hasOwnProperty(id)) {
 			const abilityData = this.dex.data.Abilities[id] as any;
-			const abilityTextData = this.dex.getDescs('Abilities', id, abilityData);
 			ability = new Ability({
 				name: id,
 				...abilityData,
-				...abilityTextData,
 			});
 			if (ability.gen > this.dex.gen) {
 				(ability as any).isNonstandard = 'Future';

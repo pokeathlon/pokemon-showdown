@@ -18,6 +18,31 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	bittermalice: {
+		inherit: true,
+		secondary: {
+			chance: 30,
+			status: 'frz',
+		},
+		shortDesc: "30% chance to frostbite the target.",
+	},
+	ragingbull: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tauros-Paldea-Combat':
+			case "Chargin' Chuck":
+				move.type = 'Fighting';
+				break;
+			case 'Tauros-Paldea-Blaze':
+				move.type = 'Fire';
+				break;
+			case 'Tauros-Paldea-Aqua':
+				move.type = 'Water';
+				break;
+			}
+		},
+	},
 
 	// Additions
 	hammerthrow: {
@@ -30,8 +55,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		multihit: [2, 5],
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
+		flags: { protect: 1, mirror: 1 },
 		target: "normal",
 		type: "Normal",
 	},
@@ -49,7 +73,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nosketch: 1},
+		flags: { protect: 1, mirror: 1, nosketch: 1 },
 		isNonstandard: "Unobtainable",
 		target: "normal",
 		type: "Fire",
@@ -64,11 +88,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		multihit: 2,
 		secondary: {
 			chance: 15,
-			volatileStatus: 'flinch'
+			volatileStatus: 'flinch',
 		},
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nosketch: 1},
+		flags: { protect: 1, mirror: 1, nosketch: 1 },
 		isNonstandard: "Unobtainable",
 		target: "normal",
 		type: "Flying",
@@ -87,7 +111,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, nosketch: 1},
+		flags: { protect: 1, mirror: 1, nosketch: 1 },
 		isNonstandard: "Unobtainable",
 		target: "normal",
 		type: "Ice",
@@ -99,6 +123,6 @@ for (const key in Base) {
 	if (Moves[id]) continue;
 
 	if (Base[id].isNonstandard && ["Past", "Unobtainable"].includes(Base[id].isNonstandard)) {
-		Moves[id] = {inherit: true, isNonstandard: null};
+		Moves[id] = { inherit: true, isNonstandard: null };
 	}
 }

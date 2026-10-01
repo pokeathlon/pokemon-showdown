@@ -11,7 +11,7 @@
  * @license MIT license
  */
 
-import { Net,  FS, Utils } from '../lib';
+import { Net, FS, Utils } from '../lib';
 import type { AddressRange } from './ip-tools';
 
 const PUNISHMENT_FILE = 'config/punishments.tsv';
@@ -1611,7 +1611,7 @@ export const Punishments = new class {
 	checkName(user: User, userid: string, registered: boolean) {
 		if (userid.startsWith('guest')) return;
 		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: {"content": `## *${userid}* just joined the site | ips: ${user.ips.join(', ')}`, "wait": 1},
+			body: { "content": `## *${userid}* just joined the site | ips: ${user.ips.join(', ')}`, "wait": 1 },
 			timeout: 10 * 1000, // 10s
 		});
 		for (const roomid of user.inRooms) {

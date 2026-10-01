@@ -13,6 +13,7 @@ interface StoneDeltas {
 	weighthg: number;
 	heightm: number;
 	type?: string;
+	primaryTypeChange?: boolean;
 }
 
 type TierShiftTiers = 'UU' | 'RUBL' | 'RU' | 'NUBL' | 'NU' | 'PUBL' | 'PU' | 'ZUBL' | 'ZU' | 'NFE' | 'LC';
@@ -28,14 +29,23 @@ function getMegaStone(stone: string, mod = 'gen9'): Item | null {
 				id: move.id,
 				name: move.name,
 				fullname: move.name,
-				megaEvolves: 'Rayquaza',
-				megaStone: 'Rayquaza-Mega',
+				megaStone: { 'Rayquaza': 'Rayquaza-Mega' },
 				exists: true,
 				// Adding extra values to appease typescript
 				gen: 6,
 				num: -1,
 				effectType: 'Item',
 				sourceEffect: '',
+				isBerry: false,
+				ignoreKlutz: false,
+				isGem: false,
+				isPokeball: false,
+				isPrimalOrb: false,
+				shortDesc: "",
+				desc: "",
+				isNonstandard: null,
+				noCopy: false,
+				affectsFainted: false,
 			} as Item;
 		} else {
 			return null;
@@ -74,8 +84,11 @@ export const commands: Chat.ChatCommands = {
 		return this.run('formathelp');
 	},
 	othermetashelp: [
-		`/om - Provides links to information on the Other Metagames.`,
-		`!om - Show everyone that information. Requires: + % @ # ~`,
+		`/om - Provides a link to the Other Metagames Smogon forum.`,
+		`!om - Shows to other users a link to the Other Metagames Smogon forum. Requires: + % @ # ~`,
+		`/om all - Provides links to information on all ladderable Other Metagames.`,
+		`/om month - Provides links to information on Other Metagames of the month.`,
+		`!om month - Shows to other users links to information on Other Metagames of the month. Requires: + % @ # ~`,
 	],
 
 	mnm: 'mixandmega',
@@ -127,8 +140,8 @@ export const commands: Chat.ChatCommands = {
 				megaSpecies = dex.species.get(forcedForme);
 				baseSpecies = dex.species.get(forcedForme.split('-')[0]);
 			} else {
-				megaSpecies = dex.species.get(stone.megaStone);
-				baseSpecies = dex.species.get(stone.megaEvolves);
+				megaSpecies = dex.species.get(Object.values(stone.megaStone!)[0]);
+				baseSpecies = dex.species.get(Object.keys(stone.megaStone!)[0]);
 			}
 			break;
 		}
@@ -150,10 +163,13 @@ export const commands: Chat.ChatCommands = {
 			deltas.type = dex.gen === 8 ? 'mono' : baseSpecies.types[0];
 		} else if (megaSpecies.types[1] !== baseSpecies.types[1]) {
 			deltas.type = megaSpecies.types[1];
+		} else if (megaSpecies.types[0] !== baseSpecies.types[0]) {
+			deltas.type = megaSpecies.types[0];
+			deltas.primaryTypeChange = true;
 		}
 		const mixedSpecies = Utils.deepClone(species);
 		mixedSpecies.abilities = Utils.deepClone(megaSpecies.abilities);
-		if (['Arceus', 'Silvally'].includes(baseSpecies.name)) {
+		if (['Arceus', 'Silvally'].includes(baseSpecies.name) || deltas.primaryTypeChange) {
 			const secondType = mixedSpecies.types[1];
 			mixedSpecies.types = [deltas.type];
 			if (secondType && secondType !== deltas.type) mixedSpecies.types.push(secondType);
@@ -195,10 +211,10 @@ export const commands: Chat.ChatCommands = {
 			"Dex Colour": mixedSpecies.color,
 		};
 		if (mixedSpecies.eggGroups) details["Egg Group(s)"] = mixedSpecies.eggGroups.join(", ");
-		details['<font color="#686868">Does Not Evolve</font>'] = "";
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies)}`);
+		details['<span class="gray">Does Not Evolve</span>'] = "";
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies, { language: this.language })}`);
 		this.sendReply(`|raw|<font size="1">` + Object.entries(details).map(([detail, value]) => (
-			value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`
+			value === '' ? detail : `<span class="gray">${detail}:</span> ${value}`
 		)).join("&nbsp;|&ThickSpace;") + `</font>`);
 	},
 	mixandmegahelp: [
@@ -227,21 +243,21 @@ export const commands: Chat.ChatCommands = {
 		const stones = [];
 		if (!stone) {
 			const formeIdRegex = new RegExp(
-				`(?:mega[xy]?|primal|origin|crowned|epilogue|cornerstone|wellspring|hearthflame|douse|shock|chill|burn|${dex.types.all().map(x => x.id).filter(x => x !== 'normal').join('|')})$`
+				`(?:mega[xyz]?|primal|origin|crowned|epilogue|cornerstone|wellspring|hearthflame|douse|shock|chill|burn|${dex.types.all().map(x => x.id).filter(x => x !== 'normal').join('|')})$`
 			);
 			const species = dex.species.get(targetid.replace(formeIdRegex, ''));
 			if (!species.exists) throw new Chat.ErrorMessage(`Error: Mega Stone not found.`);
 			if (!species.otherFormes) throw new Chat.ErrorMessage(`Error: Mega Evolution not found.`);
 			for (const poke of species.otherFormes) {
 				const formeRegex = new RegExp(
-					`(?:-Douse|-Shock|-Chill|-Burn|-Cornerstone|-Wellspring|-Hearthflame|-Crowned|-Epilogue|-Origin|-Primal|-Mega(?:-[XY])?|${dex.types.names().filter(x => x !== 'Normal').map(x => '-' + x).join('|')})$`
+					`(?:-Douse|-Shock|-Chill|-Burn|-Cornerstone|-Wellspring|-Hearthflame|-Crowned|-Epilogue|-Origin|-Primal|-Mega(?:-[XYZ])?|${dex.types.names().filter(x => x !== 'Normal').map(x => '-' + x).join('|')})$`
 				);
 				if (!formeRegex.test(poke)) {
 					continue;
 				}
 				const megaPoke = dex.species.get(poke);
 				const flag = megaPoke.requiredMove === 'Dragon Ascent' ? megaPoke.requiredMove : megaPoke.requiredItem;
-				if (/mega[xy]$/.test(targetid) && toID(megaPoke.name) !== toID(dex.species.get(targetid))) continue;
+				if (/mega[xyz]$/.test(targetid) && toID(megaPoke.name) !== toID(dex.species.get(targetid))) continue;
 				if (!flag) continue;
 				stones.push(getMegaStone(flag, sep[1]));
 			}
@@ -275,8 +291,8 @@ export const commands: Chat.ChatCommands = {
 					megaSpecies = dex.species.get(forcedForme);
 					baseSpecies = dex.species.get(forcedForme.split('-')[0]);
 				} else {
-					megaSpecies = dex.species.get(aStone.megaStone);
-					baseSpecies = dex.species.get(aStone.megaEvolves);
+					megaSpecies = dex.species.get(Object.values(aStone.megaStone!)[0]);
+					baseSpecies = dex.species.get(Object.keys(aStone.megaStone!)[0]);
 				}
 				break;
 			}
@@ -298,6 +314,8 @@ export const commands: Chat.ChatCommands = {
 				deltas.type = dex.gen === 8 ? 'mono' : megaSpecies.types[0];
 			} else if (megaSpecies.types[1] !== baseSpecies.types[1]) {
 				deltas.type = megaSpecies.types[1];
+			} else if (megaSpecies.types[0] !== baseSpecies.types[0]) {
+				deltas.type = megaSpecies.types[0];
 			}
 			const details = {
 				Gen: aStone.gen,
@@ -350,7 +368,7 @@ export const commands: Chat.ChatCommands = {
 			buf += `</span>`;
 			buf += `</li>`;
 			this.sendReply(`|raw|<div class="message"><ul class="utilichart">${buf}<li style="clear:both"></li></ul></div>`);
-			this.sendReply(`|raw|<font size="1">${Object.entries(details).map(([detail, value]) => `<font color="#686868">${detail}:</font> ${value}`).join("&nbsp;|&ThickSpace;")}</font>`);
+			this.sendReply(`|raw|<font size="1">${Object.entries(details).map(([detail, value]) => `<span class="gray">${detail}:</span> ${value}`).join("&nbsp;|&ThickSpace;")}</font>`);
 		}
 	},
 	stonehelp: [`/stone <mega stone or other>[, generation] - Shows the changes that a mega stone/orb applies to a Pok\u00e9mon.`],
@@ -380,7 +398,7 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[i] *= (bst <= 350 ? 2 : 1);
 			species.bst += species.baseStats[i];
 		}
-		this.sendReply(`|html|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|html|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	'350cuphelp': [
 		`/350 OR /350cup <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in 350 Cup.`,
@@ -435,7 +453,9 @@ export const commands: Chat.ChatCommands = {
 		}
 		let tier = species.tier;
 		if (tier[0] === '(') tier = tier.slice(1, -1);
-		if (!(tier in boosts)) return this.sendReply(`|html|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		if (!(tier in boosts)) {
+			return this.sendReply(`|html|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
+		}
 		const boost = boosts[tier as TierShiftTiers];
 		species.bst = species.baseStats.hp;
 		for (const statName in species.baseStats) {
@@ -444,7 +464,7 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[statName] = Utils.clampIntRange(species.baseStats[statName] + boost, 1, 255);
 			species.bst += species.baseStats[statName];
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	tiershifthelp: [
 		`/ts OR /tiershift <pokemon>[, generation] - Shows the base stats that a Pok\u00e9mon would have in Tier Shift.`,
@@ -628,7 +648,7 @@ export const commands: Chat.ChatCommands = {
 			species.bst += species.baseStats[stat];
 		}
 		species.bst += species.baseStats.hp;
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	scalemonshelp: [
 		`/scale OR /scalemons <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Scalemons.`,
@@ -676,14 +696,14 @@ export const commands: Chat.ChatCommands = {
 			for (const stat in species.baseStats) {
 				species.baseStats[stat] = flippedStats[stat];
 			}
-			this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+			this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 			return;
 		}
 		const stats = Object.values(species.baseStats).reverse();
 		for (const [i, statName] of Object.keys(species.baseStats).entries()) {
 			species.baseStats[statName] = stats[i];
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	flippedhelp: [
 		`/flip OR /flipped <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Flipped.`,
@@ -727,7 +747,7 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[natureObj.plus] = swap;
 			species.tier = 'NS';
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	natureswaphelp: [
 		`/ns OR /natureswap <nature>, <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Nature Swap.`,
@@ -810,10 +830,10 @@ export const commands: Chat.ChatCommands = {
 			"Dex Colour": mixedSpecies.color,
 		};
 		if (mixedSpecies.eggGroups) details["Egg Group(s)"] = mixedSpecies.eggGroups.join(", ");
-		details['<font color="#686868">Does Not Evolve</font>'] = "";
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies)}`);
+		details['<span class="gray">Does Not Evolve</span>'] = "";
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies, { language: this.language })}`);
 		this.sendReply(`|raw|<font size="1">` + Object.entries(details).map(([detail, value]) => (
-			value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`
+			value === '' ? detail : `<span class="gray">${detail}:</span> ${value}`
 		)).join("&nbsp;|&ThickSpace;") + `</font>`);
 	},
 	crossevolvehelp: [
@@ -822,20 +842,30 @@ export const commands: Chat.ChatCommands = {
 
 	reevo: 'showevo',
 	showevo(target, room, user, connection, cmd) {
-		if (!this.runBroadcast()) return;
-		const targetid = toID(target);
+		const args = target.split(',');
+		if (!toID(args[0])) return this.parse('/help reevohelp');
+		this.runBroadcast();
+		let dex = Dex;
+		if (args[1] && toID(args[1]) in Dex.dexes) {
+			dex = Dex.dexes[toID(args[1])];
+		} else if (room?.battle) {
+			const format = Dex.formats.get(room.battle.format);
+			dex = Dex.mod(format.mod);
+		}
+
+		const targetid = toID(args[0]);
 		const isReEvo = cmd === 'reevo';
 		if (!targetid) return this.parse(`/help ${isReEvo ? 're' : 'show'}evo`);
-		const evo = Dex.species.get(target);
+		const evo = dex.species.get(targetid);
 		if (!evo.exists) {
-			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon ${target} not found.`);
+			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon ${targetid} not found.`);
 		}
 		if (!evo.prevo) {
-			const evoBaseSpecies = Dex.species.get(
+			const evoBaseSpecies = dex.species.get(
 				(Array.isArray(evo.battleOnly) ? evo.battleOnly[0] : evo.battleOnly) || evo.changesFrom || evo.name
 			);
 			if (!evoBaseSpecies.prevo) throw new Chat.ErrorMessage(`Error: ${evoBaseSpecies.name} is not an evolution.`);
-			const prevoSpecies = Dex.species.get(evoBaseSpecies.prevo);
+			const prevoSpecies = dex.species.get(evoBaseSpecies.prevo);
 			const deltas = Utils.deepClone(evo);
 			if (!isReEvo) {
 				deltas.tier = 'CE';
@@ -874,14 +904,14 @@ export const commands: Chat.ChatCommands = {
 			const details = {
 				Gen: evo.gen,
 				Weight: `${deltas.weighthg < 0 ? "" : "+"}${deltas.weighthg / 10} kg`,
-				Stage: (Dex.species.get(prevoSpecies.prevo).exists ? 3 : 2),
+				Stage: (dex.species.get(prevoSpecies.prevo).exists ? 3 : 2),
 			};
-			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas)}`);
+			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas, { language: this.language })}`);
 			if (!isReEvo) {
-				this.sendReply(`|raw|<font size="1"><font color="#686868">Gen:</font> ${details["Gen"]}&nbsp;|&ThickSpace;<font color="#686868">Weight:</font> ${details["Weight"]}&nbsp;|&ThickSpace;<font color="#686868">Stage:</font> ${details["Stage"]}</font>`);
+				this.sendReply(`|raw|<font size="1"><span class="gray">Gen:</span> ${details["Gen"]}&nbsp;|&ThickSpace;<span class="gray">Weight:</span> ${details["Weight"]}&nbsp;|&ThickSpace;<span class="gray">Stage:</span> ${details["Stage"]}</font>`);
 			}
 		} else {
-			const prevoSpecies = Dex.species.get(evo.prevo);
+			const prevoSpecies = dex.species.get(evo.prevo);
 			const deltas = Utils.deepClone(evo);
 			if (!isReEvo) {
 				deltas.tier = 'CE';
@@ -914,11 +944,11 @@ export const commands: Chat.ChatCommands = {
 			const details = {
 				Gen: evo.gen,
 				Weight: `${deltas.weighthg < 0 ? "" : "+"}${deltas.weighthg / 10} kg`,
-				Stage: (Dex.species.get(prevoSpecies.prevo).exists ? 3 : 2),
+				Stage: (dex.species.get(prevoSpecies.prevo).exists ? 3 : 2),
 			};
-			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas)}`);
+			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas, { language: this.language })}`);
 			if (!isReEvo) {
-				this.sendReply(`|raw|<font size="1"><font color="#686868">Gen:</font> ${details["Gen"]}&nbsp;|&ThickSpace;<font color="#686868">Weight:</font> ${details["Weight"]}&nbsp;|&ThickSpace;<font color="#686868">Stage:</font> ${details["Stage"]}</font>`);
+				this.sendReply(`|raw|<font size="1"><span class="gray">Gen:</span> ${details["Gen"]}&nbsp;|&ThickSpace;<span class="gray">Weight:</span> ${details["Weight"]}&nbsp;|&ThickSpace;<span class="gray">Stage:</span> ${details["Stage"]}</font>`);
 			}
 		}
 	},
@@ -941,9 +971,10 @@ export const commands: Chat.ChatCommands = {
 		move.pp = 5;
 		move.gen = species.gen;
 		move.num = species.num;
-		move.desc = move.shortDesc = `Gives ${species.abilities['0']} as a second ability after use.`;
 		move.category = species.baseStats['spa'] >= species.baseStats['atk'] ? 'Special' : 'Physical';
-		this.sendReply(`|raw|${Chat.getDataMoveHTML(move)}`);
+		const desc = `Gives ${species.abilities['0']} as a second ability after use.`;
+		Object.assign(move, { desc, shortDesc: desc });
+		this.sendReply(`|raw|${Chat.getDataMoveHTML(move, { language: this.language })}`);
 	},
 	pokemovehelp: [
 		`/pokemove <Pok\u00e9mon> - Shows the Pokemove data for <Pok\u00e9mon>.`,
@@ -955,7 +986,7 @@ export const commands: Chat.ChatCommands = {
 		if (!toID(args[0]) && !toID(args[1])) return this.parse('/help fusion');
 		const targetGen = parseInt(cmd[cmd.length - 1]);
 		if (targetGen && !args[2]) target = `${target},gen${targetGen}`;
-		const {dex, targets} = this.splitFormat(target, true);
+		const { dex, targets } = this.splitFormat(target, true);
 		this.runBroadcast();
 		if (targets.length > 2) return this.parse('/help fusion');
 		const species = Utils.deepClone(dex.species.get(targets[0]));
@@ -1117,7 +1148,9 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[i] *= (species.baseStats[i] <= 70 ? 2 : 1);
 			species.bst += species.baseStats[i];
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen, 'BnB')}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(
+			species, { dex, tier: 'BnB', language: this.language }
+		)}`);
 	},
 	'badnboostedhelphelp': [
 		`/bnb OR /badnboosted <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Bad 'n Boosted.`,

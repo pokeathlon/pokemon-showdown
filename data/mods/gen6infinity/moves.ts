@@ -8,5 +8,5 @@ for (const key in Base) {
 	const id = key as keyof typeof Base;
 	if (Moves[id]) continue;
 
-	Moves[id] = {...Base[id], gen: 6, isNonstandard: null};
+	Moves[id] = { ...Base[id], gen: 6, isNonstandard: null };
 }

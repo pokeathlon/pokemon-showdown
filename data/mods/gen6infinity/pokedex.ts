@@ -1,11 +1,11 @@
 import { Utils } from '../../../lib';
 import { Pokedex as Base } from '../../pokedex';
-import { Pokedex as Parent} from '../gen9infinity/pokedex';
+import { Pokedex as Parent } from '../gen9infinity/pokedex';
 
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Parent);
 
 // Regional Dex Data
-export const cutDex: {[k: string]: number} = {
+export const cutDex: { [k: string]: number } = {
 	"bulbasauregho": 1,
 	"ivysauregho": 2,
 	"venusauregho": 3,
@@ -522,6 +522,7 @@ export const cutDex: {[k: string]: number} = {
 	"arceusbug": 493,
 	"arceuspoison": 493,
 	"arceussteel": 493,
+	"arceustypeless": 493,
 	"victini": 494,
 	"snivy": 495,
 	"servine": 496,
@@ -806,6 +807,7 @@ export const cutDex: {[k: string]: number} = {
 	"lotadegho": 765,
 	"lombreegho": 766,
 	"ludicoloegho": 767,
+	"ludicoloeghomega": 767,
 	"sunflorid": 768,
 	"sorcerice": 769,
 	"kecleodon": 770,
@@ -942,12 +944,33 @@ export const cutDex: {[k: string]: number} = {
 	"infermon": 901,
 	"diaboromon": 902,
 	"wizardmon": 903,
+	"woodmon": 904,
+	"cherrymon": 905,
+	"puppetmon": 906,
+	"metalseadaramon": 907,
+	"myotismon": 908,
+	"phantomon": 909,
+	"piedmon": 910,
+	"venus": 911,
+	"mars": 912,
+	"mercury": 913,
+	"jupiter": 914,
+	"onixbrock": 915,
+	"onixcrystal": 916,
+	"psyduckmisty": 917,
+	"pikachuash": 918,
+	"raticateblue": 919,
+	"zoroarkn": 920,
+	"missingnomega": 921,
+	"arbokjessie": 922,
+	"weezingjames": 923,
+
 };
 
-for (const key in {...Base, ...Pokedex}) {
+for (const key in { ...Base, ...Pokedex }) {
 	const id = key as keyof typeof Base;
-	if (!Pokedex[id]) Pokedex[id] = {inherit: true};
+	if (!Pokedex[id]) Pokedex[id] = { inherit: true };
 
-	if (cutDex[id]) Pokedex[id] = {...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6};
-	else Pokedex[id] = {...Pokedex[id], isNonstandard: "Custom", tier: "Illegal"};
+	if (cutDex[id]) Pokedex[id] = { ...Pokedex[id], isNonstandard: null, num: cutDex[id], gen: 6 };
+	else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }

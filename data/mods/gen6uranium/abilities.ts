@@ -1,6 +1,6 @@
 import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
-import { Abilities as Parent} from '../gen9uranium/abilities';
+import { Abilities as Parent } from '../gen9uranium/abilities';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	...Utils.deepClone(Parent),
@@ -49,5 +49,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "This Pokemon's Normal-type moves become Electric type and have 1.3x power.",
 		rating: 4,
 		num: 0,
+	},
+
+	aftermath: {
+		// Aftermath deals damage even if the target doesn't faint
+		// This is a bug present in the game
+		inherit: true,
+		desc: "Pokemon making contact with this Pokemon lose 1/4 of their maximum HP, rounded down.",
+		shortDesc: "Pokemon making contact with this Pokemon lose 1/4 of their max HP.",
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+	},
+	pixilate: {
+		inherit: true,
+		desc: "This Pokemon's Normal-type moves become Fairy-type moves and have their power multiplied by 1.3. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Fairy type and have 1.3x power.",
 	},
 };
