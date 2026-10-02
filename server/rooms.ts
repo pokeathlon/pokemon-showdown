@@ -2035,21 +2035,6 @@ export class GameRoom extends BasicRoom {
 	 * comment inside this function.
 	 */
 	async uploadReplay(user?: User, connection?: Connection, options?: 'forpunishment' | 'silent' | 'auto') {
-		// The reason we don't upload directly to the loginserver, unlike every
-		// other interaction with the loginserver, is because it takes so much
-		// bandwidth that it can get identified as a DoS attack by PHP, Apache, or
-		// Cloudflare, and blocked.
-
-		// While I'm sure this is configurable, it's a huge pain, and getting it
-		// wrong, especially while migrating infrastructure, leads to everything
-		// being unusable and panic while we figure out how to unblock our servers
-		// from each other. It's just easier to "spread out" the bandwidth.
-
-		// TODO: My ideal long-term fix would be to just have a database (probably
-		// Postgres) shared between client and server, acting as both the server's
-		// battle logs as well as the client's replay database, which both client
-		// and server have write access to.
-
 		const battle = this.battle;
 		if (!battle) return;
 
@@ -2063,35 +2048,12 @@ export class GameRoom extends BasicRoom {
 			return;
 		}
 
-		// retrieve spectator log (0) if there are privacy concerns
 		const format = Dex.formats.get(this.format, true);
 
-		// custom games always show full details
-		// random-team battles show full details if the battle is ended
-		// otherwise, don't show full details
 		let hideDetails = !format.id.includes('customgame');
 		if (format.team && battle.ended) hideDetails = false;
 
-		const log = this.getLog(hideDetails ? 0 : -1);
-		let rating: number | undefined;
-		if (battle.ended && this.rated) rating = this.rated;
-		let { id, password } = this.getReplayData();
-		if (password) password = (battle.password ||= password);
-		const silent = options === 'forpunishment' || options === 'silent' || options === 'auto';
-		if (silent) connection = undefined;
-		const isPrivate = this.settings.isPrivate || this.hideReplay;
-		const hidden = options === 'auto' ? 10 :
-			options === 'forpunishment' || (this as any).unlistReplay ? 2 :
-			isPrivate ? 1 :
-			0;
-		if (isPrivate && hidden !== 2) {
-			password = (battle.password ||= Replays.generatePassword());
-		}
-		if (battle.replaySaved !== true && hidden === 10) {
-			battle.replaySaved = 'auto';
-		} else {
-			battle.replaySaved = true;
-		}
+		const data = this.getLog(hideDetails ? 0 : -1);
 
 		let buf = '<!DOCTYPE html>\n';
 		buf += '<meta charset="utf-8" />\n';
@@ -2099,7 +2061,7 @@ export class GameRoom extends BasicRoom {
 		buf += `<title>${Utils.escapeHTML(format.name)} replay: ${Utils.escapeHTML(battle.p1.name)} vs. ${Utils.escapeHTML(battle.p2.name)}</title>\n`;
 		buf += '<div class="wrapper replay-wrapper" style="max-width:1000px;margin:0 auto">\n';
 		buf += '<div class="battle" style="top: -9px; left: -9px;"></div><div class="battle-log" style="top: -9px; right: -9px;"></div><div class="replay-controls"></div><div class="replay-controls-2"></div><div class="replay-controls-3"></div>\n';
-		buf += '<script type="text/plain" class="battle-log-data">' + log.replace(/\//g, '\\/') + '</script>\n';
+		buf += '<script type="text/plain" class="battle-log-data">' + data.replace(/\//g, '\\/') + '</script>\n';
 		buf += '</div>\n';
 		buf += '</div>\n';
 		buf += '<script>\n';
@@ -2109,10 +2071,10 @@ export class GameRoom extends BasicRoom {
 		const replayName = battle.roomid.slice(7);
 
 		await FS(`server/static/replays/${replayName}.html`).write(buf);
-		await FS(`server/static/replays/${replayName}.log`).write(log);
+		await FS(`server/static/replays/${replayName}.log`).write(data);
 		await FS(`server/static/replays/${replayName}.json`).write(JSON.stringify({
 			id: replayName,
-			log: log,
+			log: data,
 			players: battle.players.map(p => p.name),
 			format: format.name,
 			formatid: format.id,
