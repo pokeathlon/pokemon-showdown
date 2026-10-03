@@ -1151,6 +1151,9 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.TL`You must choose a name before you can talk.`);
 		}
+		if (!user.registered && !user.s1 && !room?.battle?.playerTable[user.id]) {
+			throw new Chat.ErrorMessage(this.TL`Challenge-only accounts can only talk in their own battles. Log in with Discord to chat.`);
+		}
 		const concerningWords = ["Careful!", " ped ", "Arcato"];
 		let priority = false;
 		for (const word of concerningWords) {
@@ -1210,14 +1213,14 @@ export class CommandContext extends MessageContext {
 			}
 			if (targetUser) {
 				// this accounts for users who are autoconfirmed on another alt, but not registered
-				if (!(user.registered || user.autoconfirmed)) {
+				if (!(user.registered || user.autoconfirmed || user.s1)) {
 					this.sendReply(
 						this.TL`|html|<div class="message-error">You must be registered to send private messages.</div>` +
 						this.TL`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
 					);
 					throw new Chat.Interruption();
 				}
-				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed)) {
+				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed || targetUser.s1)) {
 					throw new Chat.ErrorMessage(this.TL`That user is unregistered and cannot be PMed.`);
 				}
 				if (lockType && !targetUser.can('lock')) {
