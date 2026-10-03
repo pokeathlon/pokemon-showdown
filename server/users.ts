@@ -45,10 +45,13 @@ const PERMALOCK_CACHE_TIME = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 const DEFAULT_TRAINER_SPRITES = [1, 2, 101, 102, 169, 170, 265, 266];
 
+import * as crypto from 'crypto';
 import { Utils, type ProcessManager } from '../lib';
 import {
 	Auth, GlobalAuth, PLAYER_SYMBOL, HOST_SYMBOL, type RoomPermission, type GlobalPermission,
 } from './user-groups';
+
+let challengeOnlyWords: string[] | null = null;
 
 const MINUTES = 60 * 1000;
 const IDLE_TIMER = 60 * MINUTES;
@@ -412,6 +415,7 @@ export class User extends Chat.MessageContext {
 	lastReportTime: number;
 	lastNewNameTime = 0;
 	newNames = 0;
+	challengeOnly = false;
 	s1: string;
 	s2: string;
 	s3: string;
@@ -767,6 +771,7 @@ export class User extends Chat.MessageContext {
 
 		const userType = await this.validateToken(token, name, userid, connection);
 		if (userType === null) return;
+		this.challengeOnly = false;
 		if (userType === '1') newlyRegistered = false;
 
 		if (!this.trusted && userType === '1') { // userType '1' means unregistered
@@ -788,6 +793,33 @@ export class User extends Chat.MessageContext {
 
 		this.handleRename(name, userid, newlyRegistered, userType);
 		void Punishments.checkIp(this, connection); // namelock enforcement and the like after merge
+	}
+
+	challengeOnlyRename(seed: string, connection: Connection) {
+		if (!challengeOnlyWords) {
+			challengeOnlyWords = [
+				...Dex.species.all(), ...Dex.items.all(), ...Dex.moves.all(), ...Dex.abilities.all(),
+			].filter(effect => !effect.isNonstandard && /^[A-Za-z ]{1,15}$/.test(effect.name) && effect.id.length <= 14)
+				.map(effect => effect.name);
+		}
+		for (let attempt = 0; attempt < 10; attempt++) {
+			const hash = crypto.createHmac('sha256', Config.challengeonlysecret).update(`${seed},${attempt}`).digest();
+			const word = challengeOnlyWords[hash.readUInt32BE(0) % challengeOnlyWords.length];
+			const name = `${word} ${`${hash.readUInt32BE(4) % 10000}`.padStart(4, '0')}`;
+			const userid = toID(name);
+			if (Chat.namefilter(name, this) !== name) continue;
+			const conflictUser = users.get(userid);
+			if (conflictUser && conflictUser !== this && (
+				conflictUser.connected || !conflictUser.challengeOnly || conflictUser.latestIp !== this.latestIp
+			)) continue;
+
+			if (!this.handleRename(name, userid, false, '1')) return false;
+			users.get(userid)!.challengeOnly = true;
+			void Punishments.checkIp(users.get(userid)!, connection);
+			return true;
+		}
+		this.send(`|nametaken||There are no challenge-only names available right now.`);
+		return false;
 	}
 
 	handleRename(name: string, userid: ID, newlyRegistered: boolean, userType: string) {

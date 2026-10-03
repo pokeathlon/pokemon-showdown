@@ -1730,6 +1730,18 @@ export const commands: Chat.ChatCommands = {
 		`/trn [username], [registered], [token] - Finishes a rename to the [username] with a given [token].`,
 	],
 
+	challengeonly(target, room, user, connection) {
+		if (!Config.challengeonlysecret) throw new Chat.ErrorMessage(`Challenge-only accounts are disabled on this server.`);
+		if (user.named) throw new Chat.ErrorMessage(`You already have a name.`);
+		target = target.trim();
+		if (!target) return this.parse('/help challengeonly');
+
+		return user.challengeOnlyRename(target, connection);
+	},
+	challengeonlyhelp: [
+		`/challengeonly [seed] - Gives you a challenge-only name generated from [seed].`,
+	],
+
 	/*********************************************************
 	 * Help commands
 	 *********************************************************/

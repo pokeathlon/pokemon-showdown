@@ -316,6 +316,10 @@ class Ladder extends LadderStore {
 			connection.popup(`Error: Your format ${format.id} is not ladderable.`);
 			return;
 		}
+		if (user.challengeOnly) {
+			connection.popup(`Challenge-only accounts can't search for ladder battles.`);
+			return;
+		}
 
 		const oldUserid = user.id;
 		const search = await this.prepBattle(connection, format.rated ? 'rated' : 'unrated', null, format.rated !== false);
