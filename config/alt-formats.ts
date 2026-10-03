@@ -589,6 +589,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
 	},
 	{
+		name: "[Gen 9] Mariomon Test",
+		mod: 'gen9mariomontest',
+		gameType: 'doubles',
+
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
+	},
+	{
 		name: "[Gen 9] Mariomon Custom Game",
 
 		mod: 'gen9mariomon',
