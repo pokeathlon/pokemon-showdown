@@ -766,10 +766,6 @@ export class Side {
 
 		// Mega evolution
 		const mixandmega = this.battle.format.mod === 'mixandmega';
-		const multipleMega = this.battle.format.ruleTable?.has('multiplemega');
-		const megaLimit = Number(this.battle.format.ruleTable?.valueRules.get('multiplemega') || 1);
-		let megaCount;
-		if (megaCount === undefined) megaCount = 0;
 		const mega = (event === 'mega');
 		const megax = (event === 'megax');
 		const megay = (event === 'megay');
@@ -782,7 +778,7 @@ export class Side {
 		if (megay && !pokemon.canMegaEvoY) {
 			return this.emitChoiceError(`Can't move: ${pokemon.name} can't mega evolve Y`);
 		}
-		if ((mega || megax || megay) && this.choice.mega && !mixandmega && (multipleMega && megaCount >= megaLimit)) {
+		if ((mega || megax || megay) && this.choice.mega && !mixandmega && !this.battle.ruleTable.has('multiplemega')) {
 			return this.emitChoiceError(`Can't move: You can only mega-evolve once per battle`);
 		}
 		const ultra = (event === 'ultra');
@@ -850,7 +846,6 @@ export class Side {
 		if (dynamax) this.choice.dynamax = true;
 		if (terastallize) this.choice.terastallize = true;
 
-		if (this.choice.mega = true) megaCount +=1;
 		return true;
 	}
 

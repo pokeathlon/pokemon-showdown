@@ -1149,7 +1149,6 @@ export class TeamValidator {
 		const allowAVs = !ruleTable.has('lgpenormalrules');
 		const useStatPoints = dex.currentMod.startsWith('champions');
 		const evLimit = ruleTable.evLimit;
-		const linkEVs = ruleTable.has('linkevs');
 		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc'));
 
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, evLimit === null ? 252 : 0);
