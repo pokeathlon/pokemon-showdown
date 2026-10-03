@@ -1151,6 +1151,9 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.TL`You must choose a name before you can talk.`);
 		}
+		if (!user.registered && !user.s1 && !room?.battle?.playerTable[user.id]) {
+			throw new Chat.ErrorMessage(this.TL`Challenge-only accounts can only talk in their own battles. Log in with Discord to chat.`);
+		}
 		const concerningWords = ["Careful!", " ped ", "Arcato"];
 		let priority = false;
 		for (const word of concerningWords) {
@@ -1202,7 +1205,6 @@ export class CommandContext extends MessageContext {
 					throw new Chat.ErrorMessage(
 						this.TL`Because moderated chat is set, you must be of rank ${groupName} or higher to speak in this room.`
 					);
-					throw new Chat.Interruption();
 				}
 				if (!this.bypassRoomCheck && !(user.id in room.users)) {
 					connection.popup(`You can't send a message to this room without being in it.`);
@@ -1211,14 +1213,14 @@ export class CommandContext extends MessageContext {
 			}
 			if (targetUser) {
 				// this accounts for users who are autoconfirmed on another alt, but not registered
-				if (!(user.registered || user.autoconfirmed)) {
+				if (!(user.registered || user.autoconfirmed || user.s1)) {
 					this.sendReply(
 						this.TL`|html|<div class="message-error">You must be registered to send private messages.</div>` +
 						this.TL`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
 					);
 					throw new Chat.Interruption();
 				}
-				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed)) {
+				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed || targetUser.s1)) {
 					throw new Chat.ErrorMessage(this.TL`That user is unregistered and cannot be PMed.`);
 				}
 				if (lockType && !targetUser.can('lock')) {
@@ -1235,7 +1237,7 @@ export class CommandContext extends MessageContext {
 				if (Config.pmmodchat && !Users.globalAuth.atLeast(user, Config.pmmodchat) &&
 					!Users.Auth.hasPermission(targetUser, 'promote', Config.pmmodchat as GroupSymbol)) {
 					const groupName = Config.groups[Config.pmmodchat] && Config.groups[Config.pmmodchat].name || Config.pmmodchat;
-					throw new Chat.ErrorMessage(this.TL`On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and using the /verify command with your showdown username. You don't have to stay in the Discord server afterwards!`);
+					throw new Chat.ErrorMessage(this.TL`On this server, you must be of rank ${groupName} or higher to PM users.`);
 				}
 				if (!this.checkCanPM(targetUser)) {
 					Chat.maybeNotifyBlocked('pm', targetUser, user);
