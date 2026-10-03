@@ -4166,23 +4166,30 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	addguest: {
 		effectType: 'Rule',
 		name: 'Add Guest',
-		desc: `Allows Pok&eacute;mon from the gen9chaos mod, along with their moves and abilities. Usage: Add Guest = Pokemon1 / Pokemon2 / Pokemon3`,
+		desc: `Allows Pok&eacute;mon from the gen9chaosmayhem mod, along with their moves and abilities. Usage: Add Guest = Pokemon1 / Pokemon2 / Pokemon3`,
 		hasValue: true,
 		onValidateRule(value) {
-			const chaos = this.dex.mod('gen9chaos');
+			const chaos = this.dex.mod('gen9chaosmayhem');
 			const base = this.dex.mod(this.format.mod);
 			const guests = [];
 
 			for (const name of value.split('/')) {
 				const species = chaos.species.get(name);
-				if (!species.exists) throw new Error(`Add Guest: "${name.trim()}" does not exist in gen9chaos.`);
+				if (!species.exists) throw new Error(`Add Guest: "${this.dex.toID(name)}" does not exist in gen9chaosmayhem.`);
 				guests.push(species.name);
 
-				for (const id of [species.id, this.dex.toID(species.baseSpecies)]) { // check if species exists, copy it
+				for (const id of [species.id, this.dex.toID(species.baseSpecies)]) { // check if species exists, copy it, same with base species
 					if (base.data.Pokedex[id]) continue;
 					base.data.Pokedex[id] = chaos.data.Pokedex[id];
 					base.data.FormatsData[id] = chaos.data.FormatsData[id];
-					base.data.Learnsets[id] = chaos.data.Learnsets[id];
+
+					const learnsetData = chaos.data.Learnsets[id];
+					if (!learnsetData) continue;
+					base.data.Learnsets[id] = learnsetData
+					for (const moveid in base.data.Learnsets[id].learnset) {
+						// @ts-ignore
+						if (!base.data.Learnsets[id].learnset[moveid].includes(`${base.gen}M`)) base.data.Learnsets[id].learnset[moveid].push(`${base.gen}M`);
+					}
 				}
 
 				for (const ability of Object.values(species.abilities)) { // copy over missing abilities
@@ -4190,7 +4197,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					if (!base.data.Abilities[id]) base.data.Abilities[id] = chaos.data.Abilities[id];
 				}
 				for (const id in chaos.data.Learnsets[species.id]?.learnset) { // copy over missing moves
-					if (!base.data.Moves[id]) base.data.Moves[id] = chaos.data.Moves[id];
+					if (!base.data.Moves[id]) {
+						// @ts-ignore
+						base.data.Moves[id] = {...chaos.data.Moves[id], gen: base.gen, isNonstandard: null};
+					}
+				}
+
+				for (const condition of Object.keys(chaos.data.Conditions)) { // copy over missing conditions
+					if (!base.data.Conditions[condition]) base.data.Conditions[condition] = chaos.data.Conditions[condition];
 				}
 
 				this.ruleTable.set(`+pokemon:${species.id}`, ''); //allow the pokemon in the format
@@ -4198,7 +4212,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			return guests.join(' / ');
 		},
 		onBegin() {
-			this.add('rule', 'Add Guest: Certain Pok\u00e9mon originate from Chaos.');
+			this.add('rule', 'Add Guest: Certain Pok\u00e9mon originate from Chaos Mayhem.');
 		},
 	},
 };
