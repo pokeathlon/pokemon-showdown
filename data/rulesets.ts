@@ -4162,7 +4162,45 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (set.evs['hp'] + set.evs['atk'] + set.evs['def'] + set.evs['spd'] + set.evs['spe'] > 512) problems.push(`${set.name || set.species}'s is over the EV limit.`)
 			return problems;
 		},
-	}
+	},
+	addguest: {
+		effectType: 'Rule',
+		name: 'Add Guest',
+		desc: `Allows Pok&eacute;mon from the gen9chaos mod, along with their moves and abilities. Usage: Add Guest = Pokemon1 / Pokemon2 / Pokemon3`,
+		hasValue: true,
+		onValidateRule(value) {
+			const chaos = this.dex.mod('gen9chaos');
+			const base = this.dex.mod(this.format.mod);
+			const guests = [];
+
+			for (const name of value.split('/')) {
+				const species = chaos.species.get(name);
+				if (!species.exists) throw new Error(`Add Guest: "${name.trim()}" does not exist in gen9chaos.`);
+				guests.push(species.name);
+
+				for (const id of [species.id, this.dex.toID(species.baseSpecies)]) { // check if species exists, copy it
+					if (base.data.Pokedex[id]) continue;
+					base.data.Pokedex[id] = chaos.data.Pokedex[id];
+					base.data.FormatsData[id] = chaos.data.FormatsData[id];
+					base.data.Learnsets[id] = chaos.data.Learnsets[id];
+				}
+
+				for (const ability of Object.values(species.abilities)) { // copy over missing abilities
+					const id = this.dex.toID(ability);
+					if (!base.data.Abilities[id]) base.data.Abilities[id] = chaos.data.Abilities[id];
+				}
+				for (const id in chaos.data.Learnsets[species.id]?.learnset) { // copy over missing moves
+					if (!base.data.Moves[id]) base.data.Moves[id] = chaos.data.Moves[id];
+				}
+
+				this.ruleTable.set(`+pokemon:${species.id}`, ''); //allow the pokemon in the format
+			}
+			return guests.join(' / ');
+		},
+		onBegin() {
+			this.add('rule', 'Add Guest: Certain Pok\u00e9mon originate from Chaos.');
+		},
+	},
 };
 
 const mysteryGiftMoves: { [key: string]: { [key: string]: string[] }[] } = {
