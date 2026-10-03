@@ -1151,9 +1151,6 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.TL`You must choose a name before you can talk.`);
 		}
-		if (!user.registered && !user.s1 && !room?.battle?.playerTable[user.id]) {
-			throw new Chat.ErrorMessage(this.TL`Challenge-only accounts can only talk in their own battles. Log in with Discord to chat.`);
-		}
 		const concerningWords = ["Careful!", " ped ", "Arcato"];
 		let priority = false;
 		for (const word of concerningWords) {
