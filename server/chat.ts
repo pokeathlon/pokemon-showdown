@@ -1151,13 +1151,8 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.TL`You must choose a name before you can talk.`);
 		}
-		const concerningWords = ["Careful!", " ped ", "Arcato"];
-		let priority = false;
-		for (const word of concerningWords) {
-			if (message?.includes(word)) priority = true;
-		}
 		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1 },
+			body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}`, "wait": 1 },
 			timeout: 10 * 1000, // 10s
 		});
 		if (!user.can('bypassall')) {
@@ -1172,7 +1167,7 @@ export class CommandContext extends MessageContext {
 						throw new Chat.ErrorMessage(this.TL`You are ${lockType} and can't talk in chat. ${lockExpiration}`);
 					}
 				}
-				if (!room.persist && !room.roomid.startsWith('help-') && room.settings.modchat && !Users.globalAuth.atLeast(user, room.settings.modchat)) {
+				if (!room.persist && !room.roomid.startsWith('help-') && !(user.registered || user.autoconfirmed)) {
 					this.sendReply(
 						this.TL`|html|<div class="message-error">You must be registered to chat in temporary rooms (like battles).</div>` +
 						this.TL`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
@@ -1185,7 +1180,7 @@ export class CommandContext extends MessageContext {
 				if (room.settings.modchat && !room.auth.atLeast(user, room.settings.modchat)) {
 					if (room.settings.modchat === 'autoconfirmed') {
 						this.errorReply(
-							this.TL`Moderated chat is set. To speak in this room, your account must be autoconfirmed, which means being registered for at least one week and winning at least one rated game on https://play.pokemonshowdown.com/ (any game started through the 'Battle!' button).`
+							this.TL`Moderated chat is set. To speak in this room, your account must be autoconfirmed, which means being registered for at least one week and winning at least one rated game (any game started through the 'Battle!' button).`
 						);
 						if (!user.registered) {
 							this.sendReply(this.TL`|html|You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`);
@@ -1696,18 +1691,9 @@ export const Chat = new class {
 		}
 
 		name = Dex.getName(name);
-		const attempt = name;
 		for (const curFilter of Chat.namefilters) {
 			name = curFilter(name, user);
-			if (!name) {
-				void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-					body: { "content": `# user *${user.name}* FAILED NAME CHECK: **${attempt}** | ips: ${user.ips.join(', ')} <@362252767915671562> <@261566057272180737>`, "wait": 1 },
-					timeout: 10 * 1000, // 10s
-				});
-				Punishments.punishRange(user.ips[0], 'Caught by name filter.', Date.now() + 1000 * 60 * 5, user.locked ? 'BAN' : 'LOCK');
-				user.send('|refresh|');
-				return '';
-			}
+			if (!name) return '';
 		}
 		return name;
 	}

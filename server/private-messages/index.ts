@@ -154,17 +154,10 @@ export const PrivateMessages = new class {
 		return database.run(statements.clearSeen, [Date.now(), SEEN_EXPIRY_TIME]);
 	}
 	send(message: string, user: User, pmTarget: User, onlyRecipient: User | null = null) {
-		let display = true;
-		for (const line of Chat.filterWords['shadowban']) {
-			const ret = line.regex.exec(message)?.[0];
-			if (typeof ret === 'string' || ret === false) {
-				display = false;
-			}
-		}
 		const buf = `|pm|${user.getIdentity()}|${pmTarget.getIdentity()}|${message}`;
 		if (onlyRecipient) return onlyRecipient.send(buf);
 		user.send(buf);
-		if (pmTarget !== user && display) pmTarget.send(buf);
+		if (pmTarget !== user) pmTarget.send(buf);
 		pmTarget.lastPM = user.id;
 		user.lastPM = pmTarget.id;
 	}

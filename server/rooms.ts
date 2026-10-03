@@ -1648,16 +1648,12 @@ export class GlobalRoomState {
 	}
 
 	onCreateBattleRoom(players: User[], room: GameRoom, options: AnyObject) {
-		let blockBattle = false;
 		for (const player of players) {
 			if (player.statusType === 'idle') {
 				player.setStatusType('online');
 			}
-			if (player.locked || !player.autoconfirmed) {
-				blockBattle = true;
-			}
 		}
-		if (Config.reportbattles && !blockBattle) {
+		if (Config.reportbattles) {
 			if (typeof Config.reportbattles === 'string') {
 				Config.reportbattles = [Config.reportbattles];
 			} else if (Config.reportbattles === true) {
@@ -2037,11 +2033,6 @@ export class GameRoom extends BasicRoom {
 	async uploadReplay(user?: User, connection?: Connection, options?: 'forpunishment' | 'silent' | 'auto') {
 		const battle = this.battle;
 		if (!battle) return;
-
-		if (!user?.registered) {
-			connection?.popup(`Your account must be registered to upload replays.`);
-			return;
-		}
 
 		if (battle.turn <= 1 && battle.inputLog?.slice(-1)[0].includes('>forcelose')) {
 			connection?.popup(`There was an error uploading your replay.`);

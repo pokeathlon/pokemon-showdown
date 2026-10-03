@@ -8,7 +8,7 @@ const WRITE_THROTTLE_TIME = 5 * 60 * 1000;
 // Substitution dictionary adapted from https://github.com/ThreeLetters/NoSwearingPlease/blob/master/index.js
 // Licensed under MIT.
 const EVASION_DETECTION_SUBSTITUTIONS: { [k: string]: string[] } = {
-	a: ["a", "4", "@", "á", "â", "ã", "à", "ᗩ", "A", "ⓐ", "Ⓐ", "α", "͏", "₳", "ä", "Ä", "Ꮧ", "λ", "Δ", "Ḁ", "Ꭺ", "ǟ", "̾", "ａ", "Ａ", "ᴀ", "ɐ", "🅐", "𝐚", "𝐀", "𝘢", "𝘈", "𝙖", "𝘼", "𝒶", "𝓪", "𝓐", "𝕒", "𝔸", "𝔞", "𝔄", "𝖆", "𝕬", "🄰", "🅰", "𝒜", "𝚊", "𝙰", "ꍏ", "а", "𝓪", "^", "8"],
+	a: ["a", "4", "@", "á", "â", "ã", "à", "ᗩ", "A", "ⓐ", "Ⓐ", "α", "͏", "₳", "ä", "Ä", "Ꮧ", "λ", "Δ", "Ḁ", "Ꭺ", "ǟ", "̾", "ａ", "Ａ", "ᴀ", "ɐ", "🅐", "𝐚", "𝐀", "𝘢", "𝘈", "𝙖", "𝘼", "𝒶", "𝓪", "𝓐", "𝕒", "𝔸", "𝔞", "𝔄", "𝖆", "𝕬", "🄰", "🅰", "𝒜", "𝚊", "𝙰", "ꍏ", "а", "𝓪"],
 	b: ["b", "8", "ᗷ", "B", "ⓑ", "Ⓑ", "в", "฿", "ḅ", "Ḅ", "Ᏸ", "ϐ", "Ɓ", "ḃ", "Ḃ", "ɮ", "ｂ", "Ｂ", "ʙ", "🅑", "𝐛", "𝐁", "𝘣", "𝘉", "𝙗", "𝘽", "𝒷", "𝓫", "𝓑", "𝕓", "𝔹", "𝔟", "𝔅", "𝖇", "𝕭", "🄱", "🅱", "𝐵", "Ⴆ", "𝚋", "𝙱", "♭", "b"],
 	c: ["c", "ç", "ᑕ", "C", "ⓒ", "Ⓒ", "¢", "͏", "₵", "ċ", "Ċ", "ፈ", "ς", "ḉ", "Ḉ", "Ꮯ", "ƈ", "̾", "ｃ", "Ｃ", "ᴄ", "ɔ", "🅒", "𝐜", "𝐂", "𝘤", "𝘊", "𝙘", "𝘾", "𝒸", "𝓬", "𝓒", "𝕔", "ℂ", "𝔠", "ℭ", "𝖈", "𝕮", "🄲", "🅲", "𝒞", "𝚌", "𝙲", "☾", "с"],
 	d: ["d", "ᗪ", "D", "ⓓ", "Ⓓ", "∂", "Đ", "ď", "Ď", "Ꮄ", "Ḋ", "Ꭰ", "ɖ", "ｄ", "Ｄ", "ᴅ", "🅓", "𝐝", "𝐃", "𝘥", "𝘋", "𝙙", "𝘿", "𝒹", "𝓭", "𝓓", "𝕕", "​", "𝔡", "𝖉", "𝕯", "🄳", "🅳", "𝒟", "ԃ", "𝚍", "𝙳", "◗", "ⅾ"],
@@ -362,13 +362,6 @@ Chat.registerMonitor('shorteners', {
 	},
 });
 
-Chat.registerMonitor('shadowban', {
-	location: 'EVERYWHERE',
-	punishment: 'SHADOWBAN',
-	label: 'Phrases to Shadowban',
-	condition: 'notStaff',
-});
-
 /*
  * Columns Location and Punishment use keywords. Possible values:
  *
@@ -445,7 +438,7 @@ export const namefilter: Chat.NameFilter = (name, user) => {
 		return '';
 	}
 	if (id === toID(user.trackRename)) return '';
-	const lcName = name
+	let lcName = name
 		.replace(/\u039d/g, 'N').toLowerCase()
 		.replace(/[\u200b\u007F\u00AD]/g, '')
 		.replace(/\u03bf/g, 'o')
@@ -454,7 +447,7 @@ export const namefilter: Chat.NameFilter = (name, user) => {
 		.replace(/\u0435/g, 'e')
 		.replace(/\u039d/g, 'e');
 	// Remove false positives.
-	// lcName = lcName.replace('herapist', '').replace('grape', '').replace('scrape', '');
+	lcName = lcName.replace('herapist', '').replace('grape', '').replace('scrape', '');
 
 	for (const list in filterWords) {
 		if (!Chat.monitors[list] || Chat.monitors[list].location === 'BATTLES') continue;
