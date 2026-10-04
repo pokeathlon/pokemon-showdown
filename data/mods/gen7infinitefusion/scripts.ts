@@ -2,6 +2,55 @@ import { toID } from '../../../sim/dex';
 import { Pokemon } from '../../../sim/pokemon';
 import {Scripts as Parent} from '../gen9infinitefusion/scripts';
 
+export function removeInnates(pokemon: Pokemon, battle: Battle) {
+	for (const innate of pokemon.m.activeInnates || []) {
+		if (battle.dex.abilities.get(innate).flags['cantsuppress'] || innate === 'neutralizinggas') continue;
+		pokemon.removeVolatile('ability:' + toID(innate));
+		battle.add('-endability', pokemon, innate);
+	}
+	pokemon.m.activeInnates = undefined;
+	battle.add('-displayabilities', pokemon, pokemon.ability, [pokemon.baseAbility, ...(pokemon.m.innates || [])].join(','));
+}
+
+export function removeInnate(pokemon: Pokemon, innate: string, battle: Battle) {
+	const index = pokemon.m.activeInnates?.indexOf(innate) ?? -1;
+	if (index < 0 || battle.dex.abilities.get(innate).flags['cantsuppress'] || innate === 'neutralizinggas') return;
+	pokemon.removeVolatile('ability:' + toID(innate));
+	battle.add('-endability', pokemon, innate);
+	pokemon.m.activeInnates.splice(index, 1);
+	if (!pokemon.m.activeInnates.length) pokemon.m.activeInnates = undefined;
+	battle.add('-displayabilities', pokemon, [pokemon.ability, ...(pokemon.m.activeInnates || [])].join(','),
+		[pokemon.baseAbility, ...(pokemon.m.innates || [])].join(','));
+}
+
+export function addActiveInnates(
+	pokemon: Pokemon, innates: string[] | undefined, battle: Battle, effect: string, ofPokemon?: string
+) {
+	for (const innate of innates || []) {
+		if (pokemon.m.activeInnates?.includes(innate) || pokemon.ability === toID(innate)) continue;
+		if (battle.dex.abilities.get(innate).flags['notrace']) continue;
+		pokemon.addVolatile('ability:' + toID(innate));
+		pokemon.m.activeInnates = [...(pokemon.m.activeInnates || []), innate];
+		if (effect === 'silent') {
+			battle.add('-ability', pokemon, innate, '[silent]');
+		} else if (ofPokemon) {
+			battle.add('-ability', pokemon, innate, `[from] ${effect}`, `[of] ${ofPokemon}`);
+		} else {
+			battle.add('-ability', pokemon, innate, `[from] ${effect}`);
+		}
+	}
+	battle.add('-displayabilities', pokemon, [pokemon.ability, ...(pokemon.m.activeInnates || [])].join(','),
+		[pokemon.baseAbility, ...(pokemon.m.innates || [])].join(','));
+}
+
+export function swapInnates(source: Pokemon, target: Pokemon, battle: Battle, effect: string) {
+	const [sourceInnates, targetInnates] = [source.m.activeInnates, target.m.activeInnates];
+	removeInnates(source, battle);
+	removeInnates(target, battle);
+	addActiveInnates(source, targetInnates, battle, effect);
+	addActiveInnates(target, sourceInnates, battle, effect);
+}
+
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen7',
 	init: Parent.init,

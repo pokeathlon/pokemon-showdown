@@ -1,7 +1,6 @@
 // Note: These are the rules that formats use
 
 import type { Learnset } from "../sim/dex-species";
-import { calculateFlinchChance, calculateFullFusionStat, canBoostSpeed, countHighestBoosts, countStatDoubling, GetMegaStoneStats, getBst, getFusionStats, getFusionTyping, hasBoosting, hasSleepMoveFusion, isRecoveryMove, isSpammableHighPowerStab, GetMegaStoneTyping } from "./mods/gen7infinitefusion/ifUtils";
 
 // The list of formats is stored in config/formats.js
 export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
@@ -1228,7 +1227,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				'motordrive', 'moxie', 'mysticalpower', 'nastyplot', 'noretreat', 'ominouswind', 'opportunist', 'orderup', 'poweruppunch', 'petayaberry',
 				'psyshieldbash', 'quiverdance', 'rage', 'rattled', 'rockpolish', 'salacberry', 'sapsipper', 'scaleshot', 'sharpen', 'shellsmash', 'shelter', 'shiftgear',
 				'silverwind', 'skullbash', 'steelwing', 'stockpile', 'stuffcheeks', 'soulheart', 'spectralthief', 'speedboost', 'stamina', 'starfberry', 'steadfast',
-				'steamengine', 'steelwing', 'stockpile', 'stormdrain', 'swordsdance', 'tailglow', 'takeheart', 'thermalexchange', 'tidyup', 'torchsong', 'trace',
+				'steamengine', 'steelwing', 'stockpile', 'stormdrain', 'swordsdance', 'tailglow', 'takeheart', 'thermalexchange', 'tidyup', 'torchsong', 'trace', 'trailblaze',
 				'victorydance', 'watercompaction', 'weakarmor', 'weaknesspolicy', 'wellbakedbody', 'windrider', 'withdraw', 'workup',
 			];
 			for (const set of team) {
@@ -1238,7 +1237,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				let passableBoostsSource = "";
 				const item = this.toID(set.item);
 				const ability = this.toID(set.ability);
-				const boostingMove = set.moves.find(m => boostingEffects.includes(this.toID(m)));
+				const boostingMove = set.moves.find(m => boostingEffects.includes(this.toID(m)) ||
+					Object.values(this.dex.moves.get(m).boosts || {}).some(boost => boost > 0));
 				if (boostingMove) {
 					passableBoosts = true;
 					passableBoostsSource = boostingMove;
@@ -1248,12 +1248,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				} else if (boostingEffects.includes(ability)) {
 					passableBoosts = true;
 					passableBoostsSource = set.ability;
-				} else if (hasBoosting(set, this.dex)) {
-					passableBoosts = true;
-					return [
-						`${set.name || set.species} has Baton Pass and a way to boost its stats, which is banned by Baton Pass Stat Clause.`,
-					];
-			  	}
+				}
 				if (passableBoosts) {
 					return [
 						`${set.name || set.species} has Baton Pass and a way to boost its stats (${passableBoostsSource}), which is banned by Baton Pass Stat Clause.`,
@@ -3853,11 +3848,11 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (!target.itemState.hasMegaEvolved) return;
 			const pokemon = this.dex.deepClone(species);
 
-			const megaStoneBonuses = GetMegaStoneStats(item, this.dex);
+			const [baseSpecies, megaSpecies] = Object.entries(item.megaStone)[0].map(name => this.dex.species.get(name));
 			pokemon.bst = 0;
 			let statName: StatID;
 			for (statName in pokemon.baseStats as StatsTable) {
-				const statDif = megaStoneBonuses[statName];
+				const statDif = megaSpecies.baseStats[statName] - baseSpecies.baseStats[statName];
 				pokemon.baseStats[statName] = this.clampIntRange(pokemon.baseStats[statName] + statDif, 1, 255);
 				pokemon.bst += pokemon.baseStats[statName];
 			}
@@ -3868,7 +3863,18 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				H: megaAbility,
 				S: megaAbility,
 			};
-			pokemon.types = GetMegaStoneTyping(item, species, this.dex);
+			const changesType = megaSpecies.types.length < baseSpecies.types.length ||
+				megaSpecies.types.some(type => !baseSpecies.types.includes(type));
+			const types = species.types.slice(0, 2);
+			let megaType = '';
+			for (const i of [0, 1]) {
+				if (!changesType || megaSpecies.types[i] === baseSpecies.types[i]) continue;
+				types[i] = megaType = megaSpecies.types[i] || megaSpecies.types[0];
+			}
+			if (megaType && !species.types.includes(megaType)) {
+				pokemon.types = species.types.length > 2 ? [...species.types, megaType] : types;
+			}
+			if (species.types.length < 3 && types[0] === types[1]) pokemon.types = [types[0]];
 			return pokemon;
 		},
 		onAfterMega(pokemon) {
@@ -3905,24 +3911,41 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'No Fun Clause: Electrify, moves that cause Sleep, and moves with a Flinch chance above 30% (artifically increased or not) are banned. Exception: Pokemon that have less than 200 speed and no way of increasing it or gaining priority on these moves are excempt from this clause.');
 		},
 		onValidateSet(set) {
-			let itemMult = 1.0;
-			if (set.item?.toLowerCase() === "choice scarf") itemMult = 1.5;
-			if (set.item?.toLowerCase() === "quick powder") itemMult = 2.0;
-			const hasAbove200Speed = calculateFullFusionStat('spe', set, this.dex) * itemMult > 200;
-			const hasPrankster = set.ability?.toLowerCase() === "prankster";
+			const species = this.dex.species.get(set.species);
+			const fusion = this.dex.species.get(set.fusion || set.species);
+			const nature = this.dex.natures.get(set.nature);
+			const item = this.toID(set.item);
+			const ability = this.toID(set.ability);
+			const moves = set.moves.map(id => this.dex.moves.get(id));
+			const speedBoosters = [
+				'agility', 'aquastep', 'aurawheel', 'autotomize', 'chlorophyll', 'clangoroussoul', 'dragondance',
+				'flamecharge', 'geomancy', 'quickfeet', 'quiverdance', 'rockpolish', 'sandrush', 'shellsmash',
+				'shiftgear', 'slushrush', 'speedboost', 'swiftswim', 'tidyup', 'trailblaze', 'victorydance',
+			];
+			const baseSpe = Math.floor((species.baseStats.spe + fusion.baseStats.spe * 2) / 3);
+			const spe = Math.floor((2 * baseSpe + set.ivs.spe + Math.floor(set.evs.spe / 4)) * set.level / 100) + 5;
+			const natureMod = nature.plus === 'spe' ? 1.1 : nature.minus === 'spe' ? 0.9 : 1;
+			const itemMod = item === 'choicescarf' ? 1.5 : item === 'quickpowder' ? 2 : 1;
+			const canBoostSpeed = [ability, ...moves.map(move => move.id)].some(id => speedBoosters.includes(id));
+			if (Math.floor(spe * natureMod) * itemMod <= 200 && !canBoostSpeed) return;
 
-			const hasElectrify = set.moves?.some(m => m.toLowerCase() === "electrify");
-			const hasHighFlinchChance = set.moves?.some(m => calculateFlinchChance(set, m));
-
-			const problems = [];
-			if (hasAbove200Speed || canBoostSpeed(set)) {
-				if (hasPrankster && hasElectrify)
-					problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
-				if (hasPrankster && hasSleepMoveFusion(set))
-					problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
-				if (hasHighFlinchChance)
-					problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
+			const flinchMoves = ['fakeout', 'doubleironbash'];
+			if (ability === 'serenegrace') {
+				flinchMoves.push('airslash', 'bite', 'darkpulse', 'dragonrush', 'fierywrath', 'headbutt', 'iciclecrash', 'ironhead',
+					'needlearm', 'rockslide', 'rollingkick', 'snore', 'stomp', 'triplearrows', 'twister', 'waterfall', 'zenheadbutt',
+					'zingzap');
 			}
+			if (ability === 'stench' || item === 'kingsrock') {
+				flinchMoves.push('armthrust', 'barrage', 'beatup', 'bonerush', 'bulletseed', 'cometpunch', 'furyattack', 'furyswipes',
+					'iciclespear', 'pinmissile', 'rockblast', 'spikecannon', 'tailslap', 'watershuriken');
+			}
+			const problems = [];
+			if (ability === 'prankster' && moves.some(move => move.id === 'electrify'))
+				problems.push(`${set.name} is breaking the No Fun clause due to having Electrify.`);
+			if (ability === 'prankster' && moves.some(move => move.status === 'slp' || move.secondary?.status === 'slp'))
+				problems.push(`${set.name} is breaking the No Fun clause due to having a sleep-inducing move.`);
+			if (moves.some(move => flinchMoves.includes(move.id)))
+				problems.push(`${set.name} is breaking the No Fun clause due to having a high flinch chance.`);
 			return problems;
 		},
 	},
@@ -3934,15 +3957,24 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Increasing 3 or more stat stages on the same turn is banned. Exception: Pokemon that have no priority moves and no way to regain HP are excempt from this clause.');
 		},
 		onValidateSet(set) {
-			const hasPriority = set.moves?.some(m => this.dex.moves.get(m)?.priority > 0);
-			const hasRecovery = set.moves?.some(m => isRecoveryMove(m, this.dex));
-			const numBoosts = countHighestBoosts(set, this.dex);
-
-			const problems = [];
-			if (numBoosts > 4 || ((hasPriority || hasRecovery) && numBoosts > 2))
-				problems.push(`${set.name} is breaking the No Dancing clause.`);
-
-			return problems;
+			const ability = this.toID(set.ability);
+			const selfBoostingMoves = [
+				'aquastep', 'aurawheel', 'chargebeam', 'diamondstorm', 'electroshot', 'esperwing', 'fierydance',
+				'flamecharge', 'meteorbeam', 'mysticalpower', 'orderup', 'poweruppunch', 'psyshieldbash', 'scaleshot',
+				'torchsong', 'trailblaze',
+			];
+			let boosts = 0;
+			let hasPriorityOrRecovery = false;
+			for (const id of set.moves) {
+				const move = this.dex.moves.get(id);
+				const moveBoosts = [move.boosts, move.self?.boosts].flatMap(table => Object.values(table || {}))
+					.reduce((total, boost) => total + Math.max(0, ability === 'contrary' ? -boost : boost), 0);
+				boosts = Math.max(boosts, moveBoosts + Number(selfBoostingMoves.includes(move.id)));
+				if (move.priority > 0 || move.heal || move.drain || ['rest', 'strengthsap', 'wish'].includes(move.id))
+					hasPriorityOrRecovery = true;
+			}
+			if (ability === 'speedboost') boosts++;
+			if (boosts > 4 || (hasPriorityOrRecovery && boosts > 2)) return [`${set.name} is breaking the No Dancing clause.`];
 		},
 	},
 	nodancepartnersclause: {
@@ -3953,13 +3985,19 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', "Increasing an ally's stat stages is banned.");
 		},
 		onValidateSet(set) {
-			const hasBatonPass = set.moves?.some(m => m.toLowerCase() === "baton pass");
-
-			const problems = [];
-			if (hasBatonPass && hasBoosting(set, this.dex)) {
-				problems.push(`${set.name} breaks the No Dance Partners clause.`);
-			}
-			return problems;
+			const ability = this.toID(set.ability);
+			const moves = set.moves.map(id => this.dex.moves.get(id));
+			const selfBoostingMoves = [
+				'aquastep', 'aurawheel', 'chargebeam', 'diamondstorm', 'electroshot', 'esperwing', 'fierydance',
+				'flamecharge', 'meteorbeam', 'mysticalpower', 'orderup', 'poweruppunch', 'psyshieldbash', 'scaleshot',
+				'torchsong', 'trailblaze',
+			];
+			const hasBoosting = ability === 'speedboost' || moves.some(move => selfBoostingMoves.includes(move.id) ||
+				[move.boosts, move.self?.boosts].some(table => Object.values(table || {}).some(
+					boost => (ability === 'contrary' ? -boost : boost) > 0
+				)));
+			if (hasBoosting && moves.some(move => move.id === 'batonpass'))
+				return [`${set.name} breaks the No Dance Partners clause.`];
 		},
 	},
 	noextremestatsclause: {
@@ -3970,17 +4008,24 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Having a Base Stat Total above 600 is banned. Additionally, having a combined base stat of more than 250 in Speed and either offense or in HP + either defense is banned.');
 		},
 		onValidateSet(set) {
-			const fusionStats = getFusionStats(set, this.dex);
+			const species = this.dex.species.get(set.species);
+			const fusion = this.dex.species.get(set.fusion || set.species);
+			const stats = { ...species.baseStats };
+			let stat: StatID;
+			for (stat in stats) {
+				const [head, body] = ['hp', 'spa', 'spd'].includes(stat) ? [2, 1] : [1, 2];
+				stats[stat] = Math.floor((species.baseStats[stat] * head + fusion.baseStats[stat] * body) / 3);
+			}
 			const problems = [];
-			if (getBst(fusionStats) > 600)
+			if (Object.values(stats).reduce((bst, value) => bst + value) > 600)
 				problems.push(`${set.name}'s BST breaks the No Extreme Stats Clause.`);
-			if (fusionStats['atk'] + fusionStats['spe'] > 250)
+			if (stats.atk + stats.spe > 250)
 				problems.push(`${set.name}'s Attack and Speed break the No Extreme Stats Clause.`);
-			if (fusionStats['spa'] + fusionStats['spe'] > 250)
+			if (stats.spa + stats.spe > 250)
 				problems.push(`${set.name}'s Special Attack and Speed break the No Extreme Stats Clause.`);
-			if (fusionStats['hp'] + fusionStats['def'] > 250)
+			if (stats.hp + stats.def > 250)
 				problems.push(`${set.name}'s HP and Defense break the No Extreme Stats Clause.`);
-			if (fusionStats['hp'] + fusionStats['spd'] > 250)
+			if (stats.hp + stats.spd > 250)
 				problems.push(`${set.name}'s HP and Special Defense break the No Extreme Stats Clause.`);
 			return problems;
 		},
@@ -3993,18 +4038,23 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Having an ability or item that doubles a stat is banned. Exception: Pokemon whose doubled stat(s) would not exceed 500 are excempt from this clause.');
 		},
 		onValidateSet(set) {
-			const atkModifier = countStatDoubling('atk', set);
-			const hasLimitBreakingAtk = calculateFullFusionStat('atk', set, this.dex) * atkModifier > 500;
-
-			const spaModifier = countStatDoubling('spa', set);
-			const hasLimitBreakingSpa = calculateFullFusionStat('spa', set, this.dex) * spaModifier > 500;
-
-			const problems = [];
-			if (hasLimitBreakingAtk)
-				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
-			if (hasLimitBreakingSpa)
-				problems.push(`${set.name} is breaking the No Limit Breaking Clause.`);
-			return problems;
+			const species = this.dex.species.get(set.species);
+			const fusion = this.dex.species.get(set.fusion || set.species);
+			const nature = this.dex.natures.get(set.nature);
+			const statDoublers = {
+				atk: ['hugepower', 'lightball', 'purepower', 'thickclub'],
+				spa: ['deepseatooth', 'lightball', 'purefocus'],
+			};
+			let stat: keyof typeof statDoublers;
+			for (stat in statDoublers) {
+				const [head, body] = stat === 'atk' ? [1, 2] : [2, 1];
+				const baseStat = Math.floor((species.baseStats[stat] * head + fusion.baseStats[stat] * body) / 3);
+				const value = Math.floor((2 * baseStat + set.ivs[stat] + Math.floor(set.evs[stat] / 4)) * set.level / 100) + 5;
+				const natureMod = nature.plus === stat ? 1.1 : nature.minus === stat ? 0.9 : 1;
+				const doublers = [this.toID(set.item), this.toID(set.ability)].filter(id => statDoublers[stat].includes(id));
+				if (Math.floor(value * natureMod) * 2 ** doublers.length > 500)
+					return [`${set.name} is breaking the No Limit Breaking Clause.`];
+			}
 		},
 	},
 	nonukesclause: {
@@ -4015,11 +4065,26 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', "Having STAB on a move with 140 BP or more is banned. Exception: Moves that can't be used twice in a row (such as Hyper Beam or Doom Desire) are excempt from this clause.");
 		},
 		onValidateSet(set) {
+			const item = this.toID(set.item);
+			const ateTypes: AnyObject = { aerilate: 'Flying', galvanize: 'Electric', pixilate: 'Fairy', refrigerate: 'Ice' };
+			const ateType = ateTypes[this.toID(set.ability)];
+			const [head, body] = [set.species, set.fusion || set.species].map(name => this.dex.species.get(name).types)
+				.map(types => types.includes('Normal') && types.includes('Flying') ? ['Flying'] : types);
+			const types = new Set(set.fusion ? [head[0], body[body.length - 1]] : head);
+			if (types.size === 1) types.add(body[0]);
+			const unspammableMoves = [
+				'blastburn', 'doomdesire', 'explosion', 'focuspunch', 'freezeshock', 'frenzyplant', 'futuresight',
+				'gigaimpact', 'hydrocannon', 'hyperbeam', 'iceburn', 'lastresort', 'prismaticlaser', 'psychoboost',
+				'roaroftime', 'rockwrecker', 'selfdestruct', 'shelltrap', 'skyattack',
+			];
 			const problems = [];
-			for (const move of set.moves) {
-				if (isSpammableHighPowerStab(move, set, this.dex))
-					problems.push(`${set.name}'s ${move} is breaking the No Nukes Clause.`);
-			};
+			for (const id of set.moves) {
+				const move = this.dex.moves.get(id);
+				const isNuke = move.basePower >= 140 || (move.id === 'facade' && ['flameorb', 'toxicorb'].includes(item));
+				const isStab = types.has(move.type) || (move.type === 'Normal' && types.has(ateType));
+				if (isNuke && isStab && !unspammableMoves.includes(move.id))
+					problems.push(`${set.name}'s ${move.name} is breaking the No Nukes Clause.`);
+			}
 			return problems;
 		},
 	},
@@ -4031,24 +4096,16 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.add('rule', 'Letting weather conditions increase both your speed and damage output is banned.');
 		},
 		onValidateSet(set) {
-			const typing = getFusionTyping(set, this.dex);
-			const hasStabWaterMove =
-				set.moves.some(m => m.toLowerCase() === "weather ball") || (
-					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "water") &&
-					typing.includes("Water")
-				);
-			const hasStabFireMove =
-				set.moves.some(m => m.toLowerCase() === "weather ball") || (
-					set.moves.some(m => this.dex.moves.get(m).type.toLowerCase() === "fire") &&
-					typing.includes("Fire")
-				);
-			const hasSwiftSwim = set.ability.toLowerCase() === "swift swim";
-			const hasChlorophyll = set.ability.toLowerCase() === "chlorophyll";
-
-			const problems = [];
-			if ((hasChlorophyll && hasStabFireMove) || (hasSwiftSwim && hasStabWaterMove))
-				problems.push(`${set.name} is breaking the No Weather Combos Clause.`);
-			return problems;
+			const ability = this.toID(set.ability);
+			const weatherType = ability === 'swiftswim' ? 'Water' : ability === 'chlorophyll' ? 'Fire' : '';
+			if (!weatherType) return;
+			const [head, body] = [set.species, set.fusion || set.species].map(name => this.dex.species.get(name).types)
+				.map(types => types.includes('Normal') && types.includes('Flying') ? ['Flying'] : types);
+			const types = new Set(set.fusion ? [head[0], body[body.length - 1]] : head);
+			if (types.size === 1) types.add(body[0]);
+			const moves = set.moves.map(id => this.dex.moves.get(id));
+			if (moves.some(move => move.id === 'weatherball' || (types.has(weatherType) && move.type === weatherType)))
+				return [`${set.name} is breaking the No Weather Combos Clause.`];
 		},
 	},
 	notrappingclause: {

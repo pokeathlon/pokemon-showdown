@@ -1,7 +1,7 @@
 import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
 import { Abilities as Parent } from '../gen9infinitefusion/abilities';
-import { removeInnates, removeInnate, addActiveInnates, swapInnates } from './ifUtils';
+import { removeInnates, removeInnate, addActiveInnates, swapInnates } from './scripts';
 
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	...Utils.deepClone(Parent),
@@ -156,8 +156,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (isAbility) {
 				pokemon.setAbility(ability);
 			} else {
-				removeInnate(pokemon, ['Power Of Alchemy'], this);
-				addActiveInnates(pokemon, [`ability:${ability}`], this, 'ability: Power of Alchemy');
+				removeInnate(pokemon, 'Power of Alchemy', this);
+				addActiveInnates(pokemon, [ability.name], this, 'ability: Power of Alchemy');
 			}
 		},
 	},
@@ -178,8 +178,8 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (isAbility) {
 				pokemon.setAbility(ability);
 			} else {
-				removeInnate(pokemon, ['Receiver'], this);
-				addActiveInnates(pokemon, [`ability:${ability}`], this, 'ability: Receiver');
+				removeInnate(pokemon, 'Receiver', this);
+				addActiveInnates(pokemon, [ability.name], this, 'ability: Receiver');
 			}
 		},
 	},
