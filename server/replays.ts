@@ -110,7 +110,7 @@ export const Replays = new class {
 				});
 			}
 		} catch (e: any) {
-			if (e?.routine !== 'NewUniquenessConstraintViolationError') throw e;
+			if (e?.routine !== 'NewUniquenessConstraintViolationError' && e?.code !== '23505') throw e;
 			await replays.update(replay.id, {
 				log: replayData.log,
 				inputlog: replayData.inputlog,
