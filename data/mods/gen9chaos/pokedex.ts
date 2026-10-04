@@ -3149,7 +3149,7 @@ for (const mod in mods) {
 				if (attr === 'abilities') {
 					if (!Base[id]) species.abilities = ModPokedex[id].abilities;
 					else {
-						species.abilities = (Base[id] as SpeciesData).abilities;
+						species.abilities ||= Utils.deepClone((Base[id] as SpeciesData).abilities);
 						Object.keys({ 0: null, 1: null, H: null, S: null }).forEach(
 							ability => {
 								if (!ModPokedex[id].abilities[ability]) return;

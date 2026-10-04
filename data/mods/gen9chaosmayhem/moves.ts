@@ -6,7 +6,7 @@ import { toID } from '../../../sim/dex';
 import { Moves as Chaos } from '../gen9chaos/moves';
 
 export const newMoves: { [k: string]: { [k: string]: string } } = {};
-export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Chaos;
+export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = Utils.deepClone(Chaos);
 
 const modNaming: { [k: string]: string } = {
 	"gen9insurgence": "Ins",

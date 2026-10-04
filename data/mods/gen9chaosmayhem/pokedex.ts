@@ -4,7 +4,7 @@ import { Pokedex as Chaos } from '../gen9chaos/pokedex';
 import { Abilities } from '../../abilities';
 import { type SpeciesData } from '../../../sim/dex-species';
 
-export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Chaos;
+export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = Utils.deepClone(Chaos);
 
 const Manual: AnyObject = Utils.deepClone(Pokedex);
 const BaseAbilities = Object.values(Abilities).map(ability => ability.name);
@@ -27,7 +27,7 @@ for (const mod in mods) {
 				if (attr === 'abilities') {
 					if (!Base[id]) species.abilities = ModPokedex[id].abilities;
 					else {
-						species.abilities = (Base[id] as SpeciesData).abilities;
+						species.abilities ||= Utils.deepClone((Base[id] as SpeciesData).abilities);
 						Object.keys({ 0: null, 1: null, H: null, S: null }).forEach(
 							ability => {
 								if (!ModPokedex[id].abilities[ability]) return;

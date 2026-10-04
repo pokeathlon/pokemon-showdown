@@ -6,7 +6,7 @@ import { toID } from '../../../sim/dex';
 import { Abilities as Chaos } from '../gen9chaos/abilities';
 
 export const newAbilities: { [k: string]: { [k: string]: string } } = {};
-export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Chaos;
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = Utils.deepClone(Chaos);
 
 const modNaming: { [k: string]: string } = {
 	"gen9insurgence": "Ins",
