@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Conditions as Base } from '../../conditions';
 import { type ModdedConditionDataTable } from '../../../sim/dex-conditions';
@@ -76,7 +75,7 @@ export const Conditions: ModdedConditionDataTable = {
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Lucky Charm prevent secondary');
-			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			return secondaries.filter(effect => !!effect.self);
 		},
 		onSideEnd(side) {
 			this.add('-sideend', side, 'ability: Lucky Charm');
@@ -88,20 +87,21 @@ export const Conditions: ModdedConditionDataTable = {
 const Manual = Utils.deepClone(Conditions);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModConditions = require('../' + mod + '/conditions').Conditions as ModdedConditionDataTable;
+	const ModConditions: AnyObject = require('../' + mod + '/conditions').Conditions;
 
 	for (const key in ModConditions) {
-		const id = key as keyof typeof ModConditions;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Conditions"]?.includes(id))) continue;
 
 		if (!Conditions[id]) Conditions[id] = Base[id] ? { inherit: true } : {};
+		const condition: AnyObject = Conditions[id];
 
 		for (const attr in ModConditions[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Conditions[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (condition[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Conditions[id][attr] = ModConditions[id][attr];
+				condition[attr] = ModConditions[id][attr];
 			}
 		}
 	}

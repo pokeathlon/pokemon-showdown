@@ -131,13 +131,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.id !== 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion !== 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
 				if (pokemon.species.id === 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion === 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
 					pokemon.fusionChange('Cherrim', this.effect);
 				}
@@ -182,7 +182,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (pokemon.isActive && forme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Castform') {
-					pokemon.formeChange(forme, this.effect, false, '[msg]');
+					pokemon.formeChange(forme, this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion?.includes('Castform')) {
 					pokemon.fusionChange(forme, this.effect);
 				}

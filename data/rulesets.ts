@@ -3343,7 +3343,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			if (set.fusion && !fusion.exists) return [`The Pokemon "${set.fusion}" does not exist.`];
 
 			if (set.fusion && fusion.exists) {
-				if ((species.tags.includes("Infinite Fusion") || fusion.tags.includes("Infinite Fusion")))
+				if ((species.eggGroups.includes("Infinite Fusion") || fusion.eggGroups.includes("Infinite Fusion")))
 					return [`You cannot fuse with triple fusions.`];
 
 				[set.species, set.fusion] = [set.fusion, set.species];
@@ -3785,7 +3785,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 		onSwitchIn(pokemon) {
-			this.add('-displayabilities', pokemon, [pokemon.ability, ...(pokemon.m.innates || [])]);
+			this.add('-displayabilities', pokemon, [pokemon.ability, ...(pokemon.m.innates || [])].join(','));
 		},
 		onSwitchOut(pokemon) {
 			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {

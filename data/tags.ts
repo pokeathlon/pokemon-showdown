@@ -58,35 +58,6 @@ export const Tags: { [id: IDEntry]: TagData } = {
 		name: "Pokestar",
 		speciesFilter: species => species.tags.includes("Pokestar"),
 	},
-	infinitefusion: {
-		name: "Infinite Fusion",
-		speciesFilter: species => species.tags.includes("Infinite Fusion"),
-	},
-	pokeathlon: {
-		name: "Pokeathlon",
-		speciesFilter: species => species.tags.includes("Pokeathlon"),
-	},
-	insurgence: {
-		name: "Insurgence",
-		speciesFilter: species => species.tags.includes("Insurgence"),
-	},
-	uranium: {
-		name: "Uranium",
-		speciesFilter: species => species.tags.includes("Uranium"),
-	},
-	infinity: {
-		name: "Infinity",
-		speciesFilter: species => species.tags.includes("Infinity"),
-	},
-	mariomon: {
-		name: "Mariomon",
-		speciesFilter: species => species.tags.includes("Mariomon"),
-	},
-	soulstones: {
-		name: "Soulstones",
-		speciesFilter: species => species.tags.includes("Soulstones"),
-	},
-
 
 	// Move tags
 	// ---------

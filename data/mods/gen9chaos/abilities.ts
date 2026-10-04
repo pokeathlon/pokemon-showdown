@@ -1,7 +1,6 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
-import { type ModdedAbilityDataTable } from '../../../sim/dex-abilities';
+import { type AbilityData, type ModdedAbilityDataTable } from '../../../sim/dex-abilities';
 
 const eeveelutions: { [k: string]: string } = {
 	"Water": "vaporeon",
@@ -226,14 +225,14 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!pokemon.isActive || pokemon.transformed || !pokemon.hp) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.name === 'Cherrim') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
 				if (pokemon.species.name === 'Cherrim-Sunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion === 'Cherrim-Sunshine') {
 					pokemon.fusionChange('Cherrim', this.effect);
@@ -288,7 +287,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 			if (castforme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== castforme) {
-					pokemon.formeChange(castforme, this.effect, false, '[msg]');
+					pokemon.formeChange(castforme, this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion?.includes('Castform') && pokemon.m.fusion !== castforme) {
 					pokemon.fusionChange(castforme, this.effect);
@@ -296,7 +295,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 			if (broforme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Hammer Bro' && pokemon.species.name !== broforme) {
-					pokemon.formeChange(broforme, this.effect, false, '[msg]');
+					pokemon.formeChange(broforme, this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion?.endsWith(' Bro') && pokemon.m.fusion !== broforme) {
 					pokemon.fusionChange(broforme, this.effect);
@@ -1134,7 +1133,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 4,
 		num: 0,
 		shortDesc: "Replaces ability on contact. Reduces BP of Physical moves by 5 each turn.",
-		changeAbility: "  [TARGET]'s anatomy became twisted!",
 	},
 	tailgunrailgun: {
 		onStart(target) {
@@ -1386,7 +1384,7 @@ export const Abilities: ModdedAbilityDataTable = {
 				let moveData = target.side.slotConditions[target.position]['futuremove'].moveData
 				moveData = {
 					...moveData, 
-				onHit(target) {
+				onHit(target: Pokemon) {
 					if (target.getAbility().flags['cantsuppress']) return;
 					target.addVolatile('gastroacid');
 				},
@@ -1436,20 +1434,21 @@ export const Abilities: ModdedAbilityDataTable = {
 const Manual = Utils.deepClone(Abilities);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModAbilities = require('../' + mod + '/abilities').Abilities as ModdedAbilityDataTable;
+	const ModAbilities: AnyObject = require('../' + mod + '/abilities').Abilities;
 
 	for (const key in ModAbilities) {
-		const id = key as keyof typeof ModAbilities;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Abilities"]?.includes(id))) continue;
 
-		if (!Abilities[id]) Abilities[id] = Base[id] ? { inherit: true } : {};
+		if (!Abilities[id]) Abilities[id] = Base[id] ? { inherit: true } : {} as AbilityData;
+		const ability: AnyObject = Abilities[id];
 
 		for (const attr in ModAbilities[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Abilities[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (ability[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Abilities[id][attr] = ModAbilities[id][attr];
+				ability[attr] = ModAbilities[id][attr];
 			}
 		}
 	}

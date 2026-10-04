@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Learnsets as Base } from '../../learnsets';
 import { ModdedLearnsetDataTable } from '../../../sim/dex-species';
 import { Learnsets as Chaos } from '../gen9chaos/learnsets';
@@ -20,7 +19,7 @@ for (const mod in mods) {
 
 			if (!Learnsets[id].learnset[moveid]) Learnsets[id].learnset[moveid] = [];
 			Learnsets[id].learnset[moveid].push(
-				...ModLearnsets[id].learnset[moveid].filter((method) => !Learnsets[id].learnset[moveid].includes(method))
+				...ModLearnsets[id].learnset[moveid].filter((method) => !Learnsets[id].learnset![moveid].includes(method))
 			);
 		}
 	}

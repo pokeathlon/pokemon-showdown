@@ -1,7 +1,6 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Items as Base } from '../../items';
-import { type ModdedItemDataTable } from '../../../sim/dex-items';
+import { type ItemData, type ModdedItemDataTable } from '../../../sim/dex-items';
 
 export const Items: ModdedItemDataTable = {
 	lightball: {
@@ -413,7 +412,7 @@ export const Items: ModdedItemDataTable = {
 					activate = true;
 					boosts[i] = 0;
 				}
-				if (activate && !pokemon.item('managel')) {
+				if (activate && !pokemon.hasItem('managel')) {
 					pokemon.setBoost(boosts);
 					this.add('-clearboost', pokemon, '[silent]');
 				}
@@ -519,20 +518,21 @@ export const Items: ModdedItemDataTable = {
 const Manual = Utils.deepClone(Items);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
+	const ModItems: AnyObject = require('../' + mod + '/items').Items;
 
 	for (const key in ModItems) {
-		const id = key as keyof typeof ModItems;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Items"]?.includes(id))) continue;
 
-		if (!Items[id]) Items[id] = Base[id] ? { inherit: true } : {};
+		if (!Items[id]) Items[id] = Base[id] ? { inherit: true } : {} as ItemData;
+		const item: AnyObject = Items[id];
 
 		for (const attr in ModItems[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Items[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (item[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Items[id][attr] = ModItems[id][attr];
+				item[attr] = ModItems[id][attr];
 			}
 		}
 	}

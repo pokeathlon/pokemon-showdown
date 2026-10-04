@@ -65,7 +65,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				pokemon.formeChange(forme, this.effect, false, '0', '[msg]');
 			}
 		},
 	},
@@ -799,9 +799,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Typhlosion-Delta' || pokemon.transformed || !pokemon.isActive) return;
 			if (['newmoon', 'raindance', 'primordialsea'].includes(pokemon.effectiveWeather()) && pokemon.species.id !== 'typhlosiondeltamegaactive') {
-				pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '[msg]');
+				pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '0', '[msg]');
 			} else if (pokemon.species.id === 'typhlosiondeltamegaactive') {
-				pokemon.formeChange('typhlosiondeltamega', this.effect, false, '[msg]');
+				pokemon.formeChange('typhlosiondeltamega', this.effect, false, '0', '[msg]');
 			}
 		},
 		onModifySpAPriority: 5,

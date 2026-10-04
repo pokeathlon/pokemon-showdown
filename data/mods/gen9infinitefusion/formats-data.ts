@@ -245,51 +245,51 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	aerodactylmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	alakazammega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	ampharosmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	beedrillmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	blastoisemega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	dianciemega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	lucariomega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	metagrossmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	pidgeotmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	pinsirmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	salamencemega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	swampertmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	espathra: {
 		inherit: true,

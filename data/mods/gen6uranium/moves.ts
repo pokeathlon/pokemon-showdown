@@ -22,7 +22,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			target.statusState.source = target;
 			this.heal(target.maxhp);
 		},
-		secondary: null,
 	},
 	sleeptalk: {
 		inherit: true,

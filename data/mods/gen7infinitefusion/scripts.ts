@@ -311,7 +311,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							const allowedItems = this.battle.dex.items.all().filter(item => ((!item.isNonstandard || ['Unobtainable', 'Past'].includes(item.isNonstandard)) && item.exists));
 							let megaForme;
 							for (const item of allowedItems) {
-								if (item.megaEvolves === this.illusion.species.name) megaForme = this.battle.dex.species.get(item.megaStone);
+								if (item.megaStone?.[this.illusion.species.name]) megaForme = this.battle.dex.species.get(item.megaStone[this.illusion.species.name]);
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
