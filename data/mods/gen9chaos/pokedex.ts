@@ -3325,6 +3325,21 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	broobird: {
+		num: 3195,
+		name: "Broobird",
+		types: ["Dark", "Flying"],
+		baseStats: { hp: 121, atk: 130, def: 60, spa: 55, spd: 64, spe: 50 },
+		abilities: { 0: "Parental Bond" },
+		heightm: 1.7,
+		weightkg: 99.7,
+		color: "Purple",
+		tags: ["Pokeathlon"],
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
+	},
 };
 
 const Manual = Utils.deepClone(Pokedex);
