@@ -1543,7 +1543,7 @@ export class User extends Chat.MessageContext {
 		const throttleDelay = this.isPublicBot ? THROTTLE_DELAY_PUBLIC_BOT : this.trusted ? THROTTLE_DELAY_TRUSTED :
 			THROTTLE_DELAY;
 
-		if (this.chatQueue.length) {
+		if (this.chatQueue?.length) {
 			this.chatQueueTimeout = setTimeout(() => this.processChatQueue(), throttleDelay);
 		} else {
 			this.chatQueue = null;
