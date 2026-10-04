@@ -1154,10 +1154,12 @@ export class CommandContext extends MessageContext {
 		if (user.challengeOnly && !room?.battle?.playerTable[user.id]) {
 			throw new Chat.ErrorMessage(this.TL`Challenge-only accounts can only talk in battles they're playing in.`);
 		}
-		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}`, "wait": 1 },
-			timeout: 10 * 1000, // 10s
-		});
+		if (Config.chatlogwebhook) {
+			void Net(Config.chatlogwebhook).post({
+				body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}`, "wait": 1 },
+				timeout: 10 * 1000, // 10s
+			}).catch(() => {});
+		}
 		if (!user.can('bypassall')) {
 			const lockType = (user.namelocked ? this.TL`namelocked` : user.locked ? this.TL`locked` : ``);
 			const lockExpiration = Punishments.checkLockExpiration(user.namelocked || user.locked);
