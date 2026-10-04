@@ -1,3 +1,6 @@
+import { Field } from '../../../sim/field';
+import { Pokemon } from '../../../sim/pokemon';
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
@@ -127,7 +130,24 @@ export const Scripts: ModdedBattleScriptsData = {
 		return tr(baseDamage, 16);
 		}
 	},
+	field: {
+		effectiveTerrain(this: Field, target) {
+			for (const pokemon of this.battle.getAllActive()) {
+				if (!pokemon.ignoringAbility() && pokemon.getAbility().suppressTerrain && !pokemon.abilityState.ending) return '';
+			}
+			return Field.prototype.effectiveTerrain.call(this, target);
+		},
+	},
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
+		isGrounded(negateImmunity) {
+			if ('vanguard' in this.volatiles) return true;
+			return Pokemon.prototype.isGrounded.call(this, negateImmunity);
+		},
 		setStatus(
 		status: string | Condition,
 		source: Pokemon | null = null,

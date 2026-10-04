@@ -1,3 +1,5 @@
+import { toID } from '../../../sim/dex';
+import { Pokemon } from '../../../sim/pokemon';
 import {Scripts as Parent} from '../gen9infinitefusion/scripts';
 
 export const Scripts: ModdedBattleScriptsData = {
@@ -56,6 +58,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
+		getSwitchRequestData(forAlly) {
+			const entry = Pokemon.prototype.getSwitchRequestData.call(this, forAlly);
+			if (this.battle.format.ruleset.includes('Double Ability Mod')) entry.ability2 = toID(this.m.innates?.[0] ?? '');
+			return entry;
+		},
 		ignoringAbility() {
 			// Check if any active pokemon have the ability Neutralizing Gas
 			let neutralizinggas = false;

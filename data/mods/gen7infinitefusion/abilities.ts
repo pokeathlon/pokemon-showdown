@@ -191,7 +191,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const possibleTargets = pokemon.adjacentFoes().filter(
 				target =>
 					(!target.getAbility().flags['notrace'] && target.ability !== 'noability') ||
-					(isDoubleAbilBattle && (target.m.activeInnates || []).some(innate => !this.dex.abilities.get(innate).flags['notrace']))
+					(isDoubleAbilBattle && (target.m.activeInnates || []).some(
+						(innate: string) => !this.dex.abilities.get(innate).flags['notrace']
+					))
 			);
 			if (!possibleTargets.length) return;
 

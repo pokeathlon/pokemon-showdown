@@ -234,7 +234,7 @@ export class ModdedDex {
 	getName(name: any): string {
 		if (typeof name !== 'string' && typeof name !== 'number') return '';
 		name = `${name}`.replace(/[|\s[\],\u202e]+/g, ' ').trim();
-		if (name.length > 20) name = name.substr(0, 20).trim();
+		if (name.length > 18) name = name.substr(0, 18).trim();
 
 		// remove zalgo
 		name = name.replace(

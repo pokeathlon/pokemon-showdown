@@ -1,7 +1,20 @@
+import { toID } from '../../../sim/dex';
+import { Pokemon } from '../../../sim/pokemon';
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
+		getSwitchRequestData(forAlly) {
+			const entry = Pokemon.prototype.getSwitchRequestData.call(this, forAlly);
+			if (this.battle.format.ruleset.includes('Double Ability Mod')) entry.ability2 = toID(this.m.innates?.[0] ?? '');
+			return entry;
+		},
 		tryTrap(isHidden) {
 			if (!this.runStatusImmunity('trapped')) return false;
 			if (this.getAbility().id === 'runaway') return false;

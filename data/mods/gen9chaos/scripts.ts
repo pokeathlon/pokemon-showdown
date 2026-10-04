@@ -1,3 +1,6 @@
+import { toID } from '../../../sim/dex';
+import { Pokemon } from '../../../sim/pokemon';
+
 const prevos: { [k: string]: string[] } = {
 	// Digimon
 	"unimon": ["Elecmon", "Biyomon", "Patamon"],
@@ -275,6 +278,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
+		disableMove(moveid, isHidden, sourceEffect) {
+			if (toID(moveid) === 'ringtrue') return;
+			Pokemon.prototype.disableMove.call(this, moveid, isHidden, sourceEffect);
+		},
 		tryTrap(isHidden) {
 			if (!this.runStatusImmunity('trapped')) return false;
 			if (this.getAbility().id === 'runaway') return false;

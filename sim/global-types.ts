@@ -291,6 +291,9 @@ interface ModdedBattlePokemon {
 		this: Pokemon, speciesId: string | Species, source: Effect
 	) => boolean;
 	tryTrap?: (this: Pokemon, isHidden?: boolean) => void;
+	getUpdatedDetails?: (this: Pokemon, level?: number) => string;
+	getSwitchRequestData?: (this: Pokemon, forAlly?: boolean) => import('./side').PokemonSwitchRequestData;
+	disableMove?: (this: Pokemon, moveid: string, isHidden?: boolean, sourceEffect?: Effect) => void;
 	formeChange?: (
 		this: Pokemon, speciesId: string | Species, source: Effect, isPermanent?: boolean, abilitySlot?: string,
 		message?: string,

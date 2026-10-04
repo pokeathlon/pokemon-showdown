@@ -500,22 +500,12 @@ export const Teams = new class Teams {
 			}
 		} else if (line.startsWith('Trait: ')) {
 			line = line.slice(7);
-			if (line.includes(' / ')) {
-				const split = line.split(' / ');
-				set.ability = aggressive ? toID(split[0]) : split[0];
-				set.ability2 = aggressive ? toID(split[1]) : split[1];
-			} else {
-				set.ability = aggressive ? toID(line) : line;
-			}
+			if (line.includes(' / ')) [line, set.ability2] = line.split(' / ').map(name => aggressive ? toID(name) : name);
+			set.ability = aggressive ? toID(line) : line;
 		} else if (line.startsWith('Ability: ')) {
 			line = line.slice(9);
-			if (line.includes(' / ')) {
-				const split = line.split(' / ');
-				set.ability = aggressive ? toID(split[0]) : split[0];
-				set.ability2 = aggressive ? toID(split[1]) : split[1];
-			} else {
-				set.ability = aggressive ? toID(line) : line;
-			}
+			if (line.includes(' / ')) [line, set.ability2] = line.split(' / ').map(name => aggressive ? toID(name) : name);
+			set.ability = aggressive ? toID(line) : line;
 		} else if (line === 'Shiny: Yes') {
 			set.shiny = true;
 		} else if (line.startsWith('Level: ')) {

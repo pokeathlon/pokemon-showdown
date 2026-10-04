@@ -1899,34 +1899,20 @@ export class BattleActions {
 		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
 
-		if (!this.battle.ruleTable?.has('mixandmegamod'))
-			pokemon.formeChange(speciesid, pokemon.getItem(), true);
-		if (this.battle.ruleTable?.has('multiplemega')) {
-			const wasMega = pokemon.canMegaEvo; // true if it has mega evolved
-			const megaLimit = Number(this.battle.format.ruleTable?.valueRules.get('multiplemega') || 1);
-			let megaCount = 0;
-			for (const ally of pokemon.side.pokemon) {
-				if (ally.species.isMega) {
-					megaCount += 1;
-					ally.canMegaEvo = false;
-				}
-				if (megaCount >= megaLimit) ally.canMegaEvo = false;
-			}
-			return true;
-		} else {
-			// Limit one mega evolution
-			const wasMega = pokemon.canMegaEvo;
-			for (const ally of pokemon.side.pokemon) {
-				if (wasMega) {
-					ally.canMegaEvo = false;
-				} else {
-					ally.canUltraBurst = null;
-				}
-			}
+		if (!this.battle.ruleTable.has('mixandmegamod')) pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
-			this.battle.runEvent('AfterMega', pokemon);
-			return true;
+		// Limit one mega evolution
+		const wasMega = pokemon.canMegaEvo;
+		for (const ally of pokemon.side.pokemon) {
+			if (wasMega) {
+				ally.canMegaEvo = false;
+			} else {
+				ally.canUltraBurst = null;
+			}
 		}
+
+		this.battle.runEvent('AfterMega', pokemon);
+		return true;
 	}
 
 	// Let's Go

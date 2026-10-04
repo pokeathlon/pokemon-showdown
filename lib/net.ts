@@ -208,7 +208,7 @@ export class NetRequest {
 		const stream = this.getStream(opts);
 		const response = await stream.response;
 		if (response) this.response = response;
-		if (response && response.statusCode !== 200 && response.statusCode !== 204) {
+		if (response && response.statusCode !== 200) {
 			throw new HttpError(response.statusMessage || "Connection error", response.statusCode, await stream.readAll());
 		}
 		return stream.readAll();
