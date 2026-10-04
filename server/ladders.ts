@@ -13,7 +13,7 @@ const LadderStore: typeof import('./ladders-remote').LadderStore = (
 ).LadderStore;
 
 const SECONDS = 1000;
-const PERIODIC_MATCH_INTERVAL = 60 * SECONDS;
+const PERIODIC_MATCH_INTERVAL = 10 * SECONDS;
 
 import type { ChallengeType } from './room-battle';
 import { BattleReady, BattleChallenge, GameChallenge, BattleInvite, challenges } from './ladders-challenges';
@@ -352,7 +352,7 @@ class Ladder extends LadderStore {
 
 		// users must not have been matched immediately previously
 		for (const user of users) {
-			if (userids.includes(user.lastMatch)) return false;
+			if (userids.includes(user.lastMatch) && Date.now() - Math.min(...matches.map(([search]) => search.time)) < 60 * SECONDS) return false;
 		}
 
 		// search must be within range
@@ -365,7 +365,7 @@ class Ladder extends LadderStore {
 
 		searchRange += elapsed / 300; // +1 every .3 seconds
 		if (searchRange > 300) searchRange = 300 + (searchRange - 300) / 10; // +1 every 3 sec after 300
-		if (searchRange > 600) searchRange = 600;
+		if (elapsed > 30 * SECONDS) searchRange = Infinity;
 		const ratings = matches.map(([search]) => search.rating);
 		if (Math.max(...ratings) - Math.min(...ratings) > searchRange) return false;
 
@@ -472,6 +472,7 @@ class Ladder extends LadderStore {
 			}
 			return undefined;
 		}
+		for (const player of players) Ladder.cancelSearches(player.user);
 		const format = Dex.formats.get(formatid);
 		const delayedStart = format.playerCount > players.length ? 'multi' : false;
 		return Rooms.createBattle({
