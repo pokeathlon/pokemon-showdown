@@ -35,10 +35,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onUpdate(pokemon) {
 			if (['mimikyu', 'mimikyutotem', 'mimikyuorion', 'mimikyutemporal'].includes(pokemon.species.id) && this.effectState.busted) {
-				let speciesid = 'Mimikyu-Busted'
-				if (pokemon.species.id === 'mimikyutotem') speciesid = 'Mimikyu-Busted-Totem'
-				if (pokemon.species.id === 'mimikyuorion') speciesid = 'Mimikyu-Orion-Busted'
-				if (pokemon.species.id === 'mimikyutemporal') speciesid = 'Mimikyu-Temporal-Busted'
+				let speciesid = 'Mimikyu-Busted';
+				if (pokemon.species.id === 'mimikyutotem') speciesid = 'Mimikyu-Busted-Totem';
+				if (pokemon.species.id === 'mimikyuorion') speciesid = 'Mimikyu-Orion-Busted';
+				if (pokemon.species.id === 'mimikyutemporal') speciesid = 'Mimikyu-Temporal-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
@@ -212,16 +212,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		shortDesc: "This Pokemon's sound-based moves become Water type. Sound-based moves have 1.2x power.",
 	},
-	corrosion: { //TEST
+	corrosion: { // TEST
 		inherit: true,
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (move.type != 'Poison') return;
+			if (move.type !== 'Poison') return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Poison'] = true;
 			}
-			move.onEffectiveness = function (typeMod, t, type, m) { //I sure hope this works!
+			move.onEffectiveness = function (typeMod, t, type, m) { // I sure hope this works!
 				if (type === 'Poison') return 0;
 			};
 		},
@@ -261,7 +261,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		desc: "This Pokemon's Normal-type moves become Light-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
 		shortDesc: "This Pokemon's Normal-type moves become Light type and have 1.2x power.",
 	},
-	cloudnine: { //TEST
+	cloudnine: { // TEST
 		inherit: true,
 		onStart(pokemon) {
 			pokemon.abilityState.ending = false; // Clear the ending flag
@@ -346,10 +346,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.secondaries) {
 				for (const secondary of move.secondaries) {
-					if (secondary.chance) this.chainModify(1-secondary.chance/200); //chance has already been modified before this triggers.
+					if (secondary.chance) this.chainModify(1 - secondary.chance / 200); // chance has already been modified before this triggers.
 				}
 			}
-			if (move.self?.chance) this.chainModify(1-move.self.chance/200);
+			if (move.self?.chance) this.chainModify(1 - move.self.chance / 200);
 		},
 		desc: "This Pokemon's moves have their secondary effect chance doubled. This effect stacks with the Rainbow effect, except for secondary effects that cause the target to flinch. The Power of moves is reduced by the original effect chance %.",
 		shortDesc: "Doubled effect chance, but BP reduced by original effect chance.",
@@ -357,7 +357,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	moody: {
 		inherit: true,
 		onResidual(pokemon) {
-			let stats: BoostID[] = [];
+			const stats: BoostID[] = [];
 			const boost: SparseBoostsTable = {};
 			let statPlus: BoostID;
 			for (statPlus in pokemon.boosts) {
@@ -366,9 +366,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 					stats.push(statPlus);
 				}
 			}
-			let randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
-			if (pokemon.abilityState.statPlus) boost[pokemon.abilityState.statPlus as BoostID] = -2
-			if (randomStat) {boost[randomStat] = 2; pokemon.abilityState.statPlus = randomStat}
+			const randomStat: BoostID | undefined = stats.length ? this.sample(stats) : undefined;
+			if (pokemon.abilityState.statPlus) boost[pokemon.abilityState.statPlus as BoostID] = -2;
+			if (randomStat) { boost[randomStat] = 2; pokemon.abilityState.statPlus = randomStat; }
 
 			this.boost(boost, pokemon, pokemon);
 		},
@@ -427,7 +427,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		desc: "1.25x against targets that share a type with user.",
-		shortDesc: "1.25x against targets that share a type with user."
+		shortDesc: "1.25x against targets that share a type with user.",
 	},
 	stakeout: {
 		inherit: true,
@@ -480,7 +480,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		onModifySpDPriority: 6,
 		onModifySpD(spd, target, source, move) {
-			return this.chainModify(1.2)
+			return this.chainModify(1.2);
 		},
 		shortDesc: "1.2x SpDef. This Pokemon cannot be struck by a critical hit.",
 	},
@@ -488,7 +488,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		onModifyDefPriority: 6,
 		onModifyDef(def, target, source, move) {
-			return this.chainModify(1.2)
+			return this.chainModify(1.2);
 		},
 		shortDesc: "1.2x Def. This Pokemon cannot be struck by a critical hit.",
 	},
@@ -598,7 +598,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onDamagingHit(damage, target, source, move) {},
 		desc: "Takes 0.75x from targets that share a type with user.",
-		shortDesc: "Takes 0.75x from targets that share a type with user."
+		shortDesc: "Takes 0.75x from targets that share a type with user.",
 	},
 	ironbarbs: {
 		inherit: true,
@@ -662,7 +662,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				return this.chainModify(1.33);
 			}
 		},
-		shortDesc: "Sets Electric Terrain on start. 1.33x Atk and SpA in Electric Terrain."
+		shortDesc: "Sets Electric Terrain on start. 1.33x Atk and SpA in Electric Terrain.",
 	},
 	bigpecks: {
 		inherit: true,
@@ -922,7 +922,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (move.ignoreImmunity !== true) {
 					move.ignoreImmunity['Electric'] = true;
 				}
-				move.onEffectiveness = function (typeMod, t, type, m) { //I sure hope this works!
+				move.onEffectiveness = function (typeMod, t, type, m) { // I sure hope this works!
 					if (type === 'Electric') return 0;
 				};
 			}
@@ -1068,23 +1068,23 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "On switch-in, this Pokemon lowers the Sp. Atk of opponents by 1 stage.",
 	},
-	ethereal: { 
+	ethereal: {
 		onTryHit(target, source, move) {
 			if (!move.flags.contact) return;
 			if (target.abilityState.etherealLost) return;
-				if (move.smartTarget) {
-					move.smartTarget = false;
-				} else {
-					this.add('-immune', target, '[from] ability: Ethereal');
-				}
-				target.abilityState.etherealLost = true;
-				return null;
+			if (move.smartTarget) {
+				move.smartTarget = false;
+			} else {
+				this.add('-immune', target, '[from] ability: Ethereal');
+			}
+			target.abilityState.etherealLost = true;
+			return null;
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1 },
 		name: "Ethereal",
 		rating: 5,
 		num: 0,
-		shortDesc: "User is immune to one contact move per switch-in."
+		shortDesc: "User is immune to one contact move per switch-in.",
 	},
 	fortification: {
 		onDamage(damage, target, source, effect) {
@@ -1150,7 +1150,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Ghost-type attack.",
 	},
-	hivebody: { 
+	hivebody: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
@@ -1553,7 +1553,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	reaper: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.heal(source.maxhp / 5, source, source)
+				this.heal(source.maxhp / 5, source, source);
 			}
 		},
 		flags: {},
@@ -1603,7 +1603,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	scorchscale: {
 		onHit(target, source, move) {
-			if (move.priority > 0.1 && move.category != 'Status') {
+			if (move.priority > 0.1 && move.category !== 'Status') {
 				source.trySetStatus('brn', target);
 			}
 		},
@@ -1611,7 +1611,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Scorch Scale",
 		rating: 2.5,
 		num: 0,
-		shortDesc: "Burns any foe that uses priority attacks on it."
+		shortDesc: "Burns any foe that uses priority attacks on it.",
 	},
 	sharpshooter: {
 		onSourceAccuracy(accuracy, target, source, move) {
@@ -2105,15 +2105,14 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Forest King",
 		rating: 4,
 		num: 0,
-		shortDesc: "Sets Grassy Terrain on start. 1.33x Atk and SpA in Grassy Terrain."
+		shortDesc: "Sets Grassy Terrain on start. 1.33x Atk and SpA in Grassy Terrain.",
 	},
 	orbit: {
 		onStart(source) {
 			if (!this.field.pseudoWeather.gravity) {
 				this.add('-activate', source, 'ability: Orbit');
 				this.field.addPseudoWeather('gravity');
-			} 
-				
+			}
 		},
 		flags: {},
 		name: "Orbit",
@@ -2138,7 +2137,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePower(basePower, source, target, move) {
 			if (!source.hasType(move.type)) {
 				this.debug('Flexible boosts');
-				return this.chainModify(1.3)
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
@@ -2167,7 +2166,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBasePower(basePower, source, target, move) {
 			if (source.abilityState.rebellious) {
 				this.debug('Rebellious boosts');
-				return this.chainModify(1.3)
+				return this.chainModify(1.3);
 			}
 		},
 		onSwitchOut(pokemon) {
@@ -2177,7 +2176,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Rebellious",
 		rating: 3,
 		num: 0,
-		shortDesc: "If stats lowered by a foe, 1.3x damage until switch-out."
+		shortDesc: "If stats lowered by a foe, 1.3x damage until switch-out.",
 	},
 	gorging: {
 		onBasePowerPriority: 19,
@@ -2192,7 +2191,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		num: 0,
 		shortDesc: "This Pokemon's draining attacks have 1.3x power.",
 	},
-	resonant: { //Implemented in scripts
+	resonant: { // Implemented in scripts
 		flags: {},
 		name: "Resonant",
 		rating: 3.5,

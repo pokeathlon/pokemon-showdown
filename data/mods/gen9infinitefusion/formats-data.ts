@@ -762,7 +762,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		doublesTier: "DUber",
 	},
-	
+
 	meganiummega: {
 		inherit: true,
 		isNonstandard: null,

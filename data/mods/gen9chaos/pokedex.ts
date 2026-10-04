@@ -2957,7 +2957,7 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		name: "Odinalto-Coda",
 		types: ["Bug", "Water"],
 		baseStats: { hp: 62, atk: 104, def: 60, spa: 105, spd: 76, spe: 111 },
-		abilities: { 0: "Tinted Lens"},
+		abilities: { 0: "Tinted Lens" },
 		heightm: 1.2,
 		weightkg: 18.9,
 		color: "Green",

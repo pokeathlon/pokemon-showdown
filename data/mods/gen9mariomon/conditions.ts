@@ -1,5 +1,5 @@
 export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDataTable = {
-		frb: {
+	frb: {
 		name: 'frb',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {

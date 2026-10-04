@@ -88,12 +88,12 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
@@ -132,14 +132,14 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (
 				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
 				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
-				Dex.species.get(pokemon.m.fusion).baseSpecies === 'Cubone' ||
-				Dex.species.get(pokemon.m.fusion).baseSpecies === 'Marowak'
+				this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Cubone' ||
+				this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Marowak'
 			) {
 				return this.chainModify(2);
 			}
 		},
 	},
-	
+
 	meganiumite: {
 		inherit: true,
 		isNonstandard: null,

@@ -123,7 +123,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 	},
-	
+
 	goombaboots: {
 		name: "Goomba Boots",
 		shortDesc: "If held by a Goomba/Goomba Stack, its Speed is doubled.",

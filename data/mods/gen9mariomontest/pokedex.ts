@@ -681,7 +681,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		name: "Bristle",
 		types: ["Steel"],
 		baseStats: { hp: 20, atk: 35, def: 230, spa: 15, spd: 200, spe: 5 },
-		abilities: { 0: "Iron Barbs", H: "Heatproof"},
+		abilities: { 0: "Iron Barbs", H: "Heatproof" },
 		heightm: 1.2,
 		weightkg: 260.0,
 		eggGroups: ["Mariomon"],

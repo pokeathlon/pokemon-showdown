@@ -23,6 +23,7 @@ export const Rulesets: import('../../../sim/dex-formats').ModdedFormatDataTable 
 							);
 							return true;
 						}
+						return false;
 					}
 				)
 			);

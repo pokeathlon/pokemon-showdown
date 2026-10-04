@@ -258,7 +258,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
-					if (!move.ohko && move.category != 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
+					if (!move.ohko && move.category !== 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
 						move.accuracy = true;
 						this.battle.actions.useMove(move, pokemon);
 					}
@@ -333,7 +333,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
 				this.baseSpecies = rawSpecies;
-				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level.toString()) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
 					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
@@ -365,7 +365,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
-									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
+									(this.level === 100 ? '' : ', L' + this.level.toString()) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
 									(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);

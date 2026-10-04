@@ -275,7 +275,7 @@ export const Items: ModdedItemDataTable = {
 		desc: "Holder takes half the recoil damage.",
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
-			if (move.recoil) move.recoil[1] = move.recoil[1] * 2;
+			if (move.recoil) move.recoil[1] *= 2;
 		},
 		num: 0,
 		spritenum: -3,
@@ -367,7 +367,7 @@ export const Items: ModdedItemDataTable = {
 					moveid: target.lastMove.id,
 					targetLoc: target.lastMoveTargetLoc!,
 				})[0] as MoveAction);
-			}
+			},
 		},
 		num: 0,
 	},
@@ -388,7 +388,7 @@ export const Items: ModdedItemDataTable = {
 		},
 		onTryMovePriority: -1,
 		onTryMove(source, target, move) {
-			if (move.id === 'wish' && source.hp != source.baseMaxhp && source.useItem()) {
+			if (move.id === 'wish' && source.hp !== source.baseMaxhp && source.useItem()) {
 				this.heal(source.baseMaxhp * 1.3 / 2, source, source);
 			}
 			if (move.id === 'wish' && source.hp === source.baseMaxhp) {
@@ -398,7 +398,7 @@ export const Items: ModdedItemDataTable = {
 			}
 		},
 		onBasePower(basePower, source, target, move) {
-			if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
+			if (move.flags.futuremove && move.category !== 'Status' && source.useItem()) {
 				return this.chainModify(1.3);
 			}
 		},

@@ -160,7 +160,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const target = this.sample(possibleTargets);
 			const ability = target.getAbility();
 			if (pokemon.setAbility(ability) && !pokemon.illusion) {
-				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', `[of] ${target}`);
 			}
 		},
 	},
@@ -276,7 +276,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	etherealshroud: {
 		onTryHit(target, source, move) {
-			if (target !== source && ['Normal', 'Fighting'].includes(move.type) && move.category != 'Status') {
+			if (target !== source && ['Normal', 'Fighting'].includes(move.type) && move.category !== 'Status') {
 				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return null;
 			}
@@ -422,7 +422,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').slice(-1));
+			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').pop()!);
 			if (formeIndex === -1) formeIndex = 4;
 			if (formeIndex > targetForme) {
 				for (const name of ['Hydreigon-Mega']) {

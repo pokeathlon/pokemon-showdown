@@ -20,7 +20,7 @@ const modNaming: { [k: string]: string } = {
 const Manual = Utils.deepClone(Items);
 const mods = require('./mods.json');
 
-for (const key in Base) { //makes all vanilla items exist so it can catch modded versions later
+for (const key in Base) { // makes all vanilla items exist so it can catch modded versions later
 	const id = key as IDEntry;
 	Items[id] = {
 		...Utils.deepClone(Base[id]),
@@ -45,7 +45,7 @@ for (const mod in mods) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
 			// create and change move to mod-move before collision
 			if (item[attr] && Base[id] && ModItems[id]["shortDesc"]) {
-				const newid = toID(`${id}${modNaming[mod]}`) 
+				const newid = toID(`${id}${modNaming[mod]}`);
 				Items[newid] = {
 					...Utils.deepClone(Base[id]),
 					...Utils.deepClone(ModItems[id]),
@@ -57,11 +57,10 @@ for (const mod in mods) {
 				delete newItem.inherit;
 				newItems[mod][id] = newid;
 				break;
-			}
-			else {
+			} else {
 				item[attr] = ModItems[id][attr];
 			}
 		}
 	}
 }
-//console.log(newItems);
+// console.log(newItems);

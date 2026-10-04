@@ -308,7 +308,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').slice(-1));
+			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').pop()!);
 			if (formeIndex === -1) formeIndex = 4;
 			if (formeIndex > targetForme) {
 				for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
@@ -498,7 +498,7 @@ export const Abilities: ModdedAbilityDataTable = {
 					if (myItem) source.item = myItem.id;
 					return false;
 				}
-				this.add('-activate', source, 'ability: Consumer Exchange', '[of] ' + target);
+				this.add('-activate', source, 'ability: Consumer Exchange', `[of] ${target}`);
 				if (myItem) {
 					target.setItem(myItem);
 					this.add('-item', target, myItem, '[from] ability: Consumer Exchange');
@@ -793,7 +793,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			this.prng.shuffle(sideConditions);
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Starfall', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Starfall', `[of] ${pokemon}`);
 					return;
 				}
 			}
@@ -810,7 +810,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		condition: {
 			onStart(pokemon, source) {
-				this.add('-start', pokemon, 'Zealous Flock', '[of] ' + source);
+				this.add('-start', pokemon, 'Zealous Flock', `[of] ${source}`);
 			},
 			onResidualOrder: 12,
 			onResidual(pokemon) {
@@ -1121,7 +1121,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, source, target, move) {
-			if (!source.abilityState.strangeCounter || move.category != 'Physical' || !move.basePower) return;
+			if (!source.abilityState.strangeCounter || move.category !== 'Physical' || !move.basePower) return;
 			return Math.max(basePower - source.abilityState.strangeCounter * 5, 1);
 		},
 		onResidual(target, source, effect) {
@@ -1140,7 +1140,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			for (const move of target.moveSlots) {
 				const moveType = this.dex.moves.get(move.id).type;
 				if (moveType === 'Electric' && move.pp === move.maxpp) tailgun = true;
-				if (moveType === 'Electric' && move.pp != move.maxpp) { tailgun = false; break; }
+				if (moveType === 'Electric' && move.pp !== move.maxpp) { tailgun = false; break; }
 			}
 			if (tailgun) this.actions.useMove('charge', target, { target });
 		},
@@ -1213,7 +1213,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!target.addType(target.abilityState.coatType)) return;
 		},
 		onSwitchIn(target) {
-			this.add('-start', target, 'typeadd', target.abilityState.coatType, '[from] ability: Coat of Arms'); //client adds it to the mon switching out if done before switch in
+			this.add('-start', target, 'typeadd', target.abilityState.coatType, '[from] ability: Coat of Arms'); // client adds it to the mon switching out if done before switch in
 		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
@@ -1227,9 +1227,9 @@ export const Abilities: ModdedAbilityDataTable = {
 	retribution: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				source.abilityState.retribution = source.abilityState.retribution? source.abilityState.retribution + 1 : 1;
+				source.abilityState.retribution = source.abilityState.retribution ? source.abilityState.retribution + 1 : 1;
 				this.add('-activate', source, 'ability: Retribution');
-				this.add('-end', source, `retribution${source.abilityState.retribution-1}`, '[silent]');
+				this.add('-end', source, `retribution${source.abilityState.retribution - 1}`, '[silent]');
 				this.add('-start', source, `retribution${source.abilityState.retribution}`, '[silent]');
 			}
 		},
@@ -1255,8 +1255,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-				target.abilityState.distortion = false;
-				this.add('-end', target, 'As Above');
+			target.abilityState.distortion = false;
+			this.add('-end', target, 'As Above');
 		},
 		onSwitchInPriority: 1,
 		onSwitchIn(pokemon) {
@@ -1285,15 +1285,15 @@ export const Abilities: ModdedAbilityDataTable = {
 	caeciliandefense: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-				target.addVolatile('caeciliandefense')
-				this.add('-start', target, `caeciliandefense`, '[silent]');
+			target.addVolatile('caeciliandefense');
+			this.add('-start', target, `caeciliandefense`, '[silent]');
 		},
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.volatiles['caeciliandefense']) move.overrideOffensiveStat = 'def';
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.volatiles['caeciliandefense']) {
-				source.removeVolatile('caeciliandefense')
+				source.removeVolatile('caeciliandefense');
 				this.add('-end', source, `caeciliandefense`, '[silent]');
 			}
 		},
@@ -1381,13 +1381,13 @@ export const Abilities: ModdedAbilityDataTable = {
 		onAfterMove(source, target, move) {
 			if (!move.flags.futuremove) return;
 			if (target.side.slotConditions[target.position]?.['futuremove']) {
-				let moveData = target.side.slotConditions[target.position]['futuremove'].moveData
+				let moveData = target.side.slotConditions[target.position]['futuremove'].moveData;
 				moveData = {
-					...moveData, 
-				onHit(target: Pokemon) {
-					if (target.getAbility().flags['cantsuppress']) return;
-					target.addVolatile('gastroacid');
-				},
+					...moveData,
+					onHit(target: Pokemon) {
+						if (target.getAbility().flags['cantsuppress']) return;
+						target.addVolatile('gastroacid');
+					},
 				};
 				target.side.slotConditions[target.position]['futuremove'].moveData = moveData;
 			}
@@ -1418,7 +1418,7 @@ export const Abilities: ModdedAbilityDataTable = {
 	},
 	voltaicsiphon: {
 		onDamagingHitOrder: 1,
-		onSourceDamagingHit(damage, target, source, move) { //charge is used up after this, bad work around implemented in moves.ts charge
+		onSourceDamagingHit(damage, target, source, move) { // charge is used up after this, bad work around implemented in moves.ts charge
 			if (move.drain) {
 				source.addVolatile('charge');
 			}

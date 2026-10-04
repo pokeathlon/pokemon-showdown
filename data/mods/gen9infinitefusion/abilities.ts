@@ -466,7 +466,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				// Cancel all actions this turn for pokemon if applicable
 				this.queue.cancelAction(pokemon);
 				// Add volatiles to both pokemon
-				this.add('-activate', pokemon, 'ability: Commander', '[of] ' + ally);
+				this.add('-activate', pokemon, 'ability: Commander', `[of] ${ally}`);
 				pokemon.addVolatile('commanding');
 				ally.addVolatile('commanded', pokemon);
 				// Continued in conditions.ts in the volatiles
@@ -521,7 +521,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.illusion) {
 				this.debug('illusion cleared');
 				pokemon.illusion = null;
-				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level.toString()) +
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '') +
 					(pokemon.set.fusion ? ', fusion: ' + pokemon.set.fusion : '') + (pokemon.set.altsprite ? ', alt: ' + pokemon.set.altsprite : '');
 				this.add('replace', pokemon, details);

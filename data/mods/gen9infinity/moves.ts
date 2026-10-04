@@ -121,7 +121,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	quash: {
 		inherit: true,
 		onHit(target) {
-			if (this.gen <9 ) {
+			if (this.gen < 9) {
 				if (this.activePerHalf === 1) return false; // fails in singles
 				const action = this.queue.willMove(target);
 				if (!action) return false;
@@ -855,7 +855,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (source.hp) {
 				const item = target.takeItem();
 				if (item) {
-					this.add('-enditem', target, item.name, '[from] move: Dino Kick', '[of] ' + source);
+					this.add('-enditem', target, item.name, '[from] move: Dino Kick', `[of] ${source}`);
 				}
 			}
 		},
@@ -1623,13 +1623,13 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Trancendent Sword', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Trancendent Sword', `[of] ${source}`);
 					success = true;
 				}
 			}
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Trancendent Sword', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Trancendent Sword', `[of] ${source}`);
 					success = true;
 				}
 			}

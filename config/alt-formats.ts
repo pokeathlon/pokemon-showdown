@@ -565,7 +565,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'ability:arenatrap', 'ability:shadowtag', 'ability:imposter', 'ability:wonderguard', 'ability:hugepower', 'ability:waterbubble', 'ability:comatose', 'ability:disguise',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist', 'move:electrify', 'move:assist', 'move:dynamicpunch'
+			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist', 'move:electrify', 'move:assist', 'move:dynamicpunch',
 		],
 	},
 	{
@@ -996,7 +996,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
 			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:sandveil', 'ability:snowcloak',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:trickrock',
-			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:lightclay'
+			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:lightclay',
 		],
 	},
 	{
@@ -1257,7 +1257,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infermon', 'Inflagetah', 'Iron Bundle', 'Kyodonquaza', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lukagon', 'Lunala', 'MagnaAngemon', 'Marshadow', 'Manaphy', 'Melmetal', 'Machinedramon', 'Naganadel', 'MetalEtemon', 'Mewtwo', 'Mewtwo-Shadow', 'Mewthree', 'Necrozma-Dawn-Wings',
 			'Necrozma-Dusk-Mane', 'Oculeus', 'Okuwamon', 'Palkia', 'Rayquaza', 'Reshiram', 'Regigigas', 'SaberLeomon', 'Seikamater', 'Shedinja', 'Slaking', 'Solgaleo', 'Sneasler', 'SkullGreymon', 'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Urshifu-Rapid-Strike', 'Ufi', 'Volcarona-Delta', 'Xerneas',
 			'Yatagaryu', 'Yveltal', 'WarGreymon', 'Zacian', 'Zekrom', 'Zekyushiram', 'Mew', 'Paldiatina', 'Piedmon', 'MetalGarurumon', 'MetalSeadramon', 'Jupiter', 'Mars', 'Myotismon', 'Venus', 'Mercury', 'YatagaryuGossamir', 'Puppetmon',
-			'Arbok-Jessie', 'Cheninphox', 'Tiptron'
+			'Arbok-Jessie', 'Cheninphox', 'Tiptron',
 		],
 	},
 	{

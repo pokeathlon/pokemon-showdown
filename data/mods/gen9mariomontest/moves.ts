@@ -403,7 +403,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 5,
 	},
 
-
 	// Additions
 	hammerthrow: {
 		num: 0,

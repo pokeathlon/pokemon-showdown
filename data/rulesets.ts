@@ -4230,8 +4230,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			const atkEV = set.evs['atk'];
 			const spaEV = set.evs['spa'];
 
-			if (atkEV !== spaEV) problems.push(`${set.name || set.species}'s Attack and Special Attack EVs must be the same.`)
-			if (set.evs['hp'] + set.evs['atk'] + set.evs['def'] + set.evs['spd'] + set.evs['spe'] > 512) problems.push(`${set.name || set.species}'s is over the EV limit.`)
+			if (atkEV !== spaEV) problems.push(`${set.name || set.species}'s Attack and Special Attack EVs must be the same.`);
+			if (set.evs['hp'] + set.evs['atk'] + set.evs['def'] + set.evs['spd'] + set.evs['spe'] > 512) problems.push(`${set.name || set.species}'s is over the EV limit.`);
 			return problems;
 		},
 	},
@@ -4257,9 +4257,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 
 					const learnsetData = chaos.data.Learnsets[id];
 					if (!learnsetData) continue;
-					base.data.Learnsets[id] = learnsetData
+					base.data.Learnsets[id] = learnsetData;
 					for (const moveid in base.data.Learnsets[id].learnset) {
-						// @ts-ignore
+						// @ts-expect-error
 						if (!base.data.Learnsets[id].learnset[moveid].includes(`${base.gen}M`)) base.data.Learnsets[id].learnset[moveid].push(`${base.gen}M`);
 					}
 				}
@@ -4270,8 +4270,8 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				}
 				for (const id in chaos.data.Learnsets[species.id]?.learnset) { // copy over missing moves
 					if (!base.data.Moves[id]) {
-						// @ts-ignore
-						base.data.Moves[id] = {...chaos.data.Moves[id], gen: base.gen, isNonstandard: null};
+						// @ts-expect-error
+						base.data.Moves[id] = { ...chaos.data.Moves[id], gen: base.gen, isNonstandard: null };
 					}
 				}
 
@@ -4279,7 +4279,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 					if (!base.data.Conditions[condition]) base.data.Conditions[condition] = chaos.data.Conditions[condition];
 				}
 
-				this.ruleTable.set(`+pokemon:${species.id}`, ''); //allow the pokemon in the format
+				this.ruleTable.set(`+pokemon:${species.id}`, ''); // allow the pokemon in the format
 			}
 			return guests.join(' / ');
 		},

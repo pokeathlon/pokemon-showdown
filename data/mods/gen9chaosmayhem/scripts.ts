@@ -18,14 +18,14 @@ const prevos: { [k: string]: string[] } = {
 	"seikamater": ["Sponee", "Smore", "Tricwe"],
 };
 
-const modEggGroups: { [k: string]: string} = {
+const modEggGroups: { [k: string]: string } = {
 	"Infinite Fusion": "gen9infinitefusion",
 	"Uranium": "gen9uranium",
 	"Insurgence": "gen9insurgence",
 	"Infinity": "gen9infinity",
 	"Mariomon": "gen9mariomon",
-	"Soulstones": "gen9soulstones"
-}
+	"Soulstones": "gen9soulstones",
+};
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
@@ -34,7 +34,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		const newMoves = require('./moves').newMoves;
 		const newAbilities = require('./abilities').newAbilities;
 		for (const mon in prevos) {
-			if (!this.data.Learnsets[this.toID(mon)]) console.log("No learnset data for: " + this.toID(mon))
+			if (!this.data.Learnsets[this.toID(mon)]) console.log("No learnset data for: " + this.toID(mon));
 			let learnset = this.data.Learnsets[this.toID(mon)].learnset;
 			if (!learnset) learnset = {};
 			const learnfrom = prevos[mon];
@@ -63,7 +63,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		for (const pokemon in this.data.Learnsets) {
 			if (!this.data.Learnsets[pokemon].learnset) continue;
-			
+
 			const eggGroup = this.data.Pokedex[pokemon]?.eggGroups?.find(eggGroup => modEggGroups[eggGroup]);
 
 			if (eggGroup) {
@@ -76,28 +76,28 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 			}
-			
+
 			for (const move in this.data.Learnsets[pokemon].learnset) {
 				if (this.data.Moves[move]) {
 					this.data.Moves[move].isNonstandard = null;
 				} else {
-					//console.log('Misspelled move: ' + move);
+					// console.log('Misspelled move: ' + move);
 				}
 			}
 		}
-		for (const pokemon in this.data.Pokedex) { //replace abilities
+		for (const pokemon in this.data.Pokedex) { // replace abilities
 			if (!this.data.Pokedex[pokemon]) continue;
-			
+
 			const eggGroup = this.data.Pokedex[pokemon]?.eggGroups?.find(eggGroup => modEggGroups[eggGroup]);
 
 			if (eggGroup) {
 				const mod = modEggGroups[eggGroup];
 
-			for (const [abilityid, newAbility] of Object.entries(newAbilities[mod]) as [ID, ID][]) {
-				for (const [slot, ability] of Object.entries(this.data.Pokedex[pokemon].abilities) as  [('0' | '1' | 'H' | 'S'), string][]) {
-					if (this.toID(ability) === abilityid) this.data.Pokedex[pokemon].abilities[slot] = this.data.Abilities[newAbility].name;
+				for (const [abilityid, newAbility] of Object.entries(newAbilities[mod]) as [ID, ID][]) {
+					for (const [slot, ability] of Object.entries(this.data.Pokedex[pokemon].abilities) as [('0' | '1' | 'H' | 'S'), string][]) {
+						if (this.toID(ability) === abilityid) this.data.Pokedex[pokemon].abilities[slot] = this.data.Abilities[newAbility].name;
+					}
 				}
-			}
 			}
 		}
 	},
@@ -295,7 +295,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
-					if (!move.ohko && move.category != 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
+					if (!move.ohko && move.category !== 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
 						move.accuracy = true;
 						this.battle.actions.useMove(move, pokemon);
 					}
@@ -361,7 +361,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
 				this.baseSpecies = rawSpecies;
-				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level.toString()) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
 					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
@@ -393,7 +393,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
-									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
+									(this.level === 100 ? '' : ', L' + this.level.toString()) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
 									(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);

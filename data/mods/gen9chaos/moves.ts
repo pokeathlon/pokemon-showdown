@@ -581,7 +581,7 @@ export const Moves: ModdedMoveDataTable = {
 		inherit: true,
 		onHit(target, source) {
 			let success = false;
-			if (this.field.isTerrain('grassyterrain') && source.item != 'fieldcleats') {
+			if (this.field.isTerrain('grassyterrain') && source.item !== 'fieldcleats') {
 				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
@@ -600,7 +600,7 @@ export const Moves: ModdedMoveDataTable = {
 		inherit: true,
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
-			if (pokemon.item != 'fieldcleats') {
+			if (pokemon.item !== 'fieldcleats') {
 				if (this.field.isTerrain('electricterrain')) {
 					move = 'thunderbolt';
 				} else if (this.field.isTerrain('grassyterrain')) {
@@ -702,7 +702,7 @@ export const Moves: ModdedMoveDataTable = {
 			inherit: true,
 			onBeforeMove(pokemon, target, move) {
 				if (move.id === 'ringtrue') return;
-				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
+				this.add('-activate', pokemon, 'move: Attract', `[of] ${this.effectState.source}`);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Attract');
 					return false;
@@ -716,7 +716,7 @@ export const Moves: ModdedMoveDataTable = {
 			inherit: true,
 			onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
-				if (!(move.isZ && move.isZOrMaxPowered) && move.id === this.effectState.move && move.id != 'ringtrue') {
+				if (!(move.isZ && move.isZOrMaxPowered) && move.id === this.effectState.move && move.id !== 'ringtrue') {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
@@ -724,7 +724,7 @@ export const Moves: ModdedMoveDataTable = {
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
-						if (moveSlot.id != 'ringtrue') pokemon.disableMove(moveSlot.id);
+						if (moveSlot.id !== 'ringtrue') pokemon.disableMove(moveSlot.id);
 					}
 				}
 			},
@@ -766,7 +766,7 @@ export const Moves: ModdedMoveDataTable = {
 				}
 			},
 			onAfterMove(pokemon, target, move) {
-				if (pokemon.ability === 'voltaicsiphon' && move.drain && pokemon.moveThisTurnResult) return; //"reapply" charge
+				if (pokemon.ability === 'voltaicsiphon' && move.drain && pokemon.moveThisTurnResult) return; // "reapply" charge
 				if (move.type === 'Electric' && move.id !== 'charge') {
 					pokemon.removeVolatile('charge');
 				}
@@ -820,7 +820,7 @@ export const Moves: ModdedMoveDataTable = {
 		basePower: 150,
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
-			this.debug('BP: ' + bp);
+			this.debug(`BP: ${bp}`);
 			return bp;
 		},
 		category: "Special",
@@ -942,7 +942,7 @@ export const Moves: ModdedMoveDataTable = {
 				if (myItem) source.item = myItem.id;
 				return false;
 			}
-			this.add('-activate', source, 'move: Pixie Trick', '[of] ' + target);
+			this.add('-activate', source, 'move: Pixie Trick', `[of] ${target}`);
 			if (myItem) {
 				target.setItem(myItem);
 				this.add('-item', target, myItem, '[from] move: Pixie Trick');
@@ -1472,7 +1472,7 @@ export const Moves: ModdedMoveDataTable = {
 					break;
 				}
 			}
-			// @ts-ignore
+			// @ts-expect-error
 			if (newMoveName) move.name = newMoveName;
 		},
 		target: "normal",
@@ -2752,7 +2752,7 @@ export const Moves: ModdedMoveDataTable = {
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
-			let volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong'];
+			const volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong'];
 			for (const volatile of volatiles) {
 				pokemon.removeVolatile(volatile);
 			}
@@ -2765,7 +2765,7 @@ export const Moves: ModdedMoveDataTable = {
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Cute",
 		desc: "Ignores and removes confusion, attract, taunt, encore, torment, disable, heal block, and perish song volatiles from user. If Kinette and 255+ happiness, turns into Kinette-Unwound. Fails with consecutive uses.",
-		shortDesc: "Ignores and removes some volatiles. 255 happiness Kinette: transforms into Kinette-Unwound."
+		shortDesc: "Ignores and removes some volatiles. 255 happiness Kinette: transforms into Kinette-Unwound.",
 	},
 	flashbomb: {
 		num: 0,
@@ -2856,7 +2856,7 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Flock Shock",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, allyanim: 1, metronome: 1, futuremove: 1 },
+		flags: { protect: 1, allyanim: 1, metronome: 1, futuremove: 1 },
 		onHit(target, source, move) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
@@ -2912,8 +2912,8 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, sound: 1 },
 		beforeMoveCallback(pokemon) {
-			if (pokemon.lastMove?.flags.sound) pokemon.addVolatile("crescendo")
-			if (!pokemon.lastMove?.flags.sound && pokemon.volatiles["crescendo"]) pokemon.removeVolatile("crescendo")
+			if (pokemon.lastMove?.flags.sound) pokemon.addVolatile("crescendo");
+			if (!pokemon.lastMove?.flags.sound && pokemon.volatiles["crescendo"]) pokemon.removeVolatile("crescendo");
 		},
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.volatiles['crescendo']) {
@@ -2963,7 +2963,7 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Fairy",
 		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
 		contestType: "Beautiful",
-		shortDesc: "Heals 50% Max HP if any adjacent pokemon has lowere stat stage. Restores all lowered stats to 0."
+		shortDesc: "Heals 50% Max HP if any adjacent pokemon has lowere stat stage. Restores all lowered stats to 0.",
 	},
 	relentlesssting: {
 		num: 0,
@@ -2977,7 +2977,7 @@ export const Moves: ModdedMoveDataTable = {
 		multihit: 3,
 		basePowerCallback(pokemon, target, move) { // trick to get it to dynamically crit if the move's hits poison
 			if (target.status === 'psn') move.willCrit = true;
-			return move.basePower
+			return move.basePower;
 		},
 		secondary: {
 			chance: 20,
@@ -2986,7 +2986,7 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
-		shortDesc: "Hits 3 times. 20% to poison. Crits poisoned foes."
+		shortDesc: "Hits 3 times. 20% to poison. Crits poisoned foes.",
 	},
 	ancientvisage: {
 		num: 0,

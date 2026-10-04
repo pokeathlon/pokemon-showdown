@@ -64,7 +64,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	wokhei: {
 		onFoeAfterSetStatus(status, target, source, effect) {
-			if (effect.effectType != 'Move') return;
+			if (effect.effectType !== 'Move') return;
 			if (target && source === target) return;
 			if (status.id === 'brn') this.boost({ atk: 2 }, source, source, null, false, true);
 		},
@@ -175,7 +175,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onBeforeMove(source, target, move) {
-			if (source.illusion && move.category != 'Status') {
+			if (source.illusion && move.category !== 'Status') {
 				this.singleEvent('End', this.dex.abilities.get('Illusion'), source.abilityState, source, source, move);
 			}
 		},
