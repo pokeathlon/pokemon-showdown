@@ -1,57 +1,12 @@
-import { RandomTeams } from "../gen9/teams";
-import { RandomBattleSets } from "../../remote/remote";
-import { TeamValidator } from '../../../sim';
+import { RandomInsTeams } from "../gen6insurgence/teams";
 
-export class RandomChaosTeams extends RandomTeams {
-	randomChaosSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaos'];
-	randomChaosDoublesSets: Partial<RandomTeamsTypes.RandomSet>[] = RandomBattleSets['gen9chaosdoubles'];
-	validator = new TeamValidator('gen9chaosag');
-	levels: AnyObject = {
-		"AG": 75,
-		"Uber": 80,
-		"(Uber)": 80,
-		"OU": 85,
-		"(OU)": 85,
-		"UUBL": 90,
-		"UU": 90,
-		"RUBL": 95,
-		"RU": 95,
-		"NFE": 100,
-		"LC": 100,
-	};
+export class RandomChaosTeams extends RandomInsTeams {
+	override sheet = this.format.gameType === 'singles' ? 'gen9chaos' : 'gen9chaosdoubles';
+	override validatorFormat = 'gen9chaosag';
 
-	override randomTeam() {
-		this.enforceNoDirectCustomBanlistChanges();
-
-		const seed = this.prng.getSeed();
-		const pokemon: RandomTeamsTypes.RandomSet[] = [];
-
-		let pool: Partial<RandomTeamsTypes.RandomSet>[] = this.dex.deepClone(this.format.gameType === 'singles' ? this.randomChaosSets : this.randomChaosDoublesSets);
-
-		while (pokemon.length < this.maxTeamSize) {
-			const candidate = { ...this.sampleNoReplace(pool), evs: { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 } };
-			const species = this.dex.species.get(candidate.species);
-
-			if (candidate.level) candidate.level = parseInt(candidate.level);
-			else candidate.level = this.levels[species.tier] ? this.levels[species.tier] : 95;
-			if (this.validator.validateSet({ ...candidate, level: 100 } as PokemonSet, {})) continue;
-			pokemon.push(candidate);
-
-			pool = pool.filter(set => set.species !== candidate.species);
-
-			if (this.dex.items.get(candidate.item).megaStone) {
-				pool = pool.filter(set => !this.dex.items.get(set.item).megaStone);
-			}
-
-			if (this.dex.mod('gen9').species.get(candidate.species).exists) {
-				pool = pool.filter(set => !this.dex.mod('gen9').species.get(set.species).exists);
-			}
-		}
-
-		if (pokemon.length < this.maxTeamSize && pokemon.length < 12) {
-			throw new Error(`Could not build a random team for ${this.format} (seed=${seed})`);
-		}
-		return pokemon;
+	override isAllowed(set: Partial<RandomTeamsTypes.RandomSet>, team: RandomTeamsTypes.RandomSet[]) {
+		return super.isAllowed(set, team) &&
+			!(this.dex.items.get(set.item).megaStone && team.some(member => this.dex.items.get(member.item).megaStone));
 	}
 }
 
