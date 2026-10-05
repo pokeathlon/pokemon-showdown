@@ -133,7 +133,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	field: {
 		effectiveTerrain(this: Field, target) {
 			for (const pokemon of this.battle.getAllActive()) {
-				if (!pokemon.ignoringAbility() && pokemon.getAbility().suppressTerrain && !pokemon.abilityState.ending) return '';
+				if (pokemon.hasAbility('cloudnine') && !pokemon.abilityState.ending) return '';
 			}
 			return Field.prototype.effectiveTerrain.call(this, target);
 		},

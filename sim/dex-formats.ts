@@ -645,7 +645,7 @@ export class DexFormats {
 		}
 		let Formats: AnyObject[] = require(`${__dirname}/../config/alt-formats`).Formats;
 		if (!Array.isArray(Formats)) {
-			throw new TypeError(`Exported property 'Formats' from "./config/alt-formats.ts" must be an array`);
+			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
 		}
 		if (customFormats) Formats = mergeFormatLists(Formats as any, customFormats);
 
@@ -721,9 +721,7 @@ export class DexFormats {
 		let hasPokemonRule = false;
 		const customRules = customRulesString.split(',').map(rule => {
 			rule = rule.replace(/[\r\n|]*/g, '').trim();
-			const dex = this.dex.forFormat(format);
-			const ruleSpec = dex.formats.validateRule(rule, format);
-
+			const ruleSpec = this.dex.forFormat(format).formats.validateRule(rule, format);
 			if (typeof ruleSpec === 'string') {
 				if (ruleSpec === '-tag:allpokemon' || ruleSpec === '+tag:allpokemon') {
 					if (hasPokemonRule) throw new Error(`You can't ban/unban pokemon before banning/unbanning all Pokemon.`);

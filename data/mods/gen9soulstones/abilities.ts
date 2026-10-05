@@ -273,7 +273,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.eachEvent('WeatherChange', this.effect);
 			this.eachEvent('TerrainChange', this.effect);
 		},
-		suppressTerrain: true,
 		shortDesc: "While this Pokemon is active, the effects of weather and terrains are disabled.",
 	},
 	waterveil: {
