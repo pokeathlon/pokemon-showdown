@@ -114,7 +114,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		getSwitchRequestData(forAlly) {
 			const entry = Pokemon.prototype.getSwitchRequestData.call(this, forAlly);
-			if (this.battle.format.ruleset.includes('Double Ability Mod')) entry.ability2 = toID(this.m.innates?.[0] ?? '');
+			if (this.battle.format.ruleset.includes('Double Ability Mod')) {
+				entry.innates = this.m.activeInnates || [];
+				entry.baseInnates = this.m.innates || [];
+			}
 			return entry;
 		},
 		ignoringAbility() {

@@ -511,14 +511,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onUpdate(pokemon) {
-			if (['brn', 'frz'].includes(pokemon.status)) {
+			if (['brn', 'frb'].includes(pokemon.status)) {
 				this.add('-activate', pokemon, 'ability: Thermal Exchange');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'brn') return;
-			if (status.id !== 'frz') return;
+			if (!['brn', 'frb'].includes(status.id)) return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Thermal Exchange');
 			}
@@ -2016,7 +2015,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Winter Gift",
 		rating: 1,
 		num: 0,
-		shortDesc: "If user is Cherrim-Orion-Orion and Hail or Snow is active, it and allies' Sp. Atk and Sp. Def are 1.5x.",
+		shortDesc: "If user is Cherrim-Orion and Hail or Snow is active, it and allies' Sp. Atk and Sp. Def are 1.5x.",
 	},
 	cartographer: {
 		onSwitchInPriority: -2,
@@ -2070,7 +2069,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	superconductive: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.status === 'frz') {
+			if (pokemon.status === 'frb') {
 				return this.chainModify(1.5);
 			}
 		},

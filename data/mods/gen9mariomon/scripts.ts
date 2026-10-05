@@ -1,4 +1,3 @@
-import { toID } from '../../../sim/dex';
 import { Pokemon } from '../../../sim/pokemon';
 
 export const Scripts: ModdedBattleScriptsData = {
@@ -12,7 +11,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		getSwitchRequestData(forAlly) {
 			const entry = Pokemon.prototype.getSwitchRequestData.call(this, forAlly);
-			if (this.battle.format.ruleset.includes('Double Ability Mod')) entry.ability2 = toID(this.m.innates?.[0] ?? '');
+			if (this.battle.format.ruleset.includes('Double Ability Mod')) {
+				entry.innates = this.m.activeInnates || [];
+				entry.baseInnates = this.m.innates || [];
+			}
 			return entry;
 		},
 		tryTrap(isHidden) {
@@ -210,7 +212,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 
-			if (pokemon.status === 'frz' && move.category === 'Special') {
+			if (pokemon.status === 'frb' && move.category === 'Special') {
 				if (this.battle.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.battle.modify(baseDamage, 0.5);
 				}

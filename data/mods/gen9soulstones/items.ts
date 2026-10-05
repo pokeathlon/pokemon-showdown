@@ -658,13 +658,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Orion') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Volbeat-Orion') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		itemUser: ["Volbeat-Orion"],
@@ -681,13 +681,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Orion') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(def, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Illumise-Orion') {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		itemUser: ["Illumise-Orion"],

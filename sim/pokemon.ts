@@ -1432,14 +1432,7 @@ export class Pokemon {
 		this.m.fusion = rawSpecies.name;
 		this.set.fusion = rawSpecies.name;
 
-		this.details =
-			this.species.name +
-			(this.level === 100 ? '' : ', L' + this.level.toString()) +
-			(this.gender === '' ? '' : ', ' + this.gender) +
-			(this.set.shiny ? ', shiny' : '') +
-			(this.set.fusion ? ', fusion: ' + this.set.fusion : '');
-		if (this.m.activeInnates?.length) this.details += `, innates: ${this.m.activeInnates.join('-')}`;
-		if (this.m.innates?.length) this.details += `, baseinnates: ${this.m.innates.join('-')}`;
+		this.details = this.getUpdatedDetails();
 
 		let details = (this.illusion || this).details;
 		if (this.terastallized) details += `, tera:${this.terastallized}`;

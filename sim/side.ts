@@ -91,7 +91,8 @@ export interface PokemonSwitchRequestData {
 	reviving?: boolean;
 	teraType?: string;
 	terastallized?: string;
-	ability2?: ID;
+	innates?: string[];
+	baseInnates?: string[];
 }
 export interface MoveRequestData {
 	move: string;

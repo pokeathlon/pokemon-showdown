@@ -4289,10 +4289,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 	},
 };
 
-const mysteryGiftMoves: { [key: string]: { [key: string]: string[] }[] } = {
+export const mysteryGiftMoves: { [key: string]: { [key: string]: string[] }[] } = {
 	"rapidspin": [{ "mysteryGift": ["carbink"] }],
 };
-const fusionMoves: { [key: string]: { [key: string]: string[] }[] } = {
+export const fusionMoves: { [key: string]: { [key: string]: string[] }[] } = {
 	"attackorder": [{ "fusion": ["beedrill"] }],
 	"pollenpuff": [{ "fusion": ["butterfree", "celebi", "parasect", "vileplume", "breloom"] }],
 	"lunge": [{ "fusion": ["spinarak", "ariados", "joltik", "galvantula", "venomoth", "volcarona", "pinsir", "parasect", "ledian", "doduo", "dodrio", "stantler"] }],
@@ -4352,7 +4352,7 @@ const fusionMoves: { [key: string]: { [key: string]: string[] }[] } = {
 	"doubleironbash": [{ "type": ["Steel"], "learns": ["doubleslap"] }],
 	"steameruption": [{ "type": ["Water"], "learns": ["eruption"] }],
 };
-const PoAfusionMoves: { [key: string]: { [key: string]: string[] }[] } = { // Preexisting IF keys are overridden, so need to readd here
+export const PoAfusionMoves: { [key: string]: { [key: string]: string[] }[] } = { // Preexisting IF keys are overridden, so need to readd here
 	"zapcannon": [{ "fusion": ["silretro"], "learns": ["inferno"] }],
 	"retroblast": [{ "learns": ["thunderbolt"], "type": ["Rock"] }],
 	"superheatedcrash": [{ "learns": ["flareblitz", "heatcrash"], "type": ["Water"] }],
