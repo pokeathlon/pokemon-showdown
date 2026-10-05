@@ -237,23 +237,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 7] New Lands",
-		desc: "Welcome to Hoenn!",
-
-		mod: 'gen7infinitefusionhoenn',
-		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause', 'DryPass Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 'IF New Lands Clause',
-		],
-		banlist: [
-			'Mega', 'Uber',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush', 'ability:adaptability', 'ability:purepower',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
-			'pokemon:greninjabond', 'pokemon:greninjaash',
-		],
-	},
-	{
 		name: "[Gen 7] IF 2 Abilities",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
@@ -297,22 +280,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:purepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
 			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:facade', 'move:extremespeed', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
-		],
-	},
-	{
-		name: "[Gen 7] IF Literally 1984",
-		desc: `There are no bans! Just a few clauses... (Use "/rule [clausename]" in any chat to see what each clause does)`,
-
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause',
-			'No Fun Clause', 'No Evading Clause', 'No Extreme Gimmicks Clause', 'No Trapping Clause',
-			'No Dancing Clause', 'No Dance Partners Clause',
-			'No Extreme Stats Clause', 'No Limit Breaking Clause', 'No Nukes Clause', 'No Weather Combos Clause',
-		],
-		banlist: [
-			'Mega',
 		],
 	},
 	{
