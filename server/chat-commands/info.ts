@@ -105,7 +105,7 @@ export const commands: Chat.ChatCommands = {
 	whoare: 'whois',
 	altsnorecurse: 'whois',
 	profile: 'whois',
-	whois(target, room, user, connection, cmd) {
+	async whois(target, room, user, connection, cmd) {
 		if (room?.roomid === 'staff' && !this.runBroadcast()) return;
 		const targetUser = this.getUserOrSelf(target, { exactName: user.tempGroup === ' ' });
 		const showAll = (cmd === 'ip' || cmd === 'whoare' || cmd === 'alt' || cmd === 'alts' || cmd === 'altsnorecurse');
@@ -208,6 +208,19 @@ export const commands: Chat.ChatCommands = {
 					).join(' | ');
 				}).join(", ");
 				if (prevNames) buf += `<br />Previous names: ${prevNames}`;
+			}
+
+			const [discord] = await LoginServer.request('discord/names', { userid: targetUser.s1 || targetUser.id });
+			if (discord?.discordid) {
+				buf += Utils.html`<br />Discord: <a href="https://discord.com/users/${discord.discordid}">${discord.discordid}</a>`;
+				const linkedNames = discord.names.map((userid: ID) => {
+					const p = Punishments.userids.get(userid);
+					if (!p || !user.can('alts')) return userid;
+					return p.map(
+						cur => `${userid} (${Punishments.punishmentTypes.get(cur.type)?.desc || 'punished'}` + `${cur.id !== userid ? ` as ${cur.id}` : ``})`
+					).join(' | ');
+				}).join(", ");
+				buf += `<br />Linked names: ${linkedNames}`;
 			}
 		}
 		if (canViewPunishments) {
@@ -353,7 +366,7 @@ export const commands: Chat.ChatCommands = {
 
 	'chp': 'offlinewhois',
 	checkpunishment: 'offlinewhois',
-	offlinewhois(target, room, user) {
+	async offlinewhois(target, room, user) {
 		if (!user.trusted) {
 			throw new Chat.ErrorMessage("/offlinewhois - Access denied.");
 		}
@@ -373,6 +386,20 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (Users.globalAuth.sectionLeaders.has(userid)) {
 			buf += `<br />Section Leader (${RoomSections.sectionNames[Users.globalAuth.sectionLeaders.get(userid)!]})`;
+		}
+		if (user.can('alts')) {
+			const [discord] = await LoginServer.request('discord/names', { userid: targetUser?.s1 || userid });
+			if (discord?.discordid) {
+				buf += Utils.html`<br />Discord: <a href="https://discord.com/users/${discord.discordid}">${discord.discordid}</a>`;
+				const linkedNames = discord.names.map((id: ID) => {
+					const p = Punishments.userids.get(id);
+					if (!p) return id;
+					return p.map(
+						cur => `${id} (${Punishments.punishmentTypes.get(cur.type)?.desc || 'punished'}` + `${cur.id !== id ? ` as ${cur.id}` : ``})`
+					).join(' | ');
+				}).join(", ");
+				buf += `<br />Linked names: ${linkedNames}`;
+			}
 		}
 
 		buf += `<br /><br />`;

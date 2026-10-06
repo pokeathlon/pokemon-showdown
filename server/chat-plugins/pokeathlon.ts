@@ -178,6 +178,32 @@ export const commands: Chat.ChatCommands = {
 	],
 };
 
+export const handlers: Chat.Handlers = {
+	onRename(user, oldID, newID) {
+		if (!user.s1 || newID.startsWith('guest')) return;
+		for (const punishment of Punishments.userids.get(user.s1) || []) {
+			if (!punishment.id.startsWith('#')) Punishments.userids.add(newID, punishment);
+		}
+	},
+};
+
+export const punishmentfilter: Chat.PunishmentFilter = (user, punishment) => {
+	if (punishment.id.startsWith('#')) return;
+	const userid = (typeof user === 'object' && user.s1) || toID(user);
+	void LoginServer.request('discord/names', { userid }).then(([res]) => {
+		const names = (res?.names as ID[] || []).filter(name => (
+			(Punishments.userids.getByType(name, punishment.type)?.expireTime || 0) < punishment.expireTime
+		));
+		if (!names.length) return;
+		for (const name of names) Punishments.userids.add(name, punishment);
+		Punishments.savePunishments();
+		for (const name of names) {
+			const targetUser = Users.getExact(name);
+			if (targetUser) Punishments.checkName(targetUser, targetUser.id, targetUser.registered);
+		}
+	});
+};
+
 export function destroy() {
 	clearInterval(ladderQueueInterval);
 }
