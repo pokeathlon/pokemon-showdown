@@ -164,6 +164,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
+	illusion: {
+		inherit: true,
+		onSwitchOut(pokemon) {
+			if (pokemon.ability !== 'illusion') pokemon.illusion = null;
+		},
+	},
 
 	// Additions
 	absolution: {
