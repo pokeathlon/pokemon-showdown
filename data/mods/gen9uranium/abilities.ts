@@ -31,6 +31,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onSwitchOut(pokemon) {
 			if (pokemon.ability !== 'illusion') pokemon.illusion = null;
 		},
+		onFaint(pokemon) {
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+		},
 	},
 	normalize: {
 		inherit: true,
