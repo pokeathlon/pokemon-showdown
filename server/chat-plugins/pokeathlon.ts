@@ -86,8 +86,7 @@ export const commands: Chat.ChatCommands = {
 		// ABILITIES
 		const abilities = new Set<string>([...Object.values(species.abilities), ...Object.values(fusion.abilities)]);
 		let buf = '<div class="message"><ul class="utilichart"><li class="result">';
-		buf += `<span class="col iconcol"><psicon title="${species.name}" pokemon="${species.id}"/></span> `;
-		buf += `<span class="col iconcol"><psicon title="${fusion.name}" pokemon="${fusion.id}"/></span> `;
+		buf += `<span class="col iconcol"><psicon title="${species.name}/${fusion.name}" pokemon="${species.id}" fusion="${fusion.id}"/></span> `;
 		buf += '<span class="col typecol">';
 		for (const type of typesSet) {
 			buf += `<img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32">`;
