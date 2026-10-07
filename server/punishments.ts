@@ -1763,7 +1763,15 @@ export const Punishments = new class {
 		return IPTools.lookup(ip).then(({ dnsbl, host, hostType }) => {
 			user = connection.user || user;
 
-			if (hostType === 'proxy' && !user.trusted && !user.locked) {
+			// The loginserver is discordonly, so registered names (and unregistered alts, via s1)
+			// are Discord-authenticated; their punishments follow the Discord link instead
+			const discordLinked = user.registered || !!user.s1;
+			if (hostType === 'proxy' && discordLinked && user.locked === '#hostfilter') {
+				// lock carried over from the guest session before logging in
+				user.locked = null;
+				user.updateIdentity();
+			}
+			if (hostType === 'proxy' && !user.trusted && !discordLinked && !user.locked) {
 				user.locked = '#hostfilter';
 			} else if (dnsbl && !user.autoconfirmed) {
 				user.semilocked = '#dnsbl';
