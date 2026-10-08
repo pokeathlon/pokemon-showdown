@@ -7,6 +7,7 @@ import { getFusionName } from '../../split-names';
 export class RandomIFTeams extends RandomGen7Teams {
 	override randomSets: { [species: string]: RandomTeamsTypes.RandomSpeciesData } = { ...require('../gen7/sets.json') };
 	validator = new TeamValidator('gen7ifdexag');
+	modifySpecies = this.dex.formats.get('Infinite Fusion Mod').onModifySpecies!;
 	bannedAbilities = [
 		'Defeatist', 'Huge Power', 'Moody', 'Pure Power', 'Shadow Tag', 'Slow Start', 'Truant', 'Wonder Guard',
 	];
@@ -19,17 +20,15 @@ export class RandomIFTeams extends RandomGen7Teams {
 		facade: ['Guts', 'Quick Feet', 'Toxic Boost', 'Poison Heal'],
 	};
 
-	fuse(head: Species, body: Species) {
-		const fusion = this.dex.formats.get('Infinite Fusion Mod').onModifySpecies!.call(
-			{ dex: this.dex } as Battle, head, { m: { fusion: body.name }, set: {} } as unknown as Pokemon
-		) as Species;
+	fuse(head: Species, body: Species, fusion: Species) {
 		const learnable = new Set([...this.dex.species.getMovePool(head.id), ...this.dex.species.getMovePool(body.id)]);
 		const [stat, offStat] = fusion.baseStats.atk >= fusion.baseStats.spa ?
 			['atk', 'spa'] as const : ['spa', 'atk'] as const;
 		const offCategory = offStat === 'atk' ? 'Physical' : 'Special';
 		const parents = [head, body].map(parent => this.randomSets[parent.id]);
+		const legal = [head, body].flatMap(parent => Object.values(parent.abilities));
 		const abilities = [...new Set(parents.flatMap(data => data.sets.flatMap(set => set.abilities!)))]
-			.filter(ability => !this.bannedAbilities.includes(ability));
+			.filter(ability => legal.includes(ability) && !this.bannedAbilities.includes(ability));
 		const level = Math.round((parents[0].level! + parents[1].level!) / 2);
 
 		return [head, body].map((parent, i) => {
@@ -79,7 +78,7 @@ export class RandomIFTeams extends RandomGen7Teams {
 		const empty = this.queryMoves(new Set(), species, '', abilities);
 		const triggered = abilities.filter(ability =>
 			!this.shouldCullAbility(ability, types, moves, abilities, counter, teamDetails, species) &&
-			super.shouldCullAbility(ability, types, new Set(), abilities, empty, {}, species));
+			this.shouldCullAbility(ability, types, new Set(), abilities, empty, {}, species));
 		return super.getAbility(types, moves, triggered.length ? triggered : abilities, counter, teamDetails, species);
 	}
 
@@ -147,17 +146,21 @@ export class RandomIFTeams extends RandomGen7Teams {
 			if (head.baseSpecies === body.baseSpecies ||
 				[head, body].some(half => baseSpecies.includes(half.baseSpecies))) continue;
 
-			const halves = this.fuse(head, body).filter(half => this.randomSets[half.id].sets.length);
-			if (!halves.length) continue;
-			const species = this.sample(halves.flatMap(half => this.randomSets[half.id].sets.map(() => half)));
-			if (species.types.some(type =>
-				fusions.filter(fusion => fusion.types.includes(type)).length >= 2 * limitFactor)) continue;
+			const fusion = this.modifySpecies.call(
+				{ dex: this.dex } as Battle, head, { m: { fusion: body.name }, set: {} } as unknown as Pokemon
+			) as Species;
+			if (fusion.types.some(type =>
+				fusions.filter(other => other.types.includes(type)).length >= 2 * limitFactor)) continue;
 			if (this.dex.types.names().some(typeName => {
-				const typeMod = this.dex.getEffectiveness(typeName, species);
-				const typeMods = fusions.map(fusion => this.dex.getEffectiveness(typeName, fusion));
+				const typeMod = this.dex.getEffectiveness(typeName, fusion);
+				const typeMods = fusions.map(other => this.dex.getEffectiveness(typeName, other));
 				return (typeMod > 0 && typeMods.filter(mod => mod > 0).length >= 3 * limitFactor) ||
 					(typeMod > 1 && typeMods.filter(mod => mod > 1).length >= limitFactor);
 			})) continue;
+
+			const halves = this.fuse(head, body, fusion).filter(half => this.randomSets[half.id].sets.length);
+			if (!halves.length) continue;
+			const species = this.sample(halves.flatMap(half => this.randomSets[half.id].sets.map(() => half)));
 
 			const set = {
 				...this.randomSet(species, teamDetails, !pokemon.length),

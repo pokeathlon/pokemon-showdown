@@ -1442,7 +1442,7 @@ export class Pokemon {
 		}
 
 		// run this for changes to take effect
-		this.setSpecies(this.species, source);
+		this.setSpecies(this.battle.dex.species.get(this.species.name), source);
 		this.battle.add('detailschange', this, details);
 
 		return true;

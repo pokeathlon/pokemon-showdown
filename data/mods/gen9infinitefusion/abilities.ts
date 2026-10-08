@@ -259,30 +259,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	powerconstruct: {
 		inherit: true,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.species.id === 'zygardecomplete' || pokemon.m.fusion === 'Zygarde-Complete' || pokemon.hp > pokemon.maxhp / 2) return;
-
-			if (pokemon.baseSpecies.baseSpecies === 'Zygarde') {
+			if (pokemon.transformed || !pokemon.hp || pokemon.hp > pokemon.maxhp / 2) return;
+			if (pokemon.baseSpecies.baseSpecies === 'Zygarde' && pokemon.species.id !== 'zygardecomplete') {
 				this.add('-activate', pokemon, 'ability: Power Construct');
 				pokemon.formeChange('Zygarde-Complete', this.effect, true);
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-			} else if (pokemon.m.fusion?.includes('Zygarde')) {
-				this.add('-activate', pokemon, 'ability: Power Construct');
+				pokemon.canMegaEvo = pokemon.canMegaEvo === false ? false : this.actions.canMegaEvo(pokemon);
+				pokemon.formeRegression = true;
+			} else if (pokemon.m.fusion?.startsWith('Zygarde') && pokemon.m.fusion !== 'Zygarde-Complete') {
 				pokemon.fusionChange('Zygarde-Complete', this.effect);
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			} else {
+				return;
 			}
+			pokemon.updateMaxHp();
 		},
 	},
 	schooling: {
