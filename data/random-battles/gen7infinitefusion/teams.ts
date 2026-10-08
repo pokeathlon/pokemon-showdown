@@ -1,3 +1,4 @@
+import { Utils } from '../../../lib';
 import { RandomGen7Teams } from "../gen7/teams";
 import type { MoveCounter } from "../gen9/teams";
 import { TeamValidator } from '../../../sim';
@@ -6,12 +7,15 @@ import { getFusionName } from '../../split-names';
 
 export class RandomIFTeams extends RandomGen7Teams {
 	override randomSets: { [species: string]: RandomTeamsTypes.RandomSpeciesData } = { ...require('../gen7/sets.json') };
+	moveUsage = Object.values(this.randomSets).flatMap(data => data.sets.flatMap(set => set.movepool))
+		.reduce((usage, move) => usage.add(move), new Utils.Multiset<string>());
 	validator = new TeamValidator('gen7ifdexag');
 	modifySpecies = this.dex.formats.get('Infinite Fusion Mod').onModifySpecies!;
 	bannedAbilities = [
 		'Defeatist', 'Huge Power', 'Moody', 'Pure Power', 'Shadow Tag', 'Slow Start', 'Truant', 'Wonder Guard',
 	];
 	bannedItems = ['Thick Club'];
+	protectMoves = ['banefulbunker', 'kingsshield', 'protect', 'spikyshield'];
 	moveAbilities: { [move: string]: string[] } = {
 		raindance: ['Swift Swim', 'Hydration'],
 		sunnyday: ['Chlorophyll', 'Solar Power'],
@@ -22,9 +26,7 @@ export class RandomIFTeams extends RandomGen7Teams {
 
 	fuse(head: Species, body: Species, fusion: Species) {
 		const learnable = new Set([...this.dex.species.getMovePool(head.id), ...this.dex.species.getMovePool(body.id)]);
-		const [stat, offStat] = fusion.baseStats.atk >= fusion.baseStats.spa ?
-			['atk', 'spa'] as const : ['spa', 'atk'] as const;
-		const offCategory = offStat === 'atk' ? 'Physical' : 'Special';
+		const gap = Math.abs(fusion.baseStats.atk - fusion.baseStats.spa);
 		const parents = [head, body].map(parent => this.randomSets[parent.id]);
 		const legal = [head, body].flatMap(parent => Object.values(parent.abilities));
 		const abilities = [...new Set(parents.flatMap(data => data.sets.flatMap(set => set.abilities!)))]
@@ -37,20 +39,40 @@ export class RandomIFTeams extends RandomGen7Teams {
 			} as Species;
 			const other = parents[1 - i].sets;
 			const sets = parents[i].sets.filter(set => set.role !== 'Z-Move user').map(set => {
+				const categories = new Set(set.movepool.map(id => this.dex.moves.get(id))
+					.filter(move => move.basePower > 40 && !move.selfSwitch).map(move => move.category));
+				const physical = gap < 10 && categories.size ? categories.has('Physical') :
+					fusion.baseStats.atk >= fusion.baseStats.spa || gap < 20 && categories.has('Physical');
+				const special = gap < 10 && categories.size ? categories.has('Special') :
+					fusion.baseStats.atk < fusion.baseStats.spa || gap < 20 && categories.has('Special');
+				const allowed = (move: Move) => move.category === 'Physical' ? physical : move.category !== 'Special' || special;
 				const movepool = [...new Set([
 					...set.movepool,
 					...[
 						...other.filter(otherSet => otherSet.role === set.role).flatMap(otherSet => otherSet.movepool),
-						...other.flatMap(otherSet => otherSet.movepool).filter(move => fusion.types.includes(this.dex.moves.get(move).type)),
+						...other.flatMap(otherSet => otherSet.movepool).filter(id => {
+							const move = this.dex.moves.get(id);
+							return move.category !== 'Status' && fusion.types.includes(move.type);
+						}),
 					].filter(move => !(move in this.moveAbilities)),
 				])].filter(id => {
 					const move = this.dex.moves.get(id);
-					return learnable.has(move.id) && !(move.category === offCategory && move.basePower > 40 && !move.selfSwitch) &&
-						!(move.boosts?.[offStat] && !move.boosts[stat]) && !(['bellydrum', 'curse'].includes(move.id) && offStat === 'atk') &&
+					return learnable.has(move.id) && !(!allowed(move) && move.basePower > 40 && !move.selfSwitch) &&
+						!((move.boosts?.atk || move.boosts?.spa) && !(move.boosts.atk && physical) && !(move.boosts.spa && special)) &&
+						!(['bellydrum', 'curse'].includes(move.id) && !physical) &&
 						!(set.role === 'AV Pivot' && move.category === 'Status') && !(move.weather && !fusion.types.includes(move.type));
 				});
+				movepool.push(...fusion.types.filter(type => !movepool.some(id => {
+					const move = this.dex.moves.get(id);
+					return move.type === type && move.category !== 'Status' && !this.noStab.includes(id);
+				})).flatMap(type => Utils.sortBy([...learnable].filter(id => {
+					const move = this.dex.moves.get(id);
+					return move.type === type && move.category !== 'Status' && allowed(move) && !this.noStab.includes(id) &&
+						(move.basePower || move.basePowerCallback) && this.moveUsage.get(id);
+				}), id => -this.moveUsage.get(id)).slice(0, 1)));
 				return { ...set, movepool, abilities };
-			}).filter(set => set.movepool.length >= 4 && abilities.length);
+			}).filter(set => set.movepool.length >= 4 && abilities.length &&
+				!(set.role.includes('Setup') && !this.queryMoves(new Set(set.movepool), species, '', abilities).get('setup')));
 
 			this.randomSets[species.id] = { level, sets };
 			return species;
@@ -60,6 +82,22 @@ export class RandomIFTeams extends RandomGen7Teams {
 	override fastPop(list: any[], index: number) {
 		if (index < 0) return;
 		return super.fastPop(list, index);
+	}
+
+	override cullMovePool(
+		types: Set<string>,
+		moves: Set<string>,
+		abilities: string[],
+		counter: MoveCounter,
+		movePool: string[],
+		teamDetails: RandomTeamsTypes.TeamDetails,
+		species: Species,
+		isLead: boolean,
+		preferredType: string,
+		role: RandomTeamsTypes.Role,
+	): void {
+		super.cullMovePool(types, moves, abilities, counter, movePool, teamDetails, species, isLead, preferredType, role);
+		this.incompatibleMoves(moves, movePool, this.protectMoves, this.protectMoves);
 	}
 
 	override getAbility(
@@ -160,7 +198,7 @@ export class RandomIFTeams extends RandomGen7Teams {
 
 			const halves = this.fuse(head, body, fusion).filter(half => this.randomSets[half.id].sets.length);
 			if (!halves.length) continue;
-			const species = this.sample(halves.flatMap(half => this.randomSets[half.id].sets.map(() => half)));
+			const species = this.sample(halves);
 
 			const set = {
 				...this.randomSet(species, teamDetails, !pokemon.length),
