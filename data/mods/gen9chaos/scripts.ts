@@ -75,12 +75,14 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.baseMoves.includes(this.battle.dex.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
+			if (!item.megaStone) return null;
+			let megaEvolution = item.megaStone[species.name];
+			if (megaEvolution && this.dex.species.get(megaEvolution).gen >= 9) return megaEvolution;
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
-			if (item.megaStone?.[species.baseSpecies] && item.megaStone[species.baseSpecies] !== species.name) {
-				if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
-				return item.megaStone[species.baseSpecies];
-			}
-			return null;
+			megaEvolution = item.megaStone[species.baseSpecies];
+			if (!megaEvolution || megaEvolution === species.name) return null;
+			if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
+			return megaEvolution;
 		},
 		switchIn(pokemon: Pokemon, pos: number, sourceEffect: Effect | null = null, isDrag?: boolean) {
 			if (!pokemon || pokemon.isActive) {
