@@ -3122,6 +3122,15 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		natDexTier: "OU",
 		doublesTier: "DOU",
 	},
+	glacerate: {
+		num: 3196,
+		name: "Glacerate",
+		types: ["Ice", "Steel"],
+		baseStats: {hp: 85, atk: 108, def: 116, spa: 72, spd: 71, spe: 88},
+		abilities: {0: "Heatproof", 1: "Heavy Metal", H: "Slush Rush"},
+		weightkg: 352.6,
+	},
+
 };
 
 const Manual: AnyObject = Utils.deepClone(Pokedex);
