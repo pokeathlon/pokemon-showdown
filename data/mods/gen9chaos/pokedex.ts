@@ -3129,6 +3129,11 @@ export const Pokedex: ModdedSpeciesDataTable = {
 		baseStats: {hp: 85, atk: 108, def: 116, spa: 72, spd: 71, spe: 88},
 		abilities: {0: "Heatproof", 1: "Heavy Metal", H: "Slush Rush"},
 		weightkg: 352.6,
+		color: "Purple",
+		eggGroups: ["Pokeathlon", "POA"],
+		tier: "OU",
+		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 
 };
