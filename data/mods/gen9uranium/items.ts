@@ -259,6 +259,127 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
+	splendifowlite: {
+		name: "Splendifowlite",
+		desc: "If held by a Splendifowl, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Splendifowl": "Splendifowl-Mega" },
+		itemUser: ["Splendifowl"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	jerboltite: {
+		name: "Jerboltite",
+		desc: "If held by a Jerbolta, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Jerbolta": "Jerbolta-Mega" },
+		itemUser: ["Jerbolta"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	herolunite: {
+		name: "Herolunite",
+		desc: "If held by a Herolune, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Herolune": "Herolune-Mega" },
+		itemUser: ["Herolune"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	vilucardite: {
+		name: "Vilucardite",
+		desc: "If held by a Vilucard, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Vilucard": "Vilucard-Mega" },
+		itemUser: ["Vilucard"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	unidentifiedaccessprotocol: {
+		name: "Unidentified Access Protocol",
+		desc: "If held by an S51-A, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "S51-A": "S51-A-Mega-Mothership" },
+		itemUser: ["S51-A"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	frikitikite: {
+		name: "Frikitikite",
+		desc: "If held by a Frikitiki, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Frikitiki": "Frikitiki-Mega" },
+		itemUser: ["Frikitiki"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	titanicinite: {
+		name: "Titanicenite",
+		desc: "If held by a Titanice, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Titanice": "Titanice-Mega" },
+		itemUser: ["Titanice"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	daikatunaite: {
+		name: "Daikatunaite",
+		desc: "If held by a Daikatuna, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Daikatuna": "Daikatuna-Mega" },
+		itemUser: ["Daikatuna"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	navighastite: {
+		name: "Navighastite",
+		desc: "If held by a Navighast, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Navighast": "Navighast-Mega" },
+		itemUser: ["Navighast"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	majungoldite: {
+		name: "Majungoldite",
+		desc: "If held by a Majungold, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Majungold": "Majungold-Mega" },
+		itemUser: ["Majungold"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	garlikidite: {
+		name: "Garlikidite",
+		desc: "If held by a Garlikid, this item allows it to Mega Evolve in battle.",
+		spritenum: -2,
+		megaStone: { "Garlikid": "Garlikid-Mega" },
+		itemUser: ["Garlikid"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
 
 	// Current items that do not exist
 	dracoplate: {

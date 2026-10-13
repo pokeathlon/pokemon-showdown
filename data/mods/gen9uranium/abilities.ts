@@ -349,4 +349,98 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		rating: 4,
 		num: 0,
 	},
+	tentaclesnare: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', source, 'Tentacle Snare');
+				this.boost({ spe: -1 }, target, source, null, true);
+			}
+		},
+		flags: {},
+		name: "Tentacle Snare",
+		rating: 4,
+		num: 0,
+		shortDesc: "This Pokemon's contact moves lower the foe's Speed by 1 stage.",
+	},
+	colossalresilience: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify(0.5);
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Colossal Resilience",
+		rating: 4,
+		num: 0,
+		shortDesc: "This Pokemon receives 1/2 damage from special attacks.",
+	},
+	scaleburst: {
+		onDamage(damage, target, source, effect) {
+			this.effectState.checkedAngerShell = !(
+				effect.effectType === "Move" && !effect.multihit &&
+				!(effect.hasSheerForce && source.hasAbility('sheerforce'))
+			);
+		},
+		onTryEatItem(item) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return this.effectState.checkedAngerShell;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedAngerShell = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3) {
+				this.boost({ atk: 1, spa: 1, spe: 1, def: -1, spd: -1 }, target, target);
+			}
+		},
+		flags: {},
+		name: "Scale Burst",
+		rating: 3,
+		num: 0,
+		shortDesc: "At 1/3 or less of this Pokemon's max HP: +1 Atk, Sp. Atk, Spe, and -1 Def, Sp. Def.",
+	},
+	outeruniverse: {
+		onSwitchIn(pokemon) {
+			this.field.clearWeather();
+			this.field.clearTerrain();
+			const removeAll = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const side of this.sides) {
+				for (const targetCondition of removeAll) {
+					if (side.removeSideCondition(targetCondition)) {
+						this.add('-sideend', side, this.dex.conditions.get(targetCondition).name, '[from] ability: Outer Universe', `[of] ${pokemon}`);
+					}
+				}
+			}
+		},
+		flags: {},
+		name: "Outer Universe",
+		rating: 3,
+		num: 0,
+		shortDesc: "On switch-in clears all hazards, screens, terrain, and weather.",
+	},
+	innerself: {
+		onSwitchIn(pokemon) {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+				for (const volatile of Object.keys(pokemon.volatiles)) {
+					if (["choicelock", "twoturnmove", "gem"].includes(volatile)) continue;
+					if (pokemon.isSemiInvulnerable()) continue; //used to ignore fly, dig, phantom force, etc.
+					pokemon.removeVolatile(volatile);
+				}
+			}
+		},
+		flags: {},
+		name: "Inner Self",
+		rating: 3,
+		num: 0,
+		shortDesc: "On switch-in clears all stat changes and conditions.",
+	},
 };

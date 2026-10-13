@@ -398,15 +398,27 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	oceanswrath: {
 		num: 0,
-		accuracy: 100,
-		basePower: 90,
+		accuracy: 75,
+		basePower: 100,
 		category: "Special",
 		name: "Ocean's Wrath",
-		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Oceans Wrath', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
 		volatileStatus: 'partiallytrapped',
 		target: "normal",
 		type: "Water",
@@ -609,5 +621,146 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		type: "Electric",
 		zMove: { boost: { spe: 1 } },
 		contestType: "Beautiful",
+	},
+	divinelight: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Divine Light",
+		desc: "Power doubles if the last move used by any Pokemon this turn was Sacred Shade.",
+		shortDesc: "Power doubles if used after Sacred Shade this turn.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, defrost: 1, metronome: 1 },
+		onBasePower(basePower, pokemon) {
+			if (this.lastSuccessfulMoveThisTurn === 'sacredshade') {
+				this.debug('double power');
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Fire",
+		zMove: { boost: { spe: 1 } },
+		contestType: "Beautiful",
+	},
+	sacredshade: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Sacred Shade",
+		desc: "Power doubles if the last move used by any Pokemon this turn was Divine Light.",
+		shortDesc: "Power doubles if used after Divine Light this turn.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onBasePower(basePower, pokemon) {
+			if (this.lastSuccessfulMoveThisTurn === 'divinelight') {
+				this.debug('double power');
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: { boost: { spe: 1 } },
+		contestType: "Beautiful",
+	},
+	vaporize: {
+		num: 0,
+		accuracy: 95,
+		basePower: 100,
+		category: "Special",
+		name: "Vaporize",
+		desc: "This move's type effectiveness against Water is changed to be super effective no matter what this move's type is. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
+		shortDesc: "Super effective on Water.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Vaporize', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	glacialspear: {
+		num: 0,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+		name: "Glacial Spear",
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Always lands a critical hit. Ignores opponent's abilities. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
+		shortDesc: "Destroys screens, always crits, ignores abilities.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		ignoreAbility: true,
+		willCrit: true,
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Glacial Spear', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+			// will shatter screens through sub, before you hit
+			source.side.removeSideCondition('reflect');
+			source.side.removeSideCondition('lightscreen');
+			source.side.removeSideCondition('auroraveil');
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	engulf: {
+		num: 0,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+		name: "Engulf",
+		desc: "Has a 100% chance to lower the target's Defense and Evasion by 1 stage. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
+		shortDesc: "100% to lower the target's Def. and Evasion by 1.",
+		pp: 5,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Engulf', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+				evasion: -1,
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Cute",
 	},
 };
