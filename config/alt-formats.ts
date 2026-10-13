@@ -483,23 +483,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon OU",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'DryPass Clause'],
 		banlist: [
 			'AG', 'Uber',
-			'ability:arenatrap', 'ability:shadowtag',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:sharpness',
 			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock', 'item:lightclay',
-			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst',
+			'move:swagger', 'move:shedtail', 'move:boomburst',
 		],
 	},
 	{
 		name: "[Gen 9] Mariomon Ubers",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
-		banlist: [
-			'AG',
-			'move:batonpass', 'move:swagger',
-		],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'DryPass Clause'],
+		banlist: ['AG', 'move:swagger'],
 	},
 	{
 		name: "[Gen 9] Mariomon UU",
@@ -546,6 +543,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ability:arenatrap', 'ability:shadowtag',
 			'move:batonpass', 'move:electrify', 'move:boomburst', 'move:swagger',
 		],
+	},
+	{
+		name: "[Gen 9] Mariomon VGC",
+		mod: 'gen9mariomon',
+		gameType: 'doubles',
+
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
 	},
 	{
 		name: "[Gen 9 Champions] Mariomon VGC",

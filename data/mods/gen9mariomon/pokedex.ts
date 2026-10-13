@@ -2018,7 +2018,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		weightkg: 400.0,
 		tags: ["Restricted Legendary"],
 		eggGroups: ["Mariomon"],
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	hooktail: {
