@@ -739,7 +739,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "100% to lower the target's Def. and Evasion by 1.",
 		pp: 5,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1 },
+		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
 		onTryHit(target, source, move) {
 			let count = 0;
 			for (const pokemon of source.side.team) {
