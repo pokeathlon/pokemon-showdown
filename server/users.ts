@@ -415,7 +415,7 @@ export class User extends Chat.MessageContext {
 	lastReportTime: number;
 	lastNewNameTime = 0;
 	newNames = 0;
-	challengeOnly = false;
+	challengeOnly: boolean | ID = false;
 	s1: string;
 	s2: string;
 	s3: string;
@@ -795,7 +795,7 @@ export class User extends Chat.MessageContext {
 		void Punishments.checkIp(this, connection); // namelock enforcement and the like after merge
 	}
 
-	challengeOnlyRename(seed: string, connection: Connection) {
+	challengeOnlyRename(seed: string, connection: Connection, owner?: ID) {
 		if (!challengeOnlyWords) {
 			challengeOnlyWords = [
 				...Dex.species.all(), ...Dex.items.all(), ...Dex.moves.all(), ...Dex.abilities.all(),
@@ -805,16 +805,16 @@ export class User extends Chat.MessageContext {
 		for (let attempt = 0; attempt < 10; attempt++) {
 			const hash = crypto.createHmac('sha256', Config.challengeonlysecret).update(`${seed},${attempt}`).digest();
 			const word = challengeOnlyWords[hash.readUInt32BE(0) % challengeOnlyWords.length];
-			const name = `${word} ${`${hash.readUInt32BE(4) % 10000}`.padStart(4, '0')}`;
+			const name = `${owner ? 'Poke\u0301athlete' : word} ${`${hash.readUInt32BE(4) % 10000}`.padStart(4, '0')}`;
 			const userid = toID(name);
-			if (Chat.namefilter(name, this) !== name) continue;
+			if (!owner && Chat.namefilter(name, this) !== name) continue;
 			const conflictUser = users.get(userid);
 			if (conflictUser && conflictUser !== this && (
 				conflictUser.connected || !conflictUser.challengeOnly || conflictUser.latestIp !== this.latestIp
 			)) continue;
 
 			if (!this.handleRename(name, userid, false, '1')) return false;
-			users.get(userid)!.challengeOnly = true;
+			users.get(userid)!.challengeOnly = owner || true;
 			void Punishments.checkIp(users.get(userid)!, connection);
 			return true;
 		}

@@ -1,3 +1,4 @@
+import * as crypto from 'crypto';
 import { FS, Utils } from '../../lib';
 
 let ladderQueue: { [formatid: string]: number } = {};
@@ -13,10 +14,16 @@ const ladderQueueInterval = setInterval(() => {
 	for (const user of Object.values(lobby.users)) user.send(`|queryresponse|ladderqueue|${JSON.stringify(queue)}`);
 }, 2 * 1000);
 
+const botKey = (owner: ID) => crypto.createHmac('sha256', Config.challengeonlysecret).update(`key,${owner}`).digest('hex').slice(0, 32);
+
 export const crqHandlers: { [k: string]: Chat.CRQHandler } = {
 	ladderqueue(target, user, trustable) {
 		if (!trustable) return false;
 		return ladderQueue;
+	},
+	pokeathlete(target, user, trustable) {
+		if (!trustable || !user.named || typeof user.challengeOnly === 'string' || !Config.challengeonlysecret) return false;
+		return botKey(user.id);
 	},
 };
 
@@ -31,6 +38,19 @@ export const commands: Chat.ChatCommands = {
 	},
 	challengeonlyhelp: [
 		`/challengeonly [seed] - Gives you a challenge-only name generated from [seed].`,
+	],
+
+	pokeathlete(target, room, user, connection) {
+		if (!Config.challengeonlysecret) throw new Chat.ErrorMessage(`Challenge-only accounts are disabled on this server.`);
+		if (user.named) throw new Chat.ErrorMessage(`You already have a name.`);
+		const [owner, key] = target.split(',').map(toID);
+		if (!owner || !key) return this.parse('/help pokeathlete');
+		if (key !== botKey(owner)) throw new Chat.ErrorMessage(`That key doesn't belong to ${owner}.`);
+
+		return user.challengeOnlyRename(`pokeathlete,${owner}`, connection, owner);
+	},
+	pokeathletehelp: [
+		`/pokeathlete [owner], [key] - Gives you [owner]'s Pok\u00e9athlete bot name, with the key [owner] gets from /crq pokeathlete.`,
 	],
 
 	fuse: 'fusion',
@@ -178,6 +198,9 @@ export const commands: Chat.ChatCommands = {
 };
 
 export const handlers: Chat.Handlers = {
+	onBattleStart(user, room) {
+		if (typeof user.challengeOnly === 'string') room.add(`|message|${user.name} is a bot run by ${Users.get(user.challengeOnly)?.name || user.challengeOnly}.`).update();
+	},
 	onRename(user, oldID, newID) {
 		if (!user.s1 || newID.startsWith('guest')) return;
 		for (const punishment of Punishments.userids.get(user.s1) || []) {
@@ -185,6 +208,8 @@ export const handlers: Chat.Handlers = {
 		}
 	},
 };
+
+export const namefilter: Chat.NameFilter = name => (toID(name).startsWith('pokeathlete') ? '' : name);
 
 export const punishmentfilter: Chat.PunishmentFilter = (user, punishment) => {
 	if (punishment.id.startsWith('#')) return;
