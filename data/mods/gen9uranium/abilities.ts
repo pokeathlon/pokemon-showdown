@@ -430,6 +430,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
 				pokemon.clearBoosts();
+				pokemon.clearStatus();
 				for (const volatile of Object.keys(pokemon.volatiles)) {
 					if (["choicelock", "twoturnmove", "gem"].includes(volatile)) continue;
 					if (pokemon.isSemiInvulnerable()) continue; //used to ignore fly, dig, phantom force, etc.
