@@ -382,8 +382,6 @@ const cutDex: { [k: string]: number } = {
 	"aotius": 198,
 	"mutios": 199,
 	"zephy": 200,
-	"gengar": 201,
-	"gengarmega": 201,
 };
 
 for (const key in { ...Base, ...Pokedex }) {
