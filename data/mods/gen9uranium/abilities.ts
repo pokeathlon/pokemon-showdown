@@ -407,7 +407,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "At 1/3 or less of this Pokemon's max HP: +1 Atk, Sp. Atk, Spe, and -1 Def, Sp. Def.",
 	},
 	outeruniverse: {
-		onSwitchIn(pokemon) {
+		onBeforeSwitchIn(pokemon) {
 			this.field.clearWeather();
 			this.field.clearTerrain();
 			const removeAll = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];

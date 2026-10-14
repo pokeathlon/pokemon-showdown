@@ -325,7 +325,7 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		num: 0,
 	},
-	titanicinite: {
+	titanicenite: {
 		name: "Titanicenite",
 		desc: "If held by a Titanice, this item allows it to Mega Evolve in battle.",
 		spritenum: -2,
