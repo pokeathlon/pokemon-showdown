@@ -199,7 +199,7 @@ export const commands: Chat.ChatCommands = {
 
 export const handlers: Chat.Handlers = {
 	onBattleStart(user, room) {
-		if (typeof user.challengeOnly === 'string') room.add(`|message|${user.name} is a bot run by ${Users.get(user.challengeOnly)?.name || user.challengeOnly}.`).update();
+		if (typeof user.challengeOnly === 'string') room.add(`|raw|${Utils.escapeHTML(user.name)} is a bot run by ${Utils.escapeHTML(Users.get(user.challengeOnly)?.name || user.challengeOnly)}.`).update();
 	},
 	onRename(user, oldID, newID) {
 		if (!user.s1 || newID.startsWith('guest')) return;
