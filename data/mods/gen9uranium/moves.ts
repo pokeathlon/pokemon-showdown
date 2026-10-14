@@ -404,7 +404,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Ocean's Wrath",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onTryHit(target, source, move) {
@@ -630,7 +630,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Divine Light",
 		desc: "Power doubles if the last move used by any Pokemon this turn was Sacred Shade.",
 		shortDesc: "Power doubles if used after Sacred Shade this turn.",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, defrost: 1, metronome: 1 },
 		onBasePower(basePower, pokemon) {
@@ -652,7 +652,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Sacred Shade",
 		desc: "Power doubles if the last move used by any Pokemon this turn was Divine Light.",
 		shortDesc: "Power doubles if used after Divine Light this turn.",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onBasePower(basePower, pokemon) {
@@ -674,7 +674,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Vaporize",
 		desc: "This move's type effectiveness against Water is changed to be super effective no matter what this move's type is. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
 		shortDesc: "Super effective on Water.",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onTryHit(target, source, move) {
@@ -704,7 +704,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Glacial Spear",
 		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Always lands a critical hit. Ignores opponent's abilities. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
 		shortDesc: "Destroys screens, always crits, ignores abilities.",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		ignoreAbility: true,
@@ -737,7 +737,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		name: "Engulf",
 		desc: "Has a 100% chance to lower the target's Defense and Evasion by 1 stage. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
 		shortDesc: "100% to lower the target's Def. and Evasion by 1.",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
 		onTryHit(target, source, move) {
