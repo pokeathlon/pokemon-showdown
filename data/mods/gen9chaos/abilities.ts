@@ -1100,14 +1100,14 @@ export const Abilities: ModdedAbilityDataTable = {
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (move.flags.wind) {
 				this.debug('Windy Spirit boost');
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
 		name: "Windy Spirit",
 		rating: 3.5,
 		num: 0,
-		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
+		shortDesc: "This Pokemon's wind-based attacks have 1.3x power.",
 	},
 	strangeanatomy: {
 		onDamagingHit(damage, target, source, move) {
@@ -1162,6 +1162,9 @@ export const Abilities: ModdedAbilityDataTable = {
 		shortDesc: "Boosts moves that require a charge turn by 50%.",
 	},
 	vacuumbubble: { // Pressure interaction coded into pressure
+		onModifyMove(move, pokemon, target) {
+			move.ignoreDefensive = true;
+		},
 		onBeforeMove(source, target, move) {
 			if (target.item) {
 				target.speciesState.item = target.getItem();
@@ -1178,7 +1181,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Vacuum Bubble",
 		rating: 4,
 		num: 0,
-		shortDesc: "Ignores foe's items when attacking. Immune to Pressure.",
+		shortDesc: "Ignores foe's items and defensive boosts when attacking. Immune to Pressure.",
 	},
 	hivemind: {
 		onSwitchOut(pokemon) {
@@ -1387,19 +1390,23 @@ export const Abilities: ModdedAbilityDataTable = {
 					onHit(target: Pokemon) {
 						if (target.getAbility().flags['cantsuppress']) return;
 						target.addVolatile('gastroacid');
+						target.clearBoosts();
 					},
 				};
 				target.side.slotConditions[target.position]['futuremove'].moveData = moveData;
 			}
 		},
 		onSourceDamagingHit(damage, target, source, move) {
-			if (move.flags['futuremove'] && !target.getAbility().flags['cantsuppress']) target.addVolatile('gastroacid');
+			if (move.flags['futuremove'] && !target.getAbility().flags['cantsuppress']) {
+				target.addVolatile('gastroacid');
+				target.clearBoosts();
+			} 
 		},
 		flags: {},
 		name: "Zeitwinder",
 		rating: 3.5,
 		num: 0,
-		shortDesc: "User's future moves suppress the target's ability when they hit.",
+		shortDesc: "User's future moves suppress the target's ability and clears their stat changes when they hit.",
 	},
 	cadenza: {
 		onTryHit(target, source, move) {

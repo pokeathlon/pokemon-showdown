@@ -2318,7 +2318,7 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Sky Pierce",
 		pp: 10,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		flags: { protect: 1, mirror: 1, metronome: 1, slicing: 1, contact: 1 },
 		critRatio: 2,
 		target: "normal",
 		type: "Flying",
@@ -2711,14 +2711,17 @@ export const Moves: ModdedMoveDataTable = {
 			return null;
 		},
 		boosts: {
-			atk: 2,
-			spa: 2,
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
 		},
 		target: "self",
 		type: "Grass",
 		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
 		contestType: "Beautiful",
-		shortDesc: "Swaps user's Poison-type to Grass, then raises Atk, SpA by 2 turn 2.",
+		shortDesc: "Swaps user's Poison-type to Grass, then raises all stats by 1 turn 2.",
 	},
 	espressoshot: {
 		num: 0,
@@ -2752,19 +2755,19 @@ export const Moves: ModdedMoveDataTable = {
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
-			const volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong'];
+			const volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong', 'choicelock'];
 			for (const volatile of volatiles) {
 				pokemon.removeVolatile(volatile);
 			}
 			if (pokemon.happiness >= 255 && pokemon.species.id === 'kinette') {
-				pokemon.formeChange('Kinette-Unwound', this.effect, false, '0', '[msg]');
+				pokemon.formeChange('Kinette-Unwound', this.effect, true, '0', '[msg]');
 			}
 		},
 		target: "self",
 		type: "Steel",
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Cute",
-		desc: "Ignores and removes confusion, attract, taunt, encore, torment, disable, heal block, and perish song volatiles from user. If Kinette and 255+ happiness, turns into Kinette-Unwound. Fails with consecutive uses.",
+		desc: "Ignores and removes confusion, attract, taunt, encore, torment, disable, heal block, perish song, and choice lock volatiles from user. If Kinette and 255+ happiness, turns into Kinette-Unwound. Fails with consecutive uses.",
 		shortDesc: "Ignores and removes some volatiles. 255 happiness Kinette: transforms into Kinette-Unwound.",
 	},
 	flashbomb: {
