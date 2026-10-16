@@ -3951,7 +3951,7 @@ export const FormatsData: import("../../../sim/dex-species").ModdedSpeciesFormat
 		isNonstandard: null,
 		natDexTier: "RU",
 	},
-	syzzyllite: {
+	syzyllite: {
 		inherit: true,
 		isNonstandard: null,
 		natDexTier: "RU",
