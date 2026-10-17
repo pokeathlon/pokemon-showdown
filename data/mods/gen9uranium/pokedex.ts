@@ -4408,7 +4408,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	navighastmega: {
 		num: 6128,
 		name: "Navighast-Mega",
-		baseSpecies: "Navighast-Mega",
+		baseSpecies: "Navighast",
 		forme: "Mega",
 		types: ["Ghost", "Fighting"],
 		baseStats: { hp: 80, atk: 145, def: 95, spa: 95, spd: 110, spe: 100 },
