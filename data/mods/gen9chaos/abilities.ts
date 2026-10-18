@@ -1436,6 +1436,25 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "This Pokemon gains the Charge effect when it succesfully uses a draining move.",
 	},
+	rampagingdespair: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'mazetsubo' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Rampaging Despair');
+				source.formeChange('Mazetsubo-Despair', this.effect, true);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.id === 'mazetsubodespair' && move.target === 'normal') move.target = 'allAdjacentFoes'; 
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
+		name: "Rampaging Despair",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "If Mazetsubo: transforms into Mazetsubo-Despair on KO, gaining spread on single-targetting moves.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

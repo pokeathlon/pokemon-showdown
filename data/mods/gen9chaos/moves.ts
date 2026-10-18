@@ -3055,6 +3055,20 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
+	ichorjet: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Ichor Jet",
+		pp: 30,
+		priority: 1,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+		shortDesc: "Usually goes first.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
