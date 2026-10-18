@@ -2040,6 +2040,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			this.showOpenTeamSheets();
 		},
 	},
+	showteamsheets: {
+		effectType: 'Rule',
+		name: 'Show Team Sheets',
+		desc: "Allows each player to see the Pok&eacute;mon and all non-stat information about them at the start of the battle, with or without Team Preview",
+		onTeamPreview() {
+			this.showOpenTeamSheets();
+		},
+	},
 	aaarestrictedabilities: {
 		effectType: 'ValidatorRule',
 		name: 'AAA Restricted Abilities',
