@@ -6254,8 +6254,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			brickbreak: ["9M"],
 			reflect: ["9M"],
 			lightscreen: ["9M"],
-			heavycleave: ["9M"],
-			throwingknives: ["9M"]
         }
 	},
 	tinkastab: {
@@ -6296,8 +6294,6 @@ export const Learnsets: ModdedLearnsetDataTable = {
 			thunderwave: ["9M"],
 			confuseray: ["9M"],
 			cut: ["9M"],
-			heavycleave: ["9M"],
-			throwingknives: ["9M"]
         }
 	},
 	toxice: {
