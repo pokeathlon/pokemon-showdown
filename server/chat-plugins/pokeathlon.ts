@@ -14,6 +14,8 @@ const ladderQueueInterval = setInterval(() => {
 	for (const user of Object.values(lobby.users)) user.send(`|queryresponse|ladderqueue|${JSON.stringify(queue)}`);
 }, 2 * 1000);
 
+const botInfo = new WeakMap<Rooms.RoomBattle, { [slot: string]: AnyObject }>();
+
 const botKey = (owner: ID) => crypto.createHmac('sha256', Config.challengeonlysecret).update(`key,${owner}`).digest('hex').slice(0, 32);
 
 export const crqHandlers: { [k: string]: Chat.CRQHandler } = {
@@ -52,6 +54,26 @@ export const commands: Chat.ChatCommands = {
 	pokeathletehelp: [
 		`/pokeathlete [owner], [key] - Gives you [owner]'s Pok\u00e9athlete bot name, with the key [owner] gets from /crq pokeathlete.`,
 	],
+
+	botinfo(target, room, user) {
+		room = this.requireRoom();
+		const battle = room.battle;
+		const slot = battle?.playerTable[user.id]?.slot;
+		if (!battle || !slot || battle.ended || typeof user.challengeOnly !== 'string' || target.length > 10000) return false;
+		let data: AnyObject;
+		try {
+			data = JSON.parse(target);
+		} catch {
+			return false;
+		}
+		if (!data || typeof data !== 'object') return false;
+		let info = botInfo.get(battle);
+		if (!info) botInfo.set(battle, info = {});
+		const entry = info[slot] ||= { decisions: [] };
+		const { decision, ...rest } = data;
+		Object.assign(entry, rest, { decisions: entry.decisions });
+		if (decision && entry.decisions.length < 1000) entry.decisions.push(decision);
+	},
 
 	fuse: 'fusion',
 	fusion(target, room, user, connection, cmd) {
@@ -200,6 +222,11 @@ export const commands: Chat.ChatCommands = {
 export const handlers: Chat.Handlers = {
 	onBattleStart(user, room) {
 		if (typeof user.challengeOnly === 'string') room.add(`|raw|${Utils.escapeHTML(user.name)} is a bot run by ${Utils.escapeHTML(Users.get(user.challengeOnly)?.name || user.challengeOnly)}.`).update();
+	},
+	onBattleEnd(battle) {
+		const info = botInfo.get(battle);
+		if (!info || !battle.logData) return;
+		for (const [slot, entry] of Object.entries(info)) battle.logData[`${slot}bot`] = entry;
 	},
 	onRename(user, oldID, newID) {
 		if (!user.s1 || newID.startsWith('guest')) return;
