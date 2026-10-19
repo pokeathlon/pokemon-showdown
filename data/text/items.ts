@@ -2628,7 +2628,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		name: "Energy Drink",
 		shortDesc: "This Pokemon cannot fall asleep.",
 
-		activate: "  [POKEMON] is too energized to fall asleep!",
-		block: "  [POKEMON] is too energized to fall asleep!",
+		activate: "  {POKEMON} is too energized to fall asleep!",
+		block: "  {POKEMON} is too energized to fall asleep!",
 	},
 };

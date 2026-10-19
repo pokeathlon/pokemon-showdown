@@ -159,9 +159,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 
 			const target = this.sample(possibleTargets);
 			const ability = target.getAbility();
-			if (pokemon.setAbility(ability) && !pokemon.illusion) {
-				this.add('-ability', pokemon, ability, '[from] ability: Trace', `[of] ${target}`);
-			}
+			pokemon.setAbility(ability, target, null, false, !!pokemon.illusion);
 		},
 	},
 	illusion: {

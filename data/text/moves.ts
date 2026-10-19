@@ -7706,41 +7706,41 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	spudmortar: {
 		name: "Spud Mortar",
 
-		start: "  [POKEMON] launched a spud!",
-		activate: "  [TARGET] was hit by a spud!",
+		start: "  {POKEMON} launched a spud!",
+		activate: "  {TARGET} was hit by a spud!",
 	},
 	groundingstomp: {
 		name: "Grounding Stomp",
 
-		start: "  [POKEMON] fell straight down!",
+		start: "  {POKEMON} fell straight down!",
 	},
 	superheatedcraash: {
 		name: "Superheated Crash",
 
-		start: "  [POKEMON] started heating up!",
+		start: "  {POKEMON} started heating up!",
 	},
 	deadsilence: {
 		name: "Dead Silence",
 
-		start: "  [POKEMON] is keeping the tempo!",
-		cant: "[POKEMON]'s tempo was broken!",
+		start: "  {POKEMON} is keeping the tempo!",
+		cant: "{POKEMON}'s tempo was broken!",
 	},
 	rocketgrab: {
 		name: "Rocket Grab",
 
-		activate: "  ([TARGET] is being withdrawn...)",
+		activate: "  ({TARGET} is being withdrawn...)",
 	},
 	chitinsnare: {
 		name: "Chitin Snare",
 
-		start: "  [POKEMON] readied an attack!",
-		activate: "  [TARGET] got snared!",
+		start: "  {POKEMON} readied an attack!",
+		activate: "  {TARGET} got snared!",
 	},
 	flockshock: {
 		name: "Flock Shock",
 
-		start: "  [POKEMON] foresaw an attack!",
-		activate: "  [TARGET] got shocked!",
+		start: "  {POKEMON} foresaw an attack!",
+		activate: "  {TARGET} got shocked!",
 	},
 
 };
