@@ -9427,7 +9427,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		self: {
 			onHit(source) {
-				source.skipBeforeSwitchOutEventFlag = true;
+				source.skipPursuit = true;
 			},
 		},
 		selfSwitch: 'copyvolatile',

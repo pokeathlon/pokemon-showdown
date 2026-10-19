@@ -238,5 +238,6 @@ export const translations: TranslationCatalog = {
 	"You are not blocking friend requests.": null,
 	"You are currently allowing friend notifications.": null,
 	"Your friend notifications are disabled.": null,
+	"Challenge-only accounts can only talk in battles they're playing in.": null,
 
 };
