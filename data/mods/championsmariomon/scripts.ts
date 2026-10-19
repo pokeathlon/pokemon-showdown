@@ -3,6 +3,21 @@ import { Scripts as Champions } from '../champions/scripts';
 export const Scripts: ModdedBattleScriptsData = {
 	...Champions,
 	inherit: 'gen9mariomon',
+	init() {
+		Champions.init!.call(this);
+		for (const id in this.data.Pokedex) {
+			let prevo = this.data.Pokedex[id].prevo;
+			if (!prevo || !this.data.Learnsets[id]?.learnset) continue;
+			const learnset = this.modData('Learnsets', id).learnset;
+			while (prevo) {
+				const prevoid = this.toID(prevo);
+				for (const [moveid, sources] of Object.entries(this.data.Learnsets[prevoid]?.learnset || {})) {
+					learnset[moveid] ||= sources;
+				}
+				prevo = this.data.Pokedex[prevoid]?.prevo;
+			}
+		}
+	},
 	pokemon: {
 		...Champions.pokemon,
 		inherit: true,
