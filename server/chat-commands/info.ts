@@ -17,6 +17,15 @@ import { type Battle } from '../../sim/battle';
 const ONLINE_SYMBOL = ` \u25C9 `;
 const OFFLINE_SYMBOL = ` \u25CC `;
 
+export function validateMediaURL(link: string) {
+	if (link.includes('data:image/png;base64')) {
+		throw new Chat.ErrorMessage('Please provide an actual link (you probably copied the URL wrong?).');
+	}
+	if (!/^https?:\/\//i.test(link)) {
+		throw new Chat.ErrorMessage('Invalid URL. URL must start with http: or https:.');
+	}
+}
+
 interface DexResources {
 	url: string;
 	resources: { resource_name: string, url: string }[];
@@ -290,8 +299,9 @@ export const commands: Chat.ChatCommands = {
 				}
 				if (Punishments.isSharedIp(ip)) {
 					let sharedStr = 'shared';
-					if (Punishments.sharedIps.get(ip)) {
-						sharedStr += `: ${Punishments.sharedIps.get(ip)}`;
+					const sharedIpReason = Punishments.sharedIps.get(ip);
+					if (sharedIpReason) {
+						sharedStr += `: ${sharedIpReason}`;
 					}
 					status.push(sharedStr);
 				}
@@ -699,10 +709,20 @@ export const commands: Chat.ChatCommands = {
 					const gmaxMove = pokemon.canGigantamax || dex.species.get(pokemon.changesFrom).canGigantamax;
 					if (gmaxMove && dex.gen === 8) details[TL.tag.gmaxmove] = gmaxMove;
 					if (dex.gen === 1) details[TL`Crit rate`] = `${((pokemon.baseStats.spe * 100) / 512).toFixed(2)}%`;
-					if (pokemon.color && dex.gen >= 5) details[TL`Color`] = TL.color[toID(pokemon.color)] || pokemon.color;
+					if (pokemon.color && dex.gen >= 5) details[TL`Color`] = TL.color[pokemon.color] || pokemon.color;
 					if (pokemon.eggGroups && dex.gen >= 2) {
-						details[TL`Egg Groups`] = pokemon.eggGroups.map(group => TL.egggroup[toID(group)] || group).join(", ");
+						details[TL`Egg Groups`] = pokemon.eggGroups.map(group => TL.egggroup[group] || group).join(", ");
 					}
+					if (pokemon.gender && dex.gen >= 2) {
+						details[TL`Gender`] = TL.gender[pokemon.gender];
+					} else if (pokemon.genderRatio && dex.gen >= 2) {
+						const g = pokemon.genderRatio;
+						details[TL`Gender`] = TL.commaList([
+							TL.label(TL.gender.M, TL`${g.M * 100}%`),
+							TL.label(TL.gender.F, TL`${g.F * 100}%`),
+						]);
+					};
+
 					const evos: string[] = [];
 					for (const evoName of pokemon.evos) {
 						const evo = dex.species.get(evoName);
@@ -717,22 +737,22 @@ export const commands: Chat.ChatCommands = {
 								evos.push(`${name} (level-up with high Friendship${condition})`);
 								break;
 							case 'levelHold':
-								evos.push(`${name} (level-up holding ${evo.evoItem}${condition})`);
+								evos.push(`${name} (level-up holding ${evo.evoItem!}${condition})`);
 								break;
 							case 'useItem':
-								evos.push(`${name} (${evo.evoItem})`);
+								evos.push(`${name} (${evo.evoItem!}${condition})`);
 								break;
 							case 'levelMove':
-								evos.push(`${name} (level-up with ${evo.evoMove}${condition})`);
+								evos.push(`${name} (level-up with ${evo.evoMove!}${condition})`);
 								break;
 							case 'other':
-								evos.push(`${name} (${evo.evoCondition})`);
+								evos.push(`${name} (${evo.evoCondition!})`);
 								break;
 							case 'trade':
 								evos.push(`${name} (trade${evo.evoItem ? ` holding ${evo.evoItem}` : condition})`);
 								break;
 							default:
-								evos.push(`${name} (${evo.evoLevel}${condition})`);
+								evos.push(`${name} (${evo.evoLevel!}${condition})`);
 							}
 						}
 					}
@@ -775,7 +795,7 @@ export const commands: Chat.ChatCommands = {
 						}
 					}
 					if (item.naturalGift && dex.gen >= 3) {
-						details[TL`Natural Gift type`] = TL.type[toID(item.naturalGift.type)] || item.naturalGift.type;
+						details[TL`Natural Gift type`] = TL.type[item.naturalGift.type] || item.naturalGift.type;
 						details[TL`Natural Gift base power`] = String(item.naturalGift.basePower);
 					}
 					if (item.isNonstandard) {
@@ -842,7 +862,7 @@ export const commands: Chat.ChatCommands = {
 							const boost = move.zMove.boost;
 							let h: BoostID;
 							for (h in boost) {
-								details[TL`Z-Effect`] += ` ${TL.statMedium[h] || h} +${boost[h]}`;
+								details[TL`Z-Effect`] += ` ${TL.statMedium[h] || h} +${boost[h]!}`;
 							}
 						} else if (move.isZ && typeof move.isZ === 'string') {
 							details[`&#10003; ${TL.tag.zmove}`] = "";
@@ -1573,7 +1593,7 @@ export const commands: Chat.ChatCommands = {
 		if (realSet) {
 			if (!baseSet) {
 				if (calcHP) {
-					baseStat = Math.ceil((100 * realStat - 10 - level * (Math.floor(ev / 4) + iv + 100)) / (2 * level));
+					baseStat = Math.ceil((100 * (realStat - 10) - level * (Math.floor(ev / 4) + iv + 100)) / (2 * level));
 				} else {
 					if (!positiveMod) {
 						realStat *= (2 + modifier) / 2;
@@ -1602,7 +1622,10 @@ export const commands: Chat.ChatCommands = {
 					ev = Math.ceil(-1 * (2 * (nature * (baseStat * level + 250) - 50 * Math.ceil(realStat))) / (level * nature));
 				}
 				ev -= 31;
-				if (ev < 0) iv += ev;
+				if (ev < 0) {
+					iv += ev;
+					ev = 0;
+				}
 				ev *= 4;
 				if (iv < 0 || ev > 255) {
 					return this.sendReplyBox(`No valid EV/IV combination possible with given parameters. Maybe try a different nature?${ev}`);
@@ -2637,11 +2660,9 @@ export const commands: Chat.ChatCommands = {
 		let [link, comment] = this.splitOne(target);
 		if (!/^https?:\/\//.test(link)) link = `https://${link}`;
 		link = encodeURI(link);
+		validateMediaURL(link);
 		let dimensions;
 		if (!/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)(\/|$)/i.test(link)) {
-			if (link.includes('data:image/png;base64')) {
-				throw new Chat.ErrorMessage('Please provide an actual link (you probably copied the URL wrong?).');
-			}
 			try {
 				dimensions = await Chat.fitImage(link);
 			} catch {
@@ -2766,6 +2787,7 @@ export const commands: Chat.ChatCommands = {
 			}
 		}
 
+		validateMediaURL(link);
 		this.runBroadcast();
 		let buf;
 		if (YouTube.linkRegex.test(link)) {
@@ -2784,9 +2806,6 @@ export const commands: Chat.ChatCommands = {
 				} else if (/^https?:\/\/(.*)\.(mp3|wav)\b(\?|$)/i.test(link)) { // audio
 					buf = Utils.html`<audio src="${link}" controls=""></audio>`;
 				}
-			}
-			if (link.includes('data:image/png;base64')) {
-				throw new Chat.ErrorMessage('Please provide an actual link (you probably copied it wrong?).');
 			}
 			if (!buf) { // fall back on image
 				try {

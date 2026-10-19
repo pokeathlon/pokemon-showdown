@@ -392,6 +392,7 @@ export class User extends Chat.MessageContext {
 	isSysop: boolean;
 	isStaff: boolean;
 	isPublicBot: boolean;
+	isUserBot: boolean;
 	lastDisconnected: number;
 	lastConnected: number;
 	foodfight?: { generatedTeam: string[], dish: string, ingredients: string[], timestamp: number };
@@ -488,6 +489,7 @@ export class User extends Chat.MessageContext {
 		this.isSysop = false;
 		this.isStaff = false;
 		this.isPublicBot = false;
+		this.isUserBot = false;
 		this.lastDisconnected = 0;
 		this.lastConnected = connection.connectedAt;
 
@@ -853,6 +855,7 @@ export class User extends Chat.MessageContext {
 		//   4: autoconfirmed
 		//   5: permalocked
 		//   6: permabanned
+		//   10: bot
 		if (registered) {
 			if (userType === '3') {
 				this.isSysop = true;
@@ -867,6 +870,9 @@ export class User extends Chat.MessageContext {
 			} else if (userType === '6') {
 				void Punishments.lock(this, Date.now() + PERMALOCK_CACHE_TIME, userid, true, `Permabanned as ${name}`, true);
 				this.disconnectAll();
+			} else if (userType === '10') {
+				this.autoconfirmed = userid;
+				this.isUserBot = true;
 			}
 		}
 		if (Users.isTrusted(userid)) {
@@ -964,7 +970,7 @@ export class User extends Chat.MessageContext {
 		for (const roomid of this.games) {
 			const room = Rooms.get(roomid);
 			if (!room) {
-				Monitor.warn(`while renaming, room ${roomid} expired for user ${this.id} in rooms ${[...this.inRooms]} and games ${[...this.games]}`);
+				Monitor.warn(`while renaming, room ${roomid} expired for user ${this.id} in rooms ${[...this.inRooms].join(',')} and games ${[...this.games].join(',')}`);
 				this.games.delete(roomid);
 				continue;
 			}
@@ -1043,6 +1049,7 @@ export class User extends Chat.MessageContext {
 			this.locked = oldUser.locked;
 		}
 		if (oldUser.autoconfirmed) this.autoconfirmed = oldUser.autoconfirmed;
+		if (oldUser.isUserBot) this.isUserBot = true;
 
 		this.updateGroup(this.registered, true);
 		if (oldLocked !== this.locked || oldSemilocked !== this.semilocked) this.updateIdentity();
@@ -1160,7 +1167,7 @@ export class User extends Chat.MessageContext {
 		}
 		if (this.trusted) {
 			if (this.locked && this.permalocked) {
-				Monitor.log(`[CrisisMonitor] Trusted user '${this.id}' is ${this.permalocked !== this.id ? `an alt of permalocked user '${this.permalocked}'` : `a permalocked user`}, and was automatically demoted from ${this.distrust()}.`);
+				Monitor.log(`[CrisisMonitor] Trusted user '${this.id}' is ${this.permalocked !== this.id ? `an alt of permalocked user '${this.permalocked}'` : `a permalocked user`}, and was automatically demoted from ${this.distrust()!.join(',')}.`);
 				return;
 			}
 			this.locked = null;
@@ -1576,7 +1583,7 @@ export class User extends Chat.MessageContext {
 		for (const roomid of this.games) {
 			const game = Rooms.get(roomid)?.game;
 			if (!game) {
-				Monitor.warn(`while deallocating, room ${roomid} did not have a game for ${this.id} in rooms ${[...this.inRooms]} and games ${[...this.games]}`);
+				Monitor.warn(`while deallocating, room ${roomid} did not have a game for ${this.id} in rooms ${[...this.inRooms].join(',')} and games ${[...this.games].join(',')}`);
 				this.games.delete(roomid);
 				continue;
 			}
