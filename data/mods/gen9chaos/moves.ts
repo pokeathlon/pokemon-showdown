@@ -730,6 +730,15 @@ export const Moves: ModdedMoveDataTable = {
 			},
 		},
 	},
+	encore: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onOverrideAction(pokemon, target, move) {
+				if (move.id !== this.effectState.move && move.id !== 'ringtrue') return this.effectState.move;
+			},
+		},
+	},
 	ragingbull: {
 		inherit: true,
 		onModifyType(move, pokemon) {
@@ -2751,6 +2760,9 @@ export const Moves: ModdedMoveDataTable = {
 		flags: { noassist: 1, failcopycat: 1, snatch: 1 },
 		stallingMove: true,
 		onPrepareHit(pokemon) {
+			if (pokemon.happiness >= 255 && pokemon.species.id === 'kinette') {
+				pokemon.formeChange('Kinette-Unwound', this.effect, true, '0', '[msg]');
+			}
 			return this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -2758,9 +2770,6 @@ export const Moves: ModdedMoveDataTable = {
 			const volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong', 'choicelock'];
 			for (const volatile of volatiles) {
 				pokemon.removeVolatile(volatile);
-			}
-			if (pokemon.happiness >= 255 && pokemon.species.id === 'kinette') {
-				pokemon.formeChange('Kinette-Unwound', this.effect, true, '0', '[msg]');
 			}
 		},
 		target: "self",
