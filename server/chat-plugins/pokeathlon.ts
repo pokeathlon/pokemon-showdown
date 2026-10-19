@@ -223,6 +223,13 @@ export const handlers: Chat.Handlers = {
 	onBattleStart(user, room) {
 		if (typeof user.challengeOnly === 'string') room.add(`|raw|${Utils.escapeHTML(user.name)} is a bot run by ${Utils.escapeHTML(Users.get(user.challengeOnly)?.name || user.challengeOnly)}.`).update();
 	},
+	onBattleCreate(battle, players) {
+		const lobby = Rooms.get('lobby');
+		if (!lobby) return;
+		const users = players.map(id => Users.get(id)!);
+		const type = users.some(user => user.challengeOnly) ? 'bot' : battle.challengeType !== 'challenge' ? 'ladder' : '';
+		lobby.add(`|b|${battle.roomid}|${users.map(user => user.getIdentity()).join('|')}${type ? `|${type}` : ''}`).update();
+	},
 	onBattleEnd(battle) {
 		const info = botInfo.get(battle);
 		if (!info || !battle.logData) return;
