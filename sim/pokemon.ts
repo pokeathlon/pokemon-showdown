@@ -333,7 +333,7 @@ export class Pokemon {
 
 		this.name = set.name.substr(0, 20);
 		this.fullname = `${this.side.id}: ${this.name}`;
-		this.m.fusion = this.battle.format.ruleset.includes('Infinite Fusion Mod') ? this.set.fusion : undefined;
+		this.m.fusion = this.battle.ruleTable.has('infinitefusionmod') ? this.set.fusion : undefined;
 
 		set.level = this.battle.clampIntRange(set.adjustLevel || set.level || 100, 1, 9999);
 		this.level = set.level;

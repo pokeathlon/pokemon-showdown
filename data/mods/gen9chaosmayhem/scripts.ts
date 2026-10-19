@@ -1,3 +1,5 @@
+import { Pokemon } from '../../../sim/pokemon';
+
 const prevos: { [k: string]: string[] } = {
 	// Digimon
 	"unimon": ["Elecmon", "Biyomon", "Patamon"],
@@ -202,8 +204,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			for (const moveSlot of pokemon.moveSlots) {
 				moveSlot.used = false;
 			}
-			pokemon.abilityState.effectOrder = this.battle.effectOrder++;
-			pokemon.itemState.effectOrder = this.battle.effectOrder++;
+			pokemon.abilityState = this.battle.initEffectState({ id: pokemon.ability, target: pokemon });
+			pokemon.itemState = this.battle.initEffectState({ id: pokemon.item, target: pokemon });
 			this.battle.runEvent('BeforeSwitchIn', pokemon);
 			if (sourceEffect) {
 				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails, `[from] ${sourceEffect}`);
@@ -317,6 +319,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
 		tryTrap(isHidden) {
 			if (!this.runStatusImmunity('trapped')) return false;
 			if (this.getAbility().id === 'runaway') return false;

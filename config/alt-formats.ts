@@ -1394,6 +1394,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Chaos Mayhem Fusions AG",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		ruleset: [
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Overflow Stat Mod',
+		],
+	},
+	{
 		name: "[Gen 9] Chaos Mayhem CG",
 		searchShow: false,
 
