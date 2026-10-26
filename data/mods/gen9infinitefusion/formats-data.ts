@@ -1,75 +1,18 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// NatDex Doubles retiers only
-	calyrex: {
+	slaking: {
 		inherit: true,
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
-	celebi: {
+	regigigas: {
 		inherit: true,
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
-	cosmoem: {
+	deoxys: {
 		inherit: true,
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
-	cosmog: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	hoopa: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	keldeo: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	kyurem: {
-		inherit: true,
-		natDexTier: "UU",
-		doublesTier: "DOU",
-	},
-	latias: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	latios: {
-		inherit: true,
-		natDexTier: "UU",
-		doublesTier: "DOU",
-	},
-	meltan: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	mew: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	necrozma: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	phione: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	shaymin: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	volcanion: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	zarude: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	zarudedada: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
+	
 
 	// NatDex retiers
 	gengarmega: {

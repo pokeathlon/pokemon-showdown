@@ -188,7 +188,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'Fusion Species Clause', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
-			'DUber', 'Mega',
+			'DUber',
+			'item:lightball', 'item:thickclub', 'item:deepseatooth',
 			'ability:hugepower', 'ability:purepower', 'ability:commander', 'ability:swordofruin', 'ability:beadsofruin', 'ability:contrary', 'ability:wonderguard', 'ability:powerconstruct', 'ability:simple', 'ability:zerotohero', 'ability:shadowtag', 'ability:imposter', 'ability:moody',
 			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:spore',
 		],
