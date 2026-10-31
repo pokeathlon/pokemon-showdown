@@ -1,18 +1,17 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// NatDex Doubles retiers only
-	slaking: {
-		inherit: true,
-		doublesTier: "DUber",
-	},
-	regigigas: {
-		inherit: true,
-		doublesTier: "DUber",
-	},
 	deoxys: {
 		inherit: true,
 		doublesTier: "DUber",
 	},
-	
+	smeargle: {
+		inherit: true,
+		doublesTier: "DUber",
+	},
+	zygarde: {
+		inherit: true,
+		doublesTier: "DUber",
+	},
 
 	// NatDex retiers
 	gengarmega: {
@@ -114,14 +113,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	regigigas: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	slaking: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	kartana: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	xurkitree: {
 		inherit: true,
@@ -237,6 +239,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	espathra: {
 		inherit: true,
 		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	alomomola: {
 		inherit: true,

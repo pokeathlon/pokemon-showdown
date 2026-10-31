@@ -115,7 +115,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'ND AG', 'ND Uber',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:starminite', 'item:staraptite', 'item:scovillainite', 'item:raichunitey',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:starminite', 'item:staraptite', 'item:scovillainite', 'item:raichunitey', 'item:malamarite',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
 		],
@@ -189,9 +189,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'DUber',
-			'item:lightball', 'item:thickclub', 'item:deepseatooth',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:starminite', 'item:staraptite', 'item:scovillainite', 'item:raichunitey', 'item:kangaskhanite', 'item:gengarite', 'item:metagrossite', 'item:malamarite', 'item:mawilite', 'item:medichamite',
 			'ability:hugepower', 'ability:purepower', 'ability:commander', 'ability:swordofruin', 'ability:beadsofruin', 'ability:contrary', 'ability:wonderguard', 'ability:powerconstruct', 'ability:simple', 'ability:zerotohero', 'ability:shadowtag', 'ability:imposter', 'ability:moody',
-			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:spore',
+			'move:afteryou', 'move:assist', 'move:bellydrum', 'move:clangoroussoul', 'move:coaching', 'move:geomancy',  'move:lastrespects', 'move:ragefist', 'move:shellsmash', 'move:spore', 'move:swagger',
 		],
 	},
 	{
