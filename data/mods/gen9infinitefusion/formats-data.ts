@@ -4,10 +4,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		doublesTier: "DUber",
 	},
-	smeargle: {
-		inherit: true,
-		doublesTier: "DUber",
-	},
 	zygarde: {
 		inherit: true,
 		doublesTier: "DUber",
@@ -109,6 +105,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	smeargle: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	regigigas: {
 		inherit: true,
