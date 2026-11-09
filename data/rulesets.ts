@@ -3997,7 +3997,6 @@ export const fusionMoves: { [key: string]: { [key: string]: string[] }[] } = {
 	"defendorder": [{ "fusion": ["beedrill"] }],
 	"healorder": [{ "fusion": ["beedrill"] }],
 	"powder": [{ "fusion": ["butterfree", "venomoth", "volcarona", "parasect", "breloom"] }],
-	"tailglow": [{ "fusion": ["mareep", "flaaffy", "ampharos", "lanturn", "zekrom", "reshiram"] }],
 	"darkestlariat": [{ "fusion": ["snorlax", "regigigas", "poliwrath", "machamp", "electivire", "dusknoir", "swampert", "krookodile", "golurk"] }],
 	"partingshot": [{ "fusion": ["meowth", "persian", "sandile", "krokorok", "krookodile", "umbreon"] }],
 	"topsyturvy": [{ "fusion": ["hitmontop", "wobbuffet"] }],
