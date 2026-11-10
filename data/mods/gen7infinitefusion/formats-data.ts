@@ -1791,7 +1791,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	sylveon: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	kyogre: {
@@ -1906,7 +1906,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	cofagrigus: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	galvantula: {
@@ -2426,7 +2426,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	meloetta: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	meloettapirouette: {
@@ -2573,7 +2573,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	torkoal: {
 		inherit: true,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	lotad: {
@@ -2628,7 +2628,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	mightyena: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	zigzagoon: {
@@ -2638,7 +2638,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	linoone: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	wurmple: {
@@ -2653,7 +2653,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	beautifly: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	cascoon: {
@@ -2663,7 +2663,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	dustox: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	seedot: {
@@ -2678,7 +2678,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	shiftry: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	taillow: {
@@ -2698,7 +2698,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	pelipper: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	surskit: {
@@ -2723,7 +2723,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	exploud: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	makuhita: {
@@ -2743,7 +2743,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	delcatty: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	meditite: {
@@ -2753,7 +2753,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	medicham: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	electrike: {
@@ -2763,27 +2763,27 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	manectric: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	plusle: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	minun: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	volbeat: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	illumise: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	gulpin: {
@@ -2793,7 +2793,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	swalot: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	numel: {
@@ -2803,7 +2803,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	camerupt: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	spoink: {
@@ -2813,32 +2813,32 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	grumpig: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	spinda: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	zangoose: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	seviper: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	lunatone: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	solrock: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	barboach: {
@@ -2848,7 +2848,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	whiscash: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	corphish: {
@@ -2868,32 +2868,32 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	claydol: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	castform: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	castformsunny: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	castformrainy: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	castformsnowy: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	tropius: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	chingling: {
@@ -2903,7 +2903,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	chimecho: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	spheal: {
@@ -2918,7 +2918,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	walrein: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	clamperl: {
@@ -2928,17 +2928,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	huntail: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	gorebyss: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	relicanth: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	woobat: {
@@ -2963,7 +2963,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	eelektross: {
 		inherit: true,
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	skrelp: {
