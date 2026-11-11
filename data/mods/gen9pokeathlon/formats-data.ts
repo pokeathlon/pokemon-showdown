@@ -399,7 +399,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tinkashank: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
