@@ -863,6 +863,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
+	hollidew: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	novickate: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
 	verdicent: {
 		inherit: true,
 		tier: "OU",
