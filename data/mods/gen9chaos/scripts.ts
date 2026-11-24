@@ -1,3 +1,6 @@
+import { toID } from '../../../sim/dex';
+import { Pokemon } from '../../../sim/pokemon';
+
 const prevos: { [k: string]: string[] } = {
 	// Digimon
 	"unimon": ["Elecmon", "Biyomon", "Patamon"],
@@ -72,12 +75,14 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.baseMoves.includes(this.battle.dex.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
+			if (!item.megaStone) return null;
+			let megaEvolution = item.megaStone[species.name];
+			if (megaEvolution && this.dex.species.get(megaEvolution).gen >= 9) return megaEvolution;
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
-			if (item.megaStone?.[species.baseSpecies] && item.megaStone[species.baseSpecies] !== species.name) {
-				if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
-				return item.megaStone[species.baseSpecies];
-			}
-			return null;
+			megaEvolution = item.megaStone[species.baseSpecies];
+			if (!megaEvolution || megaEvolution === species.name) return null;
+			if (species.id === 'sunflora' && pokemon.gender === 'F') return 'Sunflora-Mega-F';
+			return megaEvolution;
 		},
 		switchIn(pokemon: Pokemon, pos: number, sourceEffect: Effect | null = null, isDrag?: boolean) {
 			if (!pokemon || pokemon.isActive) {
@@ -97,13 +102,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (sourceEffect && typeof (sourceEffect as Move).selfSwitch === 'string') {
 					switchCopyFlag = (sourceEffect as Move).selfSwitch!;
 				}
-				if (!oldActive.skipBeforeSwitchOutEventFlag && !isDrag) {
-					this.battle.runEvent('BeforeSwitchOut', oldActive);
-					if (this.battle.gen >= 5) {
-						this.battle.eachEvent('Update');
-					}
+				if (!isDrag) {
+					this.runPursuitActivation(oldActive);
 				}
-				oldActive.skipBeforeSwitchOutEventFlag = false;
 				if (oldActive.getVolatile('preventswitch')) {
 					oldActive.removeVolatile('preventswitch');
 					return false;
@@ -119,27 +120,32 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if (!oldActive.hp) {
 					// a pokemon fainted from Pursuit before it could switch
-					return 'pursuitfaint';
+					if (this.battle.gen >= 5) {
+						// in gen 5+, the switch is cancelled
+						this.battle.hint("A Pokemon can't switch between when it runs out of HP and when it faints");
+						return false;
+					}
+					this.battle.hint("Previously chosen switches continue in Gen 2-4 after a Pursuit target faints.");
+				} else {
+					// will definitely switch out at this point
+
+					oldActive.illusion = null;
+					this.battle.singleEvent('End', oldActive.getAbility(), oldActive.abilityState, oldActive);
+					this.battle.singleEvent('End', oldActive.getItem(), oldActive.itemState, oldActive);
+
+					// if a pokemon is forced out by Whirlwind/etc or Eject Button/Pack, it can't use its chosen move
+					this.battle.queue.cancelAction(oldActive);
+
+					let newMove = null;
+					if (this.battle.gen === 4 && sourceEffect) {
+						newMove = oldActive.lastMove;
+					}
+					if (switchCopyFlag) {
+						pokemon.copyVolatileFrom(oldActive, switchCopyFlag);
+					}
+					if (newMove) pokemon.lastMove = newMove;
+					oldActive.clearVolatile();
 				}
-
-				// will definitely switch out at this point
-
-				oldActive.illusion = null;
-				this.battle.singleEvent('End', oldActive.getAbility(), oldActive.abilityState, oldActive);
-				this.battle.singleEvent('End', oldActive.getItem(), oldActive.itemState, oldActive);
-
-				// if a pokemon is forced out by Whirlwind/etc or Eject Button/Pack, it can't use its chosen move
-				this.battle.queue.cancelAction(oldActive);
-
-				let newMove = null;
-				if (this.battle.gen === 4 && sourceEffect) {
-					newMove = oldActive.lastMove;
-				}
-				if (switchCopyFlag) {
-					pokemon.copyVolatileFrom(oldActive, switchCopyFlag);
-				}
-				if (newMove) pokemon.lastMove = newMove;
-				oldActive.clearVolatile();
 			}
 			if (oldActive) {
 				oldActive.isActive = false;
@@ -147,8 +153,14 @@ export const Scripts: ModdedBattleScriptsData = {
 				oldActive.usedItemThisTurn = false;
 				oldActive.statsRaisedThisTurn = false;
 				oldActive.statsLoweredThisTurn = false;
+				oldActive.pursuitActivated = false;
+				oldActive.skipPursuit = false;
 				oldActive.position = pokemon.position;
 				if (oldActive.fainted) oldActive.status = '';
+				if (this.battle.gen <= 4) {
+					pokemon.lastItem = oldActive.lastItem;
+					oldActive.lastItem = '';
+				}
 				pokemon.position = pos;
 				side.pokemon[pokemon.position] = pokemon;
 				side.pokemon[oldActive.position] = oldActive;
@@ -160,19 +172,53 @@ export const Scripts: ModdedBattleScriptsData = {
 			for (const moveSlot of pokemon.moveSlots) {
 				moveSlot.used = false;
 			}
-			pokemon.abilityState.effectOrder = this.battle.effectOrder++;
-			pokemon.itemState.effectOrder = this.battle.effectOrder++;
+			if (this.battle.gen <= 4) {
+				if (pokemon.itemKnockedOff && pokemon.item) {
+					this.battle.hint("In Gens 3-4, Knock Off makes a Pokémon lose its held item every time it switches in.");
+					pokemon.item = '';
+				}
+				if (this.battle.gen <= 2) {
+					// pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
+					for (const poke of this.battle.getAllActive()) poke.lastMove = null;
+					if (this.battle.gen === 1) {
+						pokemon.side.lastSelectedMoveSlot = 0;
+						for (const poke of pokemon.foes()) {
+							if (poke.volatiles['partialtrappinglock'] && poke.moveSlots[poke.side.lastSelectedMoveSlot].id === 'metronome') {
+								// this is not done for Mirror Move, potentially resulting in a desync
+								poke.side.lastSelectedMove = 'metronome' as ID;
+								poke.side.lastEnemySelectedMove = 'metronome' as ID;
+								if (this.battle.queue.willMove(poke)) {
+									this.battle.queue.changeAction(poke, { choice: 'move', poke, moveid: 'metronome' });
+								}
+							}
+						}
+					}
+				}
+			}
+			pokemon.abilityState = this.battle.initEffectState({ id: pokemon.ability, target: pokemon });
+			pokemon.itemState = this.battle.initEffectState({ id: pokemon.item, target: pokemon });
 			this.battle.runEvent('BeforeSwitchIn', pokemon);
 			if (sourceEffect) {
 				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails, `[from] ${sourceEffect}`);
 			} else {
 				this.battle.add(isDrag ? 'drag' : 'switch', pokemon, pokemon.getFullDetails);
 			}
-			if (isDrag && this.battle.gen === 2) pokemon.draggedIn = this.battle.turn;
 			pokemon.previouslySwitchedIn++;
 
-			if (isDrag && this.battle.gen >= 5) {
-				// runSwitch happens immediately so that Mold Breaker can make hazards bypass Clear Body and Levitate
+			if (this.battle.gen <= 4) {
+				// Gen 4 Healing Wish and Lunar Dance activate here
+				this.battle.runEvent('EntryHazard', pokemon);
+				if (this.battle.gen <= 2 && !pokemon.side.faintedThisTurn && !isDrag) {
+					this.battle.runEvent('AfterSwitchInSelf', pokemon);
+				}
+				if (!pokemon.hp) return false;
+				if (this.battle.gen === 3 && this.battle.turn > 0) {
+					// Gen 3 Weather-related abilities activate before other Pokemon switch in
+					this.battle.runEvent('AfterEntryHazard', pokemon);
+				}
+			}
+
+			if (isDrag) {
 				this.runSwitch(pokemon);
 			} else {
 				this.battle.queue.insertChoice({ choice: 'runSwitch', pokemon });
@@ -195,7 +241,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 
-			return true;
+			return !!pokemon.hp;
 		},
 		hitStepAccuracy(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
 			const hitResults = [];
@@ -255,7 +301,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
-					if (!move.ohko && move.category != 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
+					if (!move.ohko && move.category !== 'Status' && pokemon.hasItem('doubledip') && pokemon.useItem()) {
 						move.accuracy = true;
 						this.battle.actions.useMove(move, pokemon);
 					}
@@ -275,6 +321,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
+		disableMove(moveid, isHidden, sourceEffect) {
+			if (toID(moveid) === 'ringtrue') return;
+			Pokemon.prototype.disableMove.call(this, moveid, isHidden, sourceEffect);
+		},
 		tryTrap(isHidden) {
 			if (!this.runStatusImmunity('trapped')) return false;
 			if (this.getAbility().id === 'runaway') return false;
@@ -321,7 +376,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.illusion ? this.illusion.species.name : species.baseSpecies;
 			if (isPermanent) {
 				this.baseSpecies = rawSpecies;
-				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level.toString()) +
 					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '') +
 					(this.m.fusion ? ', fusion: ' + this.m.fusion + (this.set.altsprite ? ', alt: ' + this.set.altsprite : '') : '');
 				let details = (this.illusion || this).details;
@@ -353,7 +408,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							}
 							if (megaForme) {
 								const illusionDetails = this.illusion.setSpecies(megaForme, source).name +
-									(this.level === 100 ? '' : ', L' + this.level) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
+									(this.level === 100 ? '' : ', L' + this.level.toString()) + (this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '') +
 									(this.illusion.m.fusion ? ', fusion: ' + this.illusion.m.fusion + (this.illusion.set.altsprite ? ', alt: ' + this.illusion.set.altsprite : '') : '');
 								this.battle.add('detailschange', this, illusionDetails);
 								this.battle.add('-mega', this, megaForme.name, megaForme.requiredItem);

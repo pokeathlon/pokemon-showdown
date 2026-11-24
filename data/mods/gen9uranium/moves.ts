@@ -70,7 +70,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
@@ -87,7 +86,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1 },
 		drain: [1, 2],
-		secondary: null,
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
@@ -109,7 +107,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Nuclear') return 1;
 		},
-		secondary: null,
 		target: "any",
 		type: "Nuclear",
 		contestType: "Tough",
@@ -126,7 +123,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { metronome: 1 },
 		weather: 'fallout',
-		secondary: null,
 		target: "all",
 		type: "Nuclear",
 		zMove: { boost: { spe: 1 } },
@@ -144,7 +140,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, noparentalbond: 1 },
 		selfdestruct: "always",
-		secondary: null,
 		target: "allAdjacent",
 		type: "Nuclear",
 		contestType: "Beautiful",
@@ -160,7 +155,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 15,
 		priority: 2,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
@@ -175,7 +169,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Cool",
@@ -214,7 +207,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		self: {
 			volatileStatus: 'focusenergy',
 		},
-		secondary: null,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Tough",
@@ -232,7 +224,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		onHit(target, source, move) {
 			source.side.addSideCondition(this.dex.conditions.get('scatteredcoins'));
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
@@ -251,7 +242,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Tough",
@@ -292,7 +282,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 10,
 		priority: 1,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
@@ -317,7 +306,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				move.type = 'Electric';
 			}
 		},
-		secondary: null,
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
@@ -355,7 +343,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		volatileStatus: 'partiallytrapped',
-		secondary: null,
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
@@ -372,7 +359,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
 		critRatio: 2,
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Cool",
@@ -388,7 +374,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
 		status: 'tox',
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		zMove: { boost: { def: 2 } },
@@ -407,24 +392,34 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			if (this.randomChance(1, 20)) this.field.setWeather('fallout');
 		},
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Beautiful",
 	},
 	oceanswrath: {
 		num: 0,
-		accuracy: 100,
-		basePower: 90,
+		accuracy: 75,
+		basePower: 100,
 		category: "Special",
 		name: "Ocean's Wrath",
-		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Oceans Wrath', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
 		volatileStatus: 'partiallytrapped',
-		secondary: null,
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
@@ -445,7 +440,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				spa: -2,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Beautiful",
@@ -477,7 +471,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			duration: 2,
 			onInvulnerability: false,
 		},
-		secondary: null,
 		target: "normal",
 		type: "Nuclear",
 		contestType: "Cool",
@@ -571,7 +564,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				this.add('-fieldend', 'move: Sticky Terrain');
 			},
 		},
-		secondary: null,
 		target: "all",
 		type: "Poison",
 		contestType: "Clever",
@@ -609,7 +601,6 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		pp: 30,
 		priority: 1,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
@@ -626,10 +617,150 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		priority: 0,
 		flags: { metronome: 1 },
 		weather: 'thunderstorm',
-		secondary: null,
 		target: "all",
 		type: "Electric",
 		zMove: { boost: { spe: 1 } },
 		contestType: "Beautiful",
+	},
+	divinelight: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Divine Light",
+		desc: "Power doubles if the last move used by any Pokemon this turn was Sacred Shade.",
+		shortDesc: "Power doubles if used after Sacred Shade this turn.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, defrost: 1, metronome: 1 },
+		onBasePower(basePower, pokemon) {
+			if (this.lastSuccessfulMoveThisTurn === 'sacredshade') {
+				this.debug('double power');
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Fire",
+		zMove: { boost: { spe: 1 } },
+		contestType: "Beautiful",
+	},
+	sacredshade: {
+		num: 0,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Sacred Shade",
+		desc: "Power doubles if the last move used by any Pokemon this turn was Divine Light.",
+		shortDesc: "Power doubles if used after Divine Light this turn.",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onBasePower(basePower, pokemon) {
+			if (this.lastSuccessfulMoveThisTurn === 'divinelight') {
+				this.debug('double power');
+				return this.chainModify(2);
+			}
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: { boost: { spe: 1 } },
+		contestType: "Beautiful",
+	},
+	vaporize: {
+		num: 0,
+		accuracy: 95,
+		basePower: 100,
+		category: "Special",
+		name: "Vaporize",
+		desc: "This move's type effectiveness against Water is changed to be super effective no matter what this move's type is. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
+		shortDesc: "Super effective on Water.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Vaporize', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Water') return 1;
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	glacialspear: {
+		num: 0,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+		name: "Glacial Spear",
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Always lands a critical hit. Ignores opponent's abilities. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
+		shortDesc: "Destroys screens, always crits, ignores abilities.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		ignoreAbility: true,
+		willCrit: true,
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Glacial Spear', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+			// will shatter screens through sub, before you hit
+			source.side.removeSideCondition('reflect');
+			source.side.removeSideCondition('lightscreen');
+			source.side.removeSideCondition('auroraveil');
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
+	engulf: {
+		num: 0,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+		name: "Engulf",
+		desc: "Has a 100% chance to lower the target's Defense and Evasion by 1 stage. Fails if you have more than 1 of Baitatao, Leviathao, or Krakanao on your team.",
+		shortDesc: "100% to lower the target's Def. and Evasion by 1.",
+		pp: 10,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, contact: 1 },
+		onTryHit(target, source, move) {
+			let count = 0;
+			for (const pokemon of source.side.team) {
+				if (["baitatao", "leviathao", "krakanao"].includes(this.dex.species.get(pokemon.species).id)) count +=1;
+			}
+			if (count >= 2) {
+				this.add('-fail', source, 'move: Engulf', '[from] Too many Sea Monsters');
+				this.hint("This move fails if you have more than 1 of Baitatao, Leviathao, Krakanao in your team")
+				this.attrLastMove('[still]');
+				return null;
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+				evasion: -1,
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Cute",
 	},
 };

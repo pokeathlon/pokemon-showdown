@@ -154,17 +154,10 @@ export const PrivateMessages = new class {
 		return database.run(statements.clearSeen, [Date.now(), SEEN_EXPIRY_TIME]);
 	}
 	send(message: string, user: User, pmTarget: User, onlyRecipient: User | null = null) {
-		let display = true;
-		for (const line of Chat.filterWords['shadowban']) {
-			const ret = line.regex.exec(message)?.[0];
-			if (typeof ret === 'string' || ret === false) {
-				display = false;
-			}
-		}
 		const buf = `|pm|${user.getIdentity()}|${pmTarget.getIdentity()}|${message}`;
 		if (onlyRecipient) return onlyRecipient.send(buf);
 		user.send(buf);
-		if (pmTarget !== user && display) pmTarget.send(buf);
+		if (pmTarget !== user) pmTarget.send(buf);
 		pmTarget.lastPM = user.id;
 		user.lastPM = pmTarget.id;
 	}
@@ -227,7 +220,7 @@ if (!database.isParentProcess) {
 	global.Monitor = {
 		crashlog(error: Error, source = 'A private message child process', details: AnyObject | null = null) {
 			const repr = JSON.stringify([error.name, error.message, source, details]);
-			process.send!(`THROW\n@!!@${repr}\n${error.stack}`);
+			process.send!(`THROW\n@!!@${repr}\n${error.stack ?? error}`);
 		},
 	} as typeof Monitor;
 	process.on('uncaughtException', err => {

@@ -1,8 +1,7 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Moves as Base } from '../../moves';
 import { Learnsets } from './learnsets';
-import { type ModdedMoveDataTable } from '../../../sim/dex-moves';
+import { type MoveData, type ModdedMoveDataTable } from '../../../sim/dex-moves';
 
 const removeAllUniversal = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'hotcoals', 'permafrost', 'livewire'];
 const removeTargetUniversal = ['reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', ...removeAllUniversal];
@@ -18,30 +17,23 @@ export const Moves: ModdedMoveDataTable = {
 			].concat(removeTargetUniversal);
 			let success = false;
 			if (this.gameType === "freeforall") {
-				// random integer from 1-3 inclusive
-				const offset = this.random(3) + 1;
-				// the list of all sides in counterclockwise order
-				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
+				// the list of all sides in clockwise order
+				const sides = [this.sides[0], this.sides[3]!, this.sides[1], this.sides[2]!];
 				const temp: { [k: number]: typeof source.side.sideConditions } = { 0: {}, 1: {}, 2: {}, 3: {} };
 				for (const side of sides) {
 					for (const id in side.sideConditions) {
 						if (!sideConditions.includes(id)) continue;
 						temp[side.n][id] = side.sideConditions[id];
 						delete side.sideConditions[id];
-						const effectName = this.dex.conditions.get(id).name;
-						this.add('-sideend', side, effectName, '[silent]');
 						success = true;
 					}
 				}
 				for (let i = 0; i < 4; i++) {
 					const sourceSideConditions = temp[sides[i].n];
-					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					const targetSide = sides[(i + 1) % 4]; // the next side in rotation
 					for (const id in sourceSideConditions) {
 						targetSide.sideConditions[id] = sourceSideConditions[id];
 						targetSide.sideConditions[id].target = targetSide;
-						const effectName = this.dex.conditions.get(id).name;
-						let layers = sourceSideConditions[id].layers || 1;
-						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
 					}
 				}
 			} else {
@@ -69,9 +61,9 @@ export const Moves: ModdedMoveDataTable = {
 					sourceSideConditions[id] = targetTemp[id];
 					sourceSideConditions[id].target = source.side;
 				}
-				this.add('-swapsideconditions');
 			}
 			if (!success) return false;
+			this.add('-swapsideconditions');
 			this.add('-activate', source, 'move: Court Change');
 		},
 	},
@@ -213,13 +205,8 @@ export const Moves: ModdedMoveDataTable = {
 	},
 	relicsong: {
 		inherit: true,
-		onHit(target, pokemon, move) {
+		onAfterMoveSecondarySelf(pokemon) {
 			if ([pokemon.species.name, pokemon.m.fusion].some(name => name?.includes('Meloetta')) && !pokemon.transformed) {
-				move.willChangeForme = true;
-			}
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
 				if (pokemon.species.baseSpecies.includes('Meloetta')) {
 					let forme = '';
 					if (pokemon.baseSpecies.baseSpecies === 'Meloetta') {
@@ -228,7 +215,7 @@ export const Moves: ModdedMoveDataTable = {
 					if (pokemon.baseSpecies.baseSpecies === 'Meloetta-Delta') {
 						forme = pokemon.species.id === 'meloettadeltamagician' ? '-Delta' : '-Delta-Magician';
 					}
-					pokemon.formeChange('Meloetta' + forme, this.effect, false, '[msg]');
+					pokemon.formeChange('Meloetta' + forme, this.effect, false, '0', '[msg]');
 				} if (pokemon.m.fusion?.includes('Meloetta')) {
 					let forme = '';
 					if (this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Meloetta') {
@@ -272,33 +259,6 @@ export const Moves: ModdedMoveDataTable = {
 	},
 	fling: {
 		inherit: true,
-		onPrepareHit(target, source, move) {
-			if (source.ignoringItem()) return false;
-			const item = source.getItem();
-			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
-			if (!item.fling) return false;
-			move.basePower = item.fling.basePower;
-			this.debug('BP: ' + move.basePower);
-			if (item.isBerry) {
-				move.onHit = function (foe) {
-					if (this.singleEvent('Eat', item, null, foe, null, null)) {
-						this.runEvent('EatItem', foe, null, null, item);
-						if (item.id === 'leppaberry') foe.staleness = 'external';
-					}
-					if (item.onEat) foe.ateBerry = true;
-				};
-			} else if (item.fling.effect) {
-				move.onHit = item.fling.effect;
-			} else {
-				if (!move.secondaries) move.secondaries = [];
-				if (item.fling.status) {
-					move.secondaries.push({ status: item.fling.status });
-				} else if (item.fling.volatileStatus) {
-					move.secondaries.push({ volatileStatus: item.fling.volatileStatus });
-				}
-			}
-			source.addVolatile('fling');
-		},
 		condition: {
 			onUpdate(pokemon) {
 				if (pokemon.item !== 'boomerang') {
@@ -621,7 +581,7 @@ export const Moves: ModdedMoveDataTable = {
 		inherit: true,
 		onHit(target, source) {
 			let success = false;
-			if (this.field.isTerrain('grassyterrain') && source.item != 'fieldcleats') {
+			if (this.field.isTerrain('grassyterrain') && source.item !== 'fieldcleats') {
 				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
@@ -640,7 +600,7 @@ export const Moves: ModdedMoveDataTable = {
 		inherit: true,
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
-			if (pokemon.item != 'fieldcleats') {
+			if (pokemon.item !== 'fieldcleats') {
 				if (this.field.isTerrain('electricterrain')) {
 					move = 'thunderbolt';
 				} else if (this.field.isTerrain('grassyterrain')) {
@@ -729,7 +689,7 @@ export const Moves: ModdedMoveDataTable = {
 			},
 			onBeforeMovePriority: 5,
 			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && !move.isMax && move.category === 'Status' && !['mefirst', 'ringtrue'].includes(move.id)) {
+				if (!(move.isZ && move.isZOrMaxPowered) && move.category === 'Status' && !['mefirst', 'ringtrue'].includes(move.id)) {
 					this.add('cant', attacker, 'move: Taunt', move);
 					return false;
 				}
@@ -742,7 +702,7 @@ export const Moves: ModdedMoveDataTable = {
 			inherit: true,
 			onBeforeMove(pokemon, target, move) {
 				if (move.id === 'ringtrue') return;
-				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
+				this.add('-activate', pokemon, 'move: Attract', `[of] ${this.effectState.source}`);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Attract');
 					return false;
@@ -756,7 +716,7 @@ export const Moves: ModdedMoveDataTable = {
 			inherit: true,
 			onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
-				if (!(move.isZ && move.isZOrMaxPowered) && move.id === this.effectState.move && move.id != 'ringtrue') {
+				if (!(move.isZ && move.isZOrMaxPowered) && move.id === this.effectState.move && move.id !== 'ringtrue') {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
@@ -764,9 +724,18 @@ export const Moves: ModdedMoveDataTable = {
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					if (moveSlot.id === this.effectState.move) {
-						if (moveSlot.id != 'ringtrue') pokemon.disableMove(moveSlot.id);
+						if (moveSlot.id !== 'ringtrue') pokemon.disableMove(moveSlot.id);
 					}
 				}
+			},
+		},
+	},
+	encore: {
+		inherit: true,
+		condition: {
+			inherit: true,
+			onOverrideAction(pokemon, target, move) {
+				if (move.id !== this.effectState.move && move.id !== 'ringtrue') return this.effectState.move;
 			},
 		},
 	},
@@ -806,7 +775,7 @@ export const Moves: ModdedMoveDataTable = {
 				}
 			},
 			onAfterMove(pokemon, target, move) {
-				if (pokemon.ability === 'voltaicsiphon' && move.drain && pokemon.moveThisTurnResult) return; //"reapply" charge
+				if (pokemon.ability === 'voltaicsiphon' && move.drain && pokemon.moveThisTurnResult) return; // "reapply" charge
 				if (move.type === 'Electric' && move.id !== 'charge') {
 					pokemon.removeVolatile('charge');
 				}
@@ -830,7 +799,6 @@ export const Moves: ModdedMoveDataTable = {
 			source.addVolatile('trapped', target, move, 'trapper');
 			target.addVolatile('trapped', source, move, 'trapper');
 		},
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 	},
@@ -851,7 +819,6 @@ export const Moves: ModdedMoveDataTable = {
 			source.side.lastSelectedMove = this.toID(randomMove);
 			this.actions.useMove(randomMove, target);
 		},
-		secondary: null,
 		target: "self",
 		type: "Steel",
 		contestType: "Cute",
@@ -862,7 +829,7 @@ export const Moves: ModdedMoveDataTable = {
 		basePower: 150,
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower * pokemon.hp / pokemon.maxhp;
-			this.debug('BP: ' + bp);
+			this.debug(`BP: ${bp}`);
 			return bp;
 		},
 		category: "Special",
@@ -872,7 +839,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Beautiful",
@@ -892,7 +858,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 		},
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		weather: 'sandstorm',
 		target: "normal",
 		type: "Rock",
@@ -913,7 +878,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 		},
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		weather: 'snowscape',
 		target: "normal",
 		type: "Ice",
@@ -934,7 +898,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 		},
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		weather: 'sunnyday',
 		target: "normal",
 		type: "Fire",
@@ -954,7 +917,6 @@ export const Moves: ModdedMoveDataTable = {
 			source.side.addSideCondition('reflect');
 			source.side.addSideCondition('lightscreen');
 		},
-		secondary: null,
 		target: "self",
 		type: "Psychic",
 		zMove: { boost: { def: 1, spd: 1 } },
@@ -989,7 +951,7 @@ export const Moves: ModdedMoveDataTable = {
 				if (myItem) source.item = myItem.id;
 				return false;
 			}
-			this.add('-activate', source, 'move: Pixie Trick', '[of] ' + target);
+			this.add('-activate', source, 'move: Pixie Trick', `[of] ${target}`);
 			if (myItem) {
 				target.setItem(myItem);
 				this.add('-item', target, myItem, '[from] move: Pixie Trick');
@@ -1003,7 +965,6 @@ export const Moves: ModdedMoveDataTable = {
 				this.add('-enditem', source, myItem, '[silent]', '[from] move: Pixie Trick');
 			}
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
@@ -1046,7 +1007,6 @@ export const Moves: ModdedMoveDataTable = {
 				this.boost({ def: 1 }, source, source);
 			}
 		},
-		secondary: null,
 		target: "self",
 		type: "Ice",
 		zMove: { effect: 'clearnegativeboost' },
@@ -1072,7 +1032,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 			return success;
 		},
-		secondary: null,
 		target: "adjacentAllyOrSelf",
 		type: "Normal",
 		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
@@ -1098,7 +1057,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 			return success;
 		},
-		secondary: null,
 		target: "adjacentAllyOrSelf",
 		type: "Normal",
 		zMove: { effect: 'clearnegativeboost' },
@@ -1124,7 +1082,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 			return success;
 		},
-		secondary: null,
 		target: "adjacentAllyOrSelf",
 		type: "Normal",
 		zMove: { effect: 'clearnegativeboost' },
@@ -1141,7 +1098,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		infiltrates: true,
 		flags: { protect: 1, mirror: 1, punch: 1, contact: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
@@ -1206,7 +1162,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		onHit(target) {
 			target.clearBoosts();
 			this.add('-clearboost', target);
@@ -1228,7 +1183,6 @@ export const Moves: ModdedMoveDataTable = {
 		flags: { protect: 1, mirror: 1, noparentalbond: 1, wind: 1 },
 		multihit: 2,
 		smartTarget: true,
-		secondary: null,
 		target: "normal",
 		type: "Flying",
 	},
@@ -1251,7 +1205,6 @@ export const Moves: ModdedMoveDataTable = {
 			target.side.removeSideCondition('scatteredcoins');
 		},
 		flags: { protect: 1, mirror: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Ground",
 		contestType: "Beautiful",
@@ -1320,7 +1273,6 @@ export const Moves: ModdedMoveDataTable = {
 				}
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Steel",
 		contestType: "Clever",
@@ -1338,16 +1290,13 @@ export const Moves: ModdedMoveDataTable = {
 		flags: { snatch: 1, heal: 1, metronome: 1 },
 		heal: [1, 2],
 		onHit(target, pokemon, move) {
-			if ((pokemon.baseSpecies.baseSpecies === 'Manacra' || pokemon.m.fusion?.includes('Manacra')) && !pokemon.transformed) {
-				move.willChangeForme = true;
-			}
 			if (pokemon.status) pokemon.cureStatus();
 		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
+		onAfterMoveSecondarySelf(pokemon) {
+			if ((pokemon.baseSpecies.baseSpecies === 'Manacra' || pokemon.m.fusion?.includes('Manacra')) && !pokemon.transformed) {
 				if (pokemon.species.baseSpecies === 'Manacra') {
 					const manacraForme = pokemon.species.id === 'manacraplated' ? '' : '-Plated';
-					pokemon.formeChange('Manacra' + manacraForme, this.effect, true, '[msg]');
+					pokemon.formeChange('Manacra' + manacraForme, this.effect, true);
 				} else if (pokemon.m.fusion?.includes('Manacra')) {
 					const manacraForme = pokemon.m.fusion === 'Manacra-Plated' ? '' : '-Plated';
 					pokemon.fusionChange('Manacra' + manacraForme, this.effect);
@@ -1384,7 +1333,6 @@ export const Moves: ModdedMoveDataTable = {
 				return typeMod + 1;
 			},
 		},
-		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Fire",
 	},
@@ -1407,7 +1355,6 @@ export const Moves: ModdedMoveDataTable = {
 				pokemon.removeVolatile('lockedmove');
 			}
 		},
-		secondary: null,
 		target: "randomNormal",
 		type: "Psychic",
 		contestType: "Cool",
@@ -1497,7 +1444,6 @@ export const Moves: ModdedMoveDataTable = {
 				}
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
@@ -1512,7 +1458,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, cantusetwice: 1, slicing: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Dark",
 	},
@@ -1536,10 +1481,9 @@ export const Moves: ModdedMoveDataTable = {
 					break;
 				}
 			}
-			// @ts-ignore
+			// @ts-expect-error
 			if (newMoveName) move.name = newMoveName;
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fighting",
 	},
@@ -1582,7 +1526,6 @@ export const Moves: ModdedMoveDataTable = {
 			this.add('-start', source, 'Spud Mortar');
 			return this.NOT_FAIL;
 		},
-		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
@@ -1606,7 +1549,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Ground",
 	},
@@ -1635,7 +1577,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { metronome: 1 },
 		selfSwitch: true,
-		secondary: null,
 		target: "self",
 		type: "Electric",
 		zMove: { effect: 'healreplacement' },
@@ -1669,7 +1610,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 10,
 		priority: -3,
 		flags: { protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, contact: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Fire",
 	},
@@ -1720,7 +1660,6 @@ export const Moves: ModdedMoveDataTable = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Poison') return 1;
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
@@ -1737,7 +1676,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, heal: 1, metronome: 1 },
 		drain: [1, 2],
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
@@ -1763,7 +1701,6 @@ export const Moves: ModdedMoveDataTable = {
 				spa: -2,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
@@ -1780,7 +1717,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1 },
 		multihit: [2, 5],
-		secondary: null,
 		target: "normal",
 		type: "Electric",
 		zMove: { basePower: 140 },
@@ -1801,7 +1737,6 @@ export const Moves: ModdedMoveDataTable = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		secondary: null,
 		willCrit: true,
 		target: "normal",
 		type: "Rock",
@@ -1818,7 +1753,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		overrideOffensivePokemon: 'target',
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 	},
@@ -1834,7 +1768,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		multihit: [2, 5],
-		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		zMove: { basePower: 140 },
@@ -1973,7 +1906,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		selfSwitch: true,
-		secondary: null,
 		desc: "If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button or through the effect of the Emergency Exit or Wimp Out Abilities.",
 		shortDesc: "User switches out after damaging the target.",
 		target: "normal",
@@ -1988,7 +1920,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, bite: 1, metronome: 1 },
-		secondary: null,
 		self: {
 			onHit(pokemon, source, move) {
 				this.heal(source.maxhp / 8, source, source, move);
@@ -2013,7 +1944,6 @@ export const Moves: ModdedMoveDataTable = {
 			if (pokemon.boosts[stat] >= 6) return false;
 			this.boost({ [stat]: 2 }, pokemon);
 		},
-		secondary: null,
 		target: "self",
 		type: "Water",
 		shortDesc: "Raises highest stat by 2 stages.",
@@ -2033,7 +1963,6 @@ export const Moves: ModdedMoveDataTable = {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			return pokemon.cureStatus() || success;
 		},
-		secondary: null,
 		desc: "Each Pokemon on the user's side restores 1/4 of its maximum HP, rounded half up, and has its status condition cured.",
 		shortDesc: "User and allies: healed 1/4 max HP, status cured.",
 		target: "allies",
@@ -2073,7 +2002,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		multihit: 2,
-		secondary: null,
 		target: "normal",
 		type: "Rock",
 		zMove: { basePower: 140 },
@@ -2107,7 +2035,6 @@ export const Moves: ModdedMoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, bullet: 1, pulse: 1 },
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		zMove: { basePower: 160 },
@@ -2143,7 +2070,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, slicing: 1 },
 		multihit: [2, 5],
-		secondary: null,
 		target: "normal",
 		type: "Steel",
 		shortDesc: "Hits 2-5 times.",
@@ -2162,7 +2088,6 @@ export const Moves: ModdedMoveDataTable = {
 				spa: -2,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
@@ -2184,7 +2109,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 		},
 		selfdestruct: "always",
-		secondary: null,
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Beautiful",
@@ -2206,7 +2130,6 @@ export const Moves: ModdedMoveDataTable = {
 			}
 			return move.basePower;
 		},
-		secondary: null,
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
@@ -2279,7 +2202,6 @@ export const Moves: ModdedMoveDataTable = {
 				targetRelayVar.target = this.getAtSlot(lastDamagedBy.slot);
 			}
 		},
-		secondary: null,
 		target: "scripted",
 		type: "Rock",
 		contestType: "Cool",
@@ -2322,7 +2244,6 @@ export const Moves: ModdedMoveDataTable = {
 				return priority + 1;
 			}
 		},
-		secondary: null,
 		contestType: "Cool",
 		shortDesc: "User's HP is 50% or less: +1 priority.",
 	},
@@ -2347,7 +2268,6 @@ export const Moves: ModdedMoveDataTable = {
 				allyActive.addVolatile('aquaring', source);
 			}
 		},
-		secondary: null,
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
@@ -2407,9 +2327,8 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Sky Pierce",
 		pp: 10,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, slicing: 1 },
+		flags: { protect: 1, mirror: 1, metronome: 1, slicing: 1, contact: 1 },
 		critRatio: 2,
-		secondary: null,
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
@@ -2449,7 +2368,6 @@ export const Moves: ModdedMoveDataTable = {
 				if (status.id === 'flinch') return null;
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
@@ -2530,7 +2448,6 @@ export const Moves: ModdedMoveDataTable = {
 				return this.chainModify(2);
 			}
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
@@ -2546,7 +2463,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, heal: 1, metronome: 1, slicing: 1 },
 		drain: [1, 2],
-		secondary: null,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Clever",
@@ -2565,7 +2481,6 @@ export const Moves: ModdedMoveDataTable = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) pokemon.side.addSideCondition('scatteredcoins');
 		},
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
@@ -2604,7 +2519,7 @@ export const Moves: ModdedMoveDataTable = {
 		flags: { snatch: 1, heal: 1, metronome: 1 },
 		onAfterMove(source, target, move) {
 			if (source.species.id === 'tenkibo') {
-				source.formeChange('Tenkibo-Magical-Hero', this.effect, false, '[msg]');
+				source.formeChange('Tenkibo-Magical-Hero', this.effect, false, '0', '[msg]');
 			}
 		},
 		secondary: {},
@@ -2654,7 +2569,6 @@ export const Moves: ModdedMoveDataTable = {
 				def: -2,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Dark",
 		contestType: "Beautiful",
@@ -2691,7 +2605,6 @@ export const Moves: ModdedMoveDataTable = {
 			this.add('-start', source, 'move: Chitin Snare');
 			return this.NOT_FAIL;
 		},
-		secondary: null,
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
@@ -2743,7 +2656,6 @@ export const Moves: ModdedMoveDataTable = {
 		onHit(target, source, move) {
 			if (this.field.isTerrain('mistyterrain')) target.addVolatile('gastroacid');
 		},
-		secondary: null,
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
@@ -2759,7 +2671,6 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, heal: 1, metronome: 1 },
 		drain: [1, 2],
-		secondary: null,
 		target: "normal",
 		type: "Poison",
 		contestType: "Cute",
@@ -2779,7 +2690,6 @@ export const Moves: ModdedMoveDataTable = {
 				spd: -1,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
@@ -2810,14 +2720,17 @@ export const Moves: ModdedMoveDataTable = {
 			return null;
 		},
 		boosts: {
-			atk: 2,
-			spa: 2,
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
 		},
 		target: "self",
 		type: "Grass",
 		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
 		contestType: "Beautiful",
-		shortDesc: "Swaps user's Poison-type to Grass, then raises Atk, SpA by 2 turn 2.",
+		shortDesc: "Swaps user's Poison-type to Grass, then raises all stats by 1 turn 2.",
 	},
 	espressoshot: {
 		num: 0,
@@ -2829,14 +2742,14 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onModifyMove(move, pokemon, target) {
-			if (target.status === 'brn') move.critRatio = 5;
+			if (target?.status === 'brn') move.critRatio = 5;
 		},
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
 		shortDesc: "100% crit chance if the target is burned.",
 	},
-	ringtrue: { // volatile ignoring in sim/pokemon => disableMove
+	ringtrue: {
 		num: 0,
 		accuracy: true,
 		basePower: 0,
@@ -2847,24 +2760,24 @@ export const Moves: ModdedMoveDataTable = {
 		flags: { noassist: 1, failcopycat: 1, snatch: 1 },
 		stallingMove: true,
 		onPrepareHit(pokemon) {
+			if (pokemon.happiness >= 255 && pokemon.species.id === 'kinette') {
+				pokemon.formeChange('Kinette-Unwound', this.effect, true, '0', '[msg]');
+			}
 			return this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
-			let volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong'];
+			const volatiles = ['confusion', 'attract', 'taunt', 'encore', 'torment', 'disable', 'healblock', 'perishsong', 'choicelock'];
 			for (const volatile of volatiles) {
 				pokemon.removeVolatile(volatile);
-			}
-			if (pokemon.happiness >= 255 && pokemon.species.id === 'kinette') {
-				pokemon.formeChange('Kinette-Unwound', this.effect, false, '[msg]');
 			}
 		},
 		target: "self",
 		type: "Steel",
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Cute",
-		desc: "Ignores and removes confusion, attract, taunt, encore, torment, disable, heal block, and perish song volatiles from user. If Kinette and 255+ happiness, turns into Kinette-Unwound. Fails with consecutive uses.",
-		shortDesc: "Ignores and removes some volatiles. 255 happiness Kinette: transforms into Kinette-Unwound."
+		desc: "Ignores and removes confusion, attract, taunt, encore, torment, disable, heal block, perish song, and choice lock volatiles from user. If Kinette and 255+ happiness, turns into Kinette-Unwound. Fails with consecutive uses.",
+		shortDesc: "Ignores and removes some volatiles. 255 happiness Kinette: transforms into Kinette-Unwound.",
 	},
 	flashbomb: {
 		num: 0,
@@ -2955,7 +2868,7 @@ export const Moves: ModdedMoveDataTable = {
 		name: "Flock Shock",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, allyanim: 1, metronome: 1, futuremove: 1 },
+		flags: { protect: 1, allyanim: 1, metronome: 1, futuremove: 1 },
 		onHit(target, source, move) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
@@ -2976,7 +2889,6 @@ export const Moves: ModdedMoveDataTable = {
 			this.add('-start', target, 'move: Flock Shock');
 			return this.NOT_FAIL;
 		},
-		secondary: null,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
@@ -3012,8 +2924,8 @@ export const Moves: ModdedMoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, sound: 1 },
 		beforeMoveCallback(pokemon) {
-			if (pokemon.lastMove?.flags.sound) pokemon.addVolatile("crescendo")
-			if (!pokemon.lastMove?.flags.sound && pokemon.volatiles["crescendo"]) pokemon.removeVolatile("crescendo")
+			if (pokemon.lastMove?.flags.sound) pokemon.addVolatile("crescendo");
+			if (!pokemon.lastMove?.flags.sound && pokemon.volatiles["crescendo"]) pokemon.removeVolatile("crescendo");
 		},
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.volatiles['crescendo']) {
@@ -3063,7 +2975,7 @@ export const Moves: ModdedMoveDataTable = {
 		type: "Fairy",
 		zMove: { boost: { atk: 1, def: 1, spa: 1, spd: 1, spe: 1 } },
 		contestType: "Beautiful",
-		shortDesc: "Heals 50% Max HP if any adjacent pokemon has lowere stat stage. Restores all lowered stats to 0."
+		shortDesc: "Heals 50% Max HP if any adjacent pokemon has lowere stat stage. Restores all lowered stats to 0.",
 	},
 	relentlesssting: {
 		num: 0,
@@ -3077,7 +2989,7 @@ export const Moves: ModdedMoveDataTable = {
 		multihit: 3,
 		basePowerCallback(pokemon, target, move) { // trick to get it to dynamically crit if the move's hits poison
 			if (target.status === 'psn') move.willCrit = true;
-			return move.basePower
+			return move.basePower;
 		},
 		secondary: {
 			chance: 20,
@@ -3086,7 +2998,7 @@ export const Moves: ModdedMoveDataTable = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
-		shortDesc: "Hits 3 times. 20% to poison. Crits poisoned foes."
+		shortDesc: "Hits 3 times. 20% to poison. Crits poisoned foes.",
 	},
 	ancientvisage: {
 		num: 0,
@@ -3152,25 +3064,40 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Damages target based on Sp. Def, not Defense.",
 	},
+	ichorjet: {
+		num: 0,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Ichor Jet",
+		pp: 30,
+		priority: 1,
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		target: "normal",
+		type: "Dark",
+		contestType: "Beautiful",
+		shortDesc: "Usually goes first.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModMoves = require('../' + mod + '/moves').Moves as ModdedMoveDataTable;
+	const ModMoves: AnyObject = require('../' + mod + '/moves').Moves;
 
 	for (const key in ModMoves) {
-		const id = key as keyof typeof ModMoves;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Moves"]?.includes(id))) continue;
 
-		if (!Moves[id]) Moves[id] = Base[id] ? { inherit: true } : {};
+		if (!Moves[id]) Moves[id] = Base[id] ? { inherit: true } : {} as MoveData;
+		const move: AnyObject = Moves[id];
 
 		for (const attr in ModMoves[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Moves[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (move[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Moves[id][attr] = ModMoves[id][attr];
+				move[attr] = ModMoves[id][attr];
 			}
 		}
 	}

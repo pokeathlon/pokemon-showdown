@@ -1,3 +1,4 @@
+import { Pokemon } from '../../../sim/pokemon';
 import { toID } from '../../../sim/dex-data';
 
 export const Scripts: ModdedBattleScriptsData = {
@@ -44,6 +45,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
 		transformInto(pokemon, effect) {
 			const species = pokemon.species;
 			if (

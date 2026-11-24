@@ -2323,23 +2323,23 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	zealousflock: {
 		name: "Zealous Flock",
 
-		start: "  [SOURCE]'s flock became enraged!",
-		damage: "  [POKEMON] was attacked by the flock!",
+		start: "  {SOURCE}'s flock became enraged!",
+		damage: "  {POKEMON} was attacked by the flock!",
 	},
 	sweettooth: {
 		name: "Sweet Tooth",
 
-		activate: "  [POKEMON] became sugar crazed!",
+		activate: "  {POKEMON} became sugar crazed!",
 	},
 	asabove: {
 		name: "As Above",
 
-		start: "  [POKEMON] is surrounded by distortion energy from below!",
-		end: "  [POKEMON]'s bubble of distortion collapses!",
+		start: "  {POKEMON} is surrounded by distortion energy from below!",
+		end: "  {POKEMON}'s bubble of distortion collapses!",
 	},
 	strangeanatomy: {
 		name: "Strange Anatomy",
 
-		changeAbility: "  [POKEMON]'s Ability became Strange Anatomy!",
+		changeAbility: "  {POKEMON}'s Ability became Strange Anatomy!",
 	},
 };

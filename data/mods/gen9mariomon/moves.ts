@@ -43,6 +43,10 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 	},
+	revivalblessing: {
+		inherit: true,
+		flags: { heal: 1, nosketch: 1, noassist: 1},
+	},
 
 	// Additions
 	hammerthrow: {

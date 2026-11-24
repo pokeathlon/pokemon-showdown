@@ -45,10 +45,13 @@ const PERMALOCK_CACHE_TIME = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 const DEFAULT_TRAINER_SPRITES = [1, 2, 101, 102, 169, 170, 265, 266];
 
+import * as crypto from 'crypto';
 import { Utils, type ProcessManager } from '../lib';
 import {
 	Auth, GlobalAuth, PLAYER_SYMBOL, HOST_SYMBOL, type RoomPermission, type GlobalPermission,
 } from './user-groups';
+
+let challengeOnlyWords: string[] | null = null;
 
 const MINUTES = 60 * 1000;
 const IDLE_TIMER = 60 * MINUTES;
@@ -389,6 +392,7 @@ export class User extends Chat.MessageContext {
 	isSysop: boolean;
 	isStaff: boolean;
 	isPublicBot: boolean;
+	isUserBot: boolean;
 	lastDisconnected: number;
 	lastConnected: number;
 	foodfight?: { generatedTeam: string[], dish: string, ingredients: string[], timestamp: number };
@@ -412,6 +416,7 @@ export class User extends Chat.MessageContext {
 	lastReportTime: number;
 	lastNewNameTime = 0;
 	newNames = 0;
+	challengeOnly: boolean | ID = false;
 	s1: string;
 	s2: string;
 	s3: string;
@@ -484,6 +489,7 @@ export class User extends Chat.MessageContext {
 		this.isSysop = false;
 		this.isStaff = false;
 		this.isPublicBot = false;
+		this.isUserBot = false;
 		this.lastDisconnected = 0;
 		this.lastConnected = connection.connectedAt;
 
@@ -767,6 +773,7 @@ export class User extends Chat.MessageContext {
 
 		const userType = await this.validateToken(token, name, userid, connection);
 		if (userType === null) return;
+		this.challengeOnly = false;
 		if (userType === '1') newlyRegistered = false;
 
 		if (!this.trusted && userType === '1') { // userType '1' means unregistered
@@ -788,6 +795,33 @@ export class User extends Chat.MessageContext {
 
 		this.handleRename(name, userid, newlyRegistered, userType);
 		void Punishments.checkIp(this, connection); // namelock enforcement and the like after merge
+	}
+
+	challengeOnlyRename(seed: string, connection: Connection, owner?: ID) {
+		if (!challengeOnlyWords) {
+			challengeOnlyWords = [
+				...Dex.species.all(), ...Dex.items.all(), ...Dex.moves.all(), ...Dex.abilities.all(),
+			].filter(effect => !effect.isNonstandard && /^[A-Za-z ]{1,15}$/.test(effect.name) && effect.id.length <= 14)
+				.map(effect => effect.name);
+		}
+		for (let attempt = 0; attempt < 10; attempt++) {
+			const hash = crypto.createHmac('sha256', Config.challengeonlysecret).update(`${seed},${attempt}`).digest();
+			const word = challengeOnlyWords[hash.readUInt32BE(0) % challengeOnlyWords.length];
+			const name = `${owner ? 'Poke\u0301athlete' : word} ${`${hash.readUInt32BE(4) % 10000}`.padStart(4, '0')}`;
+			const userid = toID(name);
+			if (!owner && Chat.namefilter(name, this) !== name) continue;
+			const conflictUser = users.get(userid);
+			if (conflictUser && conflictUser !== this && (
+				conflictUser.connected || !conflictUser.challengeOnly || conflictUser.latestIp !== this.latestIp
+			)) continue;
+
+			if (!this.handleRename(name, userid, false, '1')) return false;
+			users.get(userid)!.challengeOnly = owner || true;
+			void Punishments.checkIp(users.get(userid)!, connection);
+			return true;
+		}
+		this.send(`|nametaken||There are no challenge-only names available right now.`);
+		return false;
 	}
 
 	handleRename(name: string, userid: ID, newlyRegistered: boolean, userType: string) {
@@ -821,6 +855,7 @@ export class User extends Chat.MessageContext {
 		//   4: autoconfirmed
 		//   5: permalocked
 		//   6: permabanned
+		//   10: bot
 		if (registered) {
 			if (userType === '3') {
 				this.isSysop = true;
@@ -835,6 +870,9 @@ export class User extends Chat.MessageContext {
 			} else if (userType === '6') {
 				void Punishments.lock(this, Date.now() + PERMALOCK_CACHE_TIME, userid, true, `Permabanned as ${name}`, true);
 				this.disconnectAll();
+			} else if (userType === '10') {
+				this.autoconfirmed = userid;
+				this.isUserBot = true;
 			}
 		}
 		if (Users.isTrusted(userid)) {
@@ -932,7 +970,7 @@ export class User extends Chat.MessageContext {
 		for (const roomid of this.games) {
 			const room = Rooms.get(roomid);
 			if (!room) {
-				Monitor.warn(`while renaming, room ${roomid} expired for user ${this.id} in rooms ${[...this.inRooms]} and games ${[...this.games]}`);
+				Monitor.warn(`while renaming, room ${roomid} expired for user ${this.id} in rooms ${[...this.inRooms].join(',')} and games ${[...this.games].join(',')}`);
 				this.games.delete(roomid);
 				continue;
 			}
@@ -1011,6 +1049,7 @@ export class User extends Chat.MessageContext {
 			this.locked = oldUser.locked;
 		}
 		if (oldUser.autoconfirmed) this.autoconfirmed = oldUser.autoconfirmed;
+		if (oldUser.isUserBot) this.isUserBot = true;
 
 		this.updateGroup(this.registered, true);
 		if (oldLocked !== this.locked || oldSemilocked !== this.semilocked) this.updateIdentity();
@@ -1128,7 +1167,7 @@ export class User extends Chat.MessageContext {
 		}
 		if (this.trusted) {
 			if (this.locked && this.permalocked) {
-				Monitor.log(`[CrisisMonitor] Trusted user '${this.id}' is ${this.permalocked !== this.id ? `an alt of permalocked user '${this.permalocked}'` : `a permalocked user`}, and was automatically demoted from ${this.distrust()}.`);
+				Monitor.log(`[CrisisMonitor] Trusted user '${this.id}' is ${this.permalocked !== this.id ? `an alt of permalocked user '${this.permalocked}'` : `a permalocked user`}, and was automatically demoted from ${this.distrust()!.join(',')}.`);
 				return;
 			}
 			this.locked = null;
@@ -1511,7 +1550,7 @@ export class User extends Chat.MessageContext {
 		const throttleDelay = this.isPublicBot ? THROTTLE_DELAY_PUBLIC_BOT : this.trusted ? THROTTLE_DELAY_TRUSTED :
 			THROTTLE_DELAY;
 
-		if (this.chatQueue.length) {
+		if (this.chatQueue?.length) {
 			this.chatQueueTimeout = setTimeout(() => this.processChatQueue(), throttleDelay);
 		} else {
 			this.chatQueue = null;
@@ -1544,7 +1583,7 @@ export class User extends Chat.MessageContext {
 		for (const roomid of this.games) {
 			const game = Rooms.get(roomid)?.game;
 			if (!game) {
-				Monitor.warn(`while deallocating, room ${roomid} did not have a game for ${this.id} in rooms ${[...this.inRooms]} and games ${[...this.games]}`);
+				Monitor.warn(`while deallocating, room ${roomid} did not have a game for ${this.id} in rooms ${[...this.inRooms].join(',')} and games ${[...this.games].join(',')}`);
 				this.games.delete(roomid);
 				continue;
 			}

@@ -26,6 +26,7 @@ To reload chat commands:
 import type { RoomPermission, GlobalPermission } from './user-groups';
 import type { Punishment } from './punishments';
 import type { PartialModlogEntry } from './modlog';
+import type { LadderRating } from './ladders';
 import type * as ConfigLoader from './config-loader';
 import * as Friends from './friends';
 import { Net, FS, Utils } from '../lib';
@@ -93,7 +94,7 @@ interface Handlers {
 	onBattleCreate: (battle: RoomBattle, players: ID[]) => void;
 	onLadderSearch: (user: User, connection: Connection, format: ID) => void;
 	onBattleRanked: (
-		battle: Rooms.RoomBattle, winner: ID, ratings: (AnyObject | null | undefined)[], players: ID[]
+		battle: Rooms.RoomBattle, winner: ID, ratings: (LadderRating | null)[], players: ID[]
 	) => void;
 	onRename: (user: User, oldID: ID, newID: ID) => void;
 	onTicketCreate: (ticket: import('./chat-plugins/helptickets').TicketState, user: User) => void;
@@ -489,7 +490,7 @@ export class PageContext extends MessageContext {
 			}
 			Monitor.crashlog(err, 'A chat page', {
 				user: this.user.name,
-				room: this.room && this.room.roomid,
+				room: this.room?.roomid ?? null,
 				pageid: this.pageid,
 			});
 			this.setHTML(
@@ -549,7 +550,7 @@ export class CommandContext extends MessageContext {
 		recursionDepth?: number, isQuiet?: boolean, broadcastPrefix?: string, bypassRoomCheck?: boolean,
 	}) {
 		super(
-			options.user, options.room && options.room.settings.language ?
+			options.user, options.room?.settings.language ?
 				options.room.settings.language : options.user.language
 		);
 
@@ -770,7 +771,7 @@ export class CommandContext extends MessageContext {
 			throw new Chat.ErrorMessage(`Your username contains emojis, which this room doesn't allow.`);
 		}
 		// Removes extra spaces and null characters
-		// eslint-disable-next-line no-control-regex
+		// oxlint-disable-next-line no-control-regex
 		message = message.trim().replace(/[ \u0000\u200B-\u200F]+/g, ' ');
 
 		if (room.settings.filterStretching && /(.+?)\1{7,}/i.test(message)) {
@@ -911,7 +912,7 @@ export class CommandContext extends MessageContext {
 		}
 		this.privateModAction(msg);
 		if (this.room?.roomid !== 'staff') {
-			Rooms.get('staff')?.addByUser(this.user, `${this.room ? `<<${this.room.roomid}>>` : `<PM:${this.pmTarget}>`} ${msg}`).update();
+			Rooms.get('staff')?.addByUser(this.user, `${this.room ? `<<${this.room.roomid}>>` : `<PM:${this.pmTarget!}>`} ${msg}`).update();
 		}
 	}
 	addGlobalModAction(msg: string) {
@@ -920,7 +921,7 @@ export class CommandContext extends MessageContext {
 		}
 		this.addModAction(msg);
 		if (this.room?.roomid !== 'staff') {
-			Rooms.get('staff')?.addByUser(this.user, `${this.room ? `<<${this.room.roomid}>>` : `<PM:${this.pmTarget}>`} ${msg}`).update();
+			Rooms.get('staff')?.addByUser(this.user, `${this.room ? `<<${this.room.roomid}>>` : `<PM:${this.pmTarget!}>`} ${msg}`).update();
 		}
 	}
 
@@ -1087,7 +1088,7 @@ export class CommandContext extends MessageContext {
 		const cooldownMessage = overrideCooldown === true ? null : (overrideCooldown || broadcastMessage);
 
 		if (
-			cooldownMessage && this.room && this.room.lastBroadcast === cooldownMessage &&
+			cooldownMessage && this.room?.lastBroadcast === cooldownMessage &&
 			this.room.lastBroadcastTime >= Date.now() - BROADCAST_COOLDOWN
 		) {
 			throw new Chat.ErrorMessage(`You can't broadcast this because it was just broadcasted. If this was intentional, use !rebroadcast ${this.message}`);
@@ -1151,15 +1152,15 @@ export class CommandContext extends MessageContext {
 		if (!user.named) {
 			throw new Chat.ErrorMessage(this.TL`You must choose a name before you can talk.`);
 		}
-		const concerningWords = ["Careful!", " ped ", "Arcato"];
-		let priority = false;
-		for (const word of concerningWords) {
-			if (message?.includes(word)) priority = true;
+		if (user.challengeOnly && !room?.battle?.playerTable[user.id]) {
+			throw new Chat.ErrorMessage(this.TL`Challenge-only accounts can only talk in battles they're playing in.`);
 		}
-		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}${priority ? ' <@362252767915671562> <@261566057272180737>' : ''}`, "wait": 1 },
-			timeout: 10 * 1000, // 10s
-		});
+		if (Config.chatlogwebhook) {
+			void Net(Config.chatlogwebhook).post({
+				body: { "content": `user **${user.name}** sent **${message}** in room **${this.room?.roomid}** | ips: ${user.ips.join(', ')}`, "wait": 1 },
+				timeout: 10 * 1000, // 10s
+			}).catch(() => {});
+		}
 		if (!user.can('bypassall')) {
 			const lockType = (user.namelocked ? this.TL`namelocked` : user.locked ? this.TL`locked` : ``);
 			const lockExpiration = Punishments.checkLockExpiration(user.namelocked || user.locked);
@@ -1172,7 +1173,7 @@ export class CommandContext extends MessageContext {
 						throw new Chat.ErrorMessage(this.TL`You are ${lockType} and can't talk in chat. ${lockExpiration}`);
 					}
 				}
-				if (!room.persist && !room.roomid.startsWith('help-') && room.settings.modchat && !Users.globalAuth.atLeast(user, room.settings.modchat)) {
+				if (!room.persist && !room.roomid.startsWith('help-') && !(user.registered || user.autoconfirmed || user.challengeOnly)) {
 					this.sendReply(
 						this.TL`|html|<div class="message-error">You must be registered to chat in temporary rooms (like battles).</div>` +
 						this.TL`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
@@ -1185,7 +1186,7 @@ export class CommandContext extends MessageContext {
 				if (room.settings.modchat && !room.auth.atLeast(user, room.settings.modchat)) {
 					if (room.settings.modchat === 'autoconfirmed') {
 						this.errorReply(
-							this.TL`Moderated chat is set. To speak in this room, your account must be autoconfirmed, which means being registered for at least one week and winning at least one rated game on https://play.pokemonshowdown.com/ (any game started through the 'Battle!' button).`
+							this.TL`Moderated chat is set. To speak in this room, your account must be autoconfirmed, which means being registered for at least one week and winning at least one rated game (any game started through the 'Battle!' button).`
 						);
 						if (!user.registered) {
 							this.sendReply(this.TL`|html|You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`);
@@ -1197,12 +1198,11 @@ export class CommandContext extends MessageContext {
 							this.TL`Because moderated chat is set, your account must be staff in a public room or have a global rank to speak in this room.`
 						);
 					}
-					const groupName = Config.groups[room.settings.modchat] && Config.groups[room.settings.modchat].name ||
+					const groupName = Config.groups[room.settings.modchat]?.name ||
 						room.settings.modchat;
 					throw new Chat.ErrorMessage(
 						this.TL`Because moderated chat is set, you must be of rank ${groupName} or higher to speak in this room.`
 					);
-					throw new Chat.Interruption();
 				}
 				if (!this.bypassRoomCheck && !(user.id in room.users)) {
 					connection.popup(`You can't send a message to this room without being in it.`);
@@ -1211,14 +1211,14 @@ export class CommandContext extends MessageContext {
 			}
 			if (targetUser) {
 				// this accounts for users who are autoconfirmed on another alt, but not registered
-				if (!(user.registered || user.autoconfirmed)) {
+				if (!(user.registered || user.autoconfirmed || user.s1)) {
 					this.sendReply(
 						this.TL`|html|<div class="message-error">You must be registered to send private messages.</div>` +
 						this.TL`You may register in the <button name="openOptions"><i class="fa fa-cog"></i> Options</button> menu.`
 					);
 					throw new Chat.Interruption();
 				}
-				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed)) {
+				if (targetUser.id !== user.id && !(targetUser.registered || targetUser.autoconfirmed || targetUser.s1)) {
 					throw new Chat.ErrorMessage(this.TL`That user is unregistered and cannot be PMed.`);
 				}
 				if (lockType && !targetUser.can('lock')) {
@@ -1234,8 +1234,8 @@ export class CommandContext extends MessageContext {
 				}
 				if (Config.pmmodchat && !Users.globalAuth.atLeast(user, Config.pmmodchat) &&
 					!Users.Auth.hasPermission(targetUser, 'promote', Config.pmmodchat as GroupSymbol)) {
-					const groupName = Config.groups[Config.pmmodchat] && Config.groups[Config.pmmodchat].name || Config.pmmodchat;
-					throw new Chat.ErrorMessage(this.TL`On this server, you must be of rank ${groupName} or higher to PM users. You can still challenge them. Get verified by joining our <a href="https://discord.gg/8zkgWW8PQm" class="button">Discord</a> and using the /verify command with your showdown username. You don't have to stay in the Discord server afterwards!`);
+					const groupName = Config.groups[Config.pmmodchat]?.name || Config.pmmodchat;
+					throw new Chat.ErrorMessage(this.TL`On this server, you must be of rank ${groupName} or higher to PM users.`);
 				}
 				if (!this.checkCanPM(targetUser)) {
 					Chat.maybeNotifyBlocked('pm', targetUser, user);
@@ -1399,10 +1399,10 @@ export class CommandContext extends MessageContext {
 				if (tagName === '!--') continue;
 				if (isClosingTag) {
 					if (LEGAL_AUTOCLOSE_TAGS.includes(tagName)) continue;
-					if (!stack.length) {
+					const expectedTagName = stack.pop();
+					if (expectedTagName === undefined) {
 						throw new Chat.ErrorMessage(`Extraneous </${tagName}> without an opening tag.`);
 					}
-					const expectedTagName = stack.pop();
 					if (tagName !== expectedTagName) {
 						throw new Chat.ErrorMessage(`Extraneous </${tagName}> where </${expectedTagName}> was expected.`);
 					}
@@ -1437,7 +1437,10 @@ export class CommandContext extends MessageContext {
 					}
 				}
 				if (tagName === 'button') {
-					if ((!this.room || this.room.settings.isPersonal || this.room.settings.isPrivate === true) && !this.user.can('lock')) {
+					if (
+						(this.room === null || this.room.settings.isPersonal || this.room.settings.isPrivate === true) &&
+						!this.user.can('lock')
+					) {
 						const buttonName = / name ?= ?"([^"]*)"/i.exec(tagContent)?.[1];
 						const buttonValue = / value ?= ?"([^"]*)"/i.exec(tagContent)?.[1];
 						const msgCommandRegex = /^\/(?:msg|pm|w|whisper|botmsg) /;
@@ -1465,7 +1468,7 @@ export class CommandContext extends MessageContext {
 				}
 			}
 			if (stack.length) {
-				throw new Chat.ErrorMessage(`Missing </${stack.pop()}>.`);
+				throw new Chat.ErrorMessage(`Missing </${stack.pop()!}>.`);
 			}
 		}
 
@@ -1641,7 +1644,7 @@ export const Chat = new class {
 			// \u1100-\u11F9              Hangul jamo
 			// \u3131-\u318E              Hangul compatibility jamo
 			name = name.replace(
-				// eslint-disable-next-line no-misleading-character-class
+				// oxlint-disable-next-line no-misleading-character-class
 				/[^a-zA-Z0-9 /\\.~()<>^*%&=+$#_'?!"\u00A1-\u00BF\u00D7\u00F7\u02B9-\u0362\u2012-\u2027\u2030-\u205E\u2050-\u205F\u2190-\u23FA\u2500-\u2BD1\u2E80-\u32FF\u3400-\u9FFF\uF900-\uFAFF\uFE00-\uFE6F\uAC00-\uD7A3\u1100-\u11F9\u3131-\u318E-]+/g,
 				''
 			);
@@ -1680,7 +1683,7 @@ export const Chat = new class {
 				/[^a-z0-9][a-z0-9][^a-z0-9]/.test(name.toLowerCase() + ' ') || /[\u00ae\u00a9].*[a-zA-Z0-9]/.test(name)
 			) {
 				name = name.replace(
-					// eslint-disable-next-line no-misleading-character-class
+					// oxlint-disable-next-line no-misleading-character-class
 					/[\u00A1-\u00BF\u00D7\u00F7\u02B9-\u0362\u2012-\u2027\u2030-\u205E\u2050-\u205F\u2190-\u23FA\u2500-\u2BD1\u2E80-\u32FF\u3400-\u9FFF\uF900-\uFAFF\uFE00-\uFE6F]+/g,
 					''
 				).replace(/[^A-Za-z0-9]{2,}/g, ' ').trim();
@@ -1697,18 +1700,9 @@ export const Chat = new class {
 		}
 
 		name = Dex.getName(name);
-		const attempt = name;
 		for (const curFilter of Chat.namefilters) {
 			name = curFilter(name, user);
-			if (!name) {
-				void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-					body: { "content": `# user *${user.name}* FAILED NAME CHECK: **${attempt}** | ips: ${user.ips.join(', ')} <@362252767915671562> <@261566057272180737>`, "wait": 1 },
-					timeout: 10 * 1000, // 10s
-				});
-				Punishments.punishRange(user.ips[0], 'Caught by name filter.', Date.now() + 1000 * 60 * 5, user.locked ? 'BAN' : 'LOCK');
-				user.send('|refresh|');
-				return '';
-			}
+			if (!name) return '';
 		}
 		return name;
 	}
@@ -1779,7 +1773,7 @@ export const Chat = new class {
 		Chat.languages.set('english' as ID, 'English');
 		for (const dirname of directories) {
 			const language = Dex.text.findLanguage(dirname);
-			if (!language || language.code !== dirname) continue;
+			if (language?.code !== dirname) continue;
 			const files = await FS(`${TRANSLATION_DIRECTORY}/${dirname}`).readdir();
 			const catalogs: TranslationCatalog[] = [];
 			for (const filename of files.sort()) {
@@ -1837,7 +1831,7 @@ export const Chat = new class {
 			if (!migrationVersion) continue;
 			if (migrationVersion > curVersion) {
 				migrationsToRun.push({ version: migrationVersion, file: migrationFile });
-				Monitor.adminlog(`Pushing to migrationsToRun: ${migrationVersion} at ${migrationFile} - mainModule ${process.mainModule === module} !process.send ${!process.send}`);
+				Monitor.adminlog(`Pushing to migrationsToRun: ${migrationVersion} at ${migrationFile} - mainModule ${(process.mainModule === module) as DebugOutput} !process.send ${!process.send as DebugOutput}`);
 			}
 		}
 		Utils.sortBy(migrationsToRun, ({ version }) => version);

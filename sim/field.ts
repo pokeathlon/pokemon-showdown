@@ -47,7 +47,7 @@ export class Field {
 		if (source === 'debug') source = this.battle.sides[0].active[0];
 
 		if (this.weather === status.id) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+			if (sourceEffect?.effectType === 'Ability') {
 				if (this.battle.gen > 5 || this.weatherState.duration === 0) {
 					return false;
 				}
@@ -61,7 +61,7 @@ export class Field {
 				if (result === false) {
 					if ((sourceEffect as Move)?.weather) {
 						this.battle.add('-fail', source, sourceEffect, '[from] ' + this.weather);
-					} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+					} else if (sourceEffect?.effectType === 'Ability') {
 						this.battle.add('-ability', source, sourceEffect, '[from] ' + this.weather, '[fail]');
 					}
 				}
@@ -171,7 +171,6 @@ export class Field {
 	}
 
 	effectiveTerrain(target?: Pokemon | Side | Battle) {
-		if (this.suppressingTerrain()) return '';
 		if (this.battle.event && !target) target = this.battle.event.target;
 		return this.battle.runEvent('TryTerrain', target) ? this.terrain : '';
 	}

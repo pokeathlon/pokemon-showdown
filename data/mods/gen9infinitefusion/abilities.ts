@@ -131,13 +131,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			const fusionSpecies = this.dex.species.get(pokemon.m.fusion);
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.id !== 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion !== 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
 				if (pokemon.species.id === 'cherrimsunshine' && pokemon.baseSpecies.baseSpecies === 'Cherrim') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion === 'Cherrim-Sunshine' && fusionSpecies.baseSpecies === 'Cherrim') {
 					pokemon.fusionChange('Cherrim', this.effect);
 				}
@@ -182,7 +182,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 			if (pokemon.isActive && forme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Castform') {
-					pokemon.formeChange(forme, this.effect, false, '[msg]');
+					pokemon.formeChange(forme, this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion?.includes('Castform')) {
 					pokemon.fusionChange(forme, this.effect);
 				}
@@ -259,30 +259,18 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	powerconstruct: {
 		inherit: true,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.species.id === 'zygardecomplete' || pokemon.m.fusion === 'Zygarde-Complete' || pokemon.hp > pokemon.maxhp / 2) return;
-
-			if (pokemon.baseSpecies.baseSpecies === 'Zygarde') {
+			if (pokemon.transformed || !pokemon.hp || pokemon.hp > pokemon.maxhp / 2) return;
+			if (pokemon.baseSpecies.baseSpecies === 'Zygarde' && pokemon.species.id !== 'zygardecomplete') {
 				this.add('-activate', pokemon, 'ability: Power Construct');
 				pokemon.formeChange('Zygarde-Complete', this.effect, true);
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-			} else if (pokemon.m.fusion?.includes('Zygarde')) {
-				this.add('-activate', pokemon, 'ability: Power Construct');
+				pokemon.canMegaEvo = pokemon.canMegaEvo === false ? false : this.actions.canMegaEvo(pokemon);
+				pokemon.formeRegression = true;
+			} else if (pokemon.m.fusion?.startsWith('Zygarde') && pokemon.m.fusion !== 'Zygarde-Complete') {
 				pokemon.fusionChange('Zygarde-Complete', this.effect);
-				pokemon.baseMaxhp = Math.floor(Math.floor(
-					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-				) * pokemon.level / 100 + 10);
-				const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-				pokemon.maxhp = newMaxHP;
-				this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			} else {
+				return;
 			}
+			pokemon.updateMaxHp();
 		},
 	},
 	schooling: {
@@ -466,7 +454,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				// Cancel all actions this turn for pokemon if applicable
 				this.queue.cancelAction(pokemon);
 				// Add volatiles to both pokemon
-				this.add('-activate', pokemon, 'ability: Commander', '[of] ' + ally);
+				this.add('-activate', pokemon, 'ability: Commander', `[of] ${ally}`);
 				pokemon.addVolatile('commanding');
 				ally.addVolatile('commanded', pokemon);
 				// Continued in conditions.ts in the volatiles
@@ -521,7 +509,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (pokemon.illusion) {
 				this.debug('illusion cleared');
 				pokemon.illusion = null;
-				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level.toString()) +
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '') +
 					(pokemon.set.fusion ? ', fusion: ' + pokemon.set.fusion : '') + (pokemon.set.altsprite ? ', alt: ' + pokemon.set.altsprite : '');
 				this.add('replace', pokemon, details);

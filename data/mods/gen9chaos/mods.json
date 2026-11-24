@@ -1,6 +1,10 @@
 {
-		"gen9insurgence": {},
-		"gen9uranium": {},
+		"gen9insurgence": {
+			"Abilities": ["illusion"]
+		},
+		"gen9uranium": {
+			"Abilities": ["illusion"]
+		},
 		"gen9infinity": {
 			"Moves": ["strength", "cut", "wildcharge", "rocksmash", "skydrop"]
 		},

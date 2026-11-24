@@ -694,7 +694,7 @@ export const Punishments = new class {
 		return affected;
 	}
 
-	unpunish(id: string, punishType: string) {
+	unpunish(id: string, punishType: string): string | false {
 		id = toID(id);
 		const punishment = Punishments.userids.getByType(id, punishType);
 		if (punishment) {
@@ -1610,10 +1610,12 @@ export const Punishments = new class {
 
 	checkName(user: User, userid: string, registered: boolean) {
 		if (userid.startsWith('guest')) return;
-		void Net(`https://discord.com/api/webhooks/1288187672053157899/qPSVFlhz-M8J54Xe3aMgXFikslGLjFI8Y9o8H6hNWs-SPG3A4jJ1HqnB7WUP4jdSE9xL`).post({
-			body: { "content": `## *${userid}* just joined the site | ips: ${user.ips.join(', ')}`, "wait": 1 },
-			timeout: 10 * 1000, // 10s
-		});
+		if (Config.chatlogwebhook) {
+			void Net(Config.chatlogwebhook).post({
+				body: { "content": `## *${userid}* just joined the site | ips: ${user.ips.join(', ')}`, "wait": 1 },
+				timeout: 10 * 1000, // 10s
+			}).catch(() => {});
+		}
 		for (const roomid of user.inRooms) {
 			Punishments.checkNewNameInRoom(user, userid, roomid);
 		}
@@ -1682,7 +1684,7 @@ export const Punishments = new class {
 
 			if ((id === 'LOCK' || id === 'NAMELOCK') && punishUserid !== userid && Punishments.isSharedIp(user.latestIp)) {
 				if (!user.autoconfirmed) {
-					user.semilocked = `#sharedip ${user.locked}` as PunishType;
+					user.semilocked = `#sharedip ${punishUserid}` as PunishType;
 				}
 				user.locked = null;
 				user.namelocked = null;
@@ -1761,7 +1763,15 @@ export const Punishments = new class {
 		return IPTools.lookup(ip).then(({ dnsbl, host, hostType }) => {
 			user = connection.user || user;
 
-			if (hostType === 'proxy' && !user.trusted && !user.locked) {
+			// The loginserver is discordonly, so registered names (and unregistered alts, via s1)
+			// are Discord-authenticated; their punishments follow the Discord link instead
+			const discordLinked = user.registered || !!user.s1;
+			if (hostType === 'proxy' && discordLinked && user.locked === '#hostfilter') {
+				// lock carried over from the guest session before logging in
+				user.locked = null;
+				user.updateIdentity();
+			}
+			if (hostType === 'proxy' && !user.trusted && !discordLinked && !user.locked) {
 				user.locked = '#hostfilter';
 			} else if (dnsbl && !user.autoconfirmed) {
 				user.semilocked = '#dnsbl';
@@ -1877,6 +1887,7 @@ export const Punishments = new class {
 			expiresText = `soon`;
 		}
 		if (expiresIn > 1) return ` (expires ${expiresText})`;
+		return ``;
 	}
 
 	isRoomBanned(user: User, roomid: RoomID): Punishment | undefined {

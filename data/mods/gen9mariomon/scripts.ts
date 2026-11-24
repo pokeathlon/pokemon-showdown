@@ -1,7 +1,22 @@
+import { Pokemon } from '../../../sim/pokemon';
+
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	inherit: 'gen9',
 	pokemon: {
+		getUpdatedDetails(level) {
+			let details = Pokemon.prototype.getUpdatedDetails.call(this, level);
+			if (this.m.fusion) details += `, fusion: ${this.m.fusion}${this.set.altsprite ? `, alt: ${this.set.altsprite}` : ''}`;
+			return details;
+		},
+		getSwitchRequestData(forAlly) {
+			const entry = Pokemon.prototype.getSwitchRequestData.call(this, forAlly);
+			if (this.battle.format.ruleset.includes('Double Ability Mod')) {
+				entry.innates = this.m.activeInnates || [];
+				entry.baseInnates = this.m.innates || [];
+			}
+			return entry;
+		},
 		tryTrap(isHidden) {
 			if (!this.runStatusImmunity('trapped')) return false;
 			if (this.getAbility().id === 'runaway') return false;
@@ -33,72 +48,72 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		},
 		setStatus(
-		status: string | Condition,
-		source: Pokemon | null = null,
-		sourceEffect: Effect | null = null,
-		ignoreImmunities = false
+			status: string | Condition,
+			source: Pokemon | null = null,
+			sourceEffect: Effect | null = null,
+			ignoreImmunities = false
 		) {
-		if (status === 'frz') status = 'frb'; //Swap freeze for frostbite?
-		if (!this.hp) return false;
-		status = this.battle.dex.conditions.get(status);
-		if (this.battle.event) {
-			if (!source) source = this.battle.event.source;
-			if (!sourceEffect) sourceEffect = this.battle.effect;
-		}
-		if (!source) source = this;
-
-		if (this.status === status.id) {
-			if ((sourceEffect as Move)?.status === this.status) {
-				this.battle.add('-fail', this, this.status);
-			} else if ((sourceEffect as Move)?.status) {
-				this.battle.add('-fail', source);
-				this.battle.attrLastMove('[still]');
+			if (status === 'frz') status = 'frb'; // Swap freeze for frostbite?
+			if (!this.hp) return false;
+			status = this.battle.dex.conditions.get(status);
+			if (this.battle.event) {
+				if (!source) source = this.battle.event.source;
+				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
-			return false;
-		}
+			if (!source) source = this;
 
-		if (
-			!ignoreImmunities && status.id && !(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))
-		) {
-			// the game currently never ignores immunities
-			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
-				this.battle.debug('immune to status');
-				if ((sourceEffect as Move)?.status) {
-					this.battle.add('-immune', this);
+			if (this.status === status.id) {
+				if ((sourceEffect as Move)?.status === this.status) {
+					this.battle.add('-fail', this, this.status);
+				} else if ((sourceEffect as Move)?.status) {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
 				}
 				return false;
 			}
-		}
-		const prevStatus = this.status;
-		const prevStatusState = this.statusState;
-		if (status.id) {
-			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
-			if (!result) {
-				this.battle.debug('set status [' + status.id + '] interrupted');
-				return result;
+
+			if (
+				!ignoreImmunities && status.id && !(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))
+			) {
+			// the game currently never ignores immunities
+				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+					this.battle.debug('immune to status');
+					if ((sourceEffect as Move)?.status) {
+						this.battle.add('-immune', this);
+					}
+					return false;
+				}
 			}
-		}
+			const prevStatus = this.status;
+			const prevStatusState = this.statusState;
+			if (status.id) {
+				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+				if (!result) {
+					this.battle.debug('set status [' + status.id + '] interrupted');
+					return result;
+				}
+			}
 
-		this.status = status.id;
-		this.statusState = this.battle.initEffectState({ id: status.id, target: this });
-		if (source) this.statusState.source = source;
-		if (status.duration) this.statusState.duration = status.duration;
-		if (status.durationCallback) {
-			this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
-		}
+			this.status = status.id;
+			this.statusState = this.battle.initEffectState({ id: status.id, target: this });
+			if (source) this.statusState.source = source;
+			if (status.duration) this.statusState.duration = status.duration;
+			if (status.durationCallback) {
+				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+			}
 
-		if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
-			this.battle.debug('status start [' + status.id + '] interrupted');
-			// cancel the setstatus
-			this.status = prevStatus;
-			this.statusState = prevStatusState;
-			return false;
-		}
-		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
-			return false;
-		}
-		return true;
-	},
+			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+				this.battle.debug('status start [' + status.id + '] interrupted');
+				// cancel the setstatus
+				this.status = prevStatus;
+				this.statusState = prevStatusState;
+				return false;
+			}
+			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+				return false;
+			}
+			return true;
+		},
 	},
 	actions: {
 		modifyDamage(baseDamage, pokemon, target, move, suppressMessages) {
@@ -111,7 +126,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.spreadHit) {
 				// multi-target modifier (doubles only)
 				const spreadModifier = move.spreadModifier || (this.battle.gameType === 'freeforall' ? 0.5 : 0.75);
-				this.battle.debug('Spread modifier: ' + spreadModifier);
+				this.battle.debug(`Spread modifier: ${spreadModifier}`);
 				baseDamage = this.battle.modify(baseDamage, spreadModifier);
 			} else if (move.multihitType === 'parentalbond' && move.hit > 1) {
 				// Parental Bond modifier
@@ -121,7 +136,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// weather modifier
-			baseDamage = this.battle.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+			baseDamage = this.battle.priorityEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
 
 			// crit - not a modifier
 			const isCrit = target.getMoveHitData(move).crit;
@@ -197,7 +212,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 
-			if (pokemon.status === 'frz' && move.category === 'Special') {
+			if (pokemon.status === 'frb' && move.category === 'Special') {
 				if (this.battle.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.battle.modify(baseDamage, 0.5);
 				}
@@ -209,8 +224,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
 			baseDamage = this.battle.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
 
-			if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			const bypassProtect = target.getMoveHitData(move).bypassProtect;
+			if (bypassProtect) {
 				baseDamage = this.battle.modify(baseDamage, 0.25);
+				if (bypassProtect !== true && bypassProtect.effectType === 'Ability') {
+					this.battle.add('-ability', pokemon, bypassProtect.name);
+				}
 				this.battle.add('-zbroken', target);
 			}
 

@@ -1,12 +1,49 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Conditions as Base } from '../../conditions';
 import { type ModdedConditionDataTable } from '../../../sim/dex-conditions';
 
-import { treasures } from './abilities';
-
 export const Conditions: ModdedConditionDataTable = {
 	frz: Base.frz,
+	confusion: {
+		inherit: true,
+		onBeforeMove(pokemon, target, move) {
+			if (move.id === 'ringtrue') return;
+			pokemon.volatiles['confusion'].time--;
+			if (!pokemon.volatiles['confusion'].time) {
+				pokemon.removeVolatile('confusion');
+				return;
+			}
+			this.add('-activate', pokemon, 'confusion');
+			if (!this.randomChance(33, 100)) {
+				return;
+			}
+			this.activeTarget = pokemon;
+			const damage = this.actions.getConfusionDamage(pokemon, 40);
+			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+			const activeMove = { id: this.toID('confused'), effectType: 'Move', type: '???' };
+			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+			return false;
+		},
+	},
+	choicelock: {
+		inherit: true,
+		onBeforeMove(pokemon, target, move) {
+			if (!pokemon.getItem().isChoice) {
+				pokemon.removeVolatile('choicelock');
+				return;
+			}
+			if (
+				!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] &&
+				move.id !== this.effectState.move && move.id !== 'struggle' && move.id !== 'ringtrue'
+			) {
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Choice item lock");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+	},
 	arceus: {
 		inherit: true,
 		onType(types, pokemon) {
@@ -76,7 +113,7 @@ export const Conditions: ModdedConditionDataTable = {
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Lucky Charm prevent secondary');
-			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+			return secondaries.filter(effect => !!effect.self);
 		},
 		onSideEnd(side) {
 			this.add('-sideend', side, 'ability: Lucky Charm');
@@ -85,23 +122,24 @@ export const Conditions: ModdedConditionDataTable = {
 	},
 };
 
-const Manual = Utils.deepClone(Conditions);
+export const Manual = Utils.deepClone(Conditions);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModConditions = require('../' + mod + '/conditions').Conditions as ModdedConditionDataTable;
+	const ModConditions: AnyObject = require('../' + mod + '/conditions').Conditions;
 
 	for (const key in ModConditions) {
-		const id = key as keyof typeof ModConditions;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Conditions"]?.includes(id))) continue;
 
 		if (!Conditions[id]) Conditions[id] = Base[id] ? { inherit: true } : {};
+		const condition: AnyObject = Conditions[id];
 
 		for (const attr in ModConditions[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Conditions[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (condition[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Conditions[id][attr] = ModConditions[id][attr];
+				condition[attr] = ModConditions[id][attr];
 			}
 		}
 	}

@@ -65,7 +65,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				pokemon.formeChange(forme, this.effect, false, '0', '[msg]');
 			}
 		},
 	},
@@ -159,9 +159,16 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 
 			const target = this.sample(possibleTargets);
 			const ability = target.getAbility();
-			if (pokemon.setAbility(ability) && !pokemon.illusion) {
-				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
-			}
+			pokemon.setAbility(ability, target, null, false, !!pokemon.illusion);
+		},
+	},
+	illusion: {
+		inherit: true,
+		onSwitchOut(pokemon) {
+			if (pokemon.ability !== 'illusion') pokemon.illusion = null;
+		},
+		onFaint(pokemon) {
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 		},
 	},
 
@@ -276,7 +283,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	etherealshroud: {
 		onTryHit(target, source, move) {
-			if (target !== source && ['Normal', 'Fighting'].includes(move.type) && move.category != 'Status') {
+			if (target !== source && ['Normal', 'Fighting'].includes(move.type) && move.category !== 'Status') {
 				this.add('-activate', target, 'ability: Ethereal Shroud');
 				return null;
 			}
@@ -422,7 +429,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (!pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').slice(-1));
+			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').pop()!);
 			if (formeIndex === -1) formeIndex = 4;
 			if (formeIndex > targetForme) {
 				for (const name of ['Hydreigon-Mega']) {
@@ -799,9 +806,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Typhlosion-Delta' || pokemon.transformed || !pokemon.isActive) return;
 			if (['newmoon', 'raindance', 'primordialsea'].includes(pokemon.effectiveWeather()) && pokemon.species.id !== 'typhlosiondeltamegaactive') {
-				pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '[msg]');
+				pokemon.formeChange('typhlosiondeltamegaactive', this.effect, false, '0', '[msg]');
 			} else if (pokemon.species.id === 'typhlosiondeltamegaactive') {
-				pokemon.formeChange('typhlosiondeltamega', this.effect, false, '[msg]');
+				pokemon.formeChange('typhlosiondeltamega', this.effect, false, '0', '[msg]');
 			}
 		},
 		onModifySpAPriority: 5,

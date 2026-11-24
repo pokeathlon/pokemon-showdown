@@ -399,7 +399,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	tinkashank: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		natDexTier: "OU",
 		isNonstandard: null,
 	},
@@ -863,6 +863,18 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		natDexTier: "UU",
 		isNonstandard: null,
 	},
+	hollidew: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
+		isNonstandard: null,
+	},
+	novickate: {
+		inherit: true,
+		tier: "NFE",
+		natDexTier: "NFE",
+		isNonstandard: null,
+	},
 	verdicent: {
 		inherit: true,
 		tier: "OU",
@@ -957,6 +969,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		inherit: true,
 		tier: "OU",
 		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	patabit: {
+		inherit: true,
+		tier: "LC",
+		natDexTier: "LC",
 		isNonstandard: null,
 	},
 	patabyte: {
@@ -1170,6 +1188,48 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: null,
 	},
 	knitschief: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	broobird: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	glacerate: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	mazetsubo: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	mazetsubodespair: {
+		inherit: true,
+		tier: "Illegal",
+		natDexTier: "Illegal",
+		isNonstandard: null,
+	},
+	ichidna: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	dynamangle: {
+		inherit: true,
+		tier: "OU",
+		natDexTier: "OU",
+		isNonstandard: null,
+	},
+	lumyan: {
 		inherit: true,
 		tier: "OU",
 		natDexTier: "OU",
