@@ -79,16 +79,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	relicsong: {
 		inherit: true,
-		onHit(target, pokemon, move) {
+		onAfterMoveSecondarySelf(pokemon) {
 			if ((pokemon.baseSpecies.baseSpecies === 'Meloetta' || pokemon.m.fusion?.includes('Meloetta')) && !pokemon.transformed) {
-				move.willChangeForme = true;
-			}
-		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
 				if (pokemon.species.baseSpecies === 'Meloetta') {
 					const meloettaForme = pokemon.species.id === 'meloettapirouette' ? '' : '-Pirouette';
-					pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '[msg]');
+					pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '0', '[msg]');
 				} else if (pokemon.m.fusion?.includes('Meloetta')) {
 					const meloettaForme = pokemon.m.fusion === 'Meloetta-Pirouette' ? '' : '-Pirouette';
 					pokemon.fusionChange('Meloetta' + meloettaForme, this.effect);

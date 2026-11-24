@@ -253,6 +253,8 @@ export abstract class BasicRoom {
 
 		this.roomid = roomid;
 		this.title = (title || roomid);
+		// should happen before making a roomlog, so we don't leave an orphaned roomlog
+		this.validateTitle(this.title, this.roomid);
 		this.parent = null;
 
 		this.userCount = 0;
@@ -331,7 +333,6 @@ export abstract class BasicRoom {
 		this.tour = null;
 		this.game = null;
 		this.battle = null;
-		this.validateTitle(this.title, this.roomid);
 	}
 
 	toString() {
@@ -515,8 +516,8 @@ export abstract class BasicRoom {
 	}
 	getGame<T extends RoomGame>(constructor: new (...args: any[]) => T, subGame = false): T | null {
 		// TODO: switch to `static readonly gameid` when all game files are TypeScripted
-		if (subGame && this.subGame && this.subGame.constructor.name === constructor.name) return this.subGame as T;
-		if (this.game && this.game.constructor.name === constructor.name) return this.game as T;
+		if (subGame && this.subGame?.constructor.name === constructor.name) return this.subGame as T;
+		if (this.game?.constructor.name === constructor.name) return this.game as T;
 		return null;
 	}
 	getMinorActivity<T extends MinorActivity>(constructor: new (...args: any[]) => T): T | null {
@@ -630,7 +631,7 @@ export abstract class BasicRoom {
 
 		for (const [i, entry] of this.muteQueue.entries()) {
 			if (entry.userid === userid ||
-				(user && entry.guestNum === user.guestNum) ||
+				(entry.guestNum === user?.guestNum) ||
 				(autoconfirmed && entry.autoconfirmed === autoconfirmed)) {
 				if (i === 0) {
 					this.muteQueue.splice(0, 1);
@@ -717,7 +718,7 @@ export abstract class BasicRoom {
 		}
 		if (this.settings.modjoin) {
 			const modjoin = this.settings.modjoin === true ? this.settings.modchat : this.settings.modjoin;
-			message += ` [${modjoin} or higher to join]`;
+			if (modjoin) message += ` [${modjoin} or higher to join]`;
 		}
 		if (this.settings.slowchat) {
 			message += ` [Slowchat ${this.settings.slowchat}s]`;
@@ -825,7 +826,7 @@ export abstract class BasicRoom {
 		// this doesn't update parentid or subroom user symbols because it's
 		// intended to be used for cleanup only
 	}
-	setPrivate(privacy: PrivacySetting) {
+	setPrivate(privacy: PrivacySetting, password?: string) {
 		this.settings.isPrivate = privacy;
 		this.saveSettings();
 
@@ -842,10 +843,12 @@ export abstract class BasicRoom {
 			if (privacy) {
 				if (this.roomid.endsWith('pw')) return true;
 
-				// This is the same password generation approach as genPassword in the client replays.lib.php
-				// but obviously will not match given mt_rand there uses a different RNG and seed.
-				let password = '';
-				for (let i = 0; i < 31; i++) password += ALPHABET[crypto.randomInt(0, ALPHABET.length - 1)];
+				if (!password) {
+					// This is the same password generation approach as genPassword in the client replays.lib.php
+					// but obviously will not match given mt_rand there uses a different RNG and seed.
+					password = '';
+					for (let i = 0; i < 31; i++) password += ALPHABET[crypto.randomInt(0, ALPHABET.length - 1)];
+				}
 
 				this.rename(this.title, `${this.roomid}-${password}pw` as RoomID, true);
 			} else {
@@ -1079,7 +1082,7 @@ export abstract class BasicRoom {
 	runAutoModchat() {
 		if (!this.settings.autoModchat || this.settings.autoModchat.active) return;
 		// they are staff and online
-		const staff = Object.values(this.users).filter(u => this.auth.atLeast(u, '%') && u.statusType === 'online');
+		const staff = Object.values(this.users).filter(u => this.auth.atLeast(u, '%'));
 		if (!staff.length) {
 			const { time } = this.settings.autoModchat;
 			if (!time || time < 5) {
@@ -1183,8 +1186,8 @@ export abstract class BasicRoom {
 		Rooms.rooms.delete(this.roomid);
 		if (this.roomid === 'lobby') Rooms.lobby = null;
 	}
-	tr(strings: string | TemplateStringsArray, ...keys: any[]) {
-		return Chat.tr(this.settings.language || 'english' as ID, strings, ...keys);
+	TL(strings: string | TemplateStringsArray, ...keys: any[]) {
+		return Chat.TLto(this.settings.language || 'english' as ID, strings, ...keys);
 	}
 }
 
@@ -1498,6 +1501,15 @@ export class GlobalRoomState {
 			if (format.teraPreviewDefault) displayCode |= 128;
 			if (format.itemClauseDefault) displayCode |= 256;
 			this.formatList += ',' + displayCode.toString(16);
+
+			// virtual formats don't support challengeShow or tournamentShow
+			const virtualDisplayCode = displayCode & ~(4 | 8);
+			for (const formatAlias in Ladders.virtualFormats) {
+				const entry = Ladders.virtualFormats[formatAlias];
+				if (entry.format === format.id) {
+					this.formatList += `|${entry.name},${virtualDisplayCode.toString(16)}`;
+				}
+			}
 		}
 		return this.formatList;
 	}
@@ -1646,16 +1658,12 @@ export class GlobalRoomState {
 	}
 
 	onCreateBattleRoom(players: User[], room: GameRoom, options: AnyObject) {
-		let blockBattle = false;
 		for (const player of players) {
 			if (player.statusType === 'idle') {
 				player.setStatusType('online');
 			}
-			if (player.locked || !player.autoconfirmed) {
-				blockBattle = true;
-			}
 		}
-		if (Config.reportbattles && !blockBattle) {
+		if (Config.reportbattles) {
 			if (typeof Config.reportbattles === 'string') {
 				Config.reportbattles = [Config.reportbattles];
 			} else if (Config.reportbattles === true) {
@@ -2051,16 +2059,6 @@ export class GameRoom extends BasicRoom {
 		const battle = this.battle;
 		if (!battle) return;
 
-		if (!user?.registered) {
-			connection?.popup(`Your account must be registered to upload replays.`);
-			return;
-		}
-
-		if (battle.turn <= 1 && battle.inputLog?.slice(-1)[0].includes('>forcelose')) {
-			connection?.popup(`There was an error uploading your replay.`);
-			return;
-		}
-
 		// retrieve spectator log (0) if there are privacy concerns
 		const format = Dex.formats.get(this.format, true);
 
@@ -2070,44 +2068,80 @@ export class GameRoom extends BasicRoom {
 		let hideDetails = !format.id.includes('customgame');
 		if (format.team && battle.ended) hideDetails = false;
 
-		const data = this.getLog(hideDetails ? 0 : -1);
+		const log = this.getLog(hideDetails ? 0 : -1);
+		let rating: number | undefined;
+		if (battle.ended && this.rated) rating = this.rated;
+		let { id, password } = this.getReplayData();
+		if (password) password = (battle.password ||= password);
+		const silent = options === 'forpunishment' || options === 'silent' || options === 'auto';
+		if (silent) connection = undefined;
+		const isPrivate = this.settings.isPrivate || this.hideReplay;
+		const hidden = options === 'auto' ? 10 :
+			options === 'forpunishment' || (this as any).unlistReplay ? 2 :
+			isPrivate ? 1 :
+			0;
+		if (isPrivate && hidden !== 2) {
+			password = (battle.password ||= Replays.generatePassword());
+		}
+		if (battle.replaySaved !== true && hidden === 10) {
+			battle.replaySaved = 'auto';
+		} else {
+			battle.replaySaved = true;
+		}
 
-		let buf = '<!DOCTYPE html>\n';
-		buf += '<meta charset="utf-8" />\n';
-		buf += '<!-- version 1 -->\n';
-		buf += `<title>${Utils.escapeHTML(format.name)} replay: ${Utils.escapeHTML(battle.p1.name)} vs. ${Utils.escapeHTML(battle.p2.name)}</title>\n`;
-		buf += '<div class="wrapper replay-wrapper" style="max-width:1000px;margin:0 auto">\n';
-		buf += '<div class="battle" style="top: -9px; left: -9px;"></div><div class="battle-log" style="top: -9px; right: -9px;"></div><div class="replay-controls"></div><div class="replay-controls-2"></div><div class="replay-controls-3"></div>\n';
-		buf += '<script type="text/plain" class="battle-log-data">' + data.replace(/\//g, '\\/') + '</script>\n';
-		buf += '</div>\n';
-		buf += '</div>\n';
-		buf += '<script>\n';
-		buf += `let daily = Math.floor(Date.now()/1000/60/60/24);document.write('<script src="https://play.pokeathlon.com/js/replay-embed.js?version'+daily+'"></'+'script>');\n`;
-		buf += '</script>\n';
+		// If we have a direct connection to a Replays database, just upload the replay
+		// directly.
 
-		const replayName = battle.roomid.slice(7);
+		if (Replays.db) {
+			const idWithServer = Config.serverid === 'showdown' ? id : `${Config.serverid}-${id}`;
+			try {
+				const fullid = await Replays.add({
+					id: idWithServer,
+					log,
+					players: battle.players.map(p => p.name),
+					format: format.name,
+					rating: Math.round(rating || 0) || null,
+					private: hidden,
+					password,
+					inputlog: battle.inputLog?.join('\n') || null,
+					uploadtime: Math.trunc(Date.now() / 1000),
+				});
+				const url = `https://${Config.routes.replays}/${fullid}`;
+				connection?.popup(
+					`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
+					`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+					`<copytext value="${url}">Copy</copytext>`
+				);
+			} catch (e) {
+				connection?.popup(`Your replay could not be saved: ${e}`);
+				throw e;
+			}
+			return;
+		}
 
-		await FS(`server/static/replays/${replayName}.html`).write(buf);
-		await FS(`server/static/replays/${replayName}.log`).write(data);
-		await FS(`server/static/replays/${replayName}.json`).write(JSON.stringify({
-			id: replayName,
-			log: data,
-			players: battle.players.map(p => p.name),
+		// Otherwise, (we're probably a side server), upload the replay through LoginServer
+
+		const [result] = await LoginServer.request('addreplay', {
+			id,
+			log,
+			players: battle.players.map(p => p.name).join(','),
 			format: format.name,
-			formatid: format.id,
-			rating: this.rated || null,
-			private: 0,
-			password: null,
-			uploadtime: Math.trunc(Date.now() / 1000),
-		}));
+			rating, // will probably do nothing
+			hidden: hidden === 0 ? '' : hidden,
+			inputlog: battle.inputLog?.join('\n') || undefined,
+			password,
+		});
+		if (result?.errorip) {
+			connection?.popup(`This server's request IP ${result.errorip} is not a registered server.`);
+			return;
+		}
 
-		if (!battle.replaySaved) await FS('server/static/replays/replays.csv').append(`${user?.name},${battle.p1.name},${battle.p2.name},${battle.p3 ? battle.p3.name : ''},${battle.p4 ? battle.p4.name : ''},${Date.now()},${format.name},${replayName},\n`);
-		battle.replaySaved = true;
-
+		const fullid = result?.replayid;
+		const url = `https://${Config.routes.replays}/${fullid}`;
 		connection?.popup(
 			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
-			`<a class="no-panel-intercept" href="https://replay.pokeathlon.com/#replay=${replayName}" target="_blank">https://replay.pokeathlon.com/#replay=${replayName}</a> ` +
-			`<copytext value="https://replay.pokeathlon.com/#replay=${replayName}">Copy</copytext>`
+			`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+			`<copytext value="${url}">Copy</copytext>`
 		);
 	}
 
@@ -2195,15 +2229,15 @@ export const Rooms = {
 		}
 
 		const p1Special = players.length ? players[0].battleSettings.special : undefined;
-		let mismatch = `"${p1Special}"`;
+		let mismatch = `"${p1Special!}"`;
 		for (const user of players) {
 			if (user.battleSettings.special !== p1Special) {
-				mismatch += ` vs. "${user.battleSettings.special}"`;
+				mismatch += ` vs. "${user.battleSettings.special!}"`;
 			}
 			user.battleSettings.special = undefined;
 		}
 
-		if (mismatch !== `"${p1Special}"`) {
+		if (mismatch !== `"${p1Special!}"`) {
 			for (const user of players) {
 				user.popup(`Your special battle settings don't match: ${mismatch}`);
 			}

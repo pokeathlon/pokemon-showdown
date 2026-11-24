@@ -110,7 +110,7 @@ export const Replays = new class {
 				});
 			}
 		} catch (e: any) {
-			if (e?.routine !== 'NewUniquenessConstraintViolationError') throw e;
+			if (e?.routine !== 'NewUniquenessConstraintViolationError' && e?.code !== '23505') throw e;
 			await replays.update(replay.id, {
 				log: replayData.log,
 				inputlog: replayData.inputlog,
@@ -144,7 +144,7 @@ export const Replays = new class {
 	generatePassword(length = 31) {
 		let password = '';
 		for (let i = 0; i < length; i++) {
-			password += this.passwordCharacters[crypto.randomInt(0, this.passwordCharacters.length - 1)];
+			password += this.passwordCharacters[crypto.randomInt(0, this.passwordCharacters.length)];
 		}
 
 		return password;

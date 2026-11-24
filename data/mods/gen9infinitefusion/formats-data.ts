@@ -1,74 +1,12 @@
 export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormatsDataTable = {
 	// NatDex Doubles retiers only
-	calyrex: {
+	deoxys: {
 		inherit: true,
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
-	celebi: {
+	zygarde: {
 		inherit: true,
-		doublesTier: "DOU",
-	},
-	cosmoem: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	cosmog: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	hoopa: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	keldeo: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	kyurem: {
-		inherit: true,
-		natDexTier: "UU",
-		doublesTier: "DOU",
-	},
-	latias: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	latios: {
-		inherit: true,
-		natDexTier: "UU",
-		doublesTier: "DOU",
-	},
-	meltan: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	mew: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	necrozma: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	phione: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	shaymin: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	volcanion: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	zarude: {
-		inherit: true,
-		doublesTier: "DOU",
-	},
-	zarudedada: {
-		inherit: true,
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 	},
 
 	// NatDex retiers
@@ -167,18 +105,22 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	smeargle: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	regigigas: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	slaking: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	kartana: {
 		inherit: true,
 		natDexTier: "Uber",
+		doublesTier: "DUber",
 	},
 	xurkitree: {
 		inherit: true,
@@ -245,55 +187,56 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	aerodactylmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	alakazammega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	ampharosmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	beedrillmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	blastoisemega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	dianciemega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	lucariomega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	metagrossmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	pidgeotmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	pinsirmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	salamencemega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	swampertmega: {
 		inherit: true,
-		natDexTier: "(Uber)",
+		natDexTier: "Uber",
 	},
 	espathra: {
 		inherit: true,
 		natDexTier: "OU",
+		doublesTier: "DOU",
 	},
 	alomomola: {
 		inherit: true,
@@ -761,5 +704,186 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	xerneas: {
 		inherit: true,
 		doublesTier: "DUber",
+	},
+
+	meganiummega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	victreebelmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	starmiemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	dragonitemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	feraligatrmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	skarmorymega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	chimechomega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	froslassmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	emboarmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	excadrillmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	chandeluremega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	golurkmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	chesnaughtmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	delphoxmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	greninjamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	floetteeternal: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	floettemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "OU",
+	},
+	hawluchamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	crabominablemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	drampamega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	scovillainmega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	glimmoramega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	clefablemega: {
+		inherit: true,
+		isNonstandard: null,
+		tier: "UU",
+	},
+	scolipedemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	scraftymega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	eelektrossmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	pyroarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	malamarmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	barbaraclemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	dragalgemega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	falinksmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	raichumegax: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	raichumegay: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	staraptormega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	meowsticmmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
+	},
+	meowsticfmega: {
+		inherit: true,
+		isNonstandard: null,
+		natDexTier: "OU",
 	},
 };

@@ -27220,7 +27220,6 @@ aron: {
 			morningsun: ["7T"],
 			mudslap: ["7L4", "7T"],
 			protect: ["7L16", "7T"],
-			quiverdance: ["7T"],
 			raindance: ["7T"],
 			rest: ["7T"],
 			return: ["7T"],
@@ -38143,4 +38142,22 @@ Learnsets.deosectwo = combineLearnsets
 	Learnsets.deoxys,
 	Learnsets.genesect,
 	Learnsets.mewtwo,
+);
+Learnsets.luvbrufisk = combineLearnsets
+(
+	Learnsets.luvdisc,
+	Learnsets.bruxish,
+	Learnsets.stunfisk,
+);
+Learnsets.solminiatonecore = combineLearnsets
+(
+	Learnsets.solrock,
+	Learnsets.minior,
+	Learnsets.lunatone,
+);
+Learnsets.solminiatonemeteor = combineLearnsets
+(
+	Learnsets.solrock,
+	Learnsets.minior,
+	Learnsets.lunatone,
 );

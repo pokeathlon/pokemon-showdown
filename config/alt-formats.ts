@@ -29,7 +29,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning', 'ability:purepower',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
+			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
 		],
 	},
@@ -59,9 +59,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'Mega', 'Uber',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:purepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
+			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:deepseatooth',
+			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:purepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning', 'ability:poisonheal',
+			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
 			'OU', 'UUBL',
 			'item:necrozium',
@@ -81,7 +81,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:purepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
+			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:boomburst', 'move:vcreate', 'move:electrify',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
 			'OU', 'UUBL', 'UU', 'RUBL',
 			'item:necrozium',
@@ -115,7 +115,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'ND AG', 'ND Uber',
-			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:starminite', 'item:staraptite', 'item:scovillainite', 'item:raichunitey', 'item:malamarite',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:triage', 'ability:waterbubble',
 			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore',
 		],
@@ -188,9 +188,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'Fusion Species Clause', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
 		],
 		banlist: [
-			'DUber', 'Mega',
+			'DUber',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:starminite', 'item:staraptite', 'item:scovillainite', 'item:raichunitey', 'item:kangaskhanite', 'item:gengarite', 'item:metagrossite', 'item:malamarite', 'item:mawilite', 'item:medichamite',
 			'ability:hugepower', 'ability:purepower', 'ability:commander', 'ability:swordofruin', 'ability:beadsofruin', 'ability:contrary', 'ability:wonderguard', 'ability:powerconstruct', 'ability:simple', 'ability:zerotohero', 'ability:shadowtag', 'ability:imposter', 'ability:moody',
-			'move:geomancy', 'move:afteryou', 'move:clangoroussoul', 'move:lastrespects', 'move:bellydrum', 'move:shellsmash', 'move:ragefist', 'move:spore',
+			'move:afteryou', 'move:assist', 'move:bellydrum', 'move:clangoroussoul', 'move:coaching', 'move:geomancy',  'move:lastrespects', 'move:ragefist', 'move:shellsmash', 'move:spore', 'move:swagger',
 		],
 	},
 	{
@@ -237,23 +238,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 7] New Lands",
-		desc: "Welcome to Hoenn!",
-
-		mod: 'gen7infinitefusionhoenn',
-		ruleset: [
-			'Standard', 'Evasion Abilities Clause', 'Z-Move Clause', '!Species Clause', 'Sleep Moves Clause', 'DryPass Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause', 'IF New Lands Clause',
-		],
-		banlist: [
-			'Mega', 'Uber',
-			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
-			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandrush', 'ability:adaptability', 'ability:purepower',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify',
-			'pokemon:greninjabond', 'pokemon:greninjaash',
-		],
-	},
-	{
 		name: "[Gen 7] IF 2 Abilities",
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
@@ -266,7 +250,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:purepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
+			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:doubleironbash', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
 		],
 	},
@@ -295,24 +279,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Mega', 'Uber',
 			'item:kingsrock', 'item:razorfang', 'item:lightball', 'item:thickclub',
 			'ability:arenatrap', 'ability:shadowtag', 'ability:speedboost', 'ability:disguise', 'ability:imposter', 'ability:hugepower', 'ability:purepower', 'ability:wonderguard', 'ability:drizzle', 'ability:drought', 'ability:sandstream', 'ability:snowwarning',
-			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:facade', 'move:extremespeed', 'move:doubleironbash', 'move:spore', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
+			'move:shellsmash', 'move:bellydrum', 'move:geomancy', 'move:facade', 'move:extremespeed', 'move:doubleironbash', 'move:boomburst', 'move:vcreate', 'move:electrify', 'move:quiverdance',
 			'pokemon:greninjabond', 'pokemon:greninjaash',
-		],
-	},
-	{
-		name: "[Gen 7] IF Literally 1984",
-		desc: `There are no bans! Just a few clauses... (Use "/rule [clausename]" in any chat to see what each clause does)`,
-
-		mod: 'gen7infinitefusion',
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Z-Move Clause',
-			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause',
-			'No Fun Clause', 'No Evading Clause', 'No Extreme Gimmicks Clause', 'No Trapping Clause',
-			'No Dancing Clause', 'No Dance Partners Clause',
-			'No Extreme Stats Clause', 'No Limit Breaking Clause', 'No Nukes Clause', 'No Weather Combos Clause',
-		],
-		banlist: [
-			'Mega',
 		],
 	},
 	{
@@ -373,6 +341,52 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] IF PFA Draft",
+		searchShow: false,
+
+		mod: 'gen9infinitefusion',
+		ruleset: [
+			'Standard NatDex',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
+			'+ Future', 'Direct Sleep Moves Clause', 'Z-Move Clause',
+			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite',
+			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite',
+			'+item:hawluchanite', '+item:malamarite', '+item:meganiumite', '+item:pyroarite', '+item:scolipite', '+item:scraftinite', '+item:skarmorite', '+item:starminite',
+			'+item:victreebelite', '+item:zygardite',
+			'+pokemon:floetteeternal',
+		],
+		banlist: [
+			'item:deepseatooth', 'item:leek', 'item:stick', 'item:lightball', 'item:kingsrock', 'item:quickpowder', 'item:razorfang', 'item:thickclub',
+			'ability:arenatrap', 'ability:comatose', 'ability:contrary', 'ability:disguise', 'ability:hadronengine', 'ability:hugepower', 'ability:illusion', 'ability:imposter', 'ability:innardsout',
+			'ability:moody', 'ability:normalize', 'ability:orichalcumpulse', 'ability:purepower', 'ability:serenegrace', 'ability:shadowtag', 'ability:simple', 'ability:speedboost', 'ability:stakeout', 'ability:stench', 'ability:wonderguard',
+			'move:bellydrum', 'move:boltbeak', 'move:clangoroussoul', 'move:copycat', 'move:doubleironbash', 'move:electrify', 'move:extremespeed', 'move:electroshot', 'move:filletaway', 'move:fishiousrend', 'move:geomancy', 'move:hiddenpower',
+			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:pursuit', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate', 'move:hail',
+		],
+	},
+	{
+		name: "[Gen 9] IF SGBL Draft",
+		searchShow: false,
+
+		mod: 'gen9infinitefusion',
+		ruleset: [
+			'Standard NatDex', '!Species Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', '!Nickname Clause',
+			'+ Future', 'Direct Sleep Moves Clause', 'Z-Move Clause',
+			'+item:barbaracite', '+item:chandelurite', '+item:chesnaughtite', '+item:clefablite', '+item:delphoxite', '+item:dragalgite', '+item:dragoninite', '+item:drampanite',
+			'+item:eelektrossite', '+item:emboarite', '+item:excadrite', '+item:falinksite', '+item:feraligite', '+item:floettite', '+item:froslassite', '+item:greninjite',
+			'+item:hawluchanite', '+item:malamarite', '+item:meganiumite', '+item:pyroarite', '+item:scolipite', '+item:scraftinite', '+item:skarmorite', '+item:starminite',
+			'+item:victreebelite', '+item:zygardite',
+			'+pokemon:floetteeternal',
+		],
+		banlist: [
+			'item:deepseatooth', 'item:heatrock', 'item:damprock', 'item:deepseascale', 'item:leek', 'item:stick', 'item:lightball', 'item:kingsrock', 'item:metalpowder', 'item:quickpowder', 'item:razorfang', 'item:thickclub',
+			'ability:arenatrap', 'ability:comatose', 'ability:contrary', 'ability:disguise', 'ability:gorillatactics', 'ability:hugepower', 'ability:illusion', 'ability:imposter', 'ability:innardsout',
+			'ability:moody', 'ability:normalize', 'ability:powerconstruct', 'ability:purepower', 'ability:serenegrace', 'ability:shadowtag', 'ability:simple', 'ability:speedboost', 'ability:stakeout', 'ability:stench', 'ability:swordofruin', 'ability:wonderguard', 'ability:zerotohero',
+			'move:bellydrum', 'move:boltbeak', 'move:clangoroussoul', 'move:copycat', 'move:doubleironbash', 'move:electrify', 'move:extremespeed', 'move:filletaway', 'move:fishiousrend', 'move:geomancy', 'move:hiddenpower',
+			'move:lastrespects', 'move:noretreat', 'move:oblivionwing', 'move:quiverdance', 'move:revivalblessing', 'move:shellsmash', 'move:shedtail', 'move:transform', 'move:vcreate',
+		],
+	},
+	{
 		name: "[Gen 9] Ins NDL Draft",
 		searchShow: false,
 
@@ -405,7 +419,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen6insurgence',
 		ruleset: ['Standard NatDex', 'Tera Type Preview', 'Max Level = 120', 'Default Level = 120', 'Overflow Stat Mod', 'Species Reveal Clause', '!Species Clause'],
-		banlist: ['move:hiddenpower', 'move:swagger'],
+		banlist: ['move:swagger'],
 	},
 	{
 		name: "[Gen 9] Chaos Draft",
@@ -435,7 +449,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 
 		bestOfDefault: true,
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE', 'Double Ability Mod'],
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE', 'Camomons Mod'],
 	},
 
 	{
@@ -470,23 +484,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mariomon OU",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'DryPass Clause'],
 		banlist: [
 			'AG', 'Uber',
-			'ability:arenatrap', 'ability:shadowtag',
-			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
-			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst'
+			'ability:arenatrap', 'ability:shadowtag', 'ability:sharpness',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock', 'item:lightclay',
+			'move:swagger', 'move:shedtail', 'move:boomburst',
 		],
 	},
 	{
 		name: "[Gen 9] Mariomon Ubers",
 
 		mod: 'gen9mariomon',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause'],
-		banlist: [
-			'AG',
-			'move:batonpass', 'move:swagger',
-		],
+		ruleset: ['Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'DryPass Clause'],
+		banlist: ['AG', 'move:swagger'],
 	},
 	{
 		name: "[Gen 9] Mariomon UU",
@@ -505,7 +516,22 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'gen9mariomon',
 		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause', 'Baton Pass Stat Trap Clause'],
-		banlist: ['pokemon:gushen', 'move:electrify', 'item:kingsrock'],
+		banlist: ['pokemon:gushen', 'pokemon:fighterfly', 'move:electrify', 'item:kingsrock'],
+	},
+	{
+		name: "[Gen 9] Mariomon Fusions",
+
+		mod: 'gen9mariomon',
+		ruleset: [
+			'Standard', 'Evasion Abilities Clause', 'Terastal Clause', 'Z-Move Clause', 'No Event Moves', '+LGPE', 'Species Reveal Clause', 'Sleep Moves Clause',
+			'Infinite Fusion Mod', 'IF Move Legality', '!Obtainable Abilities', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause',
+			'+Uber', '-Lubba', '-Sonic', '-Tiptron',
+		],
+		banlist: [
+			'ability:arenatrap', 'ability:shadowtag', 'ability:imposter', 'ability:wonderguard', 'ability:hugepower', 'ability:waterbubble', 'ability:comatose', 'ability:disguise',
+			'item:souldew', 'item:kingsrock', 'item:razorfang', 'item:quickclaw', 'item:damprock',
+			'move:batonpass', 'move:swagger', 'move:shedtail', 'move:boomburst', 'move:shellsmash', 'move:bellydrum', 'move:ragefist', 'move:electrify', 'move:assist', 'move:dynamicpunch',
+		],
 	},
 	{
 		name: "[Gen 9] Mariomon Monotype",
@@ -522,6 +548,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		name: "[Gen 9] Mariomon VGC",
 		mod: 'gen9mariomon',
+		gameType: 'doubles',
+
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Open Team Sheets', 'Terastal Clause', 'Z-Move Clause', '+LGPE'],
+	},
+	{
+		name: "[Gen 9 Champions] Mariomon VGC",
+		mod: 'championsmariomon',
 		gameType: 'doubles',
 
 		bestOfDefault: true,
@@ -814,6 +848,47 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
 	},
+	{
+		section: "Soulstones 2 Formats",
+		column: 2,
+	},
+	{
+		name: "[Gen 9] Soulstones OU",
+
+		mod: 'gen9soulstones',
+		ruleset: ['Standard', 'Terastal Clause', 'Mega Forme Clause', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause', '!! evlimit=764', 'Link EVs', 'Multiple Mega = 2', 'Rune Clause'],
+		banlist: [
+			'Uber', 'AG',
+			'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:disarray', 'ability:maelstrom', 'ability:contrary',
+			'item:kingsrock', 'item:arenatraprune',
+			'move:assist', 'move:batonpass', 'move:grabandgo', 'move:lastrespects', 'move:shedtail',
+		],
+	},
+	{
+		name: "[Gen 9] Soulstones AG",
+		searchShow: false,
+
+		mod: 'gen9soulstones',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=764', 'Link EVs', 'Multiple Mega = 2'],
+	},
+	{
+		name: "[Gen 9] Soulstones Doubles AG",
+		searchShow: false,
+
+		mod: 'gen9soulstones',
+		gameType: 'doubles',
+		ruleset: ['Obtainable', 'Team Preview', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'No Event Moves', 'Species Reveal Clause', '+ Future', 'Terastal Clause', '!! evlimit=764', 'Link EVs', 'Multiple Mega = 2'],
+	},
+	{
+		name: "[Gen 9] Soulstones Custom Game",
+		searchShow: false,
+
+		mod: 'gen9soulstones',
+		debug: true,
+		battle: { trunc: Math.trunc },
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Infinite Fusion Mod', 'Overflow Stat Mod', 'Species Reveal Clause'],
+	},
 
 	{
 		section: "Xenoverse Formats",
@@ -868,6 +943,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'gen9pokeathlon',
 		ruleset: ['Standard AG', 'NatDex Mod', 'Terastal Clause', 'Species Reveal Clause', 'Mega Forme Clause'],
 	},
+	{
+		name: "[Gen 9] PoA LC",
+		searchShow: false,
+
+		mod: 'gen9pokeathlon',
+		ruleset: ['Standard NatDex', 'Little Cup', 'Terastal Clause', 'Z-Move Clause', 'Species Reveal Clause', 'Mega Forme Clause'],
+		banlist: [
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:stickyweb',
+			'ability:arenatrap', 'ability:moody', 'ability:multishot',
+			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
+			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
+			'pokemon:electrikitty', 'pokemon:eggchell', 'pokemon:komodraw',
+		],
+	},
 
 	{
 		section: "Pokéathlon: Season 2",
@@ -881,9 +970,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: [
 			'Uber', 'AG',
 			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:achillesheel', 'move:glare',
-			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:sandveil', 'ability:snowcloak', 'ability:asabove',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:sandveil', 'ability:snowcloak',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:trickrock',
-			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium',
+			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:lightclay',
 		],
 	},
 	{
@@ -957,8 +1046,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Fusion Species Clause', '!Nickname Clause'],
 		banlist: [
 			'ND AG',
-			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:quiverdance', 'move:spore', 'move:bellydrum', 'move:doubleironbash', 'move:electrify', 'move:geomancy', 'move:shellsmash',
-			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:speedboost', 'ability:furcoat', 'ability:vaporization', 'ability:lernean', 'ability:adaptability',
+			'move:batonpass', 'move:lastrespects', 'move:shedtail', 'move:permafrost', 'move:livewire', 'move:newmoon', 'move:achillesheel', 'move:quiverdance', 'move:bellydrum', 'move:doubleironbash', 'move:electrify', 'move:geomancy', 'move:shellsmash',
+			'ability:arenatrap', 'ability:moody', 'ability:shadowtag', 'ability:multishot', 'ability:musclememory', 'ability:inertia', 'ability:asabove', 'ability:contrary', 'ability:multitasker',
+			'ability:speedboost', 'ability:furcoat', 'ability:vaporization', 'ability:lernean', 'ability:adaptability', 'ability:counterclockwise', 'ability:hugepower', 'ability:clairvoyance',
 			'item:razorfang', 'item:kingsrock', 'item:focusband', 'item:quickclaw', 'item:lightclay', 'item:trickrock',
 			'item:hafliberry', 'item:goombaboots', 'item:sturdyshell', 'item:mankeyspaw', 'item:necrozium', 'item:darkrock',
 			'pokemon:electrodemega', 'pokemon:sceptiledeltamega', 'pokemon:tyranitardeltamega', 'pokemon:blazikendeltamega', 'pokemon:florgesmega', 'pokemon:snorlaxfrostmega', 'pokemon:suicunesupra',
@@ -1057,7 +1147,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item: trickrock', 'item:dragonfang', 'item:floettite',
 			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer', 'ability:goodasgold', 'ability:noctem', 'ability:quickcharge', 'ability:cannoneer',
 			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove', 'ability:simplyevil', 'ability:illusionist', 'ability:grandentrance', 'ability:counterclockwise',
-			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:spore', 'move:bittermalice',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:bittermalice',
 			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast',
 		],
 	},
@@ -1066,9 +1156,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
 
 		mod: 'gen9chaosfusion',
-		ruleset: ['[Gen 9] Chaos Fusions OU'],
+		ruleset: [
+			'Standard NatDex', '!Species Clause', 'Z-Move Clause', 'Ability Clause = 1', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Terastal Clause', 'Fusion Species Clause', '!Nickname Clause', 'Sketch Clause', 'Nuclear Move Clause', 'Overflow Stat Mod', 'Sleep Moves Clause',
+		],
 		banlist: [
-			'ND OU', 'ND UUBL',
+			'ND AG', 'ND Uber', 'ND OU', 'ND UUBL',
+			'item:kingsrock', 'item:quickclaw', 'item:razorfang', 'item:lightball', 'item:thickclub', 'item:berserkgene', 'item:deepseascale', 'item:deepseatooth', 'item:managel', 'item:anchor', 'item: trickrock', 'item:dragonfang', 'item:floettite',
+			'ability:hugepower', 'ability:purepower', 'ability:disguise', 'ability:moody', 'ability:contrary', 'ability:simple', 'ability:wonderguard', 'ability:arenatrap', 'ability:powerconstruct', 'ability:shadowtag', 'ability:speedboost', 'ability:imposter', 'ability:comatose', 'ability:inertia', 'ability:stormbringer', 'ability:goodasgold', 'ability:noctem', 'ability:quickcharge', 'ability:cannoneer',
+			'ability:triage', 'ability:waterbubble', 'ability:blazeboost', 'ability:athenian', 'ability:furcoat', 'ability:icescales', 'ability:sharpcoral', 'ability:multishot', 'ability:regurgitation', 'ability:lernean', 'ability:purefocus', 'ability:musclememory', 'ability:illuminate', 'ability:atomizate', 'ability: unburden', 'ability:asabove', 'ability:simplyevil', 'ability:illusionist', 'ability:grandentrance', 'ability:counterclockwise',
+			'move:shellsmash', 'move:bellydrum', 'move:lastrespects', 'move:populationbomb', 'move:ragefist', 'move:assist', 'move:batonpass', 'move:shedtail', 'move:geomancy', 'move:doubleironbash', 'move:bittermalice',
+			'move:achillesheel', 'move:metalcruncher', 'move:vanish', 'move:cinderbreath', 'move:fishiousrend', 'move:hammerthrow', 'move:permafrost', 'move:livewire', 'move:electrify', 'move:vcreate', 'move:subduction', 'move:direclaw', 'move:granite', 'move:cherryblast',
 		],
 	},
 	{
@@ -1109,7 +1207,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'DUber',
-			'move:assist', 'move:cinderbreath', 'move:coaching', 'move:darkvoid', 'move:jetstream', 'move:livewire', 'move:permafrost', 'move:supremecannon', 'move:swagger',
+			'move:assist', 'move:cinderbreath', 'move:coaching', 'move:jetstream', 'move:livewire', 'move:permafrost', 'move:supremecannon', 'move:swagger',
 			'ability:commander', 'ability:illuminate', 'ability:inertia', 'ability:powerconstruct', 'ability:quickcharge',
 			'item:berserkgene', 'item:eeviumz', 'item:focusband', 'item:kingsrock', 'item:lightclay', 'item:quickclaw', 'item:razorfang', 'item:trickrock',
 			'Prankster + After You',
@@ -1127,17 +1225,20 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'ND AG',
 			'pokemon:arkhaos', 'pokemon:calyrexshadowrider', 'pokemon:diaboromon', 'pokemon:fidgit', 'pokemon:frosthra', 'pokemon:icyall', 'pokemon:koraidon', 'pokemon:miraidon', 'pokemon:nucleon', 'pokemon:omnimon', 'pokemon:raffiti', 'pokemon:raffitiratthew', 'pokemon:reaptide', 'pokemon:sonic', 'pokemon:supersonic', 'pokemon:drybones', 'pokemon:shedinja',
 			'ability:arenatrap', 'ability:moody', 'ability:powerconstruct', 'ability:shadowtag', 'ability:illuminate', 'ability:quickcharge', 'ability:eventhorizon',
-			'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:batonpass',
+			'move:lastrespects', 'move:shedtail', 'move:vanish', 'move:cinderbreath', 'move:livewire', 'move:permafrost', 'move:achillesheel', 'move:batonpass', 'move:assist',
+			'move:eevoboost', 'move:shellsmash', 'move:electrify',
 			'item:kingsrock', 'item:trickrock', 'item:focusband',
 			'item:beedrillite', 'item:blazikenite', 'item:cryogonalite', 'item:donphanite', 'item:electrodite', 'item:eevite', 'item:froslassitei', 'item:gengarite', 'item:hydreigonite',
 			'item:inflagetite', 'item:kangaskhanite', 'item:marowakite', 'item:mawilite', 'item:deltamawilite', 'item:medichamite', 'item:deltamedichamite',
 			'item:shadowmewtwonitex', 'item:pidgeotite', 'item:reuniclite', 'item:stunfiskite', 'item:sunflorite', 'item:deltasunflorite', 'item:zygardite', 'item:corrupteddata',
+			'item:raichunitey', 'item:starminite', 'scovillainite', 'malamarite',
 		],
 		restricted: [
 			'Arceus', 'Basculegion-M', 'Blissey-Egho', 'Calyrex-Ice', 'Chansey-Egho', 'Crustle-Delta-Cake', 'Deosectwo', 'Deoxys-Attack', 'Deoxys-Base', 'Dialga', 'Eternatus', 'Flutter Mane', 'Gengar', 'Giratina', 'Gigantusk', 'Gouging Fire', 'Groudon', 'Ho-Oh', 'Hoopa-Delta-Unleashed',
 			'Infermon', 'Inflagetah', 'Iron Bundle', 'Kyodonquaza', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lukagon', 'Lunala', 'MagnaAngemon', 'Marshadow', 'Manaphy', 'Melmetal', 'Machinedramon', 'Naganadel', 'MetalEtemon', 'Mewtwo', 'Mewtwo-Shadow', 'Mewthree', 'Necrozma-Dawn-Wings',
 			'Necrozma-Dusk-Mane', 'Oculeus', 'Okuwamon', 'Palkia', 'Rayquaza', 'Reshiram', 'Regigigas', 'SaberLeomon', 'Seikamater', 'Shedinja', 'Slaking', 'Solgaleo', 'Sneasler', 'SkullGreymon', 'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike', 'Urshifu-Rapid-Strike', 'Ufi', 'Volcarona-Delta', 'Xerneas',
 			'Yatagaryu', 'Yveltal', 'WarGreymon', 'Zacian', 'Zekrom', 'Zekyushiram', 'Mew', 'Paldiatina', 'Piedmon', 'MetalGarurumon', 'MetalSeadramon', 'Jupiter', 'Mars', 'Myotismon', 'Venus', 'Mercury', 'YatagaryuGossamir', 'Puppetmon',
+			'Arbok-Jessie', 'Cheninphox', 'Tiptron',
 		],
 	},
 	{
@@ -1215,7 +1316,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'+pokemon:sekrilon', '+pokemon:reneguana', '+pokemon:lilligantdeltawater', '+pokemon:mandibuzz', '+pokemon:escarphone', '+pokemon:flygon',
 			'+pokemon:regasunde', '+pokemon:drilgann', '+pokemon:mochimechi', '+pokemon:nebulant', '+pokemon:goodrahisui', '+pokemon:glavinug', '+pokemon:grimmsnarl',
 			'+pokemon:quagsire', '+pokemon:regalunith', '+pokemon:celestray', '+pokemon:tangrowthegho', '+pokemon:krilowatt', '+pokemon:ceruledge', '+pokemon:crobat',
-			'+pokemon:blubelrog', '+pokemon:togemon', '+pokemon:incandele', '+pokemon:wyrmplode', '+pokemon:empirilla', '+pokemon:saharaja', '+pokemon:gargryph'
+			'+pokemon:blubelrog', '+pokemon:togemon', '+pokemon:incandele', '+pokemon:wyrmplode', '+pokemon:empirilla', '+pokemon:saharaja', '+pokemon:gargryph',
 		],
 		banlist: [
 			'ND Uber', 'ND AG',
@@ -1298,6 +1399,45 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		debug: true,
 		battle: { trunc: Math.trunc },
 		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
+	},
+	{
+		name: "[Gen 9] Chaos Mayhem AG",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		ruleset: [
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin', 'Overflow Stat Mod', 'Species Reveal Clause',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Mayhem Fusions AG",
+		desc: "Pok&eacute;mon can fuse with other Pok&eacute;mon!",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		ruleset: [
+			'Standard AG', 'NatDex Mod', '+CAP', '+item:crucibellite', '+item:vilevial', '+move:lightofruin',
+			'Infinite Fusion Mod', 'IF Move Legality', 'No Event Moves', '!Obtainable Abilities', 'Species Reveal Clause', 'Overflow Stat Mod',
+		],
+	},
+	{
+		name: "[Gen 9] Chaos Mayhem CG",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		debug: true,
+		battle: { trunc: Math.trunc },
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
+	},
+	{
+		name: "[Gen 9] Chaos Mayhem Doubles CG",
+		searchShow: false,
+
+		mod: 'gen9chaosmayhem',
+		gameType: 'doubles',
+		debug: true,
+		battle: { trunc: Math.trunc },
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100', 'Overflow Stat Mod', 'Species Reveal Clause'],
 	},
 	{

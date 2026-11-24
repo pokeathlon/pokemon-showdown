@@ -1,7 +1,6 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Items as Base } from '../../items';
-import { type ModdedItemDataTable } from '../../../sim/dex-items';
+import { type ItemData, type ModdedItemDataTable } from '../../../sim/dex-items';
 
 export const Items: ModdedItemDataTable = {
 	lightball: {
@@ -116,6 +115,11 @@ export const Items: ModdedItemDataTable = {
 		gen: 9,
 	},
 	golurkite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	chesnaughtite: {
 		inherit: true,
 		isNonstandard: null,
 		gen: 9,
@@ -271,7 +275,7 @@ export const Items: ModdedItemDataTable = {
 		desc: "Holder takes half the recoil damage.",
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
-			if (move.recoil) move.recoil[1] = move.recoil[1] * 2;
+			if (move.recoil) move.recoil[1] *= 2;
 		},
 		num: 0,
 		spritenum: -3,
@@ -363,7 +367,7 @@ export const Items: ModdedItemDataTable = {
 					moveid: target.lastMove.id,
 					targetLoc: target.lastMoveTargetLoc!,
 				})[0] as MoveAction);
-			}
+			},
 		},
 		num: 0,
 	},
@@ -384,7 +388,7 @@ export const Items: ModdedItemDataTable = {
 		},
 		onTryMovePriority: -1,
 		onTryMove(source, target, move) {
-			if (move.id === 'wish' && source.hp != source.baseMaxhp && source.useItem()) {
+			if (move.id === 'wish' && source.hp !== source.baseMaxhp && source.useItem()) {
 				this.heal(source.baseMaxhp * 1.3 / 2, source, source);
 			}
 			if (move.id === 'wish' && source.hp === source.baseMaxhp) {
@@ -394,7 +398,7 @@ export const Items: ModdedItemDataTable = {
 			}
 		},
 		onBasePower(basePower, source, target, move) {
-			if (move.flags.futuremove && move.category != 'Status' && source.useItem()) {
+			if (move.flags.futuremove && move.category !== 'Status' && source.useItem()) {
 				return this.chainModify(1.3);
 			}
 		},
@@ -408,7 +412,7 @@ export const Items: ModdedItemDataTable = {
 					activate = true;
 					boosts[i] = 0;
 				}
-				if (activate && !pokemon.item('managel')) {
+				if (activate && !pokemon.hasItem('managel')) {
 					pokemon.setBoost(boosts);
 					this.add('-clearboost', pokemon, '[silent]');
 				}
@@ -450,7 +454,7 @@ export const Items: ModdedItemDataTable = {
 	tofagrifite: {
 		name: "Tofagrifite",
 		desc: "If held by a Tofagrif, this item allows it to Mega Evolve in battle.",
-		spritenum: 596,
+		spritenum: -3,
 		megaStone: { "Tofagrif": "Tofagrif-Mega" },
 		itemUser: ["Tofagrif"],
 		onTakeItem(item, source) {
@@ -469,25 +473,66 @@ export const Items: ModdedItemDataTable = {
 		},
 		num: 0,
 	},
+	dryguaronite: {
+		name: "Dryguaronite",
+		desc: "If held by a Dryguaro, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Dryguaro": "Dryguaro-Mega" },
+		itemUser: ["Dryguaro"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	utensitite: {
+		name: "Utensitite",
+		desc: "If held by a Utensitile, this item allows it to Mega Evolve in battle.",
+		spritenum: -3,
+		megaStone: { "Utensitile": "Utensitile-Mega" },
+		itemUser: ["Utensitile"],
+		onTakeItem(item, source) {
+			return !item.megaStone?.[source.baseSpecies.baseSpecies];
+		},
+		num: 0,
+	},
+	bubbleclef: {
+		name: "Bubble Clef",
+		desc: "If held by an Odinalto, transforms into Odinalto-Coda. 1.2x power to Bug/Water.",
+		spritenum: -3,
+		itemUser: ["Odinalto", "Odinalto-Coda"],
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Odinalto') && ["Water", "Bug"].includes(move.type)) {
+				return this.chainModify(1.2);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Odinalto') return false;
+			return true;
+		},
+		forcedForme: "Odinalto-Coda",
+		num: 0,
+	},
 };
 
 const Manual = Utils.deepClone(Items);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModItems = require('../' + mod + '/items').Items as ModdedItemDataTable;
+	const ModItems: AnyObject = require('../' + mod + '/items').Items;
 
 	for (const key in ModItems) {
-		const id = key as keyof typeof ModItems;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Items"]?.includes(id))) continue;
 
-		if (!Items[id]) Items[id] = Base[id] ? { inherit: true } : {};
+		if (!Items[id]) Items[id] = Base[id] ? { inherit: true } : {} as ItemData;
+		const item: AnyObject = Items[id];
 
 		for (const attr in ModItems[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Items[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (item[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Items[id][attr] = ModItems[id][attr];
+				item[attr] = ModItems[id][attr];
 			}
 		}
 	}

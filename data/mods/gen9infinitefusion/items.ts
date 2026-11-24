@@ -88,12 +88,12 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 	lightball: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || Dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
@@ -132,11 +132,182 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (
 				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
 				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
-				Dex.species.get(pokemon.m.fusion).baseSpecies === 'Cubone' ||
-				Dex.species.get(pokemon.m.fusion).baseSpecies === 'Marowak'
+				this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Cubone' ||
+				this.dex.species.get(pokemon.m.fusion).baseSpecies === 'Marowak'
 			) {
 				return this.chainModify(2);
 			}
 		},
+	},
+
+	meganiumite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	clefablite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	victreebelite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	starminite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	dragoninite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	feraligite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	skarmorite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	chimechite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	froslassite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	emboarite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	excadrite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	chandelurite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	golurkite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	chesnaughtite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	delphoxite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	greninjite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	floettite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	meowsticite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	hawluchanite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	crabominite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	drampanite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	scovillainite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	glimmoranite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	scolipite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	scraftinite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	eelektrossite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	pyroarite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	malamarite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	barbaracite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	dragalgite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	falinksite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	raichunitex: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	raichunitey: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
+	},
+	staraptite: {
+		inherit: true,
+		isNonstandard: null,
+		gen: 9,
 	},
 };

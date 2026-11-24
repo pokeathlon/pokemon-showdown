@@ -1,7 +1,6 @@
-// @ts-nocheck
 import { Utils } from '../../../lib';
 import { Abilities as Base } from '../../abilities';
-import { type ModdedAbilityDataTable } from '../../../sim/dex-abilities';
+import { type AbilityData, type ModdedAbilityDataTable } from '../../../sim/dex-abilities';
 
 const eeveelutions: { [k: string]: string } = {
 	"Water": "vaporeon",
@@ -46,56 +45,6 @@ const eeveeabilities: { [k: string]: string } = {
 	"nimbeon": "galewings",
 	"eeveemega": "proteanmaxima",
 };
-
-export const treasures: { [k: string]: string } = {
-	dracoplate: 'protean',
-	dreadplate: 'protean',
-	earthplate: 'protean',
-	fistplate: 'protean',
-	flameplate: 'protean',
-	icicleplate: 'protean',
-	insectplate: 'protean',
-	ironplate: 'protean',
-	meadowplate: 'protean',
-	mindplate: 'protean',
-	pixieplate: 'protean',
-	skyplate: 'protean',
-	splashplate: 'protean',
-	spookyplate: 'protean',
-	stoneplate: 'protean',
-	toxicplate: 'protean',
-	zapplate: 'protean',
-	choiceband: 'toughclaws',
-	muscleband: 'toughclaws',
-	choicespecs: 'analytic',
-	wiseglasses: 'analytic',
-	choicescarf: 'bushido',
-	lifeorb: 'magicguard',
-	flameorb: 'flareboost',
-	toxicorb: 'poisonheal',
-	mirrorherb: 'opportunist',
-	whiteherb: 'opportunist',
-	vigorherb: 'opportunist',
-	silverpowder: 'adaptability',
-	blackglasses: 'adaptability',
-	dragonfang: 'adaptability',
-	magnet: 'adaptability',
-	fairyfeather: 'adaptability',
-	charcoal: 'adaptability',
-	sharpbeak: 'adaptability',
-	spelltag: 'adaptability',
-	miracleseed: 'adaptability',
-	softsand: 'adaptability',
-	nevermeltice: 'adaptability',
-	silkscarf: 'adaptability',
-	poisonbarb: 'adaptability',
-	twistedspoon: 'adaptability',
-	hardstone: 'adaptability',
-	metalcoat: 'adaptability',
-	mysticwater: 'adaptability',
-};
-
-const vacuumItems = ['assaultvest', 'eviolite', 'deepseascale', 'metalpowder'];
 
 export const Abilities: ModdedAbilityDataTable = {
 	// MODDED
@@ -228,14 +177,14 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!pokemon.isActive || pokemon.transformed || !pokemon.hp) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.name === 'Cherrim') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion === 'Cherrim') {
 					pokemon.fusionChange('Cherrim-Sunshine', this.effect);
 				}
 			} else {
 				if (pokemon.species.name === 'Cherrim-Sunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion === 'Cherrim-Sunshine') {
 					pokemon.fusionChange('Cherrim', this.effect);
@@ -290,7 +239,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 			if (castforme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Castform' && pokemon.species.name !== castforme) {
-					pokemon.formeChange(castforme, this.effect, false, '[msg]');
+					pokemon.formeChange(castforme, this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion?.includes('Castform') && pokemon.m.fusion !== castforme) {
 					pokemon.fusionChange(castforme, this.effect);
@@ -298,7 +247,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			}
 			if (broforme) {
 				if (pokemon.baseSpecies.baseSpecies === 'Hammer Bro' && pokemon.species.name !== broforme) {
-					pokemon.formeChange(broforme, this.effect, false, '[msg]');
+					pokemon.formeChange(broforme, this.effect, false, '0', '[msg]');
 				}
 				if (pokemon.m.fusion?.endsWith(' Bro') && pokemon.m.fusion !== broforme) {
 					pokemon.fusionChange(broforme, this.effect);
@@ -311,7 +260,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!pokemon.hp || pokemon.transformed) return;
 			const formeOrder = ['-Nine', '-Eight', '-Seven', '-Six', ''];
 			const targetForme = Math.ceil((pokemon.hp / pokemon.maxhp) * 5) - 1;
-			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').slice(-1));
+			let formeIndex = formeOrder.indexOf('-' + pokemon.species.name.split('-').pop()!);
 			if (formeIndex === -1) formeIndex = 4;
 			if (formeIndex > targetForme) {
 				for (const name of ['Hydreigon-Mega', 'Hydroupa']) {
@@ -501,7 +450,7 @@ export const Abilities: ModdedAbilityDataTable = {
 					if (myItem) source.item = myItem.id;
 					return false;
 				}
-				this.add('-activate', source, 'ability: Consumer Exchange', '[of] ' + target);
+				this.add('-activate', source, 'ability: Consumer Exchange', `[of] ${target}`);
 				if (myItem) {
 					target.setItem(myItem);
 					this.add('-item', target, myItem, '[from] ability: Consumer Exchange');
@@ -796,7 +745,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			this.prng.shuffle(sideConditions);
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Starfall', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Starfall', `[of] ${pokemon}`);
 					return;
 				}
 			}
@@ -813,7 +762,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		condition: {
 			onStart(pokemon, source) {
-				this.add('-start', pokemon, 'Zealous Flock', '[of] ' + source);
+				this.add('-start', pokemon, 'Zealous Flock', `[of] ${source}`);
 			},
 			onResidualOrder: 12,
 			onResidual(pokemon) {
@@ -902,7 +851,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		flags: { breakable: 1 },
 		name: "Spitting Fire",
-		shortDesc: "Fire-type moves are now sound-based. Sound-based moves have 1.2x power.",
+		shortDesc: "Fire-type moves become sound-based. Sound-based moves have 1.2x power.",
 		rating: 3,
 		num: 0,
 	},
@@ -1103,14 +1052,14 @@ export const Abilities: ModdedAbilityDataTable = {
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (move.flags.wind) {
 				this.debug('Windy Spirit boost');
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
 		name: "Windy Spirit",
 		rating: 3.5,
 		num: 0,
-		shortDesc: "This Pokemon's wind-based attacks have 1.2x power.",
+		shortDesc: "This Pokemon's wind-based attacks have 1.3x power.",
 	},
 	strangeanatomy: {
 		onDamagingHit(damage, target, source, move) {
@@ -1124,7 +1073,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, source, target, move) {
-			if (!source.abilityState.strangeCounter || move.category != 'Physical' || !move.basePower) return;
+			if (!source.abilityState.strangeCounter || move.category !== 'Physical' || !move.basePower) return;
 			return Math.max(basePower - source.abilityState.strangeCounter * 5, 1);
 		},
 		onResidual(target, source, effect) {
@@ -1136,7 +1085,6 @@ export const Abilities: ModdedAbilityDataTable = {
 		rating: 4,
 		num: 0,
 		shortDesc: "Replaces ability on contact. Reduces BP of Physical moves by 5 each turn.",
-		changeAbility: "  [TARGET]'s anatomy became twisted!",
 	},
 	tailgunrailgun: {
 		onStart(target) {
@@ -1144,7 +1092,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			for (const move of target.moveSlots) {
 				const moveType = this.dex.moves.get(move.id).type;
 				if (moveType === 'Electric' && move.pp === move.maxpp) tailgun = true;
-				if (moveType === 'Electric' && move.pp != move.maxpp) { tailgun = false; break; }
+				if (moveType === 'Electric' && move.pp !== move.maxpp) { tailgun = false; break; }
 			}
 			if (tailgun) this.actions.useMove('charge', target, { target });
 		},
@@ -1167,16 +1115,15 @@ export const Abilities: ModdedAbilityDataTable = {
 	},
 	vacuumbubble: { // Pressure interaction coded into pressure
 		onModifyMove(move, pokemon, target) {
-			move.ignoreEvasion = true;
 			move.ignoreDefensive = true;
 		},
-		onPrepareHit(source, target, move) {
-			if (vacuumItems.includes(this.toID(target.item))) {
+		onBeforeMove(source, target, move) {
+			if (target.item) {
 				target.speciesState.item = target.getItem();
 				target.setItem('');
 			}
 		},
-		onHit(source, target, move) {
+		onAfterMove(source, target, move) {
 			if (target.speciesState.item) {
 				target.setItem(target.speciesState.item);
 				target.speciesState.item = null;
@@ -1186,7 +1133,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "Vacuum Bubble",
 		rating: 4,
 		num: 0,
-		shortDesc: "Ignores foe's defense boosts, including items, when attacking. Immune to Pressure.",
+		shortDesc: "Ignores foe's items and defensive boosts when attacking. Immune to Pressure.",
 	},
 	hivemind: {
 		onSwitchOut(pokemon) {
@@ -1221,7 +1168,7 @@ export const Abilities: ModdedAbilityDataTable = {
 			if (!target.addType(target.abilityState.coatType)) return;
 		},
 		onSwitchIn(target) {
-			this.add('-start', target, 'typeadd', target.abilityState.coatType, '[from] ability: Coat of Arms'); //client adds it to the mon switching out if done before switch in
+			this.add('-start', target, 'typeadd', target.abilityState.coatType, '[from] ability: Coat of Arms'); // client adds it to the mon switching out if done before switch in
 		},
 		flags: {
 			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
@@ -1235,9 +1182,9 @@ export const Abilities: ModdedAbilityDataTable = {
 	retribution: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				source.abilityState.retribution = source.abilityState.retribution? source.abilityState.retribution + 1 : 1;
+				source.abilityState.retribution = source.abilityState.retribution ? source.abilityState.retribution + 1 : 1;
 				this.add('-activate', source, 'ability: Retribution');
-				this.add('-end', source, `retribution${source.abilityState.retribution-1}`, '[silent]');
+				this.add('-end', source, `retribution${source.abilityState.retribution - 1}`, '[silent]');
 				this.add('-start', source, `retribution${source.abilityState.retribution}`, '[silent]');
 			}
 		},
@@ -1263,10 +1210,8 @@ export const Abilities: ModdedAbilityDataTable = {
 		},
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-			if (this.checkMoveMakesContact(move, source, target, true) && target.abilityState.distortion) {
-				target.abilityState.distortion = false;
-				this.add('-end', target, 'As Above');
-			}
+			target.abilityState.distortion = false;
+			this.add('-end', target, 'As Above');
 		},
 		onSwitchInPriority: 1,
 		onSwitchIn(pokemon) {
@@ -1277,7 +1222,7 @@ export const Abilities: ModdedAbilityDataTable = {
 		name: "As Above",
 		rating: 4,
 		num: 0,
-		shortDesc: "While on field, stat changes have the opposite effect. Breaks upon contact with user.",
+		shortDesc: "While on field, stat changes have the opposite effect. Breaks upon any hit.",
 	},
 	soulsymphony: {
 		onModifyTypePriority: -1,
@@ -1295,15 +1240,15 @@ export const Abilities: ModdedAbilityDataTable = {
 	caeciliandefense: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-				target.addVolatile('caeciliandefense')
-				this.add('-start', target, `caeciliandefense`, '[silent]');
+			target.addVolatile('caeciliandefense');
+			this.add('-start', target, `caeciliandefense`, '[silent]');
 		},
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.volatiles['caeciliandefense']) move.overrideOffensiveStat = 'def';
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.volatiles['caeciliandefense']) {
-				source.removeVolatile('caeciliandefense')
+				source.removeVolatile('caeciliandefense');
 				this.add('-end', source, `caeciliandefense`, '[silent]');
 			}
 		},
@@ -1391,43 +1336,97 @@ export const Abilities: ModdedAbilityDataTable = {
 		onAfterMove(source, target, move) {
 			if (!move.flags.futuremove) return;
 			if (target.side.slotConditions[target.position]?.['futuremove']) {
-				let moveData = target.side.slotConditions[target.position]['futuremove'].moveData
+				let moveData = target.side.slotConditions[target.position]['futuremove'].moveData;
 				moveData = {
-					...moveData, 
-				onHit(target) {
-					if (target.getAbility().flags['cantsuppress']) return;
-					if (target.newlySwitched || this.queue.willMove(target)) return;
-					target.addVolatile('gastroacid');
-				},
+					...moveData,
+					onHit(target: Pokemon) {
+						if (target.getAbility().flags['cantsuppress']) return;
+						target.addVolatile('gastroacid');
+						target.clearBoosts();
+					},
 				};
 				target.side.slotConditions[target.position]['futuremove'].moveData = moveData;
 			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['futuremove'] && !target.getAbility().flags['cantsuppress']) {
+				target.addVolatile('gastroacid');
+				target.clearBoosts();
+			} 
 		},
 		flags: {},
 		name: "Zeitwinder",
 		rating: 3.5,
 		num: 0,
-		shortDesc: "User's future moves suppress the target's ability when they hit.",
+		shortDesc: "User's future moves suppress the target's ability and clears their stat changes when they hit.",
+	},
+	cadenza: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags.sound) {
+				if (!this.boost({ spa: 1 })) {
+					this.add('-immune', target, '[from] ability: Cadenza');
+				}
+				return null;
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Cadenza",
+		rating: 3,
+		num: 0,
+		shortDesc: "This Pokemon is immune to Sound moves; +1 Sp.Atk when hit by one.",
+	},
+	voltaicsiphon: {
+		onDamagingHitOrder: 1,
+		onSourceDamagingHit(damage, target, source, move) { // charge is used up after this, bad work around implemented in moves.ts charge
+			if (move.drain) {
+				source.addVolatile('charge');
+			}
+		},
+		flags: {},
+		name: "Voltaic Siphon",
+		rating: 1,
+		num: 0,
+		shortDesc: "This Pokemon gains the Charge effect when it succesfully uses a draining move.",
+	},
+	rampagingdespair: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'mazetsubo' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Rampaging Despair');
+				source.formeChange('Mazetsubo-Despair', this.effect, true);
+			}
+		},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.id === 'mazetsubodespair' && move.target === 'normal') move.target = 'allAdjacentFoes'; 
+		},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
+		name: "Rampaging Despair",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "If Mazetsubo: transforms into Mazetsubo-Despair on KO, gaining spread on single-targetting moves.",
 	},
 };
 
 const Manual = Utils.deepClone(Abilities);
 const mods = require('./mods.json');
 for (const mod in mods) {
-	const ModAbilities = require('../' + mod + '/abilities').Abilities as ModdedAbilityDataTable;
+	const ModAbilities: AnyObject = require('../' + mod + '/abilities').Abilities;
 
 	for (const key in ModAbilities) {
-		const id = key as keyof typeof ModAbilities;
+		const id = key as IDEntry;
 
 		if (Manual[id] || (mods[mod]["Abilities"]?.includes(id))) continue;
 
-		if (!Abilities[id]) Abilities[id] = Base[id] ? { inherit: true } : {};
+		if (!Abilities[id]) Abilities[id] = Base[id] ? { inherit: true } : {} as AbilityData;
+		const ability: AnyObject = Abilities[id];
 
 		for (const attr in ModAbilities[id]) {
 			if (['inherit', 'isNonstandard', 'num', 'gen'].includes(attr)) continue;
-			if (Abilities[id][attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
+			if (ability[attr]) console.log(`\nUnresolved collision at ${id}, ${attr}.`);
 			else {
-				Abilities[id][attr] = ModAbilities[id][attr];
+				ability[attr] = ModAbilities[id][attr];
 			}
 		}
 	}

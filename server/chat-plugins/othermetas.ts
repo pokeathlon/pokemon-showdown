@@ -211,10 +211,10 @@ export const commands: Chat.ChatCommands = {
 			"Dex Colour": mixedSpecies.color,
 		};
 		if (mixedSpecies.eggGroups) details["Egg Group(s)"] = mixedSpecies.eggGroups.join(", ");
-		details['<font color="#686868">Does Not Evolve</font>'] = "";
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies)}`);
+		details['<span class="gray">Does Not Evolve</span>'] = "";
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies, { language: this.language })}`);
 		this.sendReply(`|raw|<font size="1">` + Object.entries(details).map(([detail, value]) => (
-			value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`
+			value === '' ? detail : `<span class="gray">${detail}:</span> ${value}`
 		)).join("&nbsp;|&ThickSpace;") + `</font>`);
 	},
 	mixandmegahelp: [
@@ -368,7 +368,7 @@ export const commands: Chat.ChatCommands = {
 			buf += `</span>`;
 			buf += `</li>`;
 			this.sendReply(`|raw|<div class="message"><ul class="utilichart">${buf}<li style="clear:both"></li></ul></div>`);
-			this.sendReply(`|raw|<font size="1">${Object.entries(details).map(([detail, value]) => `<font color="#686868">${detail}:</font> ${value}`).join("&nbsp;|&ThickSpace;")}</font>`);
+			this.sendReply(`|raw|<font size="1">${Object.entries(details).map(([detail, value]) => `<span class="gray">${detail}:</span> ${value}`).join("&nbsp;|&ThickSpace;")}</font>`);
 		}
 	},
 	stonehelp: [`/stone <mega stone or other>[, generation] - Shows the changes that a mega stone/orb applies to a Pok\u00e9mon.`],
@@ -398,7 +398,7 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[i] *= (bst <= 350 ? 2 : 1);
 			species.bst += species.baseStats[i];
 		}
-		this.sendReply(`|html|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|html|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	'350cuphelp': [
 		`/350 OR /350cup <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in 350 Cup.`,
@@ -453,7 +453,9 @@ export const commands: Chat.ChatCommands = {
 		}
 		let tier = species.tier;
 		if (tier[0] === '(') tier = tier.slice(1, -1);
-		if (!(tier in boosts)) return this.sendReply(`|html|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		if (!(tier in boosts)) {
+			return this.sendReply(`|html|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
+		}
 		const boost = boosts[tier as TierShiftTiers];
 		species.bst = species.baseStats.hp;
 		for (const statName in species.baseStats) {
@@ -462,13 +464,22 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[statName] = Utils.clampIntRange(species.baseStats[statName] + boost, 1, 255);
 			species.bst += species.baseStats[statName];
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	tiershifthelp: [
 		`/ts OR /tiershift <pokemon>[, generation] - Shows the base stats that a Pok\u00e9mon would have in Tier Shift.`,
 		`Alternatively, you can use /ts[gen number] to see a Pok\u00e9mon's stats in that generation.`,
 	],
 
+	fuse: 'franticfusions',
+	fuse1: 'franticfusions',
+	fuse2: 'franticfusions',
+	fuse3: 'franticfusions',
+	fuse4: 'franticfusions',
+	fuse5: 'franticfusions',
+	fuse6: 'franticfusions',
+	fuse7: 'franticfusions',
+	fuse8: 'franticfusions',
 	franticfusions(target, room, user, connection, cmd) {
 		const args = target.split(',');
 		if (!toID(args[0]) && !toID(args[1])) return this.parse('/help franticfusions');
@@ -646,7 +657,7 @@ export const commands: Chat.ChatCommands = {
 			species.bst += species.baseStats[stat];
 		}
 		species.bst += species.baseStats.hp;
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	scalemonshelp: [
 		`/scale OR /scalemons <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Scalemons.`,
@@ -694,14 +705,14 @@ export const commands: Chat.ChatCommands = {
 			for (const stat in species.baseStats) {
 				species.baseStats[stat] = flippedStats[stat];
 			}
-			this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+			this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 			return;
 		}
 		const stats = Object.values(species.baseStats).reverse();
 		for (const [i, statName] of Object.keys(species.baseStats).entries()) {
 			species.baseStats[statName] = stats[i];
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	flippedhelp: [
 		`/flip OR /flipped <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Flipped.`,
@@ -745,7 +756,7 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[natureObj.plus] = swap;
 			species.tier = 'NS';
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen)}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, { dex, language: this.language })}`);
 	},
 	natureswaphelp: [
 		`/ns OR /natureswap <nature>, <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Nature Swap.`,
@@ -828,10 +839,10 @@ export const commands: Chat.ChatCommands = {
 			"Dex Colour": mixedSpecies.color,
 		};
 		if (mixedSpecies.eggGroups) details["Egg Group(s)"] = mixedSpecies.eggGroups.join(", ");
-		details['<font color="#686868">Does Not Evolve</font>'] = "";
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies)}`);
+		details['<span class="gray">Does Not Evolve</span>'] = "";
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(mixedSpecies, { language: this.language })}`);
 		this.sendReply(`|raw|<font size="1">` + Object.entries(details).map(([detail, value]) => (
-			value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`
+			value === '' ? detail : `<span class="gray">${detail}:</span> ${value}`
 		)).join("&nbsp;|&ThickSpace;") + `</font>`);
 	},
 	crossevolvehelp: [
@@ -904,9 +915,9 @@ export const commands: Chat.ChatCommands = {
 				Weight: `${deltas.weighthg < 0 ? "" : "+"}${deltas.weighthg / 10} kg`,
 				Stage: (dex.species.get(prevoSpecies.prevo).exists ? 3 : 2),
 			};
-			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas)}`);
+			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas, { language: this.language })}`);
 			if (!isReEvo) {
-				this.sendReply(`|raw|<font size="1"><font color="#686868">Gen:</font> ${details["Gen"]}&nbsp;|&ThickSpace;<font color="#686868">Weight:</font> ${details["Weight"]}&nbsp;|&ThickSpace;<font color="#686868">Stage:</font> ${details["Stage"]}</font>`);
+				this.sendReply(`|raw|<font size="1"><span class="gray">Gen:</span> ${details["Gen"]}&nbsp;|&ThickSpace;<span class="gray">Weight:</span> ${details["Weight"]}&nbsp;|&ThickSpace;<span class="gray">Stage:</span> ${details["Stage"]}</font>`);
 			}
 		} else {
 			const prevoSpecies = dex.species.get(evo.prevo);
@@ -944,9 +955,9 @@ export const commands: Chat.ChatCommands = {
 				Weight: `${deltas.weighthg < 0 ? "" : "+"}${deltas.weighthg / 10} kg`,
 				Stage: (dex.species.get(prevoSpecies.prevo).exists ? 3 : 2),
 			};
-			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas)}`);
+			this.sendReply(`|raw|${Chat.getDataPokemonHTML(deltas, { language: this.language })}`);
 			if (!isReEvo) {
-				this.sendReply(`|raw|<font size="1"><font color="#686868">Gen:</font> ${details["Gen"]}&nbsp;|&ThickSpace;<font color="#686868">Weight:</font> ${details["Weight"]}&nbsp;|&ThickSpace;<font color="#686868">Stage:</font> ${details["Stage"]}</font>`);
+				this.sendReply(`|raw|<font size="1"><span class="gray">Gen:</span> ${details["Gen"]}&nbsp;|&ThickSpace;<span class="gray">Weight:</span> ${details["Weight"]}&nbsp;|&ThickSpace;<span class="gray">Stage:</span> ${details["Stage"]}</font>`);
 			}
 		}
 	},
@@ -969,156 +980,13 @@ export const commands: Chat.ChatCommands = {
 		move.pp = 5;
 		move.gen = species.gen;
 		move.num = species.num;
-		move.desc = move.shortDesc = `Gives ${species.abilities['0']} as a second ability after use.`;
 		move.category = species.baseStats['spa'] >= species.baseStats['atk'] ? 'Special' : 'Physical';
-		this.sendReply(`|raw|${Chat.getDataMoveHTML(move)}`);
+		const desc = `Gives ${species.abilities['0']} as a second ability after use.`;
+		Object.assign(move, { desc, shortDesc: desc });
+		this.sendReply(`|raw|${Chat.getDataMoveHTML(move, { language: this.language })}`);
 	},
 	pokemovehelp: [
 		`/pokemove <Pok\u00e9mon> - Shows the Pokemove data for <Pok\u00e9mon>.`,
-	],
-
-	fuse: 'fusion',
-	fusion(target, room, user, connection, cmd) {
-		const args = target.split(',');
-		if (!toID(args[0]) && !toID(args[1])) return this.parse('/help fusion');
-		const targetGen = parseInt(cmd[cmd.length - 1]);
-		if (targetGen && !args[2]) target = `${target},gen${targetGen}`;
-		const { dex, targets } = this.splitFormat(target, true);
-		this.runBroadcast();
-		if (targets.length > 2) return this.parse('/help fusion');
-		const species = Utils.deepClone(dex.species.get(targets[0]));
-		const fusion = dex.species.get(targets[1]);
-		if (!fusion.name.length) throw new Chat.ErrorMessage(`Error: No fusion given.`);
-		if (!species.exists || species.gen > dex.gen) {
-			const monName = species.gen > dex.gen ? species.name : args[0].trim();
-			const additionalReason = species.gen > dex.gen ? ` in Generation ${dex.gen}` : ``;
-			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${monName}' not found${additionalReason}.`);
-		}
-		if (!fusion.exists || fusion.gen > dex.gen) {
-			const monName = fusion.gen > dex.gen ? fusion.name : args[1].trim();
-			const additionalReason = fusion.gen > dex.gen ? ` in Generation ${dex.gen}` : ``;
-			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${monName}' not found${additionalReason}.`);
-		}
-		if (fusion.name === species.name) {
-			throw new Chat.ErrorMessage('Pok\u00e9mon can\'t fuse with themselves.');
-		}
-
-		// STATS
-		species.bst = 0;
-		for (const stat in species.baseStats) {
-			if (stat === 'hp' || stat === 'spa' || stat === 'spd') {
-				species.baseStats[stat] = Math.floor((species.baseStats[stat] * 2 / 3) + (fusion.baseStats[stat] * 1 / 3));
-			}
-			if (stat === 'atk' || stat === 'def' || stat === 'spe') {
-				species.baseStats[stat] = Math.floor((species.baseStats[stat] * 1 / 3) + (fusion.baseStats[stat] * 2 / 3));
-			}
-			species.bst += species.baseStats[stat];
-		}
-
-		// TYPES
-		let speciesTypes = species.types;
-		let fusionTypes = fusion.types;
-
-		if (speciesTypes.length === 2 && speciesTypes.includes('Flying') && speciesTypes.includes('Normal')) speciesTypes = ['Flying'];
-		if (fusionTypes.length === 2 && fusionTypes.includes('Flying') && fusionTypes.includes('Normal')) fusionTypes = ['Flying'];
-
-		const typesSet = new Set([speciesTypes[0]]);
-		const bonusType = dex.types.get(fusionTypes[fusionTypes.length - 1]);
-		if (bonusType.exists) typesSet.add(bonusType.name);
-		if (fusionTypes.length === 2 && typesSet.size === 1) typesSet.add(fusionTypes[0]);
-
-		// ABILITIES
-		const abilities = new Set<string>([...Object.values(species.abilities), ...Object.values(fusion.abilities)]);
-		let buf = '<div class="message"><ul class="utilichart"><li class="result">';
-		buf += `<span class="col iconcol"><psicon title="${species.name}" pokemon="${species.id}"/></span> `;
-		buf += `<span class="col iconcol"><psicon title="${fusion.name}" pokemon="${fusion.id}"/></span> `;
-		buf += '<span class="col typecol">';
-		for (const type of typesSet) {
-			buf += `<img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32">`;
-		}
-		buf += '</span> ';
-		if (dex.gen >= 3) {
-			buf += '<span style="float:left;min-height:26px">';
-			const ability1 = [...abilities.values()][0];
-			abilities.delete(ability1);
-			let ability2;
-			if (abilities.size) {
-				ability2 = [...abilities.values()][0];
-				abilities.delete(ability2);
-			}
-			let ability3;
-			if (abilities.size) {
-				ability3 = [...abilities.values()][0];
-				abilities.delete(ability3);
-			}
-			let ability4;
-			if (abilities.size) {
-				ability4 = [...abilities.values()][0];
-				abilities.delete(ability4);
-			}
-			let ability5;
-			if (abilities.size) {
-				ability5 = [...abilities.values()][0];
-				abilities.delete(ability5);
-			}
-			let ability6;
-			if (abilities.size) {
-				ability6 = [...abilities.values()][0];
-				abilities.delete(ability6);
-			}
-			let ability7;
-			if (abilities.size) {
-				ability7 = [...abilities.values()][0];
-				abilities.delete(ability7);
-			}
-			if (ability1) {
-				if (ability2) {
-					buf += '<span class="col twoabilitycol">' + ability1 + '<br />' + ability2 + '</span>';
-				} else {
-					buf += '<span class="col abilitycol">' + ability1 + '</span>';
-				}
-			}
-			if (ability3) {
-				if (ability4) {
-					buf += '<span class="col twoabilitycol">' + ability3 + '<br />' + ability4 + '</span>';
-				} else {
-					buf += '<span class="col abilitycol">' + ability3 + '</span>';
-				}
-			}
-			if (ability5) {
-				if (ability6) {
-					buf += '<span class="col twoabilitycol">' + ability5 + '<br />' + ability6 + '</span>';
-				} else {
-					buf += '<span class="col abilitycol">' + ability5 + '</span>';
-				}
-			}
-			if (ability7) {
-				buf += '<span class="col abilitycol">' + ability7 + '</span>';
-			}
-			buf += '</span>';
-		}
-		buf += '<span style="float:left;min-height:26px">';
-		if (fusion.name.length) {
-			buf += '<span class="col statcol"><em>HP</em><br />' + species.baseStats.hp + '</span> ';
-		} else {
-			buf += '<span class="col statcol"><em>HP</em><br />0</span> ';
-		}
-		buf += '<span class="col statcol"><em>Atk</em><br />' + species.baseStats.atk + '</span> ';
-		buf += '<span class="col statcol"><em>Def</em><br />' + species.baseStats.def + '</span> ';
-		if (dex.gen <= 1) {
-			buf += '<span class="col statcol"><em>Spc</em><br />' + species.baseStats.spa + '</span> ';
-		} else {
-			buf += '<span class="col statcol"><em>SpA</em><br />' + species.baseStats.spa + '</span> ';
-			buf += '<span class="col statcol"><em>SpD</em><br />' + species.baseStats.spd + '</span> ';
-		}
-		buf += '<span class="col statcol"><em>Spe</em><br />' + species.baseStats.spe + '</span> ';
-		buf += '<span class="col bstcol"><em>BST<br />' + species.bst + '</em></span> ';
-		buf += '</span>';
-		buf += '</li><li style="clear:both"></li></ul></div>';
-		this.sendReply(`|raw|${buf}`);
-	},
-	fusionhelp: [
-		`/fuse <head pokemon>, <body pokemon>[, generation] - Shows the stats, types and abilities that <head pokemon> would get when fused with <body pokemon>.`,
 	],
 
 	bnb: 'badnboosted',
@@ -1145,7 +1013,9 @@ export const commands: Chat.ChatCommands = {
 			species.baseStats[i] *= (species.baseStats[i] <= 70 ? 2 : 1);
 			species.bst += species.baseStats[i];
 		}
-		this.sendReply(`|raw|${Chat.getDataPokemonHTML(species, dex.gen, 'BnB')}`);
+		this.sendReply(`|raw|${Chat.getDataPokemonHTML(
+			species, { dex, tier: 'BnB', language: this.language }
+		)}`);
 	},
 	'badnboostedhelphelp': [
 		`/bnb OR /badnboosted <pokemon>[, gen] - Shows the base stats that a Pok\u00e9mon would have in Bad 'n Boosted.`,
