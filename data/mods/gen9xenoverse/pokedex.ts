@@ -6893,8 +6893,8 @@ for (const key in { ...Base, ...Pokedex }) {
 		Pokedex[id] = { ...Pokedex[id], isNonstandard: null, gen: 9 };
 		// Must allow for mega base forms
 		if (Pokedex[id]?.baseSpecies) {
-			let baseSpeciesID = Dex.species.get(Pokedex[id].baseSpecies).id
-			Pokedex[baseSpeciesID] = { ...Pokedex[baseSpeciesID], isNonstandard: null, gen: 9 };
+			//let baseSpeciesID = Dex.species.get(Pokedex[id].baseSpecies).id
+			//Pokedex[baseSpeciesID] = { ...Pokedex[baseSpeciesID], isNonstandard: null, gen: 9 };
 		}
 	} else Pokedex[id] = { ...Pokedex[id], isNonstandard: "Custom", tier: "Illegal" };
 }
