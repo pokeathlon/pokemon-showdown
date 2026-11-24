@@ -148,7 +148,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				);
 				const targetOf1stDance = this.battle.activeTarget!;
 				for (const dancer of dancers) {
-					if (this.battle.faintMessages()) break;
+					if (this.battle.resolveFaints()) break;
 					if (dancer.fainted) continue;
 					this.battle.add('-activate', dancer, 'ability: Dancer');
 					const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
@@ -160,7 +160,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
-			this.battle.faintMessages();
+			this.battle.resolveFaints();
 			this.battle.checkWin();
 
 			if (this.battle.gen <= 4) {

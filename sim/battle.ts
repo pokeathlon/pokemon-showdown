@@ -514,6 +514,9 @@ export class Battle {
 			const handler = handlers[0];
 			handlers.shift();
 			const effect = handler.effect;
+			if (effect.effectType === 'Battlefield' && (!this.field.battlefield || handler.state !== this.field.battlefieldState)) {
+				continue;
+			}
 			if ((handler.effectHolder as Pokemon).fainted) {
 				if (!(handler.state?.isSlotCondition)) continue;
 			}
@@ -2859,14 +2862,23 @@ export class Battle {
 		case 'beforeTurn':
 			this.eachEvent('BeforeTurn');
 			break;
-		case 'residual':
+		case 'residual': {
 			this.add('');
 			this.clearActiveMove(true);
 			this.updateSpeed();
 			residualPokemon = this.getAllActive().map(pokemon => [pokemon, pokemon.hp] as const);
+			const oldBattlefieldState = this.field.battlefieldState;
 			this.fieldEvent('Residual');
-			if (!this.ended) this.add('upkeep');
+			if (!this.ended) {
+				// Fields started during Residual begin counting down next turn.
+				if (this.field.battlefield && this.field.battlefieldState !== oldBattlefieldState) {
+					this.add('upkeep', '[newfield]');
+				} else {
+					this.add('upkeep');
+				}
+			}
 			break;
+		}
 		}
 
 		// Gen 4 and earlier: clear active move so Mold Breaker doesn't allow hazards to bypass Clear Body and Levitate

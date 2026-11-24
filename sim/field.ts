@@ -191,11 +191,12 @@ export class Field {
 	setBattlefield(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
 		status = this.battle.dex.conditions.get(status);
 		if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+		if (!source && this.battle.event?.id === 'Hit') source = this.battle.event.source;
 		if (!source && this.battle.event?.target) source = this.battle.event.target;
 		if (source === 'debug') source = this.battle.sides[0].active[0];
 		if (!source) throw new Error(`setting battlefield without a source`);
 
-		if (this.battlefield === status.id) return false;
+		if (status.effectType !== 'Battlefield' || this.battlefield === status.id) return false;
 		const prevBattlefield = this.battlefield;
 		const prevBattlefieldState = this.battlefieldState;
 		this.battlefield = status.id;
@@ -212,6 +213,14 @@ export class Field {
 			this.battlefield = prevBattlefield;
 			this.battlefieldState = prevBattlefieldState;
 			return false;
+		}
+		if (prevBattlefield) {
+			this.battle.singleEvent('FieldEnd', this.battle.dex.conditions.getByID(prevBattlefield), prevBattlefieldState, this);
+		}
+		if (sourceEffect?.effectType === 'Ability') {
+			this.battle.add('-fieldstart', 'move: ' + status.name, '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+		} else {
+			this.battle.add('-fieldstart', 'move: ' + status.name);
 		}
 		this.battle.eachEvent('BattlefieldChange', sourceEffect);
 		return true;
