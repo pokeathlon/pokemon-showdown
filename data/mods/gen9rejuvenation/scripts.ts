@@ -1,5 +1,19 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen9',
+	field: {
+		getTurnTags() {
+			const state = this.battlefieldState;
+			const tags = [];
+			for (const key of [
+				'growth', 'hype', 'electricModifierIndex', 'flooding', 'pollution', 'melting', 'transformation', 'dragonden', 'volcanic',
+			]) {
+				if (state[key]) tags.push(`[${key}] ${state[key]}`);
+			}
+			if (state.crystalTypes) tags.push(`[crystalType] ${state.crystalTypes[state.crystalIndex]}`);
+			if (this.terrainState.flooding) tags.push(`[terrainFlooding] ${this.terrainState.flooding}`);
+			return tags;
+		},
+	},
 	pokemon: {
 	isGrounded(negateImmunity = false) {
 		if ('gravity' in this.battle.field.pseudoWeather && !(this.hasAbility(['contrary', 'magnetpull', 'oblivious', 'unaware']) && this.battle.field.isBattlefield('deepearthfield'))) return true;

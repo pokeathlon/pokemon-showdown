@@ -55,6 +55,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	naturepower: {
 		inherit: true,
+		desc: "Calls a move based on the active terrain, or on the field if there is no terrain. Calls Tri Attack by default.",
+		shortDesc: "Calls a move based on the terrain or field.",
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
 			if (this.field.isTerrain('electricterrain')) {
@@ -88,7 +90,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			} else if (this.field.isBattlefield('crystalcavernfield')) {
 				move = 'powergem';
 			} else if (this.field.isBattlefield('blessedfield')) {
-				move = 'judgement';
+				move = 'judgment';
 			} else if (this.field.isBattlefield('fairytalefield')) {
 				move = 'secretsword';
 			} else if (this.field.isBattlefield('starlightarenafield')) {
@@ -319,6 +321,8 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	},
 	terrainpulse: {
 		inherit: true,
+		desc: "If the user is grounded, this move takes its type from the active terrain or, if there is no terrain, from the field. Its power doubles while the user is grounded and a terrain is active.",
+		shortDesc: "If grounded, type varies and terrain doubles power.",
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
 			switch (this.field.terrain || this.field.battlefield) {

@@ -19,6 +19,7 @@ export class Field {
 	terrainState: EffectState;
 	battlefield: ID;
 	battlefieldState: EffectState;
+	getTurnTags?: (this: Field) => string[];
 	pseudoWeather: { [id: string]: EffectState };
 
 	constructor(battle: Battle) {

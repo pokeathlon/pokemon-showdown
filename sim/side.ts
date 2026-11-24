@@ -62,6 +62,7 @@ export interface Choice {
 }
 
 export interface PokemonSwitchRequestData {
+	chessPiece?: string;
 	/**
 	 * `` `${sideid}: ${name}` ``
 	 * @see {Pokemon#fullname}
