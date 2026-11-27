@@ -1407,6 +1407,25 @@ export const Abilities: ModdedAbilityDataTable = {
 		num: 0,
 		shortDesc: "If Mazetsubo: transforms into Mazetsubo-Despair on KO, gaining spread on single-targetting moves.",
 	},
+	inflatedmuscles: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({ atk: 2 });
+			}
+		},
+		onChangeBoost(boost, target) {
+			if (boost.atk && boost.atk + target.boosts.atk > 6) {
+				boost.atk = -12;
+			}
+		},
+		flags: {},
+		name: "Inflated Muscles",
+		rating: 3.5,
+		num: 0,
+		shortDesc: "+2 Atk. at end of turn, if Atk. would increase past +6, sets to -6.",
+	},
 };
 
 const Manual = Utils.deepClone(Abilities);

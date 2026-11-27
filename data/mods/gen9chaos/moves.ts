@@ -3078,6 +3078,36 @@ export const Moves: ModdedMoveDataTable = {
 		contestType: "Beautiful",
 		shortDesc: "Usually goes first.",
 	},
+	limn: {
+		num: 0,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Limn",
+		pp: 1,
+		priority: 0,
+		flags: {
+			bypasssub: 1, allyanim: 1, failencore: 1, nosleeptalk: 1, noassist: 1,
+			failcopycat: 1, failmimic: 1, failinstruct: 1, nosketch: 1,
+		},
+		onHit(target, source) {
+			const ability = this.dex.abilities.get(target.ability);
+			if (source.transformed || !ability || ability.flags.notrace || ["wonderguard", "starfall", "multishot", "outeruniverse", "atomizate", "glitch"].includes(ability.id)) return false;
+			if (!source.setAbility(ability, source)) return false;
+			
+			const limnIndex = source.moves.indexOf('limn');
+			if (limnIndex < 0) return false;
+			source.moveSlots.splice(limnIndex, 1);
+			source.baseMoveSlots.splice(limnIndex, 1);
+			
+			this.add('-activate', source, 'move: Limn', ability.name);
+			source.baseAbility = ability.id;
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+		shortDesc: "Permanently copy the ability of the target.",
+	},
 };
 
 const Manual = Utils.deepClone(Moves);

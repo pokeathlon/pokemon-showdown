@@ -762,7 +762,9 @@ export class TeamValidator {
 					if (tierSpecies.abilities[0] === ability.name) {
 						set.ability = species.abilities[0];
 					} else {
-						problems.push(`${name} can't have ${set.ability}.`);
+						const limn = dex.moves.get('limn');
+						const canLimn = limn.exists && this.checkCanLearn(limn, species, undefined, set) === null && ability.exists && !ability.flags.notrace && !['wonderguard', 'starfall', 'multishots'].includes(ability.id);
+						if (!canLimn) problems.push(`${name} can't have ${set.ability}.`);
 					}
 				}
 				if (ability.name === species.abilities['H']) {
