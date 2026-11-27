@@ -763,7 +763,7 @@ export class TeamValidator {
 						set.ability = species.abilities[0];
 					} else {
 						const limn = dex.moves.get('limn');
-						const canLimn = limn.exists && this.checkCanLearn(limn, species, undefined, set) === null && ability.exists && !ability.flags.notrace && !['wonderguard', 'starfall', 'multishots'].includes(ability.id);
+						const canLimn = limn.exists && this.checkCanLearn(limn, species, undefined, set) === null && ability.exists && !ability.flags.notrace && !["wonderguard", "starfall", "multishot", "outeruniverse", "atomizate", "glitch"].includes(ability.id);
 						if (!canLimn) problems.push(`${name} can't have ${set.ability}.`);
 					}
 				}
