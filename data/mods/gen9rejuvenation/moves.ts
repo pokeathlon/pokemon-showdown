@@ -8802,14 +8802,14 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		num: 0,
 		accuracy: true,
 		basePower: 150,
-		category: "Physical",
+		category: "Special",
 		name: "Unleashed Power",
 		pp: 1,
 		priority: 0,
 		flags: {},
 		isZ: true,
 		onModifyType(move, pokemon) {
-			move.type = pokemon.hpType ? pokemon.hpType: "Normal";
+			move.type = pokemon.hpType || 'Normal';
 		},
 		onModifyMove(move, pokemon, target) {
 			if (!target) return;
@@ -8817,17 +8817,15 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			const spa = pokemon.getStat('spa', false, true);
 			const def = target.getStat('def', false, true);
 			const spd = target.getStat('spd', false, true);
-			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
-			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
-			if (physical > special || (physical === special && this.randomChance(1, 2))) {
-				move.category = 'Physical';
-			}
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * move.basePower * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * move.basePower * spa) / spd) / 50);
+			move.category = physical > special || (physical === special && this.randomChance(1, 2)) ? 'Physical' : 'Special';
 		},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
 			pokemon.side.removeSideCondition('lightscreen');
-			pokemon.side.removeSideCondition('auroraveil');
+			pokemon.side.removeSideCondition('antimattershield');
 			pokemon.side.removeSideCondition('arenitewall');
 		},
 		secondary: null,
@@ -8840,10 +8838,10 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: true,
 		basePower: 80,
 		category: "Physical",
-		name: "Unleashed Power",
+		name: "Blinding Speed",
 		pp: 1,
 		priority: 2,
-		flags: {},
+		flags: {protect: 1},
 		isZ: true,
 		onModifyType(move, pokemon) {
 			const types = pokemon.getTypes();
@@ -8858,21 +8856,18 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			const spa = pokemon.getStat('spa', false, true);
 			const def = target.getStat('def', false, true);
 			const spd = target.getStat('spd', false, true);
-			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
-			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
-			if (physical > special || (physical === special && this.randomChance(1, 2))) {
-				move.category = 'Physical';
-			}
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * move.basePower * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * move.basePower * spa) / spd) / 50);
+			move.category = physical > special || (physical === special && this.randomChance(1, 2)) ? 'Physical' : 'Special';
 		},
 		onAfterMove(source, target, move) {
-			if (this.gameType !== 'doubles') return;
+			if (this.gameType !== 'doubles' || !source.moveThisTurnResult) return;
 			const ally = source.allies()[0];
+			if (!ally) return;
 			const action = this.queue.willMove(ally);
 			if (action) {
 				this.queue.prioritizeAction(action);
 				this.add('-activate', ally, 'move: After You');
-			} else {
-				return false;
 			}
 		},
 		secondary: null,
@@ -8887,26 +8882,30 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Status",
 		name: "Domain Shift",
 		pp: 1,
-		priority: 2,
+		priority: 0,
 		flags: {},
 		isZ: true,
 		onHit(target, source, move) {
-			let fields = ['swampfield', 'desertfield', 'icyfield', 'rockyfield', 'cavefield', 'mountainfield', 'deepearthfield', 'hauntedfield', 'cityfield', 'psychicterrain', 'grassyterrain', 'mistyterrain', 'electricterrain'];
+			const fields = ['swampfield', 'desertfield', 'icyfield', 'rockyfield', 'cavefield', 'mountainfield', 'deepearthfield', 'hauntedfield', 'cityfield', 'psychicterrain', 'grassyterrain', 'mistyterrain', 'electricterrain'];
 			if (source.item === 'interceptiumzparagon') fields.push('rainbowfield', 'forestfield', 'factoryfield', 'watersurfacefield', 'crystalcavernfield', 'snowymountainfield', 'blessedfield', 'fairytalefield', 'starlightarenafield', 'bewitchedwoodsfield', 'skyfield');
 			if (source.item === 'interceptiumzrenegade') fields.push('darkcrystalcavernfield', 'volcanicfield', 'corrosivefield', 'corrosivemistfield', 'volcanictopfield', 'shortcircuitfield', 'murkwatersurfacefield', 'dragonsdenfield', 'dimensionalfield', 'frozendimensionalfield', 'infernalfield', 'backalleyfield');
-			const chosenField = this.dex.conditions.get(this.sample(fields));
-			if (chosenField.effectType === 'Terrain') return this.field.setTerrain(chosenField, source);
-			return this.field.setBattlefield(chosenField, source);
-		},
-		condition: {
-			duration: 1,
-			onBattlefieldChange(target, source, sourceEffect) {
-				this.field.battlefieldState.duration = 0;
-			},
+			const choices = fields.filter(id => id !== this.field.battlefield && id !== this.field.terrain);
+			while (choices.length) {
+				const [id] = choices.splice(this.random(choices.length), 1);
+				if (this.dex.conditions.get(id).effectType === 'Terrain') {
+					if (!this.field.setTerrain(id, source, move)) continue;
+					this.field.terrainState.duration = 5;
+				} else {
+					if (!this.field.setBattlefield(id, source, move)) continue;
+					this.field.battlefieldState.duration = 5;
+				}
+				return;
+			}
+			return false;
 		},
 		secondary: null,
-		target: "normal",
-		type: "Normal",
+		target: "self",
+		type: "???",
 		contestType: "Cool",
 	},
 	elysianshield: {
@@ -8916,14 +8915,14 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Status",
 		name: "Elysian Shield",
 		pp: 1,
-		priority: 2,
+		priority: 0,
 		flags: {},
-		isZ: "interceptiumzrenegade",
-		onTry(source, target, move) {
-			if (source.item != 'interceptiumzparagon') return false;
+		isZ: "interceptiumzparagon",
+		onTry(source) {
+			if (source.item !== 'interceptiumzparagon') return false;
 		},
 		onHit(source) {
-			source.side.addSideCondition('auroraveil');
+			if (source.side.addSideCondition('auroraveil', source, this.effect)) source.side.sideConditions['auroraveil'].duration = 5;
 		},
 		boosts: {
 			def: 1,
@@ -8931,7 +8930,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "Fairy",
 		contestType: "Cool",
 	},
 	chthonicmalady: {
@@ -8941,21 +8940,23 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		category: "Status",
 		name: "Chthonic Malady",
 		pp: 1,
-		priority: 2,
+		priority: 0,
 		flags: {},
-		isZ: "interceptiumzparagon",
-		onTry(source, target, move) {
-			if (source.item != 'interceptiumzrenegade') return false;
+		isZ: "interceptiumzrenegade",
+		onTry(source) {
+			if (source.item !== 'interceptiumzrenegade') return false;
 		},
-		volatileStatus: 'torment',
-		status: 'ptr',
+		onHit(target, source, move) {
+			if (target.addVolatile('torment', source, move)) target.volatiles['torment'].duration = 3;
+			target.trySetStatus('ptr', source, move);
+		},
 		boosts: {
 			atk: -2,
 			spa: -2,
 		},
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Shadow",
 		contestType: "Cool",
 	},
 };

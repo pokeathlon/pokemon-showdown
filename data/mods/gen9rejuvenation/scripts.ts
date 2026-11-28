@@ -57,6 +57,11 @@ export const fieldMoves: {[id: string]: [string, string]} = {
 	watersurfacefield: ['Whirlpool', 'Water'],
 };
 
+const interceptiumMoves: {[id: string]: string[]} = {
+	interceptiumzparagon: ['Unleashed Power', 'Blinding Speed', 'Elysian Shield', 'Domain Shift'],
+	interceptiumzrenegade: ['Unleashed Power', 'Blinding Speed', 'Chthonic Malady', 'Domain Shift'],
+};
+
 export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: Pick<Pokemon, 'setType' | 'getStatus'>} = {
 	inherit: 'gen9',
 	add(this: Battle, ...parts) {
@@ -82,6 +87,11 @@ export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: 
 		return Battle.prototype.checkMoveBypassesProtect.call(this, move, attacker, defender, blockStatus);
 	},
 	getActionSpeed(action) {
+		if (action.choice === 'move' && action.zmove && interceptiumMoves[action.pokemon.item] &&
+			!this.validTargetLoc(action.targetLoc, action.pokemon, this.dex.moves.get(action.zmove).target)) {
+			action.originalTarget = this.getRandomTarget(action.pokemon, action.zmove);
+			if (action.originalTarget) action.targetLoc = action.pokemon.getLocOf(action.originalTarget);
+		}
 		Battle.prototype.getActionSpeed.call(this, action);
 		if (action.choice === 'switch' && this.field.isBattlefield('colosseumfield')) action.order = 200;
 	},
@@ -96,7 +106,7 @@ export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: 
 			const state = this.battlefieldState;
 			const changed = Field.prototype.setBattlefield.call(this, status, source, sourceEffect);
 			if (!changed) return false;
-			if (sourceEffect?.effectType === 'Move' && (sourceEffect.flags.pledgecombo || ['conversion', 'conversion2'].includes(sourceEffect.id))) {
+			if (sourceEffect?.effectType === 'Move' && (sourceEffect.flags.pledgecombo || ['conversion', 'conversion2', 'domainshift'].includes(sourceEffect.id))) {
 				if (sourceEffect.flags.pledgecombo) this.battlefieldState.duration = this.battlefieldState.source.hasItem('amplifiedrock') ? 7 : 4;
 				if (previous) {
 					delete state.pledge;
@@ -169,6 +179,18 @@ export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: 
 		},
 	},
 	pokemon: {
+		getMoveRequestData() {
+			const request = Pokemon.prototype.getMoveRequestData.call(this);
+			const moves = interceptiumMoves[this.item];
+			if (moves && request.canZMove) {
+				for (let i = request.moves.length; i < moves.length; i++) {
+					const move = this.battle.dex.moves.get(moves[i]);
+					request.moves.push({move: move.name, id: move.id, target: move.target, disabled: true, pp: 0, maxpp: 0});
+					request.canZMove.push({move: move.name, target: move.target});
+				}
+			}
+			return request as ReturnType<NonNullable<ModdedBattlePokemon['getMoveRequestData']>>;
+		},
 		hasAbility(ability) {
 			if (Pokemon.prototype.hasAbility.call(this, ability)) return true;
 			if (this.ability !== 'silvallycrest' && !(this.illusion && this.itemState.disguiseAbility)) return false;
@@ -210,6 +232,26 @@ export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: 
 	},
 	actions: {
 		inherit: true,
+		getZMove(move, pokemon, skipChecks) {
+			const moves = interceptiumMoves[pokemon.item];
+			if (!moves) return BattleActions.prototype.getZMove.call(this, move, pokemon, skipChecks);
+			const slot = pokemon.getMoveData(move);
+			if (!skipChecks && (pokemon.side.zMoveUsed || slot?.pp === 0)) return;
+			if (slot) return moves[pokemon.moveSlots.indexOf(slot)];
+			if (moves.slice(pokemon.moveSlots.length).includes(move.name)) return move.name;
+		},
+		getActiveZMove(move, pokemon) {
+			if (interceptiumMoves[pokemon.item]) {
+				const name = this.getZMove(move, pokemon, true);
+				if (name) {
+					const zMove = this.dex.getActiveMove(name);
+					zMove.isZ = pokemon.item;
+					zMove.isZOrMaxPowered = true;
+					return zMove;
+				}
+			}
+			return BattleActions.prototype.getActiveZMove.call(this, move, pokemon);
+		},
 		canMegaEvo(pokemon) {
 			const item = pokemon.getItem();
 			if (item.id === 'urshifiterapidstrike' || item.id === 'urshifite') {
@@ -291,7 +333,8 @@ export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: 
 				lockedMove = this.battle.runEvent('LockMove', pokemon);
 				if (lockedMove === true) lockedMove = false;
 				if (!lockedMove) {
-					if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+					if (!pokemon.deductPP(baseMove, null, target) && move.id !== 'struggle' &&
+						!(zMove && baseMove.id === move.id && interceptiumMoves[pokemon.item]?.includes(move.name))) {
 						this.battle.add('cant', pokemon, 'nopp', move);
 						this.battle.clearActiveMove(true);
 						pokemon.moveThisTurnResult = false;
