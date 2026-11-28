@@ -4,6 +4,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		inherit: true,
 		onType(types, pokemon) {
 			if (pokemon.transformed || pokemon.ability !== 'multitype') return types;
+			if (this.field.isBattlefield('newworldfield') && pokemon.speciesState.worldType) return [pokemon.speciesState.worldType];
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'multitype') {
 				type = pokemon.getItem().onPlate;
@@ -18,6 +19,7 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		inherit: true,
 		onType(types, pokemon) {
 			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
+			if (this.field.isBattlefield('newworldfield') && pokemon.speciesState.worldType) return [pokemon.speciesState.worldType];
 			let type: string | undefined = 'Normal';
 			if (pokemon.ability === 'rkssystem') {
 				type = pokemon.getItem().onMemory;
@@ -44,8 +46,9 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			if (this.effectState.sourceEffect.id === 'thundercage' && this.field.isTerrain('electricterrain')) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'snaptrap' && this.field.isTerrain('grassyterrain')) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'whirlpool' && this.field.isBattlefield(['watersurfacefield','underwaterfield'])) this.effectState.boundDivisor = 6;
+			if (this.effectState.sourceEffect.id === 'thundercage' && !this.field.battlefield && this.field.isTerrain('electricterrain')) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'magmastorm' && this.field.isBattlefield('dragonsdenfield')) this.effectState.boundDivisor = 6;
-			if (this.effectState.sourceEffect.id === 'firespin' && this.field.isBattlefield('hauntedfield')) this.effectState.boundDivisor = 6;
+			if (this.effectState.sourceEffect.id === 'firespin' && this.field.isBattlefield(['volcanicfield', 'hauntedfield'])) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) this.effectState.boundDivisor = 6;
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 4) this.effectState.boundDivisor = 4;
 			if (this.effectState.sourceEffect.id === 'infestation' && this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 5) this.effectState.boundDivisor = 3;
@@ -78,30 +81,62 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 			this.damage(target.baseMaxhp * damageMod / 16);
 		},
 	},
-	snow: {
+	snowscape: {
 		inherit: true,
-		durationCallback(source, effect) {
-			if (source?.hasItem('icyrock') || this.field.isBattlefield(['skyfield', 'snowymountainfield'])) {
+		durationCallback(source, target, effect) {
+			if (source?.hasItem('icyrock') || (effect?.id === 'chillyreception' && this.field.isBattlefield('bigtoparenafield')) || this.field.isBattlefield(['skyfield', 'icyfield'])) {
 				return 8;
 			}
 			return 5;
 		},
 	},
+	rainbowterrain: {
+		name: "Rainbow Terrain",
+		effectType: 'Terrain',
+		onFieldStart() {
+			this.add('-fieldstart', 'Rainbow Terrain');
+		},
+		onBasePower(basePower, source, target, move) {
+			if (move.category === 'Special' && move.type === 'Normal') this.chainModify(1.3);
+			if (['aurorabeam', 'dazzlinggleam', 'dragonpulse', 'firepledge', 'fleurcannon', 'grasspledge', 'heartstamp',
+				'hiddenpower', 'judgment', 'luminacrash', 'mirrorbeam', 'mistball', 'moonblast', 'mysticalfire', 'oceanicoperetta',
+				'prismaticlaser', 'relicsong', 'sacredfire', 'secretpower', 'silverwind', 'solarbeam', 'solarblade', 'sparklingaria',
+				'triattack', 'twinkletackle', 'waterpledge', 'weatherball', 'zenheadbutt'].includes(move.id)) this.chainModify(1.5);
+		},
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Special' && move.type === 'Normal') {
+				const subtype = this.sample(this.dex.types.all()).name;
+				const original = move.onEffectiveness;
+				move.onEffectiveness = function (typeMod, target, type, move) {
+					return (original?.call(this, typeMod, target, type, move) ?? typeMod) + this.dex.getEffectiveness(subtype, type);
+				};
+				this.hint(subtype + '!');
+			}
+			for (const secondary of move.secondaries || []) {
+				if (secondary.chance && !(secondary.volatileStatus === 'flinch' && pokemon.hasAbility('serenegrace'))) secondary.chance *= 2;
+			}
+		},
+		onChargeMove(pokemon, target, move) {
+			if (['solarbeam', 'solarblade'].includes(move.id)) return false;
+		},
+		onFieldResidualOrder: 27,
+		onFieldResidualSubOrder: 7,
+		onFieldResidual() {
+			if (this.field.isWeather(['hail', 'snowscape', 'sandstorm'])) this.field.clearTerrain();
+		},
+		onFieldEnd() {
+			this.add('-fieldend', 'Rainbow Terrain');
+		},
+	},
 	raindance: {
 		inherit: true,
 		durationCallback(source, effect) {
-			if (source?.hasItem('damprock') || this.field.isBattlefield(['skyfield', 'bigtoparenafield'])) {
-				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
+			if (source?.hasItem('damprock') || this.field.isBattlefield('skyfield')) {
 				return 8;
 			}
-			if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 5
 			return 5;
 		},
 		onFieldStart(field, source, effect) {
-			if (this.field.isWeather('sunnyday')) {
-				this.field.setBattlefield('rainbowfield')
-				this.field.battlefieldState.rainbow = true;
-			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'RainDance', '[from] ability: ' + effect.name, `[of] ${source}`);
@@ -114,17 +149,11 @@ export const ModConditions: import('../../../sim/dex-conditions').ModdedConditio
 		inherit: true,
 		durationCallback(source, effect) {
 			if (source?.hasItem('heatrock') || this.field.isBattlefield(['skyfield','desertfield', 'mountainfield', 'snowymountainfield'])) {
-				if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 8
 				return 8;
 			}
-			if (this.field.battlefieldState.rainbow) this.field.battlefieldState.rainbowDuration = 5
 			return 5;
 		},
 		onFieldStart(battle, source, effect) {
-			if (this.field.isWeather('raindance')) {
-				this.field.setBattlefield('rainbowfield')
-				this.field.battlefieldState.rainbow = true;
-			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, `[of] ${source}`);

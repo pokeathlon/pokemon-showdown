@@ -1,3 +1,5 @@
+import { Abilities as BaseAbilities } from '../../abilities';
+import { fieldMoves } from './scripts';
 const {Dex} = require('../../../sim/dex');
 
 
@@ -24,134 +26,102 @@ const silvabilities: {[k: string]: string} = {
 };
 
 export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
-	// Modded
-	mimicry: {
+	quarkdrive: {
 		inherit: true,
-		onTerrainChange(pokemon) {
-			let types;
-			switch (this.field.terrain || this.field.battlefield) {
-			case 'electricterrain':
-				types = ['Electric'];
-				break;
-			case 'grassyterrain':
-				types = ['Grass'];
-				break;
-			case 'mistyterrain':
-				types = ['Fairy'];
-				break;
-			case 'psychicterrain':
-				types = ['Psychic'];
-				break;
-			default:
-				types = pokemon.baseSpecies.types;
-			}
-			const oldTypes = pokemon.getTypes();
-			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
-			if (this.field.terrain || pokemon.transformed) {
-				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
-				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
-			} else {
-				this.add('-activate', pokemon, 'ability: Mimicry');
-				this.add('-end', pokemon, 'typechange', '[silent]');
+		onBattlefieldChange(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon, source, effect) {
+			if (this.field.isBattlefield('glitchfield')) pokemon.addVolatile('quarkdrive');
+			else BaseAbilities.quarkdrive.onTerrainChange!.call(this, pokemon, source, effect);
+		},
+	},
+	costar: {
+		inherit: true,
+		onStart(pokemon) {
+			BaseAbilities.costar.onStart!.call(this, pokemon);
+			if (pokemon.allies().length && this.field.isBattlefield('bigtoparenafield')) this.boost({atk: 1, spa: 1}, pokemon);
+		},
+	},
+	prismarmor: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.isBattlefield(['rainbowfield', 'darkcrystalcavernfield']) || target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify(0.75);
 			}
 		},
-		onBattlefieldChange(pokemon) {
-			let types;
-			switch (this.field.terrain) {
-			case 'volcanicfield':
-			case 'infernalfield':
-			case 'volcanictopfield':
-				types = ['Fire'];
-				break;
-			case 'corrosivemistfield':
-			case 'murkwatersurfacefield':
-			case 'corruptedcavefield':
-			case 'corrosivefield':
-				types = ['Poison'];
-				break;
-			case 'icyfield':
-			case 'frozendimensionalfield':
-			case 'snowymountainfield':
-				types = ['Ice'];
-				break;
-			case 'watersurfacefield':
-			case 'underwaterfield':
-			case 'swampfield':
-				types = ['Water'];
-				break;
-			case 'dragonsdenfield':
-				types = ['Dragon'];
-				break;
-			case 'skyfield':
-				types = ['Flying'];
-				break;
-			case 'chessboardfield':
-				types = ['Psychic'];
-				break;
-			case 'rainbowfield':
-				types = ['Dragon'];
-				break;
-			case 'crystalcavernfield':
-				types = [this.field.battlefieldState.crystalTypes[this.field.battlefieldState.crystalIndex]]
-				break;
-			case 'blessedfield':
-			case 'concertvenuefield':
-			case 'backalleyfield':
-			case 'cityfield':
-				types = ['Normal'];
-				break;
-			case 'starlightarenafield':
-			case 'dimensionalfield':
-				types = ['Dark'];
-				break;
-			case 'hauntedfield':
-				types = ['Ghost'];
-				break;
-			case 'factoryfield':
-			case 'mirrorarenafield':
-			case 'colosseumfield':
-				types = ['Steel'];
-				break;
-			case 'glitchfield':
-				types = ['???'];
-				break;
-			case 'fairytalefield':
-			case 'bewitchedwoodsfield':
-				types = ['Fairy'];
-				break;
-			case 'flowergardenfield':
-				types = ['Grass'];
-				break;
-			case 'forestfield':
-				types = ['Bug'];
-				break;
-			case 'bigtoparenafield':
-				types = ['Fighting'];
-				break;
-			case 'shortcircuitfield':
-				types = ['Electric'];
-				break;
-			case 'desertfield':
-			case 'beachfield':
-			case 'deepearthfield':
-				types = ['Ground'];
-				break;
-			case 'rockyfield':
-			case 'cavefield':
-			case 'mountainfield':
-				types = ['Rock'];
-				break;
-			case 'newworldfield':
-				types = [this.dex.types.get(this.sample(this.dex.types.all())).name];
-				break;
-			default:
-				types = pokemon.baseSpecies.types;
+	},
+	battery: {
+		inherit: true,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker === this.effectState.target || move.category !== 'Special') return;
+			return this.chainModify(!this.field.battlefield && this.field.isTerrain('electricterrain') ? 1.5 : [5325, 4096]);
+		},
+	},
+	toxicchain: {
+		inherit: true,
+		onSourceDamagingHit(damage, target, source, move) {
+			if (!this.field.isBattlefield(['corrosivefield', 'corrosivemistfield']) || !target.hasType(['Poison', 'Steel'])) {
+				return BaseAbilities.toxicchain.onSourceDamagingHit!.call(this, damage, target, source, move);
 			}
+			if (!target.status && !target.hasAbility('shielddust') && !target.hasItem('covertcloak') && this.randomChance(3, 10)) {
+				target.setStatus('tox', source, this.effect, true);
+			}
+		},
+	},
+	firemane: {
+		inherit: true,
+		onModifyAtk(stat, attacker, defender, move) {
+			if (move.type === 'Fire') return this.chainModify(this.field.isBattlefield(['volcanicfield', 'volcanictopfield']) ? 2 : 1.5);
+		},
+		onModifySpA(stat, attacker, defender, move) {
+			if (move.type === 'Fire') return this.chainModify(this.field.isBattlefield(['volcanicfield', 'volcanictopfield']) ? 2 : 1.5);
+		},
+	},
+	dragonize: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(this.field.isBattlefield('dragonsdenfield') ? 1.5 : [4915, 4096]);
+		},
+	},
+	rockypayload: {
+		inherit: true,
+		onModifyAtk(stat, attacker, defender, move) {
+			if (move.type === 'Rock') return this.chainModify(this.field.isBattlefield(['rockyfield', 'volcanictopfield']) ? 2 : 1.5);
+		},
+		onModifySpA(stat, attacker, defender, move) {
+			if (move.type === 'Rock') return this.chainModify(this.field.isBattlefield(['rockyfield', 'volcanictopfield']) ? 2 : 1.5);
+		},
+	},
+	dragonsmaw: {
+		inherit: true,
+		onModifyAtk(stat, attacker, defender, move) {
+			if (move.type === 'Dragon') return this.chainModify(this.field.isBattlefield('dragonsdenfield') ? 2 : 1.5);
+		},
+		onModifySpA(stat, attacker, defender, move) {
+			if (move.type === 'Dragon') return this.chainModify(this.field.isBattlefield('dragonsdenfield') ? 2 : 1.5);
+		},
+	},
+	mimicry: {
+		inherit: true,
+		onBattlefieldChange(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			const field = this.field.battlefield || this.field.effectiveTerrain(pokemon);
+			let type = fieldMoves[field]?.[1];
+			if (field === 'crystalcavernfield') {
+				const state = this.field.battlefieldState;
+				type = state.crystalTypes[state.crystalIndex];
+			} else if (field === 'newworldfield') {
+				type = this.sample(this.dex.types.all()).name;
+			}
+			const types = type ? [type] : pokemon.baseSpecies.types;
 			const oldTypes = pokemon.getTypes();
 			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
-			if (this.field.battlefield || pokemon.transformed) {
+			if (type || pokemon.transformed) {
 				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
-				if (!this.field.battlefield) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+				if (!type) this.hint("Transform Mimicry changes you to your original un-transformed types.");
 			} else {
 				this.add('-activate', pokemon, 'ability: Mimicry');
 				this.add('-end', pokemon, 'typechange', '[silent]');
@@ -206,7 +176,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	quickfeet: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (pokemon.status ||this.field.isTerrain('electricterrain')) {
+			if (pokemon.status ||(!this.field.battlefield && this.field.isTerrain('electricterrain'))) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -246,10 +216,10 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	comatose: {
 		inherit: true,
 		onStart(pokemon) {
-			if (!this.field.isTerrain('electricterrain')) this.add('-ability', pokemon, 'Comatose');
+			if (!(!this.field.battlefield && this.field.isTerrain('electricterrain'))) this.add('-ability', pokemon, 'Comatose');
 		},
 		onSetStatus(status, target, source, effect) {
-			if (this.field.isTerrain('electricterrain')) return;
+			if ((!this.field.battlefield && this.field.isTerrain('electricterrain'))) return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Comatose');
 			}
@@ -279,7 +249,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (effect?.id === 'surf' && source.hasAbility('gulpmissile') && source.species.name === 'Cramorant') {
 				var forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
-				if (this.field.isTerrain('electricterrain') || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) forme = 'cramorantgorging';
+				if ((!this.field.battlefield && this.field.isTerrain('electricterrain')) || this.field.isBattlefield(['factoryfield', 'shortcircuitfield'])) forme = 'cramorantgorging';
 				if (this.field.isBattlefield(['watersurfacefield','underwaterfield','swampfield'])) forme = 'cramorantgulping';
 				source.formeChange(forme, effect);
 			}
@@ -299,7 +269,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				if (!pokemon.activeTurns && this.effectState.duration) {
 					this.effectState.duration += 1;
 				}
-				if (this.field.isTerrain('electricfield') && this.effectState.duration) {
+				if ((!this.field.battlefield && this.field.isTerrain('electricterrain')) && this.effectState.duration) {
 					this.effectState.duration -= 1;
 				}
 			},
@@ -321,7 +291,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
-				if ((this.field.isTerrain('electricfield') || this.field.isBattlefield('shortcircuitfield'))? this.randomChance(6, 10) : this.randomChance(3, 10)) {
+				if (((!this.field.battlefield && this.field.isTerrain('electricterrain')) || this.field.isBattlefield('shortcircuitfield'))? this.randomChance(6, 10) : this.randomChance(3, 10)) {
 					source.trySetStatus('par', target);
 				}
 			}
@@ -331,17 +301,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyMove(move) {
 			move.ignoreAbility = true;
-			if (move.type === 'Electric' && this.field.isTerrain('electricterrain')) move.ignoreImmunity = {'Electric': true};
-		},
-		onBasePowerPriority: 23,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.type === 'Electric' && this.field.isTerrain('electricterrain')) return this.chainModify(1.5);
+			if (move.type === 'Electric' && (!this.field.battlefield && this.field.isTerrain('electricterrain'))) move.ignoreImmunity = {'Electric': true};
 		},
 	},
 	transistor: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
-			if (this.field.isTerrain('electricterrain') && move.type === 'Ground') {
+			if ((!this.field.battlefield && this.field.isTerrain('electricterrain')) && move.type === 'Ground') {
 				this.debug('Transistor weaken');
 				return this.chainModify(0.5);
 			}
@@ -382,7 +348,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 					this.add('-ability', target, 'Cotton Down');
 					activated = true;
 				}
-				if (this.field.isTerrain('grassyterrain') || this.field.isBattlefield('bewitchedwoodsfield')) {
+				if ((!this.field.battlefield && this.field.isTerrain('grassyterrain')) || this.field.isBattlefield('bewitchedwoodsfield')) {
 					this.boost({spe: -2}, pokemon, target, null, true);
 				} else {
 					this.boost({spe: -1}, pokemon, target, null, true);
@@ -393,7 +359,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	harvest: {
 		inherit: true,
 		onResidual(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.field.isTerrain('grassyterrain') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) || this.randomChance(1, 2)) {
+			if (this.field.isWeather(['sunnyday', 'desolateland']) || (!this.field.battlefield && this.field.isTerrain('grassyterrain')) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2) || this.randomChance(1, 2)) {
 				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
@@ -405,7 +371,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	overgrow: {
 		inherit: true,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
+			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || (!this.field.battlefield && this.field.isTerrain('grassyterrain')) || this.field.isBattlefield('forestfield') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
 				this.debug('Overgrow boost');
 				let modifier = 1.5;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) modifier = 1.6;
@@ -415,7 +381,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('foresstfield') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
+			if (move.type === 'Grass' && (attacker.hp <= attacker.maxhp / 3 || (!this.field.battlefield && this.field.isTerrain('grassyterrain')) || this.field.isBattlefield('forestfield') || (attacker.hp <= attacker.maxhp * 2 / 3 && (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 2) || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 3)))) {
 				this.debug('Overgrow boost');
 				let modifier = 1.5;
 				if (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth === 3) modifier = 1.6;
@@ -429,13 +395,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onStart(source) {
 			this.field.setWeather('desolateland');
-			if (this.field.isTerrain('grassyterrain')) this.field.setBattlefield('desertfield');
+			if ((!this.field.battlefield && this.field.isTerrain('grassyterrain'))) this.field.setBattlefield('desertfield');
 		},
 	},
 	marvelscale: {
 		inherit: true,
 		onModifyDef(def, pokemon) {
-			if (pokemon.status || this.field.isBattlefield(['mistyterrain','dragonsdenfield','rainbowfield','fairytalefield', 'starlightarenafield'])) {
+			if (pokemon.status || this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['deuxfinalisfield', 'dragonsdenfield','rainbowfield','fairytalefield', 'starlightarenafield'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -496,7 +462,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	soulheart: {
 		inherit: true,
 		onAnyFaint() {
-			(this.field.isTerrain('mistyterrain') || this.field.isBattlefield(['raindbowfield','fairytalefield']))? this.boost({spa: 1, spd: 1}, this.effectState.target) : this.boost({spa: 1}, this.effectState.target);
+			((!this.field.battlefield && this.field.isTerrain('mistyterrain')) || this.field.isBattlefield(['rainbowfield','fairytalefield']))? this.boost({spa: 1, spd: 1}, this.effectState.target) : this.boost({spa: 1}, this.effectState.target);
 		},
 	},
 	blaze: {
@@ -516,7 +482,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onUpdate(pokemon) {
-			if (this.field.isBattlefield('volcanotopfield') && this.field.battlefieldState.erupt  && !pokemon.abilityState.blaze) pokemon.abilityState.blaze = true;
+			if (this.field.isBattlefield('volcanictopfield') && this.field.battlefieldState.erupt  && !pokemon.abilityState.blaze) pokemon.abilityState.blaze = true;
 		},
 	},
 	iceface: {
@@ -566,7 +532,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	icebody: {
 		inherit: true,
 		onResidual(target) {
-			if ((target.species.id === 'glaceon' && target.hasItem('glaceoncrest')) || ['hail', 'snow', 'snowscape'].includes(target.effectiveWeather()) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
+			if ((target.species.id === 'glaceon' && target.hasItem('glaceoncrest')) || ['hail', 'snowscape'].includes(target.effectiveWeather()) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
@@ -578,7 +544,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	slushrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
+			if (this.field.isWeather(['hail', 'snowscape']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -587,7 +553,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyAccuracy(accuracy, target) {
 			if (typeof accuracy !== 'number') return;
-			if ((target.species.id === 'glaceon' && target.hasItem('glaceoncrest')) || this.field.isWeather(['hail', 'snow', 'snowscape']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
+			if ((target.species.id === 'glaceon' && target.hasItem('glaceoncrest')) || this.field.isWeather(['hail', 'snowscape']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -597,7 +563,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
-				this.field.isBattlefield('icyfield')? move.type === 'Ice' : move.type = 'Water';
+				move.type = this.field.isBattlefield('icyfield') ? 'Ice' : 'Water';
 			}
 		},
 	},
@@ -731,7 +697,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 				for (const secondary of move.secondaries) {
 					if (secondary.volatileStatus === 'flinch') return;
 				}
-				let chanceMod = this.field.isTerrain(['murkwatersurfacefield', 'backalleyfield', 'cityfield', 'wastelandfield'])? 2 : 1 
+				let chanceMod = this.field.isBattlefield(['murkwatersurfacefield', 'backalleyfield', 'cityfield', 'wastelandfield'])? 2 : 1
 				move.secondaries.push({
 					chance: 10*chanceMod,
 					volatileStatus: 'flinch',
@@ -759,7 +725,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (pokemon.hp && pokemon.status && (this.field.isBattlefield('dragonsdenfield')? true : this.randomChance(33, 100))) {
 				this.debug('shed skin');
 				this.add('-activate', pokemon, 'ability: Shed Skin');
-				if (pokemon.cureStatus() && this.field.isBattlefield('dragondensfield')) { // I think this will alwas trigger the cureStatus() function
+				if (pokemon.cureStatus() && this.field.isBattlefield('dragonsdenfield')) {
 					pokemon.heal(pokemon.baseMaxhp/4)
 					this.boost({def: -1, spd: -1, spa: 1, spe: 1})
 					this.hint(`${pokemon.name}'s scaled sheen glimmers brightly!`)
@@ -790,7 +756,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	flashfire: {
 		inherit: true,
 		onTryHit(target, source, move) {
-			if (this.field.isTerrain('frozendimensionalfield')) return;
+			if (this.field.isBattlefield('frozendimensionalfield')) return;
 			if (target !== source && move.type === 'Fire') {
 				move.accuracy = true;
 				if (!target.addVolatile('flashfire')) {
@@ -830,11 +796,11 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	magmaarmor: {
 		inherit: true,
 		onUpdate(pokemon) {
-			if (pokemon.status === 'frz' && !this.field.isBattlefield('frozendimendionalfield')) {
+			if (pokemon.status === 'frz' && !this.field.isBattlefield('frozendimensionalfield')) {
 				this.add('-activate', pokemon, 'ability: Magma Armor');
 				pokemon.cureStatus();
 			};
-			if (this.field.isBattlefield('volcanotopfield') && this.field.battlefieldState.erupt  && !pokemon.abilityState.active) pokemon.abilityState.active = true;
+			if (this.field.isBattlefield('volcanictopfield') && this.field.battlefieldState.erupt  && !pokemon.abilityState.active) pokemon.abilityState.active = true;
 		},
 		onImmunity(type, pokemon) {
 			if (this.field.isBattlefield('frozendimensionalfield')) return;
@@ -926,6 +892,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (this.field.isBattlefield(['infernalfield', 'dimensionalfield', 'hauntedfield'])) source.addVolatile('trapped', source, move, 'trapper');
 			if (this.field.isBattlefield("infernalfield")) target.addVolatile('infernalperish');
 
+			if (this.field.isBattlefield('deuxfinalisfield')) source.trySetStatus('ptr', target);
 			let announced = false;
 			for (const pokemon of [target, source]) {
 				if (pokemon.volatiles['perishsong']) continue;
@@ -941,7 +908,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	shadowshield: {
 		inherit: true,
 		onSourceModifyDamage(damage, source, target, move) {
-			let fieldMod = (this.field.isBattlefield('darkcrystalcarvernfield') || this.field.isBattlefield('starlightarenafield'))? 0.75 : 1;
+			let fieldMod = (this.field.isBattlefield('darkcrystalcavernfield') || this.field.isBattlefield('starlightarenafield'))? 0.75 : 1;
 			if (target.hp >= target.maxhp || this.field.isBattlefield('dimensionalfield')) {
 				this.debug('Shadow Shield weaken');
 				return this.chainModify(0.5*fieldMod);
@@ -985,12 +952,61 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 	},
+	beadsofruin: {
+		inherit: true,
+		onAnyModifySpD(spd, target, source, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && target.isAlly(this.effectState.target)) return;
+			return BaseAbilities.beadsofruin.onAnyModifySpD!.call(this, spd, target, source, move);
+		},
+	},
+	swordofruin: {
+		inherit: true,
+		onAnyModifyDef(def, target, source, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && target.isAlly(this.effectState.target)) return;
+			return BaseAbilities.swordofruin.onAnyModifyDef!.call(this, def, target, source, move);
+		},
+	},
+	tabletsofruin: {
+		inherit: true,
+		onAnyModifyAtk(atk, source, target, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && source.isAlly(this.effectState.target)) return;
+			return BaseAbilities.tabletsofruin.onAnyModifyAtk!.call(this, atk, source, target, move);
+		},
+	},
+	vesselofruin: {
+		inherit: true,
+		onAnyModifySpA(spa, source, target, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && source.isAlly(this.effectState.target)) return;
+			return BaseAbilities.vesselofruin.onAnyModifySpA!.call(this, spa, source, target, move);
+		},
+	},
+	aurabreak: {
+		inherit: true,
+		onAnyTryPrimaryHit(target, source, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && !source.isAlly(this.effectState.target)) return;
+			return BaseAbilities.aurabreak.onAnyTryPrimaryHit!.call(this, target, source, move);
+		},
+	},
+	darkaura: {
+		inherit: true,
+		onAnyBasePower(basePower, source, target, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && !source.isAlly(this.effectState.target)) return;
+			return BaseAbilities.darkaura.onAnyBasePower!.call(this, basePower, source, target, move);
+		},
+	},
+	fairyaura: {
+		inherit: true,
+		onAnyBasePower(basePower, source, target, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && !source.isAlly(this.effectState.target)) return;
+			return BaseAbilities.fairyaura.onAnyBasePower!.call(this, basePower, source, target, move);
+		},
+	},
 	powerspot: {
 		inherit: true,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
-				return ( this.field.isTerrain('psychicterrain') || this.field.isBattlefield(['blessedfield', 'hauntedfield', 'bewitchedwoodsfield', 'deepearthfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
+				return ( (!this.field.battlefield && this.field.isTerrain('psychicterrain')) || this.field.isBattlefield(['blessedfield', 'hauntedfield', 'bewitchedwoodsfield', 'deepearthfield', 'deuxfinalisfield']))? this.chainModify(1.5) : this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -1067,7 +1083,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
-			if ((pokemon.hp <= pokemon.maxhp / 2 || this.field.isTerrain('psychicterrain') || this.field.isBattlefield('beachfield')) && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+			if ((pokemon.hp <= pokemon.maxhp / 2 || (!this.field.battlefield && this.field.isTerrain('psychicterrain')) || this.field.isBattlefield('beachfield')) && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
 				pokemon.addVolatile('zenmode');
 			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
 				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
@@ -1094,6 +1110,13 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	shadowtag: {
 		inherit: true,
+		onFoeTrapPokemon(pokemon) {
+			if (this.field.isBattlefield('dimensionalfield') && pokemon.hasType('Ghost') && !pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
+				if (!pokemon.trapped) pokemon.trapped = 'hidden';
+			} else {
+				BaseAbilities.shadowtag.onFoeTrapPokemon!.call(this, pokemon);
+			}
+		},
 		onStart(pokemon) {
 			if (!this.field.isBattlefield('hauntedfield')) return;
 			for (const target of pokemon.foes()) {
@@ -1184,7 +1207,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isBattlefield('chessboardfield')) {
-				const modifier = Math.min(Math.floor(2.5*attacker.hp/attacker.maxhp + 2.5), 2)
+				const modifier = Math.min(2, 1 + 1.25 * (1 - attacker.hp / attacker.maxhp));
 				return this.chainModify(modifier);
 			}
 		},
@@ -1538,7 +1561,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	lunaridol: {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isWeather(['hail', 'snowscape'])) {
 				this.debug('Lunar Idol boost');
 				return this.chainModify(1.5);
 			}

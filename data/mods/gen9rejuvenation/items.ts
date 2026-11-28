@@ -1,49 +1,11 @@
 const {Dex} = require('../../../sim/dex');
 
-function showCrest(this: Battle, pokemon: Pokemon) {
-	const item = pokemon.getItem();
-	if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
-}
-
-function takeCrest(item: Item, pokemon: Pokemon) {
-	return !item.itemUser?.includes(pokemon.species.name);
-}
-
-function copyDisguiseAbility(this: Battle, pokemon: Pokemon) {
-	if (!pokemon.illusion || !pokemon.getItem().itemUser?.includes(pokemon.species.name)) return;
-	const ability = pokemon.illusion.ability;
-	if (['multitype', 'comatose', 'disguise', 'schooling', 'resuscitation', 'prismpower', 'rkssystem', 'imposter',
-		'shieldsdown', 'powerofalchemy', 'receiver', 'forecast', 'flowergift', 'illusion', 'wonderguard', 'zenmode',
-		'powerconstruct', 'iceface', 'neutralizinggas', 'hadronengine', 'orichalcumpulse'].includes(ability)) return;
-	if (pokemon.addVolatile('ability:' + ability, pokemon)) pokemon.itemState.disguiseAbility = ability;
-}
-
-function checkDisguiseAbility(this: Battle, pokemon: Pokemon) {
-	if (!pokemon.illusion && pokemon.itemState.disguiseAbility) {
-		pokemon.removeVolatile('ability:' + pokemon.itemState.disguiseAbility);
-		delete pokemon.itemState.disguiseAbility;
-	}
-}
-
-function disguiseSTAB(this: Battle, move: ActiveMove, pokemon: Pokemon) {
-	if (pokemon.getItem().itemUser?.includes(pokemon.species.name) && pokemon.illusion?.hasType(move.type)) move.forceSTAB = true;
-}
-
-function setReuniclusType(this: Battle, pokemon: Pokemon, move: Move) {
-	if (move.category === 'Status') return;
-	const physical = move.category === 'Physical';
-	const type = physical ? 'Fighting' : 'Psychic';
-	pokemon.storedStats.atk = physical ? pokemon.itemState.baseSpA : pokemon.itemState.baseAtk;
-	pokemon.storedStats.spa = physical ? pokemon.itemState.baseAtk : pokemon.itemState.baseSpA;
-	if (!pokemon.hasType(type) && pokemon.setType(type)) this.add('-start', pokemon, 'typechange', type, '[from] item: Reuniclus Crest');
-}
-
 export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	// Modded
 	cellbattery: {
 		inherit: true,
 		onSwitchIn(pokemon) {
-			if (this.field.isTerrain('electricterrain')) pokemon.useItem();
+			if ((!this.field.battlefield && this.field.isTerrain('electricterrain'))) pokemon.useItem();
 		},
 		boosts: {
 			atk: 1,
@@ -54,7 +16,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
 			if (heals.includes(effect.id)) {
-				return this.field.isTerrain('grassyterrain')? this.chainModify(1.6) : this.chainModify(1.3);
+				return (!this.field.battlefield && this.field.isTerrain('grassyterrain'))? this.chainModify(1.6) : this.chainModify(1.3);
 			}
 		},
 		gen: undefined
@@ -147,23 +109,23 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain') ||
-				this.field.isBattlefield(['darkcrystalcavernfield','rainbowfield','crystalcavernfield','blessedfield','fairytalefield','starlightarenafield','newworldfield','inversefield','dimensionalfield','hauntedfield','bewitchedwoodsfield'])) {
+			if (!pokemon.ignoringItem() && ((!this.field.battlefield && this.field.isTerrain('psychicterrain')) ||
+				this.field.isBattlefield(['darkcrystalcavernfield','rainbowfield','crystalcavernfield','blessedfield','fairytalefield','starlightarenafield','newworldfield','inversefield','deuxfinalisfield','dimensionalfield','hauntedfield','bewitchedwoodsfield']))) {
 				pokemon.useItem();
 			}
 		},
 		onTerrainChange(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
+			if (!pokemon.ignoringItem() && (!this.field.battlefield && this.field.isTerrain('psychicterrain'))) {
 				pokemon.useItem();
 			}
 		},
 		onBattlefieldChange(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isBattlefield(['darkcrystalcavernfield','rainbowfield','crystalcavernfield','blessedfield','fairytalefield','starlightarenafield','newworldfield','inversefield','dimensionalfield','hauntedfield','bewitchedwoodsfield'])) {
+			if (!pokemon.ignoringItem() && this.field.isBattlefield(['darkcrystalcavernfield','rainbowfield','crystalcavernfield','blessedfield','fairytalefield','starlightarenafield','newworldfield','inversefield','deuxfinalisfield','dimensionalfield','hauntedfield','bewitchedwoodsfield'])) {
 				pokemon.useItem();
 			}
 		},
 		onUseItem(item, pokemon) {
-			if (this.field.isTerrain('psychicterrain')) {
+			if ((!this.field.battlefield && this.field.isTerrain('psychicterrain'))) {
 				this.boost({spa: 2});
 				pokemon.addVolatile('confusion')
 			}
@@ -191,6 +153,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.add('-start', pokemon, 'typechange', 'Normal');
 				pokemon.setAbility('normalize')
 				this.add('-ability', pokemon, 'Normalize', '[from] item: Magical Seed');
+			}
+			if (this.field.isBattlefield('deuxfinalisfield')) {
+				this.boost({def: 1, spd: 1, spe: 1});
+				pokemon.addVolatile('perishsong');
 			}
 			if (this.field.isBattlefield('dimensionalfield')) {
 				this.boost({def: 1});
@@ -238,7 +204,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.boost({spa: 1});
 				pokemon.addVolatile('laserfocus');
 			}
-			if (this.field.isBattlefield('factoryfield')) {
+			if (this.field.isBattlefield('shortcircuitfield')) {
 				this.boost({spd: 1});
 				pokemon.addVolatile('magnetrise');
 			}
@@ -247,7 +213,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				pokemon.setType('???')
 				this.add('-start', pokemon, 'typechange', '???');
 			}
-			if (this.field.isBattlefield('glitchfield')) {
+			if (this.field.isBattlefield('mirrorarenafield')) {
 				this.boost({evasion: 2});
 			}
 			if (this.field.isBattlefield('flowergardenfield')) {
@@ -301,7 +267,8 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			};
 			if (this.field.isBattlefield('desertfield')) {
 				this.boost({def: 1, spd: 1, spe: 1});
-				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('Sand Tomb'))
+				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('Sand Tomb'));
+				if (pokemon.volatiles['partiallytrapped']) pokemon.volatiles['partiallytrapped'].duration = 5;
 			};
 			if (this.field.isBattlefield('rockyfield')) {
 				this.boost({def: 1, spd: 1});
@@ -311,7 +278,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('forestfield')) {
 				this.actions.useMove('spikyshield', pokemon, {target: pokemon});
 			};
-			if (this.field.isBattlefield('volcanotopfield')) {
+			if (this.field.isBattlefield('volcanictopfield')) {
 				this.boost({def: 1});
 				this.actions.useMove('shelltrap', pokemon, {target: pokemon});
 			};
@@ -327,7 +294,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (this.field.isBattlefield('cavefield')) {
 				this.boost({def: 2});
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * (2 ** typeMod) / 4);
+				this.damage(pokemon.maxhp * (2 ** typeMod) / 8);
 			};
 			if (this.field.isBattlefield('mountainfield')) {
 				this.boost({atk: 2, accuracy: -1});
@@ -350,13 +317,13 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			basePower: 10,
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain', 'mistyterrain']) ||
-				this.field.isBattlefield(['volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield','murkwatersurfacefield','dragonsdenfield','frozendimensionalfield','skyfield','infernalfield'])) {
+			if (!pokemon.ignoringItem() && ((!this.field.battlefield && this.field.isTerrain(['electricterrain', 'grassyterrain', 'mistyterrain'])) ||
+				this.field.isBattlefield(['volcanicfield', 'corrosivemistfield','icyfield', 'watersurfacefield','underwaterfield','murkwatersurfacefield','dragonsdenfield','frozendimensionalfield','skyfield','infernalfield']))) {
 				pokemon.useItem();
 			}
 		},
 		onTerrainChange(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain(['electricterrain', 'grassyterrain', 'mistyterrain'])) {
+			if (!pokemon.ignoringItem() && (!this.field.battlefield && this.field.isTerrain(['electricterrain', 'grassyterrain', 'mistyterrain']))) {
 				pokemon.useItem();
 			}
 		},
@@ -366,21 +333,22 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 		},
 		onUseItem(item, pokemon) {
-			if (this.field.isTerrain('electricterrain')) {
+			if ((!this.field.battlefield && this.field.isTerrain('electricterrain'))) {
 				this.boost({spe: 1})
 				pokemon.addVolatile('charge')
 			}
-			if (this.field.isTerrain('grassyterrain')) {
+			if ((!this.field.battlefield && this.field.isTerrain('grassyterrain'))) {
 				this.boost({def: 1})
 				pokemon.addVolatile('ingrain')
 			}
-			if (this.field.isTerrain('mistyterrain')) {
+			if ((!this.field.battlefield && this.field.isTerrain('mistyterrain'))) {
 				this.boost({spd: 1})
 				this.actions.useMove('wish', pokemon, {target: pokemon})
 			}
 			if (this.field.isBattlefield('volcanicfield')) {
 				this.boost({atk: 1, spa: 1, spe: 1})
-				this.actions.useMove('firespin', pokemon, {target: pokemon})
+				pokemon.addVolatile('partiallytrapped', pokemon, this.dex.getActiveMove('firespin'));
+				if (pokemon.volatiles['partiallytrapped']) pokemon.volatiles['partiallytrapped'].duration = 5;
 			}
 			if (this.field.isBattlefield('corrosivemistfield')) {
 				this.boost({atk: 1, spa: 1})
@@ -388,7 +356,7 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 			if (this.field.isBattlefield('icyfield')) {
 				this.boost({spe: 2})
-				pokemon.damage(pokemon.baseMaxhp/8);
+				if (pokemon.isGrounded()) this.damage(pokemon.baseMaxhp / 8, pokemon);
 			}
 			if (this.field.isBattlefield('watersurfacefield')) {
 				this.boost({spd: 1})
@@ -451,12 +419,24 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		itemUser: ["Silvally-Unknown"],
 		num: 0,
 	},
+	souldew: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.isBattlefield('deuxfinalisfield') && ['Latios', 'Latias'].includes(target.species.baseSpecies) &&
+				['Dark', 'Ghost'].includes(move.type)) return this.chainModify(0.5);
+		},
+		onBasePower(basePower, source, target, move) {
+			if (!['Latios', 'Latias'].includes(source.species.baseSpecies)) return;
+			if (['Dragon', 'Psychic'].includes(move.type)) return this.chainModify([4915, 4096]);
+			if (this.field.isBattlefield('deuxfinalisfield') && move.type === 'Dark') return this.chainModify(1.5);
+		},
+	},
 	amuletcoin: { 
 		name: "Amulet Coin",
 		spritenum: -6,
 		num: 0,
 		onSetStatus(status, target, source, effect) {
-			if (this.field.isTerrain('dragonsdenfield')) {
+			if (this.field.isBattlefield('dragonsdenfield')) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] item: Amulet Coin');
 				}
@@ -483,8 +463,13 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(0.70);
 			}
 		},
-		onStart: showCrest,
-		onTakeItem: takeCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Ampharos-Aevian"],
 		num: 0,
 		desc: "If held by an Ampharos-Aevian, the move in its first moveslot will be boosted by x1.2 if Electric or Ice-type, x1.5 otherwise. Reduces damage taken from Super-effective attacks by 30%.",
@@ -492,7 +477,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	ariadoscrest: {
 		name: "Ariados Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifySpePriority: 5,
 		onModifySpe(spe, pokemon) {
 			if (pokemon.species.id === 'ariados') {
@@ -510,7 +498,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onTryBoost(boost, target, source) {
 			if (target.species.id === 'ariados' && target !== source && boost.spe && boost.spe < 0) delete boost.spe;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Ariados"],
 		num: 0,
 		desc: "If held by an Ariados, x1.5 speed. Always lands critical hits against slowed or poisoned foes.",
@@ -518,7 +508,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	bastiodoncrest: {
 		name: "Bastiodon Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (target.species.id !== 'bastiodon') return;
@@ -526,7 +519,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			const recoil = this.damage(damage / 2, source, target);
 			if (recoil) this.heal(recoil, target);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Bastiodon"],
 		num: 0,
 		desc: "If held by a Bastiodon, foe takes 50% recoil from hit, and user heals for the same value.",
@@ -534,7 +529,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	beheeyemcrest: {
 		name: "Beheeyem Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.species.id !== 'beheeyem') return;
 			if (source.volatiles['disable']) return;
@@ -549,7 +547,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(0.67);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Beheeyem"],
 		num: 0,
 		desc: "If held by a Beheeyem, takes x0.67 damage if it hasn't moved yet. Disables moves that hit the user.",
@@ -557,7 +557,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	boltundcrest: {
 		name: "Boltund Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.species.id !== 'boltund') return;
@@ -565,7 +568,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(1.5);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Boltund"],
 		num: 0,
 		desc: "If held by a Boltund, x1.5 power to biting moves if user moves before foe.",
@@ -573,7 +578,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	castformcrest: {
 		name: "Castform Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform') return;
 			for (const moveSlot of pokemon.moveSlots) {
@@ -614,7 +622,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			pokemon.baseMaxhp = pokemon.maxhp = spread.hp;
 			if (pokemon.ability !== ability) pokemon.setAbility(ability);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Castform", "Castform-Rainy", "Castform-Sunny", "Castform-Snowy"],
 		num: 0,
 		desc: "If held by a Castform, summons first known weather move, changes form based on weather.",
@@ -622,8 +632,13 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	cherrimcrest: { //implemented in modded Flower Gift ability
 		name: "Cherrim Crest",
 		spritenum: -6,
-		onStart: showCrest,
-		onTakeItem: takeCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Cherrim", "Cherrim-Sunshine"],
 		num: 0,
 		desc: "If held by a Cherrim, forces Cherrim into Sunshine form.",
@@ -631,7 +646,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	cinccinocrest: {
 		name: "Cinccino Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMovePriority: 1,
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.species.id !== 'cinccino') return;
@@ -649,7 +667,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			const move = this.activeMove;
 			if (target.species.id === 'cinccino' && effect.id === 'drain' && move && move.hit > 2 && !this.dex.moves.get(move.id).multihit) return 0;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Cinccino"],
 		num: 0,
 		desc: "If held by a Cinccino, turns single-hit attacks into multihit at 40% BP.",
@@ -657,7 +677,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	claydolcrest: {
 		name: "Claydol Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePower(basePower, pokemon, target, move) {
 			if (pokemon.species.id !== 'claydol') return;
 			if ((/beam/i.test(move.id) || ['flashcannon', 'fleurcannon', 'dynamaxcannon'].includes(move.id))) {
@@ -682,7 +705,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (move.category != 'Special') return;
 			move.overrideOffensiveStat = 'def';
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Claydol"],
 		num: 0,
 		desc: "If held by a Claydol, x1.5 to beam moves. Uses Def instead of Sp.Atk in damage calculations.",
@@ -690,7 +715,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	cofagriguscrest: {
 		name: "Cofagrigus Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.species.id !== 'cofagrigus') return;
@@ -701,7 +729,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'cofagrigus') return;
 			return this.chainModify(1.4);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Cofagrigus"],
 		num: 0,
 		desc: "If held by a Cofagrigus, x1.4 Def and x1.2 Sp.Atk.",
@@ -709,7 +739,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	crabominablecrest: {
 		name: "Crabominable Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, pokemon) {
 			if (pokemon.species.id !== 'crabominable') return;
@@ -732,7 +765,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onBeforeTurn(pokemon) {
 			pokemon.itemState.CrabominableCrest = false;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Crabominable"],
 		num: 0,
 		desc: "If held by a Crabominable, x1.25 Def and Sp.Def. x1.5 boost if hit by an attack before moving.",
@@ -740,7 +775,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	cryogonalcrest: {
 		name: "Cryogonal Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifySpDPriority: 5,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.species.id !== 'cryogonal') return;
@@ -766,7 +804,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'cryogonal') return;
 				return spe = spe + Math.floor(this.modify(pokemon.storedStats.spd, 1.2) / 10);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Cryogonal"],
 		num: 0,
 		desc: "If held by a Cryogonal, x1.2 Sp.Def, rest of stats are raised by 10% of Sp.Def.",
@@ -774,13 +814,18 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	darmanitancrest: {
 		name: "Darmanitan Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id == 'darmanitan') {
 				pokemon.formeChange('Darmanitan-Zen', this.effect);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Darmanitan", "Darmanitan-Zen"],
 		num: 0,
 		desc: "If held by a Darmanitan, forces it into Zen Mode.",
@@ -788,7 +833,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	dedennecrest: {
 		name: "Dedenne Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.species.id !== 'dedenne') return;
 			if (move.category === 'Physical') {
@@ -798,7 +846,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifySpA(spa, pokemon) {
 			if (pokemon.species.id === 'dedenne') return this.chainModify([pokemon.storedStats.spe, pokemon.storedStats.spa]);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Dedenne"],
 		num: 0,
 		desc: "If held by a Dedenne, uses Speed instead of Attack in damage calculation.",
@@ -806,7 +856,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	delcattycrest: {
 		name: "Delcatty Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) { // Initialize states
 			if (pokemon.species.id !== 'delcatty') return;
 			this.effectState.delcattyCrestAtk = 0;
@@ -857,7 +910,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			this.effectState.delcattyCrestSpD = 0;
 			this.effectState.delcattyCrestSpe = 0;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Delcatty"],
 		num: 0,
 		desc: "If held by a Delcatty, +10% of all unfainted allies' stats.",
@@ -865,7 +920,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	druddigoncrest: {
 		name: "Druddigon Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePowerPriority: 30,
 		onBasePower(basePower, source, target, move){
 			if (source.species.id !== 'druddigon') return;
@@ -888,7 +946,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Druddigon"],
 		num: 0,
 		desc: "If held by a Druddigon, heals when hit by Fire-type attacks. x1.3 power to Dragon and Fire moves.",
@@ -896,7 +956,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	dusknoircrest: {
 		name: "Dusknoir Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, source, target, move) {
 			if (source.species.id !== 'dusknoir') return;
@@ -912,7 +975,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(1.5);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Dusknoir"],
 		num: 0,
 		desc: "If held by a Dusknoir, x1.5 attack, x1.5 power to moves under 60 BP.",
@@ -920,7 +985,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	electrodecrest: {
 		name: "Electrode Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSourceModifyDef(def, target, source) {
 			if (source.species.id === 'electrode') return this.chainModify(0.5);
 		},
@@ -933,7 +1001,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifySpD(spd, pokemon) {
 			if (pokemon.species.id === 'electrode') return spd + Math.floor(pokemon.storedStats.spe / 10);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Electrode"],
 		num: 0,
 		desc: "If held by an Electrode, halves foe's defense.",
@@ -941,7 +1011,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	empoleoncrest: {
 		name: "Empoleon Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'empoleon') return;
 			if (move.type === 'Ice') {
@@ -955,7 +1028,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(2)
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Empoleon"],
 		num: 0,
 		desc: "If held by an Empoleon, gains Ice STAB. x2 speed in hail/snow and icy fields.",
@@ -963,7 +1038,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	fearowcrest: {
 		name: "Fearow Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.species.id !== 'fearow') return;
@@ -986,7 +1064,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				delete move.multiaccuracy;
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Fearow"],
 		num: 0,
 		desc: "If held by a Fearow, x1.5 to stabbing moves, +1 crit chance.",
@@ -994,12 +1074,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	furretcrest: {
 		name: "Furret Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id !== 'furret') return;
 				this.actions.useMove(this.dex.moves.get('substitute'), pokemon, {target: pokemon});
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Furret"],
 		num: 0,
 		desc: "If held by a Furret, uses Substitute on switch-in.",
@@ -1007,7 +1092,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	feraligatrcrest: {
 		name: "Feraligatr Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.species.id !== 'feraligatr') return;
@@ -1019,7 +1107,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'feraligatr') return;
 			if (pokemon.activeTurns <= 1 && move.category != 'Status') return priority + 2;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Feraligatr"],
 		num: 0,
 		desc: "If held by a Feraligatr, +2 prio on first turn out. x1.5 power to biting moves.",
@@ -1027,13 +1117,18 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	glaceoncrest: {
 		name: "Glaceon Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onEffectivenessPriority: 1,
 		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'glaceon') return;
 			if (['Fighting', 'Rock'].includes(move.type)) return -1;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Glaceon"],
 		num: 0,
 		desc: "If held by a Glaceon, resists Rock and Fighting-type moves.",
@@ -1041,7 +1136,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	gothitellecrest: {
 		name: "Gothitelle Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onPrepareHit(source, target, move) { //follows Libero without the switch limitation logic I think
 			if (source.species.id !== 'gothitelle') return;
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
@@ -1061,7 +1159,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifySpA(spa, pokemon) {
 			if (pokemon.species.id === 'gothitelle') return this.chainModify(1.25);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Gothitelle"],
 		num: 0,
 		desc: "If held by a Gothitelle, swaps between Dark and Psychic-type depending on move used. Heals 1/16th at end of turn.",
@@ -1069,7 +1169,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	hypnocrest: {
 		name: "Hypno Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.species.id !== 'hypno') return;
@@ -1082,7 +1185,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(1.5);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Hypno"],
 		num: 0,
 		desc: "If held by a Hypno, x1.5 Sp.Atk, x1.5 accuracy.",
@@ -1090,7 +1195,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	infernapecrest: {
 		name: "Infernape Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) { //acts like IF stance change on switch in
 			if (pokemon.species.id !== 'infernape') return;
 			const stats = pokemon.storedStats;
@@ -1104,7 +1212,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'infernape') return;
 			this.heal(pokemon.baseMaxhp / 16);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Infernape"],
 		num: 0,
 		desc: "If held by an Infernape, recovers 1/16 Max HP at end of turn. Equalizes offenses and defenses.",
@@ -1112,13 +1222,18 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	leafeoncrest: {
 		name: "Leafeon Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onEffectivenessPriority: 1,
 		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'leafeon') return;
 			if (['Fire', 'Flying'].includes(move.type)) return -1;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Leafeon"],
 		num: 0,
 		desc: "If held by a Leafeon, resists Fire and Flying-type moves.",
@@ -1126,7 +1241,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	lediancrest: {
 		name: "Ledian Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'ledian') return;
 			if (move.flags.punch || move.id === 'stackingshot') {
@@ -1136,7 +1254,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (source.species.id === 'ledian' && (move.flags.punch || move.id === 'stackingshot') && move.hit > 2) return [];
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Ledian"],
 		num: 0,
 		desc: "If held by a Ledian, punching moves hit 4 times in a row.",
@@ -1144,7 +1264,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	luvdisccrest: {
 		name: "Luvdisc Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePower(basePower, source, target, move) {
 			if (source.species.id !== 'luvdisc') return;
 			const power = Math.min(source.happiness, 250);
@@ -1153,7 +1276,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.species.id === 'luvdisc' && Array.isArray(move.multihit)) move.multihit = 5;
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Luvdisc"],
 		num: 0,
 		desc: "If held by a Luvdisc, basepower of moves matches happiness, capping at 250.",
@@ -1161,7 +1286,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	luxraycrest: {
 		name: "Luxray Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'luxray') return;
 			if (move.type === 'Dark') {
@@ -1199,7 +1327,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'luxray') return;
 			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.2);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Luxray"],
 		num: 0,
 		desc: "If held by a Luxray, gains Galvanize effect, and Dark-type resistances and immunities.",
@@ -1207,7 +1337,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	magcargocrest: {
 		name: "Magcargo Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) { //TODO - check if they stay on switch out.
 			if (pokemon.species.id !== 'magcargo') return;
 			const stats = pokemon.storedStats;
@@ -1219,7 +1352,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'magcargo') return;
 			return this.chainModify(1.1);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Magcargo"],
 		num: 0,
 		desc: "If held by a Magcargo, Swaps Def. and Speed. x1.1 Sp.Atk.",
@@ -1227,7 +1362,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	meganiumcrest: {
 		name: "Meganium Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAnyModifyDamage(damage, source, target, move) {
 			if (this.effectState.target.species.id !== 'meganium') return;
 			if (target === this.effectState.target || target.isAlly(this.effectState.target)) {
@@ -1243,7 +1381,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				if (ally?.hp) this.heal(ally.baseMaxhp / 16, ally, pokemon);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Meganium"],
 		num: 0,
 		desc: "If held by a Meganium, user's side takes x0.8 damage and recovers 1/16 max HP every turn.",
@@ -1251,7 +1391,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	noctowlcrest: {
 		name: "Noctowl Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onDamagingHit(damage, target, source, effect) {
 			if (target.species.id !== 'noctowl') return;
 			this.boost({spd: 1});
@@ -1261,7 +1404,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'noctowl') return;
 			return this.chainModify(1.3);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Noctowl"],
 		num: 0,
 		desc: "If held by a Noctowl, raises user's Sp.Def when hit. x1.3 Def.",
@@ -1269,7 +1414,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	oricoriocrest: {
 		name: "Oricorio Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, source, target, move) {
 			if (source.species.baseSpecies !== 'Oricorio') return;
@@ -1279,7 +1427,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.baseSpecies !== 'Oricorio') return;
 			return this.chainModify(1.25);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Oricorio", "Oricorio-Pom-Pom", "Oricorio-Pa'u", "Oricorio-Sensu"],
 		num: 0,
 		desc: "If held by an Oricorio, x1.25 Sp.Atk and Speed.",
@@ -1287,7 +1437,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	phionecrest: {
 		name: "Phione Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyDefPriority: 5,
 		onModifyDef(def, source, target, move) {
 			if (source.species.id !== 'phione') return;
@@ -1302,7 +1455,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'phione') return;
 				this.actions.useMove(this.dex.moves.get('aquaring'), pokemon, {target: pokemon});
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Phione"],
 		num: 0,
 		desc: "If held by a Phione, x1.5 Def and Sp.Def. Summons Aqua Ring on switch-in.",
@@ -1310,7 +1465,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	probopasscrest: { // Levitate effect implemented in scripts
 		name: "Probopass Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.species.id !== 'probopass' || !move.totalDamage || !target?.hp) return;
 			if (['steelnose', 'rocknose', 'electricnose'].includes(move.id)) return;
@@ -1318,7 +1476,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				if (target.hp && source.hp) this.actions.useMove(nose, source, {target});
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Probopass"],
 		num: 0,
 		desc: "If held by a Probopass, gains Levitate. 20BP Steel/Rock/Electric-type move after damaging move.",
@@ -1326,7 +1486,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	rampardoscrest: {
 		name: "Rampardos Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
 			if (target.species.id !== 'rampardos') return;
@@ -1340,7 +1503,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return target.hp - 1;
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Rampardos"],
 		num: 0,
 		desc: "If held by a Rampardos, survives at 1HP once per battle. Takes no recoil from recoil moves.",
@@ -1348,7 +1513,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	relicanthcrest: {
 		name: "Relicanth Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, source, target, move) {
 			if (source.species.id !== 'relicanth') return;
@@ -1359,7 +1527,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'relicanth') return;
 			return this.chainModify(1.35);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Relicanth"],
 		num: 0,
 		desc: "If held by a Relicanth, x1.25 Atk, x1.35 Sp.Def.",
@@ -1367,13 +1537,22 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	reunicluscrest: {
 		name: "Reuniclus Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id !== 'reuniclus') return;
 			pokemon.itemState.baseSpA = this.modify(pokemon.storedStats.spa, 1.25);
 			pokemon.itemState.baseAtk = pokemon.storedStats.atk;
 			pokemon.storedStats.spa = pokemon.itemState.baseSpA;
-			setReuniclusType.call(this, pokemon, this.dex.moves.get(pokemon.moveSlots[0].id));
+			const move = this.dex.moves.get(pokemon.moveSlots[0].id);
+			if (move.category === 'Status') return;
+			const physical = move.category === 'Physical';
+			const type = physical ? 'Fighting' : 'Psychic';
+			pokemon.storedStats.atk = physical ? pokemon.itemState.baseSpA : pokemon.itemState.baseAtk;
+			pokemon.storedStats.spa = physical ? pokemon.itemState.baseAtk : pokemon.itemState.baseSpA;
+			if (!pokemon.hasType(type) && pokemon.setType(type)) this.add('-start', pokemon, 'typechange', type, '[from] item: Reuniclus Crest');
 		},
 		onBeforeTurn(pokemon) {
 			if (pokemon.species.id !== 'reuniclus') return;
@@ -1383,9 +1562,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				pokemon.itemState.baseSpA = this.modify(pokemon.storedStats.spa, 1.25);
 				pokemon.itemState.baseAtk = pokemon.storedStats.atk;
 			}
-			setReuniclusType.call(this, pokemon, action.move);
+			const move = action.move;
+			if (move.category === 'Status') return;
+			const physical = move.category === 'Physical';
+			const type = physical ? 'Fighting' : 'Psychic';
+			pokemon.storedStats.atk = physical ? pokemon.itemState.baseSpA : pokemon.itemState.baseAtk;
+			pokemon.storedStats.spa = physical ? pokemon.itemState.baseAtk : pokemon.itemState.baseSpA;
+			if (!pokemon.hasType(type) && pokemon.setType(type)) this.add('-start', pokemon, 'typechange', type, '[from] item: Reuniclus Crest');
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Reuniclus"],
 		num: 0,
 		desc: "If held by a Reuniclus, swaps forms when using Physical or Special attacks.",
@@ -1393,7 +1580,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	samurottcrest: {
 		name: "Samurott Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'samurott') return;
 			if (move.type === 'Fighting') {
@@ -1410,7 +1600,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(0.5);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Samurott"],
 		num: 0,
 		desc: "If held by a Samurott, gains Fighting-type STAB, resistances, and immunities. Slicing moves will always land a critical hit.",
@@ -1418,7 +1610,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	sawsbuckcrest: {
 		name: "Sawsbuck Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.baseSpecies !== 'Sawsbuck') return;
 			switch (pokemon.species.name) {
@@ -1449,7 +1644,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter"],
 		num: 0,
 		desc: "If held by a Sawsbuck, changes type depending on form.",
@@ -1457,7 +1654,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	sevipercrest: {
 		name: "Seviper Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifySpe(spe, pokemon) {
 			if (pokemon.species.id !== 'seviper') return;
 			return this.chainModify(1.5)
@@ -1467,7 +1667,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			const dmgMult = 1 + Math.floor(50 * target.hp / target.maxhp) / 100;
 			return this.chainModify(dmgMult)
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Seviper"],
 		num: 0,
 		desc: "If held by a Seviper, x1.5 Speed, damage boosted by 1% for each 2% HP the foe has left.",
@@ -1475,7 +1677,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	shiinoticcrest: {
 		name: "Shiinotic Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onResidualOrder: 8,
 		onResidual(pokemon) {
 			if (pokemon.species.id !== 'shiinotic') return;
@@ -1495,7 +1700,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'shiinotic') return;
 			for (const ally of pokemon.adjacentAllies()) ally.addVolatile('spotlight', pokemon);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Shiinotic"],
 		num: 0,
 		desc: "If held by a Shiinotic, drains health from status'd foes.",
@@ -1503,7 +1710,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	simipourcrest: {
 		name: "Simipour Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'simipour') return;
 			if (move.type === 'Grass') {
@@ -1538,7 +1748,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'simipour') return;
 			return this.chainModify(1.2);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Simipour"],
 		num: 0,
 		desc: "If held by a Simipour, gains Grass-type STAB and resistances, Atk. and Sp.Atk are x1.2.",
@@ -1546,7 +1758,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	simisagecrest: {
 		name: "Simisage Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'simisage') return;
 			if (move.type === 'Fire') {
@@ -1581,7 +1796,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'simisage') return;
 			return this.chainModify(1.2);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Simisage"],
 		num: 0,
 		desc: "If held by a Simisage, gains Fire-type STAB and resistances, Atk. and Sp.Atk are x1.2.",
@@ -1589,7 +1806,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	simisearcrest: {
 		name: "Simisear Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, source, target) {
 			if (source.species.id !== 'simisear') return;
 			if (move.type === 'Water') {
@@ -1624,7 +1844,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'simisear') return;
 			return this.chainModify(1.2);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Simisear"],
 		num: 0,
 		desc: "If held by a Simisear, gains Water-type STAB and resistances, Atk. and Sp.Atk are x1.2.",
@@ -1632,7 +1854,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	skuntankcrest: {
 		name: "Skuntank Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target.species.id !== 'skuntank') return;
@@ -1653,7 +1878,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'skuntank') return;
 			return this.chainModify(1.2);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Skuntank"],
 		num: 0,
 		desc: "If held by a Skuntank, if hit by Ground-type move raises Atk by 1 stage. Immune to Ground-type attacks. x1.2 Atk and Sp.Atk.",
@@ -1661,7 +1888,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	spiritombcrest: {
 		name: "Spiritomb Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.species.id !== 'spiritomb') return;
@@ -1674,7 +1904,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'spiritomb') return;
 				this.heal(pokemon.baseMaxhp * pokemon.side.foe.pokemon.filter(foe => foe.fainted).length / 20);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Spiritomb"],
 		num: 0,
 		desc: "If held by a Spiritomb, +20% power boost per fainted ally. Heals 1/20th per fainted foe.",
@@ -1682,7 +1914,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	stantlercrest: {
 		name: "Stantler Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			if (!['stantler', 'wyrdeer'].includes(pokemon.species.id)) return;
@@ -1695,7 +1930,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return this.chainModify(1.5);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Stantler", "Wyrdeer"],
 		num: 0,
 		desc: "If held by a Stantler or Wyrdeer, x1.5 Atk and x1.5 accuracy.",
@@ -1703,14 +1940,19 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	swalotcrest: { //Belch interaction coded into Belch move
 		name: "Swalot Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAfterMove(source, target, move) {
 			if (source.species.id !== 'swalot') return;
 			if (source.volatiles['stockpile']?.layers >= 3) return;
 			if (['spitup', 'swallow', 'stockpile', 'belch'].includes(move.id)) return;
 			this.actions.useMove(this.dex.moves.get('stockpile'), source, {target: source});
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Swalot"],
 		num: 0,
 		desc: "If held by a Swalot, will attempt to use Stockpile after moving.",
@@ -1718,7 +1960,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	thievulcrest: {
 		name: "Thievul Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id !== 'thievul') return;
 			let activated = false;
@@ -1735,7 +1980,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			}
 			this.boost({spa: 1}, pokemon)
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Thievul"],
 		num: 0,
 		desc: "If held by a Thievul, lowers foe(s) Sp.Atk by 1 stage. Raises user's Sp.Atk by 1 stage.",
@@ -1743,7 +1990,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	torterracrest: {
 		name: "Torterra Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onEffectivenessPriority: 1, //taken from Inverse Mod
 		onEffectiveness(typeMod, target, type, move) {
 			if (target?.species.id !== 'torterra') return;
@@ -1761,7 +2011,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				this.heal(move.totalDamage / 8, pokemon);
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Torterra"],
 		num: 0,
 		desc: "If held by a Torterra, inverts type resistances and weaknesses for itself, not immunities. Gains Shell Bell effect.",
@@ -1769,7 +2021,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	typhlosioncrest: {
 		name: "Typhlosion Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, pokemon, target) {
 			if (pokemon.species.id !== 'typhlosion') return;
 			if (move.category === 'Physical') {
@@ -1783,7 +2038,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.species.id !== 'typhlosion') return;
 			if (move.flags.contact && move.hit === 2 && !this.dex.moves.get(move.id).multihit) return this.chainModify(0.3);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Typhlosion"],
 		num: 0,
 		desc: "If held by a Typhlosion, uses Sp.Atk instead of Attack in damage calculation. Contact moves hit twice.",
@@ -1791,7 +2048,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	vespiquencrest: {
 		name: "Vespiquen Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id !== 'vespiquen') return;
 			this.boost({atk: 1, spa: 1}, pokemon)
@@ -1823,7 +2083,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (pokemon.itemState.stance != 'defense') return;
 			this.heal(pokemon.baseMaxhp / 16);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Vespiquen"],
 		num: 0,
 		desc: "If held by a Vespiquen, will swap stance when using Heal Order or Defend Order and attacking moves.",
@@ -1831,7 +2093,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	whiscashcrest: {
 		name: "Whiscash Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target.species.id !== 'whiscash') return;
@@ -1852,7 +2117,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			if (source.species.id !== 'whiscash') return;
 			return this.chainModify(1.2);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Whiscash"],
 		num: 0,
 		desc: "If held by a Whiscash, +1 Atk when hit by Grass-type move. Immune to Grass-type moves. x1.2 Atk and Sp.Atk.",
@@ -1881,7 +2148,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				return false;
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Zangoose"],
 		num: 0,
 		desc: "If held by a Zangoose, poisons user and restors HP if user is poisoned.",
@@ -1889,11 +2158,30 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	zoroarkcrest: {
 		name: "Zoroark Crest",
 		spritenum: -6,
-		onStart: showCrest,
-		onSwitchIn: copyDisguiseAbility,
-		onUpdate: checkDisguiseAbility,
-		onModifyMove: disguiseSTAB,
-		onTakeItem: takeCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
+		onSwitchIn(pokemon) {
+			if (!pokemon.illusion || !pokemon.getItem().itemUser?.includes(pokemon.species.name)) return;
+			const ability = pokemon.illusion.ability;
+			if (['multitype', 'comatose', 'disguise', 'schooling', 'resuscitation', 'prismpower', 'rkssystem', 'imposter',
+				'shieldsdown', 'powerofalchemy', 'receiver', 'forecast', 'flowergift', 'illusion', 'wonderguard', 'zenmode',
+				'powerconstruct', 'iceface', 'neutralizinggas', 'hadronengine', 'orichalcumpulse'].includes(ability)) return;
+			if (pokemon.addVolatile('ability:' + ability, pokemon)) pokemon.itemState.disguiseAbility = ability;
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.illusion && pokemon.itemState.disguiseAbility) {
+				pokemon.removeVolatile('ability:' + pokemon.itemState.disguiseAbility);
+				delete pokemon.itemState.disguiseAbility;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getItem().itemUser?.includes(pokemon.species.name) && pokemon.illusion?.hasType(move.type)) move.forceSTAB = true;
+		},
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Zoroark", "Zoroark-Hisui"],
 		num: 0,
 		desc: "If held by a Zoroark, takes on ability and STAB types of Pokémon it is disguised as.",
@@ -1902,8 +2190,13 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	celebicrest: {
 		name: "Celebi Crest",
 		spritenum: -6,
-		onStart: showCrest,
-		onTakeItem: takeCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Celebi"],
 		num: 0,
 		desc: "While Celebi is active, end-of-turn effects run twice.",
@@ -1911,7 +2204,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	enteicrest: {
 		name: "Entei Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.species.id !== 'entei' || move.type !== 'Fire' || move.category === 'Status') return;
 			move.target = 'allAdjacentFoes';
@@ -1924,7 +2220,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onBasePower(basePower, source) {
 			if (source.species.id === 'entei') return this.chainModify([1000 + this.clampIntRange(source.hp, 300, 500), 1000]);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Entei"],
 		num: 0,
 		desc: "Entei boosts its moves by 30–50% based on current HP. Its Fire attacks hit adjacent foes.",
@@ -1932,7 +2230,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	flygoncrest: {
 		name: "Flygon Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAllyBasePower(basePower, source, target, move) {
 			if (this.effectState.target.species.id === 'flygon' && move.flags.sound) return this.chainModify(1.5);
 		},
@@ -1942,7 +2243,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.species.id === 'flygon' && move.flags.sound) move.overrideOffensiveStat = 'atk';
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Flygon"],
 		num: 0,
 		desc: "Flygon and its allies boost sound moves by 50% and avoid allied sound attacks. Flygon uses Attack for sound moves.",
@@ -1950,12 +2253,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	minuncrest: {
 		name: "Minun Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAnyModifyDamage(power, source, target, move) {
 			const holder = this.effectState.target;
 			if (holder.species.id === 'minun' && holder.isAlly(target) && move.category === 'Physical') return this.chainModify(0.67);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Minun"],
 		num: 0,
 		desc: "Activates Minus and modifies physical damage for the holder and its allies.",
@@ -1963,12 +2271,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	pluslecrest: {
 		name: "Plusle Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAllyBasePower(power, source, target, move) {
 			const holder = this.effectState.target;
 			if (holder.species.id === 'plusle' && holder.isAlly(source) && move.category === 'Physical') return this.chainModify(1.33);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Plusle"],
 		num: 0,
 		desc: "Activates Plus and modifies physical damage for the holder and its allies.",
@@ -1976,7 +2289,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	raikoucrest: {
 		name: "Raikou Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onAllySetStatus(status, target) {
 			if (this.effectState.target.species.id === 'raikou' && status.id === 'slp' && target.isGrounded()) return false;
 		},
@@ -2006,7 +2322,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 				}
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Raikou"],
 		num: 0,
 		desc: "Raikou and its allies act as if rain and Electric Terrain are active.",
@@ -2014,13 +2332,18 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	suicunecrest: {
 		name: "Suicune Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id === 'suicune' && pokemon.side.addSideCondition('tailwind', pokemon)) {
 				pokemon.side.sideConditions['tailwind'].duration = 1;
 			}
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Suicune"],
 		num: 0,
 		desc: "Suicune ignores the effects of major status and sets Tailwind for one turn on entry.",
@@ -2028,12 +2351,17 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	sunfloracrest: {
 		name: "Sunflora Crest",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onResidualOrder: 5,
 		onResidual(pokemon) {
 			if (pokemon.species.id === 'sunflora') this.heal(pokemon.baseMaxhp / 10);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Sunflora"],
 		num: 0,
 		desc: "Sunflora acts as if sun is active and heals 10% of its max HP each turn.",
@@ -2041,7 +2369,10 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 	goldenapple: {
 		name: "Golden Apple",
 		spritenum: -6,
-		onStart: showCrest,
+		onStart(pokemon) {
+			const item = pokemon.getItem();
+			if (item.itemUser?.includes(pokemon.species.name)) this.add('-item', pokemon, item.name);
+		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.baseSpecies !== 'Zorua') return;
 			const evolution = this.dex.species.get(pokemon.species.id === 'zoruahisui' ? 'Zoroark-Hisui' : 'Zoroark');
@@ -2049,10 +2380,22 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			for (const stat of ['atk', 'def', 'spa', 'spd', 'spe'] as const) pokemon.storedStats[stat] = stats[stat];
 			pokemon.hp = Math.ceil(pokemon.hp * stats.hp / pokemon.maxhp);
 			pokemon.maxhp = pokemon.baseMaxhp = stats.hp;
-			copyDisguiseAbility.call(this, pokemon);
+			if (!pokemon.illusion || !pokemon.getItem().itemUser?.includes(pokemon.species.name)) return;
+			const ability = pokemon.illusion.ability;
+			if (['multitype', 'comatose', 'disguise', 'schooling', 'resuscitation', 'prismpower', 'rkssystem', 'imposter',
+				'shieldsdown', 'powerofalchemy', 'receiver', 'forecast', 'flowergift', 'illusion', 'wonderguard', 'zenmode',
+				'powerconstruct', 'iceface', 'neutralizinggas', 'hadronengine', 'orichalcumpulse'].includes(ability)) return;
+			if (pokemon.addVolatile('ability:' + ability, pokemon)) pokemon.itemState.disguiseAbility = ability;
 		},
-		onUpdate: checkDisguiseAbility,
-		onModifyMove: disguiseSTAB,
+		onUpdate(pokemon) {
+			if (!pokemon.illusion && pokemon.itemState.disguiseAbility) {
+				pokemon.removeVolatile('ability:' + pokemon.itemState.disguiseAbility);
+				delete pokemon.itemState.disguiseAbility;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getItem().itemUser?.includes(pokemon.species.name) && pokemon.illusion?.hasType(move.type)) move.forceSTAB = true;
+		},
 		onModifyDef(def, pokemon) {
 			if (pokemon.species.id === 'pangoro') return this.chainModify(1.3);
 		},
@@ -2066,7 +2409,9 @@ export const ModItems: import('../../../sim/dex-items').ModdedItemDataTable = {
 			move.auraBooster ||= holder;
 			if (move.auraBooster === holder) return this.chainModify([move.hasAuraBreak ? 3072 : 5448, 4096]);
 		},
-		onTakeItem: takeCrest,
+		onTakeItem(item, pokemon) {
+			return !item.itemUser?.includes(pokemon.species.name);
+		},
 		itemUser: ["Zorua", "Zorua-Hisui", "Pangoro"],
 		num: 0,
 		desc: "Zorua uses its evolution’s stats and copies its disguise’s ability and STAB. Pangoro gains Dark Aura and 30% higher defenses.",

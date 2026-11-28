@@ -3,20 +3,150 @@ import { Pokemon } from '../../../sim/pokemon';
 import { Field } from '../../../sim/field';
 import { BattleActions } from '../../../sim/battle-actions';
 
-function crestWeather(pokemon: Pokemon) {
-	if (pokemon.species.id === 'sunflora' && pokemon.hasItem('sunfloracrest')) return 'sunnyday';
-	if (pokemon.alliesAndSelf().some(ally => ally.species.id === 'raikou' && ally.hasItem('raikoucrest'))) return 'raindance';
-	return '';
-}
+export const fieldMoves: {[id: string]: [string, string]} = {
+	backalleyfield: ['Beat Up', 'Steel'],
+	beachfield: ['Meditate', 'Ground'],
+	bewitchedwoodsfield: ['Dazzling Gleam', 'Fairy'],
+	bigtoparenafield: ['Acrobatics', 'Fighting'],
+	blessedfield: ['Judgment', 'Normal'],
+	cavefield: ['Rock Tomb', 'Rock'],
+	chessboardfield: ['Ancient Power', 'Psychic'],
+	cityfield: ['Smog', 'Normal'],
+	colosseumfield: ['Beat Up', 'Steel'],
+	concertvenuefield: ['Hyper Voice', 'Normal'],
+	corrosivefield: ['Acid Spray', 'Poison'],
+	corrosivemistfield: ['Corrosive Gas', 'Poison'],
+	corruptedcavefield: ['Gunk Shot', 'Poison'],
+	crystalcavernfield: ['Power Gem', '???'],
+	darkcrystalcavernfield: ['Dark Pulse', 'Dark'],
+	deepearthfield: ['Gravity', 'Ground'],
+	desertfield: ['Sand Tomb', 'Ground'],
+	deuxfinalisfield: ['Smelling Salts', 'Rock'],
+	dimensionalfield: ['Dark Pulse', 'Dark'],
+	dragonsdenfield: ['Dragon Pulse', 'Dragon'],
+	electricterrain: ['Thunderbolt', 'Electric'],
+	factoryfield: ['Gear Grind', 'Steel'],
+	fairytalefield: ['Secret Sword', 'Fairy'],
+	flowergardenfield: ['Growth', 'Grass'],
+	forestfield: ['Wood Hammer', 'Bug'],
+	frozendimensionalfield: ['Ice Beam', 'Ice'],
+	glitchfield: ['Metronome', '???'],
+	grassyterrain: ['Energy Ball', 'Grass'],
+	hauntedfield: ['Phantom Force', 'Ghost'],
+	icyfield: ['Ice Beam', 'Ice'],
+	infernalfield: ['Punishment', 'Fire'],
+	inversefield: ['Trick Room', 'Normal'],
+	mirrorarenafield: ['Mirror Shot', 'Steel'],
+	mistyterrain: ['Mist Ball', 'Fairy'],
+	mountainfield: ['Rock Slide', 'Rock'],
+	murkwatersurfacefield: ['Sludge Wave', 'Poison'],
+	newworldfield: ['Spacial Rend', '???'],
+	psychicterrain: ['Psychic', 'Psychic'],
+	rainbowfield: ['Aurora Beam', 'Dragon'],
+	rainbowterrain: ['Aurora Beam', 'Dragon'],
+	rockyfield: ['Rock Smash', 'Rock'],
+	shortcircuitfield: ['Discharge', 'Electric'],
+	skyfield: ['Sky Attack', 'Flying'],
+	snowymountainfield: ['Avalanche', 'Ice'],
+	starlightarenafield: ['Moonblast', 'Dark'],
+	swampfield: ['Muddy Water', 'Water'],
+	underwaterfield: ['Water Pulse', 'Water'],
+	volcanicfield: ['Flamethrower', 'Fire'],
+	volcanictopfield: ['Eruption', 'Fire'],
+	wastelandfield: ['Gunk Shot', 'Poison'],
+	watersurfacefield: ['Whirlpool', 'Water'],
+};
 
 export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType' | 'getStatus'>} = {
 	inherit: 'gen9',
+	checkMoveBypassesProtect(move, attacker, defender, blockStatus = true) {
+		if (!blockStatus) {
+			if (this.effect.id === 'kingsshield') blockStatus = this.field.isBattlefield(['chessboardfield', 'fairytalefield']);
+			if (this.effect.id === 'obstruct') blockStatus = this.field.isBattlefield(['chessboardfield', 'dimensionalfield', 'deuxfinalisfield']);
+			if (this.effect.id === 'silktrap') blockStatus = this.field.isBattlefield('forestfield');
+			if (this.effect.id === 'burningbulwark') blockStatus = this.field.isBattlefield('volcanicfield');
+		}
+		return Battle.prototype.checkMoveBypassesProtect.call(this, move, attacker, defender, blockStatus);
+	},
+	getActionSpeed(action) {
+		Battle.prototype.getActionSpeed.call(this, action);
+		if (action.choice === 'switch' && this.field.isBattlefield('colosseumfield')) action.order = 200;
+	},
 	fieldEvent(eventid, targets) {
 		const twice = eventid === 'Residual' && this.getAllActive().some(p => p.species.id === 'celebi' && p.hasItem('celebicrest'));
 		Battle.prototype.fieldEvent.call(this, eventid, targets);
 		if (twice && !this.ended) Battle.prototype.fieldEvent.call(this, eventid, targets);
 	},
 	field: {
+		setBattlefield(this: Field, status, source, sourceEffect) {
+			const previous = this.battlefield;
+			const state = this.battlefieldState;
+			const changed = Field.prototype.setBattlefield.call(this, status, source, sourceEffect);
+			if (!changed) return false;
+			if (sourceEffect?.effectType === 'Move' && (sourceEffect.flags.pledgecombo || ['conversion', 'conversion2'].includes(sourceEffect.id))) {
+				if (sourceEffect.flags.pledgecombo) this.battlefieldState.duration = this.battlefieldState.source.hasItem('amplifiedrock') ? 7 : 4;
+				if (previous) {
+					delete state.pledge;
+					delete state.conversion;
+					this.battlefieldState.previous = {id: previous, state, turn: this.battle.turn};
+				}
+			}
+			if (this.battlefield === 'icyfield' && ['cavefield', 'watersurfacefield', 'murkwatersurfacefield'].includes(previous)) {
+				this.battlefieldState.subLayer = previous;
+			}
+			return true;
+		},
+		setTerrain(this: Field, status, source, sourceEffect) {
+			if (this.isBattlefield(['dragonsdenfield', 'underwaterfield', 'frozendimensionalfield'])) return false;
+			if (this.battle.dex.conditions.get(status).id === 'mistyterrain' && this.isBattlefield('corrosivemistfield')) return false;
+			return Field.prototype.setTerrain.call(this, status, source, sourceEffect);
+		},
+		clearBattlefield(this: Field) {
+			let previous = this.battlefieldState.previous;
+			const elapsed = this.battle.turn + (this.battlefieldState.duration === 0 ? 1 : 0);
+			if (!Field.prototype.clearBattlefield.call(this)) return false;
+			while (previous) {
+				const remaining = previous.state.duration && previous.state.duration - (elapsed - previous.turn);
+				if (remaining == null || !previous.state.duration || remaining > 0) {
+					this.battlefield = previous.id;
+					this.battlefieldState = previous.state;
+					if (['chessboardfield', 'deepearthfield', 'frozendimensionalfield', 'newworldfield', 'underwaterfield'].includes(previous.id)) {
+						this.battle.singleEvent('FieldStart', this.getBattlefield(), previous.state, this, previous.state.source);
+					}
+					this.battlefieldState.duration = remaining;
+					this.battle.add('-fieldstart', 'move: ' + this.getBattlefield().name);
+					this.battle.eachEvent('BattlefieldChange');
+					break;
+				}
+				previous = previous.state.previous;
+			}
+			return true;
+		},
+		setWeather(this: Field, status, source, sourceEffect) {
+			const oldWeather = this.weather;
+			const changed = Field.prototype.setWeather.call(this, status, source, sourceEffect);
+			if (!changed) return changed;
+			const sun = ['sunnyday', 'desolateland'];
+			const rain = ['raindance', 'primordialsea'];
+			if ((sun.includes(oldWeather) && rain.includes(this.weather)) || (rain.includes(oldWeather) && sun.includes(this.weather))) {
+				if (this.battlefield && this.battlefield !== 'rainbowfield') {
+					if (this.setTerrain('rainbowterrain', this.weatherState.source) || this.terrain === 'rainbowterrain') {
+						this.terrainState.duration = this.weatherState.duration;
+					}
+				} else {
+					this.setBattlefield('rainbowfield', this.weatherState.source);
+					this.battlefieldState.duration = this.weatherState.duration;
+					this.battlefieldState.weatherRainbow = true;
+				}
+			}
+			return changed;
+		},
+		clearWeather(this: Field) {
+			const cleared = Field.prototype.clearWeather.call(this);
+			if (cleared && this.terrain === 'rainbowterrain') this.clearTerrain();
+			if (cleared && this.battlefieldState.weatherRainbow) this.clearBattlefield();
+			return cleared;
+		},
 		effectiveTerrain(this: Field, target) {
 			target ||= this.battle.event?.target;
 			if (target instanceof Pokemon && target.alliesAndSelf().some(p => p.species.id === 'raikou' && p.hasItem('raikoucrest'))) {
@@ -54,8 +184,10 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 		},
 		effectiveWeather(sourceEffect, message) {
 			const user = this.battle.event?.id === 'WeatherModifyDamage' ? this.battle.event.target : this;
-			const weather = user instanceof Pokemon && crestWeather(user);
-			if (weather) return weather as ID;
+			if (user instanceof Pokemon) {
+				if (user.species.id === 'sunflora' && user.hasItem('sunfloracrest')) return toID('sunnyday');
+				if (user.alliesAndSelf().some(ally => ally.species.id === 'raikou' && ally.hasItem('raikoucrest'))) return toID('raindance');
+			}
 			return Pokemon.prototype.effectiveWeather.call(this, sourceEffect, message);
 		},
 	isGrounded(negateImmunity = false) {
@@ -291,6 +423,13 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 					accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
 				}
 				if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
+					if (this.battle.field.isBattlefield('mirrorarenafield') && !move.ohko && !move.flags.contact &&
+						move.category === 'Special' && ['normal', 'adjacentFoe', 'any'].includes(move.target) && this.battle.randomChance(1, 16)) {
+						if (['chargebeam', 'solarbeam', 'psybeam', 'triattack', 'icebeam', 'hyperbeam', 'bubblebeam', 'originpulse', 'fleurcannon', 'moongeistbeam'].includes(move.id)) move.basePower *= 2;
+						this.battle.hint('The attack was reflected by the mirror!');
+						hitResults[i] = true;
+						continue;
+					}
 					if (move.smartTarget) {
 						move.smartTarget = false;
 					} else {
@@ -300,22 +439,16 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 						this.battle.boost({ spe: 2 }, pokemon);
 					}
-					if (!move.ohko && move.flags.contact && !pokemon.hasAbility('rockhead') && this.battle.field.isBattlefield('rockyfield')) {
+					if (!move.ohko && move.category === 'Physical' && move.flags.contact && !pokemon.hasAbility('rockhead') && this.battle.field.isBattlefield('rockyfield')) {
 						this.battle.hint(`${pokemon.name} hit a rock instead!`)
 						let modifier = pokemon.hasAbility('gorillatactics')? 2 : 1;
 						pokemon.damage(pokemon.baseMaxhp * modifier / 8, pokemon);
 					}
 					if (this.battle.field.isBattlefield('concertvenuefield')) {
-						this.battle.field.battlefieldState.hype -= 1;
+						this.battle.field.battlefieldState.hype = Math.max(0, this.battle.field.battlefieldState.hype - 1);
 					}
-					if (!move.ohko && move.target === 'normal' && !move.flags.contact && move.category === 'Special' && this.battle.randomChance(1, 16)) {
-						if (['chargebeam', 'solarbeam', 'psybeam', 'triattack', 'icebeam', 'hyperbeam', 'bubblebeam', 'originpulse', 'fleurcannon', 'moongeistbeam'].includes(move.id)) {
-							move.basePower *=2 
-						}
-						hitResults[i] = true;
-						continue;
-					}
-					if (!move.ohko && move.category === 'Physical' && move.flags.contact && !pokemon.hasAbility(['battlearmor','shellarmor'])) {
+					if (this.battle.field.isBattlefield('mirrorarenafield') && !move.ohko && move.category === 'Physical' && move.flags.contact &&
+						!pokemon.isProtected() && !pokemon.hasAbility(['battlearmor', 'shellarmor'])) {
 						this.battle.damage(pokemon.maxhp / 4, pokemon, pokemon)
 					}
 					hitResults[i] = false;
@@ -345,7 +478,9 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 			}
 
 			// weather modifier
-			const weather = crestWeather(pokemon);
+			let weather = '';
+			if (pokemon.species.id === 'sunflora' && pokemon.hasItem('sunfloracrest')) weather = 'sunnyday';
+			else if (pokemon.alliesAndSelf().some(ally => ally.species.id === 'raikou' && ally.hasItem('raikoucrest'))) weather = 'raindance';
 			if (weather && (move.type === 'Water' || move.type === 'Fire')) {
 				const boost = (weather === 'raindance') === (move.type === 'Water') || move.id === 'hydrosteam';
 				baseDamage = this.battle.modify(baseDamage, boost ? 1.5 : 0.5);
@@ -355,7 +490,8 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 
 			// crit - not a modifier
 			const isCrit = target.getMoveHitData(move).crit;
-			if (isCrit) {
+			if (isCrit && !(this.battle.field.isBattlefield(['deuxfinalisfield', 'infernalfield', 'frozendimensionalfield', 'dimensionalfield']) &&
+				target.alliesAndSelf().some(ally => ally.hasItem('amuletcoin')))) {
 				baseDamage = tr(baseDamage * (move.critModifier || (this.battle.gen >= 6 ? 1.5 : 2)));
 			}
 
@@ -450,9 +586,5 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-		calcRecoilDamage(damageDealt: number, move: Move, pokemon: Pokemon): number {
-			if (move.id === 'chloroblast') return Math.round(pokemon.maxhp / (this.battle.field.isBattlefield('forestfield')? 4 : 2));
-			return this.battle.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);
-		}
 	}
 };
