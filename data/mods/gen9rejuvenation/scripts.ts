@@ -1,6 +1,29 @@
-export const Scripts: ModdedBattleScriptsData = {
+import { Battle } from '../../../sim/battle';
+import { Pokemon } from '../../../sim/pokemon';
+import { Field } from '../../../sim/field';
+import { BattleActions } from '../../../sim/battle-actions';
+
+function crestWeather(pokemon: Pokemon) {
+	if (pokemon.species.id === 'sunflora' && pokemon.hasItem('sunfloracrest')) return 'sunnyday';
+	if (pokemon.alliesAndSelf().some(ally => ally.species.id === 'raikou' && ally.hasItem('raikoucrest'))) return 'raindance';
+	return '';
+}
+
+export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType' | 'getStatus'>} = {
 	inherit: 'gen9',
+	fieldEvent(eventid, targets) {
+		const twice = eventid === 'Residual' && this.getAllActive().some(p => p.species.id === 'celebi' && p.hasItem('celebicrest'));
+		Battle.prototype.fieldEvent.call(this, eventid, targets);
+		if (twice && !this.ended) Battle.prototype.fieldEvent.call(this, eventid, targets);
+	},
 	field: {
+		effectiveTerrain(this: Field, target) {
+			target ||= this.battle.event?.target;
+			if (target instanceof Pokemon && target.alliesAndSelf().some(p => p.species.id === 'raikou' && p.hasItem('raikoucrest'))) {
+				return this.battle.runEvent('TryTerrain', target) ? 'electricterrain' as ID : '';
+			}
+			return Field.prototype.effectiveTerrain.call(this, target);
+		},
 		getTurnTags() {
 			const state = this.battlefieldState;
 			const tags = [];
@@ -15,6 +38,26 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
+		hasAbility(ability) {
+			if (Pokemon.prototype.hasAbility.call(this, ability)) return true;
+			if (this.ability !== 'silvallycrest' && !(this.illusion && this.itemState.disguiseAbility)) return false;
+			const ids = Array.isArray(ability) ? ability : [ability];
+			return ids.some(id => this.volatiles['ability:' + toID(id)]) && !this.ignoringAbility();
+		},
+		setType(this: Pokemon, type, enforce = false) {
+			if (this.ability === 'silvallycrest' && this.battle.effect?.id === 'ability:protean' && !this.terastallized) enforce = true;
+			return Pokemon.prototype.setType.call(this, type, enforce);
+		},
+		getStatus(this: Pokemon) {
+			if (this.species?.id === 'suicune' && this.hasItem('suicunecrest')) return this.battle.dex.conditions.get('');
+			return Pokemon.prototype.getStatus.call(this);
+		},
+		effectiveWeather(sourceEffect, message) {
+			const user = this.battle.event?.id === 'WeatherModifyDamage' ? this.battle.event.target : this;
+			const weather = user instanceof Pokemon && crestWeather(user);
+			if (weather) return weather as ID;
+			return Pokemon.prototype.effectiveWeather.call(this, sourceEffect, message);
+		},
 	isGrounded(negateImmunity = false) {
 		if ('gravity' in this.battle.field.pseudoWeather && !(this.hasAbility(['contrary', 'magnetpull', 'oblivious', 'unaware']) && this.battle.field.isBattlefield('deepearthfield'))) return true;
 		if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
@@ -34,6 +77,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	actions: {
 		inherit: true,
+		canMegaEvo(pokemon) {
+			const item = pokemon.getItem();
+			if (item.id === 'urshifiterapidstrike' || item.id === 'urshifite') {
+				return item.megaStone?.[pokemon.baseSpecies.name] || null;
+			}
+			return BattleActions.prototype.canMegaEvo.call(this, pokemon);
+		},
 		runMove(
 			moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number,
 			options?: {
@@ -282,7 +332,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			baseDamage += 2;
 
-			if (move.spreadHit) {
+			if (move.spreadHit && !(pokemon.species.id === 'entei' && pokemon.hasItem('enteicrest') && move.type === 'Fire')) {
 				// multi-target modifier (doubles only)
 				const spreadModifier = this.battle.gameType === 'freeforall' ? 0.5 : 0.75;
 				this.battle.debug(`Spread modifier: ${spreadModifier}`);
@@ -295,7 +345,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// weather modifier
-			baseDamage = this.battle.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+			const weather = crestWeather(pokemon);
+			if (weather && (move.type === 'Water' || move.type === 'Fire')) {
+				const boost = (weather === 'raindance') === (move.type === 'Water') || move.id === 'hydrosteam';
+				baseDamage = this.battle.modify(baseDamage, boost ? 1.5 : 0.5);
+			} else {
+				baseDamage = this.battle.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+			}
 
 			// crit - not a modifier
 			const isCrit = target.getMoveHitData(move).crit;
@@ -371,7 +427,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts') && !(pokemon.species.id === 'suicune' && pokemon.hasItem('suicunecrest'))) {
 				if (this.battle.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.battle.modify(baseDamage, 0.5);
 				}

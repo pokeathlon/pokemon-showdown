@@ -12,11 +12,11 @@ const silvabilities: {[k: string]: string} = {
 	"Electric": "download",
 	"Bug": "tintedlens",
 	"Ground": "sheerforce",
-	"Rock": "solidrock",
+	"Rock": "purifyingsalt",
 	"Steel": "heatproof",
 	"Ice": "gorillatactics",
 	"Psychic": "magicbounce",
-	"Dark": "strongjaws",
+	"Dark": "protean",
 	"Ghost": "mummy",
 	"Fairy": "unaware",
 	"Dragon": "multiscale",
@@ -160,60 +160,42 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	flowergift: {
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+			this.singleEvent('Update', this.effect, this.effectState, pokemon);
 		},
 		onWeatherChange(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
-			if (!pokemon.hp) return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
-				}
-			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
-				}
-			}
+			this.singleEvent('Update', this.effect, this.effectState, pokemon);
 		},
-		onBattlefieldChange(pokemon, source, sourceEffect) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
-			if (!pokemon.hp) return;
-			if (this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield'])) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
-				}
-			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
-				}
-			}
+		onBattlefieldChange(pokemon) {
+			this.singleEvent('Update', this.effect, this.effectState, pokemon);
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.hp || !pokemon.isActive || pokemon.transformed || pokemon.baseSpecies.baseSpecies !== 'Cherrim') return;
+			const sunny = ['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) ||
+				this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || pokemon.hasItem('cherrimcrest');
+			const forme = sunny ? 'Cherrim-Sunshine' : 'Cherrim';
+			if (pokemon.species.name !== forme) pokemon.formeChange(forme, this.effect, false, '0', '[msg]');
 		},
 		onAllyModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || pokemon.hasItem('cherrimcrest')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || this.effectState.target.hasItem('cherrimcrest')) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || pokemon.hasItem('cherrimcrest')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) || this.field.isBattlefield(['bewitchedwoodsfield', 'flowergardenfield']) || this.effectState.target.hasItem('cherrimcrest')) {
 				return this.chainModify(1.5);
 			}
 		},
-		onUpdate(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
-			if (!pokemon.hp) return;
-			if (pokemon.hasItem('cherrimcrest')) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '0', '[msg]');
-				}
-			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '0', '[msg]');
-				}
-			}
+		onAllyModifyDef(def) {
+			const holder = this.effectState.target;
+			if (holder.species.baseSpecies === 'Cherrim' && holder.hasItem('cherrimcrest')) return this.chainModify(1.5);
+		},
+		onAllyModifySpA(spa) {
+			const holder = this.effectState.target;
+			if (holder.species.baseSpecies === 'Cherrim' && holder.hasItem('cherrimcrest')) return this.chainModify(1.5);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1},
 		name: "Flower Gift",
@@ -241,6 +223,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifySpA(spa, pokemon) {
 			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) return this.chainModify(1.5);
+			if (pokemon.alliesAndSelf().some(ally => ally.species.id === 'plusle' && ally.hasItem('pluslecrest'))) return this.chainModify(1.5);
 			for (const allyActive of pokemon.allies()) {
 				if (allyActive.hasAbility(['minus', 'plus'])) {
 					return this.chainModify(1.5);
@@ -252,6 +235,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onModifySpA(spa, pokemon) {
 			if (this.field.isTerrain('electricterrain') || this.field.isBattlefield('shortcircuitfield')) return this.chainModify(1.5);
+			if (pokemon.alliesAndSelf().some(ally => ally.species.id === 'minun' && ally.hasItem('minuncrest'))) return this.chainModify(1.5);
 			for (const allyActive of pokemon.allies()) {
 				if (allyActive.hasAbility(['minus', 'plus'])) {
 					return this.chainModify(1.5);
@@ -363,10 +347,17 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 	},
+	chlorophyll: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) ||
+				(pokemon.species.id === 'leafeon' && pokemon.hasItem('leafeoncrest'))) return this.chainModify(2);
+		},
+	},
 	leafguard: {
 		inherit: true,
 		onSetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
+			if ((target.species.id === 'leafeon' && target.hasItem('leafeoncrest')) || ['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Leaf Guard');
 				}
@@ -374,7 +365,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 			}
 		},
 		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
+			if (status.id !== 'yawn') return;
+			if ((target.species.id === 'leafeon' && target.hasItem('leafeoncrest')) || ['sunnyday', 'desolateland'].includes(target.effectiveWeather()) || this.field.isTerrain('grassyterrain') || this.field.isBattlefield('forestfield') || (this.field.isBattlefield('flowergardenfield') && this.field.battlefieldState.growth >= 2)) {
 				this.add('-immune', target, '[from] ability: Leaf Guard');
 				return null;
 			}
@@ -573,8 +565,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	icebody: {
 		inherit: true,
-		onResidual(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow' || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
+		onResidual(target) {
+			if ((target.species.id === 'glaceon' && target.hasItem('glaceoncrest')) || ['hail', 'snow', 'snowscape'].includes(target.effectiveWeather()) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
@@ -593,9 +585,9 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	},
 	snowcloak: {
 		inherit: true,
-		onModifyAccuracy(accuracy) {
+		onModifyAccuracy(accuracy, target) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['hail', 'snow']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
+			if ((target.species.id === 'glaceon' && target.hasItem('glaceoncrest')) || this.field.isWeather(['hail', 'snow', 'snowscape']) || this.field.isBattlefield(['icyfield','frozendimensionalfield', 'snowymountainfield'])) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -865,7 +857,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		},
 		onWeather(target, source, effect) {
 			if (this.field.isBattlefield('frozendimensionalfield')) return;
-			if (target.hasItem('utilityumbrella')) return;
+			if ((target.species.id === 'sunflora' && target.hasItem('sunfloracrest')) || target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
@@ -1071,6 +1063,7 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 	zenmode: {
 		inherit: true,
 		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name === 'Darmanitan' && pokemon.hasItem('darmanitancrest')) return;
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
 			}
@@ -1257,7 +1250,8 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			const maximumBP = this.field.isBattlefield(['factoryfield', 'concertvenuefield'])? 80 : 60;
+			const crested = attacker.species.id === 'cinccino' && attacker.hasItem('cinccinocrest') && move.multihit && !this.dex.moves.get(move.id).multihit;
+			const maximumBP = crested || this.field.isBattlefield(['factoryfield', 'concertvenuefield']) ? 80 : 60;
 			this.debug(`Base Power: ${basePowerAfterMultiplier}`);
 			if (basePowerAfterMultiplier <= maximumBP) {
 				this.debug('Technician boost');
@@ -1836,26 +1830,22 @@ export const ModAbilities: import('../../../sim/dex-abilities').ModdedAbilityDat
 		num: 12,
 	},
 	silvallycrest: {
-		onBasePower(basePower, source, target, move) {
-			if (source.baseSpecies.id !== 'silvally') return;
-			if (this.dex.items.get(source.item).onMemory) {
-				if (move.type === this.dex.items.get(source.item).onMemory) {
-					return this.chainModify(1.2);
-				}
-			}
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.species.baseSpecies === 'Silvally') return this.chainModify(1.2);
 		},
-		onSwitchIn(pokemon) {
-			if (pokemon.baseSpecies.id !== 'silvally') return;
-			if (!this.dex.items.get(pokemon.item).onMemory) return;
-			const type = this.dex.items.get(pokemon.item).onMemory || "Normal";
-			if (type in silvabilities) {
-				pokemon.addVolatile('ability:' + silvabilities[type]);
-				this.add('-activate', pokemon, 'ability: ' + this.dex.abilities.get(silvabilities[type]).name);
-			}
+		onModifySpA(spa, pokemon) {
+			if (pokemon.species.baseSpecies === 'Silvally') return this.chainModify(1.2);
+		},
+		onStart(pokemon) {
+			if (pokemon.species.baseSpecies !== 'Silvally') return;
+			const type = pokemon.getItem().onMemory || 'Normal';
+			pokemon.setType(type, true);
+			const ability = silvabilities[type];
+			if (ability) pokemon.addVolatile('ability:' + ability);
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Silvally Crest",
-		shortDesc: "Silvally: x1.2 power to moves matching memory type. Ability depends on memory.",
+		shortDesc: "Silvally: 1.2x Attack and Special Attack. Ability depends on memory.",
 		rating: 1.5,
 		num: 13,
 	},

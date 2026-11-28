@@ -59,13 +59,13 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "Calls a move based on the terrain or field.",
 		onTryHit(target, pokemon) {
 			let move = 'triattack';
-			if (this.field.isTerrain('electricterrain')) {
+			if (this.field.isTerrain('electricterrain', pokemon)) {
 				move = 'thunderbolt';
-			} else if (this.field.isTerrain('grassyterrain')) {
+			} else if (this.field.isTerrain('grassyterrain', pokemon)) {
 				move = 'energyball';
-			} else if (this.field.isTerrain('mistyterrain')) {
+			} else if (this.field.isTerrain('mistyterrain', pokemon)) {
 				move = 'mistball';
-			} else if (this.field.isTerrain('psychicterrain')) {
+			} else if (this.field.isTerrain('psychicterrain', pokemon)) {
 				move = 'psychic';
 			} else if (this.field.isBattlefield('volcanicfield')) {
 				move = 'flamethrower';
@@ -325,7 +325,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		shortDesc: "If grounded, type varies and terrain doubles power.",
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
-			switch (this.field.terrain || this.field.battlefield) {
+			switch (this.field.effectiveTerrain(pokemon) || this.field.battlefield) {
 			case 'electricterrain':
 			case 'shortcircuitfield':
 				move.type = 'Electric';
@@ -418,6 +418,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				break;
 			}
 		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.isGrounded() && this.field.effectiveTerrain(pokemon)) move.basePower *= 2;
+		},
 	},
 	shelter: { // TODO - turn this into switch for clarity? Doesn't really matter I just hate looking at it
 		inherit: true,
@@ -454,14 +457,34 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 		},
 	},
+	multiattack: {
+		inherit: true,
+		onModifyMove(move, pokemon, target) {
+			if (!target || pokemon.species.baseSpecies !== 'Silvally' || !pokemon.hasAbility('silvallycrest')) return;
+			if (pokemon.getStat('spa') * target.getStat('def') > pokemon.getStat('atk') * target.getStat('spd')) {
+				move.category = 'Special';
+			}
+		},
+	},
+	spitup: {
+		inherit: true,
+		onAfterMove(pokemon) {
+			if (pokemon.species.id === 'swalot' && pokemon.hasItem('swalotcrest') && !pokemon.moveThisTurnResult) return;
+			pokemon.removeVolatile('stockpile');
+		},
+	},
 	belch: {
 		inherit: true,
 		onDisableMove(pokemon) {
-			if (pokemon.item === 'swalotcrest') return;
+			if (pokemon.species.id === 'swalot' && pokemon.hasItem('swalotcrest')) return;
 			if (!pokemon.ateBerry) pokemon.disableMove('belch');
 		},
-		onAfterMove(source, target, move) {
-			this.actions.useMove('spitup', target);
+		onTry(source) {
+			return source.ateBerry || (source.species.id === 'swalot' && source.hasItem('swalotcrest'));
+		},
+		onAfterMove(source, target) {
+			if (source.species.id !== 'swalot' || !source.hasItem('swalotcrest') || !target?.hp) return;
+			if (this.actions.useMove('spitup', source, { target })) source.removeVolatile('stockpile');
 		},
 	},
 	plasmafists: {
@@ -2477,7 +2500,9 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		accuracy: 100,
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
-			if (!pokemon.volatiles['stackingshot'] || move.hit === 1) {
+			if (!pokemon.volatiles['stackingshot'] || move.hit === 1 ||
+				(move.hit > 1 && ((pokemon.species.id === 'ledian' && pokemon.hasItem('lediancrest')) ||
+				(move.hit === 2 && pokemon.species.id === 'cinccino' && pokemon.hasItem('cinccinocrest'))))) {
 				pokemon.addVolatile('stackingshot');
 			}
 			const bp = this.clampIntRange(move.basePower * pokemon.volatiles['stackingshot'].multiplier, 1, 160);
@@ -5096,6 +5121,7 @@ export const ModMoves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			},
 			onEffectivenessPriority: 1, // As taken from the inverse mod ruleset
 			onEffectiveness(typeMod, target, type, move) {
+				if (target?.species.id === 'torterra' && target.hasItem('torterracrest')) return;
 				// The effectiveness of Freeze Dry on Water isn't reverted
 				if (move && move.id === 'freezedry' && type === 'Water') return;
 				if (move && !this.dex.getImmunity(move, type)) return 1;
