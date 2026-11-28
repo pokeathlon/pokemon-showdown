@@ -1813,7 +1813,7 @@ export class Battle {
 			}
 		}
 
-		this.add('turn', this.turn, ...(this.field.getTurnTags?.() || []));
+		this.add('turn', this.turn);
 		if (this.gameType === 'multi') {
 			for (const side of this.sides) {
 				if (side.canDynamaxNow()) {

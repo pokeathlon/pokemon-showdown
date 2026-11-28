@@ -57,8 +57,21 @@ export const fieldMoves: {[id: string]: [string, string]} = {
 	watersurfacefield: ['Whirlpool', 'Water'],
 };
 
-export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType' | 'getStatus'>} = {
+export const Scripts: ModdedBattleScriptsData & Pick<Battle, 'add'> & {pokemon: Pick<Pokemon, 'setType' | 'getStatus'>} = {
 	inherit: 'gen9',
+	add(this: Battle, ...parts) {
+		if (parts[0] === 'turn') {
+			const state = this.field.battlefieldState;
+			for (const key of [
+				'growth', 'hype', 'electricModifierIndex', 'flooding', 'pollution', 'melting', 'transformation', 'dragonden', 'volcanic',
+			]) {
+				if (state[key]) parts.push(`[${key}] ${state[key]}`);
+			}
+			if (state.crystalTypes) parts.push(`[crystalType] ${state.crystalTypes[state.crystalIndex]}`);
+			if (this.field.terrainState.flooding) parts.push(`[terrainFlooding] ${this.field.terrainState.flooding}`);
+		}
+		Battle.prototype.add.call(this, ...parts);
+	},
 	checkMoveBypassesProtect(move, attacker, defender, blockStatus = true) {
 		if (!blockStatus) {
 			if (this.effect.id === 'kingsshield') blockStatus = this.field.isBattlefield(['chessboardfield', 'fairytalefield']);
@@ -153,18 +166,6 @@ export const Scripts: ModdedBattleScriptsData & {pokemon: Pick<Pokemon, 'setType
 				return this.battle.runEvent('TryTerrain', target) ? 'electricterrain' as ID : '';
 			}
 			return Field.prototype.effectiveTerrain.call(this, target);
-		},
-		getTurnTags() {
-			const state = this.battlefieldState;
-			const tags = [];
-			for (const key of [
-				'growth', 'hype', 'electricModifierIndex', 'flooding', 'pollution', 'melting', 'transformation', 'dragonden', 'volcanic',
-			]) {
-				if (state[key]) tags.push(`[${key}] ${state[key]}`);
-			}
-			if (state.crystalTypes) tags.push(`[crystalType] ${state.crystalTypes[state.crystalIndex]}`);
-			if (this.terrainState.flooding) tags.push(`[terrainFlooding] ${this.terrainState.flooding}`);
-			return tags;
 		},
 	},
 	pokemon: {
